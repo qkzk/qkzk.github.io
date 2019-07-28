@@ -1,0 +1,5088 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.3885b55ea1bce2ca864ba25620236dbe524744a2acbe165b46b662b1bc061e00.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = bannerImg;
+
+function bannerImg(){
+  var imgNumber = 5;
+  var nbr = Math.floor( imgNumber * Math.random() ) + 1;
+  imgName = '/banner/back' + nbr + '.jpg'
+  document.getElementById("bannerImg").style.backgroundImage = 'url(' + imgName + ')';
+  console.log(imgName);
+}
+</script>
+<div class="white-back">
+
+  <div class="container flex">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/isn"> isn</a>
+        
+            
+          <a class="nav-link" href="/docs/collegues"> collegues</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+      </div>
+        <div class="slogan">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="/">qkzk</a>
+</h2>
+
+
+
+
+    
+
+  
+  
+
+
+
+
+
+
+  
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/" >
+    
+  
+    
+    
+    NSI
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/" >
+    
+  
+    
+    
+    Programmation avec Python 3
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-00-preambule/" >
+    
+  
+    
+    
+    Python 3 - 00 préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-01-les-variables-les-types/" >
+    
+  
+    
+    
+    Python 3 - 01 Les variables, les types
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-02-les-conditions/" >
+    
+  
+    
+    
+    Python 3 - 02 Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-03-les-boucles/" >
+    
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-04-les-fonctions/" >
+    
+  
+    
+    
+    Python 3 - 04 Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    Python 3 - 05 Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-06-classes-et-modules/" >
+    
+  
+    
+    
+    Python 3 - 06 Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    Python 3 - 07 Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/"  class="active">
+    
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-09-python-camera/" >
+    
+  
+    
+    
+    Python 3 - 09 Camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-10-traitement-des-images/" >
+    
+  
+    
+    
+    Python 3 - 10 Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-11-debogage/" >
+    
+  
+    
+    
+    Python 3 - 11 Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    Python 3 - 12 Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    Python 3 - 13 Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    Python 3 - 14 Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-15-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    Python 3 - 15 Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours/" >
+    
+  
+    
+    
+    Cours
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/" >
+    
+  
+    
+    
+    ISN
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/" >
+    
+  
+    
+    
+    Travaux pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/0-introduction/" >
+    
+  
+    
+    
+    0. introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/1-html/" >
+    
+  
+    
+    
+    1. html
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/2-reseaux/" >
+    
+  
+    
+    
+    2. Réseaux
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/" >
+    
+  
+    
+    
+    3. Codage de l&#39;information
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-1-representation-binaire/" >
+    
+  
+    
+    
+    3.1 Représentation binaire
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-2-codage-des-caracteres/" >
+    
+  
+    
+    
+    3.2 Codage des caractères
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
+    
+  
+    
+    
+    3.3 Codage des couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-4-structure-des-pages-html/" >
+    
+  
+    
+    
+    3.4 Structure des pages HTML
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/" >
+    
+  
+    
+    
+    3.bis CSS
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-1-separation-contenu-forme/" >
+    
+  
+    
+    
+    3b.1 Séparation contenu / forme
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-2/" >
+    
+  
+    
+    
+    3b.2 CSS intro
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-3-css-suite/" >
+    
+  
+    
+    
+    3b.3 CSS suite
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/" >
+    
+  
+    
+    
+    4. Programmation
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-1-introduction/" >
+    
+  
+    
+    
+    4.01 Introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-2-javascript-les-variables/" >
+    
+  
+    
+    
+    4.02 Javascript, les variables
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
+    
+  
+    
+    
+    4.03 Types de données
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-4-fonctions/" >
+    
+  
+    
+    
+    4.04 Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-5-exemples-de-fonctions/" >
+    
+  
+    
+    
+    4.05 Exemples de Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-6-creation-de-fonctions/" >
+    
+  
+    
+    
+    4.06 Création de fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-7-fonctions-et-environnement/" >
+    
+  
+    
+    
+    4.07 Fonctions et environnement
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/" >
+    
+  
+    
+    
+    4.08 Fonctions et événements
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/" >
+    
+  
+    
+    
+    4.09 L&#39;api Google Map
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
+    
+  
+    
+    
+    4.10 Structure conditionnelle
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-11-un-diaporama/" >
+    
+  
+    
+    
+    4.11 Un diaporama
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/" >
+    
+  
+    
+    
+    4.12 Tutoriel pong en javascript
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-bis-la-programmation-recursive/" >
+    
+  
+    
+    
+    4.bis : La programmation récursive
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter Algorithmie : deux problèmes classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-1-les-tris/" >
+    
+  
+    
+    
+    4.ter - 1 : Les tris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter - 2 : parcourir un graphe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/" >
+    
+  
+    
+    
+    5. Dessiner une palette de couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/6-architecture/" >
+    
+  
+    
+    
+    6. Architecture
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
+    
+  
+    
+    
+    7. Stéganographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-projets-textes-officiels-et-conseils-generaux/" >
+    
+  
+    
+    
+    Projets : contraintes, documents officiels, conseils
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/" >
+    
+  
+    
+    
+    Sujets des mini projets - Liste des projets
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/2048-projet/" >
+    
+  
+    
+    
+    2048 - projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-elastique/" >
+    
+  
+    
+    
+    Bowling elastique
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-paralaxe/" >
+    
+  
+    
+    
+    Bowling Parallaxe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/domotique-et-raspberry-pi/" >
+    
+  
+    
+    
+    Domotique et raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/jeu-de-la-vie/" >
+    
+  
+    
+    
+    Jeu de la vie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/mastermind-js/" >
+    
+  
+    
+    
+    Mastermind (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/othello-reversi/" >
+    
+  
+    
+    
+    Othello / Reversi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/papy-panic-rpi-python/" >
+    
+  
+    
+    
+    Papy Panic (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/puissance-4-js/" >
+    
+  
+    
+    
+    Puissance 4 (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/sandpiles/" >
+    
+  
+    
+    
+    Sandpiles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/snake-js-canvas/" >
+    
+  
+    
+    
+    Snake (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/space-orbit/" >
+    
+  
+    
+    
+    Space orbit
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/stack/" >
+    
+  
+    
+    
+    Stack
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
+    
+  
+    
+    
+    Vidéo Surveillance (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/yt-chat/" >
+    
+  
+    
+    
+    YT Chat
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/zagzig-js-canvas/" >
+    
+  
+    
+    
+    Zagzig (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/" >
+    
+  
+    
+    
+    Archives
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/tetris/" >
+    
+  
+    
+    
+    Tetris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/site-marchand/" >
+    
+  
+    
+    
+    Site marchand
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/pendu/" >
+    
+  
+    
+    
+    Pendu
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/calcul-mental/" >
+    
+  
+    
+    
+    Calcul mental
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/labyrinthe/" >
+    
+  
+    
+    
+    Labyrinthe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/station-meteo/" >
+    
+  
+    
+    
+    Station météo
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/wolfram-alpha-like/" >
+    
+  
+    
+    
+    Wolfram Alpha like
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/raspberry-pi-version-2015/" >
+    
+  
+    
+    
+    Raspberry Pi (version 2015)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/le-compte-est-bon/" >
+    
+  
+    
+    
+    Le compte est bon
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/" >
+    
+  
+    
+    
+    icn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    09. Computer vision : manipulation en live du flux d&#39;une camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. bis - popart
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    03. Casser un code secret
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    11. Pygame et la camera : introduction du module
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    tutoriel_python_camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    Internet of Objects : IoT
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    devoir : Vacances de Noël - Revue de projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    devoir : vacances de Toussaint - Construct 2
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 5 : raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 1 - Prise en main du raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 4 - d&#39;autres composants classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 2 - Raspberry Pi et electronique : une introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    00. Réseau : internet et protocole HTTP
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    Annexe : Logiciels libres, les bonnes pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    06. Création d&#39;images vectorielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. Traitement des images matricielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    07. Cartographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    04. Images, couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    01. Lexicométrie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    02. Cryptographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 3 : python
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    14 - Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    13 - Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    12 - Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    11 - Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    10 - Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    09 - Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    08 - Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    07 - Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    06. Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    04. Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    03. Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    02. Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    01. Variables, types et opérateurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    00. Python 2 - préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 2 : web
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 1 : échanger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/collegues/" >
+    
+  
+    
+    
+    collègues
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/ressources/" >
+    
+  
+    
+    
+    ressources
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<p>Un fichier stocke des informations sur un support physique (disque dur, clé USB, CD, DVD, carte mémoire SD&hellip;).</p>
+
+<p>Ouvrir un fichier consiste à le charger dans la mémoire vive (RAM) de l&rsquo;ordinateur (c&rsquo;est une mémoire volatile : elle s&rsquo;efface quand on éteint l&rsquo;ordinateur).
+Enregistrer un fichier consiste à l&rsquo;écrire sur un support physique de stockage (l&rsquo;information est alors conservée de manière permanente).</p>
+
+<p>Il existe deux types de fichiers :</p>
+
+<ul>
+<li>Les <strong>fichiers textes</strong> : l&rsquo;information est stockée sous forme de caractères lisibles par un éditeur de texte (principalement des lettres et des chiffres).</li>
+<li>Les <strong>fichiers binaires</strong> : l&rsquo;information est stockée en binaire (une suite d&rsquo;octets dont la valeur est comprise entre 0x00 et 0xFF).</li>
+</ul>
+
+<h3 id="ecriture-dans-un-fichier">Ecriture dans un fichier</h3>
+
+<h4 id="le-mode-write">Le mode write</h4>
+
+<p>L&rsquo;écriture dans un fichier se fait avec la fonction <code>open()</code> en mode écriture :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># script lecture.py
+
+NomFichier = &#39;test.txt&#39;
+# création et ouverture du fichier test.txt en mode write &#39;w&#39; (écriture)
+# si le fichier test.txt existe déjà, il est écrasé
+Fichier = open(NomFichier,&#39;w&#39;)      # instanciation de l&#39;objet Fichier de la classe file
+
+# écriture dans le fichier avec la méthode write()
+Fichier.write(&#39;Bonjour à tous !&#39;)
+
+# fermeture du fichier avec la méthode close()
+Fichier.close()</pre></div>
+<p>Le fichier <code>test.txt</code> est créé dans le répertoire courant (sous Windows c&rsquo;est normalement le répertoire <code>C:/PythonXX</code>, mais on peut aussi choisir un emplacement quelconque en spécifiant le chemin absolu, par exemple <code>NomFichier = 'F:/Mon dossier/test.txt'</code>).</p>
+
+<p>Vous pouvez vérifier son contenu en l&rsquo;ouvrant avec un éditeur de texte (ou même avec un logiciel de traitement de texte) :</p>
+
+<p><img src="http://qkzk.xyz/wp-content/uploads/2017/04/ecriture_fichier1.png" alt="ecriture_fichier1" /></p>
+
+<h4 id="remarques-sur-le-codage-des-caractères">Remarques sur le codage des caractères</h4>
+
+<p>Pour Python, le codage par défaut des caractères est cp1252 (Windows-1252) sous Windows, et UTF-8 sous GNU/Linux.</p>
+
+<p>Avec le codage cp1252, le fichier fait 16 octets :</p>
+
+<p><img src="http://qkzk.xyz/wp-content/uploads/2017/04/fichier_cp1252.png" alt="fichier_cp1252" /></p>
+
+<p>Avec le codage UTF-8, le fichier fait 17 octets !</p>
+
+<p><img src="http://qkzk.xyz/wp-content/uploads/2017/04/fichier_utf8.png" alt="fichier_utf8" /></p>
+
+<p>La différence est due au codage du caractère accentué <strong>à</strong> :
+1 octet (0xE0) pour le codage cp1252 et 2 octets (0xC3 0xA0) pour le codage UTF-8.
+Les autres caractères ont un codage commun sur un octet (codage ASCII).</p>
+
+<h4 id="le-mode-append">Le mode append</h4>
+
+<p>Pour écrire à la fin d&rsquo;un fichier, on utilise la fonction <code>open()</code> en mode ajout.</p>
+
+<p>Repartons du fichier précédent :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># ouverture du fichier test.txt en mode append &#39;a&#39; (ajout)
+Fichier = open(&#39;test.txt&#39;,&#39;a&#39;)      # instanciation de l&#39;objet Fichier
+Fichier.write(&#39;\nUne deuxième ligne.\n&#39;)# &#39;\n&#39; saut de ligne
+Fichier.write(&#39;abc\tABC\t123\n&#39;)    # &#39;\t&#39; tabulation
+Fichier.write(str(126.85)+&#39;\n&#39;)     # str() transforme un nombre en chaîne de caractères
+Fichier.write(&#39;\x31\x41\x61\n&#39;)     # écriture de &#39;1Aa&#39; en code ASCII
+Fichier.write(chr(0x62)+&#39;\n&#39;)       # écriture de &#39;b&#39; en code ASCII
+Fichier.write(chr(99))          # écriture de &#39;c&#39; en code ASCII
+Fichier.close()</pre></div>
+<p>Ce qui donne :</p>
+
+<h3 id="ecriture-fichier2-http-qkzk-xyz-wp-content-uploads-2017-04-ecriture-fichier2-png"><img src="http://qkzk.xyz/wp-content/uploads/2017/04/ecriture_fichier2.png" alt="ecriture_fichier2" /></h3>
+
+<h3 id="lecture-dans-un-fichier">Lecture dans un fichier</h3>
+
+<h4 id="lecture-en-mode-texte">Lecture en mode texte</h4>
+
+<p>La lecture dans un fichier texte se fait avec la fonction <code>open()</code> en mode &hellip; lecture :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># ouverture du fichier test.txt en mode read &#39;r&#39; (lecture en mode texte)
+Fichier = open(&#39;test.txt&#39;,&#39;r&#39;)      # instanciation de l&#39;objet Fichier de la classe file
+# lecture dans le fichier avec la méthode read()
+chaine = Fichier.read()
+# affichage du contenu du fichier
+print(&#39;Contenu du fichier :\n&#39; + chaine)
+# fermeture du fichier avec la méthode close()
+Fichier.close()
+
+
+
+
+&gt;&gt;&gt;
+Contenu du fichier :
+Bonjour à tous !
+Une deuxième ligne.
+abc ABC 123
+126.85
+1Aa
+b
+c</pre></div>
+<h4 id="lecture-en-mode-binaire">Lecture en mode binaire</h4>
+
+<p>En mode texte, un fichier est lu caractère par caractère.
+En mode binaire, un fichier est lu octet par octet : c&rsquo;est un peu différent !</p>
+
+<p>Par exemple, si on veut la taille d&rsquo;un fichier, il faut utiliser la lecture en mode binaire &lsquo;rb&rsquo; (read binary) :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># ouverture du fichier test.txt en mode read binary &#39;rb&#39; (lecture en mode binaire)
+Fichier = open(&#39;test.txt&#39;,&#39;rb&#39;)
+data = Fichier.read()
+# affichage de la taille du fichier
+print(&#39;Taille du fichier :&#39;,len(data),&#39;octets&#39;)
+# affichage du contenu (en hexadécimal)
+import binascii
+print(binascii.hexlify(data))
+# fermeture du fichier avec la méthode close()
+Fichier.close()
+
+
+
+
+&gt;&gt;&gt;
+Taille du fichier : 69 octets
+b&#39;426f6e6a6f757220e020746f757320210d0a556e65206465757869e86d65206c69676e652e0d0a61626309414243093132330d0a3132362e38350d0a3141610d0a620d0a63&#39;</pre></div>
+<p>La taille du fichier est 69 octets avec le codage cp1252 (sous Windows) et 65 octets avec le codage UTF-8 (sous Linux).</p>
+
+<p>Avec la lecture en mode texte &lsquo;r&rsquo;, on obtient 63 octets avec le codage cp1252 (sous Windows) et 65 octets avec le codage UTF-8 (sous Linux) !</p>
+
+<p>Pourquoi ce décalage ?
+Car sous Windows, un saut de ligne est codé sur 2 octets (0x0D 0x0A) et le caractère spécial d&rsquo;une chaîne <code>\n</code> sur un seul octet !
+Sous Linux, c&rsquo;est plus simple avec un saut de ligne codé sur un seul octet (0x0A).</p>
+
+<p>En définitive :
+63 + 2 (2 caractères accentués <strong>à</strong> et <strong>è</strong>) = 65
+63 + 6 (6 sauts de ligne) = 69</p>
+
+<h3 id="sérialisation-des-données-avec-le-module-pickle">Sérialisation des données avec le module Pickle</h3>
+
+<p>Le module <code>Pickle</code> est extrêmement pratique pour sauvegarder dans un fichier des structures de données comme les listes (type <code>list</code>) ou les dictionnaires (type <code>dict</code>).</p>
+
+<h4 id="pickling">Pickling</h4>
+
+<p>Un exemple de sauvegarde d&rsquo;un dictionnaire :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import pickle
+
+# création d&#39;un dictionnaire
+departement = {36:&#39;Indre&#39;,30:&#39;Gard&#39;,75:&#39;Paris&#39;}
+
+# enregistrement du dictionnaire dans un fichier
+Fichier = open(&#39;data.txt&#39;,&#39;wb&#39;)
+pickle.dump(departement,Fichier)    # sérialisation
+Fichier.close()</pre></div>
+<h4 id="unpickling">Unpickling</h4>
+
+<p>L&rsquo;opération inverse est tout aussi simple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import pickle
+
+# récupération du dictionnaire
+Fichier = open(&#39;data.txt&#39;,&#39;rb&#39;)
+Dept = pickle.load(Fichier)    # désérialisation
+Fichier.close()
+
+print(Dept)
+print(Dept[36])
+
+
+
+
+&gt;&gt;&gt;
+{75: &#39;Paris&#39;, 36: &#39;Indre&#39;, 30: &#39;Gard&#39;}
+Indre</pre></div>
+<h3 id="exercices">Exercices</h3>
+
+<h4 id="exercice-8-1-fichiers-binaires-et-fichiers-textes">Exercice 8.1 : fichiers binaires et fichiers textes</h4>
+
+<p>Les fichiers suivants sont-ils de type binaire ou de type texte ?</p>
+
+<ul>
+<li>Une photo au format JPEG</li>
+<li>Une image au format PNG</li>
+<li>Une image au format SVG</li>
+<li>Un fichier audio au format MP3</li>
+<li>Un document texte au format TXT</li>
+<li>Une page web au format HTML</li>
+<li>Un fichier exécutable (extension .exe)</li>
+<li>Un document au format PDF</li>
+<li>Un fichier compressé au format ZIP</li>
+<li>Un script en langage Python (extension .py)</li>
+</ul>
+
+<h4 id="exercice-8-2">Exercice 8.2</h4>
+
+<p>1) Créer un fichier texte contenant une suite aléatoire de chiffres.
+On utilisera la fonction <code>randint()</code> du module <code>random</code>.
+<a href="http://fsincere.free.fr/isn/python/download/chiffres_aleatoires.txt">Exemple</a></p>
+
+<p>2) Avec un logiciel tel que <strong>7-Zip</strong>, compresser le fichier avec différents algorithmes (zip, gzip, bzip2).
+Le taux de compression (en %) est donné par la formule : 100×(taille initiale - taille après compression)/taille initiale
+Comment expliquer ce taux de compression modeste (au mieux 57 %)?</p>
+
+<h3 id="projet">Projet</h3>
+
+<h4 id="election-des-délégués-de-classe-par-un-vote-électronique">Election des délégués de classe par un vote électronique</h4>
+
+<p>Ecrire un ensemble de scripts qui gère une élection par vote électronique.
+On utilisera des fichiers pour stocker la liste électorale, les mots de passe, la liste des candidats et le résultat des votes.</p>
+
+<p>Pour une sécurité optimale, le vote se fera sur un ordinateur seul (sans connexion réseau, sans connexion à Internet&hellip;).</p>
+
+<p>Exemple d&rsquo;interface :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Election des délégués de classe
+
+Actuellement, 18 élèves ont voté (sur 30)
+
+Identifiant ? martin
+Mot de passe ?
+
+L&#39;authentification a réussi.
+
+Electeur : Martin Rémi
+
+Liste des candidats :
+
+Durand Yohan    --&gt; 0
+Barot Pauline   --&gt; 1
+Dupont Simon    --&gt; 2
+
+Vote blanc      --&gt; 3
+
+Quel est votre choix ? 1
+Confirmer votre choix : 1
+
+A voté !
+Merci et bonne journée.
+
+
+
+
+&gt;&gt;&gt;
+Résultat de l&#39;élection des délégués de classe
+
+Nombre de votants : 30 / 30
+
+Durand Yohan    --&gt;  5 voix (17.9 %)
+Barot Pauline   --&gt;  16 voix (57.1 %)
+Dupont Simon    --&gt;  7 voix (25.0 %)
+
+Vote blanc      --&gt;  2 voix</pre></div>
+<h3 id="webographie">Webographie</h3>
+
+<ul>
+<li><a href="http://docs.python.org/3/library/functions.html#open">Documentation sur la fonction open()</a></li>
+<li><a href="http://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Input and Output : Reading and Writing Files</a></li>
+<li><a href="http://docs.python.org/3/library/pickle.html">Documentation sur le module Pickle</a></li>
+<li><a href="http://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">Le jeu de caractères ASCII</a></li>
+<li><a href="http://fr.wikipedia.org/wiki/UTF-8">Le jeu de caractères Unicode UTF-8</a></li>
+<li><a href="http://fr.wikipedia.org/wiki/Windows-1252">Le jeu de caractères Windows-1252</a></li>
+<li><a href="http://www.7-zip.org/">7-Zip un logiciel libre de compression et d&rsquo;archivage (pour Windows)</a></li>
+</ul>
+
+<p>Source - <a href="http://fsincere.free.fr/isn/python/cours_python_fichier.php">Fabrice Sincère</a> - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ecriture-dans-un-fichier">Ecriture dans un fichier</a>
+<ul>
+<li><a href="#le-mode-write">Le mode write</a></li>
+<li><a href="#remarques-sur-le-codage-des-caractères">Remarques sur le codage des caractères</a></li>
+<li><a href="#le-mode-append">Le mode append</a></li>
+</ul></li>
+<li><a href="#ecriture-fichier2-http-qkzk-xyz-wp-content-uploads-2017-04-ecriture-fichier2-png"><img src="http://qkzk.xyz/wp-content/uploads/2017/04/ecriture_fichier2.png" alt="ecriture_fichier2" /></a></li>
+<li><a href="#lecture-dans-un-fichier">Lecture dans un fichier</a>
+<ul>
+<li><a href="#lecture-en-mode-texte">Lecture en mode texte</a></li>
+<li><a href="#lecture-en-mode-binaire">Lecture en mode binaire</a></li>
+</ul></li>
+<li><a href="#sérialisation-des-données-avec-le-module-pickle">Sérialisation des données avec le module Pickle</a>
+<ul>
+<li><a href="#pickling">Pickling</a></li>
+<li><a href="#unpickling">Unpickling</a></li>
+</ul></li>
+<li><a href="#exercices">Exercices</a>
+<ul>
+<li><a href="#exercice-8-1-fichiers-binaires-et-fichiers-textes">Exercice 8.1 : fichiers binaires et fichiers textes</a></li>
+<li><a href="#exercice-8-2">Exercice 8.2</a></li>
+</ul></li>
+<li><a href="#projet">Projet</a>
+<ul>
+<li><a href="#election-des-délégués-de-classe-par-un-vote-électronique">Election des délégués de classe par un vote électronique</a></li>
+</ul></li>
+<li><a href="#webographie">Webographie</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

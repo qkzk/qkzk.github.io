@@ -1,0 +1,5152 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.3885b55ea1bce2ca864ba25620236dbe524744a2acbe165b46b662b1bc061e00.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="/docs/nsi/cours-python/python-3-03-les-boucles/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = bannerImg;
+
+function bannerImg(){
+  var imgNumber = 5;
+  var nbr = Math.floor( imgNumber * Math.random() ) + 1;
+  imgName = '/banner/back' + nbr + '.jpg'
+  document.getElementById("bannerImg").style.backgroundImage = 'url(' + imgName + ')';
+  console.log(imgName);
+}
+</script>
+<div class="white-back">
+
+  <div class="container flex">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/isn"> isn</a>
+        
+            
+          <a class="nav-link" href="/docs/collegues"> collegues</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+      </div>
+        <div class="slogan">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="/">qkzk</a>
+</h2>
+
+
+
+
+    
+
+  
+  
+
+
+
+
+
+
+  
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/" >
+    
+  
+    
+    
+    NSI
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/" >
+    
+  
+    
+    
+    Programmation avec Python 3
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-00-preambule/" >
+    
+  
+    
+    
+    Python 3 - 00 préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-01-les-variables-les-types/" >
+    
+  
+    
+    
+    Python 3 - 01 Les variables, les types
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-02-les-conditions/" >
+    
+  
+    
+    
+    Python 3 - 02 Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-03-les-boucles/"  class="active">
+    
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-04-les-fonctions/" >
+    
+  
+    
+    
+    Python 3 - 04 Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    Python 3 - 05 Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-06-classes-et-modules/" >
+    
+  
+    
+    
+    Python 3 - 06 Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    Python 3 - 07 Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-09-python-camera/" >
+    
+  
+    
+    
+    Python 3 - 09 Camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-10-traitement-des-images/" >
+    
+  
+    
+    
+    Python 3 - 10 Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-11-debogage/" >
+    
+  
+    
+    
+    Python 3 - 11 Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    Python 3 - 12 Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    Python 3 - 13 Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    Python 3 - 14 Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-15-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    Python 3 - 15 Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours/" >
+    
+  
+    
+    
+    Cours
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/" >
+    
+  
+    
+    
+    ISN
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/" >
+    
+  
+    
+    
+    Travaux pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/0-introduction/" >
+    
+  
+    
+    
+    0. introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/1-html/" >
+    
+  
+    
+    
+    1. html
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/2-reseaux/" >
+    
+  
+    
+    
+    2. Réseaux
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/" >
+    
+  
+    
+    
+    3. Codage de l&#39;information
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-1-representation-binaire/" >
+    
+  
+    
+    
+    3.1 Représentation binaire
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-2-codage-des-caracteres/" >
+    
+  
+    
+    
+    3.2 Codage des caractères
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
+    
+  
+    
+    
+    3.3 Codage des couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-4-structure-des-pages-html/" >
+    
+  
+    
+    
+    3.4 Structure des pages HTML
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/" >
+    
+  
+    
+    
+    3.bis CSS
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-1-separation-contenu-forme/" >
+    
+  
+    
+    
+    3b.1 Séparation contenu / forme
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-2/" >
+    
+  
+    
+    
+    3b.2 CSS intro
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-3-css-suite/" >
+    
+  
+    
+    
+    3b.3 CSS suite
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/" >
+    
+  
+    
+    
+    4. Programmation
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-1-introduction/" >
+    
+  
+    
+    
+    4.01 Introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-2-javascript-les-variables/" >
+    
+  
+    
+    
+    4.02 Javascript, les variables
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
+    
+  
+    
+    
+    4.03 Types de données
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-4-fonctions/" >
+    
+  
+    
+    
+    4.04 Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-5-exemples-de-fonctions/" >
+    
+  
+    
+    
+    4.05 Exemples de Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-6-creation-de-fonctions/" >
+    
+  
+    
+    
+    4.06 Création de fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-7-fonctions-et-environnement/" >
+    
+  
+    
+    
+    4.07 Fonctions et environnement
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/" >
+    
+  
+    
+    
+    4.08 Fonctions et événements
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/" >
+    
+  
+    
+    
+    4.09 L&#39;api Google Map
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
+    
+  
+    
+    
+    4.10 Structure conditionnelle
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-11-un-diaporama/" >
+    
+  
+    
+    
+    4.11 Un diaporama
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/" >
+    
+  
+    
+    
+    4.12 Tutoriel pong en javascript
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-bis-la-programmation-recursive/" >
+    
+  
+    
+    
+    4.bis : La programmation récursive
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter Algorithmie : deux problèmes classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-1-les-tris/" >
+    
+  
+    
+    
+    4.ter - 1 : Les tris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter - 2 : parcourir un graphe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/" >
+    
+  
+    
+    
+    5. Dessiner une palette de couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/6-architecture/" >
+    
+  
+    
+    
+    6. Architecture
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
+    
+  
+    
+    
+    7. Stéganographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-projets-textes-officiels-et-conseils-generaux/" >
+    
+  
+    
+    
+    Projets : contraintes, documents officiels, conseils
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/" >
+    
+  
+    
+    
+    Sujets des mini projets - Liste des projets
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/2048-projet/" >
+    
+  
+    
+    
+    2048 - projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-elastique/" >
+    
+  
+    
+    
+    Bowling elastique
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-paralaxe/" >
+    
+  
+    
+    
+    Bowling Parallaxe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/domotique-et-raspberry-pi/" >
+    
+  
+    
+    
+    Domotique et raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/jeu-de-la-vie/" >
+    
+  
+    
+    
+    Jeu de la vie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/mastermind-js/" >
+    
+  
+    
+    
+    Mastermind (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/othello-reversi/" >
+    
+  
+    
+    
+    Othello / Reversi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/papy-panic-rpi-python/" >
+    
+  
+    
+    
+    Papy Panic (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/puissance-4-js/" >
+    
+  
+    
+    
+    Puissance 4 (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/sandpiles/" >
+    
+  
+    
+    
+    Sandpiles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/snake-js-canvas/" >
+    
+  
+    
+    
+    Snake (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/space-orbit/" >
+    
+  
+    
+    
+    Space orbit
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/stack/" >
+    
+  
+    
+    
+    Stack
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
+    
+  
+    
+    
+    Vidéo Surveillance (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/yt-chat/" >
+    
+  
+    
+    
+    YT Chat
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/zagzig-js-canvas/" >
+    
+  
+    
+    
+    Zagzig (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/" >
+    
+  
+    
+    
+    Archives
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/tetris/" >
+    
+  
+    
+    
+    Tetris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/site-marchand/" >
+    
+  
+    
+    
+    Site marchand
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/pendu/" >
+    
+  
+    
+    
+    Pendu
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/calcul-mental/" >
+    
+  
+    
+    
+    Calcul mental
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/labyrinthe/" >
+    
+  
+    
+    
+    Labyrinthe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/station-meteo/" >
+    
+  
+    
+    
+    Station météo
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/wolfram-alpha-like/" >
+    
+  
+    
+    
+    Wolfram Alpha like
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/raspberry-pi-version-2015/" >
+    
+  
+    
+    
+    Raspberry Pi (version 2015)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/le-compte-est-bon/" >
+    
+  
+    
+    
+    Le compte est bon
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/" >
+    
+  
+    
+    
+    icn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    09. Computer vision : manipulation en live du flux d&#39;une camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. bis - popart
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    03. Casser un code secret
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    11. Pygame et la camera : introduction du module
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    tutoriel_python_camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    Internet of Objects : IoT
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    devoir : Vacances de Noël - Revue de projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    devoir : vacances de Toussaint - Construct 2
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 5 : raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 1 - Prise en main du raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 4 - d&#39;autres composants classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    partie 2 - Raspberry Pi et electronique : une introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    00. Réseau : internet et protocole HTTP
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    Annexe : Logiciels libres, les bonnes pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    06. Création d&#39;images vectorielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. Traitement des images matricielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    07. Cartographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    04. Images, couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    01. Lexicométrie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    02. Cryptographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 3 : python
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    14 - Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    13 - Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    12 - Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    11 - Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    10 - Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    09 - Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    08 - Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    07 - Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    06. Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    05. Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    04. Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    03. Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    02. Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    01. Variables, types et opérateurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    00. Python 2 - préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 2 : web
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/" >
+    
+  
+    
+    
+    module 1 : échanger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/collegues/" >
+    
+  
+    
+    
+    collègues
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/ressources/" >
+    
+  
+    
+    
+    ressources
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h2 id="chapitre-3-les-boucles">Chapitre 3 - Les boucles</h2>
+
+<p>Une boucle permet d&rsquo;exécuter une portion de code plusieurs fois de suite.</p>
+
+<h3 id="l-instruction-while">L&rsquo;instruction <code>while</code></h3>
+
+<p><img src="http://qkzk.xyz/wp-content/uploads/2017/04/python_while.png" alt="python_while" /></p>
+
+<h4 id="syntaxe">Syntaxe</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">while expression:       # ne pas oublier le signe de ponctuation &#39;:&#39;
+    bloc d&#39;instructions     # attention à l&#39;indentation
+# suite du programme</pre></div>
+<p>Si l&rsquo;expression est vraie (<code>True</code>) le bloc d&rsquo;instructions est exécuté, puis l&rsquo;expression est à nouveau évaluée.
+Le cycle continue jusqu&rsquo;à ce que l&rsquo;expression soit fausse (<code>False</code>) : on passe alors à la suite du programme.</p>
+
+<h4 id="exemple-un-script-qui-compte-de-1-à-4">Exemple : un script qui compte de 1 à 4</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle1.py</span>
+
+<span style="color:#007f7f"># initialisation de la variable de comptage</span>
+compteur = <span style="color:#ff0;font-weight:bold">1</span>
+<span style="color:#fff;font-weight:bold">while</span> compteur &lt; <span style="color:#ff0;font-weight:bold">5</span>:
+    <span style="color:#007f7f"># ce bloc est exécuté tant que la condition (compteur &lt; 5) est vraie</span>
+    <span style="color:#fff;font-weight:bold">print</span>(compteur, compteur &lt; <span style="color:#ff0;font-weight:bold">5</span>)
+    compteur += <span style="color:#ff0;font-weight:bold">1</span>    <span style="color:#007f7f"># incrémentation du compteur, compteur = compteur + 1</span>
+<span style="color:#fff;font-weight:bold">print</span>(compteur &lt; <span style="color:#ff0;font-weight:bold">5</span>)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Fin de la boucle&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+1 True
+2 True
+3 True
+4 True
+False
+Fin de la boucle</pre></div>
+<h4 id="table-de-multiplication-par-8">Table de multiplication par 8</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle2.py</span>
+
+compteur = <span style="color:#ff0;font-weight:bold">1</span>	<span style="color:#007f7f"># initialisation de la variable de comptage</span>
+<span style="color:#fff;font-weight:bold">while</span> compteur &lt;= <span style="color:#ff0;font-weight:bold">10</span>:
+    <span style="color:#007f7f"># ce bloc est exécuté tant que la condition (compteur &lt;= 10) est vraie</span>
+    <span style="color:#fff;font-weight:bold">print</span>(compteur, <span style="color:#0ff;font-weight:bold">&#39;* 8 =&#39;</span>, compteur*<span style="color:#ff0;font-weight:bold">8</span>)
+    compteur += <span style="color:#ff0;font-weight:bold">1</span>    <span style="color:#007f7f"># incrémentation du compteur, compteur = compteur + 1</span>
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Et voilà !&#34;</span>)
+~~~python
+
+
+
+    &gt;&gt;&gt;
+    <span style="color:#ff0;font-weight:bold">1</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">8</span>
+    <span style="color:#ff0;font-weight:bold">2</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">16</span>
+    <span style="color:#ff0;font-weight:bold">3</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">24</span>
+    <span style="color:#ff0;font-weight:bold">4</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">32</span>
+    <span style="color:#ff0;font-weight:bold">5</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">40</span>
+    <span style="color:#ff0;font-weight:bold">6</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">48</span>
+    <span style="color:#ff0;font-weight:bold">7</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">56</span>
+    <span style="color:#ff0;font-weight:bold">8</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">64</span>
+    <span style="color:#ff0;font-weight:bold">9</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">72</span>
+    <span style="color:#ff0;font-weight:bold">10</span> * <span style="color:#ff0;font-weight:bold">8</span> = <span style="color:#ff0;font-weight:bold">80</span>
+    Et voilà <span style="color:#f00">!</span>
+
+
+
+
+<span style="color:#007f7f">#### Affichage de l&#39;heure courante</span>
+
+
+
+~~~python
+<span style="color:#007f7f"># script Boucle3.py</span>
+
+<span style="color:#fff;font-weight:bold">import</span> time     <span style="color:#007f7f"># importation du module time</span>
+quitter = <span style="color:#0ff;font-weight:bold">&#39;n&#39;</span>   <span style="color:#007f7f"># initialisation</span>
+<span style="color:#fff;font-weight:bold">while</span> quitter != <span style="color:#0ff;font-weight:bold">&#39;o&#39;</span>:
+    <span style="color:#007f7f"># ce bloc est exécuté tant que la condition est vraie</span>
+    <span style="color:#007f7f"># strftime() est une fonction du module time</span>
+    <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Heure courante &#39;</span>, time.strftime(<span style="color:#0ff;font-weight:bold">&#39;%H:%M:%S&#39;</span>))
+    quitter = <span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#34;Voulez-vous quitter le programme (o/n) ? &#34;</span>)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;A bientôt&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Heure courante  09:48:54
+Voulez-vous quitter le programme (o/n) ? n
+Heure courante  09:48:58
+Voulez-vous quitter le programme (o/n) ? o
+A bientôt</pre></div>
+<h3 id="l-instruction-for">L&rsquo;instruction <code>for</code></h3>
+
+<h4 id="syntaxe-1">Syntaxe</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">for élément in séquence :
+    bloc d&#39;instructions
+# suite du programme</pre></div>
+<p>Les éléments de la séquence sont issus d&rsquo;une chaîne de caractères ou bien d&rsquo;une liste.</p>
+
+<h4 id="exemple-avec-une-séquence-de-caractères">Exemple avec une séquence de caractères</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle4.py</span>
+
+chaine = <span style="color:#0ff;font-weight:bold">&#39;Bonsoir&#39;</span>
+<span style="color:#fff;font-weight:bold">for</span> lettre in chaine:		<span style="color:#007f7f"># lettre est la variable d&#39;itération</span>
+    <span style="color:#fff;font-weight:bold">print</span>(lettre)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Fin de la boucle&#34;</span>)</code></pre></div>
+<p>La variable <code>lettre</code> est initialisée avec le premier élément de la séquence (<code>'B'</code>).
+Le bloc d&rsquo;instructions est alors exécuté.
+Puis la variable <code>lettre</code> est mise à jour avec le second élément de la séquence (<code>'o'</code>) et le bloc d&rsquo;instructions à nouveau exécuté&hellip;
+Le bloc d&rsquo;instructions est exécuté une dernière fois lorsqu&rsquo;on arrive au dernier élément de la séquence (<code>'r'</code>) :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+B
+o
+n
+s
+o
+i
+r
+Fin de la boucle</pre></div>
+<h4 id="exemple-avec-les-éléments-d-une-liste">Exemple avec les éléments d&rsquo;une liste</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle5.py</span>
+
+maliste = [<span style="color:#0ff;font-weight:bold">&#39;Pierre&#39;</span>, <span style="color:#ff0;font-weight:bold">67.5</span>, <span style="color:#ff0;font-weight:bold">18</span>]
+<span style="color:#fff;font-weight:bold">for</span> element in maliste:
+    <span style="color:#fff;font-weight:bold">print</span>(element)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Fin de la boucle&#34;</span>)</code></pre></div>
+<p>Là, on affiche dans l&rsquo;ordre les éléments de la liste :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">&gt;&gt;&gt;
+Pierre
+<span style="color:#ff0;font-weight:bold">67.5</span>
+<span style="color:#ff0;font-weight:bold">18</span>
+Fin de la boucle</code></pre></div>
+<h4 id="fonction-range">Fonction <code>range()</code></h4>
+
+<p>L&rsquo;association avec la fonction <code>range()</code> est très utile pour créer des séquences automatiques de nombres entiers :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle6.py</span>
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#fff;font-weight:bold">range</span>(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">5</span>))
+
+<span style="color:#fff;font-weight:bold">for</span> i in <span style="color:#fff;font-weight:bold">range</span>(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">5</span>):
+    <span style="color:#fff;font-weight:bold">print</span>(i)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Fin de la boucle&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+[1, 2, 3, 4]
+1
+2
+3
+4
+Fin de la boucle</pre></div>
+<h4 id="table-de-multiplication">Table de multiplication</h4>
+
+<p>La création d&rsquo;une table de multiplication paraît plus simple avec une boucle <code>for</code> qu&rsquo;avec une boucle <code>while</code> :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle7.py</span>
+
+<span style="color:#fff;font-weight:bold">for</span> compteur in <span style="color:#fff;font-weight:bold">range</span>(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">11</span>):
+    <span style="color:#fff;font-weight:bold">print</span>(compteur, <span style="color:#0ff;font-weight:bold">&#39;* 9 =&#39;</span>, compteur*<span style="color:#ff0;font-weight:bold">9</span>)
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Et voilà !&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+1 * 9 = 9
+2 * 9 = 18
+3 * 9 = 27
+4 * 9 = 36
+5 * 9 = 45
+6 * 9 = 54
+7 * 9 = 63
+8 * 9 = 72
+9 * 9 = 81
+10 * 9 = 90
+Et voilà !</pre></div>
+<h3 id="l-instruction-break">L&rsquo;instruction <code>break</code></h3>
+
+<p>L&rsquo;instruction <code>break</code> provoque une sortie immédiate d&rsquo;une boucle <code>while</code> ou d&rsquo;une boucle <code>for</code>.</p>
+
+<p>Dans l&rsquo;exemple suivant, l&rsquo;expression <code>True</code> est toujours &hellip; vraie : on a une boucle sans fin.
+L&rsquo;instruction <code>break</code> est donc le seul moyen de sortir de la boucle.</p>
+
+<h4 id="affichage-de-l-heure-courante">Affichage de l&rsquo;heure courante</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script Boucle8.py</span>
+
+<span style="color:#fff;font-weight:bold">import</span> time     <span style="color:#007f7f"># importation du module time</span>
+<span style="color:#fff;font-weight:bold">while</span> True:
+    <span style="color:#007f7f"># strftime() est une fonction du module time</span>
+    <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Heure courante &#39;</span>, time.strftime(<span style="color:#0ff;font-weight:bold">&#39;%H:%M:%S&#39;</span>))
+    quitter = <span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#39;Voulez-vous quitter le programme (o/n) ? &#39;</span>)
+    <span style="color:#fff;font-weight:bold">if</span> quitter == <span style="color:#0ff;font-weight:bold">&#39;o&#39;</span>:
+        <span style="color:#fff;font-weight:bold">break</span>
+<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;A bientôt&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Heure courante  14:25:12
+Voulez-vous quitter le programme (o/n) ? n
+Heure courante  14:25:20
+Voulez-vous quitter le programme (o/n) ? o
+A bientôt</pre></div>
+<h3 id="astuce">Astuce</h3>
+
+<p>Si vous connaissez le nombre de boucles à effectuer, utiliser une boucle <code>for</code>.
+Autrement, utiliser une boucle <code>while</code> (notamment pour faire des boucles sans fin).</p>
+
+<h3 id="exercices">Exercices</h3>
+
+<p><strong>Exercice 3.1 ★</strong> Ecrire un script qui affiche toutes les tables de multiplication (de 1 à 10).</p>
+
+<p><strong>Exercice 3.2 ★</strong> Ecrire un script qui calcule la moyenne d&rsquo;une série de notes.
+On pourra utiliser une variable qui contient la somme intermédiaire des notes.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Nombre de notes ? 3
+--&gt;  15
+--&gt;  11.5
+--&gt;  14
+Moyenne : 13.5
+&gt;&gt;&gt;</pre></div>
+<p><strong>Exercice 3.3 ★</strong>
+1) Avec une boucle <code>for</code>, écrire un script qui compte le nombre de lettres z dans une chaîne de caractères.
+Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Entrer la chaîne : Zinedine Zidane
+Résultat : 2</pre></div>
+<p>2) Faire la même chose, directement avec la méthode <code>count()</code> de la classe <code>str</code>.
+Pour obtenir de l&rsquo;aide sur cette méthode :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">&gt;&gt;&gt; help(<span style="color:#fff;font-weight:bold">str</span>.count)</code></pre></div>
+<p><strong>Exercice 3.4 ★</strong> Avec une boucle <code>while</code>, écrire un script qui affiche l&rsquo;heure courante avec une actualisation chaque seconde.
+On utilisera la fonction <code>sleep()</code> du module <code>time</code>.
+Pour obtenir de l&rsquo;aide sur cette fonction :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">&gt;&gt;&gt; <span style="color:#fff;font-weight:bold">import</span> time
+&gt;&gt;&gt; help(time.sleep)</code></pre></div>
+<p>Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; # Taper CTRL + C pour arrêter le programme.
+&gt;&gt;&gt;
+Heure courante  12:40:59
+Heure courante  12:41:00
+Heure courante  12:41:01
+Heure courante  12:41:02
+KeyboardInterrupt
+&gt;&gt;&gt;</pre></div>
+<p>Remarque : il est vilain de forcer l&rsquo;arrêt d&rsquo;un programme avec CTRL + C
+Nous verrons comment interrompre proprement un programme dans le chapitre <a href="http://fsincere.free.fr/isn/python/cours_python_ch5.php">Gestion des exceptions</a>.</p>
+
+<p><strong>Exercice 3.5 ★☆</strong>
+1) Ecrire le script du jeu de devinette suivant :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Le jeu consiste à deviner un nombre entre 1 et 100 :
+
+---&gt;   50
+trop petit !
+---&gt;   75
+trop petit !
+---&gt;   87
+trop grand !
+---&gt;   81
+trop petit !
+---&gt;   84
+trop petit !
+---&gt;   85
+Gagné en 6 coups !</pre></div>
+<p>2) Quelle est la stratégie la plus efficace ?</p>
+
+<p>3) Montrer que l&rsquo;on peut deviner un nombre en 7 coups maximum.</p>
+
+<p>Bibliographie : <a href="http://fr.wikipedia.org/wiki/Dichotomie">La dichotomie</a></p>
+
+<p>Remarque : pour créer un nombre entier aléatoire entre 1 et 100 :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#fff;font-weight:bold">import</span> random
+nombre = random.randint(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">100</span>)</code></pre></div>
+<p><strong>Exercice 3.6 ★★</strong> Code de César
+En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une lettre de 3 rangs vers la droite :
+A → D
+B → E
+&hellip;
+Z → C
+1) Ecrire le script de ce codage.
+Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Message à coder ? abcdefghijklmnopqrstuvwxyz
+defghijklmnopqrstuvwxyzabc
+
+
+
+
+&gt;&gt;&gt;
+Message à coder ? Monty Python&#39;s Flying Circus
+prqwb sbwkrq&#39;v ioblqj flufxv</pre></div>
+<p>On pourra utiliser la chaîne <code>'abcdefghijklmnopqrstuvwxyz'</code> et la méthode <code>find()</code> de la classe <code>str</code>.
+Pour obtenir de l&rsquo;aide sur cette méthode :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; help(str.find)</pre></div>
+<p>2) Ecrire le script du décodage.
+Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;span class=&#34;shell&#34;&gt;&gt;&gt;&gt;&lt;/span&gt;
+&lt;span class=&#34;stdout&#34;&gt;Message à décoder ?&lt;/span&gt; prqwb sbwkrq&#39;v ioblqj flufxv
+&lt;span class=&#34;stdout&#34;&gt;monty python&#39;s flying circus&lt;/span&gt;</pre></div>
+<p>**Exercice 3.7 ** Geralt kiffe ses cheveux.</p>
+
+<p><img src="https://s-media-cache-ak0.pinimg.com/736x/9c/04/96/9c0496717e938a311f4ed1286fc11f4f.jpg" alt="" /></p>
+
+<p>Pour ne pas être dérangé dans ses aventures il décide de les couper chaque fois qu&rsquo;ils font plus de 40 cm. Ce matin Geralt a coupé ses cheveux et ils mesurent 17 cm. Chaque jour la longueur de ses cheveux augmente d&rsquo;un pour cent (leur longueur est multipliée par 1.01).
+Ecrire un script qui affiche dans combien de jours Geralt devra couper ses cheveux.</p>
+
+<p><strong>Les exercices suivants sont nécessitent quelques aptitudes en mathématiques&hellip;</strong></p>
+
+<p><strong>Exercice 3.8 ★★</strong> Ecrire un script qui donne l&rsquo;évolution de la suite convergente : un+1 = un/2 + 1/un
+Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Valeur initiale ? 20
+Jusqu&#39;à quel rang ? 10
+0 20.0
+1 10.05
+2 5.12450248756
+3 2.75739213842
+4 1.74135758045
+5 1.44494338196
+6 1.41454033013
+7 1.41421360012
+8 1.41421356237
+9 1.41421356237
+10 1.41421356237
+&gt;&gt;&gt;</pre></div>
+<p><strong>Exercice 3.9 ★★</strong> Fraction continue infinie</p>
+
+<p>Estimer la valeur numérique de la fraction continue suivante :</p>
+
+<p><img src="http://qkzk.xyz/wp-content/uploads/2017/04/formule_fraction_continue.png" alt="formule_fraction_continue" /></p>
+
+<p>Comparer avec la valeur exacte : (1 + √5)/2</p>
+
+<p><strong>Exercice 3.10</strong>
+1) ★ Ecrire un script qui détermine si un nombre entier est premier ou pas.
+<strong>Rappel :</strong> un nombre <strong>premier </strong>est un entier naturel qui n&rsquo;a que deux diviseurs : 1 et lui même.
+Ex : 3 est premier mais 6 ne l&rsquo;est pas car 2*3=6.
+Par exemple :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Nombre ? 17
+17 est un nombre premier</pre></div>
+<p>2) ★★ Ecrire un script qui décompose un nombre entier en un produit de facteurs premiers.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+Nombre à décomposer ? 2142
+2142 = 2 * 3 * 3 * 7 * 17</pre></div>
+<h3 id="qcm">QCM</h3>
+
+<p><a href="http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python_loop">QCM sur les boucles</a></p>
+
+<p>Source : <a href="http://fsincere.free.fr/isn/python/cours_python_ch3.php">Fabrice Sincère</a> - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#chapitre-3-les-boucles">Chapitre 3 - Les boucles</a>
+<ul>
+<li><a href="#l-instruction-while">L&rsquo;instruction <code>while</code></a>
+<ul>
+<li><a href="#syntaxe">Syntaxe</a></li>
+<li><a href="#exemple-un-script-qui-compte-de-1-à-4">Exemple : un script qui compte de 1 à 4</a></li>
+<li><a href="#table-de-multiplication-par-8">Table de multiplication par 8</a></li>
+</ul></li>
+<li><a href="#l-instruction-for">L&rsquo;instruction <code>for</code></a>
+<ul>
+<li><a href="#syntaxe-1">Syntaxe</a></li>
+<li><a href="#exemple-avec-une-séquence-de-caractères">Exemple avec une séquence de caractères</a></li>
+<li><a href="#exemple-avec-les-éléments-d-une-liste">Exemple avec les éléments d&rsquo;une liste</a></li>
+<li><a href="#fonction-range">Fonction <code>range()</code></a></li>
+<li><a href="#table-de-multiplication">Table de multiplication</a></li>
+</ul></li>
+<li><a href="#l-instruction-break">L&rsquo;instruction <code>break</code></a>
+<ul>
+<li><a href="#affichage-de-l-heure-courante">Affichage de l&rsquo;heure courante</a></li>
+</ul></li>
+<li><a href="#astuce">Astuce</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#qcm">QCM</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>
