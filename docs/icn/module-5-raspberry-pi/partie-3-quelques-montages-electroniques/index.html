@@ -1,0 +1,4953 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.3885b55ea1bce2ca864ba25620236dbe524744a2acbe165b46b662b1bc061e00.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/icn/module-5-raspberry-pi/partie-3-quelques-montages-electroniques/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    // displayMath: [['$$','$$'], ['\[','\]']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = bannerImg;
+
+function bannerImg(){
+  var imgNumber = 5;
+  var nbr = Math.floor( imgNumber * Math.random() ) + 1;
+  imgName = '/banner/back' + nbr + '.jpg'
+  document.getElementById("bannerImg").style.backgroundImage = 'url(' + imgName + ')';
+  console.log(imgName);
+}
+</script>
+<div class="white-back">
+
+  <div class="container flex">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/isn"> isn</a>
+        
+            
+          <a class="nav-link" href="/docs/collegues"> collegues</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+      </div>
+        <div class="slogan">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="http://qkzk.github.io/">qkzk</a>
+</h2>
+
+
+
+
+    
+
+  
+  
+
+
+
+
+
+
+  
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/" >
+    
+  
+    
+    
+    nsi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/" >
+    
+  
+    
+    
+    Programmation avec Python 3
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-00-preambule/" >
+    
+  
+    
+    
+    Python 3 - 00 préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-01-les-variables-les-types/" >
+    
+  
+    
+    
+    Python 3 - 01 Les variables, les types
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-02-les-conditions/" >
+    
+  
+    
+    
+    Python 3 - 02 Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-03-les-boucles/" >
+    
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-04-les-fonctions/" >
+    
+  
+    
+    
+    Python 3 - 04 Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    Python 3 - 05 Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-06-classes-et-modules/" >
+    
+  
+    
+    
+    Python 3 - 06 Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    Python 3 - 07 Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-09-python-camera/" >
+    
+  
+    
+    
+    Python 3 - 09 Camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-10-traitement-des-images/" >
+    
+  
+    
+    
+    Python 3 - 10 Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-11-debogage/" >
+    
+  
+    
+    
+    Python 3 - 11 Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    Python 3 - 12 Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    Python 3 - 13 Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    Python 3 - 14 Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-15-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    Python 3 - 15 Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours/" >
+    
+  
+    
+    
+    Cours
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/" >
+    
+  
+    
+    
+    isn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/" >
+    
+  
+    
+    
+    Travaux pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/0-introduction/" >
+    
+  
+    
+    
+    0. introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/1-html/" >
+    
+  
+    
+    
+    1. html
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/2-reseaux/" >
+    
+  
+    
+    
+    2. Réseaux
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/" >
+    
+  
+    
+    
+    3. Codage de l&#39;information
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-1-representation-binaire/" >
+    
+  
+    
+    
+    3.1 Représentation binaire
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-2-codage-des-caracteres/" >
+    
+  
+    
+    
+    3.2 Codage des caractères
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
+    
+  
+    
+    
+    3.3 Codage des couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-4-structure-des-pages-html/" >
+    
+  
+    
+    
+    3.4 Structure des pages HTML
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/" >
+    
+  
+    
+    
+    3.bis CSS
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-1-separation-contenu-forme/" >
+    
+  
+    
+    
+    3b.1 Séparation contenu / forme
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-2/" >
+    
+  
+    
+    
+    3b.2 CSS intro
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-3-css-suite/" >
+    
+  
+    
+    
+    3b.3 CSS suite
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/" >
+    
+  
+    
+    
+    4. Programmation
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-1-introduction/" >
+    
+  
+    
+    
+    4.01 Introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-2-javascript-les-variables/" >
+    
+  
+    
+    
+    4.02 Javascript, les variables
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
+    
+  
+    
+    
+    4.03 Types de données
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-4-fonctions/" >
+    
+  
+    
+    
+    4.04 Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-5-exemples-de-fonctions/" >
+    
+  
+    
+    
+    4.05 Exemples de Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-6-creation-de-fonctions/" >
+    
+  
+    
+    
+    4.06 Création de fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-7-fonctions-et-environnement/" >
+    
+  
+    
+    
+    4.07 Fonctions et environnement
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/" >
+    
+  
+    
+    
+    4.08 Fonctions et événements
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/" >
+    
+  
+    
+    
+    4.09 L&#39;api Google Map
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
+    
+  
+    
+    
+    4.10 Structure conditionnelle
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-11-un-diaporama/" >
+    
+  
+    
+    
+    4.11 Un diaporama
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/" >
+    
+  
+    
+    
+    4.12 Tutoriel pong en javascript
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-bis-la-programmation-recursive/" >
+    
+  
+    
+    
+    4.bis : La programmation récursive
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter Algorithmie : deux problèmes classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-1-les-tris/" >
+    
+  
+    
+    
+    4.ter - 1 : Les tris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter - 2 : parcourir un graphe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/" >
+    
+  
+    
+    
+    5. Dessiner une palette de couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/6-architecture/" >
+    
+  
+    
+    
+    6. Architecture
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
+    
+  
+    
+    
+    7. Stéganographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-projets-textes-officiels-et-conseils-generaux/" >
+    
+  
+    
+    
+    Projets : contraintes, documents officiels, conseils
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/" >
+    
+  
+    
+    
+    Sujets des mini projets - Liste des projets
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/2048-projet/" >
+    
+  
+    
+    
+    2048 - projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-elastique/" >
+    
+  
+    
+    
+    Bowling elastique
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-paralaxe/" >
+    
+  
+    
+    
+    Bowling Parallaxe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/domotique-et-raspberry-pi/" >
+    
+  
+    
+    
+    Domotique et raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/jeu-de-la-vie/" >
+    
+  
+    
+    
+    Jeu de la vie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/mastermind-js/" >
+    
+  
+    
+    
+    Mastermind (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/othello-reversi/" >
+    
+  
+    
+    
+    Othello / Reversi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/papy-panic-rpi-python/" >
+    
+  
+    
+    
+    Papy Panic (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/puissance-4-js/" >
+    
+  
+    
+    
+    Puissance 4 (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/sandpiles/" >
+    
+  
+    
+    
+    Sandpiles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/snake-js-canvas/" >
+    
+  
+    
+    
+    Snake (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/space-orbit/" >
+    
+  
+    
+    
+    Space orbit
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/stack/" >
+    
+  
+    
+    
+    Stack
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
+    
+  
+    
+    
+    Vidéo Surveillance (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/yt-chat/" >
+    
+  
+    
+    
+    YT Chat
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/zagzig-js-canvas/" >
+    
+  
+    
+    
+    Zagzig (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/" >
+    
+  
+    
+    
+    Archives
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/tetris/" >
+    
+  
+    
+    
+    Tetris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/site-marchand/" >
+    
+  
+    
+    
+    Site marchand
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/pendu/" >
+    
+  
+    
+    
+    Pendu
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/calcul-mental/" >
+    
+  
+    
+    
+    Calcul mental
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/labyrinthe/" >
+    
+  
+    
+    
+    Labyrinthe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/station-meteo/" >
+    
+  
+    
+    
+    Station météo
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/wolfram-alpha-like/" >
+    
+  
+    
+    
+    Wolfram Alpha like
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/raspberry-pi-version-2015/" >
+    
+  
+    
+    
+    Raspberry Pi (version 2015)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/le-compte-est-bon/" >
+    
+  
+    
+    
+    Le compte est bon
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/" >
+    
+  
+    
+    
+    icn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-1/" >
+    
+  
+    
+    
+    module 1 : échanger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-2/" >
+    
+  
+    
+    
+    module 2 : web
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/" >
+    
+  
+    
+    
+    module 3 : python
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    14 - Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    13 - Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    12 - Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/11-debogage/" >
+    
+  
+    
+    
+    11 - Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/10-traitement-des-images/" >
+    
+  
+    
+    
+    10 - Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/09-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    09 - Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    08 - Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    07 - Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-classes-et-modules/" >
+    
+  
+    
+    
+    06. Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    05. Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/04-les-fonctions/" >
+    
+  
+    
+    
+    04. Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/03-les-boucles/" >
+    
+  
+    
+    
+    03. Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/02-les-conditions/" >
+    
+  
+    
+    
+    02. Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/01-variables-types-et-operateurs/" >
+    
+  
+    
+    
+    01. Variables, types et opérateurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/0-python-2-preambule/" >
+    
+  
+    
+    
+    00. Python 2 - préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/" >
+    
+  
+    
+    
+    module 5 : raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-1-prise-en-main-du-raspberry-pi/" >
+    
+  
+    
+    
+    partie 1 - Prise en main du raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-4-dautres-composants-classiques/" >
+    
+  
+    
+    
+    partie 4 - d&#39;autres composants classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-3-quelques-montages-electroniques/"  class="active">
+    
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/module-5-partie-2-raspberry-et-electronique/" >
+    
+  
+    
+    
+    partie 2 - Raspberry Pi et electronique : une introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/0-reseau-internet-et-protocole-http/" >
+    
+  
+    
+    
+    00. Réseau : internet et protocole HTTP
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/1-lexicometrie/" >
+    
+  
+    
+    
+    01. Lexicométrie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/2-cryptographie/" >
+    
+  
+    
+    
+    02. Cryptographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/3-casser-un-code-secret/" >
+    
+  
+    
+    
+    03. Casser un code secret
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/4-images-couleurs/" >
+    
+  
+    
+    
+    04. Images, couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-bis-popart-2/" >
+    
+  
+    
+    
+    05. bis - popart
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-traitement-des-images-matricielles/" >
+    
+  
+    
+    
+    05. Traitement des images matricielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/6-creation-dimages-vectorielles/" >
+    
+  
+    
+    
+    06. Création d&#39;images vectorielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/7-cartographie/" >
+    
+  
+    
+    
+    07. Cartographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/8-les-donnees-csv-json-et-geojson/" >
+    
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/9-python-camera/" >
+    
+  
+    
+    
+    09. Computer vision : manipulation en live du flux d&#39;une camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/10-un-jeu-complet-en-pygame-dodger/" >
+    
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/" >
+    
+  
+    
+    
+    11. Pygame et la camera : introduction du module
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/" >
+    
+  
+    
+    
+    tutoriel_python_camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/annexe-logiciels-libres-les-bonnes-pratiques/" >
+    
+  
+    
+    
+    Annexe : Logiciels libres, les bonnes pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/revue-de-projet/" >
+    
+  
+    
+    
+    devoir : Vacances de Noël - Revue de projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/devoir-vacances-de-toussaint-construct-2/" >
+    
+  
+    
+    
+    devoir : vacances de Toussaint - Construct 2
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/internet-of-objects-iot/" >
+    
+  
+    
+    
+    Internet of Objects : IoT
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/collegues/" >
+    
+  
+    
+    
+    collègues
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/ressources/" >
+    
+  
+    
+    
+    ressources
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h2 id="rapide-présentation-du-kit">Rapide présentation du kit.</h2>
+
+<p>Le kit de démarrage permet d&rsquo;aborder l&rsquo;électronique.</p>
+
+<p>Il comporte des capteurs variés, des câbles mâle-mâle, des résistances, des leds, un servo-moteur et des boutons.</p>
+
+<p>Afin de simplifier l&rsquo;installation on commence par brancher le hat (chapeau) sur le raspberry. Ce n&rsquo;est pas exactement le même modèle mais le branchement est identique :</p>
+
+<p><img src="https://cdn-shop.adafruit.com/1200x900/2327-10.jpg" alt="" /></p>
+
+<p>Ensuite on emploie directement les sorties du GPIO qui entourent le mini-breadboard central. Elles sont référencées à l&rsquo;aide de la numérotation BCM (ou GPIO) disponible sur <a href="https://fr.pinout.xyz/">pinout</a>.</p>
+
+<p>Les câbles mâle-mâle permettent de réaliser un montage.</p>
+
+<h2 id="sortie-une-simple-led">Sortie : une simple LED</h2>
+
+<p>Commençons par alimenter une LED. Nous allons utiliser la librairie <strong>gpiozero.</strong></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    1. **Installation de la librairie.**</pre></div>
+<p>Il est possible qu&rsquo;elle soit déjà installée. Testons le en essayer de l&rsquo;important dans Python.
+Ouvrez Python et tapez : import gpiozero . Si vous ne voyez pas d&rsquo;erreur la librairie est déjà installée et passez au 2.
+Sinon :
+Mettez à jour les paquets : sudo apt-get update
+Et installez la librairie : sudo apt-get install python-gpiozero
+Testez dans Python son import.
+        2. ****Montage électronique.
+<img src="https://leanpub.com/site_images/rpiintheclassroom/led-gpio17.png" alt="" />
+Souvenez vous que les leds sont **polarisées. <strong>La longue broche vers le plus (pin 17) la courte vers le moins (ground).
+On utilisera une résistance entre l&rsquo;alimentation (pin 17) et la led. Celle-ci empêche la led de griller. Il n&rsquo;est pas indispensable de s&rsquo;en servir mais les leds sont fragiles.</strong>**On mesure la résistivité en Ohms. Plus c&rsquo;est élevé, moins le courant circule. Ici on emploiera une résistance d&rsquo;1 kilo Ohms, ressemblant à ça. Utilisez les couleurs des stries pour vous repérer.
+<img src="https://www.pakwheels.com/forums/attachments/mechanical-electrical/334758-led-lovers-bike-cars-cfr-50jb-1r0.jpg" alt="" /></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    3. **Script</pre></div>
+<p>**Creez un fichier <strong>testled.py </strong>dans le dossier_ /home/pi _du raspberry pi.
+Si vous êtes en ligne de commande vous pouvez utiliser l&rsquo;éditeur de texte <strong>nano. : </strong>nano testled.py
+Une fois votre code tapé (ou collé) vous pouvez quitter nano en utilisant le raccourci clavier : ctrl+x.
+Pour sauvegarder confirmez &ldquo;yes&rdquo; ou &ldquo;oui&rdquo; selon la langue, pour fermer sans saugarder &ldquo;no&rdquo;.
+Puis entrez. Hop votre fichier est enregistré.
+Voici le code :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED
+from time import sleep
+
+led = LED(17)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)</pre></div>
+<p>Examinons le en détail.
+On comment par import la fonction LED de la librairie gpiozero. C&rsquo;est la force de cette librairie, elle propose déjà des fonctions toutes faites comme allumer ou éteindre une led.
+Ensuite on charge sleep qui permet de faire des pauses de certaines durées (en secondes).</p>
+
+<p>On définit la variable <strong>led</strong> qui est raccordée au pin 17 (numérotation BCM, celle de votre hat).
+On lance ensuite une boucle infinie qui va :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">      * éclairer la led et faire une pause d&#39;une seconde
+      * éteindre la led et faire une pause d&#39;une seconde</pre></div>
+<p>Puis recommencer. La led clignotte donc indéfiniment. Executez ce script avec Python depuis la console :
+sudo python testled.py
+        4. *<strong><em>Evolutions</em></strong>*
+Bien que ce montage soit simpliste il est possible de le faire évoluer grandement. Déjà en ajoutant des composants : d&rsquo;autres leds pour créer des animations, des boutons pour les contrôler.
+D&rsquo;un point de vue logiciel : on peut intégrer d&rsquo;autres fonctions à notre script comme relever ses mails et le faire réagir si un nouveau mail est reçu ou alors vérifier si quelqu&rsquo;un est connecté à un réseau (un chat, une plateforme de jeu) et pouvoir facilement le rejoindre.</p>
+
+<h4 id="gmail-checker">Gmail Checker</h4>
+
+<p>C&rsquo;est un projet déjà complexe que je propose à ceux qui vont vite. Il n&rsquo;est pas obligatoire.
+Reprendre et adapter le tutoriel <a href="https://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview">d&rsquo;adafruit</a> au matériel disponible.</p>
+
+<p><strong>Cahier des charges</strong></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Réaliser un montage électronique avec deux leds (protégées par les résistances adéquates) raccordées sur des pins du GPIO
+    * Créer un script python allumant la led verte et éteignant la led rouge si tous les messages sont lus et faisant le contraire s&#39;il existe un message lu dans la boite de réception. _Remarquons que le projet est entièrement détaillé sur Adafruit... les adaptations sont très modiques et à la portée d&#39;un singe savant... qui parlerait anglais.</pre></div>
+<p>Son objectif est donc de vous familiariser avec les tutoriels dédiés au raspberry d&rsquo;<a href="https://learn.adafruit.com/category/raspberry-pi">Adafruit</a>_</p>
+
+<h2 id="entrée-un-bouton-sortie-une-led">Entrée : un bouton, sortie : une led</h2>
+
+<p>Reprenons le montage précédent, nous allons ajouter un bouton. Nous allons encore utiliser la librairie Python <strong>gpiozero</strong>, référez vous à la partie précédente pour son installation.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. ****Montage</pre></div>
+<p><img src="https://github.com/RPi-Distro/python-gpiozero/blob/master/docs/images/led_button_bb.png?raw=true" alt="" /></p>
+
+<hr />
+
+<p>Utilisez la même resistance (1K Ohms) que précédemment. Vérifiez bien l&rsquo;orientation de l&rsquo;interrupteur. La led est toujours sur le pin 17 et l&rsquo;interrupteur est sur le pin 3. Toujours avec les numérotations BCM.
+      2. ****Script</p>
+
+<hr />
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED, Button
+from signal import pause
+
+led = LED(17)
+button = Button(3)
+
+button.when_pressed = led.on
+button.when_released = led.off
+
+pause()</pre></div>
+<p>On ajoute cette fois la fonction pause de la librairie signal.
+Elle permet d&rsquo;interrompre le programme et d&rsquo;éviter qu&rsquo;il ne se ferme tout seul.
+Remarquons qu&rsquo;on définit le bouton comme la led grâce à son pin.</p>
+
+<p>Les méthodes button.when_pressed et button.when_released définissent des actions à effectuer quand on presse le bouton ou qu&rsquo;on le relâche.</p>
+
+<p>Quand on presse, la led s&rsquo;allume, quand on relâche elle s&rsquo;éteint.</p>
+
+<p>Enregistrez ce code dans un nouveau fichier : <strong>test_button_led.py</strong> et testez le.
+      3. <strong>Evolutions</strong>
+Elles sont nombreuses&hellip; On peut déjà remplacer le bouton par un <a href="https://fr.wikipedia.org/wiki/Interrupteur_reed"><strong>interrupteur reed</strong></a> qui, relié à un petit aimant, s&rsquo;ouvre et se ferme quand on ouvre ou ferme une porte ! Vous avez déjà de quoi surveiller les entrées et sorties d&rsquo;une pièce ou d&rsquo;une armoire. Avec un minimum de modifications au script, vous pouvez envoyer une alerte par mail quand quelqu&rsquo;un entre dans votre chambre. Il suffit de lancer le script avant de partir et hop.
+Le pire est que ça fonctionne bien.</p>
+
+<h2 id="feu-tricolore">Feu tricolore</h2>
+
+<p>Trois exemples de scripts sont présentés par gpiozero afin de contrôler quelques feux tricolores.</p>
+
+<p>On les trouvera <a href="https://github.com/RPi-Distro/python-gpiozero/tree/master/docs/examples">ici</a>. Tout en bas : traffic_light_1.py etc.</p>
+
+<p>Le montage est le suivant :</p>
+
+<p><img src="https://github.com/RPi-Distro/python-gpiozero/blob/master/docs/images/traffic_lights_bb.png?raw=true" alt="" /></p>
+
+<p>Testez les tous les trois.</p>
+
+<p><strong>Consigne</strong></p>
+
+<p>Ajoutez un bouton à ce montage. Utilisez les exemples précédents pour faire évoluer le feu à chaque pression du bouton.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Au lancement du script les feux sont éteints
+  2. Quand on presse le bouton le vert s&#39;allume et reste allumé
+  3. Quand on le presse à nouveau le jaune s&#39;allume et le vert s&#39;eteint, puis le rouge et le jaune s&#39;éteint.
+  4. Quand on presse une quatrième fois les feux s&#39;éteignent et on peut recommencer.</pre></div>
+<p>Vous pouvez partir du dernier exemple qui est le plus explicite mais le premier fera l&rsquo;affaire. Le second est le plus complexe à mes yeux.</p>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#rapide-présentation-du-kit">Rapide présentation du kit.</a></li>
+<li><a href="#sortie-une-simple-led">Sortie : une simple LED</a>
+<ul>
+<li>
+<ul>
+<li><a href="#gmail-checker">Gmail Checker</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#entrée-un-bouton-sortie-une-led">Entrée : un bouton, sortie : une led</a></li>
+<li><a href="#feu-tricolore">Feu tricolore</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

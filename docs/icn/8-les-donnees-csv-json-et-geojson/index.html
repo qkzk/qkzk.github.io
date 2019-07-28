@@ -1,0 +1,5104 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.3885b55ea1bce2ca864ba25620236dbe524744a2acbe165b46b662b1bc061e00.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/icn/8-les-donnees-csv-json-et-geojson/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    // displayMath: [['$$','$$'], ['\[','\]']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = bannerImg;
+
+function bannerImg(){
+  var imgNumber = 5;
+  var nbr = Math.floor( imgNumber * Math.random() ) + 1;
+  imgName = '/banner/back' + nbr + '.jpg'
+  document.getElementById("bannerImg").style.backgroundImage = 'url(' + imgName + ')';
+  console.log(imgName);
+}
+</script>
+<div class="white-back">
+
+  <div class="container flex">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/isn"> isn</a>
+        
+            
+          <a class="nav-link" href="/docs/collegues"> collegues</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+      </div>
+        <div class="slogan">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="http://qkzk.github.io/">qkzk</a>
+</h2>
+
+
+
+
+    
+
+  
+  
+
+
+
+
+
+
+  
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/" >
+    
+  
+    
+    
+    nsi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/" >
+    
+  
+    
+    
+    Programmation avec Python 3
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-00-preambule/" >
+    
+  
+    
+    
+    Python 3 - 00 préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-01-les-variables-les-types/" >
+    
+  
+    
+    
+    Python 3 - 01 Les variables, les types
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-02-les-conditions/" >
+    
+  
+    
+    
+    Python 3 - 02 Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-03-les-boucles/" >
+    
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-04-les-fonctions/" >
+    
+  
+    
+    
+    Python 3 - 04 Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    Python 3 - 05 Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-06-classes-et-modules/" >
+    
+  
+    
+    
+    Python 3 - 06 Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    Python 3 - 07 Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-09-python-camera/" >
+    
+  
+    
+    
+    Python 3 - 09 Camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-10-traitement-des-images/" >
+    
+  
+    
+    
+    Python 3 - 10 Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-11-debogage/" >
+    
+  
+    
+    
+    Python 3 - 11 Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    Python 3 - 12 Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    Python 3 - 13 Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    Python 3 - 14 Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-15-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    Python 3 - 15 Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours/" >
+    
+  
+    
+    
+    Cours
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/" >
+    
+  
+    
+    
+    isn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/" >
+    
+  
+    
+    
+    Travaux pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/0-introduction/" >
+    
+  
+    
+    
+    0. introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/1-html/" >
+    
+  
+    
+    
+    1. html
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/2-reseaux/" >
+    
+  
+    
+    
+    2. Réseaux
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/" >
+    
+  
+    
+    
+    3. Codage de l&#39;information
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-1-representation-binaire/" >
+    
+  
+    
+    
+    3.1 Représentation binaire
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-2-codage-des-caracteres/" >
+    
+  
+    
+    
+    3.2 Codage des caractères
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
+    
+  
+    
+    
+    3.3 Codage des couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-4-structure-des-pages-html/" >
+    
+  
+    
+    
+    3.4 Structure des pages HTML
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/" >
+    
+  
+    
+    
+    3.bis CSS
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-1-separation-contenu-forme/" >
+    
+  
+    
+    
+    3b.1 Séparation contenu / forme
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-2/" >
+    
+  
+    
+    
+    3b.2 CSS intro
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-3-css-suite/" >
+    
+  
+    
+    
+    3b.3 CSS suite
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/" >
+    
+  
+    
+    
+    4. Programmation
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-1-introduction/" >
+    
+  
+    
+    
+    4.01 Introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-2-javascript-les-variables/" >
+    
+  
+    
+    
+    4.02 Javascript, les variables
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
+    
+  
+    
+    
+    4.03 Types de données
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-4-fonctions/" >
+    
+  
+    
+    
+    4.04 Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-5-exemples-de-fonctions/" >
+    
+  
+    
+    
+    4.05 Exemples de Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-6-creation-de-fonctions/" >
+    
+  
+    
+    
+    4.06 Création de fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-7-fonctions-et-environnement/" >
+    
+  
+    
+    
+    4.07 Fonctions et environnement
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/" >
+    
+  
+    
+    
+    4.08 Fonctions et événements
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/" >
+    
+  
+    
+    
+    4.09 L&#39;api Google Map
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
+    
+  
+    
+    
+    4.10 Structure conditionnelle
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-11-un-diaporama/" >
+    
+  
+    
+    
+    4.11 Un diaporama
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/" >
+    
+  
+    
+    
+    4.12 Tutoriel pong en javascript
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-bis-la-programmation-recursive/" >
+    
+  
+    
+    
+    4.bis : La programmation récursive
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter Algorithmie : deux problèmes classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-1-les-tris/" >
+    
+  
+    
+    
+    4.ter - 1 : Les tris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter - 2 : parcourir un graphe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/" >
+    
+  
+    
+    
+    5. Dessiner une palette de couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/6-architecture/" >
+    
+  
+    
+    
+    6. Architecture
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
+    
+  
+    
+    
+    7. Stéganographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-projets-textes-officiels-et-conseils-generaux/" >
+    
+  
+    
+    
+    Projets : contraintes, documents officiels, conseils
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/" >
+    
+  
+    
+    
+    Sujets des mini projets - Liste des projets
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/2048-projet/" >
+    
+  
+    
+    
+    2048 - projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-elastique/" >
+    
+  
+    
+    
+    Bowling elastique
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-paralaxe/" >
+    
+  
+    
+    
+    Bowling Parallaxe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/domotique-et-raspberry-pi/" >
+    
+  
+    
+    
+    Domotique et raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/jeu-de-la-vie/" >
+    
+  
+    
+    
+    Jeu de la vie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/mastermind-js/" >
+    
+  
+    
+    
+    Mastermind (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/othello-reversi/" >
+    
+  
+    
+    
+    Othello / Reversi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/papy-panic-rpi-python/" >
+    
+  
+    
+    
+    Papy Panic (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/puissance-4-js/" >
+    
+  
+    
+    
+    Puissance 4 (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/sandpiles/" >
+    
+  
+    
+    
+    Sandpiles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/snake-js-canvas/" >
+    
+  
+    
+    
+    Snake (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/space-orbit/" >
+    
+  
+    
+    
+    Space orbit
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/stack/" >
+    
+  
+    
+    
+    Stack
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
+    
+  
+    
+    
+    Vidéo Surveillance (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/yt-chat/" >
+    
+  
+    
+    
+    YT Chat
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/zagzig-js-canvas/" >
+    
+  
+    
+    
+    Zagzig (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/" >
+    
+  
+    
+    
+    Archives
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/tetris/" >
+    
+  
+    
+    
+    Tetris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/site-marchand/" >
+    
+  
+    
+    
+    Site marchand
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/pendu/" >
+    
+  
+    
+    
+    Pendu
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/calcul-mental/" >
+    
+  
+    
+    
+    Calcul mental
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/labyrinthe/" >
+    
+  
+    
+    
+    Labyrinthe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/station-meteo/" >
+    
+  
+    
+    
+    Station météo
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/wolfram-alpha-like/" >
+    
+  
+    
+    
+    Wolfram Alpha like
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/raspberry-pi-version-2015/" >
+    
+  
+    
+    
+    Raspberry Pi (version 2015)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/le-compte-est-bon/" >
+    
+  
+    
+    
+    Le compte est bon
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/" >
+    
+  
+    
+    
+    icn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-1/" >
+    
+  
+    
+    
+    module 1 : échanger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-2/" >
+    
+  
+    
+    
+    module 2 : web
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/" >
+    
+  
+    
+    
+    module 3 : python
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    14 - Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    13 - Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    12 - Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/11-debogage/" >
+    
+  
+    
+    
+    11 - Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/10-traitement-des-images/" >
+    
+  
+    
+    
+    10 - Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/09-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    09 - Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    08 - Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    07 - Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-classes-et-modules/" >
+    
+  
+    
+    
+    06. Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    05. Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/04-les-fonctions/" >
+    
+  
+    
+    
+    04. Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/03-les-boucles/" >
+    
+  
+    
+    
+    03. Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/02-les-conditions/" >
+    
+  
+    
+    
+    02. Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/01-variables-types-et-operateurs/" >
+    
+  
+    
+    
+    01. Variables, types et opérateurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/0-python-2-preambule/" >
+    
+  
+    
+    
+    00. Python 2 - préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/" >
+    
+  
+    
+    
+    module 5 : raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-1-prise-en-main-du-raspberry-pi/" >
+    
+  
+    
+    
+    partie 1 - Prise en main du raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-4-dautres-composants-classiques/" >
+    
+  
+    
+    
+    partie 4 - d&#39;autres composants classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-3-quelques-montages-electroniques/" >
+    
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/module-5-partie-2-raspberry-et-electronique/" >
+    
+  
+    
+    
+    partie 2 - Raspberry Pi et electronique : une introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/0-reseau-internet-et-protocole-http/" >
+    
+  
+    
+    
+    00. Réseau : internet et protocole HTTP
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/1-lexicometrie/" >
+    
+  
+    
+    
+    01. Lexicométrie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/2-cryptographie/" >
+    
+  
+    
+    
+    02. Cryptographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/3-casser-un-code-secret/" >
+    
+  
+    
+    
+    03. Casser un code secret
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/4-images-couleurs/" >
+    
+  
+    
+    
+    04. Images, couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-bis-popart-2/" >
+    
+  
+    
+    
+    05. bis - popart
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-traitement-des-images-matricielles/" >
+    
+  
+    
+    
+    05. Traitement des images matricielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/6-creation-dimages-vectorielles/" >
+    
+  
+    
+    
+    06. Création d&#39;images vectorielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/7-cartographie/" >
+    
+  
+    
+    
+    07. Cartographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/8-les-donnees-csv-json-et-geojson/"  class="active">
+    
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/9-python-camera/" >
+    
+  
+    
+    
+    09. Computer vision : manipulation en live du flux d&#39;une camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/10-un-jeu-complet-en-pygame-dodger/" >
+    
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/" >
+    
+  
+    
+    
+    11. Pygame et la camera : introduction du module
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/" >
+    
+  
+    
+    
+    tutoriel_python_camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/annexe-logiciels-libres-les-bonnes-pratiques/" >
+    
+  
+    
+    
+    Annexe : Logiciels libres, les bonnes pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/revue-de-projet/" >
+    
+  
+    
+    
+    devoir : Vacances de Noël - Revue de projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/devoir-vacances-de-toussaint-construct-2/" >
+    
+  
+    
+    
+    devoir : vacances de Toussaint - Construct 2
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/internet-of-objects-iot/" >
+    
+  
+    
+    
+    Internet of Objects : IoT
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/collegues/" >
+    
+  
+    
+    
+    collègues
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/ressources/" >
+    
+  
+    
+    
+    ressources
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h2 id="prérequis">Prérequis :</h2>
+
+<p>il est souhaitable (mais non indispensable) d&rsquo;avoir quelques idées sur les notions de réseau et de client-serveur. Vous trouverez <a href="http://qkzk.xyz/?page_id=631">ici</a> toutes les informations dont vous aurez besoin pour suivre cette série d&rsquo;activités. Des connaissances en JavaScript sont aussi souhaitables.</p>
+
+<p>Sur internet, il est possible de trouver un grand nombre d&rsquo;informations. Ces informations sont, dans la plupart des cas, stockées sur des serveurs dans des bases de données.</p>
+
+<p>Quand un client interroge un serveur afin de récupérer des données, le serveur effectue une requête auprès de la base de données et renvoie ensuite les informations demandées vers le client.</p>
+
+<p>Sous quelle forme ces données transitent-elles entre le client et le serveur ?</p>
+
+<p>Nous n&rsquo;allons pas chercher à être exhaustifs et nous allons uniquement voir 3 exemples : le CSV, le JSON et le geoJSON.</p>
+
+<p>Vous devez savoir qu&rsquo;il existe d&rsquo;autres formats de données, par exemple le XML (pour en savoir plus sur le XML, vous pouvez consulter le cours proposé par l&rsquo;excellent site openclassrooms : <a href="https://openclassrooms.com/courses/structurez-vos-donnees-avec-xml">ici</a>), mais j&rsquo;ai choisi de me restreindre aux 3 formats évoqués ci-dessus.</p>
+
+<h2 id="le-format-csv">Le format CSV</h2>
+
+<p>Premier format que nous allons étudier, le CSV (Comma separated values). Sur de nombreux sites, il est possible de télécharger des fichiers au format csv (nom_du_fichier.csv).</p>
+
+<p>Voici ce que nous dit Wikipédia sur le format CSV :</p>
+
+<p><em>Comma-separated values, connu sous le sigle CSV, est un format informatique ouvert représentant des données tabulaires sous forme de valeurs séparées par des virgules.</em></p>
+
+<p><em>Un fichier CSV est un fichier texte, par opposition aux formats dits « binaires ». Chaque ligne du texte correspond à une ligne du tableau et les virgules correspondent aux séparations entre les colonnes. Les portions de texte séparées par une virgule correspondent ainsi aux contenus des cellules du tableau.</em></p>
+
+<p>Voici un exemple du contenu d&rsquo;un fichier CSV:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">nom,prenom,date_naissance
+Durand,Jean-Pierre,23/05/1985
+Dupont,Christophe,15/12/1967
+Terta,Henry,12/06/1978</pre></div>
+<p>Je pense qu&rsquo;il est évident pour vous que nous avons ici 3 personnes :</p>
+
+<p>Jean-Pierre Durand qui est né le 23/05/1985
+ Christophe Dupont qui est né le 15/12/1967
+ Henry Terta qui est né le 12/06/1978</p>
+
+<p>ATTENTION :</p>
+
+<p>La virgule est un standard pour les données anglo-saxonnes, mais pas pour les données aux normes françaises. En effet, en français, la virgule est le séparateur des chiffres décimaux. Il serait impossible de différencier les virgules des décimaux et les virgules de séparation des informations. C’est pourquoi on utilise un autre séparateur : le point-virgule (;). Dans certains cas cela peut engendrer quelques problèmes, vous devrez donc rester vigilants sur le type de séparateur utilisé.</p>
+
+<p>Les tableurs, tels que &ldquo;Calc&rdquo; (Libre Office), sont normalement capables de lire les fichiers au format CSV. J&rsquo;ai précisé &ldquo;normalement&rdquo; car certains tableurs gèrent mal le séparateur CSV &ldquo;point-virgule&rdquo; et le séparateur des chiffres décimaux &ldquo;virgule&rdquo;.</p>
+
+<h4 id="à-faire-vous-même-1-1">À faire vous-même 1.1</h4>
+
+<p>Après avoir téléchargé le fichier <a href="http://informatiquelycee.fr/asset/ident_pointVirgule.csv">ident_pointVirgule.csv</a>, ouvrez ce dernier à l&rsquo;aide d&rsquo;un tableur.</p>
+
+<p>Si par hasard votre tableur ne gère pas correctement le fichier avec le séparateur &ldquo;point-virgule&rdquo;, voici une version &ldquo;séparateur virgule&rdquo; du fichier : <a href="http://informatiquelycee.fr/asset/ident_virgule.csv">ident_virgule.csv</a></p>
+
+<p>Dans la suite, gardez toujours cet éventuel problème à l&rsquo;esprit (surtout avec des données &ldquo;made in France&rdquo;)</p>
+
+<hr />
+
+<p>Vous devriez obtenir ceci :</p>
+
+<p><img src="http://informatiquelycee.fr/img/procAnDo_a1_1.png" alt="" /></p>
+
+<p>Vous pouvez constater que les données sont bien &ldquo;rangées&rdquo; dans un tableau avec des lignes et des colonnes (voilà pourquoi on parle de données tabulaires.</p>
+
+<p>Il est possible de trouver sur le web des données beaucoup plus intéressantes à traiter que celles contenues dans le fichier &ldquo;ident_pointVirgule.csv&rdquo; (ou &ldquo;ident_virgule.csv&rdquo;). Par exemple, le site <a href="http://sql.sh/736-base-donnees-villes-francaises">sql.sh</a>, propose un fichier csv contenant des informations sur l&rsquo;ensemble des communes françaises.</p>
+
+<h4 id="à-faire-vous-même-1-2">À faire vous-même 1.2</h4>
+
+<p>Ouvrez le fichier <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/asset/ident_pointVirgule.csv">ville_point_virgule.csv</a> à l&rsquo;aide d&rsquo;un tableur (c’est une version légèrement modifiée de celle disponible sur le site sql.sh, j’y ai notamment ajouté des entêtes). En cas de problème avec votre tableur, voici une version &ldquo;séparateur virgule&rdquo; : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/asset/ident_virgule.csv">ville_virgule.csv</a> (attention le séparateur &ldquo;décimal&rdquo; est ici le point)</p>
+
+<hr />
+
+<p>Comme vous pouvez le constater, nous avons 12 colonnes (et 36700 lignes si on ne compte pas l&rsquo;entête !), voici la signification de ces colonnes :</p>
+
+<p>dep : numéro de département
+ nom : nom de la commune
+ cp : code postal
+ nb_hab_2010 : nombre d&rsquo;habitants en 2010
+ nb_hab_1999 : nombre d&rsquo;habitants en 1999
+ nb_hab_2012 : nombre d&rsquo;habitants en 2012 (approximatif)
+ dens : densité de la population (habitants par kilomètre carré)
+ surf : superficie de la commune en kilomètre carré
+ long : longitude
+ lat : latitude
+ alt_min : altitude minimale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)
+ alt_max : altitude maximale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)</p>
+
+<p>Vous trouverez un grand nombre de données, diverses et variées, au format CSV sur le site gouvernemental <a href="https://www.data.gouv.fr/fr/datasets/?format=csv">data.gouv.fr</a>.</p>
+
+<p>Il existe aussi un format très voisin du CSV, le TSV (Tab-separated values) où le séparateur est une tabulation (touche avec le symbole ↹)</p>
+
+<hr />
+
+<h2 id="le-format-json">Le format JSON</h2>
+
+<p>Autre format de données très courant sur le &ldquo;web&rdquo;, le JSON (JavaScript Object Notation). Le JSON fonctionne avec un système de paire clé/valeur. Le format JSON, comme son nom l&rsquo;indique, est dérivé de la notation des objets du JavaScript.</p>
+
+<p>Un objet JavaScript est encadré par des accolades :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{cle_1 : val_1, cle_2 : val_2, cle_3 : val_3}</pre></div>
+<p>souvent, pour une question de lisibilité, on écriera :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{
+    cle_1 : val_1,
+    cle_2 : val_2,
+    cle_3 : val_3
+}</pre></div>
+<p>Un fichier au format JSON peut regrouper un grand nombre d&rsquo;objets :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[{
+    &#34;nom&#34; : &#34;Durand&#34;,
+    &#34;prenom&#34; : &#34;Jean-Pierre&#34;,
+    &#34;date_naissance&#34; : &#34;23/05/1985&#34;
+},
+{
+    &#34;nom&#34; : &#34;Dupont&#34;,
+    &#34;prenom&#34; : &#34;Christophe&#34;,
+    &#34;date_naissance&#34; : &#34;15/12/1967&#34;
+},
+{
+    &#34;nom&#34; : &#34;Terta&#34;,
+    &#34;prenom&#34; : &#34;Henry&#34;,
+    &#34;date_naissance&#34; : &#34;12/06/1978&#34;
+}]</pre></div>
+<p>Ci-dessus, nous avons un tableau contenant des objets.</p>
+
+<p>La &ldquo;valeur&rdquo; d&rsquo;une paire &ldquo;clé/valeur&rdquo; peut être un tableau :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{
+    &#34;nom&#34; : &#34;Durand&#34;,
+    &#34;prenom&#34; : &#34;Jean-Pierre&#34;,
+    &#34;date_naissance&#34; : &#34;23/05/1985&#34;
+    &#34;sport&#34; : [&#34;tennis&#34;, &#34;football&#34;, &#34;pétanque&#34;]
+}</pre></div>
+<p>ou même un autre objet :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{
+    &#34;nom&#34; : &#34;Durand&#34;,
+    &#34;prenom&#34; : &#34;Jean-Pierre&#34;,
+    &#34;date_naissance&#34; : &#34;23/05/1985&#34;
+    &#34;adresse&#34; : {&#34;num&#34;:6, &#34;rue&#34;:&#34;impasse du rossignol&#34;, &#34;ville&#34;:&#34;Nogent-le-Rotrou&#34;, &#34;cp&#34;:&#34;28400&#34;}
+}</pre></div>
+<p>Comme vous pouvez le constater, il est possible d&rsquo;obtenir des structures de données très complexes avec le format JSON.</p>
+
+<p>Comment utiliser les données présentes dans le fichier JSON ?</p>
+
+<p>Si le fichier JSON contient un seul objet (pour simplifier l&rsquo;explication, nous &ldquo;rangerons&rdquo; cet objet dans une variable) :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">var data = {
+    &#34;nom&#34; : &#34;Durand&#34;,
+    &#34;prenom&#34; : &#34;Jean-Pierre&#34;,
+    &#34;date_naissance&#34; : &#34;23/05/1985&#34;
+    &#34;adresse&#34; : {&#34;num&#34;:6, &#34;rue&#34;:&#34;impasse du rossignol&#34;,
+    &#34;ville&#34;:&#34;Nogent-le-Rotrou&#34;, &#34;cp&#34;:&#34;28400&#34;}
+}</pre></div>
+<p>Il suffit d&rsquo;utiliser la &ldquo;notation pointée&rdquo; : &ldquo;data.nom&rdquo; permet de récupérer le nom (ici &ldquo;Durand&rdquo;), &ldquo;data.prenom&rdquo; permet de récupérer le prénom (ici &ldquo;Jean-Pierre&rdquo;) ou plus compliqué, &ldquo;data.adresse.rue&rdquo; sera égal à &ldquo;impasse du rossignol&rdquo; dans l&rsquo;exemple ci-dessus</p>
+
+<p>Si le fichier JSON contient un tableau d&rsquo;objet :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">var tabData=[{
+    &#34;nom&#34; : &#34;Durand&#34;,
+    &#34;prenom&#34; : &#34;Jean-Pierre&#34;,
+    &#34;date_naissance&#34; : &#34;23/05/1985&#34;
+},
+{
+    &#34;nom&#34; : &#34;Dupont&#34;,
+    &#34;prenom&#34; : &#34;Christophe&#34;,
+    &#34;date_naissance&#34; : &#34;15/12/1967&#34;
+},
+{
+    &#34;nom&#34; : &#34;Terta&#34;,
+    &#34;prenom&#34; : &#34;Henry&#34;,
+    &#34;date_naissance&#34; : &#34;12/06/1978&#34;
+}]</pre></div>
+<p>Comme ici, nous avons un tableau contenant des objets, il faudra utiliser la notation habituelle pour les tableaux, suivit de la &ldquo;notation pointée&rdquo; :</p>
+
+<p>&ldquo;tabData[0].nom&rdquo; renverra &ldquo;Durand&rdquo;, &ldquo;tabData[1].prenom&rdquo; renverra &ldquo;Christophe&rdquo;&hellip;</p>
+
+<p>Pour en savoir plus sur le JSON, vous pouvez lire l&rsquo;article sur <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">Wikipédia</a>.</p>
+
+<h4 id="à-faire-vous-même-2-1">À faire vous-même 2.1</h4>
+
+<p>Téléchargez le fichier <a href="http://informatiquelycee.fr/asset/ident.json">ident.json</a> et ouvrez-le à l&rsquo;aide d&rsquo;un éditeur de texte.</p>
+
+<hr />
+
+<p>De nombreux sites web proposent des services basés sur des API (Application Programming Interface). Ces sites sont capables de fournir des données aux formats JSON sur &ldquo;simple demande&rdquo;. Souvent, ces &ldquo;demandes&rdquo; sont effectuées par l&rsquo;intermédiaire d&rsquo;une url (si vous avez besoin de vous rafraichir la mémoire à propos de la notion d&rsquo;url, n&rsquo;hésitez pas à consulter ce <a href="http://informatiquelycee.fr/reseau_a1.html">document</a>).</p>
+
+<p>Nous allons illustrer ce propos en utilisant l&rsquo;API d&rsquo;un site qui fournit des informations météo au format JSON. Vous trouverez ce site à l&rsquo;adresse suivante : <a href="http://openweathermap.org/api">openweathermap.org/api</a></p>
+
+<p>Pour profiter de ce service, il est nécessaire de s&rsquo;inscrire (<a href="http://home.openweathermap.org/users/sign_up">http://home.openweathermap.org/users/sign_up</a>) afin de pouvoir récupérer une clé (API key). Notez bien cette clé quelque part, elle vous servira dès que vous voulez accéder au service.</p>
+
+<h4 id="à-faire-vous-même-2-2">À faire vous-même 2.2</h4>
+
+<p>Ouvrez votre navigateur préféré et copier-coller l&rsquo;url suivante dans la barre d&rsquo;url du navigateur :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">http://api.openweathermap.org/data/2.5/weather?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX</pre></div>
+<p>ATTENTION : il faut remplacer les &ldquo;X&rdquo; par la clé (API key) que vous aurez obtenue lors de votre inscription.</p>
+
+<hr />
+
+<p>Au lieu d&rsquo;obtenir, comme d&rsquo;habitude, une page web, vous devriez obtenir uniquement quelque chose qui ressemblera à ceci :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{&#34;coord&#34;:{&#34;lon&#34;:2.54,&#34;lat&#34;:50.72},
+&#34;weather&#34;:[{&#34;id&#34;:501,&#34;main&#34;:&#34;Rain&#34;,&#34;description&#34;:&#34;pluies modérées&#34;,&#34;icon&#34;:&#34;10d&#34;}],
+&#34;base&#34;:&#34;stations&#34;,
+&#34;main&#34;:{&#34;temp&#34;:17.46,&#34;pressure&#34;:1020,&#34;humidity&#34;:82,&#34;temp_min&#34;:16,&#34;temp_max&#34;:20.1},
+&#34;visibility&#34;:10000,
+&#34;wind&#34;:{&#34;speed&#34;:4.1,&#34;deg&#34;:240},
+&#34;rain&#34;:{&#34;1h&#34;:1.52},
+&#34;clouds&#34;:{&#34;all&#34;:75},
+&#34;dt&#34;:1468048824,
+&#34;sys&#34;:{&#34;type&#34;:1,&#34;id&#34;:5625,&#34;message&#34;:0.0338,&#34;country&#34;:&#34;FR&#34;,&#34;sunrise&#34;:1468036100,&#34;sunset&#34;:1468094487},
+&#34;id&#34;:3013619,
+&#34;name&#34;:&#34;Hazebrouck&#34;,
+&#34;cod&#34;:200}</pre></div>
+<p>Comme les données sont réactualisées relativement souvent, vous n&rsquo;obtiendrez pas la même chose que moi !</p>
+
+<p>Avec une simple url, le site open weather renvoie des informations météo sous forme de données JSON.</p>
+
+<p>Détaillons l&rsquo;url :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">http://api.openweathermap.org/data/2.5/weather</pre></div>
+<p>Cette partie de l&rsquo;url ne changera pas (sauf si vous désirez autre chose que les conditions météo actuelles, à ce moment-là, il faudra remplacer &ldquo;weather&rdquo; par autre chose (consulter le site open weather pour plus d&rsquo;informations)).</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX</pre></div>
+<p>À partir du point d&rsquo;interrogation, vous devez renseigner les différents paramètres qui permettront à open weather de vous renvoyer les bonnes informations. Ces paramètres sont séparés par le caractère &ldquo;&amp;&ldquo;.</p>
+
+<p>&ldquo;q=hazebrouck,fr&rdquo; le paramètre &ldquo;q&rdquo; correspond au nom de la ville suivi du pays (fr dans notre cas)
+ &ldquo;lang=fr&rdquo; la langue utilisée sera le français
+ &ldquo;units=metric&rdquo; on désire avoir les longueurs en mètres (et les vitesses en mètre par seconde).
+ &ldquo;APPID&rdquo; correspond à l&rsquo;API key</p>
+
+<p>Il est possible de construire des requêtes beaucoup plus complexes, encore une fois, veuillez consulter le site open weather pour plus d&rsquo;informations.</p>
+
+<p>Intéressons-nous maintenant aux données JSON renvoyées (nous n&rsquo;allons pas tout détailler) :</p>
+
+<p>&ldquo;coord&rdquo;:{&ldquo;lon&rdquo;:2.54,&ldquo;lat&rdquo;:50.72} latitude et longitude du lieu
+ &ldquo;weather&rdquo;:[{&ldquo;id&rdquo;:501,&ldquo;main&rdquo;:&ldquo;Rain&rdquo;,&ldquo;description&rdquo;:&ldquo;pluies modérées&rdquo;,&ldquo;icon&rdquo;:&ldquo;10d&rdquo;}] &ldquo;weather&rdquo; correspond à un tableau qui contient un seul objet.
+ &ldquo;main&rdquo;:{&ldquo;temp&rdquo;:17.46,&ldquo;pressure&rdquo;:1020,&ldquo;humidity&rdquo;:82,&ldquo;temp_min&rdquo;:16,&ldquo;temp_max&rdquo;:20.1} &ldquo;main&rdquo; correspond à un objet qui contient différents types d&rsquo;informations
+ &ldquo;dt&rdquo;:1468048824 &ldquo;dt&rdquo; nous donne l&rsquo;heure et la date de diffusion du bulletin au format &ldquo;timestamp&rdquo; (voir <a href="http://www.timestamp.fr/">ici</a> pour plus d&rsquo;informations sur la notion de timestamp). Nous utiliserons &ldquo;dt&rdquo; dans le prochain &ldquo;À faire vous-même&rdquo;.
+ &ldquo;sunrise&rdquo;:1468036100,&ldquo;sunset&rdquo;:1468094487 : respectivement heure de lever et de coucher du soleil au format timestamp</p>
+
+<hr />
+
+<h2 id="les-données-geojson">Les données GeoJSON</h2>
+
+<p>Le geoJSON est un format (<a href="http://geojson.org/">http://geojson.org/</a>) qui permet d&rsquo;encoder des données à &ldquo;caractère géographiques&rdquo;. Voici ce que dit Wikipédia à propos de ce format :</p>
+
+<blockquote>GeoJSON (de l'anglais Geographic JSON, signifiant littéralement JSON géographique) est un format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON (JavaScript Object Notation). Il permet de décrire des données de type point, ligne, chaîne de caractères, polygone, ainsi que des ensembles et sous-ensembles de ces types de données et d'y ajouter des attributs d'information qui ne sont pas spatiale. Le format GeoJSON, contrairement à la majorité des standards de systèmes d'informations géographiques, n'est pas écrit par l'Open Geospatial Consortium, mais par un groupe de travail de développeurs au travers d'internet.</blockquote>
+
+<p>Comme indiqué dans Wikipédia, le geoJSON est avant tout du JSON et nous le traiterons comme tel.</p>
+
+<h4 id="à-faire-vous-même-3-1">À faire vous-même 3.1</h4>
+
+<p>Dans la barre d&rsquo;adresse de votre navigateur, tapez l&rsquo;adresse suivante :</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson</pre></div>
+<p>Vous devriez obtenir quelque chose ressemblant à ceci :</p>
+
+<hr />
+
+<p>Le site &ldquo;earthquake.usgs.gov&rdquo;, comme le site &ldquo;<a href="http://openweathermap.org/&quot;">http://openweathermap.org/&quot;</a>, propose une API qui renvoie des données à partir d&rsquo;une simple url. Le site &ldquo;earthquake.usgs.gov&rdquo; renvoie des données au format geoJSON (c&rsquo;est donc du JSON), ces données contiennent des informations sur les tremblements de terre détectés dans le monde sur une période de 30 jours. Le site vous propose différentes options pour la requête, vous trouverez une description complète de ces options <a href="http://earthquake.usgs.gov/fdsnws/event/1/">ici</a></p>
+
+<h4 id="à-faire-vous-même-3-2">À faire vous-même 3.2</h4>
+
+<p>En vous aidant de la documentation présente sur le site <a href="http://earthquake.usgs.gov/fdsnws/event/1/">http://earthquake.usgs.gov</a>, écrivez une requête sous forme d&rsquo;url qui permettra d&rsquo;obtenir des données (au format geoJSON) sur les tremblements de terre, d&rsquo;une magnitude supérieure à 5, ayant eu lieu ces 30 derniers jours partout dans le monde.</p>
+
+<p>Testez votre requête en la copiant dans la barre d&rsquo;adresse de votre navigateur. Une fois les données obtenues, étudiez-les afin de comprendre la structure de ces données.</p>
+
+<hr />
+
+<h4 id="approfondissement">Approfondissement</h4>
+
+<p>Ces données incluant des coordonnées GPS il est possible de les intégrer dans une carte&hellip; Celle-ci peut être statique (Le tremblements de terre des 30 derniers jours à la date à laquelle vous l&rsquo;aurez crée) ou dynamique (Les tremblements de terre des 30 derniers jours à la date du chargement de la page !)
+C&rsquo;est difficile cependant étant donné qu&rsquo;il faut formater beaucoup de données et les lier à un objet très différent, la carte.
+d3js est une librairie javascript permettant ce genre d&rsquo;opération complexe.</p>
+
+<p><em>Sources : <a href="http://informatiquelycee.fr/">http://informatiquelycee.fr/</a></em></p>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#prérequis">Prérequis :</a></li>
+<li><a href="#le-format-csv">Le format CSV</a>
+<ul>
+<li>
+<ul>
+<li><a href="#à-faire-vous-même-1-1">À faire vous-même 1.1</a></li>
+<li><a href="#à-faire-vous-même-1-2">À faire vous-même 1.2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#le-format-json">Le format JSON</a>
+<ul>
+<li>
+<ul>
+<li><a href="#à-faire-vous-même-2-1">À faire vous-même 2.1</a></li>
+<li><a href="#à-faire-vous-même-2-2">À faire vous-même 2.2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#les-données-geojson">Les données GeoJSON</a>
+<ul>
+<li>
+<ul>
+<li><a href="#à-faire-vous-même-3-1">À faire vous-même 3.1</a></li>
+<li><a href="#à-faire-vous-même-3-2">À faire vous-même 3.2</a></li>
+<li><a href="#approfondissement">Approfondissement</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

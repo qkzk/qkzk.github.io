@@ -1,0 +1,5933 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.3885b55ea1bce2ca864ba25620236dbe524744a2acbe165b46b662b1bc061e00.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/icn/10-un-jeu-complet-en-pygame-dodger/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    // displayMath: [['$$','$$'], ['\[','\]']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = bannerImg;
+
+function bannerImg(){
+  var imgNumber = 5;
+  var nbr = Math.floor( imgNumber * Math.random() ) + 1;
+  imgName = '/banner/back' + nbr + '.jpg'
+  document.getElementById("bannerImg").style.backgroundImage = 'url(' + imgName + ')';
+  console.log(imgName);
+}
+</script>
+<div class="white-back">
+
+  <div class="container flex">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/isn"> isn</a>
+        
+            
+          <a class="nav-link" href="/docs/collegues"> collegues</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+      </div>
+        <div class="slogan">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="http://qkzk.github.io/">qkzk</a>
+</h2>
+
+
+
+
+    
+
+  
+  
+
+
+
+
+
+
+  
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/" >
+    
+  
+    
+    
+    nsi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/" >
+    
+  
+    
+    
+    Programmation avec Python 3
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-00-preambule/" >
+    
+  
+    
+    
+    Python 3 - 00 préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-01-les-variables-les-types/" >
+    
+  
+    
+    
+    Python 3 - 01 Les variables, les types
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-02-les-conditions/" >
+    
+  
+    
+    
+    Python 3 - 02 Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-03-les-boucles/" >
+    
+  
+    
+    
+    Python 3 - 03 Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-04-les-fonctions/" >
+    
+  
+    
+    
+    Python 3 - 04 Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    Python 3 - 05 Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-06-classes-et-modules/" >
+    
+  
+    
+    
+    Python 3 - 06 Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    Python 3 - 07 Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    Python 3 - 08 Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-09-python-camera/" >
+    
+  
+    
+    
+    Python 3 - 09 Camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-10-traitement-des-images/" >
+    
+  
+    
+    
+    Python 3 - 10 Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-11-debogage/" >
+    
+  
+    
+    
+    Python 3 - 11 Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    Python 3 - 12 Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    Python 3 - 13 Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    Python 3 - 14 Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours-python/python-3-15-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    Python 3 - 15 Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/nsi/cours/" >
+    
+  
+    
+    
+    Cours
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/" >
+    
+  
+    
+    
+    isn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/" >
+    
+  
+    
+    
+    Travaux pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/0-introduction/" >
+    
+  
+    
+    
+    0. introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/1-html/" >
+    
+  
+    
+    
+    1. html
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/2-reseaux/" >
+    
+  
+    
+    
+    2. Réseaux
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/" >
+    
+  
+    
+    
+    3. Codage de l&#39;information
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-1-representation-binaire/" >
+    
+  
+    
+    
+    3.1 Représentation binaire
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-2-codage-des-caracteres/" >
+    
+  
+    
+    
+    3.2 Codage des caractères
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
+    
+  
+    
+    
+    3.3 Codage des couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-4-structure-des-pages-html/" >
+    
+  
+    
+    
+    3.4 Structure des pages HTML
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/" >
+    
+  
+    
+    
+    3.bis CSS
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-1-separation-contenu-forme/" >
+    
+  
+    
+    
+    3b.1 Séparation contenu / forme
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-2/" >
+    
+  
+    
+    
+    3b.2 CSS intro
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/3-bis-css/3b-3-css-suite/" >
+    
+  
+    
+    
+    3b.3 CSS suite
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/" >
+    
+  
+    
+    
+    4. Programmation
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-1-introduction/" >
+    
+  
+    
+    
+    4.01 Introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-2-javascript-les-variables/" >
+    
+  
+    
+    
+    4.02 Javascript, les variables
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
+    
+  
+    
+    
+    4.03 Types de données
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-4-fonctions/" >
+    
+  
+    
+    
+    4.04 Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-5-exemples-de-fonctions/" >
+    
+  
+    
+    
+    4.05 Exemples de Fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-6-creation-de-fonctions/" >
+    
+  
+    
+    
+    4.06 Création de fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-7-fonctions-et-environnement/" >
+    
+  
+    
+    
+    4.07 Fonctions et environnement
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/" >
+    
+  
+    
+    
+    4.08 Fonctions et événements
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/" >
+    
+  
+    
+    
+    4.09 L&#39;api Google Map
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
+    
+  
+    
+    
+    4.10 Structure conditionnelle
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-11-un-diaporama/" >
+    
+  
+    
+    
+    4.11 Un diaporama
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/" >
+    
+  
+    
+    
+    4.12 Tutoriel pong en javascript
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-bis-la-programmation-recursive/" >
+    
+  
+    
+    
+    4.bis : La programmation récursive
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter Algorithmie : deux problèmes classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-1-les-tris/" >
+    
+  
+    
+    
+    4.ter - 1 : Les tris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/" >
+    
+  
+    
+    
+    4.ter - 2 : parcourir un graphe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/" >
+    
+  
+    
+    
+    5. Dessiner une palette de couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/6-architecture/" >
+    
+  
+    
+    
+    6. Architecture
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
+    
+  
+    
+    
+    7. Stéganographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/isn-projets-textes-officiels-et-conseils-generaux/" >
+    
+  
+    
+    
+    Projets : contraintes, documents officiels, conseils
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/" >
+    
+  
+    
+    
+    Sujets des mini projets - Liste des projets
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/2048-projet/" >
+    
+  
+    
+    
+    2048 - projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-elastique/" >
+    
+  
+    
+    
+    Bowling elastique
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/bowling-paralaxe/" >
+    
+  
+    
+    
+    Bowling Parallaxe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/domotique-et-raspberry-pi/" >
+    
+  
+    
+    
+    Domotique et raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/jeu-de-la-vie/" >
+    
+  
+    
+    
+    Jeu de la vie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/mastermind-js/" >
+    
+  
+    
+    
+    Mastermind (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/othello-reversi/" >
+    
+  
+    
+    
+    Othello / Reversi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/papy-panic-rpi-python/" >
+    
+  
+    
+    
+    Papy Panic (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/puissance-4-js/" >
+    
+  
+    
+    
+    Puissance 4 (js)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/sandpiles/" >
+    
+  
+    
+    
+    Sandpiles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/snake-js-canvas/" >
+    
+  
+    
+    
+    Snake (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/space-orbit/" >
+    
+  
+    
+    
+    Space orbit
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/stack/" >
+    
+  
+    
+    
+    Stack
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
+    
+  
+    
+    
+    Vidéo Surveillance (RPI, Python)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/yt-chat/" >
+    
+  
+    
+    
+    YT Chat
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/zagzig-js-canvas/" >
+    
+  
+    
+    
+    Zagzig (js, canvas)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/" >
+    
+  
+    
+    
+    Archives
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/tetris/" >
+    
+  
+    
+    
+    Tetris
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/site-marchand/" >
+    
+  
+    
+    
+    Site marchand
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/pendu/" >
+    
+  
+    
+    
+    Pendu
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/calcul-mental/" >
+    
+  
+    
+    
+    Calcul mental
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/labyrinthe/" >
+    
+  
+    
+    
+    Labyrinthe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/station-meteo/" >
+    
+  
+    
+    
+    Station météo
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/wolfram-alpha-like/" >
+    
+  
+    
+    
+    Wolfram Alpha like
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/raspberry-pi-version-2015/" >
+    
+  
+    
+    
+    Raspberry Pi (version 2015)
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/isn/sujets-des-projets/archives/le-compte-est-bon/" >
+    
+  
+    
+    
+    Le compte est bon
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/" >
+    
+  
+    
+    
+    icn
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-1/" >
+    
+  
+    
+    
+    module 1 : échanger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-2/" >
+    
+  
+    
+    
+    module 2 : web
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/" >
+    
+  
+    
+    
+    module 3 : python
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/14-applications-et-jeux-en-reseau/" >
+    
+  
+    
+    
+    14 - Applications et jeux en réseau
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/13-jeux-video-avec-le-module-pygame/" >
+    
+  
+    
+    
+    13 - Jeux vidéo avec le module Pygame
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/12-creer-un-programme-executable-avec-py2exe/" >
+    
+  
+    
+    
+    12 - Créer un programme exécutable avec Py2exe
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/11-debogage/" >
+    
+  
+    
+    
+    11 - Débogage
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/10-traitement-des-images/" >
+    
+  
+    
+    
+    10 - Traitement des images
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/09-le-son-au-format-audio-wav/" >
+    
+  
+    
+    
+    09 - Le son au format audio WAV
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/08-lecture-et-ecriture-dans-un-fichier/" >
+    
+  
+    
+    
+    08 - Lecture et écriture dans un fichier
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/07-interface-graphique-avec-le-module-tkinter/" >
+    
+  
+    
+    
+    07 - Interface graphique avec le module Tkinter
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-classes-et-modules/" >
+    
+  
+    
+    
+    06. Classes et modules
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/05-gestion-des-exceptions/" >
+    
+  
+    
+    
+    05. Gestion des exceptions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/04-les-fonctions/" >
+    
+  
+    
+    
+    04. Les fonctions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/03-les-boucles/" >
+    
+  
+    
+    
+    03. Les boucles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/02-les-conditions/" >
+    
+  
+    
+    
+    02. Les conditions
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/01-variables-types-et-operateurs/" >
+    
+  
+    
+    
+    01. Variables, types et opérateurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-3-python/0-python-2-preambule/" >
+    
+  
+    
+    
+    00. Python 2 - préambule
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/" >
+    
+  
+    
+    
+    module 5 : raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-1-prise-en-main-du-raspberry-pi/" >
+    
+  
+    
+    
+    partie 1 - Prise en main du raspberry pi
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-4-dautres-composants-classiques/" >
+    
+  
+    
+    
+    partie 4 - d&#39;autres composants classiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/partie-3-quelques-montages-electroniques/" >
+    
+  
+    
+    
+    partie 3 - Quelques montages électroniques simples
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/module-5-raspberry-pi/module-5-partie-2-raspberry-et-electronique/" >
+    
+  
+    
+    
+    partie 2 - Raspberry Pi et electronique : une introduction
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/0-reseau-internet-et-protocole-http/" >
+    
+  
+    
+    
+    00. Réseau : internet et protocole HTTP
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/1-lexicometrie/" >
+    
+  
+    
+    
+    01. Lexicométrie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/2-cryptographie/" >
+    
+  
+    
+    
+    02. Cryptographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/3-casser-un-code-secret/" >
+    
+  
+    
+    
+    03. Casser un code secret
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/4-images-couleurs/" >
+    
+  
+    
+    
+    04. Images, couleurs
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-bis-popart-2/" >
+    
+  
+    
+    
+    05. bis - popart
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/5-traitement-des-images-matricielles/" >
+    
+  
+    
+    
+    05. Traitement des images matricielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/6-creation-dimages-vectorielles/" >
+    
+  
+    
+    
+    06. Création d&#39;images vectorielles
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/7-cartographie/" >
+    
+  
+    
+    
+    07. Cartographie
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/8-les-donnees-csv-json-et-geojson/" >
+    
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/9-python-camera/" >
+    
+  
+    
+    
+    09. Computer vision : manipulation en live du flux d&#39;une camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/10-un-jeu-complet-en-pygame-dodger/"  class="active">
+    
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/" >
+    
+  
+    
+    
+    11. Pygame et la camera : introduction du module
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/" >
+    
+  
+    
+    
+    tutoriel_python_camera
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/annexe-logiciels-libres-les-bonnes-pratiques/" >
+    
+  
+    
+    
+    Annexe : Logiciels libres, les bonnes pratiques
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/revue-de-projet/" >
+    
+  
+    
+    
+    devoir : Vacances de Noël - Revue de projet
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/devoir-vacances-de-toussaint-construct-2/" >
+    
+  
+    
+    
+    devoir : vacances de Toussaint - Construct 2
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/icn/internet-of-objects-iot/" >
+    
+  
+    
+    
+    Internet of Objects : IoT
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/collegues/" >
+    
+  
+    
+    
+    collègues
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  <a href="/docs/ressources/" >
+    
+  
+    
+    
+    ressources
+  
+
+  </a>
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+      </details>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    10. Un jeu complet en pygame : dodger
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="dodger">DODGER</h1>
+
+<p><a href="http://inventwithpython.com/chapter20.html">article original</a> traduit par mes soins.</p>
+
+<p>Voici un tutoriel permettant de créer un jeu complet à l&rsquo;aide de Python (2.7) et pygame (1.9)</p>
+
+<p>Il est nécessaire de disposer de connaissances sur Python et Pygame (import, init, blit, events) avant de l&rsquo;aborder</p>
+
+<p><em>Pour ceux qui y étaient, ce jeu a servi de démonstration de travaux d&rsquo;élèves lors des portes ouvertes du Lycée des Flandres en mars 2017. Il m&rsquo;a semblé intéressant de le présenter.</em></p>
+
+<p>Quelques-uns des thèmes abordés :</p>
+
+<p>Le flag pygame.FULLSCREEN
+ Les variables &ldquo;constates&rdquo;  de Pygame pour les touches clavier
+ La méthode move_ip() Rect
+ La fonction pygame.mouse.set_pos()
+ Création de cheat codes cheat codes
+ Modifier le Dodger game</p>
+
+<p>Dans ce tutoriel on utilise les notions de base du module Pygame pour créer un jeu graphique appelé Dodger.</p>
+
+<p>Le jeu Dodger présente un joueur (player) qui doit éviter (to dodge) des méchant (baddies) qui lui tombent dessus depuis le haut de l&rsquo;écran. Plus le joueur reste en vie longtemps, plus il augmente son score.</p>
+
+<p>Pour l&rsquo;amusement nous ajouterons aussi un mode de cheat : si le joueur maintient &ldquo;x&rdquo; les méchants ralentissent. S&rsquo;il maintient &ldquo;z&rdquo; ils remontent.</p>
+
+<h2 id="revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</h2>
+
+<p>Revoyons quelques types de données standard utilisés dans Pygame  :</p>
+
+<p>pygame.Rect - Les objets Rect représentent un espace rectangulaire définis par une position et des dimensions.</p>
+
+<p>La position est définie par l&rsquo;attribut topleft (coin supérieur gauche) (ou les attributs topright, bottomleft, et bottomright). Ces attributs de coins sont des tuple d&rsquo;entiers (X,Y). X et Y etant donc des coordonnées.</p>
+
+<p>La dimension peut être définie par largeur et hauteur (width, height). Ce sont des entiers. Les objets Rect objects ont une méthode colliderect() permettant de vérifier s&rsquo;ils se superposent à d&rsquo;autres rectangles.</p>
+
+<p>pygame.Surface - Les objets Surface sont des domaines de pixels de couleur. Ils représentent une image rectangulaire, tandis que les objets Rect ne représentent qu&rsquo;un rectangle et une dimension. Les objets Surface ont une méthode blit() employée pour dessiner l&rsquo;image d&rsquo;une surface sur une autre surface. L&rsquo;objet Surface renvoyé par la fonction pygame.display.set_mode() est particulier parce que tout ce qui est envoyé dessus est dessiné à l&rsquo;écran quand pygame.display.update() est appelé.</p>
+
+<p>pygame.event.Event - Le module pygame.event génère des objets Event dès que l&rsquo;utilisateur utilise le clavier, la souris ou tout autre périphérique d&rsquo;entrée (voir Computer vision &amp; Python sur ce même site pour une utilisation de la webcam).</p>
+
+<p>La fonction pygame.event.get() renvoie une liste de ces événements objects. Vous pouvez vérifier quel type d&rsquo;événement vous manipulez en consultant son attribut Type. QUIT, KEYDOWN, et MOUSEBUTTONUP sont des exemples d&rsquo;événements.</p>
+
+<p>pygame.font.Font - Le module pygame.font dispose du type de donnée Font qui représente la police utilisée par Pygame. Les paramètres à envoyer à  pygame.font.SysFont() sont une chaîne de caractère pour le nom et un entier pour la taille. Cependant il est courant d&rsquo;envoyer None pour le nom afin d&rsquo;employer la fonte par défaut.
+pygame.time.Clock - L&rsquo;objet Clock du module pygame.time permet de rendre nos jeux les plus rapides possibles. L&rsquo;horloge dispose d&rsquo;une méthode tick(), à laquelle nous passons le nombre de FPS (frame par seconde) auxquels nous voulons faire tourner le jeu. Plus les FPS sont élevées plus le jeu tourne rapidement.</p>
+
+<p>Récupérez le code suivant et sauvegardez le dans un fichier _dodger.py. _Ce jeu requiert aussi quelques fichiers d&rsquo;images et de sons disponibles.</p>
+
+<p>Le <a href="http://qkzk.xyz/docs/tutos/python/dodger/player.png">joueur</a>, le <a href="http://qkzk.xyz/docs/tutos/python/dodger/baddie.png">méchant</a>, le <a href="http://qkzk.xyz/docs/tutos/python/dodger/gameover.wav">son gameover</a>, la <a href="http://qkzk.xyz/docs/tutos/python/dodger/background.mid">musique de fond</a>.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+# coding=utf-8
+import pygame, random, sys
+from pygame.locals import *
+
+WINDOWWIDTH = 600
+WINDOWHEIGHT = 600
+TEXTCOLOR = (255, 255, 255)
+BACKGROUNDCOLOR = (0, 0, 0)
+FPS = 40
+BADDIEMINSIZE = 10
+BADDIEMAXSIZE = 40
+BADDIEMINSPEED = 1
+BADDIEMAXSPEED = 8
+ADDNEWBADDIERATE = 6
+PLAYERMOVERATE = 5
+
+def terminate():
+    pygame.quit()
+    sys.exit()
+
+def waitForPlayerToPressKey():
+    while True:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                terminate()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE: # pressing escape quits
+                    terminate()
+                return
+
+def playerHasHitBaddie(playerRect, baddies):
+    for b in baddies:
+        if playerRect.colliderect(b[&#39;rect&#39;]):
+            return True
+    return False
+
+def drawText(text, font, surface, x, y):
+    textobj = font.render(text, 1, TEXTCOLOR)
+    textrect = textobj.get_rect()
+    textrect.topleft = (x, y)
+    surface.blit(textobj, textrect)
+
+# set up pygame, the window, and the mouse cursor
+pygame.init()
+mainClock = pygame.time.Clock()
+windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+pygame.display.set_caption(&#39;Dodger&#39;)
+pygame.mouse.set_visible(False)
+
+# set up fonts
+font = pygame.font.SysFont(None, 48)
+
+# set up sounds
+gameOverSound = pygame.mixer.Sound(&#39;gameover.wav&#39;)
+pygame.mixer.music.load(&#39;background.mid&#39;)
+
+# set up images
+playerImage = pygame.image.load(&#39;player.png&#39;)
+playerRect = playerImage.get_rect()
+baddieImage = pygame.image.load(&#39;baddie.png&#39;)
+
+# show the &#34;Start&#34; screen
+drawText(&#39;Dodger&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText(&#39;Press a key to start.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
+pygame.display.update()
+waitForPlayerToPressKey()
+
+
+topScore = 0
+while True:
+    # set up the start of the game
+    baddies = []
+    score = 0
+    playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)
+    moveLeft = moveRight = moveUp = moveDown = False
+    reverseCheat = slowCheat = False
+    baddieAddCounter = 0
+    pygame.mixer.music.play(-1, 0.0)
+
+    while True: # the game loop runs while the game part is playing
+        score += 1 # increase score
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                terminate()
+
+            if event.type == KEYDOWN:
+                if event.key == ord(&#39;z&#39;):
+                    reverseCheat = True
+                if event.key == ord(&#39;x&#39;):
+                    slowCheat = True
+                if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+                    moveRight = False
+                    moveLeft = True
+                if event.key == K_RIGHT or event.key == ord(&#39;d&#39;):
+                    moveLeft = False
+                    moveRight = True
+                if event.key == K_UP or event.key == ord(&#39;w&#39;):
+                    moveDown = False
+                    moveUp = True
+                if event.key == K_DOWN or event.key == ord(&#39;s&#39;):
+                    moveUp = False
+                    moveDown = True
+
+            if event.type == KEYUP:
+                if event.key == ord(&#39;z&#39;):
+                    reverseCheat = False
+                    score = 0
+                if event.key == ord(&#39;x&#39;):
+                    slowCheat = False
+                    score = 0
+                if event.key == K_ESCAPE:
+                    terminate()
+
+                if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+                    moveLeft = False
+                if event.key == K_RIGHT or event.key == ord(&#39;d&#39;):
+                    moveRight = False
+                if event.key == K_UP or event.key == ord(&#39;w&#39;):
+                    moveUp = False
+                if event.key == K_DOWN or event.key == ord(&#39;s&#39;):
+                    moveDown = False
+
+            if event.type == MOUSEMOTION:
+                    # If the mouse moves, move the player where the cursor is.
+                    playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)
+
+        # Add new baddies at the top of the screen, if needed.
+        if not reverseCheat and not slowCheat:
+            baddieAddCounter += 1
+        if baddieAddCounter == ADDNEWBADDIERATE:
+            baddieAddCounter = 0
+            baddieSize = random.randint(BADDIEMINSIZE, BADDIEMAXSIZE)
+            newBaddie = {&#39;rect&#39;: pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
+            &#39;speed&#39;: random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
+            &#39;surface&#39;:pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
+            }
+
+            baddies.append(newBaddie)
+
+        # Move the player around.
+        if moveLeft and playerRect.left &gt; 0:
+            playerRect.move_ip(-1 * PLAYERMOVERATE, 0)
+        if moveRight and playerRect.right &lt; WINDOWWIDTH:
+            playerRect.move_ip(PLAYERMOVERATE, 0)
+        if moveUp and playerRect.top &gt; 0:
+            playerRect.move_ip(0, -1 * PLAYERMOVERATE)
+        if moveDown and playerRect.bottom &lt; WINDOWHEIGHT:
+            playerRect.move_ip(0, PLAYERMOVERATE)
+
+        # Move the mouse cursor to match the player.
+        pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)
+
+        # Move the baddies down.
+        for b in baddies:
+            if not reverseCheat and not slowCheat:
+                b[&#39;rect&#39;].move_ip(0, b[&#39;speed&#39;])
+            elif reverseCheat:
+                b[&#39;rect&#39;].move_ip(0, -5)
+            elif slowCheat:
+                b[&#39;rect&#39;].move_ip(0, 1)
+
+        # Delete baddies that have fallen past the bottom.
+        for b in baddies[:]:
+            if b[&#39;rect&#39;].top &gt; WINDOWHEIGHT:
+                baddies.remove(b)
+
+        # Draw the game world on the window.
+        windowSurface.fill(BACKGROUNDCOLOR)
+
+        # Draw the score and top score.
+        drawText(&#39;Score: %s&#39; % (score), font, windowSurface, 10, 0)
+        drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)
+
+        # Draw the player&#39;s rectangle
+        windowSurface.blit(playerImage, playerRect)
+
+        # Draw each baddie
+        for b in baddies:
+            windowSurface.blit(b[&#39;surface&#39;], b[&#39;rect&#39;])
+
+        pygame.display.update()
+
+        # Check if any of the baddies have hit the player.
+        if playerHasHitBaddie(playerRect, baddies):
+            if score &gt; topScore:
+                topScore = score # set new top score
+            break
+
+        mainClock.tick(FPS)
+
+    # Stop the game and show the &#34;Game Over&#34; screen.
+    pygame.mixer.music.stop()
+    gameOverSound.play()
+
+    drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+    drawText(&#39;Press a key to play again.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
+    pygame.display.update()
+    waitForPlayerToPressKey()
+
+    gameOverSound.stop()</pre></div>
+<p>Voici ce que vous devriez voir (les sprites sont différents de ceux de la capture).
+<img src="http://inventwithpython.com/chapter20_files/image002.jpg" alt="" /></p>
+
+<h3 id="importer-les-modules">Importer les modules</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+# coding=utf-8
+import pygame, random, sys
+from pygame.locals import *</pre></div>
+<p>Le jeu Dodger import les modules usuels après avoir défini l&rsquo;encodage et l&rsquo;environnement :pygame, random, sys, et pygame.locals. pygame.locals contient plusieurs variables utilisées par Pygame tels que les événements  (QUIT, KEYDOWN, etc.) et les touches du clavier (K_ESCAPE, etc.). En utilisant cette la syntaxe from pygame.locals import * syntax, vous pouvez simplement taper QUIT dans le code source au lieu de pygame.locals.QUIT.</p>
+
+<h3 id="réglage-des-variables-constantes">Réglage des variables Constantes</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">WINDOWWIDTH = 600
+WINDOWHEIGHT = 600
+TEXTCOLOR = (255, 255, 255)
+BACKGROUNDCOLOR = (0, 0, 0)</pre></div>
+<p>Les constantes tapées entre les lignes 4 et 14 sont plus explicites que si l&rsquo;on tapait directement les valeurs. Par exemple, windowSurface.fill(BACKGROUNDCOLOR) est plus facile à comprendre que windowSurface.fill((0, 0, 0)).</p>
+
+<p>Vous pouvez les changer facilement dans le jeu et éditant le code source. En changeant WINDOWWIDTH à la ligne 4, vous le modifiez à toutes les lignes où il intervient WINDOWWIDTH. Si vous aviez tapé 600 à la place, vous devriez les changer toutes les fois où il intervient.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FPS = 40</pre></div>
+<p>Le tick de l&rsquo;horloge principale utilisée à la ligne 189 va ralentir le jeu suffisamment pour le rendre jouable. On envoie un entier à mainClock.tick() de façon à ce que le jeu sache combien de temps mettre en pause le programme. Cet entier est donc le nombre de FPS auquel on souhaite faire tourner le jeu.</p>
+
+<p>Une &ldquo;frame&rdquo; est le dessin d&rsquo;une image à l&rsquo;écran pour une seule itération de la boucle du jeu. Vous pouvez régler le jeu à 40 FPS et toujours appeler mainClock.tick(FPS). Ensuite, en augmentant FPS, vous accélérez le jeu, en le diminuant vous ralentissez le jeu.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">BADDIEMINSIZE = 10
+BADDIEMAXSIZE = 40
+BADDIEMINSPEED = 1
+BADDIEMAXSPEED = 8
+ADDNEWBADDIERATE = 6</pre></div>
+<p>Les lignes 11 à 15 définissent d&rsquo;autres constantes qui décrivent le comportement des méchants. Les dimensions des méchants seront comprises entre BADDIEMINSIZE et BADDIEMAXSIZE. Le rythmer auquel les méchants tombent de l&rsquo;écran sera fixé entre BADDIEMINSPEED et BADDIEMAXSPEED pixels par itération de la boucle de jeu. Et un nouveau méchant sera ajouté toutes les ADDNEWBADDIERATE itérations.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">PLAYERMOVERATE = 5</pre></div>
+<p>PLAYERMOVERATE décrit le nombre de pixel que le jouer traverse à chaque itération. L&rsquo;augmenter permet donc d&rsquo;accélérer le joueur.</p>
+
+<h2 id="définir-les-fonctions">Définir les fonctions</h2>
+
+<p>Plusieurs fonctions sont utilisées dans le jeu.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def terminate():
+    pygame.quit()
+    sys.exit()</pre></div>
+<p>Pygame doit être quitté en appelant à la fois pygame.quit et sys.exit. On les ajoute donc tous les deux à une fonction  terminate qui sera appelée pour clore le jeu en une seule commande.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def waitForPlayerToPressKey():
+    while True:
+        for event in pygame.event.get():</pre></div>
+<p>Parfois il est commode de pouvoir mettre en pause le jeu jusqu&rsquo;à ce qu&rsquo;un joueur presse une touche. Créer waitForPlayerToPressKey() et dans cette fonction, inclure une boucle infinie qui ne s&rsquo;arrête (break) que lorsque qu&rsquo;un événement KEYDOWN ou QUIT est enregistré. Au début de cette boucle, pygame.event.get() permet de définir la liste des événements en question.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == QUIT:
+    terminate()</pre></div>
+<p>Si le joueur a fermé la fenêtre quand le jeu est en pause, Pygame va générer un événement QUIT.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
+     if event.key == K_ESCAPE: # pressing escape quits
+         terminate()
+          return</pre></div>
+<p>Même chose si la touche Escape du clavier est enregistrée parmi les événements clavier.</p>
+
+<p>Si aucun QUIT ou KEYDOWN n&rsquo;est enregistré, alors le code tourne en boucle. Cette boucle ne faisant rien, cela revient à mettre en pause tant qu&rsquo;une touche n&rsquo;est pas pressée.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def playerHasHitBaddie(playerRect, baddies):
+    for b in baddies:
+        if playerRect.colliderect(b[&#39;rect&#39;]):
+            return True
+    return False</pre></div>
+<p>La fonction playerHasHitBaddie() va renvoyer True si le joueur a heurté l&rsquo;un des méchants. Le parametre méchants est une liste de dictionnaires de méchants. Chacun de ces dictionnaire contient une clé &lsquo;rect&rsquo; et la valeur de cette clé est un objet Rect qui représente la taille et la position du baddie.</p>
+
+<p>playerRect est aussi un objet Rect. Ces objets ont une méthode colliderect() qui renvoie True si l&rsquo;objet Rect a heurté celui envoyé en paramètre. Sinon coliiderect() va renvoyer False.</p>
+
+<p>La boucle for de la ligne 33 tourne sur la liste des baddies et s&rsquo;arrête dès que l&rsquo;une des collisions est détectée. Si le code parcourt toute la liste sans passer à vrai, alors la fonction renvoie False.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def drawText(text, font, surface, x, y):
+    textobj = font.render(text, 1, TEXTCOLOR)
+    textrect = textobj.get_rect()
+    textrect.topleft = (x, y)
+    surface.blit(textobj, textrect)</pre></div>
+<p>Quelques étapes doivent être accomplie pour écrire du texte à l&rsquo;écran. Premièrement, la méthode render() appelée à la ligne 37 crée un objet Surface qui contient le texte et la police.
+Ensuite on doit connaître la taille et la position de cet objet Surface. On peut obtenir définir cette position à l&rsquo;aide d&rsquo;un get_rect(). Ainsi l&rsquo;objet Rect de la ligne 40 contient une copie de la taille et la hauteur définie par la surface. Ligne 41 on met à joueur la position du Rect en lui passant un tuple (x, y).
+Enfin, ligne 42 on blit la Surface du textobj sur le textrect.</p>
+
+<p>Ecrire du texte en pygame est plus complexe que d&rsquo;appeler un simple print() néanmoins, en créant cette fonction, vous n&rsquo;avez plus qu&rsquo;à l&rsquo;appeler une fois avec tous les paramètres pour le faire.</p>
+
+<h2 id="initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</h2>
+
+<p>Les constantes et les fonctions étant définies, il est possible de définir la fenêtre et l&rsquo;horloge.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.init()
+mainClock = pygame.time.Clock()</pre></div>
+<p>La ligne 45 lance pygame avec l&rsquo;appel à init(). La suivante défini l&rsquo;horloge time.Clock() qui empêchera le jeu de tourner trop vite.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))</pre></div>
+<p>Ligne 47 on crée une nouvelle Surface qui servira à définir la fenêtre affichée à l&rsquo;écran. On emploie ici les dimensions crées plus haut. Remarquons qu&rsquo;on ne passe qu&rsquo;un seul argument à set_mode(), un tuple ! Les dimensions ne sont pas deux entiers mais un tuple les contenant.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.set_caption(&#39;Dodger&#39;)</pre></div>
+<p>On défini ici le titre du jeu, il apparaîtra en haut de l&rsquo;écran.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mouse.set_visible(False)</pre></div>
+<p>On cache le curseur de la souris. En effet, on se servira de la souris pour déplacer le joueur.</p>
+
+<h2 id="mode-plein-écran">Mode plein écran</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)</pre></div>
+<p>En changeant ainsi la ligne 47 on rend le jeu plein écran. La fenêtre est étendue jusqu&rsquo;aux dimensions maximales de l&rsquo;écran. Testez le jeu dans les deux modes pour bien comprendre son fonctionnement.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up fonts
+font = pygame.font.SysFont(None, 48)</pre></div>
+<p>On défini un objet font en appelant font.SysFont. Le premier paramètre permet de la choisir et, en passant None, on choisit la police par défaut. Le second est sa taille.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up sounds
+gameOverSound = pygame.mixer.Sound(&#39;gameover.wav&#39;)
+pygame.mixer.music.load(&#39;background.mid&#39;)</pre></div>
+<p>Ensuite on crée les objets sonores. Le premier est le son game over qui est appelé quand on perd.
+Le second est la musique de fond qui est tourne en permanence. Il est possible de jouer n&rsquo;importe quel .wav ou .mid dans le jeu.</p>
+
+<p>Il est possible d&rsquo;appeler mixer.Sound autant de fois que l&rsquo;on souhaite mais mixer.music.load ne peut être appelée qu&rsquo;une seule fois. Ces constructeurs ne renvoient rien.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up images
+playerImage = pygame.image.load(&#39;player.png&#39;)
+playerRect = playerImage.get_rect()
+baddieImage = pygame.image.load(&#39;baddie.png&#39;)</pre></div>
+<p>On défini ici les images qui seront utilisées pour le joueur et les méchants. Tous les méchants ont la même image donc un seul fichier suffit.</p>
+
+<h2 id="afficher-l-écran-de-démarrage">Afficher l&rsquo;écran de démarrage</h2>
+
+<p>Quand le jeu se lance, on affiche son nom à l&rsquo;écran. On souhaite aussi expliquer à l&rsquo;utilisateur comment jouer. Cet écran sert à donner le temps à l&rsquo;utilisateur de se préparer.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># show the &#34;Start&#34; screen
+drawText(&#39;Dodger&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText(&#39;Press a key to start.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
+pygame.display.update()
+waitForPlayerToPressKey()</pre></div>
+<p>On appelle le drawText avec 5 arguments :</p>
+
+<ol>
+<li>le string contenant le texte</li>
+<li>la police</li>
+<li>la surface sur laquelle écrire</li>
+<li>l&rsquo;abscisse x</li>
+<li>l&rsquo;ordonnée y</li>
+</ol>
+
+<p>Cela peut sembler beaucoup mais souvenons nous de la définition de drawText un peu plus haut. Elle demandait bien ces paramètres. Ce type d&rsquo;appel simplifie grandement le code.</p>
+
+<p>La fonction waitForPlayerToPressKey() va mettre le jeu en pause jusqu&rsquo;à ce que l&rsquo;utilisateur presse un touche pour le lancer.</p>
+
+<h2 id="lancement-du-mode-de-jeu">Lancement du mode de jeu</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">topScore = 0
+while True:</pre></div>
+<p>Le meilleur score est stocké dans une variable.
+On lance ensuite une boucle infinie qui va décrire une partie complète. A chaque défaite, on retourne ligne 71. Techniquement, ce n&rsquo;est donc pas la boucle infinie du jeu.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up the start of the game
+baddies = []
+score = 0</pre></div>
+<p>A chaque partie on initialise la liste des méchants et le score de la partie en cours.
+La variable baddies est une liste dont chaque élément est un dictionnaire. Ils contiennent les clés suivantes :</p>
+
+<p>&lsquo;rect&rsquo; : l&rsquo;objet Rect qui décrit où il se situe et quelle est sa taille
+ &lsquo;speed&rsquo; : la vitesse du mechant. Entier qui décrit le nombre de pixels franchis entre chaque frame
+ &lsquo;surface&rsquo; : La surface sur laquelle on dessine l&rsquo;image agrandie ou diminuée du méchant. Cet objet Surface est blitté sur la surface renvoyée par pygame.display.set_mode().</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)</pre></div>
+<p>Le rect du joueur. Il est positionné par son coin topleft au centre (horizontal) et en bas (vertical). Sa position est un tuple, souvenons nous.
+D&rsquo;autre pas, les coordonnées dans pygame sont : x vers la droite, y vers le bas.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">moveLeft = moveRight = moveUp = moveDown = False
+reverseCheat = slowCheat = False
+baddieAddCounter = 0</pre></div>
+<p>Les variables de mouvement du joueur sont toutes initialisées à False. Les deux cheatmode aussi.
+Le compteur de méchant est réinitialisé à 0.
+Ce compteur augmente de 1 à chaque tour et, quand il vaut ADDNEWBADDIERATE un nouveau méchant est ajouté à l&rsquo;écran et on réinitialise le compteur à 0.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mixer.music.play(-1, 0.0)</pre></div>
+<p>La musique de fond est lancée ligne 79 en appelant mixer.music.play(). Le premier argument, -1, indique le nombre de fois où elle doit se répéter (-1 : à l&rsquo;infini).
+Le second est un réel (float) qui indique à quelle seconde de la musique vous souhaitez qu&rsquo;elle commence, 0.0 : du début.</p>
+
+<h2 id="la-boucle-de-jeu">La boucle de jeu</h2>
+
+<p>Le jeu tourne indéfiniment en mettant à jour l&rsquo;état du monde (position du joueur, des méchants, gestion des événements, dessin des objets). Ceci se déroulant des dizaines de fois par seconde, on obtient une illusion de temps réel.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">while True: # the game loop runs while the game part is playing
+    score += 1 # increase score</pre></div>
+<p>On lance la boucle infinie et on augmente de 1 le score à chaque tour.
+Elle ne s&rsquo;arrêtera que lorsqu&rsquo;on va perdre ou quitter la partie.</p>
+
+<h2 id="gestion-des-événements">Gestion des événements</h2>
+
+<p>Il y a 4 types d&rsquo;événements que le programme va gérer : QUIT, KEYDOWN, KEYUP et MOUSEMOTION</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">for event in pygame.event.get():
+    if event.type == QUIT:
+        terminate()</pre></div>
+<p>Ligne 84 est le début du gestionnaire d&rsquo;événements. Il appelle pygmae.event.get() qui renvoie une liste d&rsquo;objets Event. Chaque objet est un événement s&rsquo;étant déroulé depuis le dernier appel à cette fonction. Le code va d&rsquo;abord comparer le type d&rsquo;événements et ensuite gérer l&rsquo;événement en fonction.
+Si le type d&rsquo;événement est QUIT on sort du jeu.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
+    if event.key == ord(&#39;z&#39;):
+        reverseCheat = True</pre></div>
+<p>Si le type d&rsquo;événement est KEYDOWN, le joueur a enfoncé une touche. L&rsquo;événement clavier a aussi une clé qui lui est attribuée et qui correspond à la touche pressée. La fonction ord() renvoie la valeur de la touche.
+Par exemple, ligne 89 la touche &lsquo;z&rsquo; est enfoncée, alors on passe la valeur reverseCheat à true.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+    moveRight = False
+    moveLeft = True</pre></div>
+<p>Les lignes 93 à 104 présentent les déplacements clavier. Remarquons qu&rsquo;on peut presser à chaque fois deux touches, WASD ou les flèches. Celles-ci n&rsquo;ont pas de valeur ordinale mais une valeur constante définie par pygame.locals.
+D&rsquo;autre part chaque déplacement change deux variables : moveRight passe à faux et moveLeft à vrai. Les deux déplacements étant incompatibles.
+Voici une table présentant les valeurs des touches du clavier.
+<table cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;" border="1" class="MsoNormalTable" >
+<tbody >
+<tr ></p>
+
+<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Pygame Constant Variable</p>
+
+<p></td></p>
+
+<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Keyboard Key</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Pygame Constant Variable</p>
+
+<p></td></p>
+
+<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Keyboard Key</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_LEFT</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Left arrow</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_HOME</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Home</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_RIGHT</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Right arrow</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_END</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>End</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_UP</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Up arrow</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_PAGEUP</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>PgUp</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_DOWN</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Down arrow</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_PAGEDOWN</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>PgDn</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_ESCAPE</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Esc</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F1</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F1</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_BACKSPACE</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Backspace</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F2</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F2</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_TAB</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Tab</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F3</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F3</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_RETURN</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Return or Enter</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F4</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F4</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_SPACE</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Space bar</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F5</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F5</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_DELETE</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Del</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F6</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F6</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_LSHIFT</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Left Shift</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F7</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F7</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_RSHIFT</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Right Shift</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F8</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F8</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_LCTRL</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Left Ctrl</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F9</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F9</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_RCTRL</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Right Ctrl</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F10</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F10</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_LALT</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Left Alt</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F11</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F11</p>
+
+<p></td>
+</tr>
+<tr ></p>
+
+<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_RALT</p>
+
+<p></td></p>
+
+<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>Right Alt</p>
+
+<p></td></p>
+
+<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
+</td></p>
+
+<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>K_F12</p>
+
+<p></td></p>
+
+<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
+
+<p>F12</p>
+
+<p></td>
+</tr>
+</tbody>
+</table></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYUP:
+    if event.key == ord(&#39;z&#39;):
+        reverseCheat = False
+        score = 0</pre></div>
+<p>L&rsquo;événement KEYUP est crée à chaque fois que le joueur relache une touche. Ils disposent d&rsquo;un numéro de touche identiques à ceux de KEYDOWN.
+On arrête alors les déplacements et les cheat code en passant les valeurs à False.</p>
+
+<h2 id="la-méthode-move-ip">La méthode move_ip()</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == MOUSEMOTION:
+        # If the mouse moves, move the player where the cursor is.
+        playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)</pre></div>
+<p>On gère ainsi les événements souris. On ne s&rsquo;occupe que du déplacement de la souris, pas des boutons.</p>
+
+<p>MOUSEMOTION est généré dès que la souris est déplacée. Ces événements ont aussi un attribut pos pour la position de la souris. C&rsquo;est un tuple (X,Y) de coordonnées. On déplace alors le joueur à ces coordonnées.</p>
+
+<p>La méthode move_ip() des objets Rect va déplacer la position du Rect horizontalement ou verticalement par un certain nombre de pixels.
+Par exemple move_ip(10,20) va déplacer le Rect de 10 en abs et 20 en ordonnée. le &ldquo;ip&rdquo; signifie &ldquo;in place&rdquo;. C&rsquo;est parce que la méthode change le Rect lui même plutôt que de renvoyer un nouveau Rect. Il existe aussi une méthode move qui renvoie un nouveau Rect situé à la nouvelle position.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Add new baddies at the top of the screen, if needed.
+if not reverseCheat and not slowCheat:
+    baddieAddCounter += 1</pre></div>
+<p>On augmente le compteur de baddies de 1 à chaque tour. Ceci ne se produit que si l&rsquo;on n&rsquo;est pas en mode cheat.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if baddieAddCounter == ADDNEWBADDIERATE:
+    baddieAddCounter = 0
+    baddieSize = random.randint(BADDIEMINSIZE, BADDIEMAXSIZE)
+    newBaddie = {&#39;rect&#39;: pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
+    &#39;speed&#39;: random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
+    &#39;surface&#39;:pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
+    }</pre></div>
+<p>Quand le compteur baddieAddCounter arrive à la valeur ADDNEWBADDIERATE, il est temps d&rsquo;ajouter un méchant à l&rsquo;écran.
+On tire au hasard avec random.randint( ) un entier entre les bornes BADDIEMINSIZE et BADDIEMAXSIZE représentant sa taille.
+On crée ensuite le dictionnaire newBaddie = { } contenant les clés &lsquo;rect&rsquo;, &lsquo;speed&rsquo; et &lsquo;surface&rsquo;. Rect contient la taille et la position. L&rsquo;abscisse de la position est aléatoire entre 0 et la taille de l&rsquo;écran moins la taille du baddie, l&rsquo;ordonnée est choisie de façon à ce qu&rsquo;il semble entrer dans l&rsquo;écran tout en haut. Les dimensions sont égales car le méchant est carré.
+La vitesse est aléatoire entre les constantes définies plus haut : BADDIEMINSPEED et BADDIEMAXSPEED
+La surface est définie de la même manière que celle du joueur.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baddies.append(newBaddie)</pre></div>
+<p>On ajoute ensuite ce nouveau baddie à la liste comme précédemment.</p>
+
+<h2 id="le-déplacement-du-joueur">Le déplacement du joueur</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if moveLeft and playerRect.left &gt; 0:
+    playerRect.move_ip(-1 * PLAYERMOVERATE, 0)</pre></div>
+<p>Les quatre variables de déplacement (moveLeft etc.) sont définies comme vraies ou fausses par les événements clavier. Si le joueur bouge vers la gauche et que son abscisse est positive, il devrait se déplacer.
+C&rsquo;est ce qu&rsquo;on fait à l&rsquo;aide de move_ip.</p>
+
+<p>On se déplace selon la vitesse PLAYERMOVERATE définie plus haut. -1*PLAYERMOVERATE est donc la version négative de l&rsquo;entier en question.</p>
+
+<p>On défini de la même manière les autres déplacements.</p>
+
+<h2 id="la-fonction-pygame-mouse-set-pos">La fonction pygame.mouse.set_pos()</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the mouse cursor to match the player.
+pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)</pre></div>
+<p>On déplace le curseur à la même position que le joueur en passant à cette fonction les coordonnées : playerRect.centerx et playerRect.centery.
+En particulier le curseur sera toujours au centre du Rect du joueur.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the baddies down.
+for b in baddies:
+    if not reverseCheat and not slowCheat:
+        b[&#39;rect&#39;].move_ip(0, b[&#39;speed&#39;])</pre></div>
+<p>On boucle dans la liste des baddies.
+Python permet de boucler directement dans une liste sans effort.
+Si les cheatmode ne sont pas activés alors le méchant va se déplacer vers le bas.</p>
+
+<h2 id="les-cheatmode">Les cheatmode</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">elif reverseCheat:
+    b[&#39;rect&#39;].move_ip(0, -5)
+elif slowCheat:
+    b[&#39;rect&#39;].move_ip(0, 1)</pre></div>
+<p>On fait reculer les monstres ou on les ralenti si selon le cheatmode activé.</p>
+
+<h2 id="retirer-les-méchants">Retirer les méchants</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Delete baddies that have fallen past the bottom.
+for b in baddies[:]:
+    if b[&#39;rect&#39;].top &gt; WINDOWHEIGHT:
+        baddies.remove(b)</pre></div>
+<p>Les méchants qui arrivent en bas de l&rsquo;écran sont simplement retirés de la liste qui les contient.
+Attention cependant, il faut s&rsquo;assurer de ne pas modifier la liste elle même alors qu&rsquo;on la parcourt. On réalise d&rsquo;abord une copie de la liste et ensuite on modifie la liste originale. Ceci nous assure que la boucle ne va rencontrer aucune erreur.</p>
+
+<p>Cette copie est réalisée en écrivant baddies[:]
+b[&lsquo;rect&rsquo;] récupère la valeur de la clé &lsquo;rect&rsquo; de l&rsquo;élément b de la liste. b[&lsquo;rect&rsquo;].top est donc le haut de cet élément.</p>
+
+<p>On compare ensuite le haut de l&rsquo;élément Rect à la taille de l&rsquo;écran et, s&rsquo;il est supérieur on retire le baddie de la liste.</p>
+
+<h2 id="dessiner-la-fenêtre">Dessiner la fenêtre</h2>
+
+<p>Tous les éléments étant à jour, il est temps de dessiner la fenêtre.</p>
+
+<p>La fenêtre étant rafraîchie plusieurs fois par seconde, cela rend les animations fluides.</p>
+
+<p>Les éléments sont dessinés <strong>LES UNS AU DESSUS DES AUTRES. On commence donc par le fond</strong></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the game world on the window.
+windowSurface.fill(BACKGROUNDCOLOR)</pre></div>
+<p>On vient donc d&rsquo;effacer tous les éléments précédents.</p>
+
+<p>Souvenons nous que l&rsquo;objet Surface de windowSurface est une surface particuliere renvoyée par pygame.display.set_mode(). Ainsi, tout ce qui est dessiné sur cette surface apparaîtra à l&rsquo;écran une fois pygame.display.update() appelé.</p>
+
+<h2 id="dessiner-le-score">Dessiner le score</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the score and top score.
+drawText(&#39;Score: %s&#39; % (score), font, windowSurface, 10, 0)
+drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)</pre></div>
+<p>On affiche le texte du score et du meilleur score dans le coin de l&rsquo;écran. &lsquo;Score: %s&rsquo; % (score) est un formatage particulier d&rsquo;une chaîne de caractère qui va remplacer %s par la valeur contenu dans le tuple (score). On aura donc :</p>
+
+<p>&lsquo;Score : 172&rsquo; si la variable score vaut 172.</p>
+
+<p>On les dessine aux coordonnées données en dernier paramètres : respectivement 10, 0 et 10, 40.</p>
+
+<h2 id="dessiner-le-joueur">Dessiner le joueur</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the player&#39;s rectangle
+windowSurface.blit(playerImage, playerRect)</pre></div>
+<p>Les informations du joueur sont stockées dans deux variables : playerImage (son sprite) et playerRect (position et dimension). La méthode blit() dessine l&rsquo;image playerImage sur la surface windowSurface aux positions de playerRect() et selon ses dimensions.</p>
+
+<h2 id="dessiner-les-méchants">Dessiner les méchants</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw each baddie
+for b in baddies:
+    windowSurface.blit(b[&#39;surface&#39;], b[&#39;rect&#39;])</pre></div>
+<p>On fait de même pour chaque méchant de la liste. On récupère depuis le dictionnaire b les éléments &lsquo;surface&rsquo; et &lsquo;rect&rsquo; qu&rsquo;on envoie à blit.</p>
+
+<h2 id="mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.update()</pre></div>
+<p>On dessine enfin cette surface sur celle de l&rsquo;écran et tous les éléments vont apparaître.</p>
+
+<h2 id="détection-des-collisions">Détection des collisions</h2>
+
+<p>A cette étape toutes les données sont dessinées à l&rsquo;écran. Il ne reste plus qu&rsquo;à détecter les collisions entre le joueur et les méchants.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Check if any of the baddies have hit the player.
+if playerHasHitBaddie(playerRect, baddies):
+    if score &gt; topScore:
+        topScore = score # set new top score
+    break</pre></div>
+<p>On appelle la fonction définie plus haut pour tester la collision entre le joueur et les méchants.
+La partie est alors terminée et on va mettre à jour le meilleur score si le score actuel l&rsquo;a dépassé.</p>
+
+<p>Enfin on arrête la boucle de la partie avec un break.</p>
+
+<p>On revient alors à la boucle contenant le déroulé du jeu.</p>
+
+<p>Si aucune collision n&rsquo;est détectée on arrive alors ligne 191</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mainClock.tick(FPS)</pre></div>
+<p>Pour empêcher l&rsquo;ordinateur d&rsquo;aller le plus vite possible dans la boucle de jeu (ce qui irait trop vite pour le joueur) on met en pause brièvement. mainClock.tick(FPS) assure que 40 tour de boucles sont effectués par seconde.</p>
+
+<h2 id="game-over">Game Over</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Stop the game and show the &#34;Game Over&#34; screen.
+pygame.mixer.music.stop()
+gameOverSound.play()</pre></div>
+<p>Quand le joueur perd, on arrive à la ligne 193 (on est alors sorti de la boucle depuis le break ligne 189). On joue alors le son gameover et on arrête la musique.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText(&#39;Press a key to play again.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
+pygame.display.update()
+waitForPlayerToPressKey()</pre></div>
+<p>On affiche ensuite le texte proposant de rejouer et on met l&rsquo;écran à jour.</p>
+
+<p>On entre ensuite en pause jusqu&rsquo;à ce qu&rsquo;il presse une touche ligne 200.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gameOverSound.stop()</pre></div>
+<p>Selon le temps que le joueur aura mis à presser une touche, le son gameover peut ne pas être terminé. On arrête le son dès que la fonction waitForPlayerToPressKey() est terminée pour s&rsquo;en assurer.</p>
+
+<h2 id="modifier-le-jeu-dodger">Modifier le jeu Dodger</h2>
+
+<p>Voilà notre jeu graphique réalisé. Vous pouvez le trouver trop difficile ou trop facile&hellip; Mais il est simple de l&rsquo;éditer pour changer ses paramètres. En effet il suffit de régler la vitesse dans les constantes initiales.</p>
+
+<p>Par exemple, pour le ralentir, il suffit de passer FPS à 20 pour qu&rsquo;il aille deux fois moins vite&hellip; Mais votre joueur aussi ira deux fois moins vite !
+Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale BADDIEMAXSPEED.</p>
+
+<p>Trop facile ? Augmentez la vitesse minimale des baddie sans toucher au FPS. etc.</p>
+
+<p>Moins de méchants, mais plus gros : augmentez le nombre de tours avant qu&rsquo;un méchant n&rsquo;apparaisse et leur taille minimale.</p>
+
+<p>Le jeu restera essentiellement le même mais ses paramètres peuvent être adapté selon votre volonté.</p>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#dodger">DODGER</a>
+<ul>
+<li><a href="#revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</a>
+<ul>
+<li><a href="#importer-les-modules">Importer les modules</a></li>
+<li><a href="#réglage-des-variables-constantes">Réglage des variables Constantes</a></li>
+</ul></li>
+<li><a href="#définir-les-fonctions">Définir les fonctions</a></li>
+<li><a href="#initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</a></li>
+<li><a href="#mode-plein-écran">Mode plein écran</a></li>
+<li><a href="#afficher-l-écran-de-démarrage">Afficher l&rsquo;écran de démarrage</a></li>
+<li><a href="#lancement-du-mode-de-jeu">Lancement du mode de jeu</a></li>
+<li><a href="#la-boucle-de-jeu">La boucle de jeu</a></li>
+<li><a href="#gestion-des-événements">Gestion des événements</a></li>
+<li><a href="#la-méthode-move-ip">La méthode move_ip()</a></li>
+<li><a href="#le-déplacement-du-joueur">Le déplacement du joueur</a></li>
+<li><a href="#la-fonction-pygame-mouse-set-pos">La fonction pygame.mouse.set_pos()</a></li>
+<li><a href="#les-cheatmode">Les cheatmode</a></li>
+<li><a href="#retirer-les-méchants">Retirer les méchants</a></li>
+<li><a href="#dessiner-la-fenêtre">Dessiner la fenêtre</a></li>
+<li><a href="#dessiner-le-score">Dessiner le score</a></li>
+<li><a href="#dessiner-le-joueur">Dessiner le joueur</a></li>
+<li><a href="#dessiner-les-méchants">Dessiner les méchants</a></li>
+<li><a href="#mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</a></li>
+<li><a href="#détection-des-collisions">Détection des collisions</a></li>
+<li><a href="#game-over">Game Over</a></li>
+<li><a href="#modifier-le-jeu-dodger">Modifier le jeu Dodger</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>
