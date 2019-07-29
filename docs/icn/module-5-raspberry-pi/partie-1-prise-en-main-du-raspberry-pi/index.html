@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -89,14 +89,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -117,7 +121,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4800,9 +4804,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4921,7 +4926,7 @@ Les inputs peuvent provenir d&rsquo;un capteur ou d&rsquo;un signal provenant d&
 <p>Les présentations étant faites, passons aux choses sérieuses.</p>
 
 <h1 id="2-prise-en-main">2. Prise en main</h1>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Insérer la carte micro SD dans le raspberry, on fera attention au sens,
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Insérer la carte micro SD dans le raspberry, on fera attention au sens,
   2. brancher la connectique nécessaire : réseau (vers la fiche murale), clavier, souris, vidéo (vers l&#39;écran lol)
   3. alimenter **en dernier** sur une prise murale</pre></div>
 <p>Si tout s&rsquo;est déroulé comme prévu le raspberry devrait booter sous <strong>raspbian</strong> et vous afficher soit un bureau classique, soit une console de commande dans laquelle vous identifier.
@@ -4929,14 +4934,14 @@ Les identifiants par défaut sont : <strong>login : pi ; mdp : raspberry   </s
 
 <p>La première chose à faire est de vérifier l&rsquo;état de la connexion réseau. Ouvrir une fenêtre de commande (Terminal) si vous êtes sur le bureau et saisir la commande :
 <em>Si vous êtes en mode texte, tapez simplement la commande suivante :</em></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ifconfig</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ifconfig</pre></div>
 <p>Valider avec entrée.
 Vous devriez voir apparaître beaucoup d&rsquo;information concernant la connexion réseau du raspberry, en particulier son <strong>adresse IP</strong> du style : <strong>&ldquo;176.92.0.34&rdquo;</strong> .  <strong>Notez la.</strong></p>
 
 <p>Selon toute vraisemblance, l&rsquo;adresse ip ne change pas sur le réseau du Lycée. Celui-ci est configuré de façon à toujours donner à chaque machine la même adresse. Parfois cela n&rsquo;est pas possible malheureusement.</p>
 
 <p>Ensuite, on va s&rsquo;assurer qu&rsquo;il communique bien avec l&rsquo;extérieur. Saisissez la commande suivante :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ping google.com</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ping google.com</pre></div>
 <p>Le raspberry va alors envoyer une requette &ldquo;ping&rdquo; à l&rsquo;adresse google.com. Pour faire cela il doit d&rsquo;abord TROUVER le domaine google.com&hellip; Et c&rsquo;est un serveur DNS (domain name server) qui va lui indiquer l&rsquo;adresse IP de google.com. Une fois l&rsquo;adresse résolue (216.58.213.142) elle sera transcrite et il enverra sa requête. Google est configuré pour répondre aux pings (certains serveurs ne l&rsquo;autorisent pas, pour des questions de sécurité) et google.com va renvoyer une réponse (Pong !). Quand celle-ci sera parvenue jusqu&rsquo;à nous, le raspberry affichera le temps écoulé en millisecondes et recommencera.
 Cette latence est indiquée pour chaque ping, ligne par ligne.
 Cette commande s’exécute indéfiniment et il faut l&rsquo;interrompre avec le raccourci clavier CTRL + C</p>
@@ -4950,7 +4955,7 @@ Cette commande s’exécute indéfiniment et il faut l&rsquo;interrompre avec le
 <p>Raspbian propose de nombreux outils et logiciels pré installés que je vais vous demander de découvrir.</p>
 
 <p>Par défaut, raspbian démarre en mode texte (la fenêtre de commande). Si c&rsquo;est le cas, lancez l&rsquo;environnement fenêtré avec la commande :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">startx</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">startx</pre></div>
 <p>Vous disposez donc d&rsquo;une demi-heure pour faire le tour des logiciels (et jeux !) installés sur le raspberry. Dépêchez vous !</p>
 
 <h4 id="retour-sur-la-fenêtre-de-commande">RETOUR SUR LA FENÊTRE DE COMMANDE.</h4>
@@ -4980,7 +4985,7 @@ Cette commande s’exécute indéfiniment et il faut l&rsquo;interrompre avec le
 <p>Ici, le serveur est le raspberry et le client la machine windows. C&rsquo;est important !</p>
 
 <p>Par défaut le serveur SSH est activé sur votre raspberry et tout ce que vous avez à faire est :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. de vous assurer qu&#39;il est bien connecté au réseau du lycée (nous l&#39;avons déjà fait).
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. de vous assurer qu&#39;il est bien connecté au réseau du lycée (nous l&#39;avons déjà fait).
   2. De relever son adresse ip (déjà fait)
   3. **De vous connecter depuis un autre ordinateur :**</pre></div>
 <p>Depuis une machine windows il faut installer <a href="http://www.putty.org/">Putty</a>.
@@ -5030,7 +5035,7 @@ Chaque fois que vous rencontrez un problème durant la configuration ou l&rsquo;
 <p>Le b-a-ba du GPIO ne demande pas beaucoup de connaissance, mais plus vous avancez, plus il faut maîtriser la programmation&hellip; Ensuite vient le matériel et donc deux facteurs : la connaissance de l’électronique et l&rsquo;achat du matériel.</p>
 
 <p>Dans quel ordre aborder le GPIO ?</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. allumer une led depuis un script python.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. allumer une led depuis un script python.
   2. afficher un message à l&#39;écran quand vous appuyez sur un bouton (via un script python).
   3. envoyer un mail quand vous pressez un bouton.
   4. allumer une led quand vous recevez un mail.
@@ -5067,7 +5072,7 @@ Commençons par le plus important&hellip; Mettre à jour le raspberry Pi :
 Exécutez l&rsquo;une après l&rsquo;autre les commandes suivantes dans un terminal, après vous être assuré que vous êtes bien connecté à internet.</p>
 
 <p><strong>Attention, prévoir du temps devant soi&hellip;</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get update
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get update
 sudo apt-get upgrade</pre></div>
 <p>Détaillons ce qu&rsquo;elles font :
 **sudo : <strong>donne à l&rsquo;utilisateur courant les droits de super-utilisateur pour effectuer la commande qui suit (</strong>s**uper <strong>u</strong>ser <strong>do</strong>es). ici apt-get qui manipule le système de fichiers, ce qu&rsquo;un utilisateur normal ne peut pas faire.
@@ -5081,7 +5086,7 @@ Reprenons : sudo apt-get update = en tant qu&rsquo;administrateur, synchronise 
 <p>Une fois que vous avez récupéré la main :</p>
 
 <h4 id="installer-kodi">INSTALLER KODI</h4>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install kodi</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install kodi</pre></div>
 <p>Se passe de commentaire, on installe le paquet kodi à partir du dépôt. Votre raspberry devrait télécharger et installer kodi. Et voilà, c&rsquo;est déjà terminé.</p>
 
 <p>De manière générale c&rsquo;est ainsi qu&rsquo;on installe un nouveau logiciel sur linux. Inutile de farfouiller internet, cliquer cent fois, décompresser, confirmer 30 fois, créer un raccourci au bon endroit et que sais-je.</p>
@@ -5127,7 +5132,19 @@ Vous pouvez alors ouvrir ce dossier et y trouver votre vidéo. Recommencer pour 
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5135,6 +5152,7 @@ Vous pouvez alors ouvrir ce dossier et y trouver votre vidéo. Recommencer pour 
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#1-présentation-du-raspberry-pi">1. Présentation du Raspberry Pi</a>

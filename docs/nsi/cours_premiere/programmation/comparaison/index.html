@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -89,14 +89,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -117,7 +121,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4800,9 +4804,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4861,7 +4866,7 @@ Parmi les points communs, on peut donc retrouver les fonctions et leurs paramèt
 <h2 id="le-pseudo-code">Le pseudo code</h2>
 
 <p>Voici l&rsquo;algorithme qui va être décliné dans différent langage. Il est itératif. Il n&rsquo;est pas optimisé, mais le but est de montrer plus d&rsquo;aspect des langages (par exemple on aurait pu avoir un test <code>n &lt; 2</code> ou <code>n = 0 ou 1</code>, ou n&rsquo;avoir qu&rsquo;un seul <code>return</code>, etc.).</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle (n) =
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle (n) =
    si n = 0
       alors le résultat est 1
    sinon si n = 1
@@ -4876,29 +4881,29 @@ Parmi les points communs, on peut donc retrouver les fonctions et leurs paramèt
 <h2 id="python">Python</h2>
 
 <p>Fichier <a href="./src/factorielle.py">factorielle.py</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#fff;font-weight:bold">def</span> factorielle(n):
-    <span style="color:#fff;font-weight:bold">if</span> n == <span style="color:#ff0;font-weight:bold">0</span>:
-        <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>
-    <span style="color:#fff;font-weight:bold">elif</span> n == <span style="color:#ff0;font-weight:bold">1</span>:
-        <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>
-    <span style="color:#fff;font-weight:bold">else</span>:
-        result = <span style="color:#ff0;font-weight:bold">1</span>
-        i = <span style="color:#ff0;font-weight:bold">0</span>
-        <span style="color:#fff;font-weight:bold">while</span> i &lt; n:
-            i = i + <span style="color:#ff0;font-weight:bold">1</span>
-            result = result * i
-        <span style="color:#fff;font-weight:bold">return</span> result</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">factorielle</span>(n):
+    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">elif</span> n <span style="color:#555">==</span> <span style="color:#f60">1</span>:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">else</span>:
+        result <span style="color:#555">=</span> <span style="color:#f60">1</span>
+        i <span style="color:#555">=</span> <span style="color:#f60">0</span>
+        <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> n:
+            i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
+            result <span style="color:#555">=</span> result <span style="color:#555">*</span> i
+        <span style="color:#069;font-weight:bold">return</span> result</code></pre></div>
 <p>On peut utiliser  ce code dans l&rsquo;interprète Python après avoir évalué cette définition.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">&gt;&gt;&gt; factorielle(<span style="color:#ff0;font-weight:bold">5</span>)
-<span style="color:#ff0;font-weight:bold">120</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> factorielle(<span style="color:#f60">5</span>)
+<span style="color:#f60">120</span></code></pre></div>
 <p>Mais on peut aussi l&rsquo;utiliser comme un script, il faut compléter ce code des lignes suivantes :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#fff;font-weight:bold">if</span> __name__ == <span style="color:#0ff;font-weight:bold">&#39;__main__&#39;</span>:
-   <span style="color:#fff;font-weight:bold">import</span> sys
-   n = <span style="color:#fff;font-weight:bold">int</span>(sys.argv[<span style="color:#ff0;font-weight:bold">1</span>])
-   <span style="color:#fff;font-weight:bold">print</span>( <span style="color:#fff;font-weight:bold">str</span>(factorielle(n)) )</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
+   <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">sys</span>
+   n <span style="color:#555">=</span> <span style="color:#366">int</span>(sys<span style="color:#555">.</span>argv[<span style="color:#f60">1</span>])
+   <span style="color:#069;font-weight:bold">print</span>( <span style="color:#366">str</span>(factorielle(n)) )</code></pre></div>
 <p>Le tout est sauvegardé dans un fichier <code>factorielle.py</code>, puis dans une console on exécute :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 factorielle.py <span style="color:#ff0;font-weight:bold">5</span>
-<span style="color:#ff0;font-weight:bold">120</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 factorielle.py <span style="color:#f60">5</span>
+<span style="color:#f60">120</span></code></pre></div>
 <h2 id="javascript">javascript</h2>
 
 <p>On présente ici deux versions, une avec la syntaxe &ldquo;ancienne&rdquo; de javascript et une avec les évolutions de syntaxe récentes.</p>
@@ -4906,19 +4911,19 @@ Parmi les points communs, on peut donc retrouver les fonctions et leurs paramèt
 <h3 id="old-school">old school</h3>
 
 <p>Fichier <a href="./src/factorielle-old.js">factorielle-old.js</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> factorielle = <span style="color:#fff;font-weight:bold">function</span>(n) {
-    <span style="color:#fff;font-weight:bold">if</span> ( n === <span style="color:#ff0;font-weight:bold">0</span>)
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> ( n === <span style="color:#ff0;font-weight:bold">0</span>)
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-    <span style="color:#fff;font-weight:bold">else</span> {
-    <span style="color:#fff;font-weight:bold">var</span> result = <span style="color:#ff0;font-weight:bold">1</span>;
-    <span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>;
-    <span style="color:#fff;font-weight:bold">while</span> (i &lt; n) {
-        i = i + <span style="color:#ff0;font-weight:bold">1</span>;
-        result = result * i;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> factorielle <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>(n) {
+    <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+    <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+    <span style="color:#069;font-weight:bold">else</span> {
+    <span style="color:#069;font-weight:bold">var</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+    <span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
+        i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
+        result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
     }
-    <span style="color:#fff;font-weight:bold">return</span> result;
+    <span style="color:#069;font-weight:bold">return</span> result;
     }
 }
 </code></pre></div>
@@ -4927,103 +4932,103 @@ Parmi les points communs, on peut donc retrouver les fonctions et leurs paramèt
 <h3 id="version-es6">version ES6</h3>
 
 <p>Fichier <a href="./src/factorielle.js">factorielle.js</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">const</span> factorielle =
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> factorielle <span style="color:#555">=</span>
           n =&gt; {
-                  <span style="color:#fff;font-weight:bold">if</span> ( n === <span style="color:#ff0;font-weight:bold">0</span>)
-                    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-                  <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> ( n === <span style="color:#ff0;font-weight:bold">1</span>)
-                    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-                  <span style="color:#fff;font-weight:bold">else</span> {
-                    <span style="color:#fff;font-weight:bold">let</span> result = <span style="color:#ff0;font-weight:bold">1</span>;
-                    <span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>;
-                    <span style="color:#fff;font-weight:bold">while</span> (i &lt; n) {
-                      i = i + <span style="color:#ff0;font-weight:bold">1</span>;
-                      result = result * i;
+                  <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
+                    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+                  <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">1</span>)
+                    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+                  <span style="color:#069;font-weight:bold">else</span> {
+                    <span style="color:#069;font-weight:bold">let</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+                    <span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+                    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
+                      i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
+                      result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
                     }
-                    <span style="color:#fff;font-weight:bold">return</span> result;
+                    <span style="color:#069;font-weight:bold">return</span> result;
                   }
               }
 </code></pre></div>
 <p>Dans les deux cas on peut utiliser la console javascript fournie avec firefox par exemple (<code>Ctrl+Shift+K</code> dans le navigateur, outil également présent dans Chrome après touche <code>F12</code>). Il faut évaluer cette définition puis l&rsquo;expression :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">&gt;&gt; factorielle(<span style="color:#ff0;font-weight:bold">5</span>)
-&lt;- <span style="color:#ff0;font-weight:bold">120</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&gt;&gt;</span> factorielle(<span style="color:#f60">5</span>)
+<span style="color:#555">&lt;-</span> <span style="color:#f60">120</span>
 </code></pre></div>
 <h2 id="java">Java</h2>
 
 <p>Fichier <a href="./src/Math.java">Math.java</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#fff;font-weight:bold">public</span> <span style="color:#fff;font-weight:bold">class</span> Math {
-    <span style="color:#fff;font-weight:bold">public</span> <span style="color:#fff;font-weight:bold">static</span> <span style="color:#fff;font-weight:bold">int</span> factorielle(<span style="color:#fff;font-weight:bold">int</span> n) {
-    <span style="color:#fff;font-weight:bold">if</span> ( n == 0 )
-        <span style="color:#fff;font-weight:bold">return</span> 1;
-        <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span>  ( n == 1 )
-            <span style="color:#fff;font-weight:bold">return</span> 1;
-    <span style="color:#fff;font-weight:bold">else</span> {
-        <span style="color:#fff;font-weight:bold">int</span> result = 1;
-        <span style="color:#fff;font-weight:bold">int</span> i = 0;
-        <span style="color:#fff;font-weight:bold">while</span> (i &lt; n) {
-        i = i + 1;
-        result = result * i;
-        }
-        <span style="color:#fff;font-weight:bold">return</span> result;
-    }
-    }
-}</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#069;font-weight:bold">public</span> <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Math</span> <span style="color:#555">{</span>
+    <span style="color:#069;font-weight:bold">public</span> <span style="color:#069;font-weight:bold">static</span> <span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">factorielle</span><span style="color:#555">(</span><span style="color:#078;font-weight:bold">int</span> n<span style="color:#555">)</span> <span style="color:#555">{</span>
+    <span style="color:#069;font-weight:bold">if</span> <span style="color:#555">(</span> n <span style="color:#555">==</span> 0 <span style="color:#555">)</span>
+        <span style="color:#069;font-weight:bold">return</span> 1<span style="color:#555">;</span>
+        <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span>  <span style="color:#555">(</span> n <span style="color:#555">==</span> 1 <span style="color:#555">)</span>
+            <span style="color:#069;font-weight:bold">return</span> 1<span style="color:#555">;</span>
+    <span style="color:#069;font-weight:bold">else</span> <span style="color:#555">{</span>
+        <span style="color:#078;font-weight:bold">int</span> result <span style="color:#555">=</span> 1<span style="color:#555">;</span>
+        <span style="color:#078;font-weight:bold">int</span> i <span style="color:#555">=</span> 0<span style="color:#555">;</span>
+        <span style="color:#069;font-weight:bold">while</span> <span style="color:#555">(</span>i <span style="color:#555">&lt;</span> n<span style="color:#555">)</span> <span style="color:#555">{</span>
+        i <span style="color:#555">=</span> i <span style="color:#555">+</span> 1<span style="color:#555">;</span>
+        result <span style="color:#555">=</span> result <span style="color:#555">*</span> i<span style="color:#555">;</span>
+        <span style="color:#555">}</span>
+        <span style="color:#069;font-weight:bold">return</span> result<span style="color:#555">;</span>
+    <span style="color:#555">}</span>
+    <span style="color:#555">}</span>
+<span style="color:#555">}</span></code></pre></div>
 <p>Pour son utilisation, il faut compléter ce code d&rsquo;une &ldquo;méthode <code>main</code>&rdquo; placée avant la dernière accolade fermante (par exemple):</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#fff;font-weight:bold">public</span> <span style="color:#fff;font-weight:bold">static</span> <span style="color:#fff;font-weight:bold">void</span> main(String[] arg) {
-   <span style="color:#fff;font-weight:bold">int</span> n = Integer.<span style="color:#007f7f">parseInt</span>(arg[0]);
-   System.<span style="color:#007f7f">out</span>.<span style="color:#007f7f">println</span>(Math.<span style="color:#007f7f">factorielle</span>(n));
-}</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#069;font-weight:bold">public</span> <span style="color:#069;font-weight:bold">static</span> <span style="color:#078;font-weight:bold">void</span> <span style="color:#c0f">main</span><span style="color:#555">(</span>String<span style="color:#555">[]</span> arg<span style="color:#555">)</span> <span style="color:#555">{</span>
+   <span style="color:#078;font-weight:bold">int</span> n <span style="color:#555">=</span> Integer<span style="color:#555">.</span><span style="color:#309">parseInt</span><span style="color:#555">(</span>arg<span style="color:#555">[</span>0<span style="color:#555">]);</span>
+   System<span style="color:#555">.</span><span style="color:#309">out</span><span style="color:#555">.</span><span style="color:#309">println</span><span style="color:#555">(</span>Math<span style="color:#555">.</span><span style="color:#309">factorielle</span><span style="color:#555">(</span>n<span style="color:#555">));</span>
+<span style="color:#555">}</span></code></pre></div>
 <p>L&rsquo;ensemble doit être enregistré dans un fichier <code>Math.java</code>.
 Ce fichier doit être compilé pour être utilisé. La compilation (<a href="https://jdk.java.net/11/">Oracle Open JDK</a>) produit un fichier <code>Math.class</code>qui contient du <em>bytecode java</em> interprétable par une <em>machine virtuelle java</em> (JVM).
 Le bytecode java peut-être utilisé sans nouvelle compilation dans les différentes architectures et systèmes d&rsquo;exploitation, grâce à la JVM (slogan <em>compile once run everywhere</em> de java).</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac Math.java
-$ java Math <span style="color:#ff0;font-weight:bold">5</span>
-<span style="color:#ff0;font-weight:bold">120</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac Math.java
+$ java Math <span style="color:#f60">5</span>
+<span style="color:#f60">120</span></code></pre></div>
 <p><em>NB</em> L&rsquo;usage de <code>static</code> pour la méthode <code>factorielle</code>n&rsquo;est pas caractéristique des méthodes en Java, mais il est légitime et pertinent ici car le résultat de <code>factorielle</code> ne dépend que de son paramètre et d&rsquo;aucun objet particulier.</p>
 
 <h2 id="c">C</h2>
 
 <p>Fichier <a href="./src/factorielle.c">factorielle.c</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#fff;font-weight:bold">int</span> factorielle ( <span style="color:#fff;font-weight:bold">int</span> n ) {
-  <span style="color:#fff;font-weight:bold">if</span> ( n == <span style="color:#ff0;font-weight:bold">0</span> )
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-  <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (n == <span style="color:#ff0;font-weight:bold">1</span> )
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-  <span style="color:#fff;font-weight:bold">else</span> {
-    <span style="color:#fff;font-weight:bold">int</span> result = <span style="color:#ff0;font-weight:bold">1</span>;
-    <span style="color:#fff;font-weight:bold">int</span> i = <span style="color:#ff0;font-weight:bold">0</span>;
-    <span style="color:#fff;font-weight:bold">while</span> (i &lt; n) {
-      i = i + <span style="color:#ff0;font-weight:bold">1</span>;
-      result = result * i;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">factorielle</span> ( <span style="color:#078;font-weight:bold">int</span> n ) {
+  <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">==</span> <span style="color:#f60">0</span> )
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+  <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> (n <span style="color:#555">==</span> <span style="color:#f60">1</span> )
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
+  <span style="color:#069;font-weight:bold">else</span> {
+    <span style="color:#078;font-weight:bold">int</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+    <span style="color:#078;font-weight:bold">int</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
+      i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
+      result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
     }
-    <span style="color:#fff;font-weight:bold">return</span> result;
+    <span style="color:#069;font-weight:bold">return</span> result;
   }
 }</code></pre></div>
 <p>Pour son utilisation, il faut compléter ce code d&rsquo;une &ldquo;fonction <code>main</code>&rdquo; :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#fff;font-weight:bold">int</span> main(<span style="color:#fff;font-weight:bold">int</span> argc, <span style="color:#fff;font-weight:bold">char</span> *argv[] ) {
-  <span style="color:#fff;font-weight:bold">int</span> n = atoi(argv[<span style="color:#ff0;font-weight:bold">1</span>]);
-  printf(<span style="color:#0ff;font-weight:bold">&#34;%d&#34;</span>, factorielle(n) );
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">main</span>(<span style="color:#078;font-weight:bold">int</span> argc, <span style="color:#078;font-weight:bold">char</span> <span style="color:#555">*</span>argv[] ) {
+  <span style="color:#078;font-weight:bold">int</span> n <span style="color:#555">=</span> atoi(argv[<span style="color:#f60">1</span>]);
+  printf(<span style="color:#c30">&#34;%d&#34;</span>, factorielle(n) );
 }</code></pre></div>
 <p>L&rsquo;ensemble placé dans un même fichier <code>factorielle.c</code> doit être compilé pour être utilisé. La compilation produit (ci-dessous) le fichier <code>factorielle</code>qui contient un code binaire machine. Il est directement exécutable. Il faut cependant produire un exécutable différent pour chaque architecture de machine et chaque système d&rsquo;exploitation.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o factorielle factorielle.c
-$ ./factorielle <span style="color:#ff0;font-weight:bold">5</span>
-<span style="color:#ff0;font-weight:bold">120</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o factorielle factorielle.c
+$ ./factorielle <span style="color:#f60">5</span>
+<span style="color:#f60">120</span></code></pre></div>
 <h2 id="scheme">Scheme</h2>
 
 <p>Fichier <a href="./src/factorielle.scm">factorielle.scm</a>.</p>
 
 <p>Le langage Scheme (descendant de Lisp) n&rsquo;est vraiment pas fait pour de l&rsquo;itération ni les affectations, le code suivant ferait donc hurler tout progammeur Scheme. Mais on respecte le schéma de pseudo-code fourni initialement.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#fff;font-weight:bold">define </span>factorielle
-  (lambda(n)
-    (<span style="color:#fff;font-weight:bold">cond </span>((= n <span style="color:#ff0;font-weight:bold">0</span>) <span style="color:#ff0;font-weight:bold">1</span>)
-          ((= n <span style="color:#ff0;font-weight:bold">1</span>) <span style="color:#ff0;font-weight:bold">1</span>)
-          (else
-           (<span style="color:#fff;font-weight:bold">let </span>((result <span style="color:#ff0;font-weight:bold">1</span>))
-             (<span style="color:#fff;font-weight:bold">do </span>((i <span style="color:#ff0;font-weight:bold">1</span> (+ i <span style="color:#ff0;font-weight:bold">1</span>)))
-                 ((&gt; i n))
-               (<span style="color:#fff;font-weight:bold">set! </span>result (* result i))
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#069;font-weight:bold">define </span><span style="color:#033">factorielle</span>
+  (<span style="color:#033">lambda</span>(<span style="color:#033">n</span>)
+    (<span style="color:#069;font-weight:bold">cond </span>((<span style="color:#033">=</span> <span style="color:#033">n</span> <span style="color:#f60">0</span>) <span style="color:#f60">1</span>)
+          ((<span style="color:#033">=</span> <span style="color:#033">n</span> <span style="color:#f60">1</span>) <span style="color:#f60">1</span>)
+          (<span style="color:#033">else</span>
+           (<span style="color:#069;font-weight:bold">let </span>((<span style="color:#033">result</span> <span style="color:#f60">1</span>))
+             (<span style="color:#069;font-weight:bold">do </span>((<span style="color:#033">i</span> <span style="color:#f60">1</span> (<span style="color:#033">+</span> <span style="color:#033">i</span> <span style="color:#f60">1</span>)))
+                 ((<span style="color:#033">&gt;</span> <span style="color:#033">i</span> <span style="color:#033">n</span>))
+               (<span style="color:#069;font-weight:bold">set! </span><span style="color:#033">result</span> (<span style="color:#033">*</span> <span style="color:#033">result</span> <span style="color:#033">i</span>))
                )
-             result)
+             <span style="color:#033">result</span>)
            )
       )
     )
@@ -5031,8 +5036,8 @@ $ ./factorielle <span style="color:#ff0;font-weight:bold">5</span>
 <p><em>NB</em> une structure <code>if</code>, ternaire, existe aussi en Scheme, on fait une petite entorse ici au respect strict de l&rsquo;algorithme donné, mais on a  aussi utilisé le <code>elif</code> de Python.</p>
 
 <p>Pour utiliser ce code on évalue cette définition dans l&rsquo;interprète Scheme (par exemple <a href="https://racket-lang.org/">Dr Racket</a>) et on évalue ensuite l&rsquo;expression</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme"> &gt; (factorielle <span style="color:#ff0;font-weight:bold">5</span>)
- <span style="color:#ff0;font-weight:bold">120</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme"> <span style="color:#033">&gt;</span> (<span style="color:#033">factorielle</span> <span style="color:#f60">5</span>)
+ <span style="color:#f60">120</span></code></pre></div>
 <h2 id="prolog">Prolog</h2>
 
 <p>Fichier <a href="./src/factorielle.pl">factorielle.pl</a>.</p>
@@ -5040,12 +5045,12 @@ $ ./factorielle <span style="color:#ff0;font-weight:bold">5</span>
 <p>Et pour montrer qu&rsquo;il y a des langages qui se distinguent fortement des autres, voici la programmation de <code>factorielle</code> en Prolog.
 Prolog est un langage de *Pro*grammation *Log*ique. Programmer en Prolog consiste à écrire des clauses logiques et exécuter un programme Prolog consiste
 à faire une preuve d&rsquo;une formule logique et à trouver une instanciation (<em>unification</em>) des éventuelles variables qui permette cette preuve.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-prolog" data-lang="prolog">factorielle(<span style="color:#ff0;font-weight:bold">0</span>,<span style="color:#ff0;font-weight:bold">1</span>) :- !.
-factorielle(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">1</span>) :- !.
-factorielle(N, Result) :- N &gt; <span style="color:#ff0;font-weight:bold">0</span>,
-                          N_moins_1 is N-<span style="color:#ff0;font-weight:bold">1</span>,
-                          factorielle(N_moins_1,   Fact_N_moins_1),
-                          Result is N * Fact_N_moins_1.</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-prolog" data-lang="prolog"><span style="color:#c0f">factorielle</span>(<span style="color:#f60">0</span>,<span style="color:#f60">1</span>) :- !.
+<span style="color:#c0f">factorielle</span>(<span style="color:#f60">1</span>,<span style="color:#f60">1</span>) :- !.
+<span style="color:#c0f">factorielle</span>(<span style="color:#033">N</span>, <span style="color:#033">Result</span>) :- <span style="color:#033">N</span> <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>,
+                          <span style="color:#033">N_moins_1</span> <span style="color:#555">is</span> <span style="color:#033">N</span><span style="color:#555">-</span><span style="color:#f60">1</span>,
+                          <span style="color:#c0f">factorielle</span>(<span style="color:#033">N_moins_1</span>,   <span style="color:#033">Fact_N_moins_1</span>),
+                          <span style="color:#033">Result</span> <span style="color:#555">is</span> <span style="color:#033">N</span> <span style="color:#555">*</span> <span style="color:#033">Fact_N_moins_1</span>.</code></pre></div>
 <p>Le prédicat <code>factorielle(N,R)</code> signifie <code>factorielle(N,R)</code> est vrai si <em>R est le résultat de factorielle(N)</em>.
 La première ligne signifie donc &ldquo;<em>il est vrai que factorielle 0 vaut 1</em>. La seconde est similaire.
 La troisième <em>clause</em> peut se lire <em>Result est le la valeur de factorielle(N) si les clauses qui suivent <code>:-</code> sont toutes vérifiées</em>.</p>
@@ -5053,14 +5058,26 @@ La troisième <em>clause</em> peut se lire <em>Result est le la valeur de factor
 <p>On peut exécuter ce programme avec <a href="https://swish.swi-prolog.org/">l&rsquo;interprète en ligne de swi-prolog</a>.</p>
 
 <p>Pour l&rsquo;exécuter on demande la preuve de <code>factorielle(5,Result).</code>, c&rsquo;est-à-dire que l&rsquo;on pose la question &ldquo;<em>Est-il vrait que <code>factorielle(5,Result)</code> ?</em>&rdquo; :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">?- factorielle(5,Result).
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">?- factorielle(5,Result).
 Result = 120</pre></div>
 <p>Le moteur de résolution de Prolog répond, &ldquo;<em>vrai pour l&rsquo;instanciation Result=120</em>&rdquo;.</p>
 </article>
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5068,6 +5085,7 @@ Result = 120</pre></div>
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#exemples-sur-repl">Exemples sur repl</a></li>

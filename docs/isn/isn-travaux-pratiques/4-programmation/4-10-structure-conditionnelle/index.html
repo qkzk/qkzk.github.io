@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -85,14 +85,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -113,7 +117,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4796,9 +4800,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4886,11 +4891,11 @@ conversion sera réalisée.  _&rdquo;</p>
 fonction <code>fahrenheitVersCelsius</code> déclenchée par
 l&rsquo;événement <code>change</code> sur
 l&rsquo;élément <code>tFahrenheit</code> :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> fahrenheitVersCelsius = <span style="color:#fff;font-weight:bold">function</span>() {
-    <span style="color:#fff;font-weight:bold">var</span> tFahrenheit =  <span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;tFahrenheit&#34;</span>);
-    <span style="color:#fff;font-weight:bold">var</span> tempF = <span style="color:#fff;font-weight:bold">parseInt</span>(tFahrenheit.value);
-    <span style="color:#fff;font-weight:bold">var</span> tCelsius = <span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;tCelsius&#34;</span>);
-    tCelsius.value = ((tempF - <span style="color:#ff0;font-weight:bold">32</span>) *  <span style="color:#ff0;font-weight:bold">5</span> / <span style="color:#ff0;font-weight:bold">9</span>).toFixed(<span style="color:#ff0;font-weight:bold">2</span>);
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> fahrenheitVersCelsius <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
+    <span style="color:#069;font-weight:bold">var</span> tFahrenheit <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tFahrenheit&#34;</span>);
+    <span style="color:#069;font-weight:bold">var</span> tempF <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(tFahrenheit.value);
+    <span style="color:#069;font-weight:bold">var</span> tCelsius <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tCelsius&#34;</span>);
+    tCelsius.value <span style="color:#555">=</span> ((tempF <span style="color:#555">-</span> <span style="color:#f60">32</span>) <span style="color:#555">*</span>  <span style="color:#f60">5</span> <span style="color:#555">/</span> <span style="color:#f60">9</span>).toFixed(<span style="color:#f60">2</span>);
 }
 </code></pre></div>
 <p>Que faudrait-il changer dans cette fonction pour pouvoir prendre en
@@ -4916,7 +4921,7 @@ structure de contrôle appelée structure
 conditionnelle qui permet de ne réaliser un traitement que si
 une certaine condition est vérifiée (on dit
 aussi <em>réalisée</em>). Sa syntaxe est la suivante :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (condition) {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (condition) {
   traitement à réaliser
 }</pre></div>
 <p>où <em>condition</em> est une expression à valeur
@@ -4950,15 +4955,15 @@ sinon. La fonction <code>isNaN</code> est toute désignée :</p>
 vaut <code>NaN</code> est de fixer la valeur de <code>tempF</code> à
 100, sans oublier de changer le contenu du champ de saisie. On
 obtient alors le nouveau code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> fahrenheitVersCelsius = <span style="color:#fff;font-weight:bold">function</span>() {
-    <span style="color:#fff;font-weight:bold">var</span> tFahrenheit =  <span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;tFahrenheit&#34;</span>);
-    <span style="color:#fff;font-weight:bold">var</span> tempF = <span style="color:#fff;font-weight:bold">parseInt</span>(tFahrenheit.value);
-    <span style="color:#fff;font-weight:bold">if</span> (<span style="color:#fff;font-weight:bold">isNaN</span>(tempF)) {
-       tempF = <span style="color:#ff0;font-weight:bold">100</span>;
-       tFahrenheit.value = <span style="color:#ff0;font-weight:bold">100</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> fahrenheitVersCelsius <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
+    <span style="color:#069;font-weight:bold">var</span> tFahrenheit <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tFahrenheit&#34;</span>);
+    <span style="color:#069;font-weight:bold">var</span> tempF <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(tFahrenheit.value);
+    <span style="color:#069;font-weight:bold">if</span> (<span style="color:#366">isNaN</span>(tempF)) {
+       tempF <span style="color:#555">=</span> <span style="color:#f60">100</span>;
+       tFahrenheit.value <span style="color:#555">=</span> <span style="color:#f60">100</span>;
     }
-    <span style="color:#fff;font-weight:bold">var</span> tCelsius = <span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;tCelsius&#34;</span>);
-    tCelsius.value = ((tempF - <span style="color:#ff0;font-weight:bold">32</span>) *  <span style="color:#ff0;font-weight:bold">5</span> / <span style="color:#ff0;font-weight:bold">9</span>).toFixed(<span style="color:#ff0;font-weight:bold">2</span>);
+    <span style="color:#069;font-weight:bold">var</span> tCelsius <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tCelsius&#34;</span>);
+    tCelsius.value <span style="color:#555">=</span> ((tempF <span style="color:#555">-</span> <span style="color:#f60">32</span>) <span style="color:#555">*</span>  <span style="color:#f60">5</span> <span style="color:#555">/</span> <span style="color:#f60">9</span>).toFixed(<span style="color:#f60">2</span>);
 }
 </code></pre></div>
 <ol>
@@ -4997,11 +5002,11 @@ comprendre la nécessité de l&rsquo;utilisation de la fonction <code>parseInt</
 <h1 id="expression-d-alternatives">Expression d&rsquo;alternatives</h1>
 
 <p>Dans les situations rencontrées ci-dessus un traitement &ldquo;particulier&rdquo; est réalisé si une condition est vérifiée et dans le cas contraire on passe à loa suite sans aucun traitement   complémentaire. On rencontre cependant fréquemment la situation dans laquelle un autre traitement doit être réalisé lorsque la condition n&rsquo;est pas vérifiée (càd vaut <code>false</code>). Il est possible de programmer un tel comportement en complétant la structure conditionnelle <code>if</code> par un bloc exprimant l&rsquo;alternative et identifié par le mot-clé <code>else</code>. La syntaxe est alors :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (condition&lt;)
-  traitement_vrai (à réaliser si condition vaut <span style="color:#fff;font-weight:bold">true</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition<span style="color:#555">&lt;</span>)
+  traitement_vrai (à réaliser si condition vaut <span style="color:#069;font-weight:bold">true</span>)
 }
-<span style="color:#fff;font-weight:bold">else</span> {
-  traitement_faut (à réaliser si condition vaut <span style="color:#fff;font-weight:bold">false</span>)
+<span style="color:#069;font-weight:bold">else</span> {
+  traitement_faut (à réaliser si condition vaut <span style="color:#069;font-weight:bold">false</span>)
 }
 </code></pre></div>
 <p>La sémantique d&rsquo;une expression est la suivante : lors du
@@ -5023,14 +5028,14 @@ par <a href="/uploads/docs/doc04/exemples/sesame.html">cette page</a>. Une image
 affichée <strong>si</strong> l&rsquo;utilisateur fourni le mot demandé <strong>sinon</strong> un message
 d&rsquo;alerte apparaît. Ce comportement est produit par la
 fonction <code>sesame</code> appelée au chargement de la page :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> sesame = <span style="color:#fff;font-weight:bold">function</span>() {
-    <span style="color:#fff;font-weight:bold">var</span> motDePasse = <span style="color:#fff;font-weight:bold">window</span>.prompt(<span style="color:#0ff;font-weight:bold">&#34;Indiquez le mot secret pour voir l&#39;image&#34;</span>);
-    <span style="color:#fff;font-weight:bold">if</span> (motDePasse == <span style="color:#0ff;font-weight:bold">&#34;secret&#34;</span>) {
-	<span style="color:#fff;font-weight:bold">var</span> imagePrivee =  <span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;privee&#34;</span>);
-	imagePrivee.src = <span style="color:#0ff;font-weight:bold">&#34;orionMessier.jpg&#34;</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> sesame <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
+    <span style="color:#069;font-weight:bold">var</span> motDePasse <span style="color:#555">=</span> <span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Indiquez le mot secret pour voir l&#39;image&#34;</span>);
+    <span style="color:#069;font-weight:bold">if</span> (motDePasse <span style="color:#555">==</span> <span style="color:#c30">&#34;secret&#34;</span>) {
+	<span style="color:#069;font-weight:bold">var</span> imagePrivee <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;privee&#34;</span>);
+	imagePrivee.src <span style="color:#555">=</span> <span style="color:#c30">&#34;orionMessier.jpg&#34;</span>;
     }
-    <span style="color:#fff;font-weight:bold">else</span> {
-	<span style="color:#fff;font-weight:bold">window</span>.alert(<span style="color:#0ff;font-weight:bold">&#34;Vous n&#39;avez pas fourni le mot secret.&#34;</span>);
+    <span style="color:#069;font-weight:bold">else</span> {
+	<span style="color:#366">window</span>.alert(<span style="color:#c30">&#34;Vous n&#39;avez pas fourni le mot secret.&#34;</span>);
     }
 }
 </code></pre></div>
@@ -5057,18 +5062,18 @@ l&rsquo;utilisateur</li>
 <h1 id="attention">Attention</h1>
 
 <p>Il est important de noter et de prendre conscience que l&rsquo;expression</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (condition) {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
    traitement_vrai
 }
-<span style="color:#fff;font-weight:bold">else</span> {
+<span style="color:#069;font-weight:bold">else</span> {
    traitement_faux
 }
 </code></pre></div>
 <p>n&rsquo;est pas équivalente à la séquence</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (condition) {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
    traitement_vrai
 };
-<span style="color:#fff;font-weight:bold">if</span> (! condition) {
+<span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span> condition) {
    traitement_faux
 }
 </code></pre></div>
@@ -5077,13 +5082,13 @@ l&rsquo;utilisateur</li>
   susceptible de commettre cette erreur logique que dans certains cas
   le comportement de ces deux expressions sont identiques. Ainsi les résultats des deux codes
   suivants sont équivalents :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> alea = <span style="color:#fff;font-weight:bold">Math</span>.random();                      <span style="color:#fff;font-weight:bold">var</span> alea = <span style="color:#fff;font-weight:bold">Math</span>.random();
-<span style="color:#fff;font-weight:bold">var</span> resultat;                                  <span style="color:#fff;font-weight:bold">var</span> resultat;
-<span style="color:#fff;font-weight:bold">if</span> (alea &lt; <span style="color:#ff0;font-weight:bold">0.5</span>) {                              <span style="color:#fff;font-weight:bold">if</span> (alea &lt; <span style="color:#ff0;font-weight:bold">0.5</span>) {
-  resultat = <span style="color:#0ff;font-weight:bold">&#34;pile&#34;</span>;                              resultat = <span style="color:#0ff;font-weight:bold">&#34;pile&#34;</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> alea <span style="color:#555">=</span> <span style="color:#366">Math</span>.random();                      <span style="color:#069;font-weight:bold">var</span> alea <span style="color:#555">=</span> <span style="color:#366">Math</span>.random();
+<span style="color:#069;font-weight:bold">var</span> resultat;                                  <span style="color:#069;font-weight:bold">var</span> resultat;
+<span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&lt;</span> <span style="color:#f60">0.5</span>) {                              <span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&lt;</span> <span style="color:#f60">0.5</span>) {
+  resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;pile&#34;</span>;                              resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;pile&#34;</span>;
 }                                              };
-<span style="color:#fff;font-weight:bold">else</span> {				    	       <span style="color:#fff;font-weight:bold">if</span> (alea &gt;= <span style="color:#ff0;font-weight:bold">0.5</span>) {
-  resultat = <span style="color:#0ff;font-weight:bold">&#34;face&#34;</span>;		    	          resultat = <span style="color:#0ff;font-weight:bold">&#34;face&#34;</span>;
+<span style="color:#069;font-weight:bold">else</span> {				    	       <span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&gt;=</span> <span style="color:#f60">0.5</span>) {
+  resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;		    	          resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;
 }	               		    	       }
 </code></pre></div>
 <p>Ce n&rsquo;est cependant pas toujours le cas.</p>
@@ -5105,24 +5110,24 @@ résiste aux mathématiciens depuis près d&rsquo;un siècle.</p>
 la division entière. On peut donc tester la parité d&rsquo;un
 entier <em>n</em> par l&rsquo;expression <code>n%2==0</code>
 ou <code>n%2==1</code>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> n = <span style="color:#fff;font-weight:bold">parseInt</span>(<span style="color:#fff;font-weight:bold">window</span>.prompt(<span style="color:#0ff;font-weight:bold">&#34;Fournissez un entier positif&#34;</span>));
-<span style="color:#fff;font-weight:bold">if</span> (n%<span style="color:#ff0;font-weight:bold">2</span> == <span style="color:#ff0;font-weight:bold">1</span>) {
-  n = <span style="color:#ff0;font-weight:bold">3</span>*n +<span style="color:#ff0;font-weight:bold">1</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(<span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Fournissez un entier positif&#34;</span>));
+<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>) {
+  n <span style="color:#555">=</span> <span style="color:#f60">3</span><span style="color:#555">*</span>n <span style="color:#555">+</span><span style="color:#f60">1</span>;
 }
-<span style="color:#fff;font-weight:bold">else</span> {
-  n = n/<span style="color:#ff0;font-weight:bold">2</span>;
+<span style="color:#069;font-weight:bold">else</span> {
+  n <span style="color:#555">=</span> n<span style="color:#555">/</span><span style="color:#f60">2</span>;
 }
-<span style="color:#fff;font-weight:bold">document</span>.writeln(<span style="color:#0ff;font-weight:bold">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span>+n);
+<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span><span style="color:#555">+</span>n);
 </code></pre></div>
 <p>et</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> n = <span style="color:#fff;font-weight:bold">parseInt</span>(<span style="color:#fff;font-weight:bold">window</span>.prompt(<span style="color:#0ff;font-weight:bold">&#34;Fournissez un entier positif&#34;</span>));
-<span style="color:#fff;font-weight:bold">if</span> (n%<span style="color:#ff0;font-weight:bold">2</span> == <span style="color:#ff0;font-weight:bold">1</span>) {
-  n = <span style="color:#ff0;font-weight:bold">3</span>*n +<span style="color:#ff0;font-weight:bold">1</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(<span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Fournissez un entier positif&#34;</span>));
+<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>) {
+  n <span style="color:#555">=</span> <span style="color:#f60">3</span><span style="color:#555">*</span>n <span style="color:#555">+</span><span style="color:#f60">1</span>;
 }
-<span style="color:#fff;font-weight:bold">if</span> (n%<span style="color:#ff0;font-weight:bold">2</span> ==<span style="color:#ff0;font-weight:bold">0</span>) {
-  n = n/<span style="color:#ff0;font-weight:bold">2</span>;
+<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span><span style="color:#f60">0</span>) {
+  n <span style="color:#555">=</span> n<span style="color:#555">/</span><span style="color:#f60">2</span>;
 }
-<span style="color:#fff;font-weight:bold">document</span>.writeln(<span style="color:#0ff;font-weight:bold">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span>+n);
+<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span><span style="color:#555">+</span>n);
 </code></pre></div>
 <ol>
 <li>Créez deux pages html qui contiennent ces portions de scripts et faites
@@ -5151,15 +5156,15 @@ secret choisi et <code>proposition</code> la variable dont la valeur
 est le nombre proposé, la portion de code suivante permet alors de
 fixer la valeur d&rsquo;une variable <code>resultat</code> en fonction de
 chacune des trois situations :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (proposition == nombreSecret) {
-   resultat = <span style="color:#0ff;font-weight:bold">&#34;trouve&#34;</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (proposition <span style="color:#555">==</span> nombreSecret) {
+   resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trouve&#34;</span>;
 }
-<span style="color:#fff;font-weight:bold">else</span> {                      <span style="color:#007f7f">// proposition n&#39;est pas égale à nombreSecret
-</span><span style="color:#007f7f"></span>  <span style="color:#fff;font-weight:bold">if</span> (proposition &lt; nombreSecret) {
-     resultat = <span style="color:#0ff;font-weight:bold">&#34;trop petit&#34;</span>;
+<span style="color:#069;font-weight:bold">else</span> {                      <span style="color:#09f;font-style:italic">// proposition n&#39;est pas égale à nombreSecret
+</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">if</span> (proposition <span style="color:#555">&lt;</span> nombreSecret) {
+     resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trop petit&#34;</span>;
   }
-  <span style="color:#fff;font-weight:bold">else</span> {
-     resultat = <span style="color:#0ff;font-weight:bold">&#34;trop grand&#34;</span>;
+  <span style="color:#069;font-weight:bold">else</span> {
+     resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trop grand&#34;</span>;
   }
 }
 </code></pre></div>
@@ -5246,7 +5251,19 @@ Testez vos fonctions dans une page html.</p>
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5254,6 +5271,7 @@ Testez vos fonctions dans une page html.</p>
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#des-traitements-sous-condition">Des traitements sous condition</a></li>

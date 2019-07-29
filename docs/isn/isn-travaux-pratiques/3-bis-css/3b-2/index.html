@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -89,14 +89,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -117,7 +121,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4800,9 +4804,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4863,10 +4868,10 @@ dans un fichier écrit dans un format appelé css, pour <em>Cascading Style Shee
 sur ces éléments balises que porte un style défini par un ensemble de couples <em>(propriété,valeur)</em>. Le langage CSS définit la syntaxe d&rsquo;écriture de ces styles. Celle-ci est simple : on précise le type d&rsquo;élément concerné, puis on énumère entre accolade et séparés par des <code>;</code> les couples sous le forme <code>_propriété : valeur_</code>. Il &ldquo;suffit&rdquo; donc de    connaître les propriétés qui s&rsquo;appliquent à l&rsquo;élément concerné et les valeurs possibles.</p>
 
 <p>Voici un premier exemple de style qui s&rsquo;applique aux éléments marqués par les balises <code>h2</code></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="font-weight:bold">h2</span> {
-   <span style="color:#fff;font-weight:bold">font-size</span>: <span style="color:#ff0;font-weight:bold">16</span><span style="color:#fff;font-weight:bold">pt</span>;
-   <span style="color:#fff;font-weight:bold">color</span>: <span style="color:#fff;font-weight:bold">yellow</span>;
-   <span style="color:#fff;font-weight:bold">background-color</span>: <span style="color:#ff0;font-weight:bold">#6A0888</span>;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#309;font-weight:bold">h2</span> {
+   <span style="color:#069;font-weight:bold">font-size</span>: <span style="color:#f60">16</span><span style="color:#078;font-weight:bold">pt</span>;
+   <span style="color:#069;font-weight:bold">color</span>: <span style="color:#069;font-weight:bold">yellow</span>;
+   <span style="color:#069;font-weight:bold">background-color</span>: <span style="color:#f60">#6A0888</span>;
 }</code></pre></div>
 <p>On comprend sans difficulté les propriétés utilisées et leur~~~s valeurs : la taille de la police fixée à 16pt, la couleur d&rsquo;écriture fixée à la constante prédéfinie <code>yellow</code> et la couleur d&rsquo;arrière-plan fixée à <code>#6A0888</code>.</p>
 
@@ -4875,11 +4880,11 @@ sur ces éléments balises que porte un style défini par un ensemble de couples
 <p>Sauvegardez ce texte dans un fichier que vous   appellerez <code>styleCSS1.css</code> .</p>
 
 <p>On peut également utiliser la syntaxe</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">&lt;<span style="font-weight:bold">style</span> <span style="font-weight:bold">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text/css&#34;</span>&gt;
-  @<span style="color:#fff;font-weight:bold">import</span> <span style="font-weight:bold">url</span>(<span style="color:#0ff;font-weight:bold">&#39;styleCSS1.css&#39;</span>);
-&lt;/<span style="font-weight:bold">style</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">style</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span><span style="color:#555">&gt;</span>
+  @<span style="color:#069;font-weight:bold">import</span> <span style="color:#309;font-weight:bold">url</span><span style="color:#555">(</span><span style="color:#c30">&#39;styleCSS1.css&#39;</span><span style="color:#555">)</span>;
+<span style="color:#555">&lt;/</span><span style="color:#309;font-weight:bold">style</span><span style="color:#555">&gt;</span></code></pre></div>
 <p>Il faut ensuite préciser dans le document que l&rsquo;on souhaite utiliser cette feuille de style. Une manière de procéder qui permet l&rsquo;application du principe de séparation du contenu et de la forme est d&rsquo;ajouter dans la partie <code>head</code> de la page html la ligne :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">&lt;<span style="font-weight:bold">link</span> <span style="font-weight:bold">href</span>=<span style="color:#0ff;font-weight:bold">&#34;styleCSS1.css&#34;</span> <span style="font-weight:bold">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text/css&#34;</span> <span style="font-weight:bold">rel</span>=<span style="color:#0ff;font-weight:bold">&#34;stylesheet&#34;</span>&gt;&lt;/<span style="font-weight:bold">link</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">link</span> <span style="color:#309;font-weight:bold">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;styleCSS1.css&#34;</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span> <span style="color:#309;font-weight:bold">rel</span><span style="color:#555">=</span><span style="color:#c30">&#34;stylesheet&#34;</span><span style="color:#555">&gt;&lt;/</span><span style="color:#309;font-weight:bold">link</span><span style="color:#555">&gt;</span></code></pre></div>
 <p>Reprenez le
 document <a href="/uploads/docs/doc03b/ex_html2.html">ex_html2.html</a>
 que vous avez corrigé, appliquez-lui la feuille de style du
@@ -4897,7 +4902,7 @@ par le triplet RVB en utilisant la notation hexadécimale
 (<code>rgb(255,255,0)</code>).</p>
 
 <p>Voici des définitions de style complémentaires :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">h1 {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">h1 {
   font-size: 20pt;
   font-family: sans-serif;
   font-weight: bold;
@@ -4936,7 +4941,7 @@ feuille de style actuellement, la couleur des textes des
 Ce qui est bien évidemment cohérent avec les déclarations qui ont été
 faites. Si nous souhaitons leur attribuer la même couleur une première
 solution serait d&rsquo;ajouter la définition :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ul {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ul {
   color:rgb(63,63,63);
 }</pre></div>
 <p>Cette solution a cependant le défaut que si l&rsquo;on souhaite que les
@@ -4950,7 +4955,7 @@ qui à nouveau est source d&rsquo;erreur dans la gestion de la
 cohérence. Pour éviter ce problème il est possible de définir des
 propriétés pour plusieurs éléments simultanément, il suffit d&rsquo;énumérer
 ces éléments avant les propriétés comme ceci :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">p , ul {                      /* les éléments p et ul                         */
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">p , ul {                      /* les éléments p et ul                         */
   color:rgb(63,63,63);      /*   auront la même couleur                     */
   font-size : 12pt;         /*   et la même taille de police                */
 }</pre></div>
@@ -5004,7 +5009,7 @@ dont vous disposez.</p>
 <p>Les hyperliens sont marqués dans une page html par une
   balise <code>a</code>. Comme toute balise on peut lui appliquer un
   style, par exemple :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a {
   color : red;
   text-decoration : underline ;
 }</pre></div>
@@ -5026,7 +5031,7 @@ et <code>a:visited</code> dans la feuille de style quand ceux-ci sont présents.
 
 <p>Essayez par exemple le résultat après avoir complété la feuille de style
   actuelle avec :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a:visited {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a:visited {
   color : #680000;
 }
 a:hover {
@@ -5115,7 +5120,7 @@ ou <code>-right</code>.</p>
 <p>Les différentes syntaxes suivantes permettent de définir les
   marges (on a exactement les mêmes possibilités avec les marges
   intérieures <code>padding</code>) :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">margin : 15px;                  // la marge extérieure vaut 15px dans les quatre directions
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">margin : 15px;                  // la marge extérieure vaut 15px dans les quatre directions
 margin : auto;                  // les marges sont calculées par le navigateur
 margin-right : 10%;             // seule la marge extérieure droite est fixée à 10%
 margin-left : 20px;             // seule la marge extérieure gauche vaut 20px
@@ -5210,7 +5215,19 @@ qu&rsquo;un élève curieux pourra découvrir seul.</p>
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5218,6 +5235,7 @@ qu&rsquo;un élève curieux pourra découvrir seul.</p>
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#des-pages-html-qui-ont-du-style">Des pages html qui ont du style</a>

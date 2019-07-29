@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -85,14 +85,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -113,7 +117,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4796,9 +4800,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4830,7 +4835,7 @@ MathJax.Hub.Config({
 
 <p>Commençons par un simple buzzer. Les buzzers sont composés d&rsquo;une lame d&rsquo;un matériel particulier : il est piezo-électrique. Cela signifie qu&rsquo;il vibre lorsqu&rsquo;un courant électrique le parcourt. La majorité des haut-parleurs fonctionnent sur un principe différent, ils sont électro-magnétiques. Une membrane vibre en contact d&rsquo;un champ magnétique.
 Remarquons qu&rsquo;on peut aussi utiliser les matériaux piezo électriques autrement : ils émettent du courant quand on les presse ! Cela permet de détecter une vibration, une pression. On parle alors de piezo-switch et le boitier du raspberry en propose un.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. **montage**![](https://www.raspberrypi.org/learning/physical-computing-with-python/images/buzzer-circuit.png)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. **montage**![](https://www.raspberrypi.org/learning/physical-computing-with-python/images/buzzer-circuit.png)
 
   2. **script**
 
@@ -4851,7 +4856,7 @@ Exécutez le avec sudo python test_buzzer.py
 <p>Les capteurs de distance(*) utilisent deux pins du GPIO : un pour le _trigger (déclancheur,<strong> </strong>_noté TRIG sur le capteur) et un pour l&rsquo;_echo (ECHO sur le capteur). _Attention, ils fonctionnent et émettent du 5V qui va très certainement endommager votre raspberry. Il faut donc d&rsquo;abord réaliser un pont diviseur de tension avant de l&rsquo;alimenter.</p>
 
 <p><strong>Montage</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Relier le GND du capteur vers un ground du raspberry
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Relier le GND du capteur vers un ground du raspberry
   2. Relier le TRIG vers un pin du raspberry (BCM 23)
   3. Relier une résistance 330 Ohms depuis le pin ECHO du capteur vers un pin du GPIO (BCM 24)
   4. Relier une résistance 470 Ohms depuis le ground du raspberry vers le pin ECHO. Cela forme alors un [pont diviseur de tension](https://fr.wikipedia.org/wiki/Diviseur_de_tension). Le signal reçu par le raspberry sera du 3.3V (environ).
@@ -4859,7 +4864,7 @@ Exécutez le avec sudo python test_buzzer.py
 <p><img src="https://raw.githubusercontent.com/fivdi/pigpio/master/example/distance-hc-sr04.png" alt="" /></p>
 
 <p>Le <strong>script</strong> suivant va périodiquement renvoyer la distance mesurée par le capteur en cm.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import DistanceSensor
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import DistanceSensor
 from time import sleep
 
 sensor = DistanceSensor(echo=24, trigger=23)
@@ -4883,7 +4888,7 @@ while True:
 <p>Un PIR typique dispose d&rsquo;un petit circuit imprimé avec trois pins : VCC, OUT et GND. VCC doit être relié au 5V du raspberry, le GND à l&rsquo;un des grounds et enfin OUT à n&rsquo;importe quel pin. Ici on emploiera le pin 7 de la numérotation BCM</p>
 
 <p>Le programme suivant va imprimer du texte à chaque fois qu&rsquo;un mouvement est détecté.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import MotionSensor
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import MotionSensor
 
 pir = MotionSensor(7)
 pir.wait_for_motion()
@@ -4939,7 +4944,7 @@ Le potentiomètre &ldquo;sens&rdquo; (droite sur le plan) ajuste la sensibilité
 <h5 id="les-scripts-python"><strong>Les scripts Python :</strong></h5>
 
 <p>Afficher &ldquo;Light&rdquo; ou &ldquo;Dark&rdquo; dans la console.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LightSensor
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LightSensor
 
 sensor = LightSensor(18)
 
@@ -4949,7 +4954,7 @@ while True:
     sensor.wait_for_dark()
     print(&#34;It&#39;s dark :(&#34;)</pre></div>
 <p>Executer une fonction quand la lumière change (ici qui illumine la LED).</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LightSensor, LED
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LightSensor, LED
 from signal import pause
 
 sensor = LightSensor(18)
@@ -4976,7 +4981,7 @@ pause()</pre></div>
 <p><em>Le DHT22 est un capteur de température et humidité simple et peu couteux. Il utilise un capteur d&rsquo;humidité à capacitance et un thermistor pour mesurer l&rsquo;air ambiant et renvoie un signal digital sur le pin data. Il est plutôt simple d&rsquo;usage mais requiert un timing précis pour relever les données. Le seul soucis de ce capteur est qu&rsquo;il ne peut publier ses donnée que toutes les 2 secondes. (cf Adafruit)</em></p>
 
 <p>Cette fois je vous renvoie carrément<a href="https://github.com/adafruit/Adafruit_Python_DHT"> à la librairie</a> d&rsquo;Adafruit. Vous devriez avoir compris le principe.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. On l&#39;installe (lisez la page d&#39;accueil)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. On l&#39;installe (lisez la page d&#39;accueil)
   2. On monte le capteur et teste le script. Les liens sont dans **[examples](https://github.com/adafruit/Adafruit_Python_DHT/blob/master/examples/simpletest.py).**</pre></div>
 <h5 id="montage">Montage</h5>
 
@@ -4996,19 +5001,19 @@ pause()</pre></div>
 <p>Les outils Adafruit ont été déplacés sur github et consistent maintenant en une librairie C que nous devrons utiliser dans un script python.</p>
 
 <p>Récupérons les sources et compilons la bibliothèque DHT.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 cd Adafruit_Python_DHT
 sudo apt-get update
 sudo apt-get install build-essential python-dev python-openssl
 sudo python setup.py install</pre></div>
 <p>Une fois terminé et pour tester cela, on exécute la commande suivante (pour un  DHT11) , un DHT 22 sera interrogé par Adafruit_DHT 22 XX, XX étant le numéro du GPIO concerné.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd examples
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd examples
 sudo ./AdafruitDHT.py 22 4
 Temp=23.0* Humidity=37.0%</pre></div>
 <p><em>Vous ne devriez pas être concerné par le problème suivant mais sait-on jamais&hellip;</em></p>
 
 <p>Attention : le message d’erreur ci-dessous indique que le mode « device-tree » n’est pas activé sur le Raspberry.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Traceback (most recent call last):
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Traceback (most recent call last):
 File &#34;./AdafruitDHT.py&#34;, line 41, in &amp;lt;module&amp;gt;
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 File &#34;build/bdist.linux-armv7l/egg/Adafruit_DHT/common.py&#34;, line 90, in read_retry
@@ -5058,7 +5063,7 @@ Remarque : gpioZero contourne ce problème !</strong></p>
 **</p>
 
 <p>Le programme suivant va déplacer le servo entre ses positions minimales, centrales et maximales en faisant des pauses entre chaque étape.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import Servo
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import Servo
 from time import sleep
 
 servo = Servo(17)
@@ -5072,11 +5077,11 @@ while True:
 <p>D&rsquo;autres exemples sont disponibles chez gpio zero pour le manipuler plus finement.</p>
 
 <p><strong>Projets</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Utiliser un servo pour orienter une camera dans une direction, tournant régulièrement et offrant un angle plus</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Utiliser un servo pour orienter une camera dans une direction, tournant régulièrement et offrant un angle plus</pre></div>
 <p>large.
         * Créer un pan/tilt en attachant deux servos moteurs. On pourra ainsi orienter la caméra dans beaucoup plus de directions.
 <img src="http://www.robotshop.com/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/s/e/servocity-spt50-sub-micro-pan-tilt-kit-hs55-servos-1_1.jpg" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Toujours avec un pan tilt, cette fois remplacer la caméra par un laser... et vous pouvez créer un script qui oriente vise des points aléatoires au sol pour amuser votre chat. J&#39;ai dû mettre une LED à la place du laser mais vous comprenez le principe.</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Toujours avec un pan tilt, cette fois remplacer la caméra par un laser... et vous pouvez créer un script qui oriente vise des points aléatoires au sol pour amuser votre chat. J&#39;ai dû mettre une LED à la place du laser mais vous comprenez le principe.</pre></div>
 <p><strong>Attention : les lasers sont dangereux, ils peuvent détruire les cellules de la rétine et rendre aveugle. Soyez prudent, cela arrive plus vite que vous ne le pensez peut-être.</strong></p>
 
 <p><img src="/uploads/uploads/2017/06/laserCat_bb-1024x787.png" alt="laserCat_bb" /></p>
@@ -5086,7 +5091,19 @@ while True:
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5094,6 +5111,7 @@ while True:
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li>

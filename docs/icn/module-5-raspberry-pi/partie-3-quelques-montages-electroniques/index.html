@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -85,14 +85,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -113,7 +117,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4796,9 +4800,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4839,7 +4844,7 @@ MathJax.Hub.Config({
 <h2 id="sortie-une-simple-led">Sortie : une simple LED</h2>
 
 <p>Commençons par alimenter une LED. Nous allons utiliser la librairie <strong>gpiozero.</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    1. **Installation de la librairie.**</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    1. **Installation de la librairie.**</pre></div>
 <p>Il est possible qu&rsquo;elle soit déjà installée. Testons le en essayer de l&rsquo;important dans Python.
 Ouvrez Python et tapez : import gpiozero . Si vous ne voyez pas d&rsquo;erreur la librairie est déjà installée et passez au 2.
 Sinon :
@@ -4851,14 +4856,14 @@ Testez dans Python son import.
 Souvenez vous que les leds sont **polarisées. <strong>La longue broche vers le plus (pin 17) la courte vers le moins (ground).
 On utilisera une résistance entre l&rsquo;alimentation (pin 17) et la led. Celle-ci empêche la led de griller. Il n&rsquo;est pas indispensable de s&rsquo;en servir mais les leds sont fragiles.</strong>**On mesure la résistivité en Ohms. Plus c&rsquo;est élevé, moins le courant circule. Ici on emploiera une résistance d&rsquo;1 kilo Ohms, ressemblant à ça. Utilisez les couleurs des stries pour vous repérer.
 <img src="https://www.pakwheels.com/forums/attachments/mechanical-electrical/334758-led-lovers-bike-cars-cfr-50jb-1r0.jpg" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    3. **Script</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    3. **Script</pre></div>
 <p>**Creez un fichier <strong>testled.py </strong>dans le dossier_ /home/pi _du raspberry pi.
 Si vous êtes en ligne de commande vous pouvez utiliser l&rsquo;éditeur de texte <strong>nano. : </strong>nano testled.py
 Une fois votre code tapé (ou collé) vous pouvez quitter nano en utilisant le raccourci clavier : ctrl+x.
 Pour sauvegarder confirmez &ldquo;yes&rdquo; ou &ldquo;oui&rdquo; selon la langue, pour fermer sans saugarder &ldquo;no&rdquo;.
 Puis entrez. Hop votre fichier est enregistré.
 Voici le code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED
 from time import sleep
 
 led = LED(17)
@@ -4874,7 +4879,7 @@ Ensuite on charge sleep qui permet de faire des pauses de certaines durées (en 
 
 <p>On définit la variable <strong>led</strong> qui est raccordée au pin 17 (numérotation BCM, celle de votre hat).
 On lance ensuite une boucle infinie qui va :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">      * éclairer la led et faire une pause d&#39;une seconde
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">      * éclairer la led et faire une pause d&#39;une seconde
       * éteindre la led et faire une pause d&#39;une seconde</pre></div>
 <p>Puis recommencer. La led clignotte donc indéfiniment. Executez ce script avec Python depuis la console :
 sudo python testled.py
@@ -4888,14 +4893,14 @@ D&rsquo;un point de vue logiciel : on peut intégrer d&rsquo;autres fonctions à
 Reprendre et adapter le tutoriel <a href="https://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview">d&rsquo;adafruit</a> au matériel disponible.</p>
 
 <p><strong>Cahier des charges</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Réaliser un montage électronique avec deux leds (protégées par les résistances adéquates) raccordées sur des pins du GPIO
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    * Réaliser un montage électronique avec deux leds (protégées par les résistances adéquates) raccordées sur des pins du GPIO
     * Créer un script python allumant la led verte et éteignant la led rouge si tous les messages sont lus et faisant le contraire s&#39;il existe un message lu dans la boite de réception. _Remarquons que le projet est entièrement détaillé sur Adafruit... les adaptations sont très modiques et à la portée d&#39;un singe savant... qui parlerait anglais.</pre></div>
 <p>Son objectif est donc de vous familiariser avec les tutoriels dédiés au raspberry d&rsquo;<a href="https://learn.adafruit.com/category/raspberry-pi">Adafruit</a>_</p>
 
 <h2 id="entrée-un-bouton-sortie-une-led">Entrée : un bouton, sortie : une led</h2>
 
 <p>Reprenons le montage précédent, nous allons ajouter un bouton. Nous allons encore utiliser la librairie Python <strong>gpiozero</strong>, référez vous à la partie précédente pour son installation.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. ****Montage</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. ****Montage</pre></div>
 <p><img src="https://github.com/RPi-Distro/python-gpiozero/blob/master/docs/images/led_button_bb.png?raw=true" alt="" /></p>
 
 <hr />
@@ -4904,7 +4909,7 @@ Reprendre et adapter le tutoriel <a href="https://learn.adafruit.com/raspberry-p
       2. ****Script</p>
 
 <hr />
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED, Button
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED, Button
 from signal import pause
 
 led = LED(17)
@@ -4942,7 +4947,7 @@ Le pire est que ça fonctionne bien.</p>
 <p><strong>Consigne</strong></p>
 
 <p>Ajoutez un bouton à ce montage. Utilisez les exemples précédents pour faire évoluer le feu à chaque pression du bouton.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Au lancement du script les feux sont éteints
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Au lancement du script les feux sont éteints
   2. Quand on presse le bouton le vert s&#39;allume et reste allumé
   3. Quand on le presse à nouveau le jaune s&#39;allume et le vert s&#39;eteint, puis le rouge et le jaune s&#39;éteint.
   4. Quand on presse une quatrième fois les feux s&#39;éteignent et on peut recommencer.</pre></div>
@@ -4951,7 +4956,19 @@ Le pire est que ça fonctionne bien.</p>
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -4959,6 +4976,7 @@ Le pire est que ça fonctionne bien.</p>
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li>

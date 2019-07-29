@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -89,14 +89,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -117,7 +121,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4800,9 +4804,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4843,7 +4848,7 @@ MathJax.Hub.Config({
 <p>Vérifiez sur $n=1,2,3,4$ que les deux définitions sont équivalentes.</p>
 
 <p>En récursif, la factorielle peut se traduire par le programme suivant en pseudo-code :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle(entier k) :
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle(entier k) :
 si k=0
 alors renvoyer 1
 sinon renvoyer k * factorielle(k-1)
@@ -4851,51 +4856,51 @@ finsi</pre></div>
 <p>Analysez les deux exemples qui suivent ligne par ligne puis testez les. Dans cet ordre !</p>
 
 <p><strong>Exemple 1</strong> :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#fff;font-weight:bold">function</span> factorial(num)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#069;font-weight:bold">function</span> factorial(num)
   {
-      <span style="color:#007f7f">// si le nombre est négatif, le rejeter.
-</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">if</span> (num &lt; <span style="color:#ff0;font-weight:bold">0</span>) {
-          <span style="color:#fff;font-weight:bold">return</span> -<span style="color:#ff0;font-weight:bold">1</span>;
+      <span style="color:#09f;font-style:italic">// si le nombre est négatif, le rejeter.
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">if</span> (num <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>) {
+          <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">-</span><span style="color:#f60">1</span>;
         }
-        <span style="color:#007f7f">// Si le nombre est 0 sa factorielle est 1.
-</span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (num == <span style="color:#ff0;font-weight:bold">0</span>) {
-          <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
+        <span style="color:#09f;font-style:italic">// Si le nombre est 0 sa factorielle est 1.
+</span><span style="color:#09f;font-style:italic"></span>        <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> (num <span style="color:#555">==</span> <span style="color:#f60">0</span>) {
+          <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
         }
-        <span style="color:#007f7f">// Sinon n! = n * (n-1)!.
-</span><span style="color:#007f7f"></span>
-        <span style="color:#fff;font-weight:bold">var</span> tmp = num;
-        <span style="color:#fff;font-weight:bold">while</span> (num-- &gt; <span style="color:#ff0;font-weight:bold">2</span>) {
-          tmp *= num;
+        <span style="color:#09f;font-style:italic">// Sinon n! = n * (n-1)!.
+</span><span style="color:#09f;font-style:italic"></span>
+        <span style="color:#069;font-weight:bold">var</span> tmp <span style="color:#555">=</span> num;
+        <span style="color:#069;font-weight:bold">while</span> (num<span style="color:#555">--</span> <span style="color:#555">&gt;</span> <span style="color:#f60">2</span>) {
+          tmp <span style="color:#555">*=</span> num;
         }
-        <span style="color:#fff;font-weight:bold">return</span> tmp;
+        <span style="color:#069;font-weight:bold">return</span> tmp;
       }
 
-      <span style="color:#fff;font-weight:bold">var</span> result = factorial(<span style="color:#ff0;font-weight:bold">8</span>);
-      <span style="color:#fff;font-weight:bold">document</span>.write(result);
+      <span style="color:#069;font-weight:bold">var</span> result <span style="color:#555">=</span> factorial(<span style="color:#f60">8</span>);
+      <span style="color:#366">document</span>.write(result);
 
-      <span style="color:#007f7f">// Sortie : 40320
+      <span style="color:#09f;font-style:italic">// Sortie : 40320
 </span></code></pre></div>
 <p><strong>Exemple 2</strong>. On peut transformer la fonction pour la rendre recursive très simplement. Au lieu d&rsquo;utiliser une boucle while pour calculer la valeur, on peut se contenter d&rsquo;appeler &ldquo;factorial&rdquo; à nouveau.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> factorial(num)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> factorial(num)
 {
-    <span style="color:#007f7f">// si le nombre est négatif, le rejetter.
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (num &lt; <span style="color:#ff0;font-weight:bold">0</span>) {
-        <span style="color:#fff;font-weight:bold">return</span> -<span style="color:#ff0;font-weight:bold">1</span>;
+    <span style="color:#09f;font-style:italic">// si le nombre est négatif, le rejetter.
+</span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">if</span> (num <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>) {
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">-</span><span style="color:#f60">1</span>;
     }
-    <span style="color:#007f7f">// Si le nombre est 0 sa factorielle est 1.
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (num == <span style="color:#ff0;font-weight:bold">0</span>) {
-        <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
+    <span style="color:#09f;font-style:italic">// Si le nombre est 0 sa factorielle est 1.
+</span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> (num <span style="color:#555">==</span> <span style="color:#f60">0</span>) {
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
     }
-    <span style="color:#007f7f">// Sinon, appeler cette fonction recursive à nouveau.
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">else</span> {
-        <span style="color:#fff;font-weight:bold">return</span> (num * factorial(num - <span style="color:#ff0;font-weight:bold">1</span>));
+    <span style="color:#09f;font-style:italic">// Sinon, appeler cette fonction recursive à nouveau.
+</span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">else</span> {
+        <span style="color:#069;font-weight:bold">return</span> (num <span style="color:#555">*</span> factorial(num <span style="color:#555">-</span> <span style="color:#f60">1</span>));
     }
 }
 
-<span style="color:#fff;font-weight:bold">var</span> result = factorial(<span style="color:#ff0;font-weight:bold">8</span>);
-<span style="color:#fff;font-weight:bold">document</span>.write(result);
+<span style="color:#069;font-weight:bold">var</span> result <span style="color:#555">=</span> factorial(<span style="color:#f60">8</span>);
+<span style="color:#366">document</span>.write(result);
 
-<span style="color:#007f7f">// Sortie : 40320
+<span style="color:#09f;font-style:italic">// Sortie : 40320
 </span></code></pre></div>
 <p>Testez ces fonctions sur quelques exemples : 0, 1, 2, 5, 12.</p>
 
@@ -4959,10 +4964,10 @@ L&rsquo;algorithme d&rsquo; Euclide permet de déterminer le pgcd de la manière
 <p>pgcd (a,b) = b si a%b == 0 , ou sinon (a%b) % b ;</p>
 
 <p><strong>Solution :</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> pgcd(a,b){
-<span style="color:#fff;font-weight:bold">return</span>  a&gt;b &amp;&amp; pgcd(a-b, b)|| a&lt; b &amp;&amp; pgcd(a,b-a) || a===b &amp;&amp; a ; } <span style="color:#007f7f">//Et avec l&#39;opérateur modulo : function pgcd(a,b){ return a&gt;b &amp;&amp; a%b&gt;0 &amp;&amp; pgcd(b,a%b) || (b&gt;a)&amp;&amp; pgcd(b,a) || a%b===0 &amp;&amp; b ;
-</span><span style="color:#007f7f"></span>}
-pgcd(<span style="color:#ff0;font-weight:bold">2736</span>,<span style="color:#ff0;font-weight:bold">486144</span>);<span style="color:#007f7f">//30
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> pgcd(a,b){
+<span style="color:#069;font-weight:bold">return</span>  a<span style="color:#555">&gt;</span>b <span style="color:#555">&amp;&amp;</span> pgcd(a<span style="color:#555">-</span>b, b)<span style="color:#555">||</span> a<span style="color:#555">&lt;</span> b <span style="color:#555">&amp;&amp;</span> pgcd(a,b<span style="color:#555">-</span>a) <span style="color:#555">||</span> a<span style="color:#555">===</span>b <span style="color:#555">&amp;&amp;</span> a ; } <span style="color:#09f;font-style:italic">//Et avec l&#39;opérateur modulo : function pgcd(a,b){ return a&gt;b &amp;&amp; a%b&gt;0 &amp;&amp; pgcd(b,a%b) || (b&gt;a)&amp;&amp; pgcd(b,a) || a%b===0 &amp;&amp; b ;
+</span><span style="color:#09f;font-style:italic"></span>}
+pgcd(<span style="color:#f60">2736</span>,<span style="color:#f60">486144</span>);<span style="color:#09f;font-style:italic">//30
 </span></code></pre></div>
 <p>Ici on utilise volontairement les expressions javascript pour raccourcir l&rsquo;écriture, ce qui n&rsquo;est pas forcément toujours à conseiller.</p>
 
@@ -4993,16 +4998,16 @@ pgcd(<span style="color:#ff0;font-weight:bold">2736</span>,<span style="color:#f
 <ol>
 <li>Etudier la fonction suivante qui répond au problème MAIS n&rsquo;utilise pas de récursif :</li>
 </ol>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#fff;font-weight:bold">function</span> nchiffres(n) {
-<span style="color:#fff;font-weight:bold">var</span> p=<span style="color:#ff0;font-weight:bold">1</span>
-<span style="color:#fff;font-weight:bold">while</span>(n&gt;<span style="color:#ff0;font-weight:bold">1</span>){
-  p++;
-  n=<span style="color:#fff;font-weight:bold">Math</span>.floor(n/<span style="color:#ff0;font-weight:bold">10</span>);
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#069;font-weight:bold">function</span> nchiffres(n) {
+<span style="color:#069;font-weight:bold">var</span> p<span style="color:#555">=</span><span style="color:#f60">1</span>
+<span style="color:#069;font-weight:bold">while</span>(n<span style="color:#555">&gt;</span><span style="color:#f60">1</span>){
+  p<span style="color:#555">++</span>;
+  n<span style="color:#555">=</span><span style="color:#366">Math</span>.floor(n<span style="color:#555">/</span><span style="color:#f60">10</span>);
 }
-<span style="color:#fff;font-weight:bold">return</span> p;
+<span style="color:#069;font-weight:bold">return</span> p;
 }
 
-<span style="color:#fff;font-weight:bold">document</span>.write(nchiffres(<span style="color:#ff0;font-weight:bold">123456</span>));
+<span style="color:#366">document</span>.write(nchiffres(<span style="color:#f60">123456</span>));
 </code></pre></div>
 <ol>
 <li>Créer une nouvelle fonction sur le même principe en utilisant le JavaScript.</li>
@@ -5021,13 +5026,13 @@ pgcd(<span style="color:#ff0;font-weight:bold">2736</span>,<span style="color:#f
 <code>chiffres(123456789)</code> renvoie <code>[1,2,3,4,5,6,7,8,9]</code>.</li>
 <li>Tester le script suivant :</li>
 </ol>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> n =  <span style="color:#ff0;font-weight:bold">123456789</span>;
-<span style="color:#fff;font-weight:bold">var</span> digits = (<span style="color:#ff0;font-weight:bold">123456789</span>).toString(<span style="color:#ff0;font-weight:bold">10</span>).split(<span style="color:#0ff;font-weight:bold">&#34;&#34;</span>);
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span>  <span style="color:#f60">123456789</span>;
+<span style="color:#069;font-weight:bold">var</span> digits <span style="color:#555">=</span> (<span style="color:#f60">123456789</span>).toString(<span style="color:#f60">10</span>).split(<span style="color:#c30">&#34;&#34;</span>);
 </code></pre></div>
 <p>Il a pour inconvénient de renvoyer un tableau contenant des chaines de caractères et non des nombres. C&rsquo;est facheux.
 3. Voilà pourquoi je vous propose de tester cette fonction :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> n =  <span style="color:#ff0;font-weight:bold">123456789</span>;
-<span style="color:#fff;font-weight:bold">var</span> digits2 = (<span style="color:#ff0;font-weight:bold">123456789</span>).toString(<span style="color:#ff0;font-weight:bold">10</span>).split(<span style="color:#0ff;font-weight:bold">&#34;&#34;</span>).map(<span style="color:#fff;font-weight:bold">function</span>(t){<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">parseInt</span>(t)});;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span>  <span style="color:#f60">123456789</span>;
+<span style="color:#069;font-weight:bold">var</span> digits2 <span style="color:#555">=</span> (<span style="color:#f60">123456789</span>).toString(<span style="color:#f60">10</span>).split(<span style="color:#c30">&#34;&#34;</span>).map(<span style="color:#069;font-weight:bold">function</span>(t){<span style="color:#069;font-weight:bold">return</span> <span style="color:#366">parseInt</span>(t)});;
 </code></pre></div>
 <p>Testez ces deux fonctions et réalisez des calculs sur les éléments de la liste du type
  <code>digits[0] + digits[1]</code> qui renvoie la somme des deux premiers éléments de la liste.</p>
@@ -5071,7 +5076,7 @@ pgcd(<span style="color:#ff0;font-weight:bold">2736</span>,<span style="color:#f
 <h5 id="résumé-des-règles-du-problème">Résumé des règles du problème :</h5>
 
 <p>Le problème des tours de Hanoï consiste à déplacer des disques de diamètres différents d&rsquo;une tour de « départ » à une tour d&rsquo;« arrivée » en passant par une tour « intermédiaire », et ceci en un minimum de coups, tout en respectant les règles suivantes :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  * on ne peut déplacer plus d&#39;un disque à la fois,
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  * on ne peut déplacer plus d&#39;un disque à la fois,
   * on ne peut placer un disque que sur un autre disque plus grand que lui ou sur un emplacement vide.</pre></div>
 <p>On suppose que cette dernière règle est également respectée dans la configuration de départ.</p>
 
@@ -5101,7 +5106,19 @@ passer le disque large de la base de gauche à droite // vous savez le faire pou
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5109,6 +5126,7 @@ passer le disque large de la base de gauche à droite // vous savez le faire pou
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#1-principe-et-exemples">1. Principe et exemples</a></li>

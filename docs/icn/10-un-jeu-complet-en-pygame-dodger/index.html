@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -85,14 +85,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -113,7 +117,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4796,9 +4800,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4869,7 +4874,7 @@ pygame.time.Clock - L&rsquo;objet Clock du module pygame.time permet de rendre n
 <p>Récupérez le code suivant et sauvegardez le dans un fichier _dodger.py. _Ce jeu requiert aussi quelques fichiers d&rsquo;images et de sons disponibles.</p>
 
 <p>Le <a href="/uploads/docs/tutos/python/dodger/player.png">joueur</a>, le <a href="/uploads/docs/tutos/python/dodger/baddie.png">méchant</a>, le <a href="/uploads/docs/tutos/python/dodger/gameover.wav">son gameover</a>, la <a href="/uploads/docs/tutos/python/dodger/background.mid">musique de fond</a>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
 # coding=utf-8
 import pygame, random, sys
 from pygame.locals import *
@@ -5075,55 +5080,55 @@ while True:
 <img src="http://inventwithpython.com/chapter20_files/image002.jpg" alt="" /></p>
 
 <h3 id="importer-les-modules">Importer les modules</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
 # coding=utf-8
 import pygame, random, sys
 from pygame.locals import *</pre></div>
 <p>Le jeu Dodger import les modules usuels après avoir défini l&rsquo;encodage et l&rsquo;environnement :pygame, random, sys, et pygame.locals. pygame.locals contient plusieurs variables utilisées par Pygame tels que les événements  (QUIT, KEYDOWN, etc.) et les touches du clavier (K_ESCAPE, etc.). En utilisant cette la syntaxe from pygame.locals import * syntax, vous pouvez simplement taper QUIT dans le code source au lieu de pygame.locals.QUIT.</p>
 
 <h3 id="réglage-des-variables-constantes">Réglage des variables Constantes</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">WINDOWWIDTH = 600
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
 TEXTCOLOR = (255, 255, 255)
 BACKGROUNDCOLOR = (0, 0, 0)</pre></div>
 <p>Les constantes tapées entre les lignes 4 et 14 sont plus explicites que si l&rsquo;on tapait directement les valeurs. Par exemple, windowSurface.fill(BACKGROUNDCOLOR) est plus facile à comprendre que windowSurface.fill((0, 0, 0)).</p>
 
 <p>Vous pouvez les changer facilement dans le jeu et éditant le code source. En changeant WINDOWWIDTH à la ligne 4, vous le modifiez à toutes les lignes où il intervient WINDOWWIDTH. Si vous aviez tapé 600 à la place, vous devriez les changer toutes les fois où il intervient.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FPS = 40</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FPS = 40</pre></div>
 <p>Le tick de l&rsquo;horloge principale utilisée à la ligne 189 va ralentir le jeu suffisamment pour le rendre jouable. On envoie un entier à mainClock.tick() de façon à ce que le jeu sache combien de temps mettre en pause le programme. Cet entier est donc le nombre de FPS auquel on souhaite faire tourner le jeu.</p>
 
 <p>Une &ldquo;frame&rdquo; est le dessin d&rsquo;une image à l&rsquo;écran pour une seule itération de la boucle du jeu. Vous pouvez régler le jeu à 40 FPS et toujours appeler mainClock.tick(FPS). Ensuite, en augmentant FPS, vous accélérez le jeu, en le diminuant vous ralentissez le jeu.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">BADDIEMINSIZE = 10
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">BADDIEMINSIZE = 10
 BADDIEMAXSIZE = 40
 BADDIEMINSPEED = 1
 BADDIEMAXSPEED = 8
 ADDNEWBADDIERATE = 6</pre></div>
 <p>Les lignes 11 à 15 définissent d&rsquo;autres constantes qui décrivent le comportement des méchants. Les dimensions des méchants seront comprises entre BADDIEMINSIZE et BADDIEMAXSIZE. Le rythmer auquel les méchants tombent de l&rsquo;écran sera fixé entre BADDIEMINSPEED et BADDIEMAXSPEED pixels par itération de la boucle de jeu. Et un nouveau méchant sera ajouté toutes les ADDNEWBADDIERATE itérations.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">PLAYERMOVERATE = 5</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">PLAYERMOVERATE = 5</pre></div>
 <p>PLAYERMOVERATE décrit le nombre de pixel que le jouer traverse à chaque itération. L&rsquo;augmenter permet donc d&rsquo;accélérer le joueur.</p>
 
 <h2 id="définir-les-fonctions">Définir les fonctions</h2>
 
 <p>Plusieurs fonctions sont utilisées dans le jeu.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def terminate():
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def terminate():
     pygame.quit()
     sys.exit()</pre></div>
 <p>Pygame doit être quitté en appelant à la fois pygame.quit et sys.exit. On les ajoute donc tous les deux à une fonction  terminate qui sera appelée pour clore le jeu en une seule commande.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def waitForPlayerToPressKey():
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def waitForPlayerToPressKey():
     while True:
         for event in pygame.event.get():</pre></div>
 <p>Parfois il est commode de pouvoir mettre en pause le jeu jusqu&rsquo;à ce qu&rsquo;un joueur presse une touche. Créer waitForPlayerToPressKey() et dans cette fonction, inclure une boucle infinie qui ne s&rsquo;arrête (break) que lorsque qu&rsquo;un événement KEYDOWN ou QUIT est enregistré. Au début de cette boucle, pygame.event.get() permet de définir la liste des événements en question.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == QUIT:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == QUIT:
     terminate()</pre></div>
 <p>Si le joueur a fermé la fenêtre quand le jeu est en pause, Pygame va générer un événement QUIT.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
      if event.key == K_ESCAPE: # pressing escape quits
          terminate()
           return</pre></div>
 <p>Même chose si la touche Escape du clavier est enregistrée parmi les événements clavier.</p>
 
 <p>Si aucun QUIT ou KEYDOWN n&rsquo;est enregistré, alors le code tourne en boucle. Cette boucle ne faisant rien, cela revient à mettre en pause tant qu&rsquo;une touche n&rsquo;est pas pressée.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def playerHasHitBaddie(playerRect, baddies):
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def playerHasHitBaddie(playerRect, baddies):
     for b in baddies:
         if playerRect.colliderect(b[&#39;rect&#39;]):
             return True
@@ -5133,7 +5138,7 @@ ADDNEWBADDIERATE = 6</pre></div>
 <p>playerRect est aussi un objet Rect. Ces objets ont une méthode colliderect() qui renvoie True si l&rsquo;objet Rect a heurté celui envoyé en paramètre. Sinon coliiderect() va renvoyer False.</p>
 
 <p>La boucle for de la ligne 33 tourne sur la liste des baddies et s&rsquo;arrête dès que l&rsquo;une des collisions est détectée. Si le code parcourt toute la liste sans passer à vrai, alors la fonction renvoie False.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def drawText(text, font, surface, x, y):
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def drawText(text, font, surface, x, y):
     textobj = font.render(text, 1, TEXTCOLOR)
     textrect = textobj.get_rect()
     textrect.topleft = (x, y)
@@ -5147,30 +5152,30 @@ Enfin, ligne 42 on blit la Surface du textobj sur le textrect.</p>
 <h2 id="initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</h2>
 
 <p>Les constantes et les fonctions étant définies, il est possible de définir la fenêtre et l&rsquo;horloge.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.init()
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.init()
 mainClock = pygame.time.Clock()</pre></div>
 <p>La ligne 45 lance pygame avec l&rsquo;appel à init(). La suivante défini l&rsquo;horloge time.Clock() qui empêchera le jeu de tourner trop vite.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))</pre></div>
 <p>Ligne 47 on crée une nouvelle Surface qui servira à définir la fenêtre affichée à l&rsquo;écran. On emploie ici les dimensions crées plus haut. Remarquons qu&rsquo;on ne passe qu&rsquo;un seul argument à set_mode(), un tuple ! Les dimensions ne sont pas deux entiers mais un tuple les contenant.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.set_caption(&#39;Dodger&#39;)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.set_caption(&#39;Dodger&#39;)</pre></div>
 <p>On défini ici le titre du jeu, il apparaîtra en haut de l&rsquo;écran.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mouse.set_visible(False)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mouse.set_visible(False)</pre></div>
 <p>On cache le curseur de la souris. En effet, on se servira de la souris pour déplacer le joueur.</p>
 
 <h2 id="mode-plein-écran">Mode plein écran</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)</pre></div>
 <p>En changeant ainsi la ligne 47 on rend le jeu plein écran. La fenêtre est étendue jusqu&rsquo;aux dimensions maximales de l&rsquo;écran. Testez le jeu dans les deux modes pour bien comprendre son fonctionnement.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up fonts
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up fonts
 font = pygame.font.SysFont(None, 48)</pre></div>
 <p>On défini un objet font en appelant font.SysFont. Le premier paramètre permet de la choisir et, en passant None, on choisit la police par défaut. Le second est sa taille.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up sounds
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up sounds
 gameOverSound = pygame.mixer.Sound(&#39;gameover.wav&#39;)
 pygame.mixer.music.load(&#39;background.mid&#39;)</pre></div>
 <p>Ensuite on crée les objets sonores. Le premier est le son game over qui est appelé quand on perd.
 Le second est la musique de fond qui est tourne en permanence. Il est possible de jouer n&rsquo;importe quel .wav ou .mid dans le jeu.</p>
 
 <p>Il est possible d&rsquo;appeler mixer.Sound autant de fois que l&rsquo;on souhaite mais mixer.music.load ne peut être appelée qu&rsquo;une seule fois. Ces constructeurs ne renvoient rien.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up images
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up images
 playerImage = pygame.image.load(&#39;player.png&#39;)
 playerRect = playerImage.get_rect()
 baddieImage = pygame.image.load(&#39;baddie.png&#39;)</pre></div>
@@ -5179,7 +5184,7 @@ baddieImage = pygame.image.load(&#39;baddie.png&#39;)</pre></div>
 <h2 id="afficher-l-écran-de-démarrage">Afficher l&rsquo;écran de démarrage</h2>
 
 <p>Quand le jeu se lance, on affiche son nom à l&rsquo;écran. On souhaite aussi expliquer à l&rsquo;utilisateur comment jouer. Cet écran sert à donner le temps à l&rsquo;utilisateur de se préparer.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># show the &#34;Start&#34; screen
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># show the &#34;Start&#34; screen
 drawText(&#39;Dodger&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
 drawText(&#39;Press a key to start.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
@@ -5199,11 +5204,11 @@ waitForPlayerToPressKey()</pre></div>
 <p>La fonction waitForPlayerToPressKey() va mettre le jeu en pause jusqu&rsquo;à ce que l&rsquo;utilisateur presse un touche pour le lancer.</p>
 
 <h2 id="lancement-du-mode-de-jeu">Lancement du mode de jeu</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">topScore = 0
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">topScore = 0
 while True:</pre></div>
 <p>Le meilleur score est stocké dans une variable.
 On lance ensuite une boucle infinie qui va décrire une partie complète. A chaque défaite, on retourne ligne 71. Techniquement, ce n&rsquo;est donc pas la boucle infinie du jeu.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up the start of the game
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up the start of the game
 baddies = []
 score = 0</pre></div>
 <p>A chaque partie on initialise la liste des méchants et le score de la partie en cours.
@@ -5212,23 +5217,23 @@ La variable baddies est une liste dont chaque élément est un dictionnaire. Ils
 <p>&lsquo;rect&rsquo; : l&rsquo;objet Rect qui décrit où il se situe et quelle est sa taille
  &lsquo;speed&rsquo; : la vitesse du mechant. Entier qui décrit le nombre de pixels franchis entre chaque frame
  &lsquo;surface&rsquo; : La surface sur laquelle on dessine l&rsquo;image agrandie ou diminuée du méchant. Cet objet Surface est blitté sur la surface renvoyée par pygame.display.set_mode().</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)</pre></div>
 <p>Le rect du joueur. Il est positionné par son coin topleft au centre (horizontal) et en bas (vertical). Sa position est un tuple, souvenons nous.
 D&rsquo;autre pas, les coordonnées dans pygame sont : x vers la droite, y vers le bas.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">moveLeft = moveRight = moveUp = moveDown = False
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">moveLeft = moveRight = moveUp = moveDown = False
 reverseCheat = slowCheat = False
 baddieAddCounter = 0</pre></div>
 <p>Les variables de mouvement du joueur sont toutes initialisées à False. Les deux cheatmode aussi.
 Le compteur de méchant est réinitialisé à 0.
 Ce compteur augmente de 1 à chaque tour et, quand il vaut ADDNEWBADDIERATE un nouveau méchant est ajouté à l&rsquo;écran et on réinitialise le compteur à 0.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mixer.music.play(-1, 0.0)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mixer.music.play(-1, 0.0)</pre></div>
 <p>La musique de fond est lancée ligne 79 en appelant mixer.music.play(). Le premier argument, -1, indique le nombre de fois où elle doit se répéter (-1 : à l&rsquo;infini).
 Le second est un réel (float) qui indique à quelle seconde de la musique vous souhaitez qu&rsquo;elle commence, 0.0 : du début.</p>
 
 <h2 id="la-boucle-de-jeu">La boucle de jeu</h2>
 
 <p>Le jeu tourne indéfiniment en mettant à jour l&rsquo;état du monde (position du joueur, des méchants, gestion des événements, dessin des objets). Ceci se déroulant des dizaines de fois par seconde, on obtient une illusion de temps réel.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">while True: # the game loop runs while the game part is playing
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">while True: # the game loop runs while the game part is playing
     score += 1 # increase score</pre></div>
 <p>On lance la boucle infinie et on augmente de 1 le score à chaque tour.
 Elle ne s&rsquo;arrêtera que lorsqu&rsquo;on va perdre ou quitter la partie.</p>
@@ -5236,17 +5241,17 @@ Elle ne s&rsquo;arrêtera que lorsqu&rsquo;on va perdre ou quitter la partie.</p
 <h2 id="gestion-des-événements">Gestion des événements</h2>
 
 <p>Il y a 4 types d&rsquo;événements que le programme va gérer : QUIT, KEYDOWN, KEYUP et MOUSEMOTION</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">for event in pygame.event.get():
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">for event in pygame.event.get():
     if event.type == QUIT:
         terminate()</pre></div>
 <p>Ligne 84 est le début du gestionnaire d&rsquo;événements. Il appelle pygmae.event.get() qui renvoie une liste d&rsquo;objets Event. Chaque objet est un événement s&rsquo;étant déroulé depuis le dernier appel à cette fonction. Le code va d&rsquo;abord comparer le type d&rsquo;événements et ensuite gérer l&rsquo;événement en fonction.
 Si le type d&rsquo;événement est QUIT on sort du jeu.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
     if event.key == ord(&#39;z&#39;):
         reverseCheat = True</pre></div>
 <p>Si le type d&rsquo;événement est KEYDOWN, le joueur a enfoncé une touche. L&rsquo;événement clavier a aussi une clé qui lui est attribuée et qui correspond à la touche pressée. La fonction ord() renvoie la valeur de la touche.
 Par exemple, ligne 89 la touche &lsquo;z&rsquo; est enfoncée, alors on passe la valeur reverseCheat à true.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
     moveRight = False
     moveLeft = True</pre></div>
 <p>Les lignes 93 à 104 présentent les déplacements clavier. Remarquons qu&rsquo;on peut presser à chaque fois deux touches, WASD ou les flèches. Celles-ci n&rsquo;ont pas de valeur ordinale mais une valeur constante définie par pygame.locals.
@@ -5749,7 +5754,7 @@ Voici une table présentant les valeurs des touches du clavier.
 </tr>
 </tbody>
 </table></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYUP:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYUP:
     if event.key == ord(&#39;z&#39;):
         reverseCheat = False
         score = 0</pre></div>
@@ -5757,7 +5762,7 @@ Voici une table présentant les valeurs des touches du clavier.
 On arrête alors les déplacements et les cheat code en passant les valeurs à False.</p>
 
 <h2 id="la-méthode-move-ip">La méthode move_ip()</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == MOUSEMOTION:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == MOUSEMOTION:
         # If the mouse moves, move the player where the cursor is.
         playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)</pre></div>
 <p>On gère ainsi les événements souris. On ne s&rsquo;occupe que du déplacement de la souris, pas des boutons.</p>
@@ -5766,11 +5771,11 @@ On arrête alors les déplacements et les cheat code en passant les valeurs à F
 
 <p>La méthode move_ip() des objets Rect va déplacer la position du Rect horizontalement ou verticalement par un certain nombre de pixels.
 Par exemple move_ip(10,20) va déplacer le Rect de 10 en abs et 20 en ordonnée. le &ldquo;ip&rdquo; signifie &ldquo;in place&rdquo;. C&rsquo;est parce que la méthode change le Rect lui même plutôt que de renvoyer un nouveau Rect. Il existe aussi une méthode move qui renvoie un nouveau Rect situé à la nouvelle position.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Add new baddies at the top of the screen, if needed.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Add new baddies at the top of the screen, if needed.
 if not reverseCheat and not slowCheat:
     baddieAddCounter += 1</pre></div>
 <p>On augmente le compteur de baddies de 1 à chaque tour. Ceci ne se produit que si l&rsquo;on n&rsquo;est pas en mode cheat.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if baddieAddCounter == ADDNEWBADDIERATE:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if baddieAddCounter == ADDNEWBADDIERATE:
     baddieAddCounter = 0
     baddieSize = random.randint(BADDIEMINSIZE, BADDIEMAXSIZE)
     newBaddie = {&#39;rect&#39;: pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
@@ -5782,11 +5787,11 @@ On tire au hasard avec random.randint( ) un entier entre les bornes BADDIEMINSIZ
 On crée ensuite le dictionnaire newBaddie = { } contenant les clés &lsquo;rect&rsquo;, &lsquo;speed&rsquo; et &lsquo;surface&rsquo;. Rect contient la taille et la position. L&rsquo;abscisse de la position est aléatoire entre 0 et la taille de l&rsquo;écran moins la taille du baddie, l&rsquo;ordonnée est choisie de façon à ce qu&rsquo;il semble entrer dans l&rsquo;écran tout en haut. Les dimensions sont égales car le méchant est carré.
 La vitesse est aléatoire entre les constantes définies plus haut : BADDIEMINSPEED et BADDIEMAXSPEED
 La surface est définie de la même manière que celle du joueur.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baddies.append(newBaddie)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baddies.append(newBaddie)</pre></div>
 <p>On ajoute ensuite ce nouveau baddie à la liste comme précédemment.</p>
 
 <h2 id="le-déplacement-du-joueur">Le déplacement du joueur</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if moveLeft and playerRect.left &gt; 0:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if moveLeft and playerRect.left &gt; 0:
     playerRect.move_ip(-1 * PLAYERMOVERATE, 0)</pre></div>
 <p>Les quatre variables de déplacement (moveLeft etc.) sont définies comme vraies ou fausses par les événements clavier. Si le joueur bouge vers la gauche et que son abscisse est positive, il devrait se déplacer.
 C&rsquo;est ce qu&rsquo;on fait à l&rsquo;aide de move_ip.</p>
@@ -5796,11 +5801,11 @@ C&rsquo;est ce qu&rsquo;on fait à l&rsquo;aide de move_ip.</p>
 <p>On défini de la même manière les autres déplacements.</p>
 
 <h2 id="la-fonction-pygame-mouse-set-pos">La fonction pygame.mouse.set_pos()</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the mouse cursor to match the player.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the mouse cursor to match the player.
 pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)</pre></div>
 <p>On déplace le curseur à la même position que le joueur en passant à cette fonction les coordonnées : playerRect.centerx et playerRect.centery.
 En particulier le curseur sera toujours au centre du Rect du joueur.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the baddies down.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the baddies down.
 for b in baddies:
     if not reverseCheat and not slowCheat:
         b[&#39;rect&#39;].move_ip(0, b[&#39;speed&#39;])</pre></div>
@@ -5809,14 +5814,14 @@ Python permet de boucler directement dans une liste sans effort.
 Si les cheatmode ne sont pas activés alors le méchant va se déplacer vers le bas.</p>
 
 <h2 id="les-cheatmode">Les cheatmode</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">elif reverseCheat:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">elif reverseCheat:
     b[&#39;rect&#39;].move_ip(0, -5)
 elif slowCheat:
     b[&#39;rect&#39;].move_ip(0, 1)</pre></div>
 <p>On fait reculer les monstres ou on les ralenti si selon le cheatmode activé.</p>
 
 <h2 id="retirer-les-méchants">Retirer les méchants</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Delete baddies that have fallen past the bottom.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Delete baddies that have fallen past the bottom.
 for b in baddies[:]:
     if b[&#39;rect&#39;].top &gt; WINDOWHEIGHT:
         baddies.remove(b)</pre></div>
@@ -5835,14 +5840,14 @@ b[&lsquo;rect&rsquo;] récupère la valeur de la clé &lsquo;rect&rsquo; de l&rs
 <p>La fenêtre étant rafraîchie plusieurs fois par seconde, cela rend les animations fluides.</p>
 
 <p>Les éléments sont dessinés <strong>LES UNS AU DESSUS DES AUTRES. On commence donc par le fond</strong></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the game world on the window.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the game world on the window.
 windowSurface.fill(BACKGROUNDCOLOR)</pre></div>
 <p>On vient donc d&rsquo;effacer tous les éléments précédents.</p>
 
 <p>Souvenons nous que l&rsquo;objet Surface de windowSurface est une surface particuliere renvoyée par pygame.display.set_mode(). Ainsi, tout ce qui est dessiné sur cette surface apparaîtra à l&rsquo;écran une fois pygame.display.update() appelé.</p>
 
 <h2 id="dessiner-le-score">Dessiner le score</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the score and top score.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the score and top score.
 drawText(&#39;Score: %s&#39; % (score), font, windowSurface, 10, 0)
 drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)</pre></div>
 <p>On affiche le texte du score et du meilleur score dans le coin de l&rsquo;écran. &lsquo;Score: %s&rsquo; % (score) est un formatage particulier d&rsquo;une chaîne de caractère qui va remplacer %s par la valeur contenu dans le tuple (score). On aura donc :</p>
@@ -5852,24 +5857,24 @@ drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)</pre
 <p>On les dessine aux coordonnées données en dernier paramètres : respectivement 10, 0 et 10, 40.</p>
 
 <h2 id="dessiner-le-joueur">Dessiner le joueur</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the player&#39;s rectangle
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the player&#39;s rectangle
 windowSurface.blit(playerImage, playerRect)</pre></div>
 <p>Les informations du joueur sont stockées dans deux variables : playerImage (son sprite) et playerRect (position et dimension). La méthode blit() dessine l&rsquo;image playerImage sur la surface windowSurface aux positions de playerRect() et selon ses dimensions.</p>
 
 <h2 id="dessiner-les-méchants">Dessiner les méchants</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw each baddie
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw each baddie
 for b in baddies:
     windowSurface.blit(b[&#39;surface&#39;], b[&#39;rect&#39;])</pre></div>
 <p>On fait de même pour chaque méchant de la liste. On récupère depuis le dictionnaire b les éléments &lsquo;surface&rsquo; et &lsquo;rect&rsquo; qu&rsquo;on envoie à blit.</p>
 
 <h2 id="mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.update()</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.update()</pre></div>
 <p>On dessine enfin cette surface sur celle de l&rsquo;écran et tous les éléments vont apparaître.</p>
 
 <h2 id="détection-des-collisions">Détection des collisions</h2>
 
 <p>A cette étape toutes les données sont dessinées à l&rsquo;écran. Il ne reste plus qu&rsquo;à détecter les collisions entre le joueur et les méchants.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Check if any of the baddies have hit the player.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Check if any of the baddies have hit the player.
 if playerHasHitBaddie(playerRect, baddies):
     if score &gt; topScore:
         topScore = score # set new top score
@@ -5882,22 +5887,22 @@ La partie est alors terminée et on va mettre à jour le meilleur score si le sc
 <p>On revient alors à la boucle contenant le déroulé du jeu.</p>
 
 <p>Si aucune collision n&rsquo;est détectée on arrive alors ligne 191</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mainClock.tick(FPS)</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mainClock.tick(FPS)</pre></div>
 <p>Pour empêcher l&rsquo;ordinateur d&rsquo;aller le plus vite possible dans la boucle de jeu (ce qui irait trop vite pour le joueur) on met en pause brièvement. mainClock.tick(FPS) assure que 40 tour de boucles sont effectués par seconde.</p>
 
 <h2 id="game-over">Game Over</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Stop the game and show the &#34;Game Over&#34; screen.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Stop the game and show the &#34;Game Over&#34; screen.
 pygame.mixer.music.stop()
 gameOverSound.play()</pre></div>
 <p>Quand le joueur perd, on arrive à la ligne 193 (on est alors sorti de la boucle depuis le break ligne 189). On joue alors le son gameover et on arrête la musique.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
 drawText(&#39;Press a key to play again.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
 waitForPlayerToPressKey()</pre></div>
 <p>On affiche ensuite le texte proposant de rejouer et on met l&rsquo;écran à jour.</p>
 
 <p>On entre ensuite en pause jusqu&rsquo;à ce qu&rsquo;il presse une touche ligne 200.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gameOverSound.stop()</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gameOverSound.stop()</pre></div>
 <p>Selon le temps que le joueur aura mis à presser une touche, le son gameover peut ne pas être terminé. On arrête le son dès que la fonction waitForPlayerToPressKey() est terminée pour s&rsquo;en assurer.</p>
 
 <h2 id="modifier-le-jeu-dodger">Modifier le jeu Dodger</h2>
@@ -5916,7 +5921,19 @@ Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale B
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5924,6 +5941,7 @@ Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale B
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li><a href="#dodger">DODGER</a>

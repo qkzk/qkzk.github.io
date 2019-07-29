@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -89,14 +89,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -117,7 +121,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4800,9 +4804,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4858,71 +4863,71 @@ Enregistrer</p>
 On obtient ainsi le &ldquo;négatif&rdquo; :</p>
 
 <p><img src="http://fsincere.free.fr/isn/python/picto/imageInverse.png" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># script inversion_image_pgm.py</span>
-<span style="color:#fff;font-weight:bold">import</span> imghdr
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script inversion_image_pgm.py</span>
+<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">imghdr</span>
 
-<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Inversion d&#39;une image PGM en mode binaire à 256 niveaux de gris</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">&#34;</span>))
+<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Inversion d&#39;une image PGM en mode binaire à 256 niveaux de gris</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">&#34;</span>))
 
-NomFichierSource = <span style="color:#0ff;font-weight:bold">&#39;image.pgm&#39;</span>
-NomFichierDestination = <span style="color:#0ff;font-weight:bold">&#39;imageInverse.pgm&#39;</span>
+NomFichierSource <span style="color:#555">=</span> <span style="color:#c30">&#39;image.pgm&#39;</span>
+NomFichierDestination <span style="color:#555">=</span> <span style="color:#c30">&#39;imageInverse.pgm&#39;</span>
 
-<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Fichier source :&#39;</span>,NomFichierSource))
-<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Fichier destination :&#39;</span>,NomFichierDestination))
+<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;Fichier source :&#39;</span>,NomFichierSource))
+<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;Fichier destination :&#39;</span>,NomFichierDestination))
 
-<span style="color:#fff;font-weight:bold">def</span> Inversion(octet):
-    <span style="color:#007f7f"># cette fonction fait une inversion du niveau de gris</span>
-    <span style="color:#007f7f"># 0 (noir)    -&gt; 255 (blanc)</span>
-    <span style="color:#007f7f"># 255 (blanc) -&gt; 0 (noir)</span>
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">255</span>-octet
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Inversion</span>(octet):
+    <span style="color:#09f;font-style:italic"># cette fonction fait une inversion du niveau de gris</span>
+    <span style="color:#09f;font-style:italic"># 0 (noir)    -&gt; 255 (blanc)</span>
+    <span style="color:#09f;font-style:italic"># 255 (blanc) -&gt; 0 (noir)</span>
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">255</span><span style="color:#555">-</span>octet
 
-<span style="color:#fff;font-weight:bold">if</span> imghdr.what(NomFichierSource)==<span style="color:#0ff;font-weight:bold">&#39;pgm&#39;</span>:	<span style="color:#007f7f"># test du format de l&#39;image</span>
-    FichierSource = <span style="color:#fff;font-weight:bold">open</span>(NomFichierSource,<span style="color:#0ff;font-weight:bold">&#39;rb&#39;</span>)
-    TailleFichier = <span style="color:#fff;font-weight:bold">len</span>(FichierSource.read())
-    <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">Taille du fichier (en octets) :&#39;</span>,TailleFichier))
+<span style="color:#069;font-weight:bold">if</span> imghdr<span style="color:#555">.</span>what(NomFichierSource)<span style="color:#555">==</span><span style="color:#c30">&#39;pgm&#39;</span>:	<span style="color:#09f;font-style:italic"># test du format de l&#39;image</span>
+    FichierSource <span style="color:#555">=</span> <span style="color:#366">open</span>(NomFichierSource,<span style="color:#c30">&#39;rb&#39;</span>)
+    TailleFichier <span style="color:#555">=</span> <span style="color:#366">len</span>(FichierSource<span style="color:#555">.</span>read())
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Taille du fichier (en octets) :&#39;</span>,TailleFichier))
 
-    Largeur = <span style="color:#fff;font-weight:bold">int</span>(<span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#39;Largeur de l</span><span style="color:#0ff;font-weight:bold">\&#39;</span><span style="color:#0ff;font-weight:bold">image (en pixels) ? &#39;</span>))
-    Hauteur = <span style="color:#fff;font-weight:bold">int</span>(<span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#39;Hauteur de l</span><span style="color:#0ff;font-weight:bold">\&#39;</span><span style="color:#0ff;font-weight:bold">image (en pixels) ? &#39;</span>))
-    NbPixel = Largeur*Hauteur
+    Largeur <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Largeur de l</span><span style="color:#c30;font-weight:bold">\&#39;</span><span style="color:#c30">image (en pixels) ? &#39;</span>))
+    Hauteur <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Hauteur de l</span><span style="color:#c30;font-weight:bold">\&#39;</span><span style="color:#c30">image (en pixels) ? &#39;</span>))
+    NbPixel <span style="color:#555">=</span> Largeur<span style="color:#555">*</span>Hauteur
 
-    TailleEntete = TailleFichier - Largeur*Hauteur
+    TailleEntete <span style="color:#555">=</span> TailleFichier <span style="color:#555">-</span> Largeur<span style="color:#555">*</span>Hauteur
 
-    FichierSource.seek(<span style="color:#ff0;font-weight:bold">0</span>)
+    FichierSource<span style="color:#555">.</span>seek(<span style="color:#f60">0</span>)
 
-    <span style="color:#007f7f"># extraction de l&#39;en-tête</span>
-    <span style="color:#007f7f"># la variable Entete est une chaîne de caractères (type str)</span>
-    Entete = FichierSource.read(TailleEntete)
+    <span style="color:#09f;font-style:italic"># extraction de l&#39;en-tête</span>
+    <span style="color:#09f;font-style:italic"># la variable Entete est une chaîne de caractères (type str)</span>
+    Entete <span style="color:#555">=</span> FichierSource<span style="color:#555">.</span>read(TailleEntete)
 
-    <span style="color:#007f7f"># extraction des données</span>
-    <span style="color:#007f7f"># Data est une liste de nombre entiers (type list)</span>
-    <span style="color:#007f7f"># la fonction ord() retourne le contenu d&#39;un octet sous forme d&#39;un entier</span>
-    <span style="color:#007f7f"># ord(&#39;\xf3&#39;) -&gt; 243</span>
-    Data = [<span style="color:#fff;font-weight:bold">ord</span>(i) <span style="color:#fff;font-weight:bold">for</span> i in FichierSource.read()]	<span style="color:#007f7f"># compréhension de listes</span>
+    <span style="color:#09f;font-style:italic"># extraction des données</span>
+    <span style="color:#09f;font-style:italic"># Data est une liste de nombre entiers (type list)</span>
+    <span style="color:#09f;font-style:italic"># la fonction ord() retourne le contenu d&#39;un octet sous forme d&#39;un entier</span>
+    <span style="color:#09f;font-style:italic"># ord(&#39;\xf3&#39;) -&gt; 243</span>
+    Data <span style="color:#555">=</span> [<span style="color:#366">ord</span>(i) <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> FichierSource<span style="color:#555">.</span>read()]	<span style="color:#09f;font-style:italic"># compréhension de listes</span>
 
-    FichierSource.close()
+    FichierSource<span style="color:#555">.</span>close()
 
-    <span style="color:#fff;font-weight:bold">if</span> NbPixel == <span style="color:#fff;font-weight:bold">len</span>(Data):
-        <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Nombre de pixels :&#39;</span>,Largeur*Hauteur)
-        <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Nombre d&#39;octets de données :&#34;</span>,<span style="color:#fff;font-weight:bold">len</span>(Data))
-        <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Taille de l&#39;en-tête :&#34;</span>,TailleEntete)
+    <span style="color:#069;font-weight:bold">if</span> NbPixel <span style="color:#555">==</span> <span style="color:#366">len</span>(Data):
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;Nombre de pixels :&#39;</span>,Largeur<span style="color:#555">*</span>Hauteur)
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Nombre d&#39;octets de données :&#34;</span>,<span style="color:#366">len</span>(Data))
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Taille de l&#39;en-tête :&#34;</span>,TailleEntete)
 
-        FichierDestination = <span style="color:#fff;font-weight:bold">open</span>(NomFichierDestination,<span style="color:#0ff;font-weight:bold">&#39;wb&#39;</span>)
-        <span style="color:#007f7f"># écriture de l&#39;en-tête du fichier destination</span>
-        FichierDestination.write(Entete)
+        FichierDestination <span style="color:#555">=</span> <span style="color:#366">open</span>(NomFichierDestination,<span style="color:#c30">&#39;wb&#39;</span>)
+        <span style="color:#09f;font-style:italic"># écriture de l&#39;en-tête du fichier destination</span>
+        FichierDestination<span style="color:#555">.</span>write(Entete)
 
-        <span style="color:#007f7f"># écriture des données du fichier destination</span>
-        <span style="color:#fff;font-weight:bold">for</span> i in Data:
-            <span style="color:#007f7f"># la fonction chr() fait le contraire de la fonction ord()</span>
-            <span style="color:#007f7f"># chr(243) -&gt; &#39;\xf3&#39;</span>
-            FichierDestination.write(<span style="color:#fff;font-weight:bold">chr</span>(Inversion(i)))
+        <span style="color:#09f;font-style:italic"># écriture des données du fichier destination</span>
+        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> Data:
+            <span style="color:#09f;font-style:italic"># la fonction chr() fait le contraire de la fonction ord()</span>
+            <span style="color:#09f;font-style:italic"># chr(243) -&gt; &#39;\xf3&#39;</span>
+            FichierDestination<span style="color:#555">.</span>write(<span style="color:#366">chr</span>(Inversion(i)))
 
-        FichierDestination.close()
-        <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Travail terminé !&#39;</span>)
+        FichierDestination<span style="color:#555">.</span>close()
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;Travail terminé !&#39;</span>)
 
-    <span style="color:#fff;font-weight:bold">else</span>:
-        <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Erreur dans la saisie des données !&#39;</span>)
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;Erreur dans la saisie des données !&#39;</span>)
 
-<span style="color:#fff;font-weight:bold">else</span>:
-    <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#34;Ce n&#39;est pas une image PGM !&#34;</span>)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<span style="color:#069;font-weight:bold">else</span>:
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Ce n&#39;est pas une image PGM !&#34;</span>)</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Inversion d&#39;une image PGM en mode binaire à 256 niveaux de gris
 
 Fichier source : image.pgm
@@ -4938,7 +4943,7 @@ Travail terminé !</pre></div>
 <p>Le script crée le fichier <code>imageInverse.pgm</code> dans le répertoire courant.</p>
 
 <p>Affichons l&rsquo;en-tête des fichiers image PGM :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; print(Entete.encode(&#39;hex&#39;)) # contenu de l&#39;en-tête en hexadécimal
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; print(Entete.encode(&#39;hex&#39;)) # contenu de l&#39;en-tête en hexadécimal
 50350a232043524541544f523a2047494d5020504e4d2046696c7465722056657273696f6e20312e310a343830203332300a3235350a
 &gt;&gt;&gt; print(Entete)       # contenu de l&#39;en-tête en chaîne de caractères
 P5
@@ -4951,7 +4956,7 @@ P5
 
 <p>La couleur d&rsquo;un pixel est codée sur un octet.
 On va du noir (0x00) au blanc (0xff) en passant par tous les niveaux de gris.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; print(Data[0],hex(Data[0]))     # premier octet : pixel en haut à gauche de l&#39;image
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; print(Data[0],hex(Data[0]))     # premier octet : pixel en haut à gauche de l&#39;image
 153 0x99
 &gt;&gt;&gt; print(Data[1],hex(Data[1]))     # deuxième octet : pixel à droite du précédent
 142 0x8e
@@ -4994,7 +4999,7 @@ Il faut donc la télécharger et l&rsquo;installer.</p>
 Les résultats sont affichés dans des fenêtres graphiques indépendantes et enregistrés dans des fichiers images :</p>
 
 <p><img src="http://fsincere.free.fr/isn/python/picto/librairie_PIL.png" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Python 2.7
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Python 2.7
 # PIL 1.1.7
 # importation du module Image de la librairie PIL
 from PIL import Image
@@ -5042,7 +5047,7 @@ img3.save(&#39;image_miroir_vertical.pgm&#39;)
 <p>Voici un script qui fabrique l&rsquo;image d&rsquo;un camenbert 2D (au format PNG) :</p>
 
 <p><img src="http://fsincere.free.fr/isn/python/picto/librairie_PIL_ImageDraw.png" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># script camenbert.py
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># script camenbert.py
 # Python 2.7
 # PIL 1.1.7
 from PIL import Image,ImageDraw
@@ -5099,7 +5104,7 @@ img.show()</pre></div>
 <p>A l&rsquo;aide de la méthode resize() du module Image de la librairie PIL, redimensionner une image JPEG.</p>
 
 <p>Par exemple :</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Redimensionnement d&#39;une image JPEG
 
 Nom de l&#39;image originale ? photo.jpg
@@ -5121,7 +5126,7 @@ Nom de l&#39;image redimensionnée ? photo_1.jpg
 <p>Par exemple :</p>
 
 <p><img src="http://fsincere.free.fr/isn/python/picto/disque.png" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Nom du fichier ? disque.png
 
 Largeur en pixels :  380
@@ -5188,7 +5193,19 @@ Indice n°1 : Python n&rsquo;est pas nécessaire.</p>
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -5196,6 +5213,7 @@ Indice n°1 : Python n&rsquo;est pas nécessaire.</p>
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li>

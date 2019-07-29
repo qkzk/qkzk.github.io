@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.91ab26e5a675a2dac5ac3bdb1202ac0ddee45a573dc9c37979a8f7f29a6eb27d.css">
+<link rel="stylesheet" href="/book.min.2d1aed9935a3a8ea11178e7c8f1a7f839606b7185613c93f4c8c6f1ce44339fe.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -85,14 +85,18 @@ MathJax.Hub.Config({
 
     <aside class="book-menu fixed">
       <nav>
-<h2 class="book-brand">
-  <a href="http://qkzk.github.io/">qkzk</a>
-</h2>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
 
 
 
 
-    
+<div class="menu-nav">
+
+  
+      
 
   
   
@@ -113,7 +117,7 @@ MathJax.Hub.Config({
   
     
     
-    Contenus
+    qkzk
   
 
         </a>
@@ -4796,9 +4800,10 @@ MathJax.Hub.Config({
 
 
 
+  
 
-
-
+  
+</div>
 </nav>
 
 
@@ -4847,7 +4852,7 @@ MathJax.Hub.Config({
 <h3 id="quel-est-le-rôle-des-pins">Quel est le rôle des pins ?</h3>
 
 <p>On peut découper les fonctions du GPIO en 5 grandes catégories.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Les pins **d&#39;alimentation**. On en compte quatre : deux pins en 3.3 volts et deux pins en 5 volts. **Repérez les sur le raspberry.**</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. Les pins **d&#39;alimentation**. On en compte quatre : deux pins en 3.3 volts et deux pins en 5 volts. **Repérez les sur le raspberry.**</pre></div>
 <p>Remarquons que les pins en 3.3V sont limités à 50 mA : de quoi alimenter quelques petits composants. Pas assez pour faire tourner un moteur.
 Les pins en 5 v sont directement raccordés à l&rsquo;alimentation du raspberry. Il faut donc faire très attention si on s&rsquo;en sert. Il est d&rsquo;ailleurs possible d&rsquo;alimenter le raspberry lui même en employant ces pins.
       2. Les <strong>GROUNDS</strong>. Souvent référencés en GND ou Masse pour les docs en français. Ils permettent de fermer un circuit électrique. L&rsquo;alimentation électrique d&rsquo;un composant nécessite toujours un circuit fermé
@@ -4869,7 +4874,7 @@ Les autres pins ont trois fonctions possibles.
 <p>Ce montage est déjà plus intéressant ! Le + est ici le pin noté (GP17), sa numérotation physique est 11. On peut allumer (à l&rsquo;aide d&rsquo;un petit programme) ou éteindre la LED quand ça nous chante.
 Si vous réalisez ce montage sans rien programmer il ne se passera rien ! Par défaut tous les pins sont en mode &ldquo;entrée&rdquo;.
 <img src="http://akshaim.in/4DIAC/images/Chapter_3/Pi_Blink.gif" alt="" /></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  4. Entrée &#34;standard&#34;. Ils peuvent recevoir un signal digital et donc servir de lecteur d&#39;interrupteur. Dans un programme on aura donc une commande d&#39;écoute sur un des pins et, lorsqu&#39;un signal est reçu, on pourra l&#39;interpréter.</pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  4. Entrée &#34;standard&#34;. Ils peuvent recevoir un signal digital et donc servir de lecteur d&#39;interrupteur. Dans un programme on aura donc une commande d&#39;écoute sur un des pins et, lorsqu&#39;un signal est reçu, on pourra l&#39;interpréter.</pre></div>
 <p>Voici, par exemple, un simple bouton raccordé en entrée.
 Remarquons qu&rsquo;on alimente le bouton en +3.3 V. D&rsquo;après ce qu&rsquo;on a dit plus haut concernant les circuits électriques cela signifie que le pin d&rsquo;entrée est vu comme une masse.
 <img src="http://www.scratchmypi.co.uk/wp-content/uploads/2014/05/pushuppi_bb-1024x959.png" alt="" />
@@ -4904,7 +4909,7 @@ L&rsquo;arduino mini se trouve à 1.50€ sur des sites grands publics. Vous aur
 <h3 id="comment-cela-fonctionne-t-il">Comment cela fonctionne-t-il ?</h3>
 
 <p>Des variantes existent mais grosso-mode toutes reprennent le même principe.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. On réalise un montage électronique en s&#39;aidant d&#39;un schéma (ou alors on en invente un !)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. On réalise un montage électronique en s&#39;aidant d&#39;un schéma (ou alors on en invente un !)
   2. On installe éventuellement une librairie propre à un langage de programmation (Python, C etc.) et on se documente un peu sur son fonctionnement
   3. On écrit un programme dans ce langage, on le lance et hop, le tour est joué.</pre></div>
 <p>La majorité des projets disponibles sur internet proposent le montage électronique et le code qui les accompagne. Les plus aboutis peuvent rarement être reproduits à l&rsquo;identique : il faut exactement le même matériel et les mêmes installations&hellip;</p>
@@ -4919,7 +4924,7 @@ Elle n&rsquo;est pas toujours intuitive mais permet de comprendre assez bien ce 
 On la réservera à des projets avancés (moteurs en particulier).</p>
 
 <p>Une nouveauté : <strong><a href="https://gpiozero.readthedocs.io/en/stable/">gpioZero</a>. </strong>Développée dans l&rsquo;optique de simplifier la découverte de l&rsquo;électronique elle est assez puissante et TRES SIMPLE d&rsquo;emploi.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">from gpiozero import LED
 from time import sleep
 
 led = LED(17)
@@ -4938,7 +4943,19 @@ while True:
 
       
 
-      <script src="/updatestyle.js" charset="utf-8"></script>
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
 
     </div>
 
@@ -4946,6 +4963,7 @@ while True:
   
 
   <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
 <li>
