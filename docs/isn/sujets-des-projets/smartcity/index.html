@@ -13,7 +13,7 @@
   
     
     
-    Diversité et unité des langages de programmation
+    Smart City
   
  | qkzk</title>
 
@@ -25,17 +25,13 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/programmation/comparaison/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/sujets-des-projets/smartcity/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1511,7 +1499,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/programmation/comparaison/"  class="active">
+        <a href="/docs/nsi/cours_premiere/programmation/comparaison/" >
           
   
     
@@ -3815,7 +3803,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/sujets-des-projets/smartcity/" >
+        <a href="/docs/isn/sujets-des-projets/smartcity/"  class="active">
           
   
     
@@ -5629,7 +5617,7 @@ MathJax.Hub.Config({
   
     
     
-    Diversité et unité des langages de programmation
+    Smart City
   
 </strong>
 </header>
@@ -5637,236 +5625,148 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<h1 id="exemples-sur-repl">Exemples sur repl</h1>
+<h1 id="smartcity-le-lampadaire-connecté">SmartCity : le lampadaire connecté</h1>
 
-<p><a href="https://repl.it/repls/folder/Comparaisons%20de%20langages%2Fdiu_comparaison">ici</a></p>
+<p><em>Projet de réalisation d&rsquo;un objet connecté et de son interface homme machine</em></p>
 
-<h1 id="diversité-et-unité-des-langages-de-programmation">Diversité et unité des langages de programmation</h1>
+<p><img src="https://images.itnewsinfo.com/lmi/articles/grande/000000065177.jpg" alt="smart city" /></p>
 
-<p>Une rapide comparaison de différents langages de programmation autour d&rsquo;un même algorithme
- - Python
- - Javascript
- - Java
- - C
- - Scheme
- - Prolog²</p>
+<h2 id="présentation">Présentation</h2>
 
-<p>Les codes sont fournis en respectant autant que possible un même squelette de base. On fait donc apparaître ici plus les similitudes des structures que les spécificités des langages, même si certains points importants apparaissent déjà.
-Parmi les points communs, on peut donc retrouver les fonctions et leurs paramètres, la déclaration de variables, les structures itératives et conditionnelles, la notion de bloc d&rsquo;instruction.</p>
+<p>La ville de Nantes est parmi les plus avancée en terme de nouvelles technologies
+responsables.</p>
 
-<p>Le langage Prolog est ajouté pour montrer une approche très différente de la programmation (par des clauses logiques). Compte-tenu de sa spécificité, on ne compare pas ce langage avec les autres dans le paragraphe suivant.</p>
-
-<p>Quelques éléments de comparaison :</p>
+<p>Elle s&rsquo;est récemment équipée de lampadaires connectés remplissant un triple
+objectif :</p>
 
 <ul>
-<li>Python, Javascript et Scheme sont interprétés alors que Java et C sont compilés</li>
-<li>Javascript, Java et C partagent la même syntaxe sur les structures de base (syntaxe issue de C)</li>
-<li>Python, Javascript et Scheme sont dynamiquement typés alors que Java et C sont statiquement typés</li>
-<li>En java les méthodes doivent être placées dans des classes</li>
-<li>En C le code produit par le compilateur est du code binaire, spécifique</li>
-<li>En java le code produit par le compilateur est du bytecode interprétable par une machine virtuelle</li>
-<li>Pour les langages interprétés (Python, Javascript et Scheme) le même code peut être exécuté sur des machines d&rsquo;architecture et de systèmes d&rsquo;exploitation différents (comme le bytecode Java)</li>
-<li>l&rsquo;écriture de code respecte globalement les mêmes règles dans tous les langages, indentation, nommage des variables. Seul Python impose l&rsquo;indentation comme élément de syntaxe.</li>
+<li>assurer la sécurité des habitants,</li>
+<li>limiter le gaspillage énergétique</li>
+<li>limiter la pollution lumineuse</li>
 </ul>
 
-<h2 id="le-pseudo-code">Le pseudo code</h2>
+<p>L&rsquo;objectif de ce projet est de réaliser un prototype complet remplissant le
+cahier des charges.</p>
 
-<p>Voici l&rsquo;algorithme qui va être décliné dans différent langage. Il est itératif. Il n&rsquo;est pas optimisé, mais le but est de montrer plus d&rsquo;aspect des langages (par exemple on aurait pu avoir un test <code>n &lt; 2</code> ou <code>n = 0 ou 1</code>, ou n&rsquo;avoir qu&rsquo;un seul <code>return</code>, etc.).</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle (n) =
-   si n = 0
-      alors le résultat est 1
-   sinon si n = 1
-      alors le résultat est 0
-   sinon
-      on initialise une variable result à 1
-      on initialise une variable i à 1
-      tant que i &lt; n
-         on incrémente i
-	 on multiplie result par i
-      le résultat est result</pre></div>
-<h2 id="python">Python</h2>
+<h2 id="lampadaire-connecté">Lampadaire connecté</h2>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle.py">factorielle.py</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">factorielle</span>(n):
-    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">==</span> <span style="color:#f60">0</span>:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">elif</span> n <span style="color:#555">==</span> <span style="color:#f60">1</span>:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-        result <span style="color:#555">=</span> <span style="color:#f60">1</span>
-        i <span style="color:#555">=</span> <span style="color:#f60">0</span>
-        <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> n:
-            i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
-            result <span style="color:#555">=</span> result <span style="color:#555">*</span> i
-        <span style="color:#069;font-weight:bold">return</span> result</code></pre></div>
-<p>On peut utiliser  ce code dans l&rsquo;interprète Python après avoir évalué cette définition.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> factorielle(<span style="color:#f60">5</span>)
-<span style="color:#f60">120</span></code></pre></div>
-<p>Mais on peut aussi l&rsquo;utiliser comme un script, il faut compléter ce code des lignes suivantes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
-   <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">sys</span>
-   n <span style="color:#555">=</span> <span style="color:#366">int</span>(sys<span style="color:#555">.</span>argv[<span style="color:#f60">1</span>])
-   <span style="color:#069;font-weight:bold">print</span>( <span style="color:#366">str</span>(factorielle(n)) )</code></pre></div>
-<p>Le tout est sauvegardé dans un fichier <code>factorielle.py</code>, puis dans une console on exécute :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 factorielle.py <span style="color:#f60">5</span>
-<span style="color:#f60">120</span></code></pre></div>
-<h2 id="javascript">javascript</h2>
+<p>Plutôt que d&rsquo;éclairer toute la nuit inutilement, le lampadaire connecté s&rsquo;adapte
+aux circonstances (luminosité, présence d&rsquo;un piéton, horaire) pour décider
+de s&rsquo;allumer ou de s&rsquo;éteindre.</p>
 
-<p>On présente ici deux versions, une avec la syntaxe &ldquo;ancienne&rdquo; de javascript et une avec les évolutions de syntaxe récentes.</p>
+<h2 id="principe-du-projet">Principe du projet</h2>
 
-<h3 id="old-school">old school</h3>
+<p>Le but de ce projet est de réaliser un prototype de lampadaire connecté
+utilisant un raspberry pi pour l&rsquo;informatique embarquée, des capteurs
+(luminosité, présence) et des relais pour les actionneurs.</p>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle-old.js">factorielle-old.js</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> factorielle <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>(n) {
-    <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
-	<span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-    <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
-	<span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-    <span style="color:#069;font-weight:bold">else</span> {
-	<span style="color:#069;font-weight:bold">var</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-	<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-	<span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
-	    i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
-	    result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
-	}
-	<span style="color:#069;font-weight:bold">return</span> result;
-    }
-}
-</code></pre></div>
-<p>Le langage javascript a évolué fortement  (et dans le bon sens) ces dernières années. Par exemple le mot-clé <code>var</code> est en disgrâce.  On écrirait donc plutôt maintenant :</p>
+<p>L&rsquo;ordinateur embarqué doit pouvoir être piloté sur place (via une console) et à
+distance (via un serveur web) et doit régulièrement envoyer des messages avec
+son état (bon fonctionnement, horaires d&rsquo;allumage etc.)</p>
 
-<h3 id="version-es6">version ES6</h3>
+<p>En temps normal le lampadaire s&rsquo;allume et s&rsquo;éteint selon trois critères :</p>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle.js">factorielle.js</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> factorielle <span style="color:#555">=</span>
-          n =&gt; {
-                  <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">0</span>)
-                    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-                  <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">===</span> <span style="color:#f60">1</span>)
-                    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-                  <span style="color:#069;font-weight:bold">else</span> {
-                    <span style="color:#069;font-weight:bold">let</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-                    <span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-                    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
-                      i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
-                      result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
-                    }
-                    <span style="color:#069;font-weight:bold">return</span> result;
-                  }
-              }
-</code></pre></div>
-<p>Dans les deux cas on peut utiliser la console javascript fournie avec firefox par exemple (<code>Ctrl+Shift+K</code> dans le navigateur, outil également présent dans Chrome après touche <code>F12</code>). Il faut évaluer cette définition puis l&rsquo;expression :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&gt;&gt;</span> factorielle(<span style="color:#f60">5</span>)
-<span style="color:#555">&lt;-</span> <span style="color:#f60">120</span>
-</code></pre></div>
-<h2 id="java">Java</h2>
+<p>l&rsquo;horaire (de 5h à 8h et de 20h à 0h), la luminosité ambiante et la présence
+d&rsquo;un piéton.</p>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/Math.java">Math.java</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#069;font-weight:bold">public</span> <span style="color:#c0f">class</span> Math {
-    <span style="color:#069;font-weight:bold">public</span> <span style="color:#c0f">static</span> <span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">factorielle</span>(<span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">n</span>) {
-	<span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">==</span> 0 )
-	    <span style="color:#069;font-weight:bold">return</span> 1;
-        <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span>  ( n <span style="color:#555">==</span> 1 )
-            <span style="color:#069;font-weight:bold">return</span> 1;
-	<span style="color:#069;font-weight:bold">else</span> {
-	    <span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">result</span> <span style="color:#555">=</span> 1;
-	    <span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">i</span> <span style="color:#555">=</span> 0;
-	    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
-		i <span style="color:#555">=</span> i <span style="color:#555">+</span> 1;
-		result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
-	    }
-	    <span style="color:#069;font-weight:bold">return</span> result;
-	}
-    }
-}</code></pre></div>
-<p>Pour son utilisation, il faut compléter ce code d&rsquo;une &ldquo;méthode <code>main</code>&rdquo; placée avant la dernière accolade fermante (par exemple):</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#069;font-weight:bold">public</span> <span style="color:#c0f">static</span> <span style="color:#078;font-weight:bold">void</span> <span style="color:#c0f">main</span>(String[] <span style="color:#c0f">arg</span>) {
-   <span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">n</span> <span style="color:#555">=</span> Integer.<span style="color:#309">parseInt</span>(arg[0]);
-   System.<span style="color:#309">out</span>.<span style="color:#309">println</span>(Math.<span style="color:#309">factorielle</span>(n));
-}</code></pre></div>
-<p>L&rsquo;ensemble doit être enregistré dans un fichier <code>Math.java</code>.
-Ce fichier doit être compilé pour être utilisé. La compilation (<a href="https://jdk.java.net/11/">Oracle Open JDK</a>) produit un fichier <code>Math.class</code>qui contient du <em>bytecode java</em> interprétable par une <em>machine virtuelle java</em> (JVM).
-Le bytecode java peut-être utilisé sans nouvelle compilation dans les différentes architectures et systèmes d&rsquo;exploitation, grâce à la JVM (slogan <em>compile once run everywhere</em> de java).</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac Math.java
-$ java Math <span style="color:#f60">5</span>
-<span style="color:#f60">120</span></code></pre></div>
-<p><em>NB</em> L&rsquo;usage de <code>static</code> pour la méthode <code>factorielle</code>n&rsquo;est pas caractéristique des méthodes en Java, mais il est légitime et pertinent ici car le résultat de <code>factorielle</code> ne dépend que de son paramètre et d&rsquo;aucun objet particulier.</p>
+<p>Certaines règles président sur d&rsquo;autres (s&rsquo;il fait jour, il est éteint) et
+ces règles doivent pouvoir être ajustées à distance et sur place.</p>
 
-<h2 id="c">C</h2>
+<h2 id="cahier-des-charges">Cahier des charges</h2>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle.c">factorielle.c</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">factorielle</span> ( <span style="color:#078;font-weight:bold">int</span> n ) {
-  <span style="color:#069;font-weight:bold">if</span> ( n <span style="color:#555">==</span> <span style="color:#f60">0</span> )
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-  <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> (n <span style="color:#555">==</span> <span style="color:#f60">1</span> )
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>;
-  <span style="color:#069;font-weight:bold">else</span> {
-    <span style="color:#078;font-weight:bold">int</span> result <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-    <span style="color:#078;font-weight:bold">int</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-    <span style="color:#069;font-weight:bold">while</span> (i <span style="color:#555">&lt;</span> n) {
-      i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>;
-      result <span style="color:#555">=</span> result <span style="color:#555">*</span> i;
-    }
-    <span style="color:#069;font-weight:bold">return</span> result;
-  }
-}</code></pre></div>
-<p>Pour son utilisation, il faut compléter ce code d&rsquo;une &ldquo;fonction <code>main</code>&rdquo; :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">main</span>(<span style="color:#078;font-weight:bold">int</span> argc, <span style="color:#078;font-weight:bold">char</span> <span style="color:#555">*</span>argv[] ) {
-  <span style="color:#078;font-weight:bold">int</span> n <span style="color:#555">=</span> atoi(argv[<span style="color:#f60">1</span>]);
-  printf(<span style="color:#c30">&#34;%d&#34;</span>, factorielle(n) );
-}</code></pre></div>
-<p>L&rsquo;ensemble placé dans un même fichier <code>factorielle.c</code> doit être compilé pour être utilisé. La compilation produit (ci-dessous) le fichier <code>factorielle</code>qui contient un code binaire machine. Il est directement exécutable. Il faut cependant produire un exécutable différent pour chaque architecture de machine et chaque système d&rsquo;exploitation.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o factorielle factorielle.c
-$ ./factorielle <span style="color:#f60">5</span>
-<span style="color:#f60">120</span></code></pre></div>
-<h2 id="scheme">Scheme</h2>
+<p><img src="https://atelier.bnpparibas/uploads/archives/_illustrations/2016/09/Bouygues%20Citybox.jpg" alt="Candélabre connecté" /></p>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle.scm">factorielle.scm</a>.</p>
+<h3 id="objet-connecté">Objet connecté :</h3>
 
-<p>Le langage Scheme (descendant de Lisp) n&rsquo;est vraiment pas fait pour de l&rsquo;itération ni les affectations, le code suivant ferait donc hurler tout progammeur Scheme. Mais on respecte le schéma de pseudo-code fourni initialement.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#069;font-weight:bold">define </span><span style="color:#033">factorielle</span>
-  (<span style="color:#c0f">lambda</span>(<span style="color:#c0f">n</span>)
-    (<span style="color:#069;font-weight:bold">cond </span>((<span style="color:#366">= </span><span style="color:#033">n</span> <span style="color:#f60">0</span>) <span style="color:#f60">1</span>)
-          ((<span style="color:#366">= </span><span style="color:#033">n</span> <span style="color:#f60">1</span>) <span style="color:#f60">1</span>)
-          (<span style="color:#c0f">else</span>
-           (<span style="color:#069;font-weight:bold">let </span>((<span style="color:#c0f">result</span> <span style="color:#f60">1</span>))
-             (<span style="color:#069;font-weight:bold">do </span>((<span style="color:#c0f">i</span> <span style="color:#f60">1</span> (<span style="color:#366">+ </span><span style="color:#033">i</span> <span style="color:#f60">1</span>)))
-                 ((<span style="color:#366">&gt; </span><span style="color:#033">i</span> <span style="color:#033">n</span>))
-               (<span style="color:#069;font-weight:bold">set! </span><span style="color:#033">result</span> (<span style="color:#366">* </span><span style="color:#033">result</span> <span style="color:#033">i</span>))
-               )
-             <span style="color:#033">result</span>)
-           )
-	  )
-    )
-  )</code></pre></div>
-<p><em>NB</em> une structure <code>if</code>, ternaire, existe aussi en Scheme, on fait une petite entorse ici au respect strict de l&rsquo;algorithme donné, mais on a  aussi utilisé le <code>elif</code> de Python.</p>
+<ul>
+<li>ordinateur embarqué : RPI</li>
+<li>capteur de luminosité</li>
+<li>capteur de présence</li>
+<li>actionneurs (relais ?)</li>
+<li>éclairage via des leds (nous n&rsquo;allons pas éclairer le lycée&hellip;)</li>
+</ul>
 
-<p>Pour utiliser ce code on évalue cette définition dans l&rsquo;interprète Scheme (par exemple <a href="https://racket-lang.org/">Dr Racket</a>) et on évalue ensuite l&rsquo;expression</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme"> <span style="color:#033">&gt;</span> (<span style="color:#c0f">factorielle</span> <span style="color:#f60">5</span>)
- <span style="color:#f60">120</span></code></pre></div>
-<h2 id="prolog">Prolog</h2>
+<h3 id="maquette">Maquette :</h3>
 
-<p>Fichier <a href="/uploads/docsnsi/comparaison_langage/factorielle.pl">factorielle.pl</a>.</p>
+<p>Une maquette physique d&rsquo;une installation <em>peut</em> être réalisée en :</p>
 
-<p>Et pour montrer qu&rsquo;il y a des langages qui se distinguent fortement des autres, voici la programmation de <code>factorielle</code> en Prolog.
-Prolog est un langage de *Pro*grammation *Log*ique. Programmer en Prolog consiste à écrire des clauses logiques et exécuter un programme Prolog consiste
-à faire une preuve d&rsquo;une formule logique et à trouver une instanciation (<em>unification</em>) des éventuelles variables qui permette cette preuve.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-prolog" data-lang="prolog"><span style="color:#c0f">factorielle</span>(<span style="color:#f60">0</span>,<span style="color:#f60">1</span>) :- !.
-<span style="color:#c0f">factorielle</span>(<span style="color:#f60">1</span>,<span style="color:#f60">1</span>) :- !.
-<span style="color:#c0f">factorielle</span>(<span style="color:#033">N</span>, <span style="color:#033">Result</span>) :- <span style="color:#033">N</span> <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>,
-    					  <span style="color:#033">N_moins_1</span> <span style="color:#555">is</span> <span style="color:#033">N</span><span style="color:#555">-</span><span style="color:#f60">1</span>,
-    					  <span style="color:#c0f">factorielle</span>(<span style="color:#033">N_moins_1</span>,   <span style="color:#033">Fact_N_moins_1</span>),
-    					  <span style="color:#033">Result</span> <span style="color:#555">is</span> <span style="color:#033">N</span> <span style="color:#555">*</span> <span style="color:#033">Fact_N_moins_1</span>.</code></pre></div>
-<p>Le prédicat <code>factorielle(N,R)</code> signifie <code>factorielle(N,R)</code> est vrai si <em>R est le résultat de factorielle(N)</em>.
-La première ligne signifie donc &ldquo;<em>il est vrai que factorielle 0 vaut 1</em>. La seconde est similaire.
-La troisième <em>clause</em> peut se lire <em>Result est le la valeur de factorielle(N) si les clauses qui suivent <code>:-</code> sont toutes vérifiées</em>.</p>
+<ul>
+<li>légo,</li>
+<li>modèle en carton,</li>
+<li>impression 3D&hellip;</li>
+</ul>
 
-<p>On peut exécuter ce programme avec <a href="https://swish.swi-prolog.org/">l&rsquo;interprète en ligne de swi-prolog</a>.</p>
+<h3 id="logiciel-de-gestion">Logiciel de gestion</h3>
 
-<p>Pour l&rsquo;exécuter on demande la preuve de <code>factorielle(5,Result).</code>, c&rsquo;est-à-dire que l&rsquo;on pose la question &ldquo;<em>Est-il vrait que <code>factorielle(5,Result)</code> ?</em>&rdquo; :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">?- factorielle(5,Result).
-Result = 120</pre></div>
-<p>Le moteur de résolution de Prolog répond, &ldquo;<em>vrai pour l&rsquo;instanciation Result=120</em>&rdquo;.</p>
+<ul>
+<li>Lit ses réglages dans une fichier de configuration et adapte son comportement,</li>
+<li>Possible de se connecter et d&rsquo;exécuter un script Python qui demande à
+l&rsquo;utilisateur un réglage et modifie le fichier de configuration,</li>
+<li>Un serveur web (Python + Flask) propose plusieurs pages
+
+<ul>
+<li>réglages modifiables</li>
+<li>données des capteurs sur des courbes dans le temps</li>
+<li>extraction de données des tables via un formulaire</li>
+</ul></li>
+<li>données (stockées dans une bdd sqlite3). Elle contient plusieurs tables
+présentant les allumages et extinctions ainsi que la raison. Les données des
+capteurs sont régulièrement enregistrées.</li>
+</ul>
+
+<h3 id="comportement-du-lampadaire">Comportement du  lampadaire</h3>
+
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOPreVtU2RtuYy0wA2fjHNixRNuBPTSH7r4wMnMfDpZidxkOGc2w" alt="candelabres" /></p>
+
+<p>Les règles pour l&rsquo;allumage et l&rsquo;extinction varient selon 4 périodes dans le
+temps :</p>
+
+<ul>
+<li>matin,</li>
+<li>journée,</li>
+<li>soir,</li>
+<li>nuit.</li>
+</ul>
+
+<p>Pour simplifier la présentation nous allons supposer que le jour se lève à 6h
+et qu&rsquo;il fait nuit à 21h. Ces horaires seront adaptés selon la date.</p>
+
+<ul>
+<li><p>Allumage permanent : matin (5h - 8h) et soir (20h - 0h)</p>
+
+<ul>
+<li>si la luminosité est bonne, le lampadaire peut retarder son allumage ou
+avancer son extinction</li>
+<li>il peut sortir de son mode éteint si la luminosité diminue</li>
+</ul></li>
+
+<li><p>Nuit (0h - 5h)</p>
+
+<ul>
+<li>réagit à la présence d&rsquo;un piéton pour s&rsquo;éclairer.</li>
+<li>Éventuellement un lampadaire allumé peut communiquer avec ses voisins
+et éclairer une zone plus vaste (toute une rue, zone autour du piéton)</li>
+</ul></li>
+
+<li><p>Jour (5h - 20h)</p>
+
+<ul>
+<li>le lampadaire est éteint.</li>
+</ul></li>
+</ul>
+
+<h2 id="extensions">Extensions</h2>
+
+<p>Elles sont infinies&hellip;</p>
+
+<p><img src="https://i.pinimg.com/736x/61/6c/bf/616cbf5b768a6b2744f2207134cdb51d.jpg" alt="Extensions" /></p>
+
+<h2 id="source">Source</h2>
+
+<ul>
+<li><a href="https://youtu.be/JC2VCzYAnC8?t=2159">Vidéo</a> ayant inspiré ce projet</li>
+<li>Article les SmartCities et <a href="https://leshorizons.net/2019/02/28/exemples-smart-city-france/">Nantes</a></li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -5900,20 +5800,20 @@ Result = 120</pre></div>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#exemples-sur-repl">Exemples sur repl</a></li>
-<li><a href="#diversité-et-unité-des-langages-de-programmation">Diversité et unité des langages de programmation</a>
+<li><a href="#smartcity-le-lampadaire-connecté">SmartCity : le lampadaire connecté</a>
 <ul>
-<li><a href="#le-pseudo-code">Le pseudo code</a></li>
-<li><a href="#python">Python</a></li>
-<li><a href="#javascript">javascript</a>
+<li><a href="#présentation">Présentation</a></li>
+<li><a href="#lampadaire-connecté">Lampadaire connecté</a></li>
+<li><a href="#principe-du-projet">Principe du projet</a></li>
+<li><a href="#cahier-des-charges">Cahier des charges</a>
 <ul>
-<li><a href="#old-school">old school</a></li>
-<li><a href="#version-es6">version ES6</a></li>
+<li><a href="#objet-connecté">Objet connecté :</a></li>
+<li><a href="#maquette">Maquette :</a></li>
+<li><a href="#logiciel-de-gestion">Logiciel de gestion</a></li>
+<li><a href="#comportement-du-lampadaire">Comportement du  lampadaire</a></li>
 </ul></li>
-<li><a href="#java">Java</a></li>
-<li><a href="#c">C</a></li>
-<li><a href="#scheme">Scheme</a></li>
-<li><a href="#prolog">Prolog</a></li>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#source">Source</a></li>
 </ul></li>
 </ul>
 </nav>
