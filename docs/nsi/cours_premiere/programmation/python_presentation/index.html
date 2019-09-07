@@ -13,7 +13,7 @@
   
     
     
-    4 - Tableaux
+    Présentation de Python
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/algorithmique/partie4/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/programmation/python_presentation/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1473,7 +1473,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/algorithmique/partie4/"  class="active">
+        <a href="/docs/nsi/cours_premiere/algorithmique/partie4/" >
           
   
     
@@ -1788,7 +1788,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/programmation/python_presentation/" >
+        <a href="/docs/nsi/cours_premiere/programmation/python_presentation/"  class="active">
           
   
     
@@ -6895,7 +6895,7 @@ MathJax.Hub.Config({
   
     
     
-    4 - Tableaux
+    Présentation de Python
   
 </strong>
 </header>
@@ -6903,357 +6903,180 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<h1 id="tableaux">Tableaux</h1>
+<p><a href="/uploads/docsnsi/presentation_python/readme-Article.pdf">Article en pdf</a>
+<a href="/uploads/docsnsi/presentation_python/readme-Beamer.pdf">Diaporama en pdf</a></p>
 
-<h2 id="tableaux-1">Tableaux</h2>
+<h1 id="python">python</h1>
+
+<h2 id="présentation-de-python">Présentation de Python</h2>
+
+<p><img src="https://www.python.org/static/img/python-logo.png" alt="python_logo" /></p>
+
+<p>Python est un langage de programmation crée dans les années 80 par
+Guido Van Rossum.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Guido_van_Rossum_OSCON_2006.jpg/160px-Guido_van_Rossum_OSCON_2006.jpg" alt="Guido" /></p>
+
+<p>Python est le langage choisi pour les enseignements d&rsquo;informatique et de mathématiques au Lycée, en classe préparatoire et dans les licences scientifiques. C&rsquo;est un langage qui facile d&rsquo;accès, idéal pour les débutants en informatique.</p>
+
+<p>Cependant Python est un langage puissant et complet qui a de nombreux usages dans l&rsquo;industrie informatique.</p>
+
+<h2 id="caractéristiques-de-python">Caractéristiques de Python</h2>
 
 <ul>
-<li><p>Un tableau (<em>array</em> en anglais) est une SDD qui contient un ensemble d&rsquo;éléments auquel on accède avec un numéro d&rsquo;indice.</p></li>
-
-<li><p>Le temps d&rsquo;accès à un élément par son indice est <em>constant</em></p></li>
-
-<li><p>Les éléments sont contigus dans l&rsquo;espace mémoire. Avec l&rsquo;indice on sait à combien de cases mémoire se trouve l&rsquo;élément en partant du début du tableau</p></li>
-
-<li><p>Souvent désignés par une majuscule :  $T$ est un tableau, $T[i]$ est son élément d&rsquo;indice $i$</p></li>
+<li>Python est un langage gratuit et dont les sources sont ouvertes. Tout le monde peut les consulter et les améliorer s&rsquo;il le souhaite.</li>
+<li>Python est un <em>langage haut niveau</em>. Cela signifie qu&rsquo;on est éloigné de ce qui se passe réellement dans la machine et qu&rsquo;on peut se concentrer sur le déroulement du programme en lui même.</li>
+<li>Python est un langage <em>interprété</em> et non compilé. Cela signifie qu&rsquo;à chaque exécution d&rsquo;un programme Python, un programme appelé interpréteur traduit le code en <em>bytecode</em> exécutable par la machine.
+Le code est ainsi facile à éditer et à corriger.</li>
+<li>Python est à la fois <em>multi-plateforme</em> (il fonctionne sur tous les systèmes courants) et <em>multi-paradigme</em> (il existe plusieurs manières d&rsquo;écrire un programme qui accomplisse le même résultat)</li>
+<li>Python est doté d&rsquo;un <em>typage dynamique</em>. Contrairement au C ou à Java, il n&rsquo;est pas nécessaire de déclarer le type d&rsquo;une variable. Celui-ci peut changer durant l&rsquo;exécution du programme.</li>
+<li>La syntaxe de Python diffère de celles inspirées du C. C&rsquo;est <em>l&rsquo;indentation qui décrit la structure d&rsquo;un programme</em>.</li>
+<li>Python dispose de plusieurs interpréteurs mais le plus courant est <em>CPython</em> écrit en C.</li>
+<li>Python dispose de deux versions majeures partiellement incompatibles : Python 2.7 et Python 3. Nous utiliserons cette année la dernière version stable de Python 3 (Python 3.7.xx)</li>
 </ul>
 
-<h2 id="avantages-inconvénients">Avantages / Inconvénients</h2>
+<h2 id="quelques-éléments-de-syntaxe">Quelques éléments de syntaxe</h2>
+
+<p>La syntaxe de Python est conçue pour être facilement lisible.</p>
+
+<p>Les commentaires sont précédés d&rsquo;un symbole <code>#</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  a <span style="color:#555">=</span> <span style="color:#f60">3</span> <span style="color:#09f;font-style:italic"># un commentaire</span></code></pre></div>
+<h3 id="tests-et-conditions">Tests et conditions</h3>
+
+<p>La structure (les blocs) sont indiqués par une indentation (généralement 4 espaces)</p>
+
+<p>Par exemple :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">3</span>
+<span style="color:#069;font-weight:bold">if</span> a <span style="color:#555">&gt;</span> <span style="color:#f60">2</span>:
+  <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30">&#34;{a} est plus grand que 2&#34;</span>)
+<span style="color:#069;font-weight:bold">elif</span> a <span style="color:#555">==</span> <span style="color:#f60">2</span>:
+  <span style="color:#09f;font-style:italic"># affecter =</span>
+  <span style="color:#09f;font-style:italic"># comparer ==</span>
+  <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30">&#34;{a} vaut 2&#34;</span>)
+<span style="color:#069;font-weight:bold">else</span>:
+  <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30">&#34;{a} est inférieur à 2&#34;</span>)</code></pre></div>
+<p>Les espaces après <code>if</code> et <code>else</code> indiquent ce qui doit être exécuté si ces conditions sont vérifiées.</p>
+
+<h3 id="boucles">Boucles</h3>
+
+<p>Il existe deux types de boucles <code>for</code> et <code>while</code></p>
+
+<p>La syntaxe de <code>while</code> est similaire à celle du C :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">1</span>
+<span style="color:#069;font-weight:bold">while</span> a <span style="color:#555">&lt;</span> <span style="color:#f60">5</span>:
+  <span style="color:#09f;font-style:italic"># faire quelquechose</span>
+  a <span style="color:#555">=</span> a <span style="color:#555">+</span> <span style="color:#f60">1</span></code></pre></div>
+<p>La syntaxe de <code>for</code> est différente. On parcourt un objet itérable</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>]
+<span style="color:#069;font-weight:bold">for</span> nombre <span style="color:#000;font-weight:bold">in</span> liste:
+  <span style="color:#069;font-weight:bold">if</span> nombre <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+    <span style="color:#09f;font-style:italic"># nombre % 2 est le reste de la division euclidienne par 2</span>
+    <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30">&#34;{nombre} est pair&#34;</span>)
+  <span style="color:#069;font-weight:bold">else</span>:
+    <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30">&#34;{nombre} est impair&#34;</span>)</code></pre></div>
+<h3 id="les-fonctions">Les fonctions</h3>
+
+<p>Une fonction est un morceau de code qui peut être appelé et exécuté plusieurs fois. Une fonction prend des <em>paramètres</em> en entrée et <em>retourne</em> un résultat.</p>
+
+<p>Toutes les fonctions Python retournent une valeur avec <code>return</code>.</p>
+
+<p>Si rien n&rsquo;est indiqué après <code>return</code> ou si ce mot-clé est omis, la fonction retourne <code>None</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">carre</span>(n):
+  <span style="color:#c30">&#39;&#39;&#39;
+</span><span style="color:#c30">  calcule le carré d&#39;un nombre
+</span><span style="color:#c30">  @param n: (number)
+</span><span style="color:#c30">  @return: (number)
+</span><span style="color:#c30">  &#39;&#39;&#39;</span>
+  <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">**</span> <span style="color:#f60">2</span></code></pre></div>
+<p>On <em>spécifie</em> une fonction en indiquant dans une chaîne de caractères sur
+plusieurs lignes :</p>
 
 <ul>
-<li><p><strong>Avantages</strong> : accès direct au ième élément</p></li>
-
-<li><p><strong>Inconvénients</strong> : les opérations d&rsquo;insertion et de suppression sont impossibles.</p>
-
-<ul>
-<li>Il faut créer un nouveau tableau, de taille plus grande ou plus petite (selon l&rsquo;opération). Il faut alors copier tous les éléments du tableau original dans le nouveau tableau. Cela fait beaucoup d&rsquo;opérations.</li>
-</ul></li>
+<li>ce qu&rsquo;elle fait,</li>
+<li>ses paramètres et leur type</li>
+<li>ce qu&rsquo;elle renvoit</li>
 </ul>
 
-<h2 id="tableaux-en-python-des-listes">Tableaux en Python : des listes !</h2>
+<h3 id="objets-simples">Objets simples</h3>
 
-<p>Dans Python les tableaux sont des objets <em>listes</em>.</p>
-
-<p>On peut les construire de plusieurs manières :</p>
+<p>Les <em>types</em> courants en Python sont :</p>
 
 <ul>
-<li><strong><code>[]</code></strong> est une liste vide</li>
-<li><strong><code>l = [&quot;&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;&quot;]</code></strong> et on accède avec <strong><code>l[1]</code></strong>
-<strong><code>&quot;def&quot;</code></strong></li>
-<li>Par compréhension :  <strong><code>[2 * x + 1 for x in range(4)]</code></strong>
-<strong><code>[1, 3, 5, 7]</code></strong></li>
+<li><code>int</code> : les entiers (0, -1, 234567890 etc.)</li>
+<li><code>float</code> : les &ldquo;nombres à virgules&rdquo; (0.2, 1234.1234 etc.)</li>
+<li><code>str</code> : les chaînes ce caractères (<code>&quot;a&quot;</code>, <code>&quot;bonjour David59&quot;</code>)</li>
+<li><code>bool</code> : <code>True</code>, <code>False</code></li>
+<li><code>Nonetype</code> : <code>None</code> (rien)</li>
 </ul>
 
-<h2 id="listes-par-compréhension-suite">Listes par compréhension, suite</h2>
+<h3 id="objets-complexes">Objets complexes</h3>
 
-<h3 id="on-peut-itérer-dans-une-chaîne-de-caractères-donc-facilement-la-découper">On peut itérer dans une chaîne de caractères donc facilement la découper</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> lettres <span style="color:#555">=</span> <span style="color:#c30">&#34;abcdefg&#34;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> [ i <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> lettres ]
-[<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;d&#39;</span>, <span style="color:#c30">&#39;e&#39;</span>, <span style="color:#c30">&#39;f&#39;</span>, <span style="color:#c30">&#39;g&#39;</span>]</code></pre></div>
-<ul>
-<li>Il y a bien d&rsquo;autres façons de faire.</li>
-</ul>
-
-<h2 id="la-grande-différence-entre-les-tableaux-et-les-listes">La grande différence entre les tableaux et les listes ?</h2>
-
-<p>Les listes sont <strong>mutables</strong> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>]
-<span style="color:#c30">&#39;def&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#39;xyz&#39;</span> <span style="color:#09f;font-style:italic"># modifier un élément</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>insert(<span style="color:#f60">2</span>, <span style="color:#c30">&#34;mno&#34;</span>) <span style="color:#09f;font-style:italic"># insérer</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>remove(<span style="color:#c30">&#39;abc&#39;</span>) <span style="color:#09f;font-style:italic"># supprimer l&#39;élément &#39;abc&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]</code></pre></div>
-<h2 id="affecter-le-même-objet">Affecter : le même objet !</h2>
-
-<h3 id="dans-python-quand-on-affecte-un-objet-à-un-autre-ils-sont-identiques">Dans Python quand on affecte un objet à un autre, ils sont identiques !</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> m <span style="color:#555">=</span> l <span style="color:#09f;font-style:italic"># m et l : les mêmes objets</span>
-<span style="color:#555">&gt;&gt;&gt;</span> m[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;xyz&#34;</span> ; l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l et m modifiés</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l, m
-([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])</code></pre></div>
-<h2 id="copier-une-copie-de-l-objet">Copier : une copie de l&rsquo;objet</h2>
-
-<h3 id="on-contourne-cette-difficulté-avec-un-slice">On contourne cette difficulté avec un &ldquo;slice&rdquo;</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>:] <span style="color:#09f;font-style:italic"># une copie de l à partir de l&#39;élément 1</span>
-<span style="color:#555">&gt;&gt;&gt;</span> n <span style="color:#555">=</span> l[:] <span style="color:#09f;font-style:italic"># une COPIE complète de l</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l est modifée, pas n</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l, n
-([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])</code></pre></div>
-<h2 id="retour-sur-les-tableaux">Retour sur les tableaux</h2>
+<p>Ils sont généralement <em>itérables</em>, on peut les parcourir élément par élément.</p>
 
 <ul>
-<li>On met ce qu&rsquo;on veut dans un tableau</li>
+<li><code>list</code> : <code>[1, 2, 3]</code> une liste (ou un tableau) d&rsquo;objets. Mutable.</li>
+<li><code>tuple</code> : <code>(1, 2, 3)</code> une liste non mutable (immuable) d&rsquo;objets.</li>
+<li><code>dict</code> : <code>{&quot;nom&quot; : &quot;David&quot;, &quot;tel&quot; : &quot;0612345678&quot;}</code>. tableau associatifs ou dictionnaire. Mutable</li>
 </ul>
 
-<p><strong>$T = [1.44, \;3.14,\; 2.72]$</strong></p>
+<p>Il en existe de nombreux autres que nous rencontrerons plus tard.</p>
+
+<h3 id="librairies">Librairies</h3>
+
+<p>On importe une librairie avec <code>import</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">math</span>
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">circonference</span>(rayon):
+  <span style="color:#c30">&#39;&#39;&#39;
+</span><span style="color:#c30">  Calcule la circonference d&#39;un cercle
+</span><span style="color:#c30">  @param rayon: (number)
+</span><span style="color:#c30">  @return: (float)
+</span><span style="color:#c30">  &#39;&#39;&#39;</span>
+  <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> r</code></pre></div>
+<p>Python est fourni avec une <em>librairie standard</em> très riche qu&rsquo;il est
+rarement nécessaire d&rsquo;étendre.</p>
+
+<p>Cela est néanmoins facile avec le programme <code>pip</code> :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ pip install numpy</pre></div>
+<p>Nous utiliserons notamment :</p>
 
 <ul>
-<li>Pas forcement des objets de même nature</li>
+<li><code>numpy</code> : calculs numériques,</li>
+<li><code>matplotlib</code> : constructions de figures mathématiques,</li>
+<li><code>pygame</code> : jeux vidéos,</li>
+<li><code>flask</code> : création d&rsquo;un site web</li>
 </ul>
 
-<p><strong>$T = [&ldquo;abc&rdquo;, \; 3.14, \; True]$</strong></p>
+<h2 id="adoption">Adoption</h2>
 
-<h2 id="élément-neq-indice">Élément $\neq$ indice</h2>
+<p>Python est massivement utilisé par les professionnels. Depuis 2014 c&rsquo;est le langage qui connait la plus forte croissance dans la communauté des développeurs.</p>
 
-<h3 id="ne-pas-confondre-l-élément-et-l-indice">Ne pas confondre l&rsquo;élément et l&rsquo;indice</h3>
+<p>C&rsquo;est le second langage le plus cité après <code>JavaScript</code> comme étant celui qu&rsquo;ils préfèrent utiliser.</p>
 
-<p><strong>$T = [1.44, \;3.14, \;2.72]$</strong></p>
-
-<p>$3.14$ est l&rsquo;élément, son indice est $1$</p>
-
-<p>$T[1]$ est $3.14$</p>
-
-<h1 id="tableaux-multidimensionnels">Tableaux multidimensionnels</h1>
-
-<h2 id="tableau-bidimensionnel">Tableau bidimensionnel</h2>
-
-<p>Un <strong>tableau bidimensionnel</strong> ou <strong>matrice</strong> est un tableau qui contient des tableaux.</p>
-
-<h2 id="tableaux-de-tableaux">Tableaux de tableaux&hellip;</h2>
+<p>Parmi les applications fréquentes de Python citons :</p>
 
 <ul>
-<li>Par exemple :</li>
+<li>L&rsquo;intelligence artificielle avec les librairies <code>panda</code> <code>sklearn</code> et <code>tensorflow</code>,</li>
+<li>Le calcul numérique avec <code>numpy</code> et <code>matplotlib</code>,</li>
+<li>Les logiciels (fenêtres etc.) avec <code>QT</code> et <code>Tkinter</code>,</li>
+<li>Les tests. Les développeurs doivent s&rsquo;assurer du bon fonctionnement et de l&rsquo;efficacité de leurs programmes. De nombreux tests sont écrits en Python.</li>
 </ul>
 
-<p>$$T \leftarrow [\;[a, b, c], [d, e, f], [m, n, o]\;]$$</p>
-
-<table>
-<thead>
-<tr>
-<th>l/c</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>0</td>
-<td>$a$</td>
-<td>$b$</td>
-<td>$c$</td>
-</tr>
-
-<tr>
-<td>1</td>
-<td>$d$</td>
-<td>$e$</td>
-<td><strong>$f$</strong></td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>$m$</td>
-<td>$n$</td>
-<td>$o$</td>
-</tr>
-</tbody>
-</table>
+<p>Parmi les entreprises et projets qui utilisent Python citons :</p>
 
 <ul>
-<li>On dit que $T$ est une matrice à 3 lignes et 3 colonnes</li>
+<li>Google,</li>
+<li>La NASA,</li>
+<li>Industrial Light &amp; Magic (effets spéciaux de Disney, LucasFilm etc.)</li>
+<li>Netflix,</li>
+<li>LibreOffice etc.</li>
 </ul>
 
-<h2 id="accéder-à-un-élément">Accéder à un élément</h2>
+<p>Citons Katie Bouman, célèbre pour avoir présenté la première image d&rsquo;un trou noir et qui travaille au MIT.</p>
 
-<ul>
-<li>Comment accéder à <strong>$f$</strong> ?</li>
-</ul>
+<p><img src="https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/04/11/931/524/694940094001_6025131006001_6025130335001-vs.jpg?ve=1&amp;tl=1" alt="blackhole" /></p>
 
-<p>$$T \leftarrow [\;[a, b, c], [d, e, f], [m, n, o]\;]$$</p>
-
-<table>
-<thead>
-<tr>
-<th>l/c</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>0</td>
-<td>$a$</td>
-<td>$b$</td>
-<td>$c$</td>
-</tr>
-
-<tr>
-<td>1</td>
-<td>$d$</td>
-<td>$e$</td>
-<td><strong>$f$</strong></td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>$m$</td>
-<td>$n$</td>
-<td>$o$</td>
-</tr>
-</tbody>
-</table>
-
-<ul>
-<li><p><strong>$f$</strong> est l&rsquo;élément $T[1][2]$</p>
-
-<p>ligne 1, colonne 2</p></li>
-</ul>
-
-<h2 id="python-listes-de-listes">Python : listes de listes</h2>
-
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><strong>2</strong></td>
-<td><strong>3</strong></td>
-</tr>
-</tbody>
-</table>
-
-<p>Pour présenter facilement on s&rsquo;aligne au même niveau</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T <span style="color:#555">=</span> [[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>],
-     [<span style="color:#f60">2</span>, <span style="color:#f60">3</span>]] <span style="color:#09f;font-style:italic"># [[0, 1], [2, 3]]</span>
-T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span style="color:#09f;font-style:italic"># 2</span></code></pre></div>
-<h2 id="python-listes-de-listes-par-compréhension">Python : listes de listes par compréhension</h2>
-
-<h3 id="une-méthode-efficace">Une méthode efficace :</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T <span style="color:#555">=</span> [
-     [j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
-        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)
-     ]</code></pre></div>
-<p>Qu&rsquo;obtient-on dans <code>T</code> ?</p>
-
-<h2 id="python-listes-de-listes-solution">Python : listes de listes - solution</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> T <span style="color:#555">=</span> [[j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
-<span style="color:#555">...</span> <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)]
-
-<span style="color:#555">&gt;&gt;&gt;</span> T
-[[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>], [<span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>l/c</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>0</td>
-<td><code>0</code></td>
-<td><code>1</code></td>
-<td><code>2</code></td>
-</tr>
-
-<tr>
-<td>1</td>
-<td><code>3</code></td>
-<td><code>4</code></td>
-<td><code>5</code></td>
-</tr>
-
-<tr>
-<td>2</td>
-<td><code>6</code></td>
-<td><code>7</code></td>
-<td><code>8</code></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="itérer-dans-une-matrice">Itérer dans une matrice.</h2>
-
-<h3 id="pour-itérer-dans-une-matrice-il-faut-2-boucles-imbriquées">pour itérer dans une matrice il faut 2 boucles <em>imbriquées</em></h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Pour i allant de 1 à n {
-  Pour j allant de 1 à n {
-    faire... T[i][j] ...
-  }
-}</pre></div>
-<h2 id="calcul-d-une-moyenne-des-éléments-d-un-tableau">Calcul d&rsquo;une moyenne des éléments d&rsquo;un tableau.</h2>
-
-<p>Le tableau $T$ comporte $n$ lignes et $p$ colonnes.</p>
-
-<p>On calcule la moyenne habituelle donnée par la formule par $$ \frac{1}{n \times p}\sum<em>{i=0}^{n-1} \sum</em>{j=0}^{p-1} T[i][j]$$</p>
-
-<ul>
-<li>$\sum$ repésente la somme</li>
-<li>$\sum_{i=0}^{n-1}$ : pour i allant de $0$ à $n-1$ ajouter&hellip;</li>
-<li>Les deux $\sum$ sont l&rsquo;une dans l&rsquo;autre.</li>
-<li>On divise la somme des termes par $n \times p$</li>
-</ul>
-
-<h2 id="exemple-en-python">Exemple en Python.</h2>
-
-<p>Créer une fonction qui prenne une matrice en entrée et renvoie la moyenne de ses valeurs en sortie</p>
-
-<h2 id="solution-naturelle">Solution &ldquo;naturelle&rdquo;</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; n <span style="color:#555">=</span> <span style="color:#366">len</span>(T); p <span style="color:#555">=</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-  <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
-    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(p):
-      s <span style="color:#555">+=</span> T[i][j]
-  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> (n <span style="color:#555">*</span> p)</code></pre></div>
-<h2 id="solution-avec-des-outils-de-python">Solution avec des outils de python</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T)<span style="color:#555">*</span><span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-  <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
-    <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> ligne:
-      s <span style="color:#555">+=</span> x
-  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> k</code></pre></div>
-<h2 id="solutions-encore-plus-radicale">Solutions encore plus radicale&hellip;</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-    s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-    <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
-        s <span style="color:#555">+=</span> <span style="color:#366">sum</span>(ligne)
-    <span style="color:#069;font-weight:bold">return</span> s<span style="color:#555">/</span>k</code></pre></div>
-<p><a href="https://goo.gl/aov75J">Python Tutor</a>
-Et la plus courte à laquelle j&rsquo;ai pensé :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>([<span style="color:#366">sum</span>(row) <span style="color:#069;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> T])\
-      <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))</code></pre></div>
-<h2 id="il-y-a-encore-plus-court">Il y a encore plus court&hellip;</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">map</span>(<span style="color:#366">sum</span>, T)) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">sum</span>(T,[])) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))</code></pre></div>
-<h2 id="exercices">Exercices</h2>
-
-<h3 id="une-étape-de-2048">Une étape de 2048</h3>
-
-<p>On considère une liste de nombres (exemple : <code>[2, 0, 4, 8]</code>  )</p>
-
-<p>Programmer une fonction <code>zeroADroite(liste)</code> qui renvoie une liste de même taille mais avec tous les 0 qu&rsquo;elle contenait déplacés à droite.</p>
-
-<p>Exemples :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
-[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">0</span>])
-[<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
-[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">16</span>])
-[<span style="color:#f60">4</span>, <span style="color:#f60">16</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]</code></pre></div></article>
+<p>On peut voir qu&rsquo;elle est en train de programmer un script Python&hellip;</p>
+</article>
 
       <div class="backtotop">
 
@@ -7286,55 +7109,20 @@ Et la plus courte à laquelle j&rsquo;ai pensé :</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#tableaux">Tableaux</a>
+<li><a href="#python">python</a>
 <ul>
-<li><a href="#tableaux-1">Tableaux</a></li>
-<li><a href="#avantages-inconvénients">Avantages / Inconvénients</a></li>
-<li><a href="#tableaux-en-python-des-listes">Tableaux en Python : des listes !</a></li>
-<li><a href="#listes-par-compréhension-suite">Listes par compréhension, suite</a>
+<li><a href="#présentation-de-python">Présentation de Python</a></li>
+<li><a href="#caractéristiques-de-python">Caractéristiques de Python</a></li>
+<li><a href="#quelques-éléments-de-syntaxe">Quelques éléments de syntaxe</a>
 <ul>
-<li><a href="#on-peut-itérer-dans-une-chaîne-de-caractères-donc-facilement-la-découper">On peut itérer dans une chaîne de caractères donc facilement la découper</a></li>
+<li><a href="#tests-et-conditions">Tests et conditions</a></li>
+<li><a href="#boucles">Boucles</a></li>
+<li><a href="#les-fonctions">Les fonctions</a></li>
+<li><a href="#objets-simples">Objets simples</a></li>
+<li><a href="#objets-complexes">Objets complexes</a></li>
+<li><a href="#librairies">Librairies</a></li>
 </ul></li>
-<li><a href="#la-grande-différence-entre-les-tableaux-et-les-listes">La grande différence entre les tableaux et les listes ?</a></li>
-<li><a href="#affecter-le-même-objet">Affecter : le même objet !</a>
-<ul>
-<li><a href="#dans-python-quand-on-affecte-un-objet-à-un-autre-ils-sont-identiques">Dans Python quand on affecte un objet à un autre, ils sont identiques !</a></li>
-</ul></li>
-<li><a href="#copier-une-copie-de-l-objet">Copier : une copie de l&rsquo;objet</a>
-<ul>
-<li><a href="#on-contourne-cette-difficulté-avec-un-slice">On contourne cette difficulté avec un &ldquo;slice&rdquo;</a></li>
-</ul></li>
-<li><a href="#retour-sur-les-tableaux">Retour sur les tableaux</a></li>
-<li><a href="#élément-neq-indice">Élément $\neq$ indice</a>
-<ul>
-<li><a href="#ne-pas-confondre-l-élément-et-l-indice">Ne pas confondre l&rsquo;élément et l&rsquo;indice</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#tableaux-multidimensionnels">Tableaux multidimensionnels</a>
-<ul>
-<li><a href="#tableau-bidimensionnel">Tableau bidimensionnel</a></li>
-<li><a href="#tableaux-de-tableaux">Tableaux de tableaux&hellip;</a></li>
-<li><a href="#accéder-à-un-élément">Accéder à un élément</a></li>
-<li><a href="#python-listes-de-listes">Python : listes de listes</a></li>
-<li><a href="#python-listes-de-listes-par-compréhension">Python : listes de listes par compréhension</a>
-<ul>
-<li><a href="#une-méthode-efficace">Une méthode efficace :</a></li>
-</ul></li>
-<li><a href="#python-listes-de-listes-solution">Python : listes de listes - solution</a></li>
-<li><a href="#itérer-dans-une-matrice">Itérer dans une matrice.</a>
-<ul>
-<li><a href="#pour-itérer-dans-une-matrice-il-faut-2-boucles-imbriquées">pour itérer dans une matrice il faut 2 boucles <em>imbriquées</em></a></li>
-</ul></li>
-<li><a href="#calcul-d-une-moyenne-des-éléments-d-un-tableau">Calcul d&rsquo;une moyenne des éléments d&rsquo;un tableau.</a></li>
-<li><a href="#exemple-en-python">Exemple en Python.</a></li>
-<li><a href="#solution-naturelle">Solution &ldquo;naturelle&rdquo;</a></li>
-<li><a href="#solution-avec-des-outils-de-python">Solution avec des outils de python</a></li>
-<li><a href="#solutions-encore-plus-radicale">Solutions encore plus radicale&hellip;</a></li>
-<li><a href="#il-y-a-encore-plus-court">Il y a encore plus court&hellip;</a></li>
-<li><a href="#exercices">Exercices</a>
-<ul>
-<li><a href="#une-étape-de-2048">Une étape de 2048</a></li>
-</ul></li>
+<li><a href="#adoption">Adoption</a></li>
 </ul></li>
 </ul>
 </nav>
