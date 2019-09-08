@@ -33,6 +33,10 @@ https://github.com/alex-shpak/hugo-book
 
   
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -7101,10 +7113,12 @@ Heure courante  12:41:02
 KeyboardInterrupt
 &gt;&gt;&gt;</pre></div>
 <p>Remarque : il est vilain de forcer l&rsquo;arrêt d&rsquo;un programme avec CTRL + C
-Nous verrons comment interrompre proprement un programme dans le chapitre <a href="http://fsincere.free.fr/isn/python/cours_python_ch5.php">Gestion des exceptions</a>.</p>
+Nous verrons comment interrompre proprement un programme dans le chapitre
+<a href="/docs/nsi/cours-python/python-3-05-gestion-des-exceptions/">Gestion des exceptions</a>.</p>
 
-<p><strong>Exercice 3.5 ★☆</strong>
-1) Ecrire le script du jeu de devinette suivant :</p>
+<p><strong>Exercice 3.5 ★</strong></p>
+
+<p>1) Ecrire le script du jeu de devinette suivant :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Le jeu consiste à deviner un nombre entre 1 et 100 :
 
@@ -7126,16 +7140,25 @@ Gagné en 6 coups !</pre></div>
 
 <p>Bibliographie : <a href="http://fr.wikipedia.org/wiki/Dichotomie">La dichotomie</a></p>
 
+<p>Remarque : l&rsquo;algorithme de Dichotomie est au programme de première NSI.</p>
+
 <p>Remarque : pour créer un nombre entier aléatoire entre 1 et 100 :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">random</span>
 nombre <span style="color:#555">=</span> random<span style="color:#555">.</span>randint(<span style="color:#f60">1</span>,<span style="color:#f60">100</span>)</code></pre></div>
-<p><strong>Exercice 3.6 ★★</strong> Code de César
-En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une lettre de 3 rangs vers la droite :
-A → D
-B → E
-&hellip;
-Z → C
-1) Ecrire le script de ce codage.
+<p><strong>Exercice 3.6 ★★</strong> Code de César</p>
+
+<p>En cryptographie, le code de César est une technique de chiffrement
+élémentaire qui consiste à décaler une lettre de 3 rangs vers la droite :</p>
+
+<p>A → D</p>
+
+<p>B → E</p>
+
+<p>&hellip;</p>
+
+<p>Z → C</p>
+
+<p>1) Ecrire le script de ce codage.
 Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Message à coder ? abcdefghijklmnopqrstuvwxyz
@@ -7147,7 +7170,8 @@ defghijklmnopqrstuvwxyzabc
 &gt;&gt;&gt;
 Message à coder ? Monty Python&#39;s Flying Circus
 prqwb sbwkrq&#39;v ioblqj flufxv</pre></div>
-<p>On pourra utiliser la chaîne <code>'abcdefghijklmnopqrstuvwxyz'</code> et la méthode <code>find()</code> de la classe <code>str</code>.
+<p>On pourra utiliser la chaîne <code>'abcdefghijklmnopqrstuvwxyz'</code> et la méthode
+<code>find()</code> de la classe <code>str</code>.
 Pour obtenir de l&rsquo;aide sur cette méthode :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; help(str.find)</pre></div>
 <p>2) Ecrire le script du décodage.
@@ -7159,13 +7183,17 @@ Par exemple :</p>
 
 <p><img src="https://s-media-cache-ak0.pinimg.com/736x/9c/04/96/9c0496717e938a311f4ed1286fc11f4f.jpg" alt="" /></p>
 
-<p>Pour ne pas être dérangé dans ses aventures il décide de les couper chaque fois qu&rsquo;ils font plus de 40 cm. Ce matin Geralt a coupé ses cheveux et ils mesurent 17 cm. Chaque jour la longueur de ses cheveux augmente d&rsquo;un pour cent (leur longueur est multipliée par 1.01).
-Ecrire un script qui affiche dans combien de jours Geralt devra couper ses cheveux.</p>
+<p>Pour ne pas être dérangé dans ses aventures il décide de les couper chaque fois qu&rsquo;ils font plus de 40 cm. Ce matin Geralt a coupé ses cheveux et ils mesurent 17 cm. Chaque jour la longueur de ses cheveux augmente d&rsquo;un pour cent (leur longueur est multipliée par 1.01).</p>
+
+<p>Écrire un script qui affiche dans combien de jours Geralt devra couper ses cheveux.</p>
 
 <p><strong>Les exercices suivants sont nécessitent quelques aptitudes en mathématiques&hellip;</strong></p>
 
-<p><strong>Exercice 3.8 ★★</strong> Ecrire un script qui donne l&rsquo;évolution de la suite convergente : un+1 = un/2 + 1/un
-Par exemple :</p>
+<p><strong>Exercice 3.8 ★★</strong> Ecrire un script qui donne l&rsquo;évolution de la suite convergente :</p>
+
+<p>$u_{n+1} = \dfrac{u_n}{2} + \dfrac{1}{u_n}$</p>
+
+<p>Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Valeur initiale ? 20
 Jusqu&#39;à quel rang ? 10
@@ -7189,18 +7217,24 @@ Jusqu&#39;à quel rang ? 10
 
 <p>Comparer avec la valeur exacte : (1 + √5)/2</p>
 
-<p><strong>Exercice 3.10</strong>
-1) ★ Ecrire un script qui détermine si un nombre entier est premier ou pas.
-<strong>Rappel :</strong> un nombre <strong>premier </strong>est un entier naturel qui n&rsquo;a que deux diviseurs : 1 et lui même.
+<p><strong>Exercice 3.10</strong></p>
+
+<ol>
+<li><p>★ Ecrire un script qui détermine si un nombre entier est premier ou pas.</p></li>
+
+<li><p><strong>Rappel :</strong> un nombre <strong>premier</strong> est un entier naturel qui n&rsquo;a que deux diviseurs : 1 et lui même.
 Ex : 3 est premier mais 6 ne l&rsquo;est pas car 2*3=6.
 Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Nombre ? 17
-17 est un nombre premier</pre></div>
-<p>2) ★★ Ecrire un script qui décompose un nombre entier en un produit de facteurs premiers.</p>
+17 est un nombre premier</pre></div></li>
+
+<li><p>★★★ Ecrire un script qui décompose un nombre entier en un produit de facteurs premiers.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Nombre à décomposer ? 2142
-2142 = 2 * 3 * 3 * 7 * 17</pre></div>
+2142 = 2 * 3 * 3 * 7 * 17</pre></div></li>
+</ol>
+
 <h3 id="qcm">QCM</h3>
 
 <p><a href="http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python_loop">QCM sur les boucles</a></p>
