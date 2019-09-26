@@ -7067,7 +7067,7 @@ Une exception arrête l&rsquo;exécution normale d&rsquo;un programme.</p>
 <h3 id="gestion-des-exceptions">Gestion des exceptions</h3>
 
 <p>Heureusement, il est possible de gérer les exceptions pour éviter l&rsquo;arrêt brutal du programme.
-Par cela, on utilise conjointement les instructions <code>try</code> et <code>except</code>.
+Pour cela, on utilise conjointement les instructions <code>try</code> et <code>except</code>.
 L&rsquo;instruction <code>else</code> est optionnelle :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">try</span>:
     chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer un nombre : &#39;</span>)
@@ -7110,7 +7110,7 @@ bonjour n&#39;est pas un nombre !
 <h3 id="exercices">Exercices</h3>
 
 <p><strong>Exercice 5.1</strong>
-1) Compléter le script précédent de manière à ressaisir le nombre en cas d&rsquo;erreur.
+1) Compléter le script précédent de manière à ressaisir le nombre en cas d&rsquo;erreur. On pourra englober le script dans une boucle <code>while</code>.
 Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 Entrer un nombre : salut !
@@ -7128,6 +7128,11 @@ L&#39;inverse de 2.3 est : 0.434782608696
 &gt;&gt;&gt;</pre></div>
 <p>On pourra utiliser la méthode <code>replace()</code> de la classe <code>str</code></p>
 
+<p>Exemple :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;abc&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;z&#34;</span>) <span style="color:#09f;font-style:italic"># b est remplacé par z</span>
+<span style="color:#c30">&#39;azc&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;raoul&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39;z&#39;</span>) <span style="color:#09f;font-style:italic"># pas de x dans la chaîne de départ...</span>
+<span style="color:#c30">&#39;raoul&#39;</span> <span style="color:#09f;font-style:italic"># la méthode renvoie la chaîne initiale</span></code></pre></div>
 <p><strong>Exercice 5.2</strong> Ecrire un script qui calcule la racine carrée d&rsquo;un nombre, avec gestion des exceptions.
 Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
@@ -7138,13 +7143,15 @@ Entrer un nombre : -5.26
 Entrer un nombre : 16
 La racine carrée de 16.0 est : 4.0
 &gt;&gt;&gt;</pre></div>
+<p>Remarquez bien qu&rsquo;on demande le nombre à l&rsquo;utilisateur <em>jusqu&rsquo;à</em> ce qu&rsquo;il convienne.</p>
+
 <p><strong>Exercice 5.3</strong> Soit le script :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">i = 0
 while True:
     i += 1
     print(i)</pre></div>
 <p>Il s&rsquo;agit d&rsquo;une boucle sans fin.
-Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C, ce qui lève une exception de type <code>KeyboardInterrupt</code> :</p>
+Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C quand on exécute dans la console et le bouton arrêter dans Colab, ce qui lève une exception de type <code>KeyboardInterrupt</code> :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
 1
 ...
