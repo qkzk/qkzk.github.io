@@ -7114,7 +7114,7 @@ plus de précision sur ce terme &ldquo;statique&rdquo;).</p>
 
 <h2 id="à-faire-vous-même-2">À faire vous-même 2</h2>
 
-<p>À l&rsquo;aide de Spyder, créez un fichier Python &ldquo;views.py&rdquo; (ce fichier
+<p>À l&rsquo;aide de Thonny, créez un fichier Python &ldquo;views.py&rdquo; (ce fichier
 devra être sauvegardé dans le répertoire &ldquo;flask&rdquo; précédemment créé).
 Saisissez le code suivant dans le fichier &ldquo;views.py&rdquo;</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
@@ -7147,7 +7147,7 @@ renseignée avec l&rsquo;adresse du serveur web. Le &ldquo;5000&rdquo; indique l
 nous n&rsquo;étudierons pas cet aspect des choses ici, vous devez juste
 savoir que le &ldquo;5000&rdquo; doit suivre le &ldquo;localhost&rdquo;.</p>
 
-<p>Stoppez l&rsquo;exécution du programme dans Spyder.</p>
+<p>Stoppez l&rsquo;exécution du programme dans Thonny.</p>
 
 <p>Essayons de comprendre en détail ce qui s&rsquo;est passé :</p>
 
@@ -7182,7 +7182,7 @@ présente.</p>
 
 <h2 id="à-faire-vous-même-4">À faire vous-même 4</h2>
 
-<p>À l&rsquo;aide de Spyder, modifiez le fichier Python &ldquo;views.py&rdquo; :</p>
+<p>À l&rsquo;aide de Thonny, modifiez le fichier Python &ldquo;views.py&rdquo; :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
 
 app <span style="color:#555">=</span> Flask(__name__)
@@ -7248,7 +7248,7 @@ fichier &ldquo;index.html&rdquo; qui a été créé dans le répertoire &ldquo;t
 Attention, les fichiers HTML devront systématiquement se trouver dans un
 répertoire nommé &ldquo;templates&rdquo;.</p>
 
-<p>N. B. le &ldquo;debug=True&rdquo; de la dernière ligne permet de modifier les
+<p>N. B. le <code>debug=True</code> de la dernière ligne permet de modifier les
 fichiers HTML sans être obligé de redémarrer le programme &ldquo;views.py&rdquo;.</p>
 
 <p>Pour l&rsquo;instant notre site est statique : la page reste identique,
@@ -7267,7 +7267,7 @@ client</li>
 
 <h2 id="à-faire-vous-même-7">À faire vous-même 7</h2>
 
-<p>Modifiez le fichier views.py comme suit :</p>
+<p>Modifiez le fichier &ldquo;views.py&rdquo; comme suit :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
 <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">datetime</span>
 
@@ -7282,7 +7282,7 @@ app <span style="color:#555">=</span> Flask(__name__)
   <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)
 
 app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span>True)</code></pre></div>
-<p>Dans le programme ci-dessous nous importons le module &ldquo;datetime&rdquo; afin
+<p>Dans le programme ci-dessous nous importons le module <code>datetime</code> afin
 de pouvoir déterminer la date et l&rsquo;heure courante. Le</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">date <span style="color:#555">=</span> datetime<span style="color:#555">.</span>datetime<span style="color:#555">.</span>now()</code></pre></div>
 <p>nous permet de récupérer la date et l&rsquo;heure courante</p>
@@ -7295,8 +7295,8 @@ contiennent l&rsquo;heure courante.</p>
 <p>La fonction &ldquo;render_template&rdquo;</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)</code></pre></div>
 <p>contient 3 paramètres de plus par rapport à l&rsquo;exemple du &ldquo;À faire
-vous-même 6&rdquo; : le paramètre &ldquo;heure&rdquo;, le paramètre &ldquo;minute&rdquo; et le
-paramètre &ldquo;seconde&rdquo;, nous allons retrouver ces 3 paramètres dans le
+vous-même 6&rdquo; : le paramètre <code>heure</code>, le paramètre <code>minute</code> et le
+paramètre <code>seconde</code>, nous allons retrouver ces 3 paramètres dans le
 fichier HTML.</p>
 
 <hr />
@@ -7330,7 +7330,7 @@ page HTML.</p>
 par le serveur au client ne contient plus les paramètres <code>{{heure}}</code>,
 <code>{{minute}}</code> et <code>{{seconde}}</code>. Au moment de créer la page, le serveur
 remplace ces paramètres par les valeurs passées en paramètres de la
-fonction &ldquo;render_template&rdquo; (s&rsquo;il est 14 h 45 minutes et 31 secondes,
+fonction <code>render_template</code> (s&rsquo;il est 14 h 45 minutes et 31 secondes,
 le serveur remplacera &ldquo;Le serveur fonctionne parfaitement, il est
 <code>{{heure}}</code> h <code>{{minute}}</code> minutes et <code>{{seconde}}</code> secondes&rdquo; par &ldquo;Le
 serveur fonctionne parfaitement, il est 15 h 45 minutes et 31
@@ -7416,27 +7416,27 @@ contient un formulaire (balise <code>&lt;form action=&quot;http://localhost:5000
 vers le client. On remarque 2 attributs dans cette balise
 <code>form : action=&quot;http://localhost:5000/resultat&quot;</code> et <code>method=&quot;post&quot;</code>. Ces 2
 attributs indiquent que le client devra effectuer une requête de type
-POST (la méthode POST a déjà été vue dans la partie consacrée au
-<a href="nsi_prem_http.html">protocole HTTP</a>) dès que l&rsquo;utilisateur appuiera
-sur le bouton &ldquo;Envoyer&rdquo;. Cette requête POST sera envoyée à l&rsquo;URL
+<code>POST</code> (la méthode <code>POST</code> a déjà été vue dans la partie consacrée au
+<a href="/docs/nsi/cours_premiere/http">protocole HTTP</a>) dès que l&rsquo;utilisateur appuiera
+sur le bouton &ldquo;Envoyer&rdquo;. Cette requête <code>POST</code> sera envoyée à l&rsquo;URL
 &ldquo;<a href="http://localhost:5000/resultat&quot;">http://localhost:5000/resultat&quot;</a> (voir l&rsquo;attribut &ldquo;action&rdquo;). Les
 données saisies dans le formulaire seront envoyées au serveur par
 l&rsquo;intermédiaire de cette requête.</p>
 
 <p>N.B Vous avez sans doute remarqué que la méthode à employer pour
 effectuer la requête HTTP n&rsquo;est pas précisée dans le
-&ldquo;\@app.route(&lsquo;/&rsquo;)&ldquo;. Si rien n&rsquo;est précisé, par défaut, c&rsquo;est la
-méthode GET qui est utilisée.</p>
+<code>\@app.route('/')</code>. Si rien n&rsquo;est précisé, par défaut, c&rsquo;est la
+méthode <code>GET</code> qui est utilisée.</p>
 
-<p>Intéressons-nous à la fonction &ldquo;resultat&rdquo;, puisque c&rsquo;est cette
+<p>Intéressons-nous à la fonction <code>resultat</code>, puisque c&rsquo;est cette
 fonction qui sera exécutée côté serveur pour traiter la requête POST :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
     result <span style="color:#555">=</span> request<span style="color:#555">.</span>form
     n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
     p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
     <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)</code></pre></div>
-<p>&ldquo;request.form&rdquo; est un dictionnaire Python qui a pour clés les
-attributs &ldquo;name&rdquo; des balises &ldquo;input&rdquo; du formulaire (dans notre cas
+<p><code>request.form</code> est un dictionnaire Python qui a pour clés les
+attributs <code>name</code> des balises <code>input</code> du formulaire (dans notre cas
 les clés sont donc &ldquo;nom&rdquo; et &ldquo;prenom&rdquo;) et comme valeurs ce qui a été
 saisi par l&rsquo;utilisateur. Si l&rsquo;utilisateur saisit &ldquo;Martin&rdquo; et
 &ldquo;Sophie&rdquo;, le dictionnaire &ldquo;request.form&rdquo; sera :</p>
@@ -7446,14 +7446,14 @@ saisi par l&rsquo;utilisateur. Si l&rsquo;utilisateur saisit &ldquo;Martin&rdquo
 <p>Le template &ldquo;resultat.html&rdquo; utilise des paramètres &ldquo;nom&rdquo; et
 &ldquo;prenom&rdquo;.</p>
 
-<p>En réponse à la requête POST, le serveur renvoie une page HTML créée à
-partir du template &ldquo;resultat.html&rdquo; et des paramètres &ldquo;nom&rdquo; et
-&ldquo;prenom&rdquo;. Si l&rsquo;utilisateur a saisi &ldquo;Martin&rdquo; et &ldquo;Sophie&rdquo;, le
+<p>En réponse à la requête <code>POST</code>, le serveur renvoie une page HTML créée à
+partir du template <code>resultat.html</code> et des paramètres <code>nom</code> et
+<code>prenom</code>. Si l&rsquo;utilisateur a saisi <code>Martin</code> et <code>Sophie</code>, le
 navigateur affichera &ldquo;Bonjour Sophie Martin, j&rsquo;espère que vous allez
 bien.&rdquo;</p>
 
 <p>Pour gérer le formulaire, il est possible d&rsquo;utiliser une méthode HTTP
-&ldquo;GET&rdquo; à la place de la méthode &ldquo;POST&rdquo; :</p>
+<code>GET</code> à la place de la méthode <code>POST</code> :</p>
 
 <h2 id="à-faire-vous-même-10">À faire vous-même 10</h2>
 
@@ -7502,15 +7502,15 @@ app <span style="color:#555">=</span> Flask(__name__)
   <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
 
 app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span>True)</code></pre></div>
-<p>Dans &ldquo;index.html&rdquo;, la méthode POST a été remplacée par la méthode GET.
-Dans le fichier &ldquo;views.py&rdquo; nous avons aussi remplacé POST par GET, et
-on utilise &ldquo;request.args&rdquo; à la place de &ldquo;request.form&rdquo;.</p>
+<p>Dans &ldquo;index.html&rdquo;, la méthode <code>POST</code> a été remplacée par la méthode <code>GET</code>.
+Dans le fichier &ldquo;views.py&rdquo; nous avons aussi remplacé <code>POST</code> par <code>GET</code>, et
+on utilise <code>request.args</code> à la place de <code>request.form</code>.</p>
 
 <hr />
 
 <h2 id="à-faire-vous-même-11">À faire vous-même 11</h2>
 
-<p>Relancez l&rsquo;exécution de &ldquo;views.py&rdquo; et saisissez &ldquo;localhost:5000&rdquo;
+<p>Relancez l&rsquo;exécution de &ldquo;views.py&rdquo; et saisissez <code>localhost:5000</code>
 dans la barre d&rsquo;adresse d&rsquo;un navigateur web. Une fois la page web
 affichée dans votre navigateur, Saisissez &ldquo;Sophie&rdquo; pour le prénom et
 &ldquo;Martin&rdquo; pour le nom puis validez en cliquant sur le bouton
@@ -7526,13 +7526,13 @@ localhost:5000/resultat?nom=Martin&amp;prenom=Sophie</p>
 
 <hr />
 
-<p>Dans le cas de l&rsquo;utilisation d&rsquo;une méthode &ldquo;POST&rdquo; les données issues
+<p>Dans le cas de l&rsquo;utilisation d&rsquo;une méthode <code>POST</code> les données issues
 d&rsquo;un formulaire sont envoyées au serveur sans être directement
 visibles, alors que dans le cas de l&rsquo;utilisation d&rsquo;une méthode
-&ldquo;GET&rdquo;, les données sont visibles (et accessibles) puisqu&rsquo;elles sont
+<code>GET</code>, les données sont visibles (et accessibles) puisqu&rsquo;elles sont
 envoyées par l&rsquo;intermédiaire de l&rsquo;URL.</p>
 
-<p>Les données envoyées par l&rsquo;intermédiaire d&rsquo;une méthode &ldquo;GET&rdquo; peuvent
+<p>Les données envoyées par l&rsquo;intermédiaire d&rsquo;une méthode <code>GET</code> peuvent
 être modifiées directement dans l&rsquo;URL :</p>
 
 <h2 id="à-faire-vous-même-12">À faire vous-même 12</h2>
@@ -7556,13 +7556,13 @@ Jean-Pierre Martin, j&rsquo;espère que vous allez bien.&rdquo;</p>
 inoffensive, vous devez bien vous douter que dans des situations plus
 complexes, une telle modification pourrait entraîner des conséquences
 plus problématiques (piratage). Il faut donc éviter d&rsquo;utiliser la
-méthode &ldquo;GET&rdquo; pour transmettre les données issues d&rsquo;un formulaire
+méthode <code>GET</code> pour transmettre les données issues d&rsquo;un formulaire
 vers un serveur.</p>
 
-<p>Il est important de bien comprendre que la méthode &ldquo;POST&rdquo; n&rsquo;offre pas
+<p>Il est important de bien comprendre que la méthode <code>POST</code> n&rsquo;offre pas
 non plus une sécurité absolue puisque toute personne ayant un bagage
 technique minimum sera capable de lire les données transmises à l&rsquo;aide
-de la méthode &ldquo;POST&rdquo; en analysant la requête HTTP, même si ces données
+de la méthode <code>POST</code> en analysant la requête HTTP, même si ces données
 ne sont pas directement visibles dans l&rsquo;URL. Seule l&rsquo;utilisation du
 protocole sécurisé HTTPS garantit un transfert sécurisé des données
 entre le client et le serveur (les données sont chiffrées et donc
