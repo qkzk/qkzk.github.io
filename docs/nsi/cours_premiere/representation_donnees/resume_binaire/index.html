@@ -13,7 +13,7 @@
   
     
     
-    4.03 Types de données
+    Résumé binaire, hexadécimal, booléen
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/representation_donnees/resume_binaire/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -2259,7 +2259,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/representation_donnees/resume_binaire/" >
+        <a href="/docs/nsi/cours_premiere/representation_donnees/resume_binaire/"  class="active">
           
   
     
@@ -3384,7 +3384,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/"  class="active">
+        <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-3-types-de-donnees/" >
           
   
     
@@ -7075,7 +7075,7 @@ MathJax.Hub.Config({
   
     
     
-    4.03 Types de données
+    Résumé binaire, hexadécimal, booléen
   
 </strong>
 </header>
@@ -7083,196 +7083,220 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<p>Notions abordées dans cette page  * types de données  * le type chaines de caractères  * spécification  * le type date</p>
+<h2 id="numération-par-position">Numération par position</h2>
 
-<h1 id="types">Types</h1>
+<p>Différentes bases (10, 2 et 16) mais un même système : <em>numération par position</em>.</p>
 
-<p>En Javascript, le type d&rsquo;une variable peut changer, il suffit de lui affecter une valeur d&rsquo;un type différent.
-Dans un certain nombre de langages (C et java par exemple), les variables sont typées c&rsquo;est-à-dire qu&rsquo;au moment de sa déclaration on précise le type des valeurs autorisées pour cette variable et il n&rsquo;est pas possible par la suite d&rsquo;affecter à cette variable une valeur d&rsquo;un autre type.
-Ces langages sont qualifiés de <strong>langage typé</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>systeme</th>
+<th>base</th>
+<th>chiffres</th>
+</tr>
+</thead>
 
-<p>Dans les exemples rencontrés jusque maintenant nous n&rsquo;avons défini en Javascript que des variables dont la valeur était un nombre. Il est possible de manipuler des variables dont les valeurs sont autres que numériques : des textes, des images, des dates, des sons, etc. Comme cela a déjà été dit on parle alors de types des données. Les opérations qui peuvent être appliquées sur une variable diffèrent selon son type (c&rsquo;est-à-dire, en Javascript, le type de la valeur à laquelle la variable est liée) .</p>
+<tbody>
+<tr>
+<td>Décimal</td>
+<td>10</td>
+<td>0123456789</td>
+</tr>
 
-<p>Un type de données est défini par un ensemble de valeurs et les opérations qui s&rsquo;appliquent sur ces valeurs.</p>
+<tr>
+<td>Binaire</td>
+<td>2</td>
+<td>01</td>
+</tr>
 
-<h2 id="les-chaînes-de-caractères">Les chaînes de caractères</h2>
+<tr>
+<td>Héxadécimal</td>
+<td>16</td>
+<td>0123456789ABCDEF</td>
+</tr>
+</tbody>
+</table>
 
-<p><strong>Codage</strong> : faire/rappeler le lien entre caractères et nombres. Cf. table ASCII.</p>
+<p>Convertir en décimal :</p>
 
-<p>Un type de données fréquemment utilisé en programmation est le type chaîne de caractères car il permet la manipulation de données textuelles. Ce type est appelé <code>String</code> dans la quasi-totalité des langages de programmation, y compris Javascript. On abbréviera souvent la dénomination en <strong>chaîne</strong>.</p>
+<ul>
+<li><p><strong>Décimal</strong> : $2019 = 2\times1000 + 1\times10 + 9 = 2\times10^3 + 1\times10^1 + 9\times10^0$</p></li>
 
-<p>La valeur d&rsquo;une chaîne de caractères est constituée d&rsquo;une séquence de caractères. Les valeurs sont représentées par la suite des caractères encadrée par des délimiteurs. Ces délimiteurs peuvent en Javascript être des apostrophes <code>'</code> ou des guillemets <code>&quot;</code>, mais une chaîne commencée par un délimiteur se termine par le même. Les délimiteurs ne font pas partie de la chaîne.</p>
+<li><p><strong>Binaire</strong> : $0b1101 = 1 \times 2^3 + 1 \times 2^2 + 1 \times 2^0 = 8 + 4 + 1 = 13$</p></li>
 
-<p>Voici quelques exemples de valeurs possibles pour des chaînes de caractères :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&#34;ceci est une chaine de caractères&#34;
-&#39;ceci aussi&#39;
-&#34;&#34;
-&#34;0n peut !_Mettre_! d3s c@r@ctère5 quelc0nqueS !%$^&#34;
-&#39;1234&#39;
-&#34;Il faut le même délimiteur &#39; pour finir et commencer une chaîne &#34;
-&#39;   on peut avoir des espaces en début et en fin, l&#39;espace est un caractère !   &#39;</pre></div>
-<p>La <strong>chaîne vide</strong> est le cas particulier de la chaîne qui ne contient aucun caractère.</p>
+<li><p><strong>Hexadécimal</strong> : $0xA5F = 0xA \times 16^2 + 0x5\times 16^1 + 0xF \times 16^0 = 10 \times 256 + 5 \times 16 + 15 = 2655$</p></li>
+</ul>
 
-<p>Certains langages distinguent le type <em>chaîne de caractères</em> du type <em>caractère</em> dont les valeurs se limitent à un seul caractère. Les opérations ne sont alors pas les mêmes sur les valeurs de type caractère ou celles de type chaînes de caractères.
-En Javascript, comme dans d&rsquo;autres langages, le type <em>caractère</em> n&rsquo;existe pas indépendamment. Pour représenter une telle valeur on utilise une chaîne dont la séquence ne contient qu&rsquo;un seul caractère.</p>
+<p>Les <em>entiers</em> ne changent pas, leur <em>représentation</em> varie : <code>103 = 0b1100111 = '0x67'</code></p>
 
-<p>Définissez une page HTML qui définit une variable <code>langage</code> dont la valeur est la chaîne de caractères <code>&quot;Javascript&quot;</code> et qui contient le texte <code>J'apprends le javacript</code>. La modification de la valeur de la variable doit modifier le texte.</p>
+<p><strong>Remarques :</strong></p>
 
-<p>La présence dans la séquence des caractères qui constituent la chaîne d&rsquo;un des caractères délimiteurs pose problème.
-En définissant dans une page des variables de type chaine de caractères ayant les valeurs demandées et en les affichant, testez vos réponses aux questions suivantes :  1. Comment faire pour représenter une chaîne qui contient la séquence : _attention à l&rsquo;apostrophe_ .  2. Comment faire pour représenter une chaîne qui contient la séquence : _attention égalemente aux &ldquo;guillemets&rdquo;_ .  3. Comment faire pour représenter une chaîne qui contient la séquence : _et s&rsquo;il y a les deux &ldquo;signes&rdquo; dans le texte ?_ .</p>
+<ul>
+<li><p>Dans la mémoire d&rsquo;une machine : binaire. À l&rsquo;écran, ça varie, on peut avoir les trois.</p></li>
 
-<p>Dans ce dernier cas, une fois que l&rsquo;on a choisi l&rsquo;un ou l&rsquo;autre délimiteur, si l&rsquo;on veut que la chaîne puisse contenir le caractère correspondant, il faut <em>protéger</em> celui-ci en le précédant d&rsquo;un <em>backslash</em> <code>\</code>.</p>
+<li><p><strong>Taille</strong> (= nombre de chiffre) des résultats opérations. Même principe dans toutes les bases :</p>
 
-<p>Donnez deux écritures pour représenter une chaîne qui contient la séquence : _et s&rsquo;il y a &ldquo;les deux&rdquo; signes ?_ .
-Testez vos propositions.</p>
+<ul>
+<li>la taille d&rsquo;une <strong>somme</strong> est $\leq$ à la plus grande des deux tailles + 1.</li>
+<li>la taille d&rsquo;un <strong>produit</strong> est $\leq$ à la somme des deux tailles.</li>
+</ul></li>
+</ul>
 
-<p>Dans la mesure où l&rsquo;on peut espérer une certaine cohérence dans la définition du langage, devinez comment représenter une chaîne qui contient la séquence : <em>le signe \ protège le caractère correspondant au délimiteur</em> et testez votre proposition.</p>
+<h2 id="convertir-en-binaire-convertir-en-hexadécimal">Convertir en binaire, convertir en hexadécimal</h2>
 
-<p>On souhaite écrire une page qui reprend le poème de Jacques Prévert extrait de &ldquo;<em>Paroles</em>&rdquo; intitulé &ldquo;<em>Les belles familles</em>&rdquo; mais avec la possibilité de pouvoir facilement créer des variantes en changeant le prénom.  1. Faites une recherche pour trouver le texte du poème.  2. Ecrivez une page HTML de telle manière qu&rsquo;une seule modification permette de modifier le prénom répété.  3. Testez votre solution.</p>
+<p>On utilise l&rsquo;algorithme des divisions successives :</p>
 
-<p><a href="/uploads/docs/doc04/corrections/louis.html">poème initial</a> - <a href="/uploads/docs/doc04/corrections/louis2.html"> 1ère version avec variable</a> - <a href="/uploads/docs/doc04/corrections/louis2Bis.html">2nde version avec variable</a> - Comparer les 2 versions.</p>
+<p><img src="/uploads/docsnsi/resume_binaire/divisions.png" alt="divisions successives" /></p>
 
-<h2 id="quelques-manipulations">Quelques manipulations</h2>
-
-<p>Les opérations qui s&rsquo;appliquent sur une donnée dépendent de ce type. Ainsi il est possible de faire sur des chaînes de caractères des manipulation qui n&rsquo;ont pas de sens avec des nombres. Par exemple les chaînes de caractères dispose d&rsquo;une propriété <code>length</code> qui permet d&rsquo;obtenir la longueur d&rsquo;une chaîne, c&rsquo;est-à-dire le nombre de caractères qui la compose.</p>
-
-<p>On avait déjà aperçu la notation pointée dans l&rsquo;expression <code>document.writeln</code>. Nous aurons l&rsquo;occasion de la rencontrer de nombreuses fois encore.</p>
-
-<p>La syntaxe d&rsquo;utilisation s&rsquo;appuie sur une notation pointée : si <code>chaine</code> est une chaîne de caractère <code>chaine.length</code> est une expression dont la valeur est la longueur de <code>chaine</code></p>
-
-<p>Cette propriété n&rsquo;a cependant aucun sens pour une donnée de type numérique.</p>
-
-<p>Créez une page HTML dans laquelle sont définies deux variables, l&rsquo;une de type chaîne de caractères, l&rsquo;autre numérique et qui tente d&rsquo;afficher la valeur de la propriété <code>length</code> pour chacune de ces variables.
-Ques constatez-vous ?</p>
-
-<p>Par ailleurs certaines opérations qui ont un sens sur les nombres en ont un autre avec les chaînes de caractères. C&rsquo;est le cas de l&rsquo;opérateur <code>+</code> dont la <strong>sémantique</strong> change selon le type des données auxquelles on l&rsquo;applique.  1. Créez une page HTML dans laquelle sont définies deux variables <code>chaine1</code> et <code>chaine2</code> de type chaîne de caractères que vous initialiserez et qui affiche le résultat de l&rsquo;expression <code>chaine1 + chaine2</code>.  2. Affichez la page plusieurs fois en changeant les valeurs d&rsquo;initialisation des deux chaines.  3. Décrivez l&rsquo;opération réalisée par l&rsquo;opérateur <code>+</code> lorsque les opérandes sont des chaines de caractères  ?  4. Si cela n&rsquo;a pas encore été fait, faites un test avec des chaines qui ne sont composées que de caractères correspondant à des chiffres. Cela change-t-il la description que vous venez de rédiger ?  5. En fonction des connaissances acquises comment peut-on vérifier que le type du résultat est de type chaîne de caractères ?</p>
-
-<p>5 : en testant que la propriété <code>length</code> est définie sur le résultat.</p>
-
-<p>Pour pouvoir utiliser correctement un élément mis à disposition par le langage, comme l&rsquo;opérateur <code>+</code>, il est donc nécessaire d&rsquo;en avoir une description précise, on parle de spécification.</p>
-
-<p>Une spécification doit présenter toutes les informations qui permettent une utilisation précise en non ambigüe d&rsquo;un élément. Elle en constitue dans une certaine manière la documentation de référence. C&rsquo;est au programmeur qui a créé l&rsquo;élément de rédiger cette spécification et à celui qui l&rsquo;utilise de la consulter pour l&rsquo;utiliser correctement. On a ainsi deux statuts du programmeur, celui qui crée l&rsquo;élément et celui qui l&rsquo;utilise dans un programme.</p>
-
-<p>Par exemple, une spécification de l&rsquo;opérateur <code>+</code> pour les nombres pourrait prendre la forme :</p>
-
-<p><strong>nom</strong> : +
-<strong>Opérandes</strong> : 2
-<strong>  n1</strong> : numérique
-<strong>  n2</strong> : numérique
-<strong>Résultat</strong>
-<strong>  type</strong> : numérique
-<strong>  description</strong> : la somme de n1 et n2</p>
-
-<p>Une spécification bien rédigée doit permettre une utilisation sans surprise de l&rsquo;élément spécifié.</p>
-
-<p>Cherchez dans wikipedia la définition de <strong>concaténation</strong>, notamment en programmation puis proposez une spécification de l&rsquo;opérateur <code>+</code> pour les chaînes.</p>
-
-<p>La rédaction de spécification/documentation du travail qu&rsquo;il réalise est une tâche importante et indispensable du travail du programmeur.
-La lecture de spécifications/documentations écrites par d&rsquo;autres programmeurs constitue une part importante du programmeur pour réaliser d&rsquo;autres tâches.</p>
-
-<h2 id="identificateurs-et-chaines-de-caractères">Identificateurs et chaines de caractères</h2>
-
-<p>Il est très important de bien faire la différence entre identificateurs des variables et chaînes de caractères. S&rsquo;ils peuvent se ressembler dans leur forme  : une séquence de caractères, les chaînes de caractères se caractérisent par la présence des délimiteurs. Mais la différence principale réside dans ce que réprésente l&rsquo;un ou l&rsquo;autre et est notamment visible au niveau de leur évaluation. Ainsi une chaîne de caractères est une expression constante qui s&rsquo;évalue en elle-même, sa valeur est donc&hellip; une chaîne de caractères. Alors qu&rsquo;un identificateur de variable s&rsquo;évalue en la valeur associée à la variable : un nombre, une couleur ou même une chaîne de caractères, mais de manière fortuite.</p>
-
-<p>On considère la séquence de code suivante :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> exemple <span style="color:#555">=</span> <span style="color:#f60">42</span>;
-
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;valeur de la variable exemple : &#34;</span>);
-<span style="color:#366">document</span>.writeln(exemple);
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;&lt;br&gt;&lt;/br&gt;&#34;</span>);
-
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#39;valeur de la chaine &#34;exemple&#34; : &#39;</span>);
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;exemple&#34;</span>);
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;&lt;br&gt;&lt;/br&gt;&#34;</span>);
-</code></pre></div>
 <ol>
-<li>Qu&rsquo;affiche cette portion de code (si on la place dans la balise <code>script</code> au sein d&rsquo;une page HTML).</li>
-<li>Testez votre réponse en écrivant et visualisant une telle page.</li>
-
-<li><p>Modifiez l&rsquo;initialisation de la variable ainsi :</p>
-
-<p>var exemple = &ldquo;un texte&rdquo;;</p></li>
+<li>On divise par 2 <strong>jusqu&rsquo;à ce que le quotient soit 0</strong></li>
+<li>On lit les bits en montant de droite à gauche : <code>167 = 0b10100111</code></li>
 </ol>
 
-<p>et reprenez les deux questions précédentes.</p>
+<p>Cet algorithme se programme en python :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">bina</span>(entier):
+  bits <span style="color:#555">=</span> <span style="color:#c30">&#39;&#39;</span>
+  <span style="color:#069;font-weight:bold">while</span> entier <span style="color:#555">!=</span> <span style="color:#f60">0</span>:
+    reste <span style="color:#555">=</span> entier <span style="color:#555">%</span> <span style="color:#f60">2</span>
+    entier <span style="color:#555">=</span> entier <span style="color:#555">//</span> <span style="color:#f60">2</span>
+    bits <span style="color:#555">=</span> <span style="color:#366">str</span>(reste) <span style="color:#555">+</span> bits
+  <span style="color:#069;font-weight:bold">return</span> bits</code></pre></div>
+<p>La conversion <code>décimal -&gt; hexadécimal</code> se fait par des divisions par 16.</p>
 
-<p>Attention, la confusion entre identificateur de variable et chaîne de caractères est une source d&rsquo;erreur courante chez des débutants en programmation, en particulier lorsque la variable a une valeur de type chaîne.</p>
+<h2 id="information-dans-la-machine">Information dans la machine.</h2>
 
-<h2 id="le-type-booleén">Le type Booleén</h2>
+<p>On regroupe les bits par paquet de 8 bits : 8 bits = 1 octet.</p>
 
-<p>Nous avons eu l&rsquo;occasion de découvrir le calcul booléen (TP 3). Les données à valeur booléennes jouent un rôle important en programmation, notamment pour les structures conditionnelles que nous découvrirons ultérieurement. Tous les langages de programmation proposent donc un type pour manipuler ces données.</p>
+<p>Attention, en anglais : octet se dit <em>byte</em> !</p>
 
-<p>On dit de l&rsquo;opérateur de négation <code>!</code> qu&rsquo;il est prefixe car il s&rsquo;écrit avant son opérande. A l&rsquo;inverse les opérateurs <code>&amp;&amp;</code> et <code>||</code> sont dits infixes car ils s&rsquo;écrivent entre leurs deux opérandes. En mathématiques, l&rsquo;opérateur de carré &ldquo;²&rdquo; est lui postfixe car il s&rsquo;écrit après son opérande.</p>
+<p>Les notations : 1000 bits = 1 kilo bit = 1kb ; 1000 octets = 1 kilo octet = 1ko = 1kB</p>
 
-<p>Cherchez d&rsquo;autres exemples d&rsquo;opérateurs préfixes ou postfixes, ne vous limitez pas aux mathématiques, il en existe en musique par exemple.</p>
+<p>Il faut 2 chiffres hexadécimaux pour représenter un octet : <code>0xaf = 175</code></p>
 
-<p>En javascript ce type s&rsquo;appelle <code>Boolean</code> et les deux valeurs de ce type sont nommées <code>true</code> et <code>false</code>, et correspondent évidemment à VRAI et FALSE. Les opérateurs booléens NON, ET et OU se nomment <code>!</code>, <code>&amp;&amp;</code> et <code>||</code> en javascript.</p>
+<h2 id="booléens-et-portes-logiques">Booléens et portes logiques.</h2>
 
-<p>Ainsi si <em>a</em> et <em>b</em> sont deux variables booléennes, les deux seules valeurs qu&rsquo;elles peuvent prendre sont <code>true</code> ou <code>false</code> et les expressions suivantes sont valides :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">!</span>a                  <span style="color:#09f;font-style:italic">//  NON a, la négation de a
-</span><span style="color:#09f;font-style:italic"></span>a <span style="color:#555">&amp;&amp;</span> b              <span style="color:#09f;font-style:italic">//  a ET b
-</span><span style="color:#09f;font-style:italic"></span>a <span style="color:#555">||</span> b              <span style="color:#09f;font-style:italic">//  a OU b
-</span><span style="color:#09f;font-style:italic"></span>(a <span style="color:#555">&amp;&amp;</span> b) <span style="color:#555">||</span> (<span style="color:#555">!</span>b)    <span style="color:#09f;font-style:italic">//  (a ET b) OU (NON b)
-</span></code></pre></div>
-<p>Soient <em>a</em> et <em>b</em> sont deux variables booléennes, donnez une expression javascript permettant de calculer <em>a</em> XOR <em>b</em>.</p>
+<p>George Boole (1815-1864) créateur de l&rsquo;<em>algèbre de Boole</em> qu&rsquo;on utilise pour représenter la logique interne de la machine.</p>
 
-<p>Ne compliquons pas mais sachez qu&rsquo;il existe en javascript d&rsquo;autres prédicats d&rsquo;égalité, notamment pour prendre en compte le fait que le langage fait &ldquo;automatiquement&rdquo; certaines conversions.
-Vous trouverez ainsi l&rsquo;opérateur <code>===</code> (promis on s&rsquo;arrête à 3 signes &ldquo;=&rdquo;). Celui-ci vérifie en plus que le type des opérandes est le même et n&rsquo;accepte donc pas les &ldquo;conversions automatiques&rdquo;, contrairement à <code>==</code>.
-Ainsi en javascript l&rsquo;expression <code>1==&quot;1&quot;</code> a pour valeur <code>true</code> alors que <code>1===&quot;1&quot;</code> a pour valeur <code>false</code>.</p>
+<p>Utilise deux états &ldquo;Vrai : 1&rdquo;, &ldquo;Faux : 0&rdquo;. Notés <code>True</code> et <code>False</code> en python.</p>
 
-<p>On appelle prédicat les fonctions dont le résultat est un booléen. On trouve par exemple les prédicats d&rsquo;égalité <code>==</code> et de comparaison <code>&lt;</code> ou <code>&gt;</code>. Ces opérateurs s&rsquo;appliquent sur les nombres et les chaînes de caractères. Ainsi par exemple la spécification de <code>&lt;</code> pour les chaînes de caractères est</p>
+<h3 id="opérateurs-booléens">Opérateurs booléens.</h3>
 
-<p><strong>nom</strong> : &lt;</p>
+<table>
+<thead>
+<tr>
+<th>opérateur</th>
+<th>description</th>
+<th>exemple</th>
+<th align="center">python</th>
+</tr>
+</thead>
 
-<p><strong>Opérandes</strong> : 2</p>
+<tbody>
+<tr>
+<td><code>non</code></td>
+<td>contraire</td>
+<td><code>non vrai = faux</code></td>
+<td align="center"><code>not</code></td>
+</tr>
 
-<p><strong>c1</strong> : String</p>
+<tr>
+<td><code>et</code></td>
+<td>et logique</td>
+<td><code>vrai et faux = faux</code></td>
+<td align="center"><code>and</code></td>
+</tr>
 
-<p><strong>c2</strong> : String</p>
+<tr>
+<td><code>ou</code></td>
+<td>ou logique</td>
+<td><code>vrai ou faux = vrai</code></td>
+<td align="center"><code>or</code></td>
+</tr>
 
-<p><strong>Résultat</strong></p>
+<tr>
+<td><code>xor</code></td>
+<td>ou exclusif</td>
+<td><code>vrai xor faux = vrai</code></td>
+<td align="center">pas implémenté en Python</td>
+</tr>
+</tbody>
+</table>
 
-<p><strong>type</strong> : booléen</p>
+<p>On utilise des <em>tables de vérité</em> pour les représenter :</p>
 
-<p><strong>description</strong> : true si la chaîne c1 est avant la chaîne c2 dans l&rsquo;ordre lexicographique (comme &ldquo;alphabétique&rdquo; mais élargi à tous les caractères) et false sinon</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th align="center">A XOR B</th>
+</tr>
+</thead>
 
-<p>Soient <em>n</em> un nombre, donnez une expression javascript qui vaille <code>true</code> si et seulement si  1. <em>n ≥ 42</em> (proposez deux expressions équivalentes)  2. <em>n ≤ 0</em>
-(<em>les prédicats <code>&gt;=</code> et <code>&lt;=</code> (≤) sont définis en javascript, vous pouvez les utiliser pour la suite de l&rsquo;exercice.</em>)  3. <em>n</em> appartient à l&rsquo;intervalle [5,12]  4. <em>n</em> n&rsquo;appartient pas à l&rsquo;intervalle <a href="proposez deux expressions équivalentes">5,12</a>  5. <em>n</em> appartient à l&rsquo;intervalle [5,12]∪[24,44]</p>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td align="center">0</td>
+</tr>
 
-<p>Attention à ne pas confondre l&rsquo;opérateur d&rsquo;affectation <code>=</code> et l&rsquo;opérateur d&rsquo;égalité <code>==</code>.</p>
+<tr>
+<td>0</td>
+<td>1</td>
+<td align="center">1</td>
+</tr>
 
-<h2 id="un-autre-type-de-données-les-dates">Un autre type de données : les dates</h2>
+<tr>
+<td>1</td>
+<td>0</td>
+<td align="center">1</td>
+</tr>
 
-<p>Le type <code>Date</code> constitue un autre type de données. Dans les deux premiers types rencontrés, les nombres et les chaînes de caractères, les valeurs étaient définies par des constantes du langage : une suite de chiffres pour les premiers (<code>42</code>) ou une séquence de caractères entre délimiteurs pour les seconds (<code>&quot;timoleon&quot;</code>). Pour les valeurs du type <code>Date</code> comme pour beaucoup d&rsquo;autes, il est nécessaire de <em>construire</em> les valeurs. Cela s&rsquo;explique par le fait que les dates sont des données <em>complexes</em> au sens où elles sont elles-mêmes composées de plusieurs données : le jour, l&rsquo;année, l&rsquo;heure, etc.</p>
+<tr>
+<td>1</td>
+<td>1</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
 
-<p>Il existe plusieurs manières de construire une donnée <code>Date</code>. La première permet de récupérer la valeur de la date (et l&rsquo;heure) de l&rsquo;ordinateur sur lequel fonctionne le navigateur, ainsi :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> var maintenant = new Date();</pre></div>
-<p>Après l&rsquo;avoir définie, affichez la valeur de la variable <code>maintenant</code>.</p>
+<h3 id="circuits-le-demi-additionneur">Circuits : le demi additionneur</h3>
 
-<p>Recherchez le pourquoi de ce <em>1er janvier 1970</em>.
-Cherchez des informations sur &ldquo;<em>le bug de l&rsquo;année 2038</em>&rdquo;.
-Ce problème se posera-t-il pour Javascript et votre navigateur ?</p>
+<p><img src="/uploads/docsnsi/resume_binaire/demi-additionneur.png" alt="demi-additionneur" /></p>
 
-<p>Si l&rsquo;on souhaite obtenir une date spécifique, il &ldquo;suffit&rdquo; de préciser le nombre de millisecondes écoulées depuis le 1er janvier 1970 à 12h00mn00sec :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">var uneDate = new Date(1339000000000);</pre></div>
-<ol>
-<li>Après l&rsquo;avoir définie, affichez la valeur de la variable <code>uneDate</code>.</li>
-<li>Définissez par cette méthode la date correspondant au début de la séance d&rsquo;aujourd&rsquo;hui puis affichez-la pour vérification.</li>
-</ol>
+<p>Il est appelé <em>demi-additionneur</em> car il réalise l&rsquo;addition de 2 bits
+(<strong>A</strong> et <strong>B</strong>), le résultats de cette somme est représentée par <strong>S</strong>
+et la retenue éventuelle par <strong>R</strong>.</p>
 
-<p>En informatique, il est habituel de commencer les numérotations à 0.</p>
+<h2 id="opérations-bits-à-bits-pas-eu-le-temps-en-cours">Opérations bits à bits (pas eu le temps en cours)</h2>
 
-<p>Une autre façon de procéder, sans doute plus pratique, consiste à communiquer à la construction de la date, sous la forme de nombres, les informations suivantes : année, mois (de 0 à 11), jour, heures, minutes et secondes (et même millisecondes). Les quatre dernières données sont facultatives.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">var bonneAnnee = new Date(2012,11,31,23,59,59,999);
-var dateReveillon = new Date(2012,11,31);</pre></div>
-<ol>
-<li>Définissez par cette méthode la date correspondant au début de la séance d&rsquo;aujourd&rsquo;hui puis affichez-la pour vérification.</li>
-<li>Définissez et affichez votre date anniversaire.</li>
-</ol>
+<p>Masque = <code>et</code> bit à bit.</p>
 
-<h2 id="autres-manipulations-les-fonctions">Autres manipulations : les fonctions</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
 
-<p>Un type de données est défini par un ensemble de valeurs et les opérations qui s&rsquo;appliquent sur ces valeurs. Nous avons vu les opérations sur les nombres mais peu de manipulations sur les chaînes et aucune sur les dates. Nous allons corriger ce point grâce à la notion de fonction.</p>
+<tbody>
+<tr>
+<td>nombre</td>
+<td>1011.1100</td>
+</tr>
+
+<tr>
+<td>masque</td>
+<td>1101.0101</td>
+</tr>
+
+<tr>
+<td>et bit à bit</td>
+<td>1001.0100</td>
+</tr>
+</tbody>
+</table>
 </article>
 
       <div class="backtotop">
@@ -7306,14 +7330,17 @@ var dateReveillon = new Date(2012,11,31);</pre></div>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#types">Types</a>
+<li>
 <ul>
-<li><a href="#les-chaînes-de-caractères">Les chaînes de caractères</a></li>
-<li><a href="#quelques-manipulations">Quelques manipulations</a></li>
-<li><a href="#identificateurs-et-chaines-de-caractères">Identificateurs et chaines de caractères</a></li>
-<li><a href="#le-type-booleén">Le type Booleén</a></li>
-<li><a href="#un-autre-type-de-données-les-dates">Un autre type de données : les dates</a></li>
-<li><a href="#autres-manipulations-les-fonctions">Autres manipulations : les fonctions</a></li>
+<li><a href="#numération-par-position">Numération par position</a></li>
+<li><a href="#convertir-en-binaire-convertir-en-hexadécimal">Convertir en binaire, convertir en hexadécimal</a></li>
+<li><a href="#information-dans-la-machine">Information dans la machine.</a></li>
+<li><a href="#booléens-et-portes-logiques">Booléens et portes logiques.</a>
+<ul>
+<li><a href="#opérateurs-booléens">Opérateurs booléens.</a></li>
+<li><a href="#circuits-le-demi-additionneur">Circuits : le demi additionneur</a></li>
+</ul></li>
+<li><a href="#opérations-bits-à-bits-pas-eu-le-temps-en-cours">Opérations bits à bits (pas eu le temps en cours)</a></li>
 </ul></li>
 </ul>
 </nav>
