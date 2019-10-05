@@ -13,7 +13,7 @@
   
     
     
-    Modèle Client-Server
+    Complement a Deux
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/ihm_web/clsv/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1158,7 +1158,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/ihm_web/clsv/"  class="active">
+        <a href="/docs/nsi/cours_premiere/ihm_web/clsv/" >
           
   
     
@@ -2222,7 +2222,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/" >
+        <a href="/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/"  class="active">
           
   
     
@@ -7120,7 +7120,7 @@ MathJax.Hub.Config({
   
     
     
-    Modèle Client-Server
+    Complement a Deux
   
 </strong>
 </header>
@@ -7128,119 +7128,291 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<h1 id="modèle-client-server">Modèle Client-Server</h1>
+<h1 id="le-complément-à-deux-comment-coder-les-entiers-négatifs-dans-une-machine">Le complément à deux : comment coder les entiers négatifs dans une machine ?</h1>
 
-<p>Deux ordinateurs en réseau peuvent s&rsquo;échanger des données. Dans la
-plupart des cas ces échanges ne sont pas &ldquo;symétriques&rdquo; : en effet un
-ordinateur A va souvent se contenter de demander des ressources
-(fichiers contenant du texte, photos, vidéos, sons&hellip;) à un ordinateur
-B. L&rsquo;ordinateur B va lui se contenter de fournir des ressources à tous
-les ordinateurs qui lui en feront la demande. On dira alors que
-l&rsquo;ordinateur A (celui qui demande des ressources) est un client alors
-que l&rsquo;ordinateur B (celui qui fournit les ressources) sera qualifié de
-serveur.</p>
+<h2 id="les-entiers-relatifs">Les entiers relatifs</h2>
 
-<p>En tapant «<a href="http://www.google.fr»">http://www.google.fr»</a>, votre machine va chercher à entrer en
-communication avec le serveur portant le nom «www.google.fr» (en faite
-c&rsquo;est plus compliqué, pour les puristes nous dirons donc que la
-communication va être établie avec le serveur www du domaine google.fr,
-mais bon, pour la suite nous pourrons nous contenter de l&rsquo;explication
-« simplifiée »).</p>
+<p>Rappels :</p>
 
-<p>Une fois la liaison établie, le client et le serveur vont échanger des
-informations en dialoguant :</p>
+<ul>
+<li><strong>Entiers naturels :</strong> entiers positifs ou nuls
+(0, 1, 2 etc.)</li>
+<li><strong>Entiers relatifs :</strong> entiers de n&rsquo;importe quel signe
+(&hellip;, -2, -1, 0, 1,&hellip;)</li>
+</ul>
 
-<p>client : bonjour www.google.fr (ou bonjour www se trouvant dans le
-domaine google.fr), pourrais-tu m&rsquo;envoyer le fichier index.html</p>
+<h2 id="les-entiers-relatifs-1">Les entiers relatifs</h2>
 
-<p>serveur : OK client, voici le fichier index.html</p>
+<h3 id="le-problème-du-signe">Le problème du signe :</h3>
 
-<p>client : je constate que des images, du code css sont utilisés, peux-tu
-me les envoyer</p>
+<p>Un signe n&rsquo;est pas un nombre&hellip;</p>
 
-<p>serveur : OK, les voici</p>
+<p>On ne peut pas l&rsquo;encoder directement en binaire.</p>
 
-<p>Évidemment ce dialogue est très imagé, mais il porte tout de même une
-part de « vérité ».</p>
+<hr />
 
-<p>Sur internet, ce modèle client/serveur domine assez largement, même
-s&rsquo;il existe des cas où un ordinateur pourra jouer tour à tour le rôle
-de client et le rôle de serveur, très souvent, des ordinateurs (les
-clients) passeront leur temps à demander des ressources à d&rsquo;autres
-ordinateurs (les serveurs) . Par exemple, comme expliqué dans l&rsquo;exemple
-ci-dessus on retrouve cet échange client/serveur à chaque fois que l&rsquo;on
-visite une page web. Il y a de fortes chances pour que votre ordinateur
-personnel joue quasi exclusivement le rôle de client (sauf si vous êtes
-un adepte du &ldquo;peer to peer&rdquo;).</p>
+<p>Le principe est d&rsquo;attribuer au <em>bit de poids fort</em> (premier bit) le signe du
+nombre.</p>
 
-<p>N&rsquo;importe quel type d&rsquo;ordinateur peut jouer le rôle de serveur, mais
-dans le monde professionnel les serveurs sont des machines spécialisées
-conçues pour fonctionner 24h sur 24h. Ils peuvent aussi avoir une grosse
-capacité de stockage afin de stocker un grand nombre de ressources
-(vidéos, sons,&hellip;).</p>
+<ul>
+<li>Si le <em>bit de poids</em> fort est <strong>0</strong>, le nombre est <strong>positif</strong>,</li>
+<li>Si le <em>bit de poids</em> fort est <strong>1</strong>, le nombre est <strong>négatif</strong>.</li>
+</ul>
 
-<p><img src="/uploads/docsnsi/ihm_web/img/serveur.jpg" alt="serveur" /></p>
+<h2 id="nombres-encodés-sur-un-octet">Nombres encodés sur un octet</h2>
 
-<p>serveur</p>
+<h3 id="contrainte-immédiate">Contrainte immédiate :</h3>
 
-<p>Afin assurer une continuité de service, dans les sociétés, plusieurs
-serveurs assurent exactement le même rôle (on parle de redondance). Vous
-vous doutez bien que Google ne possède pas qu&rsquo;un seul serveur, en
-effet, en moyenne, chaque seconde, c&rsquo;est environ 65000 clients qui se
-connectent aux serveurs du moteur de recherche de Google. Aucun serveur,
-même extrêmement performant, ne serait capable de répondre à toutes ces
-requêtes. Google, Amazon ou encore Facebook possèdent un très grand
-nombre de serveurs afin de pouvoir satisfaire les demandes des
-utilisateurs en permanence. Ces entreprises possèdent d&rsquo;immenses salles
-contenant chacune des centaines ou des milliers de serveurs (ces
-serveurs sont rangés dans des armoires appelées &ldquo;baie serveur&rdquo;).</p>
+<p>Il faut que la machine sache quelle est la taille du nombre !</p>
 
-<p><img src="/uploads/docsnsi/ihm_web/img/salle-serveur.jpg" alt="salle-serveur" /></p>
+<p>Sinon :</p>
 
-<p>salle serveur</p>
+<ul>
+<li>Comment déterminer &ldquo;le bit de poids fort&rdquo; ?</li>
+<li>Comment savoir où s&rsquo;arrête le nombre ?</li>
+</ul>
 
-<p>Souvent les serveurs sont spécialisés dans certaines tâches, par
-exemple, les serveurs qui envoient aux clients des pages au format HTML
-sont appelés &ldquo;serveur web&rdquo;.</p>
+<p>Durant tout le chapitre, on encodera <strong>nos nombres entiers sur 8 bits.</strong></p>
 
-<p>Il y a quelques années, le web était dit « statique » : le concepteur de
-site web écrivait son code HTML et ce code était simplement envoyé par
-le serveur web au client. Les personnes qui consultaient le site avaient
-toutes le droit à la même page, le web était purement « consultatif ».</p>
+<h2 id="approche-naïve-binaire-signé">Approche naïve : binaire signé</h2>
 
-<p>Les choses ont ensuite évolué : les serveurs sont aujourd&rsquo;hui capables
-de générer eux-mêmes du code HTML. Les résultats qui s&rsquo;afficheront à
-l&rsquo;écran dépendront donc des demandes effectuées par l&rsquo;utilisateur du
-site : le web est devenu dynamique.</p>
+<p>Essayons avec cette simple règle :</p>
 
-<p>Différents langages de programmation peuvent être utilisés « côté
-serveur » afin de permettre au serveur de générer lui-même le code HTML
-à envoyer. Le plus utilisé encore aujourd&rsquo;hui se nomme PHP. D&rsquo;autres
-langages sont utilisables côté serveur (pour permettre la génération
-dynamique de code HTML) : Java, Python&hellip;</p>
+<p>Pour encoder un entier sur 8 bits,</p>
 
-<p>Voici un exemple très simple de code en PHP :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;?php
-$heure = date(&#34;H:i&#34;);
-echo &#39;&lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
-      &lt;p&gt;Il est &#39;.$heure.&#39;&lt;/p&gt;&#39;;
-?&gt;</pre></div>
-<p>Sans entrer dans les détails, si un client se connecte à un serveur web
-qui exécute ce code à 18h23, le serveur enverra au client le code HTML
-ci-dessous :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
-&lt;p&gt;Il est 18h23&lt;/p&gt;</pre></div>
-<p>En revanche si un client se connecte à ce même serveur à 9h12, le
-serveur enverra au client le code HTML ci-dessous :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
-&lt;p&gt;Il est 9h12&lt;/p&gt;</pre></div>
-<p>Comme vous pouvez le constater, le PHP permet de générer des pages HTML
-dynamiquement. Inutile de préciser que cet exemple est volontairement
-très simple, le PHP est capable de générer des pages HTML bien plus
-complexes.</p>
+<ul>
+<li>On détermine la représentation binaire de sa valeur absolue</li>
+<li>Ensuite on remplit de <code>0</code> à gauche.</li>
+</ul>
 
-<p>Nous allons apprendre à générer dynamiquement des pages web côté serveur
-en utilisant PHP très prochainement.</p>
+<p><strong>Signe</strong></p>
+
+<ul>
+<li>Si le nombre est positif, on garde le bit de poids fort à 0,</li>
+<li><strong>Sinon, on met le bit de poids fort à 1.</strong></li>
+</ul>
+
+<h2 id="approche-naïve-binaire-signé-1">Approche naïve : binaire signé</h2>
+
+<h3 id="27">27</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">27 = 0b11011
+
+On complète sur 8 bits :
+27 = 0b 0001 1011
+
+27 &gt; 0 on garde le premier bit à 0</pre></div>
+<h2 id="approche-naïve-binaire-signé-2">Approche naïve : binaire signé</h2>
+
+<h3 id="9">-9</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">La valeur absolue de -9 est 9.
+
+9 = 0b1001
+
+On complète sur 8 bits :
+9 = 0b 0000 1001
+-9 &lt; 0 on remplace le premier bit par -1 :
+
+-9 = 0b 1000 1001</pre></div>
+<p><strong>Jusqu&rsquo;ici tout va bien&hellip;</strong></p>
+
+<h2 id="et-soudain-c-est-le-drame">Et soudain, c&rsquo;est le drame&hellip;</h2>
+
+<h3 id="essayons-d-ajouter-ces-exemples">Essayons d&rsquo;ajouter ces exemples :</h3>
+
+<p>Vérifions que $27 + (-9) = 18$</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  0b 0001 1011
++ 0b 1000 1001
+--------------
+= 0b 1010 0100</pre></div>
+<p>&hellip; mais <code>0b 1010 0100 = 164</code></p>
+
+<p>Échec total ! <strong>Le binaire signé ne permet pas de réaliser les additions habitulles</strong></p>
+
+<h2 id="exercice-1">Exercice 1</h2>
+
+<p>On suppose toujours nos entiers encodés sur un octet.</p>
+
+<ol>
+<li>Donner la représentation binaire naïve de 12 et -100 et de -88.</li>
+<li>Réaliser l&rsquo;addition binaire bit à bit de ces nombres.</li>
+<li>Comparer avec le résultat obtenu.</li>
+</ol>
+
+<h2 id="la-méthode-naïve-ne-permet-pas-de-faire-de-calculs">La méthode naïve ne permet pas de faire de calculs !</h2>
+
+<p>Avec la méthode naïve, <strong>on ne peut plus réaliser d&rsquo;opération naturelle sur les entiers</strong>.
+On a maintenant deux objectifs :</p>
+
+<h3 id="1-représenter-les-entiers-relatifs">1. Représenter les entiers relatifs,</h3>
+
+<h3 id="2-conserver-le-même-algorithme-pour-l-addition">2. Conserver le même algorithme pour l&rsquo;addition</h3>
+
+<h1 id="le-complément-à-deux">Le complément à deux</h1>
+
+<h2 id="complètement-à-deux-entiers-positifs">Complètement à deux : entiers positifs</h2>
+
+<h3 id="pour-les-entier-positifs">Pour les entier positifs</h3>
+
+<ol>
+<li>coder l&rsquo;entier en binaire comme d&rsquo;habitude,</li>
+<li>compléter l&rsquo;octet avec des 0 devant.</li>
+</ol>
+
+<h2 id="complément-à-deux-entiers-négatifs">Complément à deux : entiers négatifs</h2>
+
+<h3 id="pour-les-entiers-négatifs">Pour les entiers négatifs</h3>
+
+<ol>
+<li>Coder la valeur absolue du nombre en base 2,</li>
+<li>compléter l&rsquo;octet avec des 0 devant,</li>
+<li>échanger tous les bits ($1 \leftrightarrow 0$),</li>
+<li>ajouter 1.</li>
+</ol>
+
+<h2 id="signe-du-complément-à-deux">Signe du complément à deux</h2>
+
+<ul>
+<li>Si le bit de poids fort est 0 : le nombre est positif</li>
+<li>Si le bit de poids fort est 1 : le nombre est négatif</li>
+</ul>
+
+<h2 id="exemples-27">Exemples : 27</h2>
+
+<h3 id="27-1">27</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1. coder l&#39;entier en binaire comme d&#39;habitude,
+    27 = 0b11011
+2. compléter l&#39;octet avec des 0 devant.
+    27 = 0b 0001 1011</pre></div>
+<p>Le complément à 2 sur un octet de 27 est <code>0b 0001 1011</code></p>
+
+<h2 id="exemples-9">Exemples : -9</h2>
+
+<h3 id="9-1">-9</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1. coder la valeur absolue du nombre :
+    9 = 0b1001
+2. compléter l&#39;octet :
+    0b 0000 1001
+3. échanger tous les bits :
+    0b 1111 0110
+4. ajouter 1 :
+    0b 1111 0111</pre></div>
+<p>Le complément à 2 sur un octet de $-9$ est <code>0b 1111 0111</code></p>
+
+<h2 id="exercice-2">Exercice 2</h2>
+
+<p>Donner les compléments de à 2 de 12, -100 et -88.</p>
+
+<h2 id="vérifions-27-9">Vérifions : $27 + (-9)$</h2>
+
+<p>Vérifions : $27 + (-9) = 18$</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  0001 1011
++ 1111 0111
+-----------
+= 0001 0010</pre></div>
+<p>On vérifie immédiatement que <code>18 = 0b10010</code></p>
+
+<p><strong>Remarque</strong> la dernière retenue (tout à gauche) disparait.</p>
+
+<h2 id="exercice-3">Exercice 3</h2>
+
+<ol>
+<li>Réaliser l&rsquo;addition binaire des compléments à 2 des nombres 12 et -100.</li>
+<li>Vérifier qu&rsquo;on retrouve bien le résultat précédent pour -88.</li>
+</ol>
+
+<h2 id="complément-à-deux-vers-décimal">Complément à deux vers décimal</h2>
+
+<h3 id="si-l-entier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</h3>
+
+<p>On fait comme d&rsquo;habitude !</p>
+
+<p><strong>Exemple :</strong> <code>0b 0001 1011</code></p>
+
+<p>$1 \times 1 + 1\times 2 + 1\times 8 + 1\times 16 = 27$ boom</p>
+
+<h2 id="complément-à-deux-vers-décimal-1">Complément à deux vers décimal</h2>
+
+<h3 id="si-l-entier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</h3>
+
+<ol>
+<li>On échange tous les bits $0 \leftrightarrow 1$,</li>
+<li>On ajoute 1,</li>
+<li>On converti en binaire comme d&rsquo;habitude,</li>
+<li>On change le signe.</li>
+</ol>
+
+<h2 id="exemple-0b-1111-0111">Exemple : <code>0b 1111 0111</code></h2>
+
+<p><strong>Exemple :</strong> <code>0b 1111 0111</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1. On échange tous les bits,
+    0b 0000 1000
+2. On ajoute 1,
+    0b 0000 1001
+3. On converti en binaire comme d&#39;habitude,
+    0b 1001 = 1 * 1 + 1 * 8 = 9
+4. On change le signe.
+    0b 1111 0111 = -9</pre></div>
+<h2 id="exercice-4">Exercice 4</h2>
+
+<p>Donner les notations décimales des compléments à deux sur un octet suivants :</p>
+
+<ol>
+<li><code>0b1111 1111</code></li>
+<li><code>0b1000 0000</code></li>
+<li><code>0b0111 1111</code></li>
+<li><code>0b1010 0011</code></li>
+</ol>
+
+<p><strong>Remarque :</strong> Si mon entier négatif A à 4 chiffres décimaux, il est PLUS PETIT qu&rsquo;un entier négatif à 3 chiffres décimaux : $-1234 &lt; -999$</p>
+
+<p>Cette propriété est-elle préservée dans le complément à deux ?</p>
+
+<h2 id="table-de-valeurs">Table de valeurs</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> bit
+ de
+signe
+    0 1 1 1 1 1 1 1 =  127
+    0      ...      =  ...
+    0 0 0 0 0 0 1 0 =    2
+    0 0 0 0 0 0 0 1 =    1
+    0 0 0 0 0 0 0 0 =    0
+    1 1 1 1 1 1 1 1 =   -1
+    1 1 1 1 1 1 1 0 =   -2
+    1      ...      =  ...
+    1 0 0 0 0 0 0 1 = -127
+    1 0 0 0 0 0 0 0 = -128</pre></div>
+<h2 id="combien-d-entiers-relatifs-sur-un-octet">Combien d&rsquo;entiers relatifs sur un octet ?</h2>
+
+<h3 id="règle">Règle</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"></pre></div>
+<ul>
+<li>Sur un octet on peut encoder de 0 (<code>0b00000000</code>) à 127 (<code>0b01111111</code>)</li>
+<li>Sur un octet on peut encoder de -1 (<code>0b11111111</code>) à -128 (<code>0b10000000</code>)</li>
+</ul>
+
+<h2 id="combien-d-entiers-relatifs-sur-avec-n-bits">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</h2>
+
+<h3 id="règle-1">Règle</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"></pre></div>
+<ul>
+<li>Sur un octet on peut encoder de $0$ à $2^{n-1}$.</li>
+<li>Sur un octet on peut encoder de $-1$ à $-2^n$.</li>
+</ul>
+
+<h2 id="complément-à-2-résumé">Complément à 2 : résumé</h2>
+
+<p>On a trouvé une méthode permettant d&rsquo;ajouter des entiers (et donc de faire les opérations habituelles&hellip;) qui fonctionne aussi avec les entiers <em>négatifs</em>.</p>
+
+<h2 id="et-python-là-dedans">et Python là dedans ?</h2>
+
+<p>Aie, c&rsquo;est compliqué. Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong></p>
+
+<p>Dans Python les entiers ont une <em>taille arbitraire</em>, il ne peut afficher nativement le complément à deux.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">12</span>)
+<span style="color:#c30">&#39;0b1100&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#555">-</span><span style="color:#f60">12</span>)
+<span style="color:#c30">&#39;-0b1100&#39;</span></code></pre></div>
+<p>Pour ceux que ça intéresse j&rsquo;ai un TP Colab qui montre différentes manières d&rsquo;afficher le complément à deux dans Python.</p>
 </article>
 
       <div class="backtotop">
@@ -7274,7 +7446,81 @@ en utilisant PHP très prochainement.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#modèle-client-server">Modèle Client-Server</a></li>
+<li><a href="#le-complément-à-deux-comment-coder-les-entiers-négatifs-dans-une-machine">Le complément à deux : comment coder les entiers négatifs dans une machine ?</a>
+<ul>
+<li><a href="#les-entiers-relatifs">Les entiers relatifs</a></li>
+<li><a href="#les-entiers-relatifs-1">Les entiers relatifs</a>
+<ul>
+<li><a href="#le-problème-du-signe">Le problème du signe :</a></li>
+</ul></li>
+<li><a href="#nombres-encodés-sur-un-octet">Nombres encodés sur un octet</a>
+<ul>
+<li><a href="#contrainte-immédiate">Contrainte immédiate :</a></li>
+</ul></li>
+<li><a href="#approche-naïve-binaire-signé">Approche naïve : binaire signé</a></li>
+<li><a href="#approche-naïve-binaire-signé-1">Approche naïve : binaire signé</a>
+<ul>
+<li><a href="#27">27</a></li>
+</ul></li>
+<li><a href="#approche-naïve-binaire-signé-2">Approche naïve : binaire signé</a>
+<ul>
+<li><a href="#9">-9</a></li>
+</ul></li>
+<li><a href="#et-soudain-c-est-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a>
+<ul>
+<li><a href="#essayons-d-ajouter-ces-exemples">Essayons d&rsquo;ajouter ces exemples :</a></li>
+</ul></li>
+<li><a href="#exercice-1">Exercice 1</a></li>
+<li><a href="#la-méthode-naïve-ne-permet-pas-de-faire-de-calculs">La méthode naïve ne permet pas de faire de calculs !</a>
+<ul>
+<li><a href="#1-représenter-les-entiers-relatifs">1. Représenter les entiers relatifs,</a></li>
+<li><a href="#2-conserver-le-même-algorithme-pour-l-addition">2. Conserver le même algorithme pour l&rsquo;addition</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#le-complément-à-deux">Le complément à deux</a>
+<ul>
+<li><a href="#complètement-à-deux-entiers-positifs">Complètement à deux : entiers positifs</a>
+<ul>
+<li><a href="#pour-les-entier-positifs">Pour les entier positifs</a></li>
+</ul></li>
+<li><a href="#complément-à-deux-entiers-négatifs">Complément à deux : entiers négatifs</a>
+<ul>
+<li><a href="#pour-les-entiers-négatifs">Pour les entiers négatifs</a></li>
+</ul></li>
+<li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
+<li><a href="#exemples-27">Exemples : 27</a>
+<ul>
+<li><a href="#27-1">27</a></li>
+</ul></li>
+<li><a href="#exemples-9">Exemples : -9</a>
+<ul>
+<li><a href="#9-1">-9</a></li>
+</ul></li>
+<li><a href="#exercice-2">Exercice 2</a></li>
+<li><a href="#vérifions-27-9">Vérifions : $27 + (-9)$</a></li>
+<li><a href="#exercice-3">Exercice 3</a></li>
+<li><a href="#complément-à-deux-vers-décimal">Complément à deux vers décimal</a>
+<ul>
+<li><a href="#si-l-entier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</a></li>
+</ul></li>
+<li><a href="#complément-à-deux-vers-décimal-1">Complément à deux vers décimal</a>
+<ul>
+<li><a href="#si-l-entier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</a></li>
+</ul></li>
+<li><a href="#exemple-0b-1111-0111">Exemple : <code>0b 1111 0111</code></a></li>
+<li><a href="#exercice-4">Exercice 4</a></li>
+<li><a href="#table-de-valeurs">Table de valeurs</a></li>
+<li><a href="#combien-d-entiers-relatifs-sur-un-octet">Combien d&rsquo;entiers relatifs sur un octet ?</a>
+<ul>
+<li><a href="#règle">Règle</a></li>
+</ul></li>
+<li><a href="#combien-d-entiers-relatifs-sur-avec-n-bits">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</a>
+<ul>
+<li><a href="#règle-1">Règle</a></li>
+</ul></li>
+<li><a href="#complément-à-2-résumé">Complément à 2 : résumé</a></li>
+<li><a href="#et-python-là-dedans">et Python là dedans ?</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
