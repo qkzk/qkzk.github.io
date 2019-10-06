@@ -13,7 +13,7 @@
   
     
     
-    3.3 Codage des couleurs
+     Les bases de Python
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/programmation/bases_python/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1739,7 +1739,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/programmation/bases_python/" >
+        <a href="/docs/nsi/cours_premiere/programmation/bases_python/"  class="active">
           
   
     
@@ -3073,7 +3073,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/"  class="active">
+        <a href="/docs/isn/isn-travaux-pratiques/3-codage-de-linformation/3-3-codage-des-couleurs/" >
           
   
     
@@ -7153,7 +7153,7 @@ MathJax.Hub.Config({
   
     
     
-    3.3 Codage des couleurs
+     Les bases de Python
   
 </strong>
 </header>
@@ -7161,64 +7161,365 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<p>Notions abordées</p>
+<h1 id="les-bases-de-python">Les bases de Python</h1>
+
+<h1 id="1-bloc-d-instruction">1. Bloc d&rsquo;instruction</h1>
+
+<p>En Python chaque ligne donne une <strong>instruction</strong>. Pour séparer certains blocs (
+fonctions, conditions, boucles etc.) on utilise l&rsquo;<strong>indentation</strong> (4 espaces).
+Les commentaires sont précédés d&rsquo;un <code>#</code> et ne sont pas exécutés.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">note <span style="color:#555">=</span> <span style="color:#f60">20</span>                             <span style="color:#09f;font-style:italic">#  instruction</span>
+<span style="color:#069;font-weight:bold">if</span> note <span style="color:#555">==</span> <span style="color:#f60">20</span>:                        <span style="color:#09f;font-style:italic">#  condition</span>
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;super note !&#34;</span>)             <span style="color:#09f;font-style:italic">#  n&#39;est effectué que si x vaut 20</span>
+<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;au revoir&#34;</span>)                    <span style="color:#09f;font-style:italic">#  sera toujours effectué</span></code></pre></div>
+<p>La syntaxe Python impose de respecter l&rsquo;indentation. Chaque bloc qui est indenté
+est précédé du symbole <code>:</code></p>
+
+<h3 id="opérations-de-base">Opérations de base :</h3>
+
+<table>
+<thead>
+<tr>
+<th>Exemple</th>
+<th>résultat</th>
+<th>opération</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>3 + 2</code></td>
+<td><code>5</code></td>
+<td>somme</td>
+</tr>
+
+<tr>
+<td><code>3 - 2</code></td>
+<td><code>-1</code></td>
+<td>soustraction</td>
+</tr>
+
+<tr>
+<td><code>3 * 2</code></td>
+<td><code>6</code></td>
+<td>produit</td>
+</tr>
+
+<tr>
+<td><code>3 ** 2</code></td>
+<td><code>9</code></td>
+<td>puissance</td>
+</tr>
+
+<tr>
+<td><code>3 / 2</code></td>
+<td><code>1.5</code></td>
+<td>division</td>
+</tr>
+
+<tr>
+<td><code>3 // 2</code></td>
+<td><code>1</code></td>
+<td>quotient</td>
+</tr>
+
+<tr>
+<td><code>3 % 2</code></td>
+<td><code>1</code></td>
+<td>reste</td>
+</tr>
+</tbody>
+</table>
+
+<p>Certaines agissent différemment selon l&rsquo;objet : <code>'a' + 'b' == 'ab'</code></p>
+
+<h1 id="2-affecter">2. Affecter</h1>
+
+<p>Pour affecter une valeur à une on utilise la notation <code>variable = valeur</code>.</p>
+
+<p>Par exemple <code>note = 20</code>. On peut inclure n&rsquo;importe quel objet Python dans une variable.</p>
+
+<h1 id="3-types-de-base">3. Types de base</h1>
 
 <ul>
-<li>codage des couleurs : RVB</li>
-<li>des couleurs dans du HTML</li>
+<li><code>int</code> : les entiers naturels. Ex: <code>2</code></li>
+<li><code>float</code> : les nombres à virgule flottantes. Ex: <code>3.14</code></li>
+<li><code>boolean</code> : les booléens. Ex <code>True, False, a != b</code></li>
 </ul>
 
-<h1 id="codage-des-couleurs">Codage des couleurs</h1>
+<p>On obtient le type d&rsquo;un objet avec la fonction type :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">4</span>)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">int</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">1</span> <span style="color:#555">!=</span> <span style="color:#f60">2</span>)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">bool</span><span style="color:#c30">&#39;&gt;</span></code></pre></div>
+<h1 id="4-types-complexes">4. Types complexes</h1>
 
-<h3 id="nommer-les-couleurs">Nommer les couleurs</h3>
+<p>On a déjà rencontré quatre types complexes : <code>str</code>, <code>list</code>, <code>tuple</code> et <code>dic</code>.</p>
 
-<p>Nous pouvons désigner une couleur par son nom. En HTML, seize couleurs de base sont ainsi définies. Par exemple « black », « white &gt;», « red », ou « green ». HTML et CSS définissent une autre liste de 130 couleurs supplémentaires. On peut les utiliser ainsi :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">html</span>&gt;
-&lt;<span style="color:#309;font-weight:bold">body</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;background-color:black;&#34;</span>&gt;
+<h2 id="a-les-chaînes-de-caractères-type-str">a) Les chaînes de caractères. Type <code>str</code></h2>
 
-&lt;<span style="color:#309;font-weight:bold">p</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;color:red;&#34;</span>&gt;
-Un paragrphe en rouge&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+<p>Ce sont des séries de caractères affichables à l&rsquo;écran (simplification abusive).
+En Python 3 ils sont <em>encodés</em> en <code>utf-8</code>. On en reparlera.
+On les note avec des apostrophes ou des guillemets.</p>
 
-&lt;<span style="color:#309;font-weight:bold">p</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;color:green;&#34;</span>&gt;
-Un paragraphe en vert&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+<p>Chaque caractère est numéroté et on peut l&rsquo;atteindre avec son <em>indice</em>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> chaine <span style="color:#555">=</span> <span style="color:#c30">&#34;Bonjour&#34;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> chaine[<span style="color:#f60">0</span>]
+<span style="color:#c30">&#39;B&#39;</span></code></pre></div>
+<p>Les chaînes de caractères ne sont <em>pas mutables.</em> Mais on peut opérer dessus !</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#34;Bonjour&#34;</span> <span style="color:#555">+</span> <span style="color:#c30">&#34;Papy&#34;</span>            <span style="color:#09f;font-style:italic"># concaténation</span>
+<span style="color:#c30">&#39;BonjourPapy&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#34;Bonjour {}&#34;</span><span style="color:#555">.</span>format(<span style="color:#c30">&#34;Diego&#34;</span>)  <span style="color:#09f;font-style:italic"># formatage, version 1</span>
+<span style="color:#c30">&#39;Bonjour Diego&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> nom <span style="color:#555">=</span> <span style="color:#c30">&#34;Robert&#34;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> f<span style="color:#c30">&#34;Bonjour {nom}&#34;</span>              <span style="color:#09f;font-style:italic"># formatage, version 2</span>
+<span style="color:#c30">&#39;Bonjour Robert&#39;</span></code></pre></div>
+<h2 id="b-les-tableaux-ou-listes-type-list">b) Les tableaux ou listes. Type <code>list</code></h2>
 
-&lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;</code></pre></div>
-<p>On pourra utiliser l’éditeur/visionneuse HTML en ligne de <a href="http://www.w3schools.com/html/">http://www.w3schools.com/html/</a>
-(point d’entrée direct <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml_paragraphs1">http://www.w3schools.com/html/tryit.asp?filename=tryhtml_paragraphs1</a>)
-pour avoir un rendu des fichiers HTML.</p>
+<p>Ce sont des tableaux où les objets sont indexés à partir de 0.
+On peut atteindre un objet depuis son indice :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> L <span style="color:#555">=</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>]       <span style="color:#09f;font-style:italic"># Les listes sont notées entre [ ]</span>
+<span style="color:#555">&gt;&gt;&gt;</span> L[<span style="color:#f60">2</span>]                      <span style="color:#09f;font-style:italic"># le TROISIEME élément de L</span>
+<span style="color:#c30">&#39;c&#39;</span></code></pre></div>
+<p>Les listes sont <strong>mutables</strong>. On peut les modifier <strong>modifier</strong></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> L<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>)                  <span style="color:#09f;font-style:italic"># renvoyer l&#39;élément 0 et l&#39;effacer de la liste</span>
+<span style="color:#c30">&#39;a&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> L
+[<span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>]                    <span style="color:#09f;font-style:italic"># la liste a bien été modifiée.</span>
+<span style="color:#555">&gt;&gt;&gt;</span> L<span style="color:#555">.</span>append(<span style="color:#c30">&#34;d&#34;</span>)             <span style="color:#09f;font-style:italic"># ajouter un élément à la fin de la liste</span>
+<span style="color:#555">&gt;&gt;&gt;</span> L
+[<span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;d&#39;</span>]</code></pre></div>
+<h2 id="c-les-tuples">c) Les tuples</h2>
 
-<h2 id="codage-rvb-des-couleurs">Codage RVB des couleurs</h2>
+<p>Ce sont des séries indexées d&rsquo;objets. Ils sont notés avec des parenthèses.
+Les tuples <strong>ne sont pas mutables.</strong> C&rsquo;est comme les listes, mais pas mutable
+et plus rapide.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> tup <span style="color:#555">=</span> (<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>)
+(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> tup<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>)
+Traceback (most recent call last):
+  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
+<span style="color:#c00;font-weight:bold">AttributeError</span>: <span style="color:#c30">&#39;tuple&#39;</span> <span style="color:#366">object</span> has no attribute <span style="color:#c30">&#39;pop&#39;</span></code></pre></div>
+<h2 id="d-les-dictionnaires-tables-de-hashage-type-dic">d) Les dictionnaires (tables de hashage), type <code>dic</code></h2>
 
-<p>Une couleur peut aussi être désignée par un triplet RVB (rouge, vert, bleu ; on utilise RGB en anglais). On précise une intensité, de 0 % à 100 % pour chacune des composantes. La couleur résultante est obtenue par synthèse additive des trois composantes.</p>
+<p>Ce sont des tables d&rsquo;associations entre une clé et une valeur. On les notes
+entre accolades. Attention, dans les accolades on utilise <code>:</code>.</p>
 
-<p>Pour une intensité nulle des trois composantes, on obtient du noir. Pour une intensité maximale des trois composantes, on obtient du blanc.</p>
+<p>Les dictionnaires sont mutables.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dict</span> <span style="color:#555">=</span> {<span style="color:#c30">&#34;DS&#34;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#34;DM&#34;</span>: <span style="color:#f60">1</span>}   <span style="color:#09f;font-style:italic"># remarquez les :</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dict</span>[<span style="color:#c30">&#34;DM&#34;</span>]                  <span style="color:#09f;font-style:italic"># obtenir un élément d&#39;un dictionnaire</span>
+<span style="color:#f60">1</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dict</span>[<span style="color:#c30">&#34;IE&#34;</span>] <span style="color:#555">=</span> <span style="color:#f60">2</span>              <span style="color:#09f;font-style:italic"># ajouter une nouvelle paire clé:valeur</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">del</span> <span style="color:#366">dict</span>[<span style="color:#c30">&#34;DM&#34;</span>]              <span style="color:#09f;font-style:italic"># del permet d&#39;effacer un élément d&#39;un mutable</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dict</span>
+{<span style="color:#c30">&#34;DS&#34;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#34;IE&#34;</span>: <span style="color:#f60">2</span>}</code></pre></div>
+<h1 id="les-conditions-if-elif-else">Les conditions : <code>if elif else</code></h1>
 
-<p>L’intensité de chacune des composantes peut être exprimée sur une échelle qui va de 0 à 255. Huit bits, soit un octet, sont nécessaires pour représenter une telle valeur : 256 = 28. On utilise donc commodément une notation héxadécimale de deux chiffres entre ’00’ et ’FF’.</p>
+<ul>
+<li>Permettent de réaliser des choix ou de tester des résultats.</li>
+<li>s&rsquo;utilisent dans cet ordre : if, elif (optionnel), else (optionnel)</li>
 
-<p>Une couleur est désignée par la concaténation de trois valeurs hexadécimales de deux chiffres, une pour chacune des trois composantes, dans l’ordre rouge, vert, bleu. Cette notation est
-précédé en HTML par le signe ’#’. On pourra donc écrire ’#000000’ pour noir, ’#FFFFFF’ pour blanc, ou ’#FF0000’ pour rouge.</p>
+<li><p>la syntaxe est :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> condition_1:                           <span style="color:#09f;font-style:italic"># les : sont obligatoires !</span>
+bloc execute si condition_1 est True  <span style="color:#09f;font-style:italic"># indentation !!!</span>
+<span style="color:#069;font-weight:bold">elif</span> autre condition_2:
+bloc execute si condition_1 est False et condition_2 True
+<span style="color:#069;font-weight:bold">else</span>:
+bloc execute si condition_1 est False et condition_2 False
+bloc toujours execute car pas indente</code></pre></div></li>
 
-<p>Remplacez les noms des couleurs dans le fichier HTML précédent par leur triplet hexadécimal correspondant. Vérifiez le rendu de la page HTML.</p>
+<li><p>Les comparaisons entre nombres sont : <code>==, &gt;, &lt;, &gt;=, &lt;=, !=</code></p></li>
 
-<p>Combien de couleurs a priori distinctes peuvent être désignées par cette notation RVB ?</p>
+<li><p>On peut tester si un objet est dans un autre avec <code>in</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">4</span> <span style="color:#000;font-weight:bold">in</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+False
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#34;DM&#34;</span> <span style="color:#000;font-weight:bold">in</span> {<span style="color:#c30">&#34;DS&#34;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#34;DM&#34;</span>: <span style="color:#f60">1</span>}
+True</code></pre></div></li>
 
-<p>Éléments de solution. 2563=16 777 216, soit environ 16 millions de couleurs. On peut aussi parvenir au résultat en considérant que le codage d’une couleur est sur 24 bits :
-224=16 777 216.</p>
+<li><p>On peut tester plusieurs conditions grace aux opérateurs booléens <code>and</code> et <code>or</code></p>
 
-<h2 id="conversion-en-rvb">Conversion en RVB</h2>
+<p>Attention c&rsquo;est un simplification et <code>and</code> et <code>or</code> sont en réalité plus
+compliqués.</p></li>
+</ul>
 
-<p>À partir de la valeur de l’intensité d’une composante, il s’agit par une règle de trois de produire une valeur entre 0 et 255.</p>
+<h1 id="les-boucles-for-et-while">Les boucles : <code>for</code> et <code>while</code></h1>
 
-<p>Cette valeur doit ensuite être exprimée en hexadécimal. Le premier chiffre hexadécimal est obtenu par division entière par 16 de cette valeur. Le second chiffre est le reste de cette division entière.</p>
+<p>Il existe deux types de boucles :</p>
 
-<p>Soit une intensité de 75 %. Cela correspond à une valeur de 256 × 75 / 100 = 192 sur notre échelle 0-255. Comme 192 = 12×16 + 0, on écrira ’C0’ en hexadécimal.</p>
+<ul>
+<li><code>for</code> quand on veut parcourir un objet ou qu&rsquo;on connait le nombre d&rsquo;étapes.</li>
+<li><code>while</code> quand on ne connait pas le nombre d&rsquo;étapes.</li>
+</ul>
 
-<p>Il est nécessaire de répéter cette opération pour chacune des composantes.</p>
+<h2 id="boucle-for">Boucle <code>for</code></h2>
 
-<p>La couleur ’#C0C0C0’ correspond à un gris.</p>
+<p>En Python, <code>for</code> parcourt toujours une collection d&rsquo;objet (un <em>itérable</em>).</p>
 
-<p>On désire produire une couleur « gris vert ». Il s’agit d’un gris dans lequel la composante verte sera un peu plus importante que dans un gris. Essayez avec des composantes à 75 % et une composante verte à 80 %.</p>
+<p>On construit une série de nombres avec <code>range(debut, fin, pas)</code>. Attention on
+s&rsquo;arrête toujours <em>avant</em> <code>fin</code>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">0</span>, <span style="color:#f60">3</span>, <span style="color:#f60">1</span>): <span style="color:#09f;font-style:italic"># k varie de 0 à 2 avec un pas de 1</span>
+<span style="color:#555">...</span>     k                    <span style="color:#09f;font-style:italic"># indentation !!!</span>
+<span style="color:#555">...</span>
+<span style="color:#f60">0</span>
+<span style="color:#f60">1</span>
+<span style="color:#f60">2</span></code></pre></div>
+<p>On peut parcourir une liste, un tuple, une chaîne ou un dictionnaire (vu plus tard).</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> nombre <span style="color:#000;font-weight:bold">in</span> [<span style="color:#f60">0</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>]:
+<span style="color:#555">...</span>     nombre <span style="color:#555">**</span> <span style="color:#f60">2</span>
+<span style="color:#555">...</span>
+<span style="color:#f60">0</span>
+<span style="color:#f60">4</span>
+<span style="color:#f60">16</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> lettre <span style="color:#000;font-weight:bold">in</span> <span style="color:#c30">&#39;abcd&#39;</span>:
+<span style="color:#555">...</span>    lettre
+<span style="color:#c30">&#39;a&#39;</span>
+<span style="color:#c30">&#39;b&#39;</span>
+<span style="color:#c30">&#39;c&#39;</span></code></pre></div>
+<h2 id="boucle-while">Boucle <code>while</code></h2>
+
+<p>Effectuer quelque chose <em>tant qu&rsquo;une condition est vraie</em>.</p>
+
+<p>Pour arrêter une boucle <code>while</code> <strong>il faut que la condition devienne FAUSSE</strong>.</p>
+
+<p><em>Exemple :</em> chaque mois je gagne 100€. Combien de mois avant d&rsquo;avoir 2.000€ ?</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> mois <span style="color:#555">=</span> <span style="color:#f60">0</span>                 <span style="color:#09f;font-style:italic"># sera mon compteur</span>
+<span style="color:#555">&gt;&gt;&gt;</span> somme <span style="color:#555">=</span> <span style="color:#f60">0</span>                <span style="color:#09f;font-style:italic"># je vais ajouter mes revenus dans somme</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">while</span> somme <span style="color:#555">&lt;</span> <span style="color:#f60">2000</span>:      <span style="color:#09f;font-style:italic"># tant que ma somme est plus petite que 2000...</span>
+<span style="color:#555">...</span>   somme <span style="color:#555">=</span> somme <span style="color:#555">+</span> <span style="color:#f60">100</span>    <span style="color:#09f;font-style:italic"># je cumule ma somme</span>
+<span style="color:#555">...</span>   mois <span style="color:#555">=</span> mois <span style="color:#555">+</span> <span style="color:#f60">1</span>        <span style="color:#09f;font-style:italic"># et je compte</span>
+<span style="color:#555">...</span>
+<span style="color:#555">&gt;&gt;&gt;</span> mois                     <span style="color:#09f;font-style:italic"># remarquez que mois contient la bonne valeur...</span>
+<span style="color:#f60">20</span></code></pre></div>
+<p><strong>Boucle infinie</strong></p>
+
+<ul>
+<li>On exécute une boucle <em>infinie</em> avec <code>while True:</code></li>
+<li>Pour l&rsquo;arrêter, on peut utiliser le mot clé <code>break</code></li>
+</ul>
+
+<h1 id="fonctions">Fonctions</h1>
+
+<h2 id="qu-est-ce-qu-une-fonction">Qu&rsquo;est ce qu&rsquo;une fonction ?</h2>
+
+<p>Les fonctions sont des morceaux de code qu&rsquo;on peut <em>appeler</em> quand on le souhaite.</p>
+
+<p>On doit d&rsquo;abord définir la fonction avant de l&rsquo;appeler.</p>
+
+<p>Les fonctions, comme en maths, prennent des <em>paramètres d&rsquo;entrée</em> et <em>retournent</em>
+toujours une valeur.</p>
+
+<p>Si elle font autre chose, comme afficher du texte ou modifier la mémoire, on
+parle d&rsquo;<em>effet de bord</em>.</p>
+
+<h2 id="exemples">Exemples</h2>
+
+<p>Par exemple, <code>len</code> est une fonction qui renvoie la longueur d&rsquo;un itérable.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">len</span>(<span style="color:#c30">&#34;abcd&#34;</span>)
+<span style="color:#f60">4</span></code></pre></div>
+<ul>
+<li>Son paramètre d&rsquo;entrée est un itérable (<code>list, tuple, dict, str</code> etc.)</li>
+<li>Sa valeur de retour est un <code>int</code></li>
+<li>À ma connaissance elle n&rsquo;a pas d&rsquo;effet de bord.</li>
+</ul>
+
+<p>Autre exemple, <code>print</code> est une fonction qui prend une chaîne ou n&rsquo;importe quel
+objet qu&rsquo;on peut écrire à l&rsquo;écran et qui l&rsquo;affiche. Elle renvoie <code>None</code> (rien).</p>
+
+<ul>
+<li>Son paramètre d&rsquo;entrée est une chaîne ou n&rsquo;importe quel objet affichable</li>
+<li>Sa valeur de retour est <code>None</code> (rien&hellip;)</li>
+<li>Son effet de bord et d&rsquo;afficher à l&rsquo;écran quelque chose.</li>
+</ul>
+
+<h2 id="définir-une-fonction">Définir une fonction</h2>
+
+<ul>
+<li>Une fonction se définit avec <code>def nom(parametre):</code> suivi d&rsquo;un bloc indenté.</li>
+
+<li><p>On retourne une valeur avec <code>return truc_de_sortie</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">carre</span>(x):
+<span style="color:#c30">&#39;&#39;&#39;
+</span><span style="color:#c30">documentation : détaillé ci-dessous
+</span><span style="color:#c30">&#39;&#39;&#39;</span>
+<span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">**</span> <span style="color:#f60">2</span></code></pre></div></li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Quand vous définissez une fonction, <strong>vous devez toujours la documenter.</strong></p>
+
+<p>La documentation est dans une <em>chaîne sur plusieurs lignes</em> entre triples
+apostrophes. On y trouve :</p>
+
+<ul>
+<li>La description rapide de la fonction</li>
+<li>les paramètre d&rsquo;entrée :</li>
+<li>les paramètres retournés :</li>
+
+<li><p>un exemple, quand c&rsquo;est faisable :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#c30">&#39;&#39;&#39;
+</span><span style="color:#c30">Renvoie le carré d&#39;un nombre
+</span><span style="color:#c30">@param x: (int ou float)
+</span><span style="color:#c30">@return: (int ou float)
+</span><span style="color:#c30">&gt;&gt;&gt; carre(2)
+</span><span style="color:#c30">4
+</span><span style="color:#c30">&#39;&#39;&#39;</span></code></pre></div></li>
+</ul>
+
+<p>Je vous l&rsquo;ai dit, j&rsquo;insiste, plus le temps passe et moins je serai transigeant
+avec la documentation. Je ne lirai plus vos fonctions non documentées d&rsquo;ici
+janvier.</p>
+
+<h2 id="entrée-saisie-et-sortie-affichage">entrée != saisie et sortie != affichage</h2>
+
+<ul>
+<li>utiliser <code>input</code> permet de demander à l&rsquo;utilisateur d&rsquo;un programme de taper
+une valeur. Ce n&rsquo;est pas le paramètre d&rsquo;entrée d&rsquo;une fonction</li>
+<li>utiliser <code>print</code> affiche du texte, ce n&rsquo;est pas le paramètre de sortie d&rsquo;une
+fonction. Paramètre de sortie : <code>return</code></li>
+</ul>
+
+<h1 id="les-erreurs-ou-exceptions">Les erreurs ou exceptions</h1>
+
+<h2 id="lire-les-messages-d-erreur">Lire les messages d&rsquo;erreur</h2>
+
+<p>Quand un programme génère une erreur, Python <em>lève une exception</em>.</p>
+
+<p>Il affiche alors un message commençant par <code>Traceback</code> et se lisant de bas en
+haut :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">4</span>]
+Traceback (most recent call last):
+  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
+<span style="color:#c00;font-weight:bold">IndexError</span>: <span style="color:#366">list</span> index out of <span style="color:#366">range</span></code></pre></div>
+<ul>
+<li>Le type d&rsquo;exception : <code>IndexError</code></li>
+<li>la ligne : 1</li>
+<li>d&rsquo;autres informations (par exemple quelle série d&rsquo;appels de fonctions a
+provoqué cette erreur)</li>
+</ul>
+
+<h2 id="les-erreurs-courantes-sont">Les erreurs courantes sont :</h2>
+
+<ul>
+<li><code>SyntaxError</code> : oublier des parenthèses, oublier <code>:</code> après <code>if</code>, <code>print 3</code>,</li>
+<li><code>ZeroDivisionError</code> : division par 0,</li>
+<li><code>IndexError</code> : aller chercher un élément inexistant dans une liste,</li>
+<li><code>ValueError</code> : racine carrée d&rsquo;un nombre négatif etc.</li>
+<li><code>TypeError</code> : réaliser une opération impossible sur ce type (<code>len(print)</code>),</li>
+
+<li><p><code>AssertionError</code> : quand un <em>test</em> avec <code>assert</code> est faux</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">3</span>
+Traceback (most recent call last):
+File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
+<span style="color:#c00;font-weight:bold">AssertionError</span></code></pre></div></li>
+</ul>
+
+<h2 id="try-except-exception-as-e"><code>try: ... except Exception as e: ...</code></h2>
+
+<p>On peut <em>attraper</em> une exception prévisible avec <code>try except</code>. C&rsquo;est à la
+limite du programme mais vous le rencontrerez souvent dans le code que vous
+lirez car c&rsquo;est un procédé courant en programmation aussi sachez le.</p>
 </article>
 
       <div class="backtotop">
@@ -7252,14 +7553,42 @@ précédé en HTML par le signe ’#’. On pourra donc écrire ’#000000’ po
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#codage-des-couleurs">Codage des couleurs</a>
+<li><a href="#les-bases-de-python">Les bases de Python</a></li>
+<li><a href="#1-bloc-d-instruction">1. Bloc d&rsquo;instruction</a>
 <ul>
 <li>
 <ul>
-<li><a href="#nommer-les-couleurs">Nommer les couleurs</a></li>
+<li><a href="#opérations-de-base">Opérations de base :</a></li>
 </ul></li>
-<li><a href="#codage-rvb-des-couleurs">Codage RVB des couleurs</a></li>
-<li><a href="#conversion-en-rvb">Conversion en RVB</a></li>
+</ul></li>
+<li><a href="#2-affecter">2. Affecter</a></li>
+<li><a href="#3-types-de-base">3. Types de base</a></li>
+<li><a href="#4-types-complexes">4. Types complexes</a>
+<ul>
+<li><a href="#a-les-chaînes-de-caractères-type-str">a) Les chaînes de caractères. Type <code>str</code></a></li>
+<li><a href="#b-les-tableaux-ou-listes-type-list">b) Les tableaux ou listes. Type <code>list</code></a></li>
+<li><a href="#c-les-tuples">c) Les tuples</a></li>
+<li><a href="#d-les-dictionnaires-tables-de-hashage-type-dic">d) Les dictionnaires (tables de hashage), type <code>dic</code></a></li>
+</ul></li>
+<li><a href="#les-conditions-if-elif-else">Les conditions : <code>if elif else</code></a></li>
+<li><a href="#les-boucles-for-et-while">Les boucles : <code>for</code> et <code>while</code></a>
+<ul>
+<li><a href="#boucle-for">Boucle <code>for</code></a></li>
+<li><a href="#boucle-while">Boucle <code>while</code></a></li>
+</ul></li>
+<li><a href="#fonctions">Fonctions</a>
+<ul>
+<li><a href="#qu-est-ce-qu-une-fonction">Qu&rsquo;est ce qu&rsquo;une fonction ?</a></li>
+<li><a href="#exemples">Exemples</a></li>
+<li><a href="#définir-une-fonction">Définir une fonction</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#entrée-saisie-et-sortie-affichage">entrée != saisie et sortie != affichage</a></li>
+</ul></li>
+<li><a href="#les-erreurs-ou-exceptions">Les erreurs ou exceptions</a>
+<ul>
+<li><a href="#lire-les-messages-d-erreur">Lire les messages d&rsquo;erreur</a></li>
+<li><a href="#les-erreurs-courantes-sont">Les erreurs courantes sont :</a></li>
+<li><a href="#try-except-exception-as-e"><code>try: ... except Exception as e: ...</code></a></li>
 </ul></li>
 </ul>
 </nav>
