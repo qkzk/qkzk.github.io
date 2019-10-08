@@ -7294,8 +7294,6 @@ intégrer des informations à une page web.</p>
 
 <p>Ce projet doit être terminé début décembre. Je vais rater beaucoup de séances alors prédire l&rsquo;avenir est délicat mais cela me semble un délai raisonnable.</p>
 
-<h2 id="fichiers">Fichiers</h2>
-
 <p>Le projet final est constitué des fichiers suivants :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">.
 ├── readme.md
@@ -7312,37 +7310,114 @@ intégrer des informations à une page web.</p>
 <h2 id="d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</h2>
 
 <ul>
-<li>La seule librairie dont vous ayez besoin est Flask, déjà présent sur vos postes au lycée. Sinon, <code>$ pip install flask</code> si vous êtes sous linux ou recherchez dans google &ldquo;windows installer librairie python avec pip&rdquo;&hellip;</li>
+<li>La seule librairie à installer dont vous ayez besoin est Flask, déjà présent sur vos postes au lycée. Sinon, <code>$ pip install flask</code> si vous êtes sous linux ou recherchez dans google &ldquo;windows installer librairie python avec pip&rdquo;&hellip;</li>
 
 <li><p>Sujet du projet pour les <a href="http://qkzk.xyz/docs/isn/sujets-des-projets/serveur-meteo/">terminales ISN</a>.</p>
 
 <ul>
-<li>Ils ont plus de temps,</li>
-<li>un seul groupe travaille dessus,</li>
-<li>ils sont 3 et l&rsquo;un d&rsquo;eux a déjà fait des trucs complets en Python.</li>
-<li>Donc inutile de comparer, les conditions sont très différentes.</li>
+<li>Ils ont plus de temps, un seul groupe travaille dessus, ils sont 3 et l&rsquo;un d&rsquo;eux a déjà fait des trucs complets en Python. Donc inutile de comparer, les conditions sont très différentes.</li>
+<li>Toutes les sources pour réaliser votre projet sont données.</li>
+<li>L&rsquo;objectif est de comprendre, pas de devenir un <a href="https://www.indeed.fr/salaries/D%C3%A9veloppeur-Full-Stack-Salaries">développeur web full stack</a>&hellip;</li>
+<li>Je vous invite à créer votre propre clé API openweather map, mais
+vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur mon site&hellip;</li>
 </ul></li>
-
-<li><p>Toutes les sources pour réaliser votre projet sont données. Lisez bien le projet pour les terminales.</p></li>
-
-<li><p>L&rsquo;objectif est de comprendre, pas de devenir un <a href="https://www.indeed.fr/salaries/D%C3%A9veloppeur-Full-Stack-Salaries">développeur web full stack</a>&hellip;</p></li>
-
-<li><p>Je vous invite à créer votre propre clé API openweather map, mais
-vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur mon site&hellip;</p></li>
 </ul>
 
 <h2 id="cahier-des-charges">Cahier des charges</h2>
 
 <ol>
-<li>Servir une page avec Flask</li>
-<li>Lire une requête du formulaire</li>
+<li>servir une page</li>
+<li>lire une requête du formulaire</li>
 <li>Répondre avec des données statiques (sans passer par openweathermap) et les intégrer à la page correctement</li>
-<li>Transformer la requête du formulaire et envoyer une commande à l&rsquo;api openweathermap</li>
-<li>Lire le json en réponse via json load, renvoyer ce json</li>
-<li>Extraire les infos du json et remplir un dictionnaire avec la requête</li>
-<li>Remplir le template de reponse avec les vraies données</li>
-<li>css, prévisions, ce que vous voulez&hellip;</li>
+<li>transformer la requête du formulaire et envoyer une commande à l&rsquo;api openweathermap</li>
+<li>lire le json en réponse via json load, renvoyer ce json</li>
+<li>extraire les infos du json et remplir un dictionnaire avec la requête</li>
+<li>remplir le template de reponse avec les vraies données</li>
+<li>css, prévisions, ce que vous voulez.</li>
 </ol>
+
+<h1 id="les-étapes-d-une-connexion-client-serveur">Les étapes d&rsquo;une connexion client serveur</h1>
+
+<h2 id="les-éléments">Les éléments</h2>
+
+<p>Le client (navigateur web)</p>
+
+<p>Le serveur web (Python + Flask)</p>
+
+<p>Et le site Openweathermap</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(9).svg" alt="Le client, le serveur flask et openweathermap" /></li>
+</ul>
+
+<h2 id="le-serveur-se-lance">Le serveur se lance</h2>
+
+<p>Quand on exécute le script Python du serveur il attend qu&rsquo;un client se connecte&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(8).svg" alt="Le serveur se lance et sert une page *index.html*" /></li>
+</ul>
+
+<h2 id="le-client-se-connecte-sur-le-site">Le client se connecte sur le site</h2>
+
+<p>L&rsquo;utilisateur a tapé l&rsquo;adresse du site dans sa barre d&rsquo;adresse&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(7).svg" alt="Le client se connecte sur le site" /></li>
+</ul>
+
+<h2 id="le-serveur-web-renvoie-alors-une-page-html">Le serveur web renvoie alors une page html</h2>
+
+<p>La page html est un formulaire à remplir (ville ?) avec un bouton <em>submit</em></p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(6).svg" alt="première requête : *index.html*, réponse du serveur" /></li>
+</ul>
+
+<h2 id="formulaire-rempli-submit">Formulaire rempli, <em>submit</em></h2>
+
+<p>L&rsquo;utilisateur a rempli son formulaire avec <em>Lille</em> et cliqué sur submit</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(4).svg" alt="l'utilisateur remplit le formulaire (_Lille_) sur le client, clique *submit*" /></li>
+</ul>
+
+<h2 id="le-serveur-reçoit-et-traite-la-requête">Le serveur reçoit et traite la requête</h2>
+
+<p>Le serveur Python récupère les données du formulaire et appelle une fonction&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(3).svg" alt="la requête est envoyée au serveur web, qui la traite..." /></li>
+</ul>
+
+<h2 id="le-serveur-envoie-à-son-tour-une-requête-à-owm">Le serveur envoie à son tour une requête à OWM&hellip;</h2>
+
+<p>La requête est transmise à OWM via une URL (string&hellip;) qu&rsquo;on formate</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(2).svg" alt="le serveur envoie une requête à OMW avec leur API (_...weather lille..._)" /></li>
+</ul>
+
+<h2 id="owm-lit-traite-la-requête-et-renvoie-la-météo-dans-un-json">OWM lit traite la requête et renvoie la météo dans un JSON</h2>
+
+<p>JSON (Javascript Object Notation) est le format le plus populaire pour échanger des données sur le web.
+Les données ressemblent à un dictionnaire Python. Python manipule sans difficulté les JSON.</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(1).svg" alt="OWM lit la requête et répond avec un JSON contenant la météo (*...temp 12.3...*)" /></li>
+</ul>
+
+<h2 id="le-serveur-traite-la-réponse-et-injecte-la-météo-dans-une-page-resultat-html">Le serveur traite la réponse et injecte la météo dans une page <em>resultat.html</em></h2>
+
+<p>Elle est envoyée au client</p>
+
+<p>Qui l&rsquo;affiche dans le navigateur.</p>
+
+<p>L&rsquo;utilisateur lit la météo de Lille : <strong>il fait 12.3°C</strong> !</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask.svg" alt="Le serveur traite la réponse JSON et sert une page au client (*`&lt;p&gt;12.3°C&lt;/p&gt;`*)" /></li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -7379,9 +7454,20 @@ vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur mo
 <li><a href="#serveur-méteo">Serveur méteo</a>
 <ul>
 <li><a href="#délais">Délais</a></li>
-<li><a href="#fichiers">Fichiers</a></li>
 <li><a href="#d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</a></li>
 <li><a href="#cahier-des-charges">Cahier des charges</a></li>
+</ul></li>
+<li><a href="#les-étapes-d-une-connexion-client-serveur">Les étapes d&rsquo;une connexion client serveur</a>
+<ul>
+<li><a href="#les-éléments">Les éléments</a></li>
+<li><a href="#le-serveur-se-lance">Le serveur se lance</a></li>
+<li><a href="#le-client-se-connecte-sur-le-site">Le client se connecte sur le site</a></li>
+<li><a href="#le-serveur-web-renvoie-alors-une-page-html">Le serveur web renvoie alors une page html</a></li>
+<li><a href="#formulaire-rempli-submit">Formulaire rempli, <em>submit</em></a></li>
+<li><a href="#le-serveur-reçoit-et-traite-la-requête">Le serveur reçoit et traite la requête</a></li>
+<li><a href="#le-serveur-envoie-à-son-tour-une-requête-à-owm">Le serveur envoie à son tour une requête à OWM&hellip;</a></li>
+<li><a href="#owm-lit-traite-la-requête-et-renvoie-la-météo-dans-un-json">OWM lit traite la requête et renvoie la météo dans un JSON</a></li>
+<li><a href="#le-serveur-traite-la-réponse-et-injecte-la-météo-dans-une-page-resultat-html">Le serveur traite la réponse et injecte la météo dans une page <em>resultat.html</em></a></li>
 </ul></li>
 </ul>
 </nav>
