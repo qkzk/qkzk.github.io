@@ -13,7 +13,7 @@
   
     
     
-    Vidéo Surveillance (RPI, Python)
+    Projet serveur méteo
   
  | qkzk</title>
 
@@ -25,13 +25,17 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/sujets-des-projets/video-surveillance-rpi-python/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/ihm_web/projet_serveur_meteo/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1257,7 +1269,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/ihm_web/projet_serveur_meteo/" >
+        <a href="/docs/nsi/cours_premiere/ihm_web/projet_serveur_meteo/"  class="active">
           
   
     
@@ -5086,7 +5098,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/"  class="active">
+        <a href="/docs/isn/sujets-des-projets/video-surveillance-rpi-python/" >
           
   
     
@@ -7243,7 +7255,7 @@ MathJax.Hub.Config({
   
     
     
-    Vidéo Surveillance (RPI, Python)
+    Projet serveur méteo
   
 </strong>
 </header>
@@ -7251,51 +7263,86 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<h1 id="raspberry-camera">Raspberry : Camera</h1>
+<h1 id="serveur-méteo">Serveur méteo</h1>
 
-<h3 id="projet-de-base">Projet de base</h3>
+<p>L&rsquo;objectif de ce mini projet est de mettre en oeuvre tout ce que vous
+avez appris concernant les IHM sur le web, Flask et l&rsquo;utilisation d&rsquo;une api très simple.</p>
 
-<p>Avant de commencer cette description, un petit rappel à la <a href="https://www.service-public.fr/particuliers/vosdroits/F2517">loi</a> :
-<strong>_ L&rsquo;installation de caméras par (&hellip;) des personnes de droit privé (&hellip;) n&rsquo;est possible sur la voie publique ou dans des lieux ou bâtiments ouverts au public qu&rsquo;après obtention d&rsquo;une autorisation préalable._</strong></p>
+<p>Qui plus est nous allons aussi utiliser des dictionnaire (simples) pour
+intégrer des informations à une page web.</p>
 
-<p>Dans ce projet vous utiliserez le raspberry et sa caméra pour surveiller automatiquement un lieu.</p>
+<p>Pour cela vous allez d&rsquo;abord :</p>
 
-<p><img src="/uploads/uploads/2016/07/camera-module-300x169.png" alt="camera-module" /></p>
+<ol>
+<li>Lire et réaliser tout le cours IHM sur le web (qkzk, nsi, premiere, ihm sur le web)</li>
 
-<p>Des événements peuvent déclencher la surveillances et l&rsquo;enregristrement des données : détection de mouvement, signal émis à distance.</p>
-
-<p><img src="/uploads/uploads/2016/07/mounted_sm-300x235.jpg" alt="mounted_sm" /></p>
-
-<p>Il sera possible d&rsquo;afficher sur un autre ordinateur ce que voit la caméra en temps réel.
-Le tout sera piloté par un script python qui se chargera au lancement.
-On pourra aussi commander au raspberry la prise de timelapse.</p>
-
-<h3 id="cahier-des-charges">Cahier des charges</h3>
+<li><p>Réaliser l&rsquo;activité finale avec le formulaire.</p>
 
 <ul>
-<li>Utiliser le rapsberry convenablement, installation, raccordements&hellip;</li>
-<li>Raccorder sa caméra, prendre une photo, filmer, exporter les données automatiquement</li>
-<li>Controle du raspberry à distance via ssh
-A cette étape le raspberry doit être accessible sans écran, uniquement via le réseau en SSH. Vous devez être capable d&rsquo;y transférer vos fichiers au fur et à mesure.</li>
-<li>Envoyer un ordre au raspberry et le faire exécuter un script Python</li>
-<li>Envoyer un ordre : prendre une photo, l&rsquo;exporter</li>
-<li>Envoyer un ordre : filmer, arrêter, encoder, exporter.</li>
-<li>Utiliser le capteur de mouvement</li>
-<li>Créer un timelapse</li>
-<li>Mettre de l&rsquo;ordre dans tout ça&hellip;</li>
+<li>Cette partie <em>peut</em> se réaliser dans colab mais c&rsquo;est sport. Un <a href="https://stackoverflow.com/questions/54465816/how-to-use-flask-in-google-colaboratory-python-notebook">exemple</a>. Ouvrez le lien de la première réponse pour découvrir un exemple.</li>
+<li>Thonny gère Flask sans problème.</li>
+</ul></li>
+
+<li><p>Apprendre à passer des requêtes openweathermap <em>directement dans le navigateur</em></p></li>
+
+<li><p>intégrer ces requêtes à Python</p></li>
+
+<li><p>Combiner le tout pour créer une interface complète.</p></li>
+</ol>
+
+<h2 id="délais">Délais</h2>
+
+<p>Ce projet doit être terminé début décembre. Je vais rater beaucoup de séances alors prédire l&rsquo;avenir est délicat mais cela me semble un délai raisonnable.</p>
+
+<h2 id="fichiers">Fichiers</h2>
+
+<p>Le projet final est constitué des fichiers suivants :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">.
+├── readme.md
+├── serveur.py
+└── templates
+    ├── index.html
+    └── resultats.html</pre></div>
+<ul>
+<li><code>readme.md</code> est votre compte rendu (!). Vous le rédigerez en <a href="https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown">markdown</a>. Un éditeur en <a href="https://stackedit.io/">ligne</a></li>
+<li><code>serveur.py</code> : est l&rsquo;unique fichier Python qui fait tout. Partez du résultat final de l&rsquo;activité IHM sur le web &ldquo;Flask&rdquo; (le formulaire&hellip;) <code>views.py</code></li>
+<li><code>index.html</code> et <code>resultats.html</code> sont vos pages web servies par Flask</li>
 </ul>
 
-<h3 id="extensions">Extensions</h3>
+<h2 id="d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</h2>
 
 <ul>
-<li>Créer un boitier imprimé en 3D pour le raspberry et sa caméra. Hors de mon champ d&rsquo;action.</li>
-<li>Visiophone (difficile).</li>
-<li>Piège caméra d&rsquo;observation d&rsquo;oiseaux (alimentation externe, déclencheur automatique, transfert via wifi etc.).</li>
+<li>La seule librairie dont vous ayez besoin est Flask, déjà présent sur vos postes au lycée. Sinon, <code>$ pip install flask</code> si vous êtes sous linux ou recherchez dans google &ldquo;windows installer librairie python avec pip&rdquo;&hellip;</li>
+
+<li><p>Sujet du projet pour les <a href="http://qkzk.xyz/docs/isn/sujets-des-projets/serveur-meteo/">terminales ISN</a>.</p>
+
+<ul>
+<li>Ils ont plus de temps,</li>
+<li>un seul groupe travaille dessus,</li>
+<li>ils sont 3 et l&rsquo;un d&rsquo;eux a déjà fait des trucs complets en Python.</li>
+<li>Donc inutile de comparer, les conditions sont très différentes.</li>
+</ul></li>
+
+<li><p>Toutes les sources pour réaliser votre projet sont données. Lisez bien le projet pour les terminales.</p></li>
+
+<li><p>L&rsquo;objectif est de comprendre, pas de devenir un <a href="https://www.indeed.fr/salaries/D%C3%A9veloppeur-Full-Stack-Salaries">développeur web full stack</a>&hellip;</p></li>
+
+<li><p>Je vous invite à créer votre propre clé API openweather map, mais
+vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur mon site&hellip;</p></li>
 </ul>
 
-<h3 id="un-autre-exemple-de-projet-console-de-jeu-donkey-kong">Un autre exemple de projet : Console de jeu Donkey Kong</h3>
+<h2 id="cahier-des-charges">Cahier des charges</h2>
 
-<p>Déjà fait trois fois, un peu marre perso&hellip;</p>
+<ol>
+<li>Servir une page avec Flask</li>
+<li>Lire une requête du formulaire</li>
+<li>Répondre avec des données statiques (sans passer par openweathermap) et les intégrer à la page correctement</li>
+<li>Transformer la requête du formulaire et envoyer une commande à l&rsquo;api openweathermap</li>
+<li>Lire le json en réponse via json load, renvoyer ce json</li>
+<li>Extraire les infos du json et remplir un dictionnaire avec la requête</li>
+<li>Remplir le template de reponse avec les vraies données</li>
+<li>css, prévisions, ce que vous voulez&hellip;</li>
+</ol>
 </article>
 
       <div class="backtotop">
@@ -7329,15 +7376,12 @@ A cette étape le raspberry doit être accessible sans écran, uniquement via le
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#raspberry-camera">Raspberry : Camera</a>
+<li><a href="#serveur-méteo">Serveur méteo</a>
 <ul>
-<li>
-<ul>
-<li><a href="#projet-de-base">Projet de base</a></li>
+<li><a href="#délais">Délais</a></li>
+<li><a href="#fichiers">Fichiers</a></li>
+<li><a href="#d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</a></li>
 <li><a href="#cahier-des-charges">Cahier des charges</a></li>
-<li><a href="#extensions">Extensions</a></li>
-<li><a href="#un-autre-exemple-de-projet-console-de-jeu-donkey-kong">Un autre exemple de projet : Console de jeu Donkey Kong</a></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
