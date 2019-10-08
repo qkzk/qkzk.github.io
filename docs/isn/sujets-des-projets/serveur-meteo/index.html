@@ -13,7 +13,7 @@
   
     
     
-    7. Stéganographie
+    Serveur meteo
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/isn-travaux-pratiques/7-steganographie/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/sujets-des-projets/serveur-meteo/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -4176,7 +4176,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/"  class="active">
+        <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
           
   
     
@@ -4893,7 +4893,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/sujets-des-projets/serveur-meteo/" >
+        <a href="/docs/isn/sujets-des-projets/serveur-meteo/"  class="active">
           
   
     
@@ -7198,7 +7198,7 @@ MathJax.Hub.Config({
   
     
     
-    7. Stéganographie
+    Serveur meteo
   
 </strong>
 </header>
@@ -7206,179 +7206,102 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<p>Pré-requis</p>
+<h1 id="site-météo">Site météo</h1>
+
+<h2 id="présentation-d-un-projet-de-serveur-météo">Présentation d&rsquo;un projet de serveur météo.</h2>
+
+<p>Le principe est de créer :</p>
 
 <ul>
-<li>le codage des couleurs (voir partie 3</li>
-<li>le code ASCII (voir partie 3)</li>
+<li>une page web (html, css) avec 2 vues</li>
+<li>un serveur web en Python avec <a href="https://flask.palletsprojects.com/en/1.1.x/tutorial/">Flask</a> qui sert cette page</li>
+<li>une application intégrée au serveur qui communique avec <a href="https://openweathermap.org/api">openweathermap</a></li>
 </ul>
 
-<p>Notions abordées</p>
+<hr />
+
+<h2 id="utilisation">Utilisation</h2>
 
 <ul>
-<li>codage de l&rsquo;information : application (codage des couleurs,
-codage des caractères, codage binaire)</li>
-<li>représentation/codage des images, formats</li>
-<li>compression avec ou sans perte</li>
+<li>L&rsquo;utilisateur se connecte via le navigateur sur votre site</li>
+<li>Il remplit un formulaire demandant précisant une ville et le type de requête (instantanné, prévision)</li>
+<li>Votre serveur transforme ça en une requête API pour openweathermap et envoie la question</li>
+<li>openweathermap renvoie un json</li>
+<li>votre application en extraie les infos</li>
+<li>flask les formate dans la page et sert la page à l&rsquo;utilisateur</li>
 </ul>
 
-<h1 id="stéganographie">Stéganographie</h1>
+<hr />
 
-<p>La stéganographie est l’étude des
-procédés de dissimulation d’une information dans une
-autre.</p>
+<p>Le projet se découpe naturellement en plusieurs parties :</p>
 
-<p>L&rsquo;<a href="http://fr.wikipedia.org/wiki/St%C3%A9ganographie">article de wikipédia qui lui est consacré</a> commence ainsi :&rdquo;<em>Si la
-cryptographie est l&rsquo;«art du secret», la stéganographie est l&rsquo;art
-de la dissimulation : l&rsquo;objet de la stéganographie est de faire
-passer inaperçu un message dans un autre message et non de rendre un
-message inintelligible à autre que qui-de-droit. Pour prendre une
-métaphore, la stéganographie consisterait à enterrer son argent dans
-son jardin là où la cryptographie consisterait à l&rsquo;enfermer dans un
-coffre-fort — cela dit, rien n&rsquo;empêche de combiner les deux
-techniques, de même que l&rsquo;on peut enterrer un coffre dans son
-jardin.</em>&rdquo;.</p>
-
-<p>Nous allons nous intéresser à un procédé élémentaire
-de dissimulation d’information dans une image.</p>
-
-<h2 id="les-pixels-dans-une-image">Les pixels dans une image</h2>
-
-<p>Une image informatisée est discrétisée en pixels (<em>picture
-  elements</em>), c’est-à-dire en (petites) zones carrées. Chaque
-pixel possède une couleur (ou une nuance de gris). L’ensemble des
-pixels est organisé sous forme d’un tableau bidimensionnel dans
-lequel chacun d’eux peut-être repéré par un numéro de
-lignes <em>x</em> et un numéro de colonnes <em>y</em>. Le couple
-(<em>x</em>,<em>y</em>) forme les coordonnées du pixel dans l’image.</p>
-
-<p>Ce nombre de pixels est souvent mis en avant comme un critère de qualité d’un appareil photo numérique.</p>
-
-<p>Le nombre de lignes et de colonnes donnent la dimension de l’image, et
-le produit de ces deux nombres est égal au nombre de pixels contenus
-dans l’image.</p>
-
-<p>Les logiciels de traitement d’images numériques comme Photoshop ou
-Gimp permettent par un fort agrandissement de mettre en évidence les
-pixels d’une image.</p>
-
-<p>Quelques éléments de la boîte à outils de Gimp que nous utiliserons :</p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-boite-outils-annotee.png" alt="boite à outils de Gimp" /></p>
+<h2 id="1-simple">1. Simple</h2>
 
 <ol>
-<li>Récupérez <a href="/uploads/docs/doc07/doc/img0.png">cette image</a>, et visualisez-la avec le logiciel Gimp.</li>
-<li>Effectuez le grossissement maximal de l’image : utilisez l&rsquo;outil &ldquo;loupe&rdquo; et cliquez sur l&rsquo;image (un appui sur la touche &ldquo;Ctrl&rdquo; pendant le clic permet un zoom arrière).</li>
+<li>Formater une requête pour l&rsquo;API d&rsquo;openweathermap,</li>
+<li>envoyer la requête API,</li>
+<li>ouvrir le fichier json reçu dans Python</li>
+<li>intégrer ces étapes à deux fonctions &ldquo;requete_api, lecture_reponse_api&rdquo;.
+La deuxième fonction renvoie les informations devant être présentées.</li>
+<li>Créer une troisième fonction qui englobe les deux premières.</li>
 </ol>
 
-<p>Avec la version 2.6 de Gimp ce grossissement maximal est
-   de 25600%, autrement dit un pixel est visualisé à l’écran comme un
-   carré de dimensions 256x256, voici vues avec Gimp les images entière
-   et avec grossissement maximal.</p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-100.png" alt="" /></p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-25600.png" alt="" /></p>
-
-<h2 id="couleur-d-un-pixel">Couleur d’un pixel</h2>
-
-<p>La couleur d’un pixel peut être décrite de plusieurs façons par un ou
-plusieurs nombres. Un codage courant que nous avons déjà rencontré est
-le codage RVB.</p>
-
-<p>A l&rsquo;aide de Gimp, déterminez la couleur du pixel de coordonnées
- (252,214) de l’image précédente : il suffit d&rsquo;utiliser l’outil
- pipette et de cliquer sur le pixel voulu en maintenant la
- touche <em>Majuscules</em> appuyée. Il peut être pratique de zoomer
- avant&hellip;</p>
-
-<p>Quel est le code hexadécimal, celui utilisé en html, pour cette
- couleur ?</p>
-
-<h2 id="description-du-procédé-stéganographique">Description du procédé stéganographique</h2>
-
-<p>Si on modifie la couleur d’un pixel en ajoutant ou retranchant un
-  petit nombre à l’une ou l’autre des trois composantes, le changement
-  de couleur du pixel est imperceptible pour l’oeil.</p>
+<h2 id="2-simple">2. Simple</h2>
 
 <ol>
-<li>Vérifiez que les deux points de coordonnées (0,0) et (0,1)
-(tout en haut à gauche de l’image) sont exactement de la même
-couleur.</li>
-<li>Modifiez la couleur du pixel de coordonnées (0,0) en ajoutant 1 à
-la composante bleue de sa couleur : dans la &ldquo;<em>Boîte à
-outils</em>&rdquo;, après avoir sélectionnée la couleur du pixel avec la
-pipette cliquez sur la couleur de premier plan, vous pouvez alors
-modifier la composante bleue puis faites la modification à l&rsquo;aide de
-l&rsquo;outil rayon que vous aurez réglé pour qu&rsquo;il n&rsquo;affecte qu&rsquo;un seul
-pixel.</li>
-<li>Voyez-vous une
-différence de couleur avec le pixel voisin ? N&rsquo;hésitez pas à
-zoomer au maximum.</li>
+<li>créer une page html + css avec 2 vues &ldquo;meteo instantanée&rdquo;, &ldquo;prévision sur qq jours&rdquo;. Le second étant optionnel et à garder pour une extension</li>
+<li>formater votre page avec flask en fonction de données météo que vous SIMULEZ (fausses données mais de même format que les vraies)</li>
 </ol>
 
-<p>On peut exploiter cette non perception de la modification d’une unité
-d’une des trois composantes de la couleur d’un pixel pour cacher un
-bit dans un pixel. Plus précisément si le bit à cacher vaut 0 on
-modifie la composante de couleur de sorte que son écriture binaire se
-termine par 0. Si le bit à cacher vaut 1 on modifie cette composante
-de sorte que l’écriture binaire se termine par 1, tous les autres bits
-restant inchangés.</p>
+<p>En faisant comme ça, on peut développer cette partie avant que la première ne soit réalisée</p>
 
-<p>Pour dissimuler dans une image un message composé de <em>n</em> bits, on
-  cache chacun de ses bits dans <em>n</em> pixels convenus de l’image.</p>
+<p>La première étape de cette partie est d&rsquo;obtenir une réponse json d&rsquo;openweathermap et d&rsquo;en extraire les infos que vous
+souhaiterez présenter. Contentez-vous d&rsquo;abord du minimum : quelques chaînes de caractères.</p>
 
-<h2 id="retrouver-un-message">Retrouver un message</h2>
+<p>Assurez-vous de comprendre <em>comment</em> flask intègre ces éléments à une page web. Ce n&rsquo;est pas votre rôle que de servir
+rééllement la page. Seulement d&rsquo;intégrer les éléments.</p>
 
-<p>Dans l’image que vous pouvez récupérer <a href="http://www.fil.univ-lille1.fr/~wegrzyno/ISN/Stegano/stega-img0.png">ici</a>, un message a été dissimulé en suivant le procédé précédent. Tous les bits dissimulés correspondent au bit de poids faible de la composante bleue de la   couleur des pixels.</p>
+<h2 id="3-elaboré">3. Elaboré</h2>
 
-<p>Le nombre <em>l</em> de caractères du message dissimulé dans l’image est codée par les huit premiers pixels de la première ligne (ligne d&rsquo;ordonnée 0), chacun d’eux donnant un bit de l’écriture binaire de cette longueur.</p>
-
-<p>Utilisez Gimp pour retrouver le nombre <em>l</em> du message dissimulé.</p>
-
-<p>Le message dissimulé est un (petit) texte codé en binaire en
-utilisant le codage ASCII. Ce codage codant chaque caractère sur
-huit bits, le nombre de pixels dissimulant un bit du message est
-donc égal à 8x<em>l</em>. Ces pixels sont situés sur la deuxième ligne
-(ligne d&rsquo;ordonnée 1) de l’image en partant de la gauche.</p>
-
-<p>Retrouvez le message dissimulé dans l&rsquo;image :</p>
+<p>Cette partie se concentre sur l&rsquo;aspect client serveur. L&rsquo;idéal et d&rsquo;obtenir un code source facile à
+lire et à améliorer pour intégrer d&rsquo;autres pages.</p>
 
 <ol>
-<li>commencez par noter les valeurs des composantes bleus,</li>
-<li>puis déterminez les valeurs de leur bit de poids faible,</li>
-<li>trouvez les codes binaires des caractères cachés,</li>
-<li>enfin en vous aidant de la <a href="http://fr.wikipedia.org/wiki/Code_ASCII">table du codage
-ASCII sur Wikipedia</a> révélez le message.</li>
+<li>créer le serveur</li>
+<li>Servir une page statique</li>
+<li>le faire tourner sur le réseau du lycée afin qu&rsquo;un autre poste (de la même salle !) puisse l&rsquo;atteindre</li>
+<li>créer le formulaire html permettant de lire les infos de l&rsquo;utilisateur (http request : GET, POST)</li>
+<li>faire fonctionner les parties 1 et 2cd</li>
 </ol>
 
-<h2 id="dissimuler-un-message">Dissimuler un message</h2>
+<p>Parmi les nombreuses extensions de cette partie on peut envisager une page
+&ldquo;base.html&rdquo; qui sera intégrée à toutes les autres avec, par exemple, un menu,
+un bas de page.</p>
 
-<p>À vous de dissimuler maintenant ! Cachez le message de votre choix
-dans l’image d’origine. Afin de vérifier le succès de votre codage,
-transmettez l’image que vous aurez produite à votre voisin qui se
-chargera de retrouver le message que vous y avez mis.</p>
+<p>C&rsquo;est aussi cet équipier qui pourra commencer les extensions &ldquo;physiques&rdquo; du
+projet : remplacer les requêtes à openweathermap en une communication avec
+un raspberry.</p>
 
-<h1 id="choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</h1>
+<hr />
 
-<p>Il existe plusieurs formats de sauvegarde des images dans des
-fichiers : bitmap (bmp), jpeg (jpg), portable network graphics
-(png), &hellip;</p>
+<h1 id="sources">Sources :</h1>
 
-<ol>
-<li>Reprenez l’image de laquelle vous avez extrait le message qui y
-était dissimulé. En utilisant Gimp, enregistrez-la sur disque au
-format jpg. Laissez inchangés les
-paramètres par défaut.</li>
-<li>Chargez cette image au format jpg
-avec Gimp et tentez de retrouver l’information dissimulée. Que
-constatez-vous ?</li>
-<li>Comparez la taille des deux fichiers  aux
-formats jpg
-et png. Qu&rsquo;en pensez-vous ?</li>
-<li>Examinez d’autres formats possibles. Lesquels conviennent pour
-notre procédé stéganographique ?</li>
-</ol>
+<ul>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/tutorial/">tutoriel flask</a></li>
+<li><a href="http://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/">requêtes, formulaire avec flask en NSI</a>.
+Lisez rapidement les éléments dans l&rsquo;ordre. La partie qui vous intéresse le plus et la
+<a href="http://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/flask/">dernière</a></li>
+<li><a href="https://openweathermap.org/api">api d&rsquo;openweather map</a></li>
+</ul>
+
+<h1 id="extensions">Extensions</h1>
+
+<ul>
+<li>Créer une carte de France et intégrer la météo de différentes villes</li>
+<li>Prévisions sur une semaine, formatage des images etc.</li>
+<li>Utilisation de capteurs pour récupérer la météo locale avec un raspberry</li>
+<li>Toute autre idée inspirée d&rsquo;un site météo&hellip;</li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -7412,15 +7335,16 @@ notre procédé stéganographique ?</li>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#stéganographie">Stéganographie</a>
+<li><a href="#site-météo">Site météo</a>
 <ul>
-<li><a href="#les-pixels-dans-une-image">Les pixels dans une image</a></li>
-<li><a href="#couleur-d-un-pixel">Couleur d’un pixel</a></li>
-<li><a href="#description-du-procédé-stéganographique">Description du procédé stéganographique</a></li>
-<li><a href="#retrouver-un-message">Retrouver un message</a></li>
-<li><a href="#dissimuler-un-message">Dissimuler un message</a></li>
+<li><a href="#présentation-d-un-projet-de-serveur-météo">Présentation d&rsquo;un projet de serveur météo.</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#1-simple">1. Simple</a></li>
+<li><a href="#2-simple">2. Simple</a></li>
+<li><a href="#3-elaboré">3. Elaboré</a></li>
 </ul></li>
-<li><a href="#choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</a></li>
+<li><a href="#sources">Sources :</a></li>
+<li><a href="#extensions">Extensions</a></li>
 </ul>
 </nav>
   </aside>
