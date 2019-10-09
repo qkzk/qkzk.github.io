@@ -13,7 +13,7 @@
   
     
     
-    Serveur meteo
+    Serveur méteo
   
  | qkzk</title>
 
@@ -4943,7 +4943,7 @@ MathJax.Hub.Config({
   
     
     
-    Serveur meteo
+    Serveur méteo
   
 
         </a>
@@ -7243,7 +7243,7 @@ MathJax.Hub.Config({
   
     
     
-    Serveur meteo
+    Serveur méteo
   
 </strong>
 </header>
@@ -7269,7 +7269,7 @@ MathJax.Hub.Config({
 
 <ul>
 <li>L&rsquo;utilisateur se connecte via le navigateur sur votre site</li>
-<li>Il remplit un formulaire demandant précisant une ville et le type de requête (instantanné, prévision)</li>
+<li>Il remplit un formulaire demandant précisant une ville et le type de requête (instantané, prévision)</li>
 <li>Votre serveur transforme ça en une requête API pour openweathermap et envoie la question</li>
 <li>openweathermap renvoie un json</li>
 <li>votre application en extraie les infos</li>
@@ -7329,6 +7329,24 @@ un raspberry.</p>
 
 <hr />
 
+<p>Prérequis</p>
+
+<p>Je vous invite à tous réaliser les étapes suivantes avant de commencer ce projet</p>
+
+<ul>
+<li>Cours Python (qkzk &gt; NSI &gt; cours python)</li>
+</ul>
+
+<p>Parties 1 à 4 (bases, conditions, boucles, fonctions). Traitez les exos à une étoile</p>
+
+<ul>
+<li>Cours de première &ldquo;IHM sur le web&rdquo; (qkzk &gt; NSI &gt; première &gt; IHM sur le web)
+La dernière étape est le même projet que vous, mais réalisé en beaucoup moins de temps et dirigé par mes soins. Inutile de comparer ça n&rsquo;aurait aucun sens, les conditions changent
+trop.</li>
+</ul>
+
+<hr />
+
 <h1 id="sources">Sources :</h1>
 
 <ul>
@@ -7340,6 +7358,8 @@ Lisez rapidement les éléments dans l&rsquo;ordre. La partie qui vous intéress
 <li><a href="https://code-maven.com/openweathermap-api-using-python">Exemple d&rsquo;utilisation de l&rsquo;api OWM en Python</a></li>
 </ul>
 
+<hr />
+
 <h1 id="extensions">Extensions</h1>
 
 <ul>
@@ -7349,7 +7369,90 @@ Lisez rapidement les éléments dans l&rsquo;ordre. La partie qui vous intéress
 <li>Toute autre idée inspirée d&rsquo;un site météo&hellip;</li>
 </ul>
 
-<h1 id="les-différentes-étapes-d-un-échange-sur-le-site">Les différentes étapes d&rsquo;un échange sur le site</h1>
+<hr />
+
+<h1 id="les-étapes-de-la-requête-et-le-trajet-de-l-information">Les étapes de la requête et le trajet de l&rsquo;information</h1>
+
+<h2 id="les-éléments">Les éléments</h2>
+
+<p>Le client (navigateur web)</p>
+
+<p>Le serveur web (Python + Flask)</p>
+
+<p>Et le site Openweathermap</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(9).svg" alt="Le client, le serveur flask et openweathermap" /></li>
+</ul>
+
+<h2 id="le-serveur-se-lance">Le serveur se lance</h2>
+
+<p>Quand on exécute le script Python du serveur il attend qu&rsquo;un client se connecte&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(8).svg" alt="Le serveur se lance et sert une page *index.html*" /></li>
+</ul>
+
+<h2 id="le-client-se-connecte-sur-le-site">Le client se connecte sur le site</h2>
+
+<p>L&rsquo;utilisateur a tapé l&rsquo;adresse du site dans sa barre d&rsquo;adresse&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(7).svg" alt="Le client se connecte sur le site" /></li>
+</ul>
+
+<h2 id="le-serveur-web-renvoie-alors-une-page-html">Le serveur web renvoie alors une page html</h2>
+
+<p>La page html est un formulaire à remplir (ville ?) avec un bouton <em>submit</em></p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(6).svg" alt="première requête : *index.html*, réponse du serveur" /></li>
+</ul>
+
+<h2 id="formulaire-rempli-submit">Formulaire rempli, <em>submit</em></h2>
+
+<p>L&rsquo;utilisateur a rempli son formulaire avec <em>Lille</em> et cliqué sur submit</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(4).svg" alt="l'utilisateur remplit le formulaire (_Lille_) sur le client, clique *submit*" /></li>
+</ul>
+
+<h2 id="le-serveur-reçoit-et-traite-la-requête">Le serveur reçoit et traite la requête</h2>
+
+<p>Le serveur Python récupère les données du formulaire et appelle une fonction&hellip;</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(3).svg" alt="la requête est envoyée au serveur web, qui la traite..." /></li>
+</ul>
+
+<h2 id="le-serveur-envoie-à-son-tour-une-requête-à-owm">Le serveur envoie à son tour une requête à OWM&hellip;</h2>
+
+<p>La requête est transmise à OWM via une URL (string&hellip;) qu&rsquo;on formate</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(2).svg" alt="le serveur envoie une requête à OMW avec leur API (_...weather lille..._)" /></li>
+</ul>
+
+<h2 id="owm-lit-traite-la-requête-et-renvoie-la-météo-dans-un-json">OWM lit traite la requête et renvoie la météo dans un JSON</h2>
+
+<p>JSON (Javascript Object Notation) est le format le plus populaire pour échanger des données sur le web.
+Les données ressemblent à un dictionnaire Python. Python manipule sans difficulté les JSON.</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask(1).svg" alt="OWM lit la requête et répond avec un JSON contenant la météo (*...temp 12.3...*)" /></li>
+</ul>
+
+<h2 id="le-serveur-traite-la-réponse-et-injecte-la-météo-dans-une-page-resultat-html">Le serveur traite la réponse et injecte la météo dans une page <em>resultat.html</em></h2>
+
+<p>Elle est envoyée au client</p>
+
+<p>Qui l&rsquo;affiche dans le navigateur.</p>
+
+<p>L&rsquo;utilisateur lit la météo de Lille : <strong>il fait 12.3°C</strong> !</p>
+
+<ul>
+<li><img src="/uploads/docsnsi/ihm_web/img/meteo_flask/meteo_flask.svg" alt="Le serveur traite la réponse JSON et sert une page au client (*`&lt;p&gt;12.3°C&lt;/p&gt;`*)" /></li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -7393,7 +7496,18 @@ Lisez rapidement les éléments dans l&rsquo;ordre. La partie qui vous intéress
 </ul></li>
 <li><a href="#sources">Sources :</a></li>
 <li><a href="#extensions">Extensions</a></li>
-<li><a href="#les-différentes-étapes-d-un-échange-sur-le-site">Les différentes étapes d&rsquo;un échange sur le site</a></li>
+<li><a href="#les-étapes-de-la-requête-et-le-trajet-de-l-information">Les étapes de la requête et le trajet de l&rsquo;information</a>
+<ul>
+<li><a href="#les-éléments">Les éléments</a></li>
+<li><a href="#le-serveur-se-lance">Le serveur se lance</a></li>
+<li><a href="#le-client-se-connecte-sur-le-site">Le client se connecte sur le site</a></li>
+<li><a href="#le-serveur-web-renvoie-alors-une-page-html">Le serveur web renvoie alors une page html</a></li>
+<li><a href="#formulaire-rempli-submit">Formulaire rempli, <em>submit</em></a></li>
+<li><a href="#le-serveur-reçoit-et-traite-la-requête">Le serveur reçoit et traite la requête</a></li>
+<li><a href="#le-serveur-envoie-à-son-tour-une-requête-à-owm">Le serveur envoie à son tour une requête à OWM&hellip;</a></li>
+<li><a href="#owm-lit-traite-la-requête-et-renvoie-la-météo-dans-un-json">OWM lit traite la requête et renvoie la météo dans un JSON</a></li>
+<li><a href="#le-serveur-traite-la-réponse-et-injecte-la-météo-dans-une-page-resultat-html">Le serveur traite la réponse et injecte la météo dans une page <em>resultat.html</em></a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

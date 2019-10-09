@@ -33,10 +33,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -4955,7 +4943,7 @@ MathJax.Hub.Config({
   
     
     
-    Serveur meteo
+    Serveur méteo
   
 
         </a>
@@ -7265,34 +7253,92 @@ MathJax.Hub.Config({
 
 <h1 id="serveur-méteo">Serveur méteo</h1>
 
-<p>L&rsquo;objectif de ce mini projet est de mettre en oeuvre tout ce que vous
-avez appris concernant les IHM sur le web, Flask et l&rsquo;utilisation d&rsquo;une api très simple.</p>
+<p>L&rsquo;objectif de ce mini projet est de mettre en oeuvre ce que vous
+avez appris concernant les IHM sur le web, Flask ainsi que l&rsquo;utilisation d&rsquo;une
+api très simple.</p>
 
-<p>Qui plus est nous allons aussi utiliser des dictionnaire (simples) pour
-intégrer des informations à une page web.</p>
+<h2 id="présentation-du-projet">Présentation du projet</h2>
 
-<p>Pour cela vous allez d&rsquo;abord :</p>
+<p>Le principe est de créer :</p>
+
+<ul>
+<li>une page web (html, css) avec 2 vues</li>
+<li>un serveur web en Python avec Flask qui sert deux pages (formulaire, résultat de la requête)</li>
+<li>Le serveur communique avec <a href="https://openweathermap.org/city/2998324">openweathermap</a> et intègre la météo de la ville choisie au résultat</li>
+</ul>
+
+<hr />
+
+<h2 id="utilisation">Utilisation</h2>
+
+<ul>
+<li>L&rsquo;utilisateur se connecte via le navigateur sur votre site</li>
+<li>Il remplit un formulaire demandant une ville, par exemple : <strong>Lille</strong></li>
+<li>Votre serveur redirige l&rsquo;utilisateur vers une page contenant l&rsquo;information : <strong>Temp : 12.3°C etc.</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="comparaison-avec-le-formulaire-obtenu-à-la-fin-du-cours">Comparaison avec le formulaire obtenu à la fin du cours</h2>
+
+<p>Très peu de nouveautés !</p>
+
+<ul>
+<li>Votre serveur transforme la réponse au formulaire en une requête API pour openweathermap</li>
+<li>Il envoie la question</li>
+<li>openweathermap renvoie des données</li>
+<li>votre serveur en extraie les infos</li>
+<li>qu&rsquo;il intègre à la page <code>resultat.html</code></li>
+</ul>
+
+<hr />
+
+<h2 id="étapes">Étapes</h2>
+
+<p><strong>Vous allez d&rsquo;abord :</strong></p>
 
 <ol>
 <li>Lire et réaliser tout le cours IHM sur le web (qkzk, nsi, premiere, ihm sur le web)</li>
+<li>Réaliser l&rsquo;activité finale avec le formulaire. <em>C&rsquo;est le point de départ.</em></li>
+</ol>
 
-<li><p>Réaliser l&rsquo;activité finale avec le formulaire.</p>
+<p><strong>De l&rsquo;activité finale à la réalisation du projet</strong></p>
+
+<ol>
+<li>Apprendre à passer des requêtes openweathermap <em>directement dans le navigateur</em></li>
+<li>Réaliser ces requêtes en Python, dans la console</li>
+<li>Combiner le tout pour créer l&rsquo;application complète.</li>
+</ol>
+
+<hr />
+
+<h2 id="outils">Outils</h2>
+
+<h2 id="ide">IDE</h2>
 
 <ul>
-<li>Cette partie <em>peut</em> se réaliser dans colab mais c&rsquo;est sport. Un <a href="https://stackoverflow.com/questions/54465816/how-to-use-flask-in-google-colaboratory-python-notebook">exemple</a>. Ouvrez le lien de la première réponse pour découvrir un exemple.</li>
 <li>Thonny gère Flask sans problème.</li>
-</ul></li>
+<li>N&rsquo;importe quel IDE installé sur votre machine (atom, sublime text&hellip;) pour
+écrire le code html (et éventuellement Python)</li>
+<li>On <em>peut</em> servir un site depuis colab avec Flask mais c&rsquo;est <strong>sport.</strong>
+Un <a href="https://stackoverflow.com/questions/54465816/how-to-use-flask-in-google-colaboratory-python-notebook">exemple</a>. Ouvrez le lien de la première réponse pour découvrir un exemple.</li>
+</ul>
 
-<li><p>Apprendre à passer des requêtes openweathermap <em>directement dans le navigateur</em></p></li>
+<h2 id="librairies">Librairies</h2>
 
-<li><p>intégrer ces requêtes à Python</p></li>
+<p>Flask est la seule librairie dont vous ayez besoin.
+Elle est déjà présente sur votre machine.</p>
 
-<li><p>Combiner le tout pour créer une interface complète.</p></li>
-</ol>
+<hr />
 
 <h2 id="délais">Délais</h2>
 
-<p>Ce projet doit être terminé début décembre. Je vais rater beaucoup de séances alors prédire l&rsquo;avenir est délicat mais cela me semble un délai raisonnable.</p>
+<p>Ce projet doit être terminé <strong>début décembre</strong>.
+J&rsquo;attends de vous voir travailler pour fixer précisément le délai.
+Je vais rater beaucoup de séances alors prédire l&rsquo;avenir est délicat mais cela
+me semble un délai raisonnable.</p>
+
+<h2 id="résultat-attendu">Résultat attendu</h2>
 
 <p>Le projet final est constitué des fichiers suivants :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">.
@@ -7302,39 +7348,60 @@ intégrer des informations à une page web.</p>
     ├── index.html
     └── resultats.html</pre></div>
 <ul>
-<li><code>readme.md</code> est votre compte rendu (!). Vous le rédigerez en <a href="https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown">markdown</a>. Un éditeur en <a href="https://stackedit.io/">ligne</a></li>
-<li><code>serveur.py</code> : est l&rsquo;unique fichier Python qui fait tout. Partez du résultat final de l&rsquo;activité IHM sur le web &ldquo;Flask&rdquo; (le formulaire&hellip;) <code>views.py</code></li>
+<li><code>readme.md</code> est votre compte rendu (!). Vous le rédigerez
+en <a href="https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown">markdown</a>.
+Un éditeur en <a href="https://stackedit.io/">ligne</a></li>
+<li><code>serveur.py</code> : est l&rsquo;unique fichier Python qui fait tout. Partez du résultat
+final de l&rsquo;activité IHM sur le web &ldquo;Flask&rdquo; (le formulaire&hellip;) <code>views.py</code></li>
 <li><code>index.html</code> et <code>resultats.html</code> sont vos pages web servies par Flask</li>
 </ul>
 
 <h2 id="d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</h2>
 
 <ul>
-<li>La seule librairie à installer dont vous ayez besoin est Flask, déjà présent sur vos postes au lycée. Sinon, <code>$ pip install flask</code> si vous êtes sous linux ou recherchez dans google &ldquo;windows installer librairie python avec pip&rdquo;&hellip;</li>
-
-<li><p>Sujet du projet pour les <a href="http://qkzk.xyz/docs/isn/sujets-des-projets/serveur-meteo/">terminales ISN</a>.</p>
-
-<ul>
-<li>Ils ont plus de temps, un seul groupe travaille dessus, ils sont 3 et l&rsquo;un d&rsquo;eux a déjà fait des trucs complets en Python. Donc inutile de comparer, les conditions sont très différentes.</li>
-<li>Toutes les sources pour réaliser votre projet sont données.</li>
-<li>L&rsquo;objectif est de comprendre, pas de devenir un <a href="https://www.indeed.fr/salaries/D%C3%A9veloppeur-Full-Stack-Salaries">développeur web full stack</a>&hellip;</li>
+<li>L&rsquo;objectif est de comprendre, pas de devenir un
+<a href="https://www.indeed.fr/salaries/D%C3%A9veloppeur-Full-Stack-Salaries">développeur web full stack</a>&hellip;</li>
 <li>Je vous invite à créer votre propre clé API openweather map, mais
-vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur mon site&hellip;</li>
-</ul></li>
+vous pouvez m&rsquo;en demander une. Bien sûr, je ne vais pas la publier sur
+mon site&hellip;</li>
 </ul>
 
-<h2 id="cahier-des-charges">Cahier des charges</h2>
+<h2 id="cahier-des-charges-détaillé">Cahier des charges détaillé</h2>
 
 <ol>
-<li>servir une page</li>
-<li>lire une requête du formulaire</li>
+<li>Servir une page (statique d&rsquo;abord) avec flask</li>
+<li>Lire une requête du formulaire</li>
 <li>Répondre avec des données statiques (sans passer par openweathermap) et les intégrer à la page correctement</li>
-<li>transformer la requête du formulaire et envoyer une commande à l&rsquo;api openweathermap</li>
-<li>lire le json en réponse via json load, renvoyer ce json</li>
-<li>extraire les infos du json et remplir un dictionnaire avec la requête</li>
-<li>remplir le template de reponse avec les vraies données</li>
-<li>css, prévisions, ce que vous voulez.</li>
+<li>Transformer la requête du formulaire et envoyer une commande à l&rsquo;api openweathermap</li>
+<li>Lire le json en réponse via json load, renvoyer ce json</li>
+<li>Extraire les infos du json et remplir un dictionnaire avec la requête</li>
+<li>Remplir le template de reponse avec les vraies données</li>
+<li>Extensions : css, prévisions, carte de France avec les villes, ce que vous voulez.</li>
 </ol>
+
+<hr />
+
+<h1 id="sources">Sources :</h1>
+
+<ul>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/tutorial/">tutoriel flask</a></li>
+<li><a href="http://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/">IHM sur le web; formulaire avec flask en NSI</a>.</li>
+<li><a href="https://openweathermap.org/api">api d&rsquo;openweather map</a></li>
+<li><a href="https://code-maven.com/openweathermap-api-using-python">Exemple d&rsquo;utilisation de l&rsquo;api OWM en Python</a></li>
+</ul>
+
+<hr />
+
+<h1 id="extensions">Extensions</h1>
+
+<ul>
+<li>Créer une carte de France et intégrer la météo de différentes villes</li>
+<li>Prévisions sur une semaine, formatage des images etc.</li>
+<li>Utilisation de capteurs pour récupérer la météo locale avec un raspberry</li>
+<li>Toute autre idée inspirée d&rsquo;un site météo&hellip;</li>
+</ul>
+
+<hr />
 
 <h1 id="les-étapes-d-une-connexion-client-serveur">Les étapes d&rsquo;une connexion client serveur</h1>
 
@@ -7453,10 +7520,20 @@ Les données ressemblent à un dictionnaire Python. Python manipule sans difficu
 <ul>
 <li><a href="#serveur-méteo">Serveur méteo</a>
 <ul>
+<li><a href="#présentation-du-projet">Présentation du projet</a></li>
+<li><a href="#utilisation">Utilisation</a></li>
+<li><a href="#comparaison-avec-le-formulaire-obtenu-à-la-fin-du-cours">Comparaison avec le formulaire obtenu à la fin du cours</a></li>
+<li><a href="#étapes">Étapes</a></li>
+<li><a href="#outils">Outils</a></li>
+<li><a href="#ide">IDE</a></li>
+<li><a href="#librairies">Librairies</a></li>
 <li><a href="#délais">Délais</a></li>
+<li><a href="#résultat-attendu">Résultat attendu</a></li>
 <li><a href="#d-autres-informations-sur-le-projet-à-cette-page">D&rsquo;autres informations sur le projet à cette page :</a></li>
-<li><a href="#cahier-des-charges">Cahier des charges</a></li>
+<li><a href="#cahier-des-charges-détaillé">Cahier des charges détaillé</a></li>
 </ul></li>
+<li><a href="#sources">Sources :</a></li>
+<li><a href="#extensions">Extensions</a></li>
 <li><a href="#les-étapes-d-une-connexion-client-serveur">Les étapes d&rsquo;une connexion client serveur</a>
 <ul>
 <li><a href="#les-éléments">Les éléments</a></li>
