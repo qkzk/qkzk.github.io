@@ -1291,6 +1291,141 @@ MathJax.Hub.Config({
 
         
         
+
+  <li >
+    
+      
+
+  
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+        <a href="/docs/nsi/cours_premiere/ihm_web/resumes/" >
+          
+  
+    
+    
+    Résumés du chapitre IHM sur le Web
+  
+
+        </a>
+      </summary>
+      
+        
+
+  <li >
+    
+      
+
+  
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+        <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_html_css/" >
+          
+  
+    
+    
+    Résumé HTML - CSS
+  
+
+        </a>
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+
+  <li >
+    
+      
+
+  
+
+
+    
+
+    
+
+  
+    <details>
+      <summary>
+        <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_javascript/" >
+          
+  
+    
+    
+    Résumé JavaScript
+  
+
+        </a>
+      </summary>
+      
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+        
+          
+
+  
+
+
+        
+        
+        
+          
+
+  
+
+
+        
+        
+      </details>
+  
+
+
+
+  </li>
+
+
+        
+        
+        
+          
+
+  
+
+
+        
+        
         
           
 
@@ -7266,36 +7401,48 @@ MathJax.Hub.Config({
 <h1 id="formulaire-d-une-page-web-utilisation-de-flask">Formulaire d&rsquo;une page web : Utilisation de Flask</h1>
 
 <p>Comme déjà évoqué dans la partie consacrée au modèle
-<a href="nsi_prem_clsv.html">client-serveur</a>, un serveur web (aussi appelé
+<a href="/docs/nsi/cours_premiere/ihm_web/clsv/">client-serveur</a>, un serveur web (aussi appelé
 serveur HTTP) permet de répondre à une requête HTTP effectuée par un
-client (très souvent un navigateur web). Nous allons travailler avec le
+client (très souvent un navigateur web).</p>
+
+<p>Nous allons travailler avec le
 serveur web qui est installé sur votre ordinateur. Nous allons donc
 avoir une configuration un peu particulière puisque le client et le
 serveur vont se trouver sur la même machine. Cette configuration est
 classique lorsque l&rsquo;on désire effectuer de simples tests. Nous aurons
 donc 2 logiciels sur le même ordinateur : le client (navigateur web) et
-le serveur (serveur web), ces 2 logiciels vont communiquer en utilisant
-le <a href="nsi_prem_http.html">protocole HTTP</a>. Il existe de nombreux serveurs
-web, mais le plus utilisé se nomme Apache. Nous n&rsquo;allons pas utiliser
-Apache, car nous allons travailler avec le framework Python Flask. Ce
-framework va nous permettre de générer des pages web côté serveur, il
-possède son propre serveur web.</p>
+le serveur (serveur web).</p>
+
+<p>Ces 2 programmes vont communiquer en utilisant
+le <a href="/docs/nsi/cours_premiere/ihm_web/http/">protocole HTTP</a>.</p>
+
+<p>Il existe de nombreux serveurs
+web, les plus utilisés étant Apache et NGINX.
+Nous n&rsquo;allons pas utiliser
+Apache, car nous allons travailler avec le framework Python Flask.</p>
+
+<p>Ce framework (cadre de développement) va nous permettre de</p>
+
+<ul>
+<li>générer des pages web côté serveur,</li>
+<li>servir ces pages web avec son propre serveur web.</li>
+</ul>
 
 <p>Nous allons commencer par un cas très simple où le serveur va renvoyer
 au client une simple page HTML statique (ne pas hésiter à consulter la
-partie consacrée au modèle <a href="nsi_prem_clsv.html">client-serveur</a> pour
+partie consacrée au modèle <a href="/docs/nsi/cours_premiere/ihm_web/clsv/">client-serveur</a> pour
 plus de précision sur ce terme &ldquo;statique&rdquo;).</p>
 
 <h2 id="à-faire-vous-même-1">À faire vous-même 1</h2>
 
-<p>Dans votre répertoire personnel, créez un répertoire nommé &ldquo;flask&rdquo;.</p>
+<p>Dans votre répertoire personnel, créez un répertoire nommé &ldquo;serveur_essai&rdquo;.</p>
 
 <hr />
 
 <h2 id="à-faire-vous-même-2">À faire vous-même 2</h2>
 
 <p>À l&rsquo;aide de Thonny, créez un fichier Python &ldquo;views.py&rdquo; (ce fichier
-devra être sauvegardé dans le répertoire &ldquo;flask&rdquo; précédemment créé).
+devra être sauvegardé dans le répertoire &ldquo;serveur_essai&rdquo; précédemment créé).
 Saisissez le code suivant dans le fichier &ldquo;views.py&rdquo;</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
 
@@ -7323,18 +7470,22 @@ nous l&rsquo;avons déjà dit, notre serveur et notre client se trouvent sur la
 même machine, avec le &ldquo;localhost&rdquo;, on indique au navigateur que le
 serveur web se trouve sur le même ordinateur que lui (on parle de
 machine locale). Dans un cas normal, la barre d&rsquo;adresse devrait être
-renseignée avec l&rsquo;adresse du serveur web. Le &ldquo;5000&rdquo; indique le port,
-nous n&rsquo;étudierons pas cet aspect des choses ici, vous devez juste
-savoir que le &ldquo;5000&rdquo; doit suivre le &ldquo;localhost&rdquo;.</p>
+renseignée avec l&rsquo;adresse du serveur web. Le &ldquo;:5000&rdquo; indique le port,
+nous n&rsquo;étudierons pas cet aspect des choses aujourd&rsquo;hui, vous devez juste
+savoir que le &ldquo;:5000&rdquo; doit suivre le &ldquo;localhost&rdquo;.</p>
 
 <p>Stoppez l&rsquo;exécution du programme dans Thonny.</p>
+
+<hr />
 
 <p>Essayons de comprendre en détail ce qui s&rsquo;est passé :</p>
 
 <p>En exécutant le programme Python ci-dessus, le framework Flask a lancé
 un serveur web. Ce serveur web attend des requêtes HTTP sur le port
 5000. En ouvrant un navigateur web et en tapant &ldquo;localhost:5000&rdquo;, nous
-faisons une requête HTTP, le serveur web fourni avec Flask répond à
+faisons une requête HTTP.</p>
+
+<p>Le serveur web fourni avec Flask répond à
 cette requête HTTP en envoyant une page web contenant uniquement
 <code>&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;</code>.</p>
 
@@ -7342,11 +7493,11 @@ cette requête HTTP en envoyant une page web contenant uniquement
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask</code></pre></div>
 <p>Nous importons la bibliothèque Flask</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app <span style="color:#555">=</span> Flask(__name__)</code></pre></div>
-<p>Nous créons un objet app : cette ligne est systématique nécessaire.</p>
+<p>Nous créons un objet app : cette ligne est systématiquement nécessaire.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#99f">@app.route</span>(<span style="color:#c30">&#39;/&#39;</span>)</code></pre></div>
 <p>Nous utilisons ici un décorateur (cette notion de décorateur ne sera pas
-traitée en NSI). Vous devez juste comprendre la fonction qui suit ce
-décorateur (&ldquo;index&rdquo;), sera exécutée dans le cas où le serveur web
+traitée en NSI). Vous devez juste comprendre la fonction (&ldquo;index&rdquo;) qui suit ce
+décorateur, sera exécutée dans le cas où le serveur web
 recevra une requête HTTP avec une URL correspondant à la racine du site
 (&lsquo;/&rsquo;), c&rsquo;est à dire, dans notre exemple, le cas où on saisie dans la
 barre d&rsquo;adresse &ldquo;localhost:5000/&rdquo; (ou simplement &ldquo;localhost:5000&rdquo;)
@@ -7358,7 +7509,10 @@ renvoie vers le client une page HTML contenant uniquement la ligne
 <code>&lt;p&gt;Tout fonctionne parfaitement&lt;p/&gt;</code>.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span>True)</code></pre></div>
 <p>Cette ligne permet de lancer le serveur, elle sera systématiquement
-présente.</p>
+présente. Le paramètre <code>debug=True</code> permet d&rsquo;avoir des informations de
+debuggage dans le navigateur.</p>
+
+<p>Ce n&rsquo;est souhaitable que durant le <em>développement</em> d&rsquo;un site web.</p>
 
 <h2 id="à-faire-vous-même-4">À faire vous-même 4</h2>
 
@@ -7390,7 +7544,7 @@ plus satisfaisante :</p>
 
 <h2 id="à-faire-vous-même-5">À faire vous-même 5</h2>
 
-<p>Dans votre répertoire &ldquo;Flask&rdquo;, créez un répertoire &ldquo;templates&rdquo;. Dans
+<p>Dans votre répertoire &ldquo;serveur_web&rdquo;, créez un répertoire &ldquo;templates&rdquo;. Dans
 ce répertoire templates, créez un fichier index.html. Saisissez le code
 HTML ci-dessous dans ce fichier index.html</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
@@ -7408,7 +7562,7 @@ HTML ci-dessous dans ce fichier index.html</p>
 
 <h2 id="à-faire-vous-même-6">À faire vous-même 6</h2>
 
-<p>Modifiez le programme views.py comme suit :</p>
+<p>Modifiez le programme <code>views.py</code> comme suit :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
 
 app <span style="color:#555">=</span> Flask(__name__)
@@ -7519,13 +7673,21 @@ secondes&rdquo;).</p>
 <p>Le fichier &ldquo;index.html&rdquo; ne contient donc pas du HTML (même si cela
 ressemble beaucoup à du HTML), car les paramètres <code>{{heure}}</code>, <code>{{minute}}</code>
 et <code>{{seconde}}</code> n&rsquo;existent pas en HTML. Le fichier &ldquo;index.html&rdquo;
-contient en fait un langage de template nommé Jinja. Jinja ressemble
-beaucoup au HTML, mais il rajoute beaucoup de fonctionnalités par
+contient en fait un langage de template nommé Jinja.</p>
+
+<p>Jinja ressemble ajoute beaucoup de fonctionnalités par
 rapport au HTML (notamment les paramètres entourés d&rsquo;une double
-accolade comme <code>{{heure}}</code>). Si vous utilisez Jinja seul (sans un
-framework comme Flask), les paramètres ne seront pas remplacés et votre
-navigateur affichera &ldquo;Le serveur fonctionne parfaitement, il est
+accolade comme <code>{{heure}}</code>).</p>
+
+<p>Si vous utilisez Jinja seul (sans un framework comme Flask),
+les paramètres ne seront pas remplacés et votre
+navigateur affichera :</p>
+
+<p>&ldquo;Le serveur fonctionne parfaitement, il est
 <code>{{heure}}</code> h <code>{{minute}}</code> minutes et <code>{{seconde}}</code> secondes&rdquo;.</p>
+
+<p>C&rsquo;est donc Flask qui transforme ces <code>{{ }}</code> en du code HTML compréhensible par
+le navigateur.</p>
 
 <p>Nous allons maintenant nous intéresser à la gestion des formulaires.</p>
 
@@ -7747,6 +7909,19 @@ ne sont pas directement visibles dans l&rsquo;URL. Seule l&rsquo;utilisation du
 protocole sécurisé HTTPS garantit un transfert sécurisé des données
 entre le client et le serveur (les données sont chiffrées et donc
 illisibles pour une personne ne possédant pas la clé de déchiffrement).</p>
+
+<hr />
+
+<h2 id="poursuite-des-activités">Poursuite des activités.</h2>
+
+<p>La suite des activités est la réalisation d&rsquo;un mini-projet à l&rsquo;aide de Flask.</p>
+
+<p>Le point de départ est ce que vous venez d&rsquo;obtenir.</p>
+
+<p>Il faut donc vous assurer d&rsquo;avoir compris ce que vous venez de faire avant
+de poursuivre, sans quoi vous serez incapable de l&rsquo;adapter.</p>
+
+<p>Prenez le temps de relire cette partie et les précédentes si nécessaire.</p>
 </article>
 
       <div class="backtotop">
@@ -7795,6 +7970,7 @@ illisibles pour une personne ne possédant pas la clé de déchiffrement).</p>
 <li><a href="#à-faire-vous-même-10">À faire vous-même 10</a></li>
 <li><a href="#à-faire-vous-même-11">À faire vous-même 11</a></li>
 <li><a href="#à-faire-vous-même-12">À faire vous-même 12</a></li>
+<li><a href="#poursuite-des-activités">Poursuite des activités.</a></li>
 </ul></li>
 </ul>
 </nav>
