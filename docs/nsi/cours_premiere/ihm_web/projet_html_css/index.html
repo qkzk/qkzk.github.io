@@ -13,7 +13,7 @@
   
     
     
-    7. Stéganographie
+    Mini projet CSS
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/isn/isn-travaux-pratiques/7-steganographie/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/ihm_web/projet_html_css/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1109,7 +1109,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/nsi/cours_premiere/ihm_web/projet_html_css/" >
+        <a href="/docs/nsi/cours_premiere/ihm_web/projet_html_css/"  class="active">
           
   
     
@@ -4401,7 +4401,7 @@ MathJax.Hub.Config({
   
     <details>
       <summary>
-        <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/"  class="active">
+        <a href="/docs/isn/isn-travaux-pratiques/7-steganographie/" >
           
   
     
@@ -7423,7 +7423,7 @@ MathJax.Hub.Config({
   
     
     
-    7. Stéganographie
+    Mini projet CSS
   
 </strong>
 </header>
@@ -7431,179 +7431,144 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<p>Pré-requis</p>
+<h1 id="mini-projet-css">Mini projet CSS</h1>
+
+<p><img src="https://i.f1g.fr/media/madame/400x/sites/default/files/img/2019/07/margaret-hamilton.jpg" alt="Margaret Hamilton" /></p>
+
+<h2 id="objectif">Objectif</h2>
+
+<p>L&rsquo;objectif de ce mini projet est de réaliser <strong>le style d&rsquo;une page web.</strong></p>
+
+<p>Vous disposez de <strong>trois fichiers</strong> :</p>
 
 <ul>
-<li>le codage des couleurs (voir partie 3</li>
-<li>le code ASCII (voir partie 3)</li>
+<li><p><code>margaret_hamilton.html</code> est la page web qu&rsquo;il faut mettre en forme.</p>
+
+<p><em>Il n&rsquo;y a <strong>rien à faire</strong> dans ce document, <strong>examinez en détail</strong> les balises et classes.</em></p></li>
+
+<li><p><code>style.css</code> est le style de la page web en question. Ce fichier contient
+des <em>selecteurs</em> vides.</p>
+
+<p><em>Votre travail est de les <strong>remplir</strong> avec les propriétés et attributs qui conviennent.</em></p></li>
+
+<li><p><code>Margaret_Hamilton.pdf</code> est l&rsquo;objectif final, converti en pdf.</p>
+
+<p><em>Vous devez vous approcher le plus possible de ce résultat.</em></p></li>
 </ul>
 
-<p>Notions abordées</p>
+<h3 id="liens-vers-ces-fichiers">Liens vers ces fichiers :</h3>
+
+<ol>
+<li><a href="https://raw.githubusercontent.com/qkzk/data_colab/master/margaret_hamilton.html"><code>margaret_hamilton.html</code></a></li>
+<li><a href="https://raw.githubusercontent.com/qkzk/data_colab/master/style.css"><code>style.css</code></a></li>
+<li><a href="https://github.com/qkzk/data_colab/raw/master/Margaret_Hamilton.pdf"><code>Margaret_Hamilton.pdf</code></a></li>
+</ol>
+
+<h2 id="restitution-du-projet">Restitution du projet</h2>
 
 <ul>
-<li>codage de l&rsquo;information : application (codage des couleurs,
-codage des caractères, codage binaire)</li>
-<li>représentation/codage des images, formats</li>
-<li>compression avec ou sans perte</li>
+<li>Vous rendrez un travail individuel</li>
+<li>Seul le fichier <code>style.css</code> est à rendre, les autres ne devant pas changer.</li>
+
+<li><p>Il sera déposé dans votre drive :</p>
+
+<p><code>NSI_Robert_DUCHMOL/ihm_web/margaret_hamilton/style.css</code></p></li>
+
+<li><p>Le retour est prévu <em>autour du vendredi 22 novembre</em> (sera sans doute ajusté selon votre progression).</p></li>
 </ul>
 
-<h1 id="stéganographie">Stéganographie</h1>
+<h2 id="quelques-précisions">Quelques précisions</h2>
 
-<p>La stéganographie est l’étude des
-procédés de dissimulation d’une information dans une
-autre.</p>
-
-<p>L&rsquo;<a href="http://fr.wikipedia.org/wiki/St%C3%A9ganographie">article de wikipédia qui lui est consacré</a> commence ainsi :&rdquo;<em>Si la
-cryptographie est l&rsquo;«art du secret», la stéganographie est l&rsquo;art
-de la dissimulation : l&rsquo;objet de la stéganographie est de faire
-passer inaperçu un message dans un autre message et non de rendre un
-message inintelligible à autre que qui-de-droit. Pour prendre une
-métaphore, la stéganographie consisterait à enterrer son argent dans
-son jardin là où la cryptographie consisterait à l&rsquo;enfermer dans un
-coffre-fort — cela dit, rien n&rsquo;empêche de combiner les deux
-techniques, de même que l&rsquo;on peut enterrer un coffre dans son
-jardin.</em>&rdquo;.</p>
-
-<p>Nous allons nous intéresser à un procédé élémentaire
-de dissimulation d’information dans une image.</p>
-
-<h2 id="les-pixels-dans-une-image">Les pixels dans une image</h2>
-
-<p>Une image informatisée est discrétisée en pixels (<em>picture
-  elements</em>), c’est-à-dire en (petites) zones carrées. Chaque
-pixel possède une couleur (ou une nuance de gris). L’ensemble des
-pixels est organisé sous forme d’un tableau bidimensionnel dans
-lequel chacun d’eux peut-être repéré par un numéro de
-lignes <em>x</em> et un numéro de colonnes <em>y</em>. Le couple
-(<em>x</em>,<em>y</em>) forme les coordonnées du pixel dans l’image.</p>
-
-<p>Ce nombre de pixels est souvent mis en avant comme un critère de qualité d’un appareil photo numérique.</p>
-
-<p>Le nombre de lignes et de colonnes donnent la dimension de l’image, et
-le produit de ces deux nombres est égal au nombre de pixels contenus
-dans l’image.</p>
-
-<p>Les logiciels de traitement d’images numériques comme Photoshop ou
-Gimp permettent par un fort agrandissement de mettre en évidence les
-pixels d’une image.</p>
-
-<p>Quelques éléments de la boîte à outils de Gimp que nous utiliserons :</p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-boite-outils-annotee.png" alt="boite à outils de Gimp" /></p>
+<p>Démarche :</p>
 
 <ol>
-<li>Récupérez <a href="/uploads/docs/doc07/doc/img0.png">cette image</a>, et visualisez-la avec le logiciel Gimp.</li>
-<li>Effectuez le grossissement maximal de l’image : utilisez l&rsquo;outil &ldquo;loupe&rdquo; et cliquez sur l&rsquo;image (un appui sur la touche &ldquo;Ctrl&rdquo; pendant le clic permet un zoom arrière).</li>
+<li>Enregistrer les trois fichiers dans un dossier <code>ihm_web/margaret_hamilton/</code> sur votre drive et localement.</li>
+
+<li><p>Ouvrir les trois fichiers dans atom ou sublime text.</p>
+
+<ul>
+<li>atom connait bien le css et propose une auto complétion assez pertinente.</li>
+<li>sublime texte est moins efficace, il connaît les propriétés et complète les attributs mais ne les propose pas.</li>
+</ul></li>
+
+<li><p>Modifier le fichier <code>style.css</code> pour cela :</p>
+
+<ul>
+<li>Ouvrir le fichier HTML dans google <em>chrome</em>,</li>
+<li>ouvrir les outils de développeur (F12) de chrome,</li>
+<li>tester des modifications de style dans chrome,</li>
+<li>copier ces modifications dans  le fichier <code>style.css</code> une fois satisfait,</li>
+<li>enregistrer le fichier et rafraîchir la page web (Maj + F5 pour forcer
+le rafraîchissement du style),</li>
+<li>recommencer</li>
+</ul></li>
 </ol>
 
-<p>Avec la version 2.6 de Gimp ce grossissement maximal est
-   de 25600%, autrement dit un pixel est visualisé à l’écran comme un
-   carré de dimensions 256x256, voici vues avec Gimp les images entière
-   et avec grossissement maximal.</p>
+<p>Sauvegarder régulièrement, créez des versions, testez&hellip;</p>
 
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-100.png" alt="" /></p>
+<p>Essayez dans devTools <em>avant</em> d&rsquo;enregistrer, cela vous évitera des surprises.</p>
 
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-25600.png" alt="" /></p>
+<p>Etant donné que j&rsquo;ai <em>d&rsquo;abord</em> crée le style et ensuite converti, c&rsquo;est
+parfaitement faisable.</p>
 
-<h2 id="couleur-d-un-pixel">Couleur d’un pixel</h2>
+<p>Mon fichier source fait 61 lignes. Pas 23456&hellip;</p>
 
-<p>La couleur d’un pixel peut être décrite de plusieurs façons par un ou
-plusieurs nombres. Un codage courant que nous avons déjà rencontré est
-le codage RVB.</p>
+<h2 id="soin-du-détail">Soin du détail</h2>
 
-<p>A l&rsquo;aide de Gimp, déterminez la couleur du pixel de coordonnées
- (252,214) de l’image précédente : il suffit d&rsquo;utiliser l’outil
- pipette et de cliquer sur le pixel voulu en maintenant la
- touche <em>Majuscules</em> appuyée. Il peut être pratique de zoomer
- avant&hellip;</p>
+<p>Vous êtes dans la peau d&rsquo;un <em>intégrateur</em> :</p>
 
-<p>Quel est le code hexadécimal, celui utilisé en html, pour cette
- couleur ?</p>
+<p><em>&ldquo;il met en page le document en accord avec la charte graphique et les règles</em>
+  <em>typographiques&rdquo;</em></p>
 
-<h2 id="description-du-procédé-stéganographique">Description du procédé stéganographique</h2>
+<ul>
+<li>L&rsquo;objectif est de <em>refaire</em>, pas d&rsquo;apporter votre touche personnelle.</li>
+<li>Chaque détail compte : alignement, type de police, gras, souligné, italique,
+centrage, taille etc.</li>
+</ul>
 
-<p>Si on modifie la couleur d’un pixel en ajoutant ou retranchant un
-  petit nombre à l’une ou l’autre des trois composantes, le changement
-  de couleur du pixel est imperceptible pour l’oeil.</p>
+<p>Tout n&rsquo;est pas simple, certaines modifications demandent de l&rsquo;astuce, n&rsquo;y passez
+pas la journée.</p>
 
-<ol>
-<li>Vérifiez que les deux points de coordonnées (0,0) et (0,1)
-(tout en haut à gauche de l’image) sont exactement de la même
-couleur.</li>
-<li>Modifiez la couleur du pixel de coordonnées (0,0) en ajoutant 1 à
-la composante bleue de sa couleur : dans la &ldquo;<em>Boîte à
-outils</em>&rdquo;, après avoir sélectionnée la couleur du pixel avec la
-pipette cliquez sur la couleur de premier plan, vous pouvez alors
-modifier la composante bleue puis faites la modification à l&rsquo;aide de
-l&rsquo;outil rayon que vous aurez réglé pour qu&rsquo;il n&rsquo;affecte qu&rsquo;un seul
-pixel.</li>
-<li>Voyez-vous une
-différence de couleur avec le pixel voisin ? N&rsquo;hésitez pas à
-zoomer au maximum.</li>
-</ol>
+<h2 id="liste-des-propriétés-css-employées">Liste des propriétés CSS employées</h2>
 
-<p>On peut exploiter cette non perception de la modification d’une unité
-d’une des trois composantes de la couleur d’un pixel pour cacher un
-bit dans un pixel. Plus précisément si le bit à cacher vaut 0 on
-modifie la composante de couleur de sorte que son écriture binaire se
-termine par 0. Si le bit à cacher vaut 1 on modifie cette composante
-de sorte que l’écriture binaire se termine par 1, tous les autres bits
-restant inchangés.</p>
+<p>Afin de vous éviter une galère trop conséquente, vous trouverez ici la liste
+de toutes les propriétés CSS utilisées dans la correction, par ordre
+alphabétique :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">border-bottom-color
+border-bottom-style
+color
+display
+font-family
+font-size
+font-style
+line-height
+margin-left
+margin-right
+padding-bottom
+padding-top
+text-align
+text-decoration
+width</pre></div>
+<p>Certaines sont employées plusieurs fois, selon l&rsquo;élément ou la classe, avec
+des attributs différents.</p>
 
-<p>Pour dissimuler dans une image un message composé de <em>n</em> bits, on
-  cache chacun de ses bits dans <em>n</em> pixels convenus de l’image.</p>
+<h2 id="sources">Sources</h2>
 
-<h2 id="retrouver-un-message">Retrouver un message</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/border-bottom-color">MDN</a>
+cherchez directement dans leur moteur après une propriété</li>
+<li><a href="https://www.w3schools.com/cssref/pr_font_font-size.asp">W3 Schools</a>
+même chose, cherchez directement, testez les exemples</li>
+<li><a href="https://google.com">google</a> : cherchez des méthodes précises
+&ldquo;css centrer un élément&rdquo;</li>
+<li><a href="https://www.w3.org/Style/Examples/007/center.fr.html">premier résultat pour &ldquo;css centrer un élément&rdquo;</a></li>
+</ul>
 
-<p>Dans l’image que vous pouvez récupérer <a href="http://www.fil.univ-lille1.fr/~wegrzyno/ISN/Stegano/stega-img0.png">ici</a>, un message a été dissimulé en suivant le procédé précédent. Tous les bits dissimulés correspondent au bit de poids faible de la composante bleue de la   couleur des pixels.</p>
+<h2 id="quelques-mots-sur-le-texte">Quelques mots sur le texte</h2>
 
-<p>Le nombre <em>l</em> de caractères du message dissimulé dans l’image est codée par les huit premiers pixels de la première ligne (ligne d&rsquo;ordonnée 0), chacun d’eux donnant un bit de l’écriture binaire de cette longueur.</p>
-
-<p>Utilisez Gimp pour retrouver le nombre <em>l</em> du message dissimulé.</p>
-
-<p>Le message dissimulé est un (petit) texte codé en binaire en
-utilisant le codage ASCII. Ce codage codant chaque caractère sur
-huit bits, le nombre de pixels dissimulant un bit du message est
-donc égal à 8x<em>l</em>. Ces pixels sont situés sur la deuxième ligne
-(ligne d&rsquo;ordonnée 1) de l’image en partant de la gauche.</p>
-
-<p>Retrouvez le message dissimulé dans l&rsquo;image :</p>
-
-<ol>
-<li>commencez par noter les valeurs des composantes bleus,</li>
-<li>puis déterminez les valeurs de leur bit de poids faible,</li>
-<li>trouvez les codes binaires des caractères cachés,</li>
-<li>enfin en vous aidant de la <a href="http://fr.wikipedia.org/wiki/Code_ASCII">table du codage
-ASCII sur Wikipedia</a> révélez le message.</li>
-</ol>
-
-<h2 id="dissimuler-un-message">Dissimuler un message</h2>
-
-<p>À vous de dissimuler maintenant ! Cachez le message de votre choix
-dans l’image d’origine. Afin de vérifier le succès de votre codage,
-transmettez l’image que vous aurez produite à votre voisin qui se
-chargera de retrouver le message que vous y avez mis.</p>
-
-<h1 id="choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</h1>
-
-<p>Il existe plusieurs formats de sauvegarde des images dans des
-fichiers : bitmap (bmp), jpeg (jpg), portable network graphics
-(png), &hellip;</p>
-
-<ol>
-<li>Reprenez l’image de laquelle vous avez extrait le message qui y
-était dissimulé. En utilisant Gimp, enregistrez-la sur disque au
-format jpg. Laissez inchangés les
-paramètres par défaut.</li>
-<li>Chargez cette image au format jpg
-avec Gimp et tentez de retrouver l’information dissimulée. Que
-constatez-vous ?</li>
-<li>Comparez la taille des deux fichiers  aux
-formats jpg
-et png. Qu&rsquo;en pensez-vous ?</li>
-<li>Examinez d’autres formats possibles. Lesquels conviennent pour
-notre procédé stéganographique ?</li>
-</ol>
+<p>Tiré d&rsquo;un magasine publié en juillet 2019, il décrit le parcours
+surprenant de Margaret Hamilton, une informaticienne de la NASA. Cela devrait
+vous intéresser.</p>
 </article>
 
       <div class="backtotop">
@@ -7637,15 +7602,19 @@ notre procédé stéganographique ?</li>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#stéganographie">Stéganographie</a>
+<li><a href="#mini-projet-css">Mini projet CSS</a>
 <ul>
-<li><a href="#les-pixels-dans-une-image">Les pixels dans une image</a></li>
-<li><a href="#couleur-d-un-pixel">Couleur d’un pixel</a></li>
-<li><a href="#description-du-procédé-stéganographique">Description du procédé stéganographique</a></li>
-<li><a href="#retrouver-un-message">Retrouver un message</a></li>
-<li><a href="#dissimuler-un-message">Dissimuler un message</a></li>
+<li><a href="#objectif">Objectif</a>
+<ul>
+<li><a href="#liens-vers-ces-fichiers">Liens vers ces fichiers :</a></li>
 </ul></li>
-<li><a href="#choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</a></li>
+<li><a href="#restitution-du-projet">Restitution du projet</a></li>
+<li><a href="#quelques-précisions">Quelques précisions</a></li>
+<li><a href="#soin-du-détail">Soin du détail</a></li>
+<li><a href="#liste-des-propriétés-css-employées">Liste des propriétés CSS employées</a></li>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#quelques-mots-sur-le-texte">Quelques mots sur le texte</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
