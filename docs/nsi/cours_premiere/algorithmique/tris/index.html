@@ -7547,20 +7547,59 @@ MathJax.Hub.Config({
 
 <h2 id="comparons-ces-exemples">Comparons ces exemples :</h2>
 
-<p>Nom             Cas moyen          Pire des cas      Espace</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th>Cas moyen</th>
+<th>Pire des cas</th>
+<th>Espace</th>
+</tr>
+</thead>
 
-<hr />
+<tbody>
+<tr>
+<td>Fusion</td>
+<td>$n \log n$</td>
+<td>$n \log n$</td>
+<td>$n$</td>
+</tr>
 
-<p>Fusion        $n \log n$        $n \log n$          $n$
-  Rapide        $n \log n$        $n^2$               $n$
-  Insertion     $n^2$             $n^2$               $1$
-  Selection     $n^2$             $n^2$               $1$
-  Bulle         $n^2$             $n^2$               $1$</p>
+<tr>
+<td>Rapide</td>
+<td>$n \log n$</td>
+<td>$n^2$</td>
+<td>$n$</td>
+</tr>
 
-<p>$\log n$ croît moins vite que $n$ vers l&rsquo;$\infty$
-$n \log n$ : mieux que $n^2$</p>
+<tr>
+<td>Insertion</td>
+<td>$n^2$</td>
+<td>$n^2$</td>
+<td>$1$</td>
+</tr>
 
-<p>## Limites, contraintes (en théorie)</p>
+<tr>
+<td>Selection</td>
+<td>$n^2$</td>
+<td>$n^2$</td>
+<td>$1$</td>
+</tr>
+
+<tr>
+<td>Bulle</td>
+<td>$n^2$</td>
+<td>$n^2$</td>
+<td>$1$</td>
+</tr>
+</tbody>
+</table>
+
+<p>$\log n$ croît moins vite que $n$ vers l&rsquo;$\infty$</p>
+
+<p>$n \log n$ : mieux que $n^2$</p>
+
+<h2 id="limites-contraintes-en-théorie">Limites, contraintes (en théorie)</h2>
 
 <ul>
 <li>En terme de complexité calculatoire, $n \log n$ est mieux que $n^2$
@@ -7577,7 +7616,7 @@ Un tri <em>par comparaison</em> ne peut pas faire mieux que ça.</li>
 <li>Enormément de données ? Il faut sortir l&rsquo;artillerie lourde&hellip;</li>
 </ul>
 
-<p>#Tri par insertion</p>
+<h1 id="tri-par-insertion">Tri par insertion</h1>
 
 <h2 id="présentation">Présentation</h2>
 
@@ -7610,7 +7649,7 @@ Tant que i &lt; longueur(A)
     i = i + 1
 fin tant que</pre></div>
 <h2 id="python-tri-par-insertion">Python : tri par insertion</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(A):
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(A):
     i <span style="color:#555">=</span> <span style="color:#f60">1</span>
     <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> <span style="color:#366">len</span>(A):
         j <span style="color:#555">=</span> i
@@ -7641,15 +7680,47 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
 
 <h2 id="exemple-1">Exemple</h2>
 
-<p>Triés                   Non Triés            Plus petit restant</p>
+<table>
+<thead>
+<tr>
+<th align="center">Triés</th>
+<th align="center">Non Triés</th>
+<th align="center">Plus petit restant</th>
+</tr>
+</thead>
 
-<hr />
+<tbody>
+<tr>
+<td align="center">()</td>
+<td align="center">(1, 3, 4, 2)</td>
+<td align="center">(1)</td>
+</tr>
 
-<p>()                      (1, 3, 4, 2)             (1)
-  (1)                     (3, 4, 2)               (2)
-  (1, 2)                  (3, 4)                  (3)
-  (1, 2, 3)               (4)                     (4)
-  (1, 2, 3, 4)</p>
+<tr>
+<td align="center">(1)</td>
+<td align="center">(3, 4, 2)</td>
+<td align="center">(2)</td>
+</tr>
+
+<tr>
+<td align="center">(1, 2)</td>
+<td align="center">(3, 4)</td>
+<td align="center">(3)</td>
+</tr>
+
+<tr>
+<td align="center">(1, 2, 3)</td>
+<td align="center">(4)</td>
+<td align="center">(4)</td>
+</tr>
+
+<tr>
+<td align="center">(1, 2, 3, 4)</td>
+<td align="center">()</td>
+<td align="center">()</td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="pseudo-code-1">Pseudo code</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">tri_selection(tableau t, entier n)
@@ -7690,7 +7761,7 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
 
 <h2 id="tri-par-insertion-invariant-et-terminaison">Tri par insertion : invariant et terminaison</h2>
 
-<h3 id="tri-par-insertion">Tri par insertion</h3>
+<h3 id="tri-par-insertion-1">Tri par insertion</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">i = 1
 Tant que i &lt; longueur(A)
     j = i
@@ -7929,7 +8000,11 @@ $C$ est toujours plus petit qu&rsquo;un polynôme en $n^2$.</li>
 <li><a href="#on-ne-fera-pas-mieux-que-python">On ne fera pas mieux que Python !</a></li>
 <li><a href="#qu-allons-nous-étudier-alors">Qu&rsquo;allons nous étudier alors ?</a></li>
 <li><a href="#comparons-ces-exemples">Comparons ces exemples :</a></li>
+<li><a href="#limites-contraintes-en-théorie">Limites, contraintes (en théorie)</a></li>
 <li><a href="#les-usages-sont-nombreux-et-différents">Les usages sont nombreux et différents</a></li>
+</ul></li>
+<li><a href="#tri-par-insertion">Tri par insertion</a>
+<ul>
 <li><a href="#présentation">Présentation</a></li>
 <li><a href="#exemple">Exemple</a></li>
 <li><a href="#pseudo-code">Pseudo code</a></li>
@@ -7947,7 +8022,7 @@ $C$ est toujours plus petit qu&rsquo;un polynôme en $n^2$.</li>
 <li><a href="#comment-sait-on-que-ça-fonctionne">Comment sait-on que ça fonctionne ?</a></li>
 <li><a href="#tri-par-insertion-invariant-et-terminaison">Tri par insertion : invariant et terminaison</a>
 <ul>
-<li><a href="#tri-par-insertion">Tri par insertion</a></li>
+<li><a href="#tri-par-insertion-1">Tri par insertion</a></li>
 </ul></li>
 <li><a href="#tri-par-insertion-invariant-et-terminaison-1">Tri par insertion : invariant et terminaison</a>
 <ul>
