@@ -13,7 +13,7 @@
   
     
     
-    Créer et utiliser une clé Linux
+    Clé Linux
   
  | qkzk</title>
 
@@ -1584,7 +1584,7 @@ MathJax.Hub.Config({
   
     
     
-    Créer et utiliser une clé Linux
+    Clé Linux
   
 
       </a>
@@ -5654,7 +5654,7 @@ MathJax.Hub.Config({
   
     
     
-    Créer et utiliser une clé Linux
+    Clé Linux
   
 </strong>
 </header>
@@ -5662,11 +5662,23 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
+<h1 id="utiliser-linux">Utiliser Linux</h1>
+
+<p>Le programme de NSI demande à ce que vous utilisiez un système libre.</p>
+
+<p>Le plus couramment utilisé étant Linux, c&rsquo;est celui qui a été choisi pour vous.
+Il existe de nombreuses possibiités pour utiliser Linux au Lycée et l&rsquo;une
+d&rsquo;entre elle est la clé <strong>Freeduc Jbart.</strong></p>
+
 <h1 id="clé-linux-freeduc-jbart">Clé Linux : Freeduc Jbart</h1>
 
 <p>Le Lycée Jean Bart à Dunkerque propose une clé USB qui permet de mettre en
 oeuvre tous les éléments du programme de NSI concernant les systèmes
 d&rsquo;exploitation et les logiciels libres.</p>
+
+<p>Elle utilise la distribution <strong>debian</strong> et l&rsquo;environnement de bureau <strong>cinnamon</strong></p>
+
+<p><a href="https://philippe.scoffoni.net/wp-content/uploads/2015/04/S%C3%A9lection_0123.png">debian et cinnamon</a></p>
 
 <h2 id="créer-la-clé">Créer la clé.</h2>
 
@@ -5683,32 +5695,51 @@ d&rsquo;exploitation et les logiciels libres.</p>
 <p>Si elle n&rsquo;apparait toujours pas, essayer <code>$ sudo gparted</code> pour repérer la clé.
 4. Télécharger la version &ldquo;légère&rdquo; (3 GB) de la clé : <strong>live-image-amd64.hybrid.iso</strong>
 5. Copier avec dd le contenu sur la clé : <code>$ sudo dd if=live-image-amd64.hybrid.iso of=/dev/sdX status=progress bs=4M oflag=dsync</code>
-      où on remplace <code>X</code> par l&rsquo;adresse de la clé
-6. Utiliser fdisk pour créer une partition de persistence :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1. `sudo fdisk /dev/sdX`
-2. nouvelle partition `n`. Suivre les instructions par défaut.
-3. écrire : `w`
-4. vérifier (fdisk, p)</pre></div>
+    où on remplace <code>X</code> par l&rsquo;adresse de la clé</p>
+
 <ol>
-<li><p>Formater la partition de persistence :</p>
+<li><p>Utiliser fdisk pour créer une partition de persistence :</p>
 
-<p><code>sudo mkfs -t ext4 -L persistence /dev/sdX3</code></p></li>
+<ol>
+<li><code>$ sudo fdisk /dev/sdX</code></li>
+<li>nouvelle partition <code>n</code>. Suivre les instructions par défaut.</li>
+<li>écrire : <code>w</code> - sinon rien n&rsquo;est enregistré sur la clé.</li>
+<li>vérifier (fdisk, p, q)</li>
+</ol></li>
 
-<li><p>Créer un fichier <code>persistence.conf</code> contenant <code>/ union</code> sur la machine locale</p></li>
+<li><p>Formater la partition de persistence :</p></li>
+</ol>
 
-<li><p>Copier le fichier sur la partition de persistence : <code>sudo cp persistence.conf /run/media/robert/persistence/</code></p>
+<p><code>$ sudo mkfs -t ext4 -L persistence /dev/sdX3</code></p>
 
-<p>Si la clé n&rsquo;est pas montée, la monter avec un gestionnaire de fichiers.</p></li>
+<ol>
+<li>Créer un fichier <code>persistence.conf</code> contenant <code>/ union</code> sur la machine locale</li>
+<li>Copier le fichier sur la partition de persistence :</li>
+</ol>
 
-<li><p>Si possible, copier le paquet debian de google chrome (rechercher google chrome, télécharger .deb)</p></li>
+<p><code>$ sudo cp persistence.conf /run/media/robert/persistence/</code></p>
 
-<li><p>Effacer les autres fichiers éventuels de cette partition :</p>
+<p>Si la clé n&rsquo;est pas montée, la monter avec un gestionnaire de fichiers.
+10. Si possible, copier le paquet debian de google chrome (rechercher google chrome, télécharger .deb)
+10. Effacer les autres fichiers éventuels de cette partition :</p>
 
 <ol>
 <li><code>$ cd /run/media/robert/persistence</code></li>
 <li><code>$ ls</code></li>
 <li><code>sudo rm -rf lost+found</code></li>
-</ol></li>
+</ol>
+
+<h2 id="booter-sur-la-clé">Booter sur la clé</h2>
+
+<p>C&rsquo;est variable selon les systèmes mais il faut toujousr s&rsquo;assurer qu&rsquo;on peut
+démarrer depuis une clé usb dans le bios. Certains bios remettent ce paramètre
+à une valeur par défaut dès que la clé est retiré.</p>
+
+<p>Pour booter sur la clé :</p>
+
+<ol>
+<li>brancher la clé</li>
+<li>rebooter et, dans le bios, activer le boot sur la clé.</li>
 </ol>
 
 <h2 id="tester-la-persistence">Tester la persistence</h2>
@@ -5716,9 +5747,6 @@ d&rsquo;exploitation et les logiciels libres.</p>
 <p>La clé n&rsquo;est fournie qu&rsquo;avec des logiciels libres. On peut installer google chrome pour tester.</p>
 
 <ol>
-<li>brancher la clé</li>
-<li>rebooter et, dans le bios, activer le boot sur la clé.</li>
-
 <li><p>arrivé sur la clé, repérer le paquet debian dans /run/live/persistence/sdb3 et l&rsquo;installer</p>
 
 <p><code>$ sudo dpkg -i /run/live/persistence/sdb3/google TAB</code></p></li>
@@ -5783,9 +5811,11 @@ d&rsquo;exploitation et les logiciels libres.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
+<li><a href="#utiliser-linux">Utiliser Linux</a></li>
 <li><a href="#clé-linux-freeduc-jbart">Clé Linux : Freeduc Jbart</a>
 <ul>
 <li><a href="#créer-la-clé">Créer la clé.</a></li>
+<li><a href="#booter-sur-la-clé">Booter sur la clé</a></li>
 <li><a href="#tester-la-persistence">Tester la persistence</a></li>
 <li><a href="#utiliser-la-clé">Utiliser la clé.</a></li>
 <li><a href="#dupliquer-sa-clé">Dupliquer sa clé</a></li>
