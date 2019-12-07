@@ -5692,12 +5692,14 @@ d&rsquo;exploitation et les logiciels libres.</p>
 <li><code>df</code> devrait afficher la clé sur <code>/dev/sdb</code>. Sinon ouvrir un gestionnaire de fenêtre et repérer la clé.</li>
 </ol>
 
-<p>Si elle n&rsquo;apparait toujours pas, essayer <code>$ sudo gparted</code> pour repérer la clé.
-4. Télécharger la version &ldquo;légère&rdquo; (3 GB) de la clé : <strong>live-image-amd64.hybrid.iso</strong>
-5. Copier avec dd le contenu sur la clé : <code>$ sudo dd if=live-image-amd64.hybrid.iso of=/dev/sdX status=progress bs=4M oflag=dsync</code>
-    où on remplace <code>X</code> par l&rsquo;adresse de la clé</p>
+<p>Si elle n&rsquo;apparait toujours pas, essayer <code>$ sudo gparted</code> pour repérer la clé.</p>
 
 <ol>
+<li>Télécharger la version &ldquo;légère&rdquo; (3 GB) de la clé : <strong>live-image-amd64.hybrid.iso</strong></li>
+
+<li><p>Copier avec dd le contenu sur la clé : <code>$ sudo dd if=live-image-amd64.hybrid.iso of=/dev/sdX status=progress bs=4M oflag=dsync</code>
+où on remplace <code>X</code> par l&rsquo;adresse de la clé</p></li>
+
 <li><p>Utiliser fdisk pour créer une partition de persistence :</p>
 
 <ol>
