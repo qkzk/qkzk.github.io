@@ -13,7 +13,7 @@
   
     
     
-    URL et HTTP
+    Flask
   
  | qkzk</title>
 
@@ -25,13 +25,17 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours-python/libraries_faciles/flask/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -907,7 +919,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours-python/libraries_faciles/flask/" >
+      <a href="/docs/nsi/cours-python/libraries_faciles/flask/"  class="active">
         
   
     
@@ -1394,7 +1406,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/"  class="active">
+      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/" >
         
   
     
@@ -6005,7 +6017,7 @@ MathJax.Hub.Config({
   
     
     
-    URL et HTTP
+    Flask
   
 </strong>
 </header>
@@ -6013,296 +6025,233 @@ MathJax.Hub.Config({
       
 <article class="markdown">
 
-<h1 id="url">URL</h1>
+<p><em>Brève introduction à la librairie Flask de Python qui permet de créer un site web</em></p>
 
-<h2 id="définition">Définition</h2>
+<h1 id="flask">Flask</h1>
 
-<p>Une URL (Uniform Resource Locator) permet d&rsquo;identifier une ressource sur un réseau.</p>
+<p>Il serait vain d&rsquo;espérer vous présenter Flask en une page. Flask est utilisé
+mondialement pour créer des sites web en Python.</p>
 
-<p>Dans le navigateur, l&rsquo;url est indiquée dans la <em>barre d&rsquo;adresse.</em></p>
+<p>Flask est un &ldquo;micro framework&rdquo;, un cadre minimaliste qu&rsquo;on peut étendre à l&rsquo;infini.</p>
 
-<p>Elle est composée de plusieurs partie. Par exemple &ldquo;<a href="https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/&quot;">https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/&quot;</a></p>
+<p>Toute sortes de sites web peuvent être crées avec Flask : pages statiques, chat bot, réseaux sociaux etc.</p>
 
-<ul>
-<li><strong>https://</strong> est le protocole employé,</li>
-<li><strong>xyz</strong> est le domaine racine,</li>
-<li><strong>qkzk.xyz</strong> est le domaine,</li>
-<li><strong>docs</strong> est le premier dossier,</li>
-<li><strong>nsi</strong> est un sous dossier de ce premier dossier etc.</li>
-</ul>
+<h2 id="documentation-officielle">Documentation officielle</h2>
 
-<p>Les fichiers sont classés dans une structure en arborescence.</p>
+<p><a href="http://flask.palletsprojects.com/">L&rsquo;accueil</a> et <a href="http://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application">la prise en main</a></p>
 
-<p><img src="/uploads/docsnsi/ihm_web/img/url.jpg" alt="arbo" /></p>
+<h2 id="tutoriel-créant-de-a-à-z-un-site-de-micro-blogging-très-très-largement-hors-programme">Tutoriel créant de A à Z un site de micro blogging (très très largement hors programme)</h2>
 
-<p>L&rsquo;URL peut se terminer par un nom précis de fichier (<code>index.html</code>) ou non.</p>
+<p>Le site de micro blogging de <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Miguel Grinberg</a> (La grosse référence de Flask).</p>
 
-<h2 id="adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</h2>
+<h2 id="installation">Installation</h2>
 
-<p>La domaine peut généralement être remplacé par une adresse IP.</p>
+<p>Par défaut, Flask devrait être installé sur les machines du lycée.</p>
 
-<p>Par exemple : <a href="http://145.242.11.26">145.242.11.26</a> pointe vers le même site que <a href="http://impots.gouv.fr">impots.gouv.fr</a></p>
+<p>Si ça n&rsquo;est pas le cas :</p>
 
-<p>C&rsquo;est le <em>serveur DNS</em> (domain name serveur) qui traduit cette adresse IP en nom de domaine.</p>
+<p>sous linux</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip3 install flask</code></pre></div>
+<p>sous windows</p>
 
-<p>Attention, certains domaines utilisent des adresse IPv6 plus longues. Par exemple pour google.com : <code>2a00:1450:4007:811::200e</code> (sur 16 octets, 128 bits).</p>
+<p>Lancer <code>cmd</code> en mode admin, demander à un adminstrateur de saisir ses identifiants et</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; pip3 install flask</code></pre></div>
+<p>Si vous êtes derrière un proxy :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; pip3 install --proxy http://ip.proxy:port flask</code></pre></div>
+<h2 id="servir-une-page-statique-avec-un-jeu-p5js-par-exemple">Servir une page statique avec un jeu P5JS, par exemple</h2>
 
-<h2 id="chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</h2>
+<p>Dans <strong>le même dossier</strong>, créer deux dossiers : <code>templates</code> et <code>static</code>
+et les fichiers suivants :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">.
+├── views.py
+├── templates
+|    ├── index.html
+|    └── super_jeu.html
+└── static
+    ├── css
+    │   └── style.css
+    ├── img
+    │   └── chewie.jpg
+    └── js
+        └── script.js</pre></div>
+<p>Cette structure est celle couramment employée dans un projet Flask.</p>
 
-<p>Pour se déplacer dans une arborescence on peut employer deux méthodes :</p>
+<p>Cet exemple n&rsquo;aborde pas la transmission d&rsquo;information depuis Python vers les pages web.
+Pour un exemple de projet utilisant ces méthodes, se référer au cours de première NSI : IHM sur le web.</p>
 
-<ol>
-<li><p>Depuis son point de départ : <strong>chemin relatif</strong></p>
+<h3 id="views-py"><code>views.py</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># coding=utf-8</span>
+<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
+<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> render_template
+app <span style="color:#555">=</span> Flask(__name__)
 
-<p>Depuis <em>dossier1</em> vers <em>fichier6.html</em> : <code>../dossier2/dossier4/fichier6.html</code></p>
 
-<p><code>../</code> permet de remonter d&rsquo;un dossier. On utilise des <code>/</code> entre les dossiers et sous dossiers.</p></li>
+<span style="color:#99f">@app.route</span>(<span style="color:#c30">&#39;/&#39;</span>)
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;index.html&#39;</span>)
 
-<li><p>Depuis n&rsquo;importe quel point : <strong>chemin absolu</strong></p>
 
-<p><code>nom_domaine.extension/dossier2/dossier4/fichier6.html</code></p></li>
-</ol>
+<span style="color:#99f">@app.route</span>(<span style="color:#c30">&#39;/super_jeu&#39;</span>)
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">hello</span>():
+    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;super_jeu.html&#39;</span>)
 
-<p>Les deux approches conduisent (normalement) au même point.</p>
 
-<h1 id="protocole-http">Protocole HTTP</h1>
-
-<h2 id="définition-protocole">Définition : Protocole</h2>
-
-<p>Un <strong>protocole</strong> est un ensemble de règles qui permettent à deux ordinateurs de communiquer ensemble. HTTP (HyperText Transfer Protocol) permet au client d&rsquo;effectuer des requêtes à destination d&rsquo;un serveur web. En retour le serveur web envoie une réponse.</p>
-
-<ul>
-<li><p>HTTP est le &ldquo;messager&rdquo; du web.</p></li>
-
-<li><p>HTTP est protocole &ldquo;application&rdquo; (on verra plus tard, mais c&rsquo;est le plus haut niveau) basé sur TCP/IP</p>
-
-<ul>
-<li>TCP permet de découper les paquets et de s&rsquo;assurer qu&rsquo;ils sont arrivés</li>
-<li>IP donne une adresse aux machines sur un réseau</li>
-</ul></li>
-
-<li><p>HTTP est utilisé pour échanger des données et fournir des contenus : images, vidéos, textes (pages web) etc.</p></li>
-
-<li><p>HTTP est un protocole client / serveur.</p>
-
-<ul>
-<li>Le client (généralement le navigateur) émet une requête,</li>
-<li>Le serveur renvoie une réponse à la requête.</li>
-</ul></li>
-</ul>
-
-<h2 id="quelques-détails-sur-http">Quelques détails sur HTTP</h2>
-
-<ol>
-<li>C&rsquo;est un <strong>protocole sans connexion</strong> (connectionless) : après émission d&rsquo;une requête, la connexion est fermée (contrairement à un jeu en ligne où la connexion est maintenue durant la partie). Le serveur réétabli la connexion pour envoyer la réponse. Et il ferme la connexion.</li>
-<li>HTTP <strong>peut envoyer n&rsquo;importe quel type de données</strong> tant que les deux ordinateurs sont capables de les lire. Le plus souvent : texte, image, vidéos etc. mais pas que !</li>
-<li>HTTP est un <strong>protocole &ldquo;sans état&rdquo;</strong> (stateless) : le client et le serveur se connaissent que durant l&rsquo;émission d&rsquo;une requête ou la réception d&rsquo;une réponse. Ensuite pour se parler à nouveau, ils doivent fournir à nouveau l&rsquo;information.</li>
-</ol>
-
-<p>Moins important :</p>
-
-<ol>
-<li>HTTP a été crée en 1991 par Tim Berners Lee pour transférer des pages web,</li>
-<li>HTTP a rapidement évolué et a été massivement adopté dans les années 90.</li>
-</ol>
-
-<h2 id="cycle-requête-réponse-http">Cycle requête / réponse HTTP</h2>
-
-<p><strong>Le client envoie une requête, le serveur renvoie une réponse.</strong></p>
-
-<p><img src="/uploads/docsnsi/ihm_web/img/http_request_response_cycle.svg" alt="cycle requête reponse http" /></p>
-
-<h2 id="requête-http">Requête HTTP</h2>
-
-<p>Exemple de requête HTTP  :</p>
-
-<ul>
-<li>la méthode employée pour effectuer la requête</li>
-<li>l&rsquo;URL de la ressource</li>
-<li>la version du protocole utilisé par le client (souvent HTTP 1.1)</li>
-<li>le navigateur employé (Firefox, Chrome) et sa version</li>
-<li>le type du document demandé (par exemple HTML)</li>
-<li>&hellip;</li>
-</ul>
-
-<p>Ce qui donne (client vers serveur) :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">GET /mondossier/monFichier.html HTTP/1.1
-User-Agent : Mozilla/5.0
-Accept : text/html</pre></div>
-<p>Ici :</p>
-
-<ul>
-<li>la méthode est <code>GET</code>,</li>
-<li>L&rsquo;URL visée sur le serveur est <code>/mondossier/monFichier.html</code></li>
-<li>le protocole est HTTP version 1.1 (la plus courante),</li>
-<li>Le navigateur est Mozilla 5.0 (firefox&hellip;),</li>
-<li>On attend une réponse en texte formaté en HTML.</li>
-</ul>
-
-<h3 id="méthode-employée">Méthode employée</h3>
-
-<p>Il existe de nombreuses méthodes HTTP (parfois appelées <em>verbes</em>) :</p>
-
-<ul>
-<li>GET</li>
-<li>POST</li>
-<li>HEAD</li>
-<li>PUT</li>
-<li>DELETE</li>
-<li>CONNECT</li>
-<li>OPTIONS</li>
-<li>TRACE</li>
-<li>PATCH</li>
-</ul>
-
-<p>On utilisera principalement les deux premières :</p>
-
-<ul>
-<li><strong>GET</strong> : demande une représentation d&rsquo;une ressource : obtenir une page web, un fichier, une donnée.</li>
-<li><strong>POST</strong> : envoie une entité vers la ressource : soumettre des données au serveur.</li>
-</ul>
-
-<h2 id="réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</h2>
-
-<p>Un exemple de réponse</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">HTTP/1.1 200 OK
-Date: Thu, 15 feb 2019 12:02:32 GMT
-Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4
-Connection: close
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=UTF-8
-<span style="color:#099">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span> <span style="color:#309">dir</span><span style="color:#555">=</span><span style="color:#c30">&#34;ltr&#34;</span>&gt;
-  &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">title</span>&gt;mon super site&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-  &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-  &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Jean Raoul, chef cuisinier&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Ma recette favorite : le cassoulet&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
-  &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;</code></pre></div>
-<h3 id="quelques-détails">Quelques détails :</h3>
-
-<ul>
-<li><p>Première ligne : <code>HTTP/1.1 200 OK</code> version de HTTP et code réponse.
-Parmi les codes courant on trouve :</p>
-
-<ul>
-<li><strong>200 : succès de la requête,</strong></li>
-<li>301, 302 : redirection,</li>
-<li>401 : utilisateur non authentifié,</li>
-<li><strong>403 : accès refusé,</strong></li>
-<li><strong>404 : ressource introuvable,</strong></li>
-<li><strong>500, 503 : erreur serveur,</strong></li>
-<li>504 : le serveur n&rsquo;a pas répondu.</li>
-</ul>
-
-<p><a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">Liste complète des codes</a></p></li>
-
-<li><p>Troisième ligne : <code>Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4</code></p>
-
-<p>Le type de serveur web et des informations sur son système</p></li>
-
-<li><p>Quatrième ligne : <code>Connection: close</code></p>
-
-<p>La connexion est fermée après chaque requête terminée. C&rsquo;est normal.</p></li>
-
-<li><p>Cinquième et sixième lignes :</p>
-
-<p><code>Transfer-Encoding: chunked</code></p>
-
-<p><code>Content-Type: text/html; charset=UTF-8</code></p>
-
-<p>Le contenu est découpé en plusieurs paquets, c&rsquo;est du texte formaté en HTML et encodé en utf-8.</p></li>
-
-<li><p>Le corps du message est ce qui suit.</p></li>
-</ul>
-
-<p>Souvenons nous que cette réponse est en fait une série de bit que le client interprète comme une réponse HTTP. Ce sont des <em>bits</em> qui transitent sur le réseau.</p>
-
-<h3 id="contenu-de-la-page">Contenu de la page.</h3>
-
-<p>Le contenu &ldquo;habituel&rdquo; d&rsquo;une page web :</p>
+<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
+    app<span style="color:#555">.</span>run(port<span style="color:#555">=</span><span style="color:#f60">2332</span>, debug<span style="color:#555">=</span>True)</code></pre></div>
+<h3 id="index-html"><code>index.html</code></h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!DOCTYPE html&gt;</span>
 &lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span> <span style="color:#309">dir</span><span style="color:#555">=</span><span style="color:#c30">&#34;ltr&#34;</span>&gt;
   &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
     &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">title</span>&gt;mon super site&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Mon site avec Flask&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">link</span> <span style="color:#309">rel</span><span style="color:#555">=</span><span style="color:#c30">&#34;stylesheet&#34;</span> <span style="color:#309">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;/static/css/style.css&#34;</span>&gt;
   &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
   &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Jean Raoul, chef cuisinier&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Ma recette favorite : le cassoulet&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;presentation&#34;</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Bienvenue chez moi !&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">h2</span>&gt;Ma tête&lt;/<span style="color:#309;font-weight:bold">h2</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">img</span> <span style="color:#309">src</span><span style="color:#555">=</span><span style="color:#c30">&#34;static/img/chewie.jpg &#34;</span> <span style="color:#309">alt</span><span style="color:#555">=</span><span style="color:#c30">&#34;chewie&#34;</span> <span style="color:#309">width</span><span style="color:#555">=</span><span style="color:#c30">&#34;200px&#34;</span> <span style="color:#309">height</span><span style="color:#555">=</span><span style="color:#c30">&#34;200px&#34;</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">h2</span>&gt;Ma vie&lt;/<span style="color:#309;font-weight:bold">h2</span>&gt;
+        &lt;<span style="color:#309;font-weight:bold">p</span>&gt;
+          &lt;<span style="color:#309;font-weight:bold">span</span>&gt;Né à Montevidéo en 1814, j&#39;ai gravi une à une les étapes pour devenir :&lt;/<span style="color:#309;font-weight:bold">span</span>&gt;
+          &lt;<span style="color:#309;font-weight:bold">ol</span>&gt;
+            &lt;<span style="color:#309;font-weight:bold">li</span>&gt;président des états unis,&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+            &lt;<span style="color:#309;font-weight:bold">li</span>&gt;pro gamer,&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+            &lt;<span style="color:#309;font-weight:bold">li</span>&gt;influenceur,&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+            &lt;<span style="color:#309;font-weight:bold">li</span>&gt;avant centre du Réal Madrid !&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+          &lt;/<span style="color:#309;font-weight:bold">ol</span>&gt;
+          &lt;<span style="color:#309;font-weight:bold">span</span>&gt;Qui peut en dire autant ?&lt;/<span style="color:#309;font-weight:bold">span</span>&gt;
+        &lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">h2</span>&gt;Mon oeuvre&lt;/<span style="color:#309;font-weight:bold">h2</span>&gt;
+        &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Découvrez mon &lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;super_jeu&#34;</span>&gt;super jeu&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;, crée en P5JS&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+    &lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
 &lt;/<span style="color:#309;font-weight:bold">html</span>&gt;</code></pre></div>
-<p>Il est généralement envoyé en réponse à une requête (GET, POST) APRES l&rsquo;entête dans le CORPS de la requête</p>
+<h3 id="super-jeu-html"><code>super_jeu.html</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;fr&#34; dir=&#34;ltr&#34;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;title&gt;Jeu de la vie en P5JS&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Voici le jeu de la vie. &lt;a href=&#34;https://p5js.org/examples/simulate-game-of-life.html&#34;&gt;Source.&lt;/a&gt;&lt;/p&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;static/js/script.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre></div>
+<h3 id="style-css"><code>style.css</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#309;font-weight:bold">h1</span> {
+  <span style="color:#069;font-weight:bold">color</span>:<span style="color:#069;font-weight:bold">red</span>;
+}
 
-<h2 id="etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</h2>
+<span style="color:#309;font-weight:bold">span</span> {
+  <span style="color:#069;font-weight:bold">text-align</span>: <span style="color:#069;font-weight:bold">center</span>;
+}
 
-<p><strong>HTTPS</strong> pour <strong>SECURED</strong> HTTP</p>
-
-<ol>
-<li>Demande du client d&rsquo;établir une <strong>connexion sécurisée</strong> (http<strong>s</strong> &hellip;)</li>
-<li>Réponse du serveur : OK. Il fournit un <strong>certificat</strong> prouvant son identité</li>
-<li><strong>Le client</strong> (généralement le navigateur) <strong>vérifie le certificat et affiche à côté de l&rsquo;adresse une information à l&rsquo;utilisateur</strong> sur ce certificat (valide, invalide, périmé etc.)</li>
-<li>Les échanges sont maintenants <strong>chiffrés</strong> grâce à une <strong>clé publique et une clé privée</strong> (chiffrement asynchrone)</li>
-</ol>
-
-<h2 id="etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</h2>
-
-<p>L&rsquo;usage courant est d&rsquo;employer un navigateur (chrome, firefox) pour faire des requêtes HTTP. Elles sont alors cachées à l&rsquo;utilisateur.</p>
-
-<p><strong>Un développeur peut écrire lui même ses requêtes et les exécuter</strong>. Python (et presque tous les langages modernes) permet d&rsquo;établir facilement une connexion HTTP.</p>
-
-<p>C&rsquo;est une méthode courante pour faire communiquer directement les machines. Chaque fois que vous entendez parler <em>d&rsquo;API REST</em> ou <em>d&rsquo;API HTTP</em> c&rsquo;est ce qui est fait.</p>
-
-<p><strong>API</strong> : <em>Application Programming Interface</em> (interface de programmation d&rsquo;application). Nom générique pour désigner l&rsquo;ensemble des méthodes par lequel un logiciel offre ses services à d&rsquo;autres logiciels.</p>
-
-<p>En Python 2 lignes suffisent pour obtenir une réponse HTTP et la traiter ensuite.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">requests</span> <span style="color:#09f;font-style:italic"># librairie qui gère les connexion HTTP</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30">&#34;http://qkzk.xyz&#34;</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># on établi une connexion avec mon site</span></code></pre></div>
-<p>Le code réponse et l&rsquo;entête :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse
-<span style="color:#555">&lt;</span>Response [<span style="color:#f60">200</span>]<span style="color:#555">&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># la connexion est établie correctement (200 signifie OK)</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponses<span style="color:#555">.</span>headers <span style="color:#09f;font-style:italic"># detail de la reponse du serveur</span>
-{<span style="color:#c30">&#39;Server&#39;</span>: <span style="color:#c30">&#39;GitHub.com&#39;</span>, <span style="color:#c30">&#39;Content-Type&#39;</span>: <span style="color:#c30">&#39;text/html; charset=utf-8&#39;</span>,
-<span style="color:#c30">&#39;Last-Modified&#39;</span>: <span style="color:#c30">&#39;Wed, 09 Oct 2019 16:10:57 GMT&#39;</span>, <span style="color:#c30">&#39;ETag&#39;</span>: <span style="color:#c30">&#39;W/&#34;5d9e0691-e152&#34;&#39;</span>,
-<span style="color:#c30">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#c30">&#39;*&#39;</span>, <span style="color:#c30">&#39;Expires&#39;</span>: <span style="color:#c30">&#39;Sat, 12 Oct 2019 09:20:09 GMT&#39;</span>,
-<span style="color:#c30">&#39;Cache-Control&#39;</span>: <span style="color:#c30">&#39;max-age=600&#39;</span>, <span style="color:#c30">&#39;Content-Encoding&#39;</span>: <span style="color:#c30">&#39;gzip&#39;</span>,
-<span style="color:#09f;font-style:italic"># réponse tronquée</span>
+<span style="color:#309;font-weight:bold">h2</span> {
+  <span style="color:#069;font-weight:bold">background-color</span>: <span style="color:#069;font-weight:bold">green</span>;
 }</code></pre></div>
-<p>Le contenu de la réponse :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>content
-<span style="color:#c30">b</span><span style="color:#c30">&#39;&lt;!DOCTYPE html&gt;</span>
-<span style="color:#555">&lt;</span>html lang<span style="color:#555">=</span><span style="color:#c30">&#34;en&#34;</span><span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>head<span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30">&#34;generator&#34;</span> content<span style="color:#555">=</span><span style="color:#c30">&#34;Hugo 0.57.2&#34;</span> <span style="color:#555">/&gt;</span>
-<span style="color:#555">&lt;</span>meta charset<span style="color:#555">=</span><span style="color:#c30">&#34;UTF-8&#34;</span><span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30">&#34;viewport&#34;</span> content<span style="color:#555">=</span><span style="color:#c30">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>title<span style="color:#555">&gt;</span>accueil<span style="color:#555">|</span> qkzk<span style="color:#555">&lt;/</span>title<span style="color:#555">&gt;</span> <span style="color:#555">...</span><span style="color:#c30">&#39;</span>
-<span style="color:#09f;font-style:italic"># tronqué. La suite est le contenu complet de la page d&#39;accueil du site...</span>
-<span style="color:#555">&lt;/</span>body<span style="color:#555">&gt;&lt;/</span>html<span style="color:#555">&gt;</span><span style="color:#c30">&#39;</span></code></pre></div>
-<p>La requête transmise par <em>le client</em> lui même au serveur :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>request
-<span style="color:#555">&lt;</span>PreparedRequest [GET]<span style="color:#555">&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>request<span style="color:#555">.</span>headers
-{<span style="color:#c30">&#39;User-Agent&#39;</span>: <span style="color:#c30">&#39;python-requests/2.22.0&#39;</span>,
-<span style="color:#c30">&#39;Accept-Encoding&#39;</span>: <span style="color:#c30">&#39;gzip, deflate&#39;</span>,
-<span style="color:#c30">&#39;Accept&#39;</span>: <span style="color:#c30">&#39;*/*&#39;</span>,
-<span style="color:#c30">&#39;Connection&#39;</span>: <span style="color:#c30">&#39;keep-alive&#39;</span>}</code></pre></div>
-<p>Dans cet exemple :</p>
+<h3 id="chewie-jpg"><code>chewie.jpg</code></h3>
 
-<ul>
-<li><strong>L&rsquo;utilisateur</strong> : moi. Je suis celui qui a tapé les commandes</li>
-<li><strong>Le client</strong> : Python</li>
-<li><strong>Le serveur</strong>: Github (qui heberge mon site) et a répondu à la requête</li>
-</ul>
+<p>Enregistrer cette image : <img src="https://www.briquestore.fr/24999-thickbox_default/mini-figurine-lego-star-wars-chewbacca.jpg" alt="chewie" /> sous le nom <code>chewie.jpg</code></p>
 
-<hr />
+<h3 id="script-js"><code>script.js</code></h3>
 
-<p>Le <em>résumé</em> est long&hellip; mais contient beaucoup d&rsquo;exemples.</p>
+<p>C&rsquo;est le jeu de la vie en P5JS</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">let</span> w;
+<span style="color:#069;font-weight:bold">let</span> columns;
+<span style="color:#069;font-weight:bold">let</span> rows;
+<span style="color:#069;font-weight:bold">let</span> board;
+<span style="color:#069;font-weight:bold">let</span> next;
+
+<span style="color:#069;font-weight:bold">function</span> setup() {
+  createCanvas(<span style="color:#f60">720</span>, <span style="color:#f60">400</span>);
+  w <span style="color:#555">=</span> <span style="color:#f60">20</span>;
+  <span style="color:#09f;font-style:italic">// Calculate columns and rows
+</span><span style="color:#09f;font-style:italic"></span>  columns <span style="color:#555">=</span> floor(width <span style="color:#555">/</span> w);
+  rows <span style="color:#555">=</span> floor(height <span style="color:#555">/</span> w);
+  <span style="color:#09f;font-style:italic">// Wacky way to make a 2D array is JS
+</span><span style="color:#09f;font-style:italic"></span>  board <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> <span style="color:#366">Array</span>(columns);
+  <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> columns; i<span style="color:#555">++</span>) {
+    board[i] <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> <span style="color:#366">Array</span>(rows);
+  }
+  <span style="color:#09f;font-style:italic">// Going to use multiple 2D arrays and swap them
+</span><span style="color:#09f;font-style:italic"></span>  next <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> <span style="color:#366">Array</span>(columns);
+  <span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> columns; i<span style="color:#555">++</span>) {
+    next[i] <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> <span style="color:#366">Array</span>(rows);
+  }
+  init();
+}
+
+<span style="color:#069;font-weight:bold">function</span> draw() {
+  background(<span style="color:#f60">255</span>);
+  generate();
+  <span style="color:#069;font-weight:bold">for</span> ( <span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> columns;i<span style="color:#555">++</span>) {
+    <span style="color:#069;font-weight:bold">for</span> ( <span style="color:#069;font-weight:bold">let</span> j <span style="color:#555">=</span> <span style="color:#f60">0</span>; j <span style="color:#555">&lt;</span> rows;j<span style="color:#555">++</span>) {
+      <span style="color:#069;font-weight:bold">if</span> ((board[i][j] <span style="color:#555">==</span> <span style="color:#f60">1</span>)) fill(<span style="color:#f60">0</span>);
+      <span style="color:#069;font-weight:bold">else</span> fill(<span style="color:#f60">255</span>);
+      stroke(<span style="color:#f60">0</span>);
+      rect(i <span style="color:#555">*</span> w, j <span style="color:#555">*</span> w, w<span style="color:#555">-</span><span style="color:#f60">1</span>, w<span style="color:#555">-</span><span style="color:#f60">1</span>);
+    }
+  }
+
+}
+
+<span style="color:#09f;font-style:italic">// reset board when mouse is pressed
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> mousePressed() {
+  init();
+}
+
+<span style="color:#09f;font-style:italic">// Fill board randomly
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> init() {
+  <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> columns; i<span style="color:#555">++</span>) {
+    <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> j <span style="color:#555">=</span> <span style="color:#f60">0</span>; j <span style="color:#555">&lt;</span> rows; j<span style="color:#555">++</span>) {
+      <span style="color:#09f;font-style:italic">// Lining the edges with 0s
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">if</span> (i <span style="color:#555">==</span> <span style="color:#f60">0</span> <span style="color:#555">||</span> j <span style="color:#555">==</span> <span style="color:#f60">0</span> <span style="color:#555">||</span> i <span style="color:#555">==</span> columns<span style="color:#555">-</span><span style="color:#f60">1</span> <span style="color:#555">||</span> j <span style="color:#555">==</span> rows<span style="color:#555">-</span><span style="color:#f60">1</span>) board[i][j] <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+      <span style="color:#09f;font-style:italic">// Filling the rest randomly
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">else</span> board[i][j] <span style="color:#555">=</span> floor(random(<span style="color:#f60">2</span>));
+      next[i][j] <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+    }
+  }
+}
+
+<span style="color:#09f;font-style:italic">// The process of creating the new generation
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> generate() {
+
+  <span style="color:#09f;font-style:italic">// Loop through every spot in our 2D array and check spots neighbors
+</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> x <span style="color:#555">=</span> <span style="color:#f60">1</span>; x <span style="color:#555">&lt;</span> columns <span style="color:#555">-</span> <span style="color:#f60">1</span>; x<span style="color:#555">++</span>) {
+    <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> y <span style="color:#555">=</span> <span style="color:#f60">1</span>; y <span style="color:#555">&lt;</span> rows <span style="color:#555">-</span> <span style="color:#f60">1</span>; y<span style="color:#555">++</span>) {
+      <span style="color:#09f;font-style:italic">// Add up all the states in a 3x3 surrounding grid
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">let</span> neighbors <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+      <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#555">-</span><span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>; i<span style="color:#555">++</span>) {
+        <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> j <span style="color:#555">=</span> <span style="color:#555">-</span><span style="color:#f60">1</span>; j <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>; j<span style="color:#555">++</span>) {
+          neighbors <span style="color:#555">+=</span> board[x<span style="color:#555">+</span>i][y<span style="color:#555">+</span>j];
+        }
+      }
+
+      <span style="color:#09f;font-style:italic">// A little trick to subtract the current cell&#39;s state since
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#09f;font-style:italic">// we added it in the above loop
+</span><span style="color:#09f;font-style:italic"></span>      neighbors <span style="color:#555">-=</span> board[x][y];
+      <span style="color:#09f;font-style:italic">// Rules of Life
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">if</span>      ((board[x][y] <span style="color:#555">==</span> <span style="color:#f60">1</span>) <span style="color:#555">&amp;&amp;</span> (neighbors <span style="color:#555">&lt;</span>  <span style="color:#f60">2</span>)) next[x][y] <span style="color:#555">=</span> <span style="color:#f60">0</span>;           <span style="color:#09f;font-style:italic">// Loneliness
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ((board[x][y] <span style="color:#555">==</span> <span style="color:#f60">1</span>) <span style="color:#555">&amp;&amp;</span> (neighbors <span style="color:#555">&gt;</span>  <span style="color:#f60">3</span>)) next[x][y] <span style="color:#555">=</span> <span style="color:#f60">0</span>;           <span style="color:#09f;font-style:italic">// Overpopulation
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> ((board[x][y] <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (neighbors <span style="color:#555">==</span> <span style="color:#f60">3</span>)) next[x][y] <span style="color:#555">=</span> <span style="color:#f60">1</span>;           <span style="color:#09f;font-style:italic">// Reproduction
+</span><span style="color:#09f;font-style:italic"></span>      <span style="color:#069;font-weight:bold">else</span>                                             next[x][y] <span style="color:#555">=</span> board[x][y]; <span style="color:#09f;font-style:italic">// Stasis
+</span><span style="color:#09f;font-style:italic"></span>    }
+  }
+
+  <span style="color:#09f;font-style:italic">// Swap!
+</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">let</span> temp <span style="color:#555">=</span> board;
+  board <span style="color:#555">=</span> next;
+  next <span style="color:#555">=</span> temp;
+}
+</code></pre></div>
+<h2 id="utiliser-le-serveur">utiliser le serveur</h2>
+
+<p>Lancer le serveur avec <code>$ python views.py</code></p>
+
+<p>Rendez-vous sur <code>http://localhost:2332</code> dans votre navigateur. Et voilà.</p>
 </article>
 
       <div class="backtotop">
@@ -6336,28 +6285,21 @@ Parmi les codes courant on trouve :</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
 <ul>
-<li><a href="#url">URL</a>
+<li><a href="#flask">Flask</a>
 <ul>
-<li><a href="#définition">Définition</a></li>
-<li><a href="#adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</a></li>
-<li><a href="#chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</a></li>
+<li><a href="#documentation-officielle">Documentation officielle</a></li>
+<li><a href="#tutoriel-créant-de-a-à-z-un-site-de-micro-blogging-très-très-largement-hors-programme">Tutoriel créant de A à Z un site de micro blogging (très très largement hors programme)</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#servir-une-page-statique-avec-un-jeu-p5js-par-exemple">Servir une page statique avec un jeu P5JS, par exemple</a>
+<ul>
+<li><a href="#views-py"><code>views.py</code></a></li>
+<li><a href="#index-html"><code>index.html</code></a></li>
+<li><a href="#super-jeu-html"><code>super_jeu.html</code></a></li>
+<li><a href="#style-css"><code>style.css</code></a></li>
+<li><a href="#chewie-jpg"><code>chewie.jpg</code></a></li>
+<li><a href="#script-js"><code>script.js</code></a></li>
 </ul></li>
-<li><a href="#protocole-http">Protocole HTTP</a>
-<ul>
-<li><a href="#définition-protocole">Définition : Protocole</a></li>
-<li><a href="#quelques-détails-sur-http">Quelques détails sur HTTP</a></li>
-<li><a href="#cycle-requête-réponse-http">Cycle requête / réponse HTTP</a></li>
-<li><a href="#requête-http">Requête HTTP</a>
-<ul>
-<li><a href="#méthode-employée">Méthode employée</a></li>
-</ul></li>
-<li><a href="#réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</a>
-<ul>
-<li><a href="#quelques-détails">Quelques détails :</a></li>
-<li><a href="#contenu-de-la-page">Contenu de la page.</a></li>
-</ul></li>
-<li><a href="#etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</a></li>
-<li><a href="#etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</a></li>
+<li><a href="#utiliser-le-serveur">utiliser le serveur</a></li>
 </ul></li>
 </ul>
 </nav>
