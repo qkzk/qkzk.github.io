@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,56 +6176,34 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h1 id="dodger">DODGER</h1>
-
+<article class="markdown"><h1 id="dodger">DODGER</h1>
 <p><a href="http://inventwithpython.com/chapter20.html">article original</a> traduit par mes soins.</p>
-
-<p>Voici un tutoriel permettant de créer un jeu complet à l&rsquo;aide de Python (2.7) et pygame (1.9)</p>
-
-<p>Il est nécessaire de disposer de connaissances sur Python et Pygame (import, init, blit, events) avant de l&rsquo;aborder</p>
-
-<p><em>Pour ceux qui y étaient, ce jeu a servi de démonstration de travaux d&rsquo;élèves lors des portes ouvertes du Lycée des Flandres en mars 2017. Il m&rsquo;a semblé intéressant de le présenter.</em></p>
-
+<p>Voici un tutoriel permettant de créer un jeu complet à l'aide de Python (2.7) et pygame (1.9)</p>
+<p>Il est nécessaire de disposer de connaissances sur Python et Pygame (import, init, blit, events) avant de l'aborder</p>
+<p><em>Pour ceux qui y étaient, ce jeu a servi de démonstration de travaux d'élèves lors des portes ouvertes du Lycée des Flandres en mars 2017. Il m'a semblé intéressant de le présenter.</em></p>
 <p>Quelques-uns des thèmes abordés :</p>
-
 <p>Le flag pygame.FULLSCREEN
- Les variables &ldquo;constates&rdquo;  de Pygame pour les touches clavier
- La méthode move_ip() Rect
- La fonction pygame.mouse.set_pos()
- Création de cheat codes cheat codes
- Modifier le Dodger game</p>
-
+Les variables &ldquo;constates&rdquo;  de Pygame pour les touches clavier
+La méthode move_ip() Rect
+La fonction pygame.mouse.set_pos()
+Création de cheat codes cheat codes
+Modifier le Dodger game</p>
 <p>Dans ce tutoriel on utilise les notions de base du module Pygame pour créer un jeu graphique appelé Dodger.</p>
-
-<p>Le jeu Dodger présente un joueur (player) qui doit éviter (to dodge) des méchant (baddies) qui lui tombent dessus depuis le haut de l&rsquo;écran. Plus le joueur reste en vie longtemps, plus il augmente son score.</p>
-
-<p>Pour l&rsquo;amusement nous ajouterons aussi un mode de cheat : si le joueur maintient &ldquo;x&rdquo; les méchants ralentissent. S&rsquo;il maintient &ldquo;z&rdquo; ils remontent.</p>
-
+<p>Le jeu Dodger présente un joueur (player) qui doit éviter (to dodge) des méchant (baddies) qui lui tombent dessus depuis le haut de l'écran. Plus le joueur reste en vie longtemps, plus il augmente son score.</p>
+<p>Pour l'amusement nous ajouterons aussi un mode de cheat : si le joueur maintient &ldquo;x&rdquo; les méchants ralentissent. S'il maintient &ldquo;z&rdquo; ils remontent.</p>
 <h2 id="revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</h2>
-
 <p>Revoyons quelques types de données standard utilisés dans Pygame  :</p>
-
 <p>pygame.Rect - Les objets Rect représentent un espace rectangulaire définis par une position et des dimensions.</p>
-
-<p>La position est définie par l&rsquo;attribut topleft (coin supérieur gauche) (ou les attributs topright, bottomleft, et bottomright). Ces attributs de coins sont des tuple d&rsquo;entiers (X,Y). X et Y etant donc des coordonnées.</p>
-
-<p>La dimension peut être définie par largeur et hauteur (width, height). Ce sont des entiers. Les objets Rect objects ont une méthode colliderect() permettant de vérifier s&rsquo;ils se superposent à d&rsquo;autres rectangles.</p>
-
-<p>pygame.Surface - Les objets Surface sont des domaines de pixels de couleur. Ils représentent une image rectangulaire, tandis que les objets Rect ne représentent qu&rsquo;un rectangle et une dimension. Les objets Surface ont une méthode blit() employée pour dessiner l&rsquo;image d&rsquo;une surface sur une autre surface. L&rsquo;objet Surface renvoyé par la fonction pygame.display.set_mode() est particulier parce que tout ce qui est envoyé dessus est dessiné à l&rsquo;écran quand pygame.display.update() est appelé.</p>
-
-<p>pygame.event.Event - Le module pygame.event génère des objets Event dès que l&rsquo;utilisateur utilise le clavier, la souris ou tout autre périphérique d&rsquo;entrée (voir Computer vision &amp; Python sur ce même site pour une utilisation de la webcam).</p>
-
-<p>La fonction pygame.event.get() renvoie une liste de ces événements objects. Vous pouvez vérifier quel type d&rsquo;événement vous manipulez en consultant son attribut Type. QUIT, KEYDOWN, et MOUSEBUTTONUP sont des exemples d&rsquo;événements.</p>
-
-<p>pygame.font.Font - Le module pygame.font dispose du type de donnée Font qui représente la police utilisée par Pygame. Les paramètres à envoyer à  pygame.font.SysFont() sont une chaîne de caractère pour le nom et un entier pour la taille. Cependant il est courant d&rsquo;envoyer None pour le nom afin d&rsquo;employer la fonte par défaut.
-pygame.time.Clock - L&rsquo;objet Clock du module pygame.time permet de rendre nos jeux les plus rapides possibles. L&rsquo;horloge dispose d&rsquo;une méthode tick(), à laquelle nous passons le nombre de FPS (frame par seconde) auxquels nous voulons faire tourner le jeu. Plus les FPS sont élevées plus le jeu tourne rapidement.</p>
-
-<p>Récupérez le code suivant et sauvegardez le dans un fichier _dodger.py. _Ce jeu requiert aussi quelques fichiers d&rsquo;images et de sons disponibles.</p>
-
+<p>La position est définie par l'attribut topleft (coin supérieur gauche) (ou les attributs topright, bottomleft, et bottomright). Ces attributs de coins sont des tuple d'entiers (X,Y). X et Y etant donc des coordonnées.</p>
+<p>La dimension peut être définie par largeur et hauteur (width, height). Ce sont des entiers. Les objets Rect objects ont une méthode colliderect() permettant de vérifier s'ils se superposent à d'autres rectangles.</p>
+<p>pygame.Surface - Les objets Surface sont des domaines de pixels de couleur. Ils représentent une image rectangulaire, tandis que les objets Rect ne représentent qu'un rectangle et une dimension. Les objets Surface ont une méthode blit() employée pour dessiner l'image d'une surface sur une autre surface. L'objet Surface renvoyé par la fonction pygame.display.set_mode() est particulier parce que tout ce qui est envoyé dessus est dessiné à l'écran quand pygame.display.update() est appelé.</p>
+<p>pygame.event.Event - Le module pygame.event génère des objets Event dès que l'utilisateur utilise le clavier, la souris ou tout autre périphérique d'entrée (voir Computer vision &amp; Python sur ce même site pour une utilisation de la webcam).</p>
+<p>La fonction pygame.event.get() renvoie une liste de ces événements objects. Vous pouvez vérifier quel type d'événement vous manipulez en consultant son attribut Type. QUIT, KEYDOWN, et MOUSEBUTTONUP sont des exemples d'événements.</p>
+<p>pygame.font.Font - Le module pygame.font dispose du type de donnée Font qui représente la police utilisée par Pygame. Les paramètres à envoyer à  pygame.font.SysFont() sont une chaîne de caractère pour le nom et un entier pour la taille. Cependant il est courant d'envoyer None pour le nom afin d'employer la fonte par défaut.
+pygame.time.Clock - L'objet Clock du module pygame.time permet de rendre nos jeux les plus rapides possibles. L'horloge dispose d'une méthode tick(), à laquelle nous passons le nombre de FPS (frame par seconde) auxquels nous voulons faire tourner le jeu. Plus les FPS sont élevées plus le jeu tourne rapidement.</p>
+<p>Récupérez le code suivant et sauvegardez le dans un fichier _dodger.py. _Ce jeu requiert aussi quelques fichiers d'images et de sons disponibles.</p>
 <p>Le <a href="/uploads/docs/tutos/python/dodger/player.png">joueur</a>, le <a href="/uploads/docs/tutos/python/dodger/baddie.png">méchant</a>, le <a href="/uploads/docs/tutos/python/dodger/gameover.wav">son gameover</a>, la <a href="/uploads/docs/tutos/python/dodger/background.mid">musique de fond</a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+<pre><code>#!/usr/bin/env python
 # coding=utf-8
 import pygame, random, sys
 from pygame.locals import *
@@ -6093,7 +6236,7 @@ def waitForPlayerToPressKey():
 
 def playerHasHitBaddie(playerRect, baddies):
     for b in baddies:
-        if playerRect.colliderect(b[&#39;rect&#39;]):
+        if playerRect.colliderect(b['rect']):
             return True
     return False
 
@@ -6107,24 +6250,24 @@ def drawText(text, font, surface, x, y):
 pygame.init()
 mainClock = pygame.time.Clock()
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
-pygame.display.set_caption(&#39;Dodger&#39;)
+pygame.display.set_caption('Dodger')
 pygame.mouse.set_visible(False)
 
 # set up fonts
 font = pygame.font.SysFont(None, 48)
 
 # set up sounds
-gameOverSound = pygame.mixer.Sound(&#39;gameover.wav&#39;)
-pygame.mixer.music.load(&#39;background.mid&#39;)
+gameOverSound = pygame.mixer.Sound('gameover.wav')
+pygame.mixer.music.load('background.mid')
 
 # set up images
-playerImage = pygame.image.load(&#39;player.png&#39;)
+playerImage = pygame.image.load('player.png')
 playerRect = playerImage.get_rect()
-baddieImage = pygame.image.load(&#39;baddie.png&#39;)
+baddieImage = pygame.image.load('baddie.png')
 
-# show the &#34;Start&#34; screen
-drawText(&#39;Dodger&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
-drawText(&#39;Press a key to start.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
+# show the &quot;Start&quot; screen
+drawText('Dodger', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText('Press a key to start.', font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
 waitForPlayerToPressKey()
 
@@ -6148,40 +6291,40 @@ while True:
                 terminate()
 
             if event.type == KEYDOWN:
-                if event.key == ord(&#39;z&#39;):
+                if event.key == ord('z'):
                     reverseCheat = True
-                if event.key == ord(&#39;x&#39;):
+                if event.key == ord('x'):
                     slowCheat = True
-                if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+                if event.key == K_LEFT or event.key == ord('a'):
                     moveRight = False
                     moveLeft = True
-                if event.key == K_RIGHT or event.key == ord(&#39;d&#39;):
+                if event.key == K_RIGHT or event.key == ord('d'):
                     moveLeft = False
                     moveRight = True
-                if event.key == K_UP or event.key == ord(&#39;w&#39;):
+                if event.key == K_UP or event.key == ord('w'):
                     moveDown = False
                     moveUp = True
-                if event.key == K_DOWN or event.key == ord(&#39;s&#39;):
+                if event.key == K_DOWN or event.key == ord('s'):
                     moveUp = False
                     moveDown = True
 
             if event.type == KEYUP:
-                if event.key == ord(&#39;z&#39;):
+                if event.key == ord('z'):
                     reverseCheat = False
                     score = 0
-                if event.key == ord(&#39;x&#39;):
+                if event.key == ord('x'):
                     slowCheat = False
                     score = 0
                 if event.key == K_ESCAPE:
                     terminate()
 
-                if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+                if event.key == K_LEFT or event.key == ord('a'):
                     moveLeft = False
-                if event.key == K_RIGHT or event.key == ord(&#39;d&#39;):
+                if event.key == K_RIGHT or event.key == ord('d'):
                     moveRight = False
-                if event.key == K_UP or event.key == ord(&#39;w&#39;):
+                if event.key == K_UP or event.key == ord('w'):
                     moveUp = False
-                if event.key == K_DOWN or event.key == ord(&#39;s&#39;):
+                if event.key == K_DOWN or event.key == ord('s'):
                     moveDown = False
 
             if event.type == MOUSEMOTION:
@@ -6194,9 +6337,9 @@ while True:
         if baddieAddCounter == ADDNEWBADDIERATE:
             baddieAddCounter = 0
             baddieSize = random.randint(BADDIEMINSIZE, BADDIEMAXSIZE)
-            newBaddie = {&#39;rect&#39;: pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
-            &#39;speed&#39;: random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
-            &#39;surface&#39;:pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
+            newBaddie = {'rect': pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
+            'speed': random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
+            'surface':pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
             }
 
             baddies.append(newBaddie)
@@ -6217,30 +6360,30 @@ while True:
         # Move the baddies down.
         for b in baddies:
             if not reverseCheat and not slowCheat:
-                b[&#39;rect&#39;].move_ip(0, b[&#39;speed&#39;])
+                b['rect'].move_ip(0, b['speed'])
             elif reverseCheat:
-                b[&#39;rect&#39;].move_ip(0, -5)
+                b['rect'].move_ip(0, -5)
             elif slowCheat:
-                b[&#39;rect&#39;].move_ip(0, 1)
+                b['rect'].move_ip(0, 1)
 
         # Delete baddies that have fallen past the bottom.
         for b in baddies[:]:
-            if b[&#39;rect&#39;].top &gt; WINDOWHEIGHT:
+            if b['rect'].top &gt; WINDOWHEIGHT:
                 baddies.remove(b)
 
         # Draw the game world on the window.
         windowSurface.fill(BACKGROUNDCOLOR)
 
         # Draw the score and top score.
-        drawText(&#39;Score: %s&#39; % (score), font, windowSurface, 10, 0)
-        drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)
+        drawText('Score: %s' % (score), font, windowSurface, 10, 0)
+        drawText('Top Score: %s' % (topScore), font, windowSurface, 10, 40)
 
-        # Draw the player&#39;s rectangle
+        # Draw the player's rectangle
         windowSurface.blit(playerImage, playerRect)
 
         # Draw each baddie
         for b in baddies:
-            windowSurface.blit(b[&#39;surface&#39;], b[&#39;rect&#39;])
+            windowSurface.blit(b['surface'], b['rect'])
 
         pygame.display.update()
 
@@ -6252,856 +6395,571 @@ while True:
 
         mainClock.tick(FPS)
 
-    # Stop the game and show the &#34;Game Over&#34; screen.
+    # Stop the game and show the &quot;Game Over&quot; screen.
     pygame.mixer.music.stop()
     gameOverSound.play()
 
-    drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
-    drawText(&#39;Press a key to play again.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
+    drawText('GAME OVER', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+    drawText('Press a key to play again.', font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
     pygame.display.update()
     waitForPlayerToPressKey()
 
-    gameOverSound.stop()</pre></div>
+    gameOverSound.stop()
+</code></pre>
 <p>Voici ce que vous devriez voir (les sprites sont différents de ceux de la capture).
-<img src="http://inventwithpython.com/chapter20_files/image002.jpg" alt="" /></p>
-
+<img src="http://inventwithpython.com/chapter20_files/image002.jpg" alt=""></p>
 <h3 id="importer-les-modules">Importer les modules</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#!/usr/bin/env python
+<pre><code>#!/usr/bin/env python
 # coding=utf-8
 import pygame, random, sys
-from pygame.locals import *</pre></div>
-<p>Le jeu Dodger import les modules usuels après avoir défini l&rsquo;encodage et l&rsquo;environnement :pygame, random, sys, et pygame.locals. pygame.locals contient plusieurs variables utilisées par Pygame tels que les événements  (QUIT, KEYDOWN, etc.) et les touches du clavier (K_ESCAPE, etc.). En utilisant cette la syntaxe from pygame.locals import * syntax, vous pouvez simplement taper QUIT dans le code source au lieu de pygame.locals.QUIT.</p>
-
-<h3 id="réglage-des-variables-constantes">Réglage des variables Constantes</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">WINDOWWIDTH = 600
+from pygame.locals import *
+</code></pre>
+<p>Le jeu Dodger import les modules usuels après avoir défini l'encodage et l'environnement :pygame, random, sys, et pygame.locals. pygame.locals contient plusieurs variables utilisées par Pygame tels que les événements  (QUIT, KEYDOWN, etc.) et les touches du clavier (K_ESCAPE, etc.). En utilisant cette la syntaxe from pygame.locals import * syntax, vous pouvez simplement taper QUIT dans le code source au lieu de pygame.locals.QUIT.</p>
+<h3 id="rglage-des-variables-constantes">Réglage des variables Constantes</h3>
+<pre><code>WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
 TEXTCOLOR = (255, 255, 255)
-BACKGROUNDCOLOR = (0, 0, 0)</pre></div>
-<p>Les constantes tapées entre les lignes 4 et 14 sont plus explicites que si l&rsquo;on tapait directement les valeurs. Par exemple, windowSurface.fill(BACKGROUNDCOLOR) est plus facile à comprendre que windowSurface.fill((0, 0, 0)).</p>
-
+BACKGROUNDCOLOR = (0, 0, 0)
+</code></pre>
+<p>Les constantes tapées entre les lignes 4 et 14 sont plus explicites que si l'on tapait directement les valeurs. Par exemple, windowSurface.fill(BACKGROUNDCOLOR) est plus facile à comprendre que windowSurface.fill((0, 0, 0)).</p>
 <p>Vous pouvez les changer facilement dans le jeu et éditant le code source. En changeant WINDOWWIDTH à la ligne 4, vous le modifiez à toutes les lignes où il intervient WINDOWWIDTH. Si vous aviez tapé 600 à la place, vous devriez les changer toutes les fois où il intervient.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FPS = 40</pre></div>
-<p>Le tick de l&rsquo;horloge principale utilisée à la ligne 189 va ralentir le jeu suffisamment pour le rendre jouable. On envoie un entier à mainClock.tick() de façon à ce que le jeu sache combien de temps mettre en pause le programme. Cet entier est donc le nombre de FPS auquel on souhaite faire tourner le jeu.</p>
-
-<p>Une &ldquo;frame&rdquo; est le dessin d&rsquo;une image à l&rsquo;écran pour une seule itération de la boucle du jeu. Vous pouvez régler le jeu à 40 FPS et toujours appeler mainClock.tick(FPS). Ensuite, en augmentant FPS, vous accélérez le jeu, en le diminuant vous ralentissez le jeu.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">BADDIEMINSIZE = 10
+<pre><code>FPS = 40
+</code></pre>
+<p>Le tick de l'horloge principale utilisée à la ligne 189 va ralentir le jeu suffisamment pour le rendre jouable. On envoie un entier à mainClock.tick() de façon à ce que le jeu sache combien de temps mettre en pause le programme. Cet entier est donc le nombre de FPS auquel on souhaite faire tourner le jeu.</p>
+<p>Une &ldquo;frame&rdquo; est le dessin d'une image à l'écran pour une seule itération de la boucle du jeu. Vous pouvez régler le jeu à 40 FPS et toujours appeler mainClock.tick(FPS). Ensuite, en augmentant FPS, vous accélérez le jeu, en le diminuant vous ralentissez le jeu.</p>
+<pre><code>BADDIEMINSIZE = 10
 BADDIEMAXSIZE = 40
 BADDIEMINSPEED = 1
 BADDIEMAXSPEED = 8
-ADDNEWBADDIERATE = 6</pre></div>
-<p>Les lignes 11 à 15 définissent d&rsquo;autres constantes qui décrivent le comportement des méchants. Les dimensions des méchants seront comprises entre BADDIEMINSIZE et BADDIEMAXSIZE. Le rythmer auquel les méchants tombent de l&rsquo;écran sera fixé entre BADDIEMINSPEED et BADDIEMAXSPEED pixels par itération de la boucle de jeu. Et un nouveau méchant sera ajouté toutes les ADDNEWBADDIERATE itérations.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">PLAYERMOVERATE = 5</pre></div>
-<p>PLAYERMOVERATE décrit le nombre de pixel que le jouer traverse à chaque itération. L&rsquo;augmenter permet donc d&rsquo;accélérer le joueur.</p>
-
-<h2 id="définir-les-fonctions">Définir les fonctions</h2>
-
+ADDNEWBADDIERATE = 6
+</code></pre>
+<p>Les lignes 11 à 15 définissent d'autres constantes qui décrivent le comportement des méchants. Les dimensions des méchants seront comprises entre BADDIEMINSIZE et BADDIEMAXSIZE. Le rythmer auquel les méchants tombent de l'écran sera fixé entre BADDIEMINSPEED et BADDIEMAXSPEED pixels par itération de la boucle de jeu. Et un nouveau méchant sera ajouté toutes les ADDNEWBADDIERATE itérations.</p>
+<pre><code>PLAYERMOVERATE = 5
+</code></pre>
+<p>PLAYERMOVERATE décrit le nombre de pixel que le jouer traverse à chaque itération. L'augmenter permet donc d'accélérer le joueur.</p>
+<h2 id="dfinir-les-fonctions">Définir les fonctions</h2>
 <p>Plusieurs fonctions sont utilisées dans le jeu.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def terminate():
+<pre><code>def terminate():
     pygame.quit()
-    sys.exit()</pre></div>
+    sys.exit()
+</code></pre>
 <p>Pygame doit être quitté en appelant à la fois pygame.quit et sys.exit. On les ajoute donc tous les deux à une fonction  terminate qui sera appelée pour clore le jeu en une seule commande.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def waitForPlayerToPressKey():
+<pre><code>def waitForPlayerToPressKey():
     while True:
-        for event in pygame.event.get():</pre></div>
-<p>Parfois il est commode de pouvoir mettre en pause le jeu jusqu&rsquo;à ce qu&rsquo;un joueur presse une touche. Créer waitForPlayerToPressKey() et dans cette fonction, inclure une boucle infinie qui ne s&rsquo;arrête (break) que lorsque qu&rsquo;un événement KEYDOWN ou QUIT est enregistré. Au début de cette boucle, pygame.event.get() permet de définir la liste des événements en question.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == QUIT:
-    terminate()</pre></div>
+        for event in pygame.event.get():
+</code></pre>
+<p>Parfois il est commode de pouvoir mettre en pause le jeu jusqu'à ce qu'un joueur presse une touche. Créer waitForPlayerToPressKey() et dans cette fonction, inclure une boucle infinie qui ne s'arrête (break) que lorsque qu'un événement KEYDOWN ou QUIT est enregistré. Au début de cette boucle, pygame.event.get() permet de définir la liste des événements en question.</p>
+<pre><code>if event.type == QUIT:
+    terminate()
+</code></pre>
 <p>Si le joueur a fermé la fenêtre quand le jeu est en pause, Pygame va générer un événement QUIT.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
+<pre><code>if event.type == KEYDOWN:
      if event.key == K_ESCAPE: # pressing escape quits
          terminate()
-          return</pre></div>
+          return
+</code></pre>
 <p>Même chose si la touche Escape du clavier est enregistrée parmi les événements clavier.</p>
-
-<p>Si aucun QUIT ou KEYDOWN n&rsquo;est enregistré, alors le code tourne en boucle. Cette boucle ne faisant rien, cela revient à mettre en pause tant qu&rsquo;une touche n&rsquo;est pas pressée.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def playerHasHitBaddie(playerRect, baddies):
+<p>Si aucun QUIT ou KEYDOWN n'est enregistré, alors le code tourne en boucle. Cette boucle ne faisant rien, cela revient à mettre en pause tant qu'une touche n'est pas pressée.</p>
+<pre><code>def playerHasHitBaddie(playerRect, baddies):
     for b in baddies:
-        if playerRect.colliderect(b[&#39;rect&#39;]):
+        if playerRect.colliderect(b['rect']):
             return True
-    return False</pre></div>
-<p>La fonction playerHasHitBaddie() va renvoyer True si le joueur a heurté l&rsquo;un des méchants. Le parametre méchants est une liste de dictionnaires de méchants. Chacun de ces dictionnaire contient une clé &lsquo;rect&rsquo; et la valeur de cette clé est un objet Rect qui représente la taille et la position du baddie.</p>
-
-<p>playerRect est aussi un objet Rect. Ces objets ont une méthode colliderect() qui renvoie True si l&rsquo;objet Rect a heurté celui envoyé en paramètre. Sinon coliiderect() va renvoyer False.</p>
-
-<p>La boucle for de la ligne 33 tourne sur la liste des baddies et s&rsquo;arrête dès que l&rsquo;une des collisions est détectée. Si le code parcourt toute la liste sans passer à vrai, alors la fonction renvoie False.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def drawText(text, font, surface, x, y):
+    return False
+</code></pre>
+<p>La fonction playerHasHitBaddie() va renvoyer True si le joueur a heurté l'un des méchants. Le parametre méchants est une liste de dictionnaires de méchants. Chacun de ces dictionnaire contient une clé &lsquo;rect&rsquo; et la valeur de cette clé est un objet Rect qui représente la taille et la position du baddie.</p>
+<p>playerRect est aussi un objet Rect. Ces objets ont une méthode colliderect() qui renvoie True si l'objet Rect a heurté celui envoyé en paramètre. Sinon coliiderect() va renvoyer False.</p>
+<p>La boucle for de la ligne 33 tourne sur la liste des baddies et s'arrête dès que l'une des collisions est détectée. Si le code parcourt toute la liste sans passer à vrai, alors la fonction renvoie False.</p>
+<pre><code>def drawText(text, font, surface, x, y):
     textobj = font.render(text, 1, TEXTCOLOR)
     textrect = textobj.get_rect()
     textrect.topleft = (x, y)
-    surface.blit(textobj, textrect)</pre></div>
-<p>Quelques étapes doivent être accomplie pour écrire du texte à l&rsquo;écran. Premièrement, la méthode render() appelée à la ligne 37 crée un objet Surface qui contient le texte et la police.
-Ensuite on doit connaître la taille et la position de cet objet Surface. On peut obtenir définir cette position à l&rsquo;aide d&rsquo;un get_rect(). Ainsi l&rsquo;objet Rect de la ligne 40 contient une copie de la taille et la hauteur définie par la surface. Ligne 41 on met à joueur la position du Rect en lui passant un tuple (x, y).
+    surface.blit(textobj, textrect)
+</code></pre>
+<p>Quelques étapes doivent être accomplie pour écrire du texte à l'écran. Premièrement, la méthode render() appelée à la ligne 37 crée un objet Surface qui contient le texte et la police.
+Ensuite on doit connaître la taille et la position de cet objet Surface. On peut obtenir définir cette position à l'aide d'un get_rect(). Ainsi l'objet Rect de la ligne 40 contient une copie de la taille et la hauteur définie par la surface. Ligne 41 on met à joueur la position du Rect en lui passant un tuple (x, y).
 Enfin, ligne 42 on blit la Surface du textobj sur le textrect.</p>
-
-<p>Ecrire du texte en pygame est plus complexe que d&rsquo;appeler un simple print() néanmoins, en créant cette fonction, vous n&rsquo;avez plus qu&rsquo;à l&rsquo;appeler une fois avec tous les paramètres pour le faire.</p>
-
-<h2 id="initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</h2>
-
-<p>Les constantes et les fonctions étant définies, il est possible de définir la fenêtre et l&rsquo;horloge.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.init()
-mainClock = pygame.time.Clock()</pre></div>
-<p>La ligne 45 lance pygame avec l&rsquo;appel à init(). La suivante défini l&rsquo;horloge time.Clock() qui empêchera le jeu de tourner trop vite.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))</pre></div>
-<p>Ligne 47 on crée une nouvelle Surface qui servira à définir la fenêtre affichée à l&rsquo;écran. On emploie ici les dimensions crées plus haut. Remarquons qu&rsquo;on ne passe qu&rsquo;un seul argument à set_mode(), un tuple ! Les dimensions ne sont pas deux entiers mais un tuple les contenant.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.set_caption(&#39;Dodger&#39;)</pre></div>
-<p>On défini ici le titre du jeu, il apparaîtra en haut de l&rsquo;écran.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mouse.set_visible(False)</pre></div>
+<p>Ecrire du texte en pygame est plus complexe que d'appeler un simple print() néanmoins, en créant cette fonction, vous n'avez plus qu'à l'appeler une fois avec tous les paramètres pour le faire.</p>
+<h2 id="initialiser-pygame-et-et-dfinir-la-fentre">Initialiser pygame et et définir la fenêtre.</h2>
+<p>Les constantes et les fonctions étant définies, il est possible de définir la fenêtre et l'horloge.</p>
+<pre><code>pygame.init()
+mainClock = pygame.time.Clock()
+</code></pre>
+<p>La ligne 45 lance pygame avec l'appel à init(). La suivante défini l'horloge time.Clock() qui empêchera le jeu de tourner trop vite.</p>
+<pre><code>windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+</code></pre>
+<p>Ligne 47 on crée une nouvelle Surface qui servira à définir la fenêtre affichée à l'écran. On emploie ici les dimensions crées plus haut. Remarquons qu'on ne passe qu'un seul argument à set_mode(), un tuple ! Les dimensions ne sont pas deux entiers mais un tuple les contenant.</p>
+<pre><code>pygame.display.set_caption('Dodger')
+</code></pre>
+<p>On défini ici le titre du jeu, il apparaîtra en haut de l'écran.</p>
+<pre><code>pygame.mouse.set_visible(False)
+</code></pre>
 <p>On cache le curseur de la souris. En effet, on se servira de la souris pour déplacer le joueur.</p>
-
-<h2 id="mode-plein-écran">Mode plein écran</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)</pre></div>
-<p>En changeant ainsi la ligne 47 on rend le jeu plein écran. La fenêtre est étendue jusqu&rsquo;aux dimensions maximales de l&rsquo;écran. Testez le jeu dans les deux modes pour bien comprendre son fonctionnement.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up fonts
-font = pygame.font.SysFont(None, 48)</pre></div>
+<h2 id="mode-plein-cran">Mode plein écran</h2>
+<pre><code> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)
+</code></pre>
+<p>En changeant ainsi la ligne 47 on rend le jeu plein écran. La fenêtre est étendue jusqu'aux dimensions maximales de l'écran. Testez le jeu dans les deux modes pour bien comprendre son fonctionnement.</p>
+<pre><code># set up fonts
+font = pygame.font.SysFont(None, 48)
+</code></pre>
 <p>On défini un objet font en appelant font.SysFont. Le premier paramètre permet de la choisir et, en passant None, on choisit la police par défaut. Le second est sa taille.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up sounds
-gameOverSound = pygame.mixer.Sound(&#39;gameover.wav&#39;)
-pygame.mixer.music.load(&#39;background.mid&#39;)</pre></div>
+<pre><code># set up sounds
+gameOverSound = pygame.mixer.Sound('gameover.wav')
+pygame.mixer.music.load('background.mid')
+</code></pre>
 <p>Ensuite on crée les objets sonores. Le premier est le son game over qui est appelé quand on perd.
-Le second est la musique de fond qui est tourne en permanence. Il est possible de jouer n&rsquo;importe quel .wav ou .mid dans le jeu.</p>
-
-<p>Il est possible d&rsquo;appeler mixer.Sound autant de fois que l&rsquo;on souhaite mais mixer.music.load ne peut être appelée qu&rsquo;une seule fois. Ces constructeurs ne renvoient rien.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up images
-playerImage = pygame.image.load(&#39;player.png&#39;)
+Le second est la musique de fond qui est tourne en permanence. Il est possible de jouer n'importe quel .wav ou .mid dans le jeu.</p>
+<p>Il est possible d'appeler mixer.Sound autant de fois que l'on souhaite mais mixer.music.load ne peut être appelée qu'une seule fois. Ces constructeurs ne renvoient rien.</p>
+<pre><code># set up images
+playerImage = pygame.image.load('player.png')
 playerRect = playerImage.get_rect()
-baddieImage = pygame.image.load(&#39;baddie.png&#39;)</pre></div>
+baddieImage = pygame.image.load('baddie.png')
+</code></pre>
 <p>On défini ici les images qui seront utilisées pour le joueur et les méchants. Tous les méchants ont la même image donc un seul fichier suffit.</p>
-
-<h2 id="afficher-l-écran-de-démarrage">Afficher l&rsquo;écran de démarrage</h2>
-
-<p>Quand le jeu se lance, on affiche son nom à l&rsquo;écran. On souhaite aussi expliquer à l&rsquo;utilisateur comment jouer. Cet écran sert à donner le temps à l&rsquo;utilisateur de se préparer.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># show the &#34;Start&#34; screen
-drawText(&#39;Dodger&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
-drawText(&#39;Press a key to start.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
+<h2 id="afficher-lcran-de-dmarrage">Afficher l'écran de démarrage</h2>
+<p>Quand le jeu se lance, on affiche son nom à l'écran. On souhaite aussi expliquer à l'utilisateur comment jouer. Cet écran sert à donner le temps à l'utilisateur de se préparer.</p>
+<pre><code># show the &quot;Start&quot; screen
+drawText('Dodger', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText('Press a key to start.', font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
-waitForPlayerToPressKey()</pre></div>
+waitForPlayerToPressKey()
+</code></pre>
 <p>On appelle le drawText avec 5 arguments :</p>
-
 <ol>
 <li>le string contenant le texte</li>
 <li>la police</li>
 <li>la surface sur laquelle écrire</li>
-<li>l&rsquo;abscisse x</li>
-<li>l&rsquo;ordonnée y</li>
+<li>l'abscisse x</li>
+<li>l'ordonnée y</li>
 </ol>
-
-<p>Cela peut sembler beaucoup mais souvenons nous de la définition de drawText un peu plus haut. Elle demandait bien ces paramètres. Ce type d&rsquo;appel simplifie grandement le code.</p>
-
-<p>La fonction waitForPlayerToPressKey() va mettre le jeu en pause jusqu&rsquo;à ce que l&rsquo;utilisateur presse un touche pour le lancer.</p>
-
+<p>Cela peut sembler beaucoup mais souvenons nous de la définition de drawText un peu plus haut. Elle demandait bien ces paramètres. Ce type d'appel simplifie grandement le code.</p>
+<p>La fonction waitForPlayerToPressKey() va mettre le jeu en pause jusqu'à ce que l'utilisateur presse un touche pour le lancer.</p>
 <h2 id="lancement-du-mode-de-jeu">Lancement du mode de jeu</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">topScore = 0
-while True:</pre></div>
+<pre><code>topScore = 0
+while True:
+</code></pre>
 <p>Le meilleur score est stocké dans une variable.
-On lance ensuite une boucle infinie qui va décrire une partie complète. A chaque défaite, on retourne ligne 71. Techniquement, ce n&rsquo;est donc pas la boucle infinie du jeu.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># set up the start of the game
+On lance ensuite une boucle infinie qui va décrire une partie complète. A chaque défaite, on retourne ligne 71. Techniquement, ce n'est donc pas la boucle infinie du jeu.</p>
+<pre><code># set up the start of the game
 baddies = []
-score = 0</pre></div>
+score = 0
+</code></pre>
 <p>A chaque partie on initialise la liste des méchants et le score de la partie en cours.
 La variable baddies est une liste dont chaque élément est un dictionnaire. Ils contiennent les clés suivantes :</p>
-
-<p>&lsquo;rect&rsquo; : l&rsquo;objet Rect qui décrit où il se situe et quelle est sa taille
- &lsquo;speed&rsquo; : la vitesse du mechant. Entier qui décrit le nombre de pixels franchis entre chaque frame
- &lsquo;surface&rsquo; : La surface sur laquelle on dessine l&rsquo;image agrandie ou diminuée du méchant. Cet objet Surface est blitté sur la surface renvoyée par pygame.display.set_mode().</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)</pre></div>
+<p>&lsquo;rect&rsquo; : l'objet Rect qui décrit où il se situe et quelle est sa taille
+&lsquo;speed&rsquo; : la vitesse du mechant. Entier qui décrit le nombre de pixels franchis entre chaque frame
+&lsquo;surface&rsquo; : La surface sur laquelle on dessine l'image agrandie ou diminuée du méchant. Cet objet Surface est blitté sur la surface renvoyée par pygame.display.set_mode().</p>
+<pre><code>playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)
+</code></pre>
 <p>Le rect du joueur. Il est positionné par son coin topleft au centre (horizontal) et en bas (vertical). Sa position est un tuple, souvenons nous.
-D&rsquo;autre pas, les coordonnées dans pygame sont : x vers la droite, y vers le bas.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">moveLeft = moveRight = moveUp = moveDown = False
+D'autre pas, les coordonnées dans pygame sont : x vers la droite, y vers le bas.</p>
+<pre><code>moveLeft = moveRight = moveUp = moveDown = False
 reverseCheat = slowCheat = False
-baddieAddCounter = 0</pre></div>
+baddieAddCounter = 0
+</code></pre>
 <p>Les variables de mouvement du joueur sont toutes initialisées à False. Les deux cheatmode aussi.
 Le compteur de méchant est réinitialisé à 0.
-Ce compteur augmente de 1 à chaque tour et, quand il vaut ADDNEWBADDIERATE un nouveau méchant est ajouté à l&rsquo;écran et on réinitialise le compteur à 0.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.mixer.music.play(-1, 0.0)</pre></div>
-<p>La musique de fond est lancée ligne 79 en appelant mixer.music.play(). Le premier argument, -1, indique le nombre de fois où elle doit se répéter (-1 : à l&rsquo;infini).
-Le second est un réel (float) qui indique à quelle seconde de la musique vous souhaitez qu&rsquo;elle commence, 0.0 : du début.</p>
-
+Ce compteur augmente de 1 à chaque tour et, quand il vaut ADDNEWBADDIERATE un nouveau méchant est ajouté à l'écran et on réinitialise le compteur à 0.</p>
+<pre><code>pygame.mixer.music.play(-1, 0.0)
+</code></pre>
+<p>La musique de fond est lancée ligne 79 en appelant mixer.music.play(). Le premier argument, -1, indique le nombre de fois où elle doit se répéter (-1 : à l'infini).
+Le second est un réel (float) qui indique à quelle seconde de la musique vous souhaitez qu'elle commence, 0.0 : du début.</p>
 <h2 id="la-boucle-de-jeu">La boucle de jeu</h2>
-
-<p>Le jeu tourne indéfiniment en mettant à jour l&rsquo;état du monde (position du joueur, des méchants, gestion des événements, dessin des objets). Ceci se déroulant des dizaines de fois par seconde, on obtient une illusion de temps réel.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">while True: # the game loop runs while the game part is playing
-    score += 1 # increase score</pre></div>
+<p>Le jeu tourne indéfiniment en mettant à jour l'état du monde (position du joueur, des méchants, gestion des événements, dessin des objets). Ceci se déroulant des dizaines de fois par seconde, on obtient une illusion de temps réel.</p>
+<pre><code>while True: # the game loop runs while the game part is playing
+    score += 1 # increase score
+</code></pre>
 <p>On lance la boucle infinie et on augmente de 1 le score à chaque tour.
-Elle ne s&rsquo;arrêtera que lorsqu&rsquo;on va perdre ou quitter la partie.</p>
-
-<h2 id="gestion-des-événements">Gestion des événements</h2>
-
-<p>Il y a 4 types d&rsquo;événements que le programme va gérer : QUIT, KEYDOWN, KEYUP et MOUSEMOTION</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">for event in pygame.event.get():
+Elle ne s'arrêtera que lorsqu'on va perdre ou quitter la partie.</p>
+<h2 id="gestion-des-vnements">Gestion des événements</h2>
+<p>Il y a 4 types d'événements que le programme va gérer : QUIT, KEYDOWN, KEYUP et MOUSEMOTION</p>
+<pre><code>for event in pygame.event.get():
     if event.type == QUIT:
-        terminate()</pre></div>
-<p>Ligne 84 est le début du gestionnaire d&rsquo;événements. Il appelle pygmae.event.get() qui renvoie une liste d&rsquo;objets Event. Chaque objet est un événement s&rsquo;étant déroulé depuis le dernier appel à cette fonction. Le code va d&rsquo;abord comparer le type d&rsquo;événements et ensuite gérer l&rsquo;événement en fonction.
-Si le type d&rsquo;événement est QUIT on sort du jeu.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYDOWN:
-    if event.key == ord(&#39;z&#39;):
-        reverseCheat = True</pre></div>
-<p>Si le type d&rsquo;événement est KEYDOWN, le joueur a enfoncé une touche. L&rsquo;événement clavier a aussi une clé qui lui est attribuée et qui correspond à la touche pressée. La fonction ord() renvoie la valeur de la touche.
+        terminate()
+</code></pre>
+<p>Ligne 84 est le début du gestionnaire d'événements. Il appelle pygmae.event.get() qui renvoie une liste d'objets Event. Chaque objet est un événement s'étant déroulé depuis le dernier appel à cette fonction. Le code va d'abord comparer le type d'événements et ensuite gérer l'événement en fonction.
+Si le type d'événement est QUIT on sort du jeu.</p>
+<pre><code>if event.type == KEYDOWN:
+    if event.key == ord('z'):
+        reverseCheat = True
+</code></pre>
+<p>Si le type d'événement est KEYDOWN, le joueur a enfoncé une touche. L'événement clavier a aussi une clé qui lui est attribuée et qui correspond à la touche pressée. La fonction ord() renvoie la valeur de la touche.
 Par exemple, ligne 89 la touche &lsquo;z&rsquo; est enfoncée, alors on passe la valeur reverseCheat à true.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.key == K_LEFT or event.key == ord(&#39;a&#39;):
+<pre><code>if event.key == K_LEFT or event.key == ord('a'):
     moveRight = False
-    moveLeft = True</pre></div>
-<p>Les lignes 93 à 104 présentent les déplacements clavier. Remarquons qu&rsquo;on peut presser à chaque fois deux touches, WASD ou les flèches. Celles-ci n&rsquo;ont pas de valeur ordinale mais une valeur constante définie par pygame.locals.
-D&rsquo;autre part chaque déplacement change deux variables : moveRight passe à faux et moveLeft à vrai. Les deux déplacements étant incompatibles.
-Voici une table présentant les valeurs des touches du clavier.
-<table cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;" border="1" class="MsoNormalTable" >
-<tbody >
-<tr ></p>
-
-<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+    moveLeft = True
+</code></pre>
+<p>Les lignes 93 à 104 présentent les déplacements clavier. Remarquons qu'on peut presser à chaque fois deux touches, WASD ou les flèches. Celles-ci n'ont pas de valeur ordinale mais une valeur constante définie par pygame.locals.
+D'autre part chaque déplacement change deux variables : moveRight passe à faux et moveLeft à vrai. Les deux déplacements étant incompatibles.
+Voici une table présentant les valeurs des touches du clavier.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Pygame Constant Variable</p>
-
-<p></td></p>
-
-<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Keyboard Key</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Pygame Constant Variable</p>
-
-<p></td></p>
-
-<p><td style="border-top: double windowtext 1.5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Keyboard Key</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_LEFT</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Left arrow</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_HOME</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Home</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_RIGHT</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Right arrow</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_END</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>End</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_UP</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Up arrow</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_PAGEUP</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>PgUp</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_DOWN</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Down arrow</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_PAGEDOWN</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>PgDn</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_ESCAPE</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Esc</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F1</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F1</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_BACKSPACE</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Backspace</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F2</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F2</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_TAB</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Tab</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F3</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F3</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_RETURN</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Return or Enter</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F4</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F4</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_SPACE</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Space bar</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F5</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F5</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_DELETE</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Del</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F6</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F6</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_LSHIFT</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Left Shift</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F7</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F7</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_RSHIFT</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Right Shift</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F8</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F8</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_LCTRL</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Left Ctrl</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F9</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F9</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_RCTRL</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Right Ctrl</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F10</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F10</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_LALT</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Left Alt</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F11</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F11</p>
-
-<p></td>
-</tr>
-<tr ></p>
-
-<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_RALT</p>
-
-<p></td></p>
-
-<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Right Alt</p>
-
-<p></td></p>
-
-<p><td style="border: none; padding: 0in 5.4pt 0in 5.4pt;" valign="top" >
-</td></p>
-
-<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>K_F12</p>
-
-<p></td></p>
-
-<p><td style="border: none; border-bottom: double windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" ></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>F12</p>
-
-<p></td>
-</tr>
-</tbody>
-</table></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == KEYUP:
-    if event.key == ord(&#39;z&#39;):
+<!-- raw HTML omitted -->
+<pre><code>if event.type == KEYUP:
+    if event.key == ord('z'):
         reverseCheat = False
-        score = 0</pre></div>
-<p>L&rsquo;événement KEYUP est crée à chaque fois que le joueur relache une touche. Ils disposent d&rsquo;un numéro de touche identiques à ceux de KEYDOWN.
+        score = 0
+</code></pre>
+<p>L'événement KEYUP est crée à chaque fois que le joueur relache une touche. Ils disposent d'un numéro de touche identiques à ceux de KEYDOWN.
 On arrête alors les déplacements et les cheat code en passant les valeurs à False.</p>
-
-<h2 id="la-méthode-move-ip">La méthode move_ip()</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if event.type == MOUSEMOTION:
+<h2 id="la-mthode-moveip">La méthode move_ip()</h2>
+<pre><code>if event.type == MOUSEMOTION:
         # If the mouse moves, move the player where the cursor is.
-        playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)</pre></div>
-<p>On gère ainsi les événements souris. On ne s&rsquo;occupe que du déplacement de la souris, pas des boutons.</p>
-
-<p>MOUSEMOTION est généré dès que la souris est déplacée. Ces événements ont aussi un attribut pos pour la position de la souris. C&rsquo;est un tuple (X,Y) de coordonnées. On déplace alors le joueur à ces coordonnées.</p>
-
+        playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)
+</code></pre>
+<p>On gère ainsi les événements souris. On ne s'occupe que du déplacement de la souris, pas des boutons.</p>
+<p>MOUSEMOTION est généré dès que la souris est déplacée. Ces événements ont aussi un attribut pos pour la position de la souris. C'est un tuple (X,Y) de coordonnées. On déplace alors le joueur à ces coordonnées.</p>
 <p>La méthode move_ip() des objets Rect va déplacer la position du Rect horizontalement ou verticalement par un certain nombre de pixels.
-Par exemple move_ip(10,20) va déplacer le Rect de 10 en abs et 20 en ordonnée. le &ldquo;ip&rdquo; signifie &ldquo;in place&rdquo;. C&rsquo;est parce que la méthode change le Rect lui même plutôt que de renvoyer un nouveau Rect. Il existe aussi une méthode move qui renvoie un nouveau Rect situé à la nouvelle position.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Add new baddies at the top of the screen, if needed.
+Par exemple move_ip(10,20) va déplacer le Rect de 10 en abs et 20 en ordonnée. le &ldquo;ip&rdquo; signifie &ldquo;in place&rdquo;. C'est parce que la méthode change le Rect lui même plutôt que de renvoyer un nouveau Rect. Il existe aussi une méthode move qui renvoie un nouveau Rect situé à la nouvelle position.</p>
+<pre><code># Add new baddies at the top of the screen, if needed.
 if not reverseCheat and not slowCheat:
-    baddieAddCounter += 1</pre></div>
-<p>On augmente le compteur de baddies de 1 à chaque tour. Ceci ne se produit que si l&rsquo;on n&rsquo;est pas en mode cheat.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if baddieAddCounter == ADDNEWBADDIERATE:
+    baddieAddCounter += 1
+</code></pre>
+<p>On augmente le compteur de baddies de 1 à chaque tour. Ceci ne se produit que si l'on n'est pas en mode cheat.</p>
+<pre><code>if baddieAddCounter == ADDNEWBADDIERATE:
     baddieAddCounter = 0
     baddieSize = random.randint(BADDIEMINSIZE, BADDIEMAXSIZE)
-    newBaddie = {&#39;rect&#39;: pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
-    &#39;speed&#39;: random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
-    &#39;surface&#39;:pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
-    }</pre></div>
-<p>Quand le compteur baddieAddCounter arrive à la valeur ADDNEWBADDIERATE, il est temps d&rsquo;ajouter un méchant à l&rsquo;écran.
+    newBaddie = {'rect': pygame.Rect(random.randint(0, WINDOWWIDTH-baddieSize), 0 - baddieSize, baddieSize, baddieSize),
+    'speed': random.randint(BADDIEMINSPEED, BADDIEMAXSPEED),
+    'surface':pygame.transform.scale(baddieImage, (baddieSize, baddieSize)),
+    }
+</code></pre>
+<p>Quand le compteur baddieAddCounter arrive à la valeur ADDNEWBADDIERATE, il est temps d'ajouter un méchant à l'écran.
 On tire au hasard avec random.randint( ) un entier entre les bornes BADDIEMINSIZE et BADDIEMAXSIZE représentant sa taille.
-On crée ensuite le dictionnaire newBaddie = { } contenant les clés &lsquo;rect&rsquo;, &lsquo;speed&rsquo; et &lsquo;surface&rsquo;. Rect contient la taille et la position. L&rsquo;abscisse de la position est aléatoire entre 0 et la taille de l&rsquo;écran moins la taille du baddie, l&rsquo;ordonnée est choisie de façon à ce qu&rsquo;il semble entrer dans l&rsquo;écran tout en haut. Les dimensions sont égales car le méchant est carré.
+On crée ensuite le dictionnaire newBaddie = { } contenant les clés &lsquo;rect&rsquo;, &lsquo;speed&rsquo; et &lsquo;surface&rsquo;. Rect contient la taille et la position. L'abscisse de la position est aléatoire entre 0 et la taille de l'écran moins la taille du baddie, l'ordonnée est choisie de façon à ce qu'il semble entrer dans l'écran tout en haut. Les dimensions sont égales car le méchant est carré.
 La vitesse est aléatoire entre les constantes définies plus haut : BADDIEMINSPEED et BADDIEMAXSPEED
 La surface est définie de la même manière que celle du joueur.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baddies.append(newBaddie)</pre></div>
+<pre><code>baddies.append(newBaddie)
+</code></pre>
 <p>On ajoute ensuite ce nouveau baddie à la liste comme précédemment.</p>
-
-<h2 id="le-déplacement-du-joueur">Le déplacement du joueur</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if moveLeft and playerRect.left &gt; 0:
-    playerRect.move_ip(-1 * PLAYERMOVERATE, 0)</pre></div>
+<h2 id="le-dplacement-du-joueur">Le déplacement du joueur</h2>
+<pre><code>if moveLeft and playerRect.left &gt; 0:
+    playerRect.move_ip(-1 * PLAYERMOVERATE, 0)
+</code></pre>
 <p>Les quatre variables de déplacement (moveLeft etc.) sont définies comme vraies ou fausses par les événements clavier. Si le joueur bouge vers la gauche et que son abscisse est positive, il devrait se déplacer.
-C&rsquo;est ce qu&rsquo;on fait à l&rsquo;aide de move_ip.</p>
-
-<p>On se déplace selon la vitesse PLAYERMOVERATE définie plus haut. -1*PLAYERMOVERATE est donc la version négative de l&rsquo;entier en question.</p>
-
+C'est ce qu'on fait à l'aide de move_ip.</p>
+<p>On se déplace selon la vitesse PLAYERMOVERATE définie plus haut. -1*PLAYERMOVERATE est donc la version négative de l'entier en question.</p>
 <p>On défini de la même manière les autres déplacements.</p>
-
-<h2 id="la-fonction-pygame-mouse-set-pos">La fonction pygame.mouse.set_pos()</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the mouse cursor to match the player.
-pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)</pre></div>
+<h2 id="la-fonction-pygamemousesetpos">La fonction pygame.mouse.set_pos()</h2>
+<pre><code># Move the mouse cursor to match the player.
+pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)
+</code></pre>
 <p>On déplace le curseur à la même position que le joueur en passant à cette fonction les coordonnées : playerRect.centerx et playerRect.centery.
 En particulier le curseur sera toujours au centre du Rect du joueur.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Move the baddies down.
+<pre><code># Move the baddies down.
 for b in baddies:
     if not reverseCheat and not slowCheat:
-        b[&#39;rect&#39;].move_ip(0, b[&#39;speed&#39;])</pre></div>
+        b['rect'].move_ip(0, b['speed'])
+</code></pre>
 <p>On boucle dans la liste des baddies.
 Python permet de boucler directement dans une liste sans effort.
 Si les cheatmode ne sont pas activés alors le méchant va se déplacer vers le bas.</p>
-
 <h2 id="les-cheatmode">Les cheatmode</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">elif reverseCheat:
-    b[&#39;rect&#39;].move_ip(0, -5)
+<pre><code>elif reverseCheat:
+    b['rect'].move_ip(0, -5)
 elif slowCheat:
-    b[&#39;rect&#39;].move_ip(0, 1)</pre></div>
+    b['rect'].move_ip(0, 1)
+</code></pre>
 <p>On fait reculer les monstres ou on les ralenti si selon le cheatmode activé.</p>
-
-<h2 id="retirer-les-méchants">Retirer les méchants</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Delete baddies that have fallen past the bottom.
+<h2 id="retirer-les-mchants">Retirer les méchants</h2>
+<pre><code># Delete baddies that have fallen past the bottom.
 for b in baddies[:]:
-    if b[&#39;rect&#39;].top &gt; WINDOWHEIGHT:
-        baddies.remove(b)</pre></div>
-<p>Les méchants qui arrivent en bas de l&rsquo;écran sont simplement retirés de la liste qui les contient.
-Attention cependant, il faut s&rsquo;assurer de ne pas modifier la liste elle même alors qu&rsquo;on la parcourt. On réalise d&rsquo;abord une copie de la liste et ensuite on modifie la liste originale. Ceci nous assure que la boucle ne va rencontrer aucune erreur.</p>
-
+    if b['rect'].top &gt; WINDOWHEIGHT:
+        baddies.remove(b)
+</code></pre>
+<p>Les méchants qui arrivent en bas de l'écran sont simplement retirés de la liste qui les contient.
+Attention cependant, il faut s'assurer de ne pas modifier la liste elle même alors qu'on la parcourt. On réalise d'abord une copie de la liste et ensuite on modifie la liste originale. Ceci nous assure que la boucle ne va rencontrer aucune erreur.</p>
 <p>Cette copie est réalisée en écrivant baddies[:]
-b[&lsquo;rect&rsquo;] récupère la valeur de la clé &lsquo;rect&rsquo; de l&rsquo;élément b de la liste. b[&lsquo;rect&rsquo;].top est donc le haut de cet élément.</p>
-
-<p>On compare ensuite le haut de l&rsquo;élément Rect à la taille de l&rsquo;écran et, s&rsquo;il est supérieur on retire le baddie de la liste.</p>
-
-<h2 id="dessiner-la-fenêtre">Dessiner la fenêtre</h2>
-
+b[&lsquo;rect&rsquo;] récupère la valeur de la clé &lsquo;rect&rsquo; de l'élément b de la liste. b[&lsquo;rect&rsquo;].top est donc le haut de cet élément.</p>
+<p>On compare ensuite le haut de l'élément Rect à la taille de l'écran et, s'il est supérieur on retire le baddie de la liste.</p>
+<h2 id="dessiner-la-fentre">Dessiner la fenêtre</h2>
 <p>Tous les éléments étant à jour, il est temps de dessiner la fenêtre.</p>
-
 <p>La fenêtre étant rafraîchie plusieurs fois par seconde, cela rend les animations fluides.</p>
-
 <p>Les éléments sont dessinés <strong>LES UNS AU DESSUS DES AUTRES. On commence donc par le fond</strong></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the game world on the window.
-windowSurface.fill(BACKGROUNDCOLOR)</pre></div>
-<p>On vient donc d&rsquo;effacer tous les éléments précédents.</p>
-
-<p>Souvenons nous que l&rsquo;objet Surface de windowSurface est une surface particuliere renvoyée par pygame.display.set_mode(). Ainsi, tout ce qui est dessiné sur cette surface apparaîtra à l&rsquo;écran une fois pygame.display.update() appelé.</p>
-
+<pre><code># Draw the game world on the window.
+windowSurface.fill(BACKGROUNDCOLOR)
+</code></pre>
+<p>On vient donc d'effacer tous les éléments précédents.</p>
+<p>Souvenons nous que l'objet Surface de windowSurface est une surface particuliere renvoyée par pygame.display.set_mode(). Ainsi, tout ce qui est dessiné sur cette surface apparaîtra à l'écran une fois pygame.display.update() appelé.</p>
 <h2 id="dessiner-le-score">Dessiner le score</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the score and top score.
-drawText(&#39;Score: %s&#39; % (score), font, windowSurface, 10, 0)
-drawText(&#39;Top Score: %s&#39; % (topScore), font, windowSurface, 10, 40)</pre></div>
-<p>On affiche le texte du score et du meilleur score dans le coin de l&rsquo;écran. &lsquo;Score: %s&rsquo; % (score) est un formatage particulier d&rsquo;une chaîne de caractère qui va remplacer %s par la valeur contenu dans le tuple (score). On aura donc :</p>
-
+<pre><code># Draw the score and top score.
+drawText('Score: %s' % (score), font, windowSurface, 10, 0)
+drawText('Top Score: %s' % (topScore), font, windowSurface, 10, 40)
+</code></pre>
+<p>On affiche le texte du score et du meilleur score dans le coin de l'écran. &lsquo;Score: %s&rsquo; % (score) est un formatage particulier d'une chaîne de caractère qui va remplacer %s par la valeur contenu dans le tuple (score). On aura donc :</p>
 <p>&lsquo;Score : 172&rsquo; si la variable score vaut 172.</p>
-
 <p>On les dessine aux coordonnées données en dernier paramètres : respectivement 10, 0 et 10, 40.</p>
-
 <h2 id="dessiner-le-joueur">Dessiner le joueur</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw the player&#39;s rectangle
-windowSurface.blit(playerImage, playerRect)</pre></div>
-<p>Les informations du joueur sont stockées dans deux variables : playerImage (son sprite) et playerRect (position et dimension). La méthode blit() dessine l&rsquo;image playerImage sur la surface windowSurface aux positions de playerRect() et selon ses dimensions.</p>
-
-<h2 id="dessiner-les-méchants">Dessiner les méchants</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Draw each baddie
+<pre><code># Draw the player's rectangle
+windowSurface.blit(playerImage, playerRect)
+</code></pre>
+<p>Les informations du joueur sont stockées dans deux variables : playerImage (son sprite) et playerRect (position et dimension). La méthode blit() dessine l'image playerImage sur la surface windowSurface aux positions de playerRect() et selon ses dimensions.</p>
+<h2 id="dessiner-les-mchants">Dessiner les méchants</h2>
+<pre><code># Draw each baddie
 for b in baddies:
-    windowSurface.blit(b[&#39;surface&#39;], b[&#39;rect&#39;])</pre></div>
-<p>On fait de même pour chaque méchant de la liste. On récupère depuis le dictionnaire b les éléments &lsquo;surface&rsquo; et &lsquo;rect&rsquo; qu&rsquo;on envoie à blit.</p>
-
-<h2 id="mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.display.update()</pre></div>
-<p>On dessine enfin cette surface sur celle de l&rsquo;écran et tous les éléments vont apparaître.</p>
-
-<h2 id="détection-des-collisions">Détection des collisions</h2>
-
-<p>A cette étape toutes les données sont dessinées à l&rsquo;écran. Il ne reste plus qu&rsquo;à détecter les collisions entre le joueur et les méchants.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Check if any of the baddies have hit the player.
+    windowSurface.blit(b['surface'], b['rect'])
+</code></pre>
+<p>On fait de même pour chaque méchant de la liste. On récupère depuis le dictionnaire b les éléments &lsquo;surface&rsquo; et &lsquo;rect&rsquo; qu'on envoie à blit.</p>
+<h2 id="mise--jour-de-la-fentre">Mise à jour de la fenêtre</h2>
+<pre><code>pygame.display.update()
+</code></pre>
+<p>On dessine enfin cette surface sur celle de l'écran et tous les éléments vont apparaître.</p>
+<h2 id="dtection-des-collisions">Détection des collisions</h2>
+<p>A cette étape toutes les données sont dessinées à l'écran. Il ne reste plus qu'à détecter les collisions entre le joueur et les méchants.</p>
+<pre><code># Check if any of the baddies have hit the player.
 if playerHasHitBaddie(playerRect, baddies):
     if score &gt; topScore:
         topScore = score # set new top score
-    break</pre></div>
+    break
+</code></pre>
 <p>On appelle la fonction définie plus haut pour tester la collision entre le joueur et les méchants.
-La partie est alors terminée et on va mettre à jour le meilleur score si le score actuel l&rsquo;a dépassé.</p>
-
+La partie est alors terminée et on va mettre à jour le meilleur score si le score actuel l'a dépassé.</p>
 <p>Enfin on arrête la boucle de la partie avec un break.</p>
-
 <p>On revient alors à la boucle contenant le déroulé du jeu.</p>
-
-<p>Si aucune collision n&rsquo;est détectée on arrive alors ligne 191</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mainClock.tick(FPS)</pre></div>
-<p>Pour empêcher l&rsquo;ordinateur d&rsquo;aller le plus vite possible dans la boucle de jeu (ce qui irait trop vite pour le joueur) on met en pause brièvement. mainClock.tick(FPS) assure que 40 tour de boucles sont effectués par seconde.</p>
-
+<p>Si aucune collision n'est détectée on arrive alors ligne 191</p>
+<pre><code>mainClock.tick(FPS)
+</code></pre>
+<p>Pour empêcher l'ordinateur d'aller le plus vite possible dans la boucle de jeu (ce qui irait trop vite pour le joueur) on met en pause brièvement. mainClock.tick(FPS) assure que 40 tour de boucles sont effectués par seconde.</p>
 <h2 id="game-over">Game Over</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Stop the game and show the &#34;Game Over&#34; screen.
+<pre><code># Stop the game and show the &quot;Game Over&quot; screen.
 pygame.mixer.music.stop()
-gameOverSound.play()</pre></div>
+gameOverSound.play()
+</code></pre>
 <p>Quand le joueur perd, on arrive à la ligne 193 (on est alors sorti de la boucle depuis le break ligne 189). On joue alors le son gameover et on arrête la musique.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">drawText(&#39;GAME OVER&#39;, font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
-drawText(&#39;Press a key to play again.&#39;, font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
+<pre><code>drawText('GAME OVER', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText('Press a key to play again.', font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
-waitForPlayerToPressKey()</pre></div>
-<p>On affiche ensuite le texte proposant de rejouer et on met l&rsquo;écran à jour.</p>
-
-<p>On entre ensuite en pause jusqu&rsquo;à ce qu&rsquo;il presse une touche ligne 200.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gameOverSound.stop()</pre></div>
-<p>Selon le temps que le joueur aura mis à presser une touche, le son gameover peut ne pas être terminé. On arrête le son dès que la fonction waitForPlayerToPressKey() est terminée pour s&rsquo;en assurer.</p>
-
-<h2 id="modifier-le-jeu-dodger">Modifier le jeu Dodger</h2>
-
-<p>Voilà notre jeu graphique réalisé. Vous pouvez le trouver trop difficile ou trop facile&hellip; Mais il est simple de l&rsquo;éditer pour changer ses paramètres. En effet il suffit de régler la vitesse dans les constantes initiales.</p>
-
-<p>Par exemple, pour le ralentir, il suffit de passer FPS à 20 pour qu&rsquo;il aille deux fois moins vite&hellip; Mais votre joueur aussi ira deux fois moins vite !
+waitForPlayerToPressKey()
+</code></pre>
+<p>On affiche ensuite le texte proposant de rejouer et on met l'écran à jour.</p>
+<p>On entre ensuite en pause jusqu'à ce qu'il presse une touche ligne 200.</p>
+<pre><code>gameOverSound.stop()
+</code></pre>
+<p>Selon le temps que le joueur aura mis à presser une touche, le son gameover peut ne pas être terminé. On arrête le son dès que la fonction waitForPlayerToPressKey() est terminée pour s'en assurer.</p>
+<h2 id="modifierle-jeu-dodger">Modifier le jeu Dodger</h2>
+<p>Voilà notre jeu graphique réalisé. Vous pouvez le trouver trop difficile ou trop facile&hellip; Mais il est simple de l'éditer pour changer ses paramètres. En effet il suffit de régler la vitesse dans les constantes initiales.</p>
+<p>Par exemple, pour le ralentir, il suffit de passer FPS à 20 pour qu'il aille deux fois moins vite&hellip; Mais votre joueur aussi ira deux fois moins vite !
 Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale BADDIEMAXSPEED.</p>
-
 <p>Trop facile ? Augmentez la vitesse minimale des baddie sans toucher au FPS. etc.</p>
-
-<p>Moins de méchants, mais plus gros : augmentez le nombre de tours avant qu&rsquo;un méchant n&rsquo;apparaisse et leur taille minimale.</p>
-
+<p>Moins de méchants, mais plus gros : augmentez le nombre de tours avant qu'un méchant n'apparaisse et leur taille minimale.</p>
 <p>Le jeu restera essentiellement le même mais ses paramètres peuvent être adapté selon votre volonté.</p>
 </article>
 
@@ -7135,36 +6993,34 @@ Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale B
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#dodger">DODGER</a>
-<ul>
-<li><a href="#revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</a>
-<ul>
-<li><a href="#importer-les-modules">Importer les modules</a></li>
-<li><a href="#réglage-des-variables-constantes">Réglage des variables Constantes</a></li>
-</ul></li>
-<li><a href="#définir-les-fonctions">Définir les fonctions</a></li>
-<li><a href="#initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</a></li>
-<li><a href="#mode-plein-écran">Mode plein écran</a></li>
-<li><a href="#afficher-l-écran-de-démarrage">Afficher l&rsquo;écran de démarrage</a></li>
-<li><a href="#lancement-du-mode-de-jeu">Lancement du mode de jeu</a></li>
-<li><a href="#la-boucle-de-jeu">La boucle de jeu</a></li>
-<li><a href="#gestion-des-événements">Gestion des événements</a></li>
-<li><a href="#la-méthode-move-ip">La méthode move_ip()</a></li>
-<li><a href="#le-déplacement-du-joueur">Le déplacement du joueur</a></li>
-<li><a href="#la-fonction-pygame-mouse-set-pos">La fonction pygame.mouse.set_pos()</a></li>
-<li><a href="#les-cheatmode">Les cheatmode</a></li>
-<li><a href="#retirer-les-méchants">Retirer les méchants</a></li>
-<li><a href="#dessiner-la-fenêtre">Dessiner la fenêtre</a></li>
-<li><a href="#dessiner-le-score">Dessiner le score</a></li>
-<li><a href="#dessiner-le-joueur">Dessiner le joueur</a></li>
-<li><a href="#dessiner-les-méchants">Dessiner les méchants</a></li>
-<li><a href="#mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</a></li>
-<li><a href="#détection-des-collisions">Détection des collisions</a></li>
-<li><a href="#game-over">Game Over</a></li>
-<li><a href="#modifier-le-jeu-dodger">Modifier le jeu Dodger</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</a>
+      <ul>
+        <li><a href="#importer-les-modules">Importer les modules</a></li>
+        <li><a href="#rglage-des-variables-constantes">Réglage des variables Constantes</a></li>
+      </ul>
+    </li>
+    <li><a href="#dfinir-les-fonctions">Définir les fonctions</a></li>
+    <li><a href="#initialiser-pygame-et-et-dfinir-la-fentre">Initialiser pygame et et définir la fenêtre.</a></li>
+    <li><a href="#mode-plein-cran">Mode plein écran</a></li>
+    <li><a href="#afficher-lcran-de-dmarrage">Afficher l'écran de démarrage</a></li>
+    <li><a href="#lancement-du-mode-de-jeu">Lancement du mode de jeu</a></li>
+    <li><a href="#la-boucle-de-jeu">La boucle de jeu</a></li>
+    <li><a href="#gestion-des-vnements">Gestion des événements</a></li>
+    <li><a href="#la-mthode-moveip">La méthode move_ip()</a></li>
+    <li><a href="#le-dplacement-du-joueur">Le déplacement du joueur</a></li>
+    <li><a href="#la-fonction-pygamemousesetpos">La fonction pygame.mouse.set_pos()</a></li>
+    <li><a href="#les-cheatmode">Les cheatmode</a></li>
+    <li><a href="#retirer-les-mchants">Retirer les méchants</a></li>
+    <li><a href="#dessiner-la-fentre">Dessiner la fenêtre</a></li>
+    <li><a href="#dessiner-le-score">Dessiner le score</a></li>
+    <li><a href="#dessiner-le-joueur">Dessiner le joueur</a></li>
+    <li><a href="#dessiner-les-mchants">Dessiner les méchants</a></li>
+    <li><a href="#mise--jour-de-la-fentre">Mise à jour de la fenêtre</a></li>
+    <li><a href="#dtection-des-collisions">Détection des collisions</a></li>
+    <li><a href="#game-over">Game Over</a></li>
+    <li><a href="#modifierle-jeu-dodger">Modifier le jeu Dodger</a></li>
+  </ul>
 </nav>
   </aside>
 

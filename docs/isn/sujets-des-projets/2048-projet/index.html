@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,64 +6176,52 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h1 id="2048-projet">2048 - projet</h1>
-
-<p><img src="https://articles-images.sftcdn.net/wp-content/uploads/sites/9/2014/03/Corner-Test.gif" alt="" /></p>
-
-<p>L&rsquo;objectif de ce projet est de réaliser une version jouable de 2048.</p>
-
-<p>J&rsquo;imagine que vous connaissez tous ce jeu, sinon il convient d&rsquo;essayer <a href="https://gabrielecirulli.github.io/2048/">quelques parties</a> pour en comprendre le fonctionnement.</p>
-
-<p>Les malins parmi vous remarqueront que le code source original est disponible depuis le premier jour. Bien. Il ne vous servira à rien car il n&rsquo;est pas commenté. D&rsquo;autant que je vous ne raterai pas si vous comptez vous reposer là dessus.</p>
-
+<article class="markdown"><h1 id="2048--projet">2048 - projet</h1>
+<p><img src="https://articles-images.sftcdn.net/wp-content/uploads/sites/9/2014/03/Corner-Test.gif" alt=""></p>
+<p>L'objectif de ce projet est de réaliser une version jouable de 2048.</p>
+<p>J'imagine que vous connaissez tous ce jeu, sinon il convient d'essayer <a href="https://gabrielecirulli.github.io/2048/">quelques parties</a> pour en comprendre le fonctionnement.</p>
+<p>Les malins parmi vous remarqueront que le code source original est disponible depuis le premier jour. Bien. Il ne vous servira à rien car il n'est pas commenté. D'autant que je vous ne raterai pas si vous comptez vous reposer là dessus.</p>
 <h2 id="principe">Principe</h2>
-
 <p>Deux grandes étapes sont à distinguer :</p>
-
 <ol>
 <li>la réalisation du jeu en mode texte. Vous jouez dans la console ou dans une page.</li>
 <li>La réalisation de la partie graphique. Cette partie est moins importante.</li>
 </ol>
-
 <p>Le principe du jeu est simple, une grille de 4x4 contient des nombres qui sont tous des puissances de 2 : des tuiles.
 Vous déplacez le contenu de cette grille dans une direction et les tuiles se dirigent au maximum dans cette direction.
-Deux tuiles identiques s&rsquo;ajoutent alors et n&rsquo;en font plus qu&rsquo;une.
-L&rsquo;objectif est d&rsquo;atteindre 2048, voire les tuiles supérieures (4096 etc.).</p>
-
+Deux tuiles identiques s'ajoutent alors et n'en font plus qu'une.
+L'objectif est d'atteindre 2048, voire les tuiles supérieures (4096 etc.).</p>
 <h2 id="cahier-des-charges">Cahier des charges</h2>
-
 <p>Le jeu est découpé en deux parties presque indépendantes : son fonctionnement et sa représentation graphique.</p>
-
 <p>Le langage employé peut-être Python (on jouera dans la console puis dans pygame) ou javascript (page html en texte puis page html + canvas). Le jeu me parait plus facile à développer en Python.</p>
-
 <ol>
 <li>Votre grille est figurée par un tableau de 4x4. Présentation textuelle de ce tableau. Ici se découpe le projet.</li>
-
-<li><p><strong>Le fonctionnement du jeu.</strong></p>
-
-<ul>
-<li>Déplacement vers la gauche. Vous allez d&rsquo;abord réaliser la simplification des zéros. Les éléments non vide doivent se déplacer. Ensuite l&rsquo;addition de deux éléments identiques et la simplification. Enfin l&rsquo;apparition de nouvelles tuiles et la détection de la fin de partie.</li>
-<li>Les autres déplacements peuvent être obtenus par des symétries. Cela évite d&rsquo;avoir à tout réécrire trois fois. La symétrie selon un axe vertical central (&ldquo;retourner&rdquo;) échange gauche et droite. Pour se déplacer à droite on peut donc : 1. &ldquo;retourner&rdquo;, 2. déplacer à gauche, 3. &ldquo;retourner&rdquo;.</li>
-<li>L&rsquo;échange abscisse/ordonnée (&ldquo;transposer&rdquo;) permet de déplacer selon un axe vertical. Pour se déplacer verticalement (dans quel sens ?) on peut donc : 1. &ldquo;transposer&rdquo;, 2. déplacer à gauche, 3. &ldquo;transposer&rdquo;.</li>
-<li>Le dernier déplacement vertical, nécessite une combinaison des deux précédents. Je vous laisse le soin de le décrire.</li>
-</ul></li>
+<li><strong>Le fonctionnement du jeu.</strong></li>
 </ol>
-
+<ul>
+<li>Déplacement vers la gauche. Vous allez d'abord réaliser la simplification des zéros. Les éléments non vide doivent se déplacer. Ensuite l'addition de deux éléments identiques et la simplification. Enfin l'apparition de nouvelles tuiles et la détection de la fin de partie.</li>
+<li>Les autres déplacements peuvent être obtenus par des symétries. Cela évite d'avoir à tout réécrire trois fois. La symétrie selon un axe vertical central (&ldquo;retourner&rdquo;) échange gauche et droite. Pour se déplacer à droite on peut donc : 1. &ldquo;retourner&rdquo;, 2. déplacer à gauche, 3. &ldquo;retourner&rdquo;.</li>
+<li>L'échange abscisse/ordonnée (&ldquo;transposer&rdquo;) permet de déplacer selon un axe vertical. Pour se déplacer verticalement (dans quel sens ?) on peut donc : 1. &ldquo;transposer&rdquo;, 2. déplacer à gauche, 3. &ldquo;transposer&rdquo;.</li>
+<li>Le dernier déplacement vertical, nécessite une combinaison des deux précédents. Je vous laisse le soin de le décrire.</li>
+</ul>
 <p>A cette étape votre jeu est jouable en mode texte</p>
-
-<ol>
-<li><p><strong>La représentation graphique</strong> se découpe ainsi :</p>
-
-<ol>
-<li>Représenter une grille vide.</li>
-<li>Représenter une tuile et lui attribuer automatiquement une couleur.</li>
-<li>Représenter à chaque étape votre grille et adapter les commandes.</li>
-</ol></li>
-
-<li><p>La dernière étape est <strong>l&rsquo;intégration des deux parties</strong>.
-Selon le langage employé on pourra rendre le jeu jouable sur mobile en gérant aussi les événements &ldquo;touch / swipe etc.&rdquo;</p></li>
+<ol start="3">
+<li>
+<p><strong>La représentation graphique</strong> se découpe ainsi :</p>
+</li>
+<li>
+<p>Représenter une grille vide.</p>
+</li>
+<li>
+<p>Représenter une tuile et lui attribuer automatiquement une couleur.</p>
+</li>
+<li>
+<p>Représenter à chaque étape votre grille et adapter les commandes.</p>
+</li>
+<li>
+<p>La dernière étape est <strong>l'intégration des deux parties</strong>.
+Selon le langage employé on pourra rendre le jeu jouable sur mobile en gérant aussi les événements &ldquo;touch / swipe etc.&rdquo;</p>
+</li>
 </ol>
 </article>
 
@@ -6102,13 +6255,10 @@ Selon le langage employé on pourra rendre le jeu jouable sur mobile en gérant 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#2048-projet">2048 - projet</a>
-<ul>
-<li><a href="#principe">Principe</a></li>
-<li><a href="#cahier-des-charges">Cahier des charges</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#principe">Principe</a></li>
+    <li><a href="#cahier-des-charges">Cahier des charges</a></li>
+  </ul>
 </nav>
   </aside>
 

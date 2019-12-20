@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,185 +6176,167 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p>Notions abordées dans cette page</p>
-
+<article class="markdown"><p>Notions abordées dans cette page</p>
 <ul>
 <li>variables, environnements et <em>locals</em></li>
 <li>portées</li>
 </ul>
-
 <h2 id="fonctions-et-environnement">Fonctions et environnement</h2>
-
 <p>Les manipulations réalisées avec nous ont permis de visualiser la séquence de
 traitement du code exécuté. Il est également possible à tout moment
-de visualiser le résultat de ces traitements et l&rsquo;état de
-l&rsquo;environnement d&rsquo;exécution et son évolution :</p>
-
+de visualiser le résultat de ces traitements et l'état de
+l'environnement d'exécution et son évolution :</p>
 <p>Les notions présentées ici ne sont sans doute pas si évidentes. Cela
 vaut certainement la peine de faire les manipulations au vidéo-projecteur
 avec toute la classe et de solliciter au fur et à mesure les réactions
-des élèves afin d&rsquo;engager la discussion sur ce qui est observé et en
+des élèves afin d'engager la discussion sur ce qui est observé et en
 dégager collectivement les règles de portée.</p>
-
 <ol>
 <li>Activez, si besoin, Firebug et rechargez le document <a href="/uploads/docs/doc04/doc/monuments-version2.html">version 2</a>.</li>
-<li>S&rsquo;il n&rsquo;y est plus replacez un point d&rsquo;arrêt sur la première ligne de code du corps de la
+<li>S'il n'y est plus replacez un point d'arrêt sur la première ligne de code du corps de la
 fonction <code>afficheMonument</code>, et supprimez les éventuels autres.</li>
-<li>Sélectionnez ensuite l&rsquo;onglet <strong>Espions</strong> dans la zone
-droite (à côté de l&rsquo;onglet <strong>Pile</strong> déjà utilisé).</li>
-<li>Rechargez la page et étudiez le contenu de cet onglet. Qu&rsquo;y trouve-t-on (on laissera de côté les
+<li>Sélectionnez ensuite l'onglet <strong>Espions</strong> dans la zone
+droite (à côté de l'onglet <strong>Pile</strong> déjà utilisé).</li>
+<li>Rechargez la page et étudiez le contenu de cet onglet. Qu'y trouve-t-on (on laissera de côté les
 éléments <code>this</code> et <code>Fenêtre</code>) ?</li>
-<li>Tout en observant l&rsquo;évolution du contenu de cet onglet, faites du
-pas-à-pas de traitement jusqu&rsquo;à affichage de la tour
-Eiffel. Qu&rsquo;avez-vous observé ?</li>
+<li>Tout en observant l'évolution du contenu de cet onglet, faites du
+pas-à-pas de traitement jusqu'à affichage de la tour
+Eiffel. Qu'avez-vous observé ?</li>
 <li>Que représente la quantité <strong>arguments</strong> que vous avez pu observer ?</li>
 <li>Quel lien existe entre les paramètres formels et les
 paramètres effectifs ?</li>
 </ol>
-
 <p>Vous avez pu constater que le contenu de cet onglet permettait de
 consulter les valeurs des variables et des paramètres des
-fonctions. On observe à chaque instant l&rsquo;état des
-couples <em>(identificateurs, valeurs)</em>, c&rsquo;est-à-dire l&rsquo;état de
-l&rsquo;environnement d&rsquo;évaluation. On remarque que le contenu de
-l&rsquo;environnement évolue, tant dans sa composition que dans les valeurs
-qu&rsquo;il contient. L&rsquo;environnemment avait initialement été présenté
-comme l&rsquo;ensemble des variables définies, on constate qu&rsquo;il faut lui
+fonctions. On observe à chaque instant l'état des
+couples <em>(identificateurs, valeurs)</em>, c'est-à-dire l'état de
+l'environnement d'évaluation. On remarque que le contenu de
+l'environnement évolue, tant dans sa composition que dans les valeurs
+qu'il contient. L'environnemment avait initialement été présenté
+comme l'ensemble des variables définies, on constate qu'il faut lui
 ajouter les liaisons entre les paramètres formels et les paramètres
 effectifs.</p>
-
 <p>Faites une copie du
 document <code>monuments-version2.html</code> et
 du fichier de script <code>monuments-fonction.js</code>. Dans cet
 exercice vous travaillez avec ces copies.</p>
-
 <ol>
 <li>Modifiez la copie de <code>monuments-version2.html</code> pour
-qu&rsquo;elle utilise la copie du fichier de script.</li>
+qu'elle utilise la copie du fichier de script.</li>
 <li>En consultant le code des 3 fonctions définies dans le
 fichier <code>monuments-fonction.js</code>, on peut remarquer que
-dans le code de chacune d&rsquo;entre elle on trouve la définition d&rsquo;une
+dans le code de chacune d'entre elle on trouve la définition d'une
 variable appelée <code>texte</code>. Recommencez le pas-à-pas
-jusqu&rsquo;à la Tour Eiffel en vous concentrant sur les valeurs prises
+jusqu'à la Tour Eiffel en vous concentrant sur les valeurs prises
 par ces différentes variables nommées <code>texte</code></li>
 <li>Si besoin
-répétez votre observation avec l&rsquo;affichage des images
+répétez votre observation avec l'affichage des images
 suivantes.</li>
-<li>Selon vous, si dans l&rsquo;une de ces
+<li>Selon vous, si dans l'une de ces
 fonctions, <code>texteMonument</code> par exemple, on renomme la
 variable <code>texte</code> en <code>texteResultat</code>, cela
 change-t-il quelque chose ?
 Si oui, quoi ? Si non, pourquoi ?
 Faites-le pour vérifier votre réponse (attention à bien renommer
 toutes les occurrences de la variable).</li>
-
-<li><p>Ajoutez à la fin de la portion <code>script</code> du
-fichier <code>monuments-version2.html</code> la ligne</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;valeur de texte = &#34;</span><span style="color:#555">+</span>texte);
-</code></pre></div></li>
-
-<li><p>Chargez votre document et consultez la <strong>Console</strong> de Firebug.
-Quelle conclusion en tirez-vous ?</p></li>
-
-<li><p>Déduisez de ces dernières observations une règle sur la portée des
-variables définies dans une fonction.</p></li>
+<li>Ajoutez à la fin de la portion <code>script</code> du
+fichier <code>monuments-version2.html</code> la ligne</li>
 </ol>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;valeur de texte = &#34;</span><span style="color:#555">+</span>texte);
+</code></pre></div><ol start="6">
+<li>Chargez votre document et consultez la <strong>Console</strong> de Firebug.
+Quelle conclusion en tirez-vous ?</li>
+<li>Déduisez de ces dernières observations une règle sur la portée des
+variables définies dans une fonction.</li>
+</ol>
 <p>Nous venons de découvrir une autre règle de portée des
 variables.</p>
-
 <p>Les variables définies dans une fonction
 sont locales à cette fonction. Elles ne
 sont pas définies en dehors de cette fonction. On parle
 de portée locale.</p>
-
-<p>Et qu&rsquo;en est-il des variables définies en dehors des fonctions ?</p>
-
+<p>Et qu'en est-il des variables définies en dehors des fonctions ?</p>
 <p>On poursuite la manipulation précédente :</p>
-
 <ol>
-<li><p>Ajoutez au début de la portion <code>script</code> du
+<li>
+<p>Ajoutez au début de la portion <code>script</code> du
 fichier <code>monuments-version2.html</code> la ligne</p>
-
-<p>var globale = &ldquo;une valeur quelconque&rdquo;;</p></li>
+<p>var globale = &ldquo;une valeur quelconque&rdquo;;</p>
+</li>
 </ol>
-
 <p>Cette variable est-elle définie dans la
 fonction <code>afficheMonument</code> (et dans les autres) ?
 Quelle est sa valeur ?</p>
-
-<p>(Vous pouvez éventuellement demandez l&rsquo;affichage de la valeur de
+<p>(Vous pouvez éventuellement demandez l'affichage de la valeur de
 cette variable dans cette fonction, que se passe-t-il ?)
 2. Déduisez-en une règle sur la portée des variables définies en
 dehors des fonctions.</p>
-
 <p>Les variables définies en dehors de toute
 fonction sont globales. Elles sont
 toujours définies et accessibles.</p>
-
-<p>Il est légitime de se demander ce qui se passe lorsque l&rsquo;on utilise le
+<p>Il est légitime de se demander ce qui se passe lorsque l'on utilise le
 même identificateur pour définir une variable globale et une
 varibale locale. On crée un <strong>conflit</strong> de nom, comment est-il
 géré par le langage ?</p>
-
 <p>Reprenez le document <a href="/uploads/docs/doc04/doc/monuments-version2.html">version 2</a> dans sa version initiale.</p>
-
 <ol>
-<li><p>Ajoutez au début de la portion <code>script</code> du
+<li>
+<p>Ajoutez au début de la portion <code>script</code> du
 fichier <code>monuments-version2.html</code> la ligne</p>
-
-<p>var texte = &ldquo;une valeur quelconque&rdquo;;</p></li>
+<p>var texte = &ldquo;une valeur quelconque&rdquo;;</p>
+</li>
 </ol>
-
 <p>et à la fin la ligne</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> document.writeln(&#34;valeur de texte = &#34;+texte);</pre></div>
-<ol>
-<li><p>Chargez le document, supprimez tous les points d&rsquo;arrêt existant et
+<pre><code> document.writeln(&quot;valeur de texte = &quot;+texte);
+</code></pre>
+<ol start="2">
+<li>
+<p>Chargez le document, supprimez tous les points d'arrêt existant et
 placez-en un nouveau sur la ligne ajoutée :</p>
-
-<p>var texte = &ldquo;une valeur quelconque&rdquo;;</p></li>
-
-<li><p>En procédant pas-à-pas observez
-l&rsquo;évolution du contenu de <code>texte</code> au cours du
-traitement.</p></li>
-
-<li><p>Dans la fonction <code>texteMonument</code> renommez la variable
+<p>var texte = &ldquo;une valeur quelconque&rdquo;;</p>
+</li>
+<li>
+<p>En procédant pas-à-pas observez
+l'évolution du contenu de <code>texte</code> au cours du
+traitement.</p>
+</li>
+<li>
+<p>Dans la fonction <code>texteMonument</code> renommez la variable
 locale <code>texte</code> en <code>resultat</code> (par
 exemple).
-Recommencez le pas-à-pas jusqu&rsquo;à arriver au début du traitement
-de cette fonction. La variable <code>texte</code> n&rsquo;apparaît pas dans
-la zone <strong>Espions</strong> qui n&rsquo;affiche par défaut que les définitions
+Recommencez le pas-à-pas jusqu'à arriver au début du traitement
+de cette fonction. La variable <code>texte</code> n'apparaît pas dans
+la zone <strong>Espions</strong> qui n'affiche par défaut que les définitions
 locales, mais il est possible de corriger cela :
 dans cette zone cliquez sur &ldquo;<em>Nouvelle expression
 espion&hellip;</em>&rdquo; et saisissez <code>texte</code> pour connaître la
-valeur de cette variable.</p></li>
-
-<li><p>Que constatez-vous ?</p></li>
-
-<li><p>Pour vérification créez un &ldquo;espion&rdquo; pour une variale qui n&rsquo;existe
-pas, <code>truc</code> par exemple, quelle est sa valeur ?</p></li>
-
-<li><p>Des observations précédentes établissez la règle qui résoud le
-conflit de nom entre vairables globales et locales.</p></li>
+valeur de cette variable.</p>
+</li>
+<li>
+<p>Que constatez-vous ?</p>
+</li>
+<li>
+<p>Pour vérification créez un &ldquo;espion&rdquo; pour une variale qui n'existe
+pas, <code>truc</code> par exemple, quelle est sa valeur ?</p>
+</li>
+<li>
+<p>Des observations précédentes établissez la règle qui résoud le
+conflit de nom entre vairables globales et locales.</p>
+</li>
 </ol>
-
-<p>On constate qu&rsquo;en cas de conflit de njom la variable locale prend le
-pas sur la variable globale tant qu&rsquo;elle est définie. Mais la variable
-globale conserve et &ldquo;retrouve&rdquo; sa valeur une fois que l&rsquo;on quittte la
+<p>On constate qu'en cas de conflit de njom la variable locale prend le
+pas sur la variable globale tant qu'elle est définie. Mais la variable
+globale conserve et &ldquo;retrouve&rdquo; sa valeur une fois que l'on quittte la
 portée de la définition locale.</p>
-
-<p>Les définitions locales l&rsquo;emportent sur les
-définitions globales. On dit qu&rsquo;il y
+<p>Les définitions locales l'emportent sur les
+définitions globales. On dit qu'il y
 a masquage de la variable globale
 par la variable locale de même nom.</p>
-
 <p>Les bonnes pratiques de programmation recommandent de limiter au
-maximum l&rsquo;usage des variables globales. Il faut les réserver pour
-définir des valeurs dont l&rsquo;existence a un sens pour l&rsquo;application
+maximum l'usage des variables globales. Il faut les réserver pour
+définir des valeurs dont l'existence a un sens pour l'application
 dans son ensemble.
-L&rsquo;utilisation de variables globales ne doit pas remplacer le rôle des
+L'utilisation de variables globales ne doit pas remplacer le rôle des
 paramètres des fonctions.</p>
 </article>
 
@@ -6223,12 +6370,9 @@ paramètres des fonctions.</p>
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#fonctions-et-environnement">Fonctions et environnement</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#fonctions-et-environnement">Fonctions et environnement</a></li>
+  </ul>
 </nav>
   </aside>
 

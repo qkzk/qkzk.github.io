@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1934,6 +1934,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6023,51 +6188,38 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h1 id="tester-ses-programmes">Tester ses programmes</h1>
-
-<p>De toute évidence, le code qu&rsquo;on écrit n&rsquo;a aucune assurance de fonctionner si on ne le teste pas&hellip;</p>
-
-<p>Il existe plusieurs approches en Python pour s&rsquo;assurer qu&rsquo;un code fonctionne.</p>
-
-<h1 id="écrire-les-tests-soi-même">Écrire les tests soi même</h1>
-
+<article class="markdown"><h1 id="tester-ses-programmes">Tester ses programmes</h1>
+<p>De toute évidence, le code qu'on écrit n'a aucune assurance de fonctionner si on ne le teste pas&hellip;</p>
+<p>Il existe plusieurs approches en Python pour s'assurer qu'un code fonctionne.</p>
+<h1 id="crire-les-tests-soi-mme">Écrire les tests soi même</h1>
 <p>Le moyen le plus simple consiste à écrire un jeu de test après <code>if __name__=&quot;__main__&quot;:</code></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ma_fonction</span>(n):
-  <span style="color:#555">...</span>
+  <span style="color:#555">.</span><span style="color:#555">.</span><span style="color:#555">.</span>
 
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
-  <span style="color:#069;font-weight:bold">print</span>(ma_fonction(<span style="color:#f60">5</span>))</code></pre></div>
-<p>C&rsquo;est généralement ce qu&rsquo;on fait quand on développe. Ces tests doivent couvrir tous les cas possibles et être compréhensibles.</p>
-
+<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">__main__</span><span style="color:#c30">&#39;</span>:
+  <span style="color:#069;font-weight:bold">print</span>(ma_fonction(<span style="color:#f60">5</span>))
+</code></pre></div><p>C'est généralement ce qu'on fait quand on développe. Ces tests doivent couvrir tous les cas possibles et être compréhensibles.</p>
 <p>Selon les contextes (devoir, projet, développement en cours&hellip;) on peut les laisser ou les effacer.</p>
-
 <p>Il est préférable de les remplacer par de vrais tests&hellip;</p>
-
 <h1 id="assert">Assert</h1>
-
 <p>Python intègre un mot clef <code>assert</code> qui va lever une exception <code>AssertionError</code> si la condition qui suit est fausse:</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">1</span> <span style="color:#09f;font-style:italic"># ne fait rien</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">1</span> <span style="color:#09f;font-style:italic"># ne fait rien</span>
 
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">2</span> <span style="color:#09f;font-style:italic"># plante le programme</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">2</span> <span style="color:#09f;font-style:italic"># plante le programme</span>
 Traceback (most recent call last):
-  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
-<span style="color:#c00;font-weight:bold">AssertionError</span></code></pre></div>
-<p>C&rsquo;est le moyen le plus efficace et rapide de tester un programme ou une fonction.</p>
-
+  File <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">&lt;stdin&gt;</span><span style="color:#c30">&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
+<span style="color:#c00;font-weight:bold">AssertionError</span>
+</code></pre></div><p>C'est le moyen le plus efficace et rapide de tester un programme ou une fonction.</p>
 <p>Il ne faut pas intégrer les assertions à la fonction elle même. Il est préférable de les intégrer à des fonctions de tests indépendantes du programme.</p>
-
 <h2 id="un-exemple">Un exemple</h2>
-
 <p>Reprenons notre fonction Fibonacci</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fibonacci</span>(n):
-  <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">  Liste des termes de la suite de Fibonacci de l&#39;indice 0 à l&#39;indice n inclus
-</span><span style="color:#c30">
-</span><span style="color:#c30">  @param n: (int) l&#39;indice maximal voulu
-</span><span style="color:#c30">  @return: (list) la liste des termes
-</span><span style="color:#c30">  &#39;&#39;&#39;</span>
+  <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  Liste des termes de la suite de Fibonacci de l</span><span style="color:#c30">&#39;</span><span style="color:#c30">indice 0 à l</span><span style="color:#c30">&#39;</span><span style="color:#c30">indice n inclus</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  @param n: (int) l</span><span style="color:#c30">&#39;</span><span style="color:#c30">indice maximal voulu</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  @return: (list) la liste des termes</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  </span><span style="color:#c30">&#39;&#39;&#39;</span>
   <span style="color:#069;font-weight:bold">if</span> <span style="color:#366">type</span>(n) <span style="color:#555">!=</span> <span style="color:#366">int</span> <span style="color:#000;font-weight:bold">or</span> n <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>:
     <span style="color:#069;font-weight:bold">return</span> None
   x <span style="color:#555">=</span> <span style="color:#f60">1</span>
@@ -6077,92 +6229,85 @@ Traceback (most recent call last):
   <span style="color:#069;font-weight:bold">while</span> indice <span style="color:#555">&lt;</span> n:
     x, y <span style="color:#555">=</span> y, x <span style="color:#555">+</span> y
     suite_fibonacci<span style="color:#555">.</span>append(x)
-    indice <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">return</span> suite_fibonacci</code></pre></div>
-<p>On peut tester plusieurs choses :</p>
-
+    indice <span style="color:#555">+</span><span style="color:#555">=</span> <span style="color:#f60">1</span>
+  <span style="color:#069;font-weight:bold">return</span> suite_fibonacci
+</code></pre></div><p>On peut tester plusieurs choses :</p>
 <ul>
 <li>La taille de la liste : n + 1</li>
 <li>Différents résultats : 0, 1, 5 etc.</li>
 <li>Les éléments de la liste sont des entiers</li>
-<li>La propriété de Fibonacci : $u<em>n + u</em>{n + 1} = u_{n + 2}$</li>
-
-<li><p>La sortie dans les cas impossibles : paramètre négatif, paramètre non entier</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tester_fibonacci</span>():
-<span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">Teste certaines propriétés de la fonction Fibonacci
-</span><span style="color:#c30">
-</span><span style="color:#c30">return: None
-</span><span style="color:#c30">CU: lève une exception AssertionError si la fonction est mal programmée
-</span><span style="color:#c30">&#39;&#39;&#39;</span>
-fib_10 <span style="color:#555">=</span> fibonacci(<span style="color:#f60">10</span>)
-
-<span style="color:#09f;font-style:italic"># longueur de la liste</span>
-<span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(fib_10) <span style="color:#555">==</span> <span style="color:#f60">11</span>
-
-<span style="color:#09f;font-style:italic"># différents résultats</span>
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">0</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>]
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">1</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>]
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">5</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>, <span style="color:#f60">8</span>]
-
-<span style="color:#09f;font-style:italic"># ses éléments sont entiers</span>
-<span style="color:#069;font-weight:bold">for</span> terme <span style="color:#000;font-weight:bold">in</span> fib_10:
-    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">type</span>(terme) <span style="color:#555">==</span> <span style="color:#366">int</span>
-
-<span style="color:#09f;font-style:italic"># La propriété de récurrence</span>
-<span style="color:#069;font-weight:bold">assert</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">3</span>] <span style="color:#555">+</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">2</span>] <span style="color:#555">==</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">1</span>]
-
-<span style="color:#09f;font-style:italic"># Valeur de retour dans les cas impossibles</span>
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">==</span> None
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#c30">&#39;a&#39;</span>) <span style="color:#555">==</span> None
-<span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">3.14</span>) <span style="color:#555">==</span> None</code></pre></div></li>
+<li>La propriété de Fibonacci : $u_n + u_{n + 1} = u_{n + 2}$</li>
+<li>La sortie dans les cas impossibles : paramètre négatif, paramètre non entier</li>
 </ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tester_fibonacci</span>():
+    <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    Teste certaines propriétés de la fonction Fibonacci</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    return: None</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    CU: lève une exception AssertionError si la fonction est mal programmée</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    </span><span style="color:#c30">&#39;&#39;&#39;</span>
+    fib_10 <span style="color:#555">=</span> fibonacci(<span style="color:#f60">10</span>)
 
-<h1 id="doctest">Doctest</h1>
+    <span style="color:#09f;font-style:italic"># longueur de la liste</span>
+    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(fib_10) <span style="color:#555">==</span> <span style="color:#f60">11</span>
 
-<p>Python permet grâce au module <code>doctest</code> d&rsquo;intégrer les tests à la documentation.</p>
+    <span style="color:#09f;font-style:italic"># différents résultats</span>
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">0</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>]
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">1</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>]
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">5</span>) <span style="color:#555">==</span> [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>, <span style="color:#f60">8</span>]
 
+    <span style="color:#09f;font-style:italic"># ses éléments sont entiers</span>
+    <span style="color:#069;font-weight:bold">for</span> terme <span style="color:#000;font-weight:bold">in</span> fib_10:
+        <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">type</span>(terme) <span style="color:#555">==</span> <span style="color:#366">int</span>
+
+    <span style="color:#09f;font-style:italic"># La propriété de récurrence</span>
+    <span style="color:#069;font-weight:bold">assert</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">3</span>] <span style="color:#555">+</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">2</span>] <span style="color:#555">==</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">1</span>]
+
+    <span style="color:#09f;font-style:italic"># Valeur de retour dans les cas impossibles</span>
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">==</span> None
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">a</span><span style="color:#c30">&#39;</span>) <span style="color:#555">==</span> None
+    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">3.14</span>) <span style="color:#555">==</span> None
+</code></pre></div><h1 id="doctest">Doctest</h1>
+<p>Python permet grâce au module <code>doctest</code> d'intégrer les tests à la documentation.</p>
 <p>Il est parfois délicat de tester certaines fonctions, en particulier les affichages.</p>
-
 <p>Pour les fonctions qui réalisent des calculs cela est pratique.</p>
-
-<h2 id="un-exemple-1">Un exemple :</h2>
+<h2 id="un-exemple-">Un exemple :</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">multiply</span>(a, b):
-    <span style="color:#c30">&#34;&#34;&#34;
-</span><span style="color:#c30">    Calcule produit de a et b
-</span><span style="color:#c30">    @param a: (number, str, list) premier facteur
-</span><span style="color:#c30">    @param b: (number, str, list) second facteur
-</span><span style="color:#c30">    @return: (number, str, list) le produit
-</span><span style="color:#c30">
-</span><span style="color:#c30">    &gt;&gt;&gt; multiply(4, 3)
-</span><span style="color:#c30">    12
-</span><span style="color:#c30">    &gt;&gt;&gt; multiply(&#39;a&#39;, 3)
-</span><span style="color:#c30">    &#39;aaa&#39;
-</span><span style="color:#c30">    &#34;&#34;&#34;</span>
+    <span style="color:#c30"></span><span style="color:#c30">&#34;&#34;&#34;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    Calcule produit de a et b</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    @param a: (number, str, list) premier facteur</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    @param b: (number, str, list) second facteur</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    @return: (number, str, list) le produit</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    &gt;&gt;&gt; multiply(4, 3)</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    12</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    &gt;&gt;&gt; multiply(</span><span style="color:#c30">&#39;</span><span style="color:#c30">a</span><span style="color:#c30">&#39;</span><span style="color:#c30">, 3)</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    </span><span style="color:#c30">&#39;</span><span style="color:#c30">aaa</span><span style="color:#c30">&#39;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    </span><span style="color:#c30">&#34;&#34;&#34;</span>
     <span style="color:#069;font-weight:bold">return</span> a <span style="color:#555">*</span> b
 
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
+<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">__main__</span><span style="color:#c30">&#39;</span>:
   <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">doctest</span>
-  doctest<span style="color:#555">.</span>testmod() <span style="color:#09f;font-style:italic"># s&#39;il ne se passe rien, les test sont justes</span></code></pre></div>
-<p>Quand on exécute le programme, il ne se passe rien.</p>
-
-<h2 id="un-exemple-qui-échoue">Un exemple qui échoue :</h2>
+  doctest<span style="color:#555">.</span>testmod() <span style="color:#09f;font-style:italic"># s&#39;il ne se passe rien, les test sont justes</span>
+</code></pre></div><p>Quand on exécute le programme, il ne se passe rien.</p>
+<h2 id="un-exemple-qui-choue-">Un exemple qui échoue :</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Fonction_mal_testee</span>():
-    <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">    Simple fonction qui echoue
-</span><span style="color:#c30">    &gt;&gt;&gt; Fonction_mal_testee()
-</span><span style="color:#c30">    3
-</span><span style="color:#c30">    &#39;&#39;&#39;</span>
+    <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    Simple fonction qui echoue</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    &gt;&gt;&gt; Fonction_mal_testee()</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    3</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">    </span><span style="color:#c30">&#39;&#39;&#39;</span>
     <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span>
 
 
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
+<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">__main__</span><span style="color:#c30">&#34;</span>:
     <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">doctest</span>
-    doctest<span style="color:#555">.</span>testmod()  <span style="color:#09f;font-style:italic"># s&#39;il ne se passe rien, les tests sont justes.</span></code></pre></div>
-<p>Voici la sortie d&rsquo;un exemple qui échoue</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt; python3 2_tester_doctest.py
+    doctest<span style="color:#555">.</span>testmod()  <span style="color:#09f;font-style:italic"># s&#39;il ne se passe rien, les tests sont justes.</span>
+</code></pre></div><p>Voici la sortie d'un exemple qui échoue</p>
+<pre><code>&gt;&gt;&gt; python3 2_tester_doctest.py
 **********************************************************************
-File &#34;/home/quentin/realiser_des_tests/2_tester_doctest.py&#34;, line 5,
+File &quot;/home/quentin/realiser_des_tests/2_tester_doctest.py&quot;, line 5,
 in __main__.Fonction_mal_testee
 Failed example:
     Fonction_mal_testee()
@@ -6174,13 +6319,10 @@ Got:
 **********************************************************************
 1 items had failures:
    1 of   1 in __main__.Fonction_mal_testee
-***Test Failed*** 1 failures.</pre></div>
-<h1 id="unitest-tesmod">Unitest, tesmod</h1>
-
-<p>Il existe une librairie dédiée aux tests : <code>Unitest</code> et qui permet de tester toutes les propriétés possibles d&rsquo;un objet.</p>
-
-<p>Elle est un peu vaste et trop complexe pour nos objectifs aussi nous ne l&rsquo;utiliserons pas.</p>
-
+***Test Failed*** 1 failures.
+</code></pre><h1 id="unitest-tesmod">Unitest, tesmod</h1>
+<p>Il existe une librairie dédiée aux tests : <code>Unitest</code> et qui permet de tester toutes les propriétés possibles d'un objet.</p>
+<p>Elle est un peu vaste et trop complexe pour nos objectifs aussi nous ne l'utiliserons pas.</p>
 <p>Voici sa <a href="https://docs.python.org/fr/3.7/library/unittest.html">documentation</a> et un <a href="http://sametmax.com/un-gros-guide-bien-gras-sur-les-tests-unitaires-en-python-partie-2/">guide détaillé</a>.</p>
 </article>
 
@@ -6214,20 +6356,14 @@ Got:
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#tester-ses-programmes">Tester ses programmes</a></li>
-<li><a href="#écrire-les-tests-soi-même">Écrire les tests soi même</a></li>
-<li><a href="#assert">Assert</a>
-<ul>
-<li><a href="#un-exemple">Un exemple</a></li>
-</ul></li>
-<li><a href="#doctest">Doctest</a>
-<ul>
-<li><a href="#un-exemple-1">Un exemple :</a></li>
-<li><a href="#un-exemple-qui-échoue">Un exemple qui échoue :</a></li>
-</ul></li>
-<li><a href="#unitest-tesmod">Unitest, tesmod</a></li>
-</ul>
+  <ul>
+    <li><a href="#un-exemple">Un exemple</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#un-exemple-">Un exemple :</a></li>
+    <li><a href="#un-exemple-qui-choue-">Un exemple qui échoue :</a></li>
+  </ul>
 </nav>
   </aside>
 

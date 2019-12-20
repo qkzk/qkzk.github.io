@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,125 +6176,96 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h4 id="ce-projet-est-très-complexe">**Ce projet est TRÈS complexe. **</h4>
-
-<h4 id="il-n-est-envisageable-que-si-vous-maitrisez-deja-l-electronique-un-minimum-le-raspberry-le-réseau-python-et-l-html"><strong>Il n&rsquo;est envisageable que si vous maitrisez deja l&rsquo;electronique (un minimum), le raspberry, le réseau, Python et l&rsquo;HTML.</strong></h4>
-
+<article class="markdown"><h4 id="ce-projet-est-trscomplexe-">**Ce projet est TRÈS complexe. **</h4>
+<h4 id="il-nest-envisageable-que-si-vous-maitrisez-deja-lelectronique-un-minimum-le-raspberry-le-rseau-python-et-lhtml"><strong>Il n'est envisageable que si vous maitrisez deja l'electronique (un minimum), le raspberry, le réseau, Python et l'HTML.</strong></h4>
 <p>Deux raspberry (au moins), un serveur html, une console de contrôle.</p>
-
 <p>Elle comporte plusieurs raspberry (ou arduino) contrôlant des capteurs / sorties (mouvement, distance, température, humidité, pression atmosphérique, photorésistance, servomoteur, camera, lecture de badge nfc, contrôle de relais etc.) qui communiquent avec un serveur.</p>
-
 <ol>
 <li>Chaque raspberry fera donc tourner un ou deux scripts python et éventuellement motion (pour les cameras).
 On peut découper le script ainsi : relevés locaux, communication via mqtt avec le serveur.</li>
-
-<li><p>Le serveur est une autre machine (raspberry, serveur classique etc.) qui contient trois composants principaux :</p>
-
+<li>Le serveur est une autre machine (raspberry, serveur classique etc.) qui contient trois composants principaux :</li>
+</ol>
 <ul>
-<li>un <strong>broker</strong> mqtt (= serveur mqtt) qui récupère les informations et les renvoie. Une fois installé correctement il n&rsquo;y a plus rien à faire. Il récupère et transmet tout seul.</li>
+<li>un <strong>broker</strong> mqtt (= serveur mqtt) qui récupère les informations et les renvoie. Une fois installé correctement il n'y a plus rien à faire. Il récupère et transmet tout seul.</li>
 <li>un serveur python qui récupère les informations transmises par le broker et les intègre à une base de donnée mySQL : <strong>mqtt_to_sql.py</strong></li>
 <li>un serveur html qui lit ces informations, les publie (graphiques, intégration de caméra, boutons, sliders, stream video de la camera) : **display_data.py
-**Le tout sera donc présenté à l&rsquo;aide d&rsquo;un serveur html tournant en python avec flask. Il comportera au moins une page, idéalement une par composant.
-Il sera possible d&rsquo;afficher un graphe comportant les derniers relevés (crée en javascript)</li>
-</ul></li>
-
-<li><p>un client html peut alors se connecter au serveur et lire/interagir avec les données.</p></li>
+**Le tout sera donc présenté à l'aide d'un serveur html tournant en python avec flask. Il comportera au moins une page, idéalement une par composant.
+Il sera possible d'afficher un graphe comportant les derniers relevés (crée en javascript)</li>
+</ul>
+<ol start="3">
+<li>un client html peut alors se connecter au serveur et lire/interagir avec les données.</li>
 </ol>
-
-<p><img src="https://docs.google.com/drawings/d/1yh0YsJq3fJedEdVh2gFhUGG2uveA1G_Ni7adSlxvHLI/pub?w=480&amp;h=360" alt="" /></p>
-
-<h2 id="quelques-informations-sur-les-technologies-employées">Quelques informations sur les technologies employées</h2>
-
+<p><img src="https://docs.google.com/drawings/d/1yh0YsJq3fJedEdVh2gFhUGG2uveA1G_Ni7adSlxvHLI/pub?w=480&amp;h=360" alt=""></p>
+<h2 id="quelques-informations-sur-les-technologies-employes">Quelques informations sur les technologies employées</h2>
 <h3 id="mqtt">MQTT</h3>
-
-<p>La communication entre les raspberry / arduino et le serveur se fera à l&rsquo;aide du protocole MQTT (qui encapsule le websocket et donc tcp : le réseau classique).
-L&rsquo;avantage de MQTT est immense : le serveur s&rsquo;installe tout seul en ligne de commande et les tutoriels sont très simples. Une fois installé il ne nécessite AUCUNE interaction, AUCUN réglage. On peut s&rsquo;abonner aux topic sans utiliser de script python et s&rsquo;assurer que l&rsquo;information lui parvient correctement. On peut simuler un envoi d&rsquo;information en ligne de commande.
-S&rsquo;abonner, envoyer un message, réagir à un message sont les seules fonctions qu&rsquo;il faut mettre en place. Elles sont déjà présentes dans les tutoriels python et fonctionnent parfaitement.</p>
-
-<p><img src="https://docs.google.com/drawings/d/1MCNtAM5uHbxD2hg8GElfghhRWlgru9VMOOPVm684Zpo/pub?w=480&amp;h=360" alt="" /></p>
-
+<p>La communication entre les raspberry / arduino et le serveur se fera à l'aide du protocole MQTT (qui encapsule le websocket et donc tcp : le réseau classique).
+L'avantage de MQTT est immense : le serveur s'installe tout seul en ligne de commande et les tutoriels sont très simples. Une fois installé il ne nécessite AUCUNE interaction, AUCUN réglage. On peut s'abonner aux topic sans utiliser de script python et s'assurer que l'information lui parvient correctement. On peut simuler un envoi d'information en ligne de commande.
+S'abonner, envoyer un message, réagir à un message sont les seules fonctions qu'il faut mettre en place. Elles sont déjà présentes dans les tutoriels python et fonctionnent parfaitement.</p>
+<p><img src="https://docs.google.com/drawings/d/1MCNtAM5uHbxD2hg8GElfghhRWlgru9VMOOPVm684Zpo/pub?w=480&amp;h=360" alt=""></p>
 <p>Le principe est le suivant.</p>
-
 <ol>
-<li>Le <strong>collecteur</strong> (un script python sur le serveur - ou ailleurs) s&rsquo;abonne à un <strong>topic</strong> (exemple temp) sur le broker. Notons simplement <strong>MQTT SUB &ldquo;temp&rdquo;.
-Cette étape ne doit être faite qu&rsquo;une seule fois.</strong></li>
+<li>Le <strong>collecteur</strong> (un script python sur le serveur - ou ailleurs) s'abonne à un <strong>topic</strong> (exemple temp) sur le broker. Notons simplement <strong>MQTT SUB &ldquo;temp&rdquo;.
+Cette étape ne doit être faite qu'une seule fois.</strong></li>
 <li>le <strong>publieur</strong> (un script python sur le raspberry ou autre) publie un message sur ce topic (temp) au <strong>broker</strong>. Notons <strong>MQTT PUB &ldquo;temp&rdquo;</strong> : 24 (il fait 24°C)</li>
 <li>Le <strong>broker</strong> relaie cette information au <strong>collecteur</strong> intéressé par ce topic. **MQTT msg &ldquo;temp&rdquo; 24.
 **Les prochains messages du topic &ldquo;temp&rdquo; seront envoyés de la même manière.</li>
 </ol>
-
-<p>La transmission de l&rsquo;information est assurée par le broker il n&rsquo;y a rien d&rsquo;autre à faire. MQTT fonctionne presque nativement sous linux et donc le raspberry et sous arduino.</p>
-
+<p>La transmission de l'information est assurée par le broker il n'y a rien d'autre à faire. MQTT fonctionne presque nativement sous linux et donc le raspberry et sous arduino.</p>
 <p>On pourra envisager de faire transiter une information entre un arduino déconnecté du réseau et un raspberry via des modules nrf24l01+ qui utilisent des connections radio.</p>
-
-<h3 id="raspberry-arduino"><strong>Raspberry  / Arduino</strong></h3>
-
+<h3 id="raspberry--arduino"><strong>Raspberry  / Arduino</strong></h3>
 <p>Chaque raspberry / arduino permet simplement</p>
-
 <ul>
 <li>soit de relever une mesure et de la publier au broker en utilisant MQTT</li>
 <li>soit de streamer une vidéo de surveillance</li>
-<li>soit d&rsquo;agir avec un composant (servo moteur à faire tourner, affichage LCD, allumage d&rsquo;une led, activation d&rsquo;un relais).</li>
+<li>soit d'agir avec un composant (servo moteur à faire tourner, affichage LCD, allumage d'une led, activation d'un relais).</li>
 </ul>
-
 <h3 id="serveur-web">Serveur web</h3>
-
-<p>Ainsi qu&rsquo;il a été dit plus haut, deux scripts doivent être développés pour cette machine.</p>
-
+<p>Ainsi qu'il a été dit plus haut, deux scripts doivent être développés pour cette machine.</p>
 <ul>
-<li>Le collecteur qui s&rsquo;abonne au broker mqtt, reçoit les infos et les stocke dans une bdd. Son travail est simple mais crucial.</li>
+<li>Le collecteur qui s'abonne au broker mqtt, reçoit les infos et les stocke dans une bdd. Son travail est simple mais crucial.</li>
 <li>le serveur web qui récupère les infos depuis la bdd et les publie dans une page web
-Celle-ci s&rsquo;accompagne de graphiques crées en javascript permettant d&rsquo;afficher les informations récupérées.
-Des boutons permettant d&rsquo;agir seront présentés. La pression de l&rsquo;un d&rsquo;eux enverra une information au broker. Le raspberry/arduino concerné devra réagir à cette action.</li>
+Celle-ci s'accompagne de graphiques crées en javascript permettant d'afficher les informations récupérées.
+Des boutons permettant d'agir seront présentés. La pression de l'un d'eux enverra une information au broker. Le raspberry/arduino concerné devra réagir à cette action.</li>
 </ul>
-
 <h3 id="sqlite">SQLITE</h3>
-
-<p>C&rsquo;est un système de gestion de base de donnée SQL. Disons simplement qu&rsquo;il permet de stocker et de lire des données triées proprement. D&rsquo;en relever une ou plusieurs simultanément et de créer des associations entre elles.
-Nous n&rsquo;exploiterons qu&rsquo;une infime partie de ce que les bases de données proposent. SQLITE a été retenu pour ce projet car il est très documenté. Toutes les bases de données feraient l&rsquo;affaire mais SQLITE réunit 2 qualités : il ne nécessite pas de réseau et il est très documenté.
-Nous allons donc créer une table par type de mesure (température, humidité, pression, ouverture/fermeture d&rsquo;un interrupteur&hellip;).
+<p>C'est un système de gestion de base de donnée SQL. Disons simplement qu'il permet de stocker et de lire des données triées proprement. D'en relever une ou plusieurs simultanément et de créer des associations entre elles.
+Nous n'exploiterons qu'une infime partie de ce que les bases de données proposent. SQLITE a été retenu pour ce projet car il est très documenté. Toutes les bases de données feraient l'affaire mais SQLITE réunit 2 qualités : il ne nécessite pas de réseau et il est très documenté.
+Nous allons donc créer une table par type de mesure (température, humidité, pression, ouverture/fermeture d'un interrupteur&hellip;).
 Un script Python va créer la base, la table et la remplir au fur et à mesure.</p>
-
-<p><img src="https://docs.google.com/drawings/d/1kDaEtT5TCSBqCZC-vfEZsrwY__ZvIfFa-z61pMlNmcM/pub?w=480&amp;h=360" alt="" /></p>
-
+<p><img src="https://docs.google.com/drawings/d/1kDaEtT5TCSBqCZC-vfEZsrwY__ZvIfFa-z61pMlNmcM/pub?w=480&amp;h=360" alt=""></p>
 <h3 id="flask">Flask</h3>
-
 <p>Il existe une foultitude de serveur html et flask est une solution minimaliste fonctionnant en Python, donc simple à prendre en main. Le principe est de créer un serveur et de lui décrire le contenu de chaque adresse possible.
-Exemple : un client se connecte à la racine : &ldquo;<a href="http://exemple.com/&quot;">http://exemple.com/&quot;</a>
-On lui envoie ce qui correspond à &ldquo;/&rdquo; qui est décrit dans le script. Par exemple le résultat d&rsquo;une fonction qui affiche &ldquo;Hello World!&rdquo;. Et voilà.</p>
-
+Exemple : un client se connecte à la racine : &ldquo;<a href="http://exemple.com/">http://exemple.com/</a>&rdquo;
+On lui envoie ce qui correspond à &ldquo;/&rdquo; qui est décrit dans le script. Par exemple le résultat d'une fonction qui affiche &ldquo;Hello World!&quot;. Et voilà.</p>
 <p>On peut bien sûr faire mieux et créer des modèles (templates).
 Un modele est un fichier html classique comportant des balises {{ }} qui présentent des variables.</p>
-
 <p>Le script python va donc faire 3 choses :</p>
-
 <ol>
-<li><p>relever dans la bdd l&rsquo;info nécessaire (Ex : la dernière température). Requete SQL (simplifiée) &lsquo;last temp&rsquo; - reponse SQL date: &lsquo;16:01&rsquo;, temp: &lsquo;24&rsquo;.
-<img src="https://docs.google.com/drawings/d/11-8ANtjig7DWQXtY06OfVEzGaJqVq0-IOaxg8MC483g/pub?w=480&amp;h=360" alt="" /></p></li>
-
-<li><p>l&rsquo;intégrer dans le code html de la page (A 16h01 et la température était de 24°C )</p></li>
-
-<li><p>envoyer cette info au client html qui verra alors :
-A 16h01 et la température était de 24°C</p></li>
+<li>
+<p>relever dans la bdd l'info nécessaire (Ex : la dernière température). Requete SQL (simplifiée) &lsquo;last temp&rsquo; - reponse SQL date: &lsquo;16:01&rsquo;, temp: &lsquo;24&rsquo;.
+<img src="https://docs.google.com/drawings/d/11-8ANtjig7DWQXtY06OfVEzGaJqVq0-IOaxg8MC483g/pub?w=480&amp;h=360" alt=""></p>
+</li>
+<li>
+<p>l'intégrer dans le code html de la page (A 16h01 et la température était de 24°C )</p>
+</li>
+<li>
+<p>envoyer cette info au client html qui verra alors :
+A 16h01 et la température était de 24°C</p>
+</li>
 </ol>
-
-<p>Arrêtons ici la description de cette partie. Je ne détaille pas l&rsquo;envoie d&rsquo;un ordre depuis le client html.
-Exemple : bouton &ldquo;allumer la lumière&rdquo;. L&rsquo;information circule alors dans l&rsquo;autre sens. Depuis le serveur flask vers les raspberry / arduino qui contrôlent.</p>
-
+<p>Arrêtons ici la description de cette partie. Je ne détaille pas l'envoie d'un ordre depuis le client html.
+Exemple : bouton &ldquo;allumer la lumière&rdquo;. L'information circule alors dans l'autre sens. Depuis le serveur flask vers les raspberry / arduino qui contrôlent.</p>
 <h2 id="cahier-des-charges">Cahier des charges</h2>
-
 <ol>
-<li>Etablir un petit protocole de notation des informations. Ainsi vous pourrez ensuite simuler leur parcours et vous serez certain qu&rsquo;elles seront interprétées correctement.</li>
-<li>Mettre en place une simulation d&rsquo;envoi d&rsquo;information à un broker MQTT</li>
+<li>Etablir un petit protocole de notation des informations. Ainsi vous pourrez ensuite simuler leur parcours et vous serez certain qu'elles seront interprétées correctement.</li>
+<li>Mettre en place une simulation d'envoi d'information à un broker MQTT</li>
 <li>Stocker des informations (factices ou réelles) dans une bdd sqlite après les avoir reçues du broker.</li>
-<li>Flask. Afficher une page statique sans template. Créer un template statique. Créer un template utilisant une variable. Lire une info dans une variable et l&rsquo;afficher sans template. Lire une info dans la bdd et l&rsquo;afficher sans template. Lire une info dans la bdd et l&rsquo;afficher dans un template.</li>
-<li>Capteur RPI/Arduino. Envoyer une info via MQTT. Mettre en place l&rsquo;envoi régulier d&rsquo;un relevé au script qui stocke les données via MQTT.
+<li>Flask. Afficher une page statique sans template. Créer un template statique. Créer un template utilisant une variable. Lire une info dans une variable et l'afficher sans template. Lire une info dans la bdd et l'afficher sans template. Lire une info dans la bdd et l'afficher dans un template.</li>
+<li>Capteur RPI/Arduino. Envoyer une info via MQTT. Mettre en place l'envoi régulier d'un relevé au script qui stocke les données via MQTT.
 A cette étape le projet sera complet mais minimaliste.</li>
-<li>Graphique. Relever les 100 dernières températures et les afficher dans un graphique. Ajouter l&rsquo;humidité sur le même graphique. Le rendu du graphique est réalisé par le client afin d&rsquo;économiser les ressources, il est donc fait en javascript.</li>
-<li>Donner des ordres au client via l&rsquo;interface web.</li>
-<li>Rendre l&rsquo;interface présentable graphiquement avec du CSS.</li>
+<li>Graphique. Relever les 100 dernières températures et les afficher dans un graphique. Ajouter l'humidité sur le même graphique. Le rendu du graphique est réalisé par le client afin d'économiser les ressources, il est donc fait en javascript.</li>
+<li>Donner des ordres au client via l'interface web.</li>
+<li>Rendre l'interface présentable graphiquement avec du CSS.</li>
 </ol>
 </article>
 
@@ -6163,28 +6299,23 @@ A cette étape le projet sera complet mais minimaliste.</li>
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#ce-projet-est-très-complexe">**Ce projet est TRÈS complexe. **</a></li>
-<li><a href="#il-n-est-envisageable-que-si-vous-maitrisez-deja-l-electronique-un-minimum-le-raspberry-le-réseau-python-et-l-html"><strong>Il n&rsquo;est envisageable que si vous maitrisez deja l&rsquo;electronique (un minimum), le raspberry, le réseau, Python et l&rsquo;HTML.</strong></a></li>
-</ul></li>
-</ul></li>
-<li><a href="#quelques-informations-sur-les-technologies-employées">Quelques informations sur les technologies employées</a>
-<ul>
-<li><a href="#mqtt">MQTT</a></li>
-<li><a href="#raspberry-arduino"><strong>Raspberry  / Arduino</strong></a></li>
-<li><a href="#serveur-web">Serveur web</a></li>
-<li><a href="#sqlite">SQLITE</a></li>
-<li><a href="#flask">Flask</a></li>
-</ul></li>
-<li><a href="#cahier-des-charges">Cahier des charges</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#quelques-informations-sur-les-technologies-employes">Quelques informations sur les technologies employées</a>
+      <ul>
+        <li><a href="#mqtt">MQTT</a></li>
+        <li><a href="#raspberry--arduino">Raspberry  / Arduino</a></li>
+        <li><a href="#serveur-web">Serveur web</a></li>
+        <li><a href="#sqlite">SQLITE</a></li>
+        <li><a href="#flask">Flask</a></li>
+      </ul>
+    </li>
+    <li><a href="#cahier-des-charges">Cahier des charges</a></li>
+  </ul>
 </nav>
   </aside>
 

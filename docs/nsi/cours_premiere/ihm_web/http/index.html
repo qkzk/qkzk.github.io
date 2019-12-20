@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,76 +6176,60 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h1 id="protocole-http">Protocole HTTP</h1>
-
-<p>Revenons sur l&rsquo;adresse qui s&rsquo;affiche dans la barre d&rsquo;adresse d&rsquo;un
+<article class="markdown"><h1 id="protocole-http">Protocole HTTP</h1>
+<p>Revenons sur l'adresse qui s'affiche dans la barre d'adresse d'un
 navigateur web et plus précisément sur le début de cette adresse
-c&rsquo;est-à-dire le &ldquo;http&rdquo;</p>
-
+c'est-à-dire le &ldquo;http&rdquo;</p>
 <p>Selon les cas cette adresse commencera par http ou https (nous verrons
 ce deuxième cas à la fin de cette activité).</p>
-
 <p>Le protocole (un protocole est ensemble de règles qui permettent à 2
 ordinateurs de communiquer ensemble) HTTP (HyperText Transfert Protocol)
-va permettre au client d&rsquo;effectuer des requêtes à destination d&rsquo;un
+va permettre au client d'effectuer des requêtes à destination d'un
 serveur web. En retour, le serveur web va envoyer une réponse.</p>
-
-<p>Voici une version simplifiée de la composition d&rsquo;une requête HTTP
+<p>Voici une version simplifiée de la composition d'une requête HTTP
 (client vers serveur) :</p>
-
 <ul>
 <li>la méthode employée pour effectuer la requête</li>
-<li>l&rsquo;URL de la ressource</li>
+<li>l'URL de la ressource</li>
 <li>la version du protocole utilisé par le client (souvent HTTP 1.1)</li>
 <li>le navigateur employé (Firefox, Chrome) et sa version</li>
 <li>le type du document demandé (par exemple HTML)</li>
 <li>&hellip;</li>
 </ul>
-
 <p>Certaines de ces lignes sont optionnelles.</p>
-
 <p>Voici un exemple de requête HTTP :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">GET /mondossier/monFichier.html HTTP/1.1
+<pre><code>GET /mondossier/monFichier.html HTTP/1.1
 User-Agent : Mozilla/5.0
-Accept : text/html</pre></div>
+Accept : text/html
+</code></pre>
 <p>Nous avons ici plusieurs informations :</p>
-
 <ul>
 <li>&ldquo;GET&rdquo; est la <em>méthode</em> employée (voir ci-dessous)</li>
-<li>&rdquo;/mondossier/monFichier.html&rdquo; correspond l&rsquo;<em>URL</em> de la ressource
+<li>&ldquo;/mondossier/monFichier.html&rdquo; correspond l&rsquo;<em>URL</em> de la ressource
 demandée</li>
 <li>&ldquo;HTTP/1.1&rdquo; : la version du <em>protocole</em> est la 1.1</li>
 <li>&ldquo;Mozilla/5.0&rdquo; : le <em>navigateur</em> web employé est Firefox de la
 société Mozilla</li>
-<li>&ldquo;text/html&rdquo; : le client s&rsquo;attend à <em>recevoir du HTML</em></li>
+<li>&ldquo;text/html&rdquo; : le client s'attend à <em>recevoir du HTML</em></li>
 </ul>
-
 <p>Revenons sur la <em>méthode</em> employée :</p>
-
-<p>Une requête HTTP  utilise une méthode (c&rsquo;est une commande qui demande
-au serveur d&rsquo;effectuer une certaine action). Voici la liste des
+<p>Une requête HTTP  utilise une méthode (c'est une commande qui demande
+au serveur d'effectuer une certaine action). Voici la liste des
 méthodes disponibles :</p>
-
 <p><code>GET, HEAD, POST, OPTIONS, CONNECT, TRACE, PUT, PATCH, DELETE</code></p>
-
 <p>Détaillons 4 de ces méthodes :</p>
-
 <ul>
-<li><strong>GET</strong> : C&rsquo;est la méthode la plus courante pour demander une
+<li><strong>GET</strong> : C'est la méthode la plus courante pour demander une
 ressource. Elle est sans effet sur la ressource.</li>
 <li><strong>POST</strong> : Cette méthode est utilisée pour soumettre des données en vue
-d&rsquo;un traitement (côté serveur). Typiquement c&rsquo;est la méthode
-employée lorsque l&rsquo;on envoie au serveur les données issues d&rsquo;un
+d'un traitement (côté serveur). Typiquement c'est la méthode
+employée lorsque l'on envoie au serveur les données issues d'un
 formulaire.</li>
 <li><strong>DELETE</strong> : Cette méthode permet de supprimer une ressource sur le
 serveur.</li>
 <li><strong>PUT</strong> : Cette méthode permet de modifier une ressource sur le serveur</li>
 </ul>
-
-<h2 id="réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</h2>
-
+<h2 id="rponse-du-serveur--une-requte-http">Réponse du serveur à une requête HTTP</h2>
 <p>Une fois la requête reçue, le serveur va renvoyer une réponse, voici un
 exemple de réponse du serveur :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">HTTP/1.1 200 OK
@@ -6099,161 +6248,155 @@ Content-Type: text/html; charset=ISO-8859-1
     &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Hello World! Ceci est un titre&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
     &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Ceci est un &lt;<span style="color:#309;font-weight:bold">strong</span>&gt;paragraphe&lt;/<span style="color:#309;font-weight:bold">strong</span>&gt;. Avez-vous bien compris ?&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;</code></pre></div>
-<p>Nous n&rsquo;allons pas détailler cette réponse, voici quelques explications
+&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</code></pre></div><p>Nous n'allons pas détailler cette réponse, voici quelques explications
 sur les éléments qui nous seront indispensables par la suite :</p>
-
 <p>Commençons par la fin (à partir de <code>&lt;!doctype html&gt;</code>): le serveur renvoie du
 code HTML, une fois ce
 code reçu par le client, il est interprété par le navigateur qui affiche
-le résultat à l&rsquo;écran. Cette partie correspond au <em>corps de la réponse</em>.</p>
-
+le résultat à l'écran. Cette partie correspond au <em>corps de la réponse</em>.</p>
 <p>La 1re ligne se nomme la ligne de statut :</p>
-
 <ul>
 <li>HTTP/1.1 : version de HTTP utilisé par le serveur</li>
 <li>200 : code indiquant que le document recherché par le client a bien
-été trouvé par le serveur. Il existe <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">d&rsquo;autres codes</a>
+été trouvé par le serveur. Il existe <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">d'autres codes</a>
 dont un que
 vous connaissez peut-être déjà : le code 404 (qui signifie  «Le
-document recherché n&rsquo;a pu être trouvé»).</li>
+document recherché n'a pu être trouvé»).</li>
 </ul>
-
-<p>Les 5 lignes suivantes constituent l&rsquo;en-tête de la réponse, une ligne
+<p>Les 5 lignes suivantes constituent l'en-tête de la réponse, une ligne
 nous intéresse plus particulièrement :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4</pre></div>
+<pre><code>Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4
+</code></pre>
 <p>Le serveur web qui a fourni la réponse http ci-dessus a comme système
-d&rsquo;exploitation une distribution GNU/Linux nommée &ldquo;Debian&rdquo; (pour en
-savoir plus sur GNU/Linux, c&rsquo;est celle que nous utiliserons d&rsquo;ailleurs).
-&ldquo;Apache&rdquo; est le coeur du serveur web puisque c&rsquo;est ce
+d'exploitation une distribution GNU/Linux nommée &ldquo;Debian&rdquo; (pour en
+savoir plus sur GNU/Linux, c'est celle que nous utiliserons d'ailleurs).
+&ldquo;Apache&rdquo; est le coeur du serveur web puisque c'est ce
 logiciel qui va gérer les requêtes http (recevoir les requêtes http en
 provenance des clients et renvoyer les réponses http).</p>
-
-<p>Il existe d&rsquo;autres logiciels capables de gérer les requêtes http (nginx,
+<p>Il existe d'autres logiciels capables de gérer les requêtes http (nginx,
 microsoft-iis&hellip;). NGINX (engine x) dépasse depuis peu (juin 2019) Apache.
 NGINX et Apache sont installés sur 85% des serveurs web mondiaux.</p>
-
 <p>Le &ldquo;HTTPS&rdquo; est la version &ldquo;sécurisée&rdquo; du protocole HTTP. Par
-&ldquo;sécurisé&rdquo; en entend que les données sont chiffrées avant d&rsquo;être
+&ldquo;sécurisé&rdquo; en entend que les données sont chiffrées avant d'être
 transmises sur le réseau et que leur provenance est certifiée.</p>
-
-<hr />
-
-<h2 id="les-étapes-du-protocole-https">Les étapes du protocole HTTPS</h2>
-
-<p>Voici les différentes étapes d&rsquo;une communication client - serveur
+<hr>
+<h2 id="les-tapes-du-protocole-https">Les étapes du protocole HTTPS</h2>
+<p>Voici les différentes étapes d'une communication client - serveur
 utilisant le protocole HTTPS :</p>
-
 <ul>
-<li>le client demande au serveur une connexion sécurisée (en utilisant
-&ldquo;https&rdquo; à la place de &ldquo;http&rdquo; dans la barre d&rsquo;adresse du
-navigateur web)</li>
-
-<li><p>le serveur répond au client qu&rsquo;il est OK pour l&rsquo;établissement
-d&rsquo;une connexion sécurisée. Afin de prouver au client qu&rsquo;il est
-bien celui qu&rsquo;il prétend être, le serveur fournit au client un
+<li>
+<p>le client demande au serveur une connexion sécurisée (en utilisant
+&ldquo;https&rdquo; à la place de &ldquo;http&rdquo; dans la barre d'adresse du
+navigateur web)</p>
+</li>
+<li>
+<p>le serveur répond au client qu'il est OK pour l'établissement
+d'une connexion sécurisée. Afin de prouver au client qu'il est
+bien celui qu'il prétend être, le serveur fournit au client un
 certificat prouvant son &ldquo;identité&rdquo;.</p>
-
 <p>En effet, il existe des
 attaques dites &ldquo;man in the middle&rdquo;, où un serveur &ldquo;pirate&rdquo;
-essaye de se faire passer, par exemple, pour le serveur d&rsquo;une
+essaye de se faire passer, par exemple, pour le serveur d'une
 banque : le client, pensant être en communication avec le serveur de
 sa banque, va saisir son identifiant et son mot de passe,
 identifiant et mot de passe qui seront récupérés par le serveur
-pirate. Afin d&rsquo;éviter ce genre d&rsquo;attaque, des organismes délivrent
-donc des certificats prouvant l&rsquo;identité des sites qui proposent
-des connexions &ldquo;https&rdquo;.</p></li>
-
-<li><p>à partir de ce moment-là, les échanges entre le client et le serveur
+pirate. Afin d'éviter ce genre d'attaque, des organismes délivrent
+donc des certificats prouvant l'identité des sites qui proposent
+des connexions &ldquo;https&rdquo;.</p>
+</li>
+<li>
+<p>à partir de ce moment-là, les échanges entre le client et le serveur
 seront chiffrés grâce à un système de &ldquo;clé publique - clé privée&rdquo;
 (nous aborderons le principe du chiffrement par &ldquo;clé
 publique - clé privée&rdquo; en terminale).</p>
-
 <p>Même si un pirate arrivait à intercepter
 les données circulant entre le client et le serveur, ces dernières
-ne lui seraient d&rsquo;aucune utilité, car totalement incompréhensible à
+ne lui seraient d'aucune utilité, car totalement incompréhensible à
 cause du chiffrement (seuls le client et le serveur sont aptes à
-déchiffrer ces données)</p></li>
+déchiffrer ces données)</p>
+</li>
 </ul>
-
-<p>D&rsquo;un point vu strictement pratique il est nécessaire de bien vérifier
-que le protocole est bien utilisé (l&rsquo;adresse commence par &ldquo;https&rdquo;)
+<p>D'un point vu strictement pratique il est nécessaire de bien vérifier
+que le protocole est bien utilisé (l'adresse commence par &ldquo;https&rdquo;)
 avant de transmettre des données sensibles (coordonnées bancaires&hellip;).
-Si ce n&rsquo;est pas le cas, passez votre chemin, car toute personne qui
+Si ce n'est pas le cas, passez votre chemin, car toute personne qui
 interceptera les paquets de données sera en mesure de lire vos données
 sensibles.</p>
-
-<p>Concernant un site statique, comme le mien, https n&rsquo;apporte pas grand chose,
-seulement l&rsquo;assurance de l&rsquo;origine. Vous ne transmettez aucune donnée au site.</p>
-
-<h2 id="complément">Complément</h2>
-
+<p>Concernant un site statique, comme le mien, https n'apporte pas grand chose,
+seulement l'assurance de l'origine. Vous ne transmettez aucune donnée au site.</p>
+<h2 id="complment">Complément</h2>
 <p><strong>Etablir une connexion HTTP directement dans Python, sans utiliser de navigateur</strong></p>
-
-<p>Il est parfaitement possible d&rsquo;utiliser Python (ou n&rsquo;importe quel langage
+<p>Il est parfaitement possible d'utiliser Python (ou n'importe quel langage
 moderne) pour établir une connexion avec un serveur web :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">requests</span> <span style="color:#09f;font-style:italic"># librairie qui gère les connexion HTTP</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30">&#34;http://qkzk.xyz&#34;</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># on établi une connexion avec mon site</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponse
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">requests</span> <span style="color:#09f;font-style:italic"># librairie qui gère les connexion HTTP</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">http://qkzk.xyz</span><span style="color:#c30">&#34;</span>)
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#09f;font-style:italic"># on établi une connexion avec mon site</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse
 <span style="color:#555">&lt;</span>Response [<span style="color:#f60">200</span>]<span style="color:#555">&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># la connexion est établie correctement (200 signifie OK)</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponses<span style="color:#555">.</span>headers <span style="color:#09f;font-style:italic"># detail de la reponse du serveur</span>
-{<span style="color:#c30">&#39;Server&#39;</span>: <span style="color:#c30">&#39;GitHub.com&#39;</span>, <span style="color:#c30">&#39;Content-Type&#39;</span>: <span style="color:#c30">&#39;text/html; charset=utf-8&#39;</span>,
-<span style="color:#c30">&#39;Last-Modified&#39;</span>: <span style="color:#c30">&#39;Wed, 09 Oct 2019 16:10:57 GMT&#39;</span>, <span style="color:#c30">&#39;ETag&#39;</span>: <span style="color:#c30">&#39;W/&#34;5d9e0691-e152&#34;&#39;</span>,
-<span style="color:#c30">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#c30">&#39;*&#39;</span>, <span style="color:#c30">&#39;Expires&#39;</span>: <span style="color:#c30">&#39;Sat, 12 Oct 2019 09:20:09 GMT&#39;</span>,
-<span style="color:#c30">&#39;Cache-Control&#39;</span>: <span style="color:#c30">&#39;max-age=600&#39;</span>, <span style="color:#c30">&#39;Content-Encoding&#39;</span>: <span style="color:#c30">&#39;gzip&#39;</span>,
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#09f;font-style:italic"># la connexion est établie correctement (200 signifie OK)</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponses<span style="color:#555">.</span>headers <span style="color:#09f;font-style:italic"># detail de la reponse du serveur</span>
+{<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Server</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">GitHub.com</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Content-Type</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">text/html; charset=utf-8</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Last-Modified</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Wed, 09 Oct 2019 16:10:57 GMT</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">ETag</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">W/</span><span style="color:#c30">&#34;</span><span style="color:#c30">5d9e0691-e152</span><span style="color:#c30">&#34;</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Access-Control-Allow-Origin</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">*</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Expires</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Sat, 12 Oct 2019 09:20:09 GMT</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Cache-Control</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">max-age=600</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Content-Encoding</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">gzip</span><span style="color:#c30">&#39;</span>,
 <span style="color:#09f;font-style:italic"># réponse tronquée</span>
-}</code></pre></div>
-<ul>
-<li><p>On peut voir que la connexion est bien établie entre mon client
-(Python lui même) et le serveur (Github.com) qui héberge mon site.</p></li>
-
-<li><p>Le contenu est en html, comme on s&rsquo;y attend</p></li>
-
-<li><p>L&rsquo;encodage utf-8</p></li>
-
-<li><p>Et tout un tas d&rsquo;information moins pertinantes.</p></li>
+}
+</code></pre></div><ul>
+<li>
+<p>On peut voir que la connexion est bien établie entre mon client
+(Python lui même) et le serveur (Github.com) qui héberge mon site.</p>
+</li>
+<li>
+<p>Le contenu est en html, comme on s'y attend</p>
+</li>
+<li>
+<p>L'encodage utf-8</p>
+</li>
+<li>
+<p>Et tout un tas d'information moins pertinantes.</p>
+</li>
 </ul>
-
 <p>Le contenu de la réponse</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>content
-<span style="color:#c30">b</span><span style="color:#c30">&#39;&lt;!DOCTYPE html&gt;</span>
-<span style="color:#555">&lt;</span>html lang<span style="color:#555">=</span><span style="color:#c30">&#34;en&#34;</span><span style="color:#555">&gt;</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse<span style="color:#555">.</span>content
+<span style="color:#c30">b</span><span style="color:#c30">&#39;</span><span style="color:#c30">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#555">&lt;</span>html lang<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">en</span><span style="color:#c30">&#34;</span><span style="color:#555">&gt;</span>
 <span style="color:#555">&lt;</span>head<span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30">&#34;generator&#34;</span> content<span style="color:#555">=</span><span style="color:#c30">&#34;Hugo 0.57.2&#34;</span> <span style="color:#555">/&gt;</span>
-<span style="color:#555">&lt;</span>meta charset<span style="color:#555">=</span><span style="color:#c30">&#34;UTF-8&#34;</span><span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30">&#34;viewport&#34;</span> content<span style="color:#555">=</span><span style="color:#c30">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#555">&gt;</span>
-<span style="color:#555">&lt;</span>title<span style="color:#555">&gt;</span>accueil<span style="color:#555">|</span> qkzk<span style="color:#555">&lt;/</span>title<span style="color:#555">&gt;</span> <span style="color:#555">...</span><span style="color:#c30">&#39;</span>
+<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">generator</span><span style="color:#c30">&#34;</span> content<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Hugo 0.57.2</span><span style="color:#c30">&#34;</span> <span style="color:#555">/</span><span style="color:#555">&gt;</span>
+<span style="color:#555">&lt;</span>meta charset<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">UTF-8</span><span style="color:#c30">&#34;</span><span style="color:#555">&gt;</span>
+<span style="color:#555">&lt;</span>meta name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">viewport</span><span style="color:#c30">&#34;</span> content<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">width=device-width, initial-scale=1.0</span><span style="color:#c30">&#34;</span><span style="color:#555">&gt;</span>
+<span style="color:#555">&lt;</span>title<span style="color:#555">&gt;</span>accueil<span style="color:#555">|</span> qkzk<span style="color:#555">&lt;</span><span style="color:#555">/</span>title<span style="color:#555">&gt;</span> <span style="color:#555">.</span><span style="color:#555">.</span><span style="color:#555">.</span><span style="color:#c30"></span><span style="color:#c30">&#39;</span>
 <span style="color:#09f;font-style:italic"># tronqué. La suite est le contenu complet de la page d&#39;accueil du site...</span>
-<span style="color:#555">&lt;/</span>body<span style="color:#555">&gt;&lt;/</span>html<span style="color:#555">&gt;</span><span style="color:#c30">&#39;</span></code></pre></div>
-<p>Il est possible d&rsquo;examiner la requête transmise par <em>le client</em> lui même au
+<span style="color:#555">&lt;</span><span style="color:#555">/</span>body<span style="color:#555">&gt;</span><span style="color:#555">&lt;</span><span style="color:#555">/</span>html<span style="color:#555">&gt;</span><span style="color:#c30"></span><span style="color:#c30">&#39;</span>
+</code></pre></div><p>Il est possible d'examiner la requête transmise par <em>le client</em> lui même au
 serveur :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>request
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse<span style="color:#555">.</span>request
 <span style="color:#555">&lt;</span>PreparedRequest [GET]<span style="color:#555">&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> reponse<span style="color:#555">.</span>request<span style="color:#555">.</span>headers
-{<span style="color:#c30">&#39;User-Agent&#39;</span>: <span style="color:#c30">&#39;python-requests/2.22.0&#39;</span>,
-<span style="color:#c30">&#39;Accept-Encoding&#39;</span>: <span style="color:#c30">&#39;gzip, deflate&#39;</span>,
-<span style="color:#c30">&#39;Accept&#39;</span>: <span style="color:#c30">&#39;*/*&#39;</span>,
-<span style="color:#c30">&#39;Connection&#39;</span>: <span style="color:#c30">&#39;keep-alive&#39;</span>}</code></pre></div>
-<p>C&rsquo;est la requête qui a été transmise quand on a tapé :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30">&#34;http://qkzk.xyz&#34;</span>)</code></pre></div>
-<p>On a bien transmis une requête GET au serveur, avec toutes les informations
-voulues. C&rsquo;est bien Python qui a transmis cette requête.</p>
-
-<h2 id="à-faire-vous-même">À faire vous même</h2>
-
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse<span style="color:#555">.</span>request<span style="color:#555">.</span>headers
+{<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">User-Agent</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">python-requests/2.22.0</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Accept-Encoding</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">gzip, deflate</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Accept</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">*/*</span><span style="color:#c30">&#39;</span>,
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Connection</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">keep-alive</span><span style="color:#c30">&#39;</span>}
+</code></pre></div><p>C'est la requête qui a été transmise quand on a tapé :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">http://qkzk.xyz</span><span style="color:#c30">&#34;</span>)
+</code></pre></div><p>On a bien transmis une requête GET au serveur, avec toutes les informations
+voulues. C'est bien Python qui a transmis cette requête.</p>
+<h2 id="-faire-vous-mme">À faire vous même</h2>
 <ol>
-<li><p>En utilisant Thonny reproduire les commandes présentées ci-dessus pour joindre
-successivement : <code>https://google.com</code> et <code>https://google.com/azeaze</code></p></li>
-
-<li><p>Comparez les codes réponses obtenus dans les deux cas. Que signifient-ils ?</p></li>
-
-<li><p>Que peut-on en déduire concernant la page <a href="https://google.com/azeaze">https://google.com/azeaze</a> ?</p></li>
-
-<li><p>Mesurez la longueur du contenu de la réponse dans les deux cas.</p>
-
-<p>Comment expliquer cette différence ?</p></li>
+<li>
+<p>En utilisant Thonny reproduire les commandes présentées ci-dessus pour joindre
+successivement : <code>https://google.com</code> et <code>https://google.com/azeaze</code></p>
+</li>
+<li>
+<p>Comparez les codes réponses obtenus dans les deux cas. Que signifient-ils ?</p>
+</li>
+<li>
+<p>Que peut-on en déduire concernant la page <a href="https://google.com/azeaze">https://google.com/azeaze</a> ?</p>
+</li>
+<li>
+<p>Mesurez la longueur du contenu de la réponse dans les deux cas.</p>
+<p>Comment expliquer cette différence ?</p>
+</li>
 </ol>
 </article>
 
@@ -6287,15 +6430,12 @@ successivement : <code>https://google.com</code> et <code>https://google.com/aze
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#protocole-http">Protocole HTTP</a>
-<ul>
-<li><a href="#réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</a></li>
-<li><a href="#les-étapes-du-protocole-https">Les étapes du protocole HTTPS</a></li>
-<li><a href="#complément">Complément</a></li>
-<li><a href="#à-faire-vous-même">À faire vous même</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#rponse-du-serveur--une-requte-http">Réponse du serveur à une requête HTTP</a></li>
+    <li><a href="#les-tapes-du-protocole-https">Les étapes du protocole HTTPS</a></li>
+    <li><a href="#complment">Complément</a></li>
+    <li><a href="#-faire-vous-mme">À faire vous même</a></li>
+  </ul>
 </nav>
   </aside>
 

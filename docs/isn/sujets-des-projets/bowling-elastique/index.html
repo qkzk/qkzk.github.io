@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,91 +6176,61 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h2 id="presentation">PRESENTATION :</h2>
-
+<article class="markdown"><h2 id="presentation-">PRESENTATION :</h2>
 <p>Version très appauvrie du BOWLING.</p>
-
 <p>On est loin des <a href="https://www.jeuxjeuxjeux.fr/jeux/bowling">trucs usuels&hellip;</a>
 On lance une boule avec &ldquo;presser, relâcher&rdquo; vers le haut.
 La boule entre en collision avec les quilles qui changent de couleur.
-Après quelques secondes, les distances parcourues par les billes s&rsquo;ajoutent et forment le score.</p>
-
-<p>[video width=&ldquo;518&rdquo; height=&ldquo;906&rdquo; mp4=&ldquo;/uploads/uploads/2018/12/bowling_qkzk.mp4&rdquo; loop=&ldquo;true&rdquo; autoplay=&ldquo;true&rdquo;][/video]</p>
-
-<h2 id="principe">PRINCIPE :</h2>
-
-<p>La piste est vue d&rsquo;au dessus. Les quilles sont modélisées par des disques qui se déplacent comme des boules&hellip;
-La vitesse de la boule est calculée par les différences de position des événements &ldquo;mousedown&rdquo; &ldquo;mouseup&rdquo; (attention, cette détection d&rsquo;événements tend à merder pour une raison inconnue).</p>
-
-<p>La boule et les quilles s&rsquo;entrechoquent en suivant un <a href="https://fr.wikipedia.org/wiki/Choc_%C3%A9lastique">modèle de choc élastique</a> (ie. conservation de la quantité de mouvement). Il n&rsquo;y a pas de perte d&rsquo;énergie par frottement, les objets ne roulent pas, ne glissent pas les uns sur les autres. Les objets avancent indéfiniment. etc.</p>
-
+Après quelques secondes, les distances parcourues par les billes s'ajoutent et forment le score.</p>
+<p>[video width=&quot;518&rdquo; height=&quot;906&rdquo; mp4=&rdquo;/uploads/uploads/2018/12/bowling_qkzk.mp4&rdquo; loop=&quot;true&rdquo; autoplay=&quot;true&rdquo;][/video]</p>
+<h2 id="principe-">PRINCIPE :</h2>
+<p>La piste est vue d'au dessus. Les quilles sont modélisées par des disques qui se déplacent comme des boules&hellip;
+La vitesse de la boule est calculée par les différences de position des événements &ldquo;mousedown&rdquo; &ldquo;mouseup&rdquo; (attention, cette détection d'événements tend à merder pour une raison inconnue).</p>
+<p>La boule et les quilles s'entrechoquent en suivant un <a href="https://fr.wikipedia.org/wiki/Choc_%C3%A9lastique">modèle de choc élastique</a> (ie. conservation de la quantité de mouvement). Il n'y a pas de perte d'énergie par frottement, les objets ne roulent pas, ne glissent pas les uns sur les autres. Les objets avancent indéfiniment. etc.</p>
 <p>Les dimensions des objets sont réalistes, hormis la longueur de la piste, tout est fidèle.</p>
-
 <h2 id="objets">OBJETS</h2>
-
 <p>Boule et quilles sont des instances de classes définies à part.
 Chacun de ces objets possède sensiblement les mêmes propriétés.
-J&rsquo;aurais pu créer une classe mère et hériter.
+J'aurais pu créer une classe mère et hériter.
 Utiliser les classes via un constructeur est indispensable pour gérer correctement les éléments. Cela alourdit un peu le développement mais rend le code assez lisible finalement.</p>
-
 <h2 id="calculs">CALCULS</h2>
-
 <p>Il est nécessaire de définir les outils permettant de calculer les données.
-On peut envisager d&rsquo;utiliser <a href="http://mathjs.org/index.html">mathjs</a> qui contient certainement de quoi se simplifier la tâche.</p>
-
-<p>Le calcul des vitesses après choc n&rsquo;est pas si compliqué qu&rsquo;il en a l&rsquo;air.</p>
-
+On peut envisager d'utiliser <a href="http://mathjs.org/index.html">mathjs</a> qui contient certainement de quoi se simplifier la tâche.</p>
+<p>Le calcul des vitesses après choc n'est pas si compliqué qu'il en a l'air.</p>
 <p>Ces méthodes sont bien connues mais relativement peu documentées.</p>
-
 <p>Voici donc <a href="http://www.cromod.fr/2016/11/18/modelisation-des-chocs-elastiques/">de quoi vous éviter quelques heures de recherche</a>.</p>
-
 <h2 id="collisions">COLLISIONS</h2>
-
-<p>C&rsquo;est la partie la plus délicaite. En particulier il faut s&rsquo;assurer d&rsquo;éviter un gros écueil : les collisions devant être détectées à chaque itération de la boucle de rafraîchissement, celle-ci doit laisser le temps aux objets de s&rsquo;éloigner avant de modifier encore les vitesses&hellip;</p>
-
+<p>C'est la partie la plus délicaite. En particulier il faut s'assurer d'éviter un gros écueil : les collisions devant être détectées à chaque itération de la boucle de rafraîchissement, celle-ci doit laisser le temps aux objets de s'éloigner avant de modifier encore les vitesses&hellip;</p>
 <p>Plusieurs solutions existent mais celle développée en Python dont je parle plus haut fonctionne proprement, la mienne est mauvaise.</p>
-
 <h2 id="difficultes">DIFFICULTES</h2>
-
 <ul>
 <li>Les classes : **</li>
 <li>Détecter un choc : *</li>
 <li>Créer les fonctions mathématiques de calcul (hors choc élastique): **</li>
 <li>Choc élastique (nouvelles vitesses) : ***</li>
-<li>S&rsquo;assurer que les physiques fonctionnent : *****</li>
+<li>S'assurer que les physiques fonctionnent : *****</li>
 </ul>
-
 <h2 id="extensions">EXTENSIONS</h2>
-
 <p>Le sujet est très vaste&hellip;
-Mon adaptation ressemble beaucoup plus à un jeu de billard qu&rsquo;à autre chose&hellip;
-Il est possible d&rsquo;illustrer le <a href="https://fr.wikipedia.org/wiki/Mouvement_brownien">mouvement Brownien</a> via ces principes.</p>
-
-<p>[video width=&ldquo;700&rdquo; height=&ldquo;818&rdquo; mp4=&ldquo;/uploads/uploads/2018/12/mouvement_brownien.mp4&rdquo;][/video]</p>
-
-<p>On peut aussi, une fois les collisions intégrées, faire mumuse avec les graphiques et appeler ça de l&rsquo;art&hellip;</p>
-
-<p>[video width=&ldquo;760&rdquo; height=&ldquo;910&rdquo; mp4=&ldquo;/uploads/uploads/2018/12/collisions_simples.mp4&rdquo;][/video]</p>
-
-<p>Se rapprocher du vrai bowling va demander trop d&rsquo;efforts, il vaudrait mieux repartir de 0 et envisager de la fausse 3D (cf. le projet &ldquo;Bowling parallax&rdquo;)
-Le calcul des scores du bowling est un exercice prisé des développeurs (en particulier américains). Il est possible d&rsquo;intégrer un vrai calculateur de score ou d&rsquo;en créer un soi même.</p>
-
+Mon adaptation ressemble beaucoup plus à un jeu de billard qu'à autre chose&hellip;
+Il est possible d'illustrer le <a href="https://fr.wikipedia.org/wiki/Mouvement_brownien">mouvement Brownien</a> via ces principes.</p>
+<p>[video width=&quot;700&rdquo; height=&quot;818&rdquo; mp4=&rdquo;/uploads/uploads/2018/12/mouvement_brownien.mp4&rdquo;][/video]</p>
+<p>On peut aussi, une fois les collisions intégrées, faire mumuse avec les graphiques et appeler ça de l'art&hellip;</p>
+<p>[video width=&quot;760&rdquo; height=&quot;910&rdquo; mp4=&rdquo;/uploads/uploads/2018/12/collisions_simples.mp4&rdquo;][/video]</p>
+<p>Se rapprocher du vrai bowling va demander trop d'efforts, il vaudrait mieux repartir de 0 et envisager de la fausse 3D (cf. le projet &ldquo;Bowling parallax&rdquo;)
+Le calcul des scores du bowling est un exercice prisé des développeurs (en particulier américains). Il est possible d'intégrer un vrai calculateur de score ou d'en créer un soi même.</p>
 <p>Toujours dans cette direction, on peut soigner les graphismes&hellip;</p>
-
 <h2 id="cahier-des-charges">Cahier des charges</h2>
-
 <ul>
 <li>Créer boules, quilles avec des instances de classe via un constructeur.</li>
 <li>Changer leurs paramètres via des fonctions extérieures.</li>
-<li>Le projet nécessitant beaucoup d&rsquo;objets, il faut factoriser le code au maximum (ie. éviter d&rsquo;écrire plusieurs fois la même chose et réutiliser un maximum d&rsquo;outils).</li>
+<li>Le projet nécessitant beaucoup d'objets, il faut factoriser le code au maximum (ie. éviter d'écrire plusieurs fois la même chose et réutiliser un maximum d'outils).</li>
 <li>Réaliser les calculs mathématiques (idéalement) ou en utilisant des librairies.</li>
 <li>Intégrer un modèle de choc élastique, il faudra le présenter rapidement.</li>
 <li>Définir un canvas et une boucle de rafraîchissement (afficher, déplacer, calculer les collisions).</li>
-<li>On se contentera d&rsquo;une vue en 2D. Il est possible de faire de la fausse 3D mais les collisions avec le</li>
-<li>Afficher puis animer les objets à l&rsquo;écran (astuce pour le débogage : arrêter le rafraîchissement dès qu&rsquo;une collision est détectée, ajouter ensuite un bouton pause permettant de faire la même chose).</li>
-<li>Intégrer un moyen de lancer la boule. Différentes solutions sont possibles, j&rsquo;ai opté pour celle demandant le moins d’interaction du joueur (presser, relâcher).</li>
+<li>On se contentera d'une vue en 2D. Il est possible de faire de la fausse 3D mais les collisions avec le</li>
+<li>Afficher puis animer les objets à l'écran (astuce pour le débogage : arrêter le rafraîchissement dès qu'une collision est détectée, ajouter ensuite un bouton pause permettant de faire la même chose).</li>
+<li>Intégrer un moyen de lancer la boule. Différentes solutions sont possibles, j'ai opté pour celle demandant le moins d’interaction du joueur (presser, relâcher).</li>
 </ul>
 </article>
 
@@ -6129,19 +6264,16 @@ Le calcul des scores du bowling est un exercice prisé des développeurs (en par
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#presentation">PRESENTATION :</a></li>
-<li><a href="#principe">PRINCIPE :</a></li>
-<li><a href="#objets">OBJETS</a></li>
-<li><a href="#calculs">CALCULS</a></li>
-<li><a href="#collisions">COLLISIONS</a></li>
-<li><a href="#difficultes">DIFFICULTES</a></li>
-<li><a href="#extensions">EXTENSIONS</a></li>
-<li><a href="#cahier-des-charges">Cahier des charges</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#presentation-">PRESENTATION :</a></li>
+    <li><a href="#principe-">PRINCIPE :</a></li>
+    <li><a href="#objets">OBJETS</a></li>
+    <li><a href="#calculs">CALCULS</a></li>
+    <li><a href="#collisions">COLLISIONS</a></li>
+    <li><a href="#difficultes">DIFFICULTES</a></li>
+    <li><a href="#extensions">EXTENSIONS</a></li>
+    <li><a href="#cahier-des-charges">Cahier des charges</a></li>
+  </ul>
 </nav>
   </aside>
 

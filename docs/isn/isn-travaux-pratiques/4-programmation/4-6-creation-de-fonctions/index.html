@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,209 +6176,183 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p>Notions abordées dans cette page</p>
-
+<article class="markdown"><p>Notions abordées dans cette page</p>
 <ul>
 <li>utilisation de définitions javascript faites en dehors de la page</li>
 <li>écriture de fonctions</li>
-<li>(première) utilisation d&rsquo;un debugger</li>
+<li>(première) utilisation d'un debugger</li>
 <li>tests</li>
 </ul>
-
-<h1 id="création-de-fonctions">Création de fonctions</h1>
-
+<h1 id="cration-de-fonctions">Création de fonctions</h1>
 <h2 id="du-code-javascript-en-dehors-de-la-page-html">Du code javascript en dehors de la page HTML</h2>
-
 <p>Télécharger sur le bureau les quatre fichiers : <a href="/uploads/docs/doc04/doc/monuments-version2.html">monuments1.html</a>, <a href="/uploads/docs/doc04/doc/monuments-fonction.js">monuments-fonction.js</a>, <a href="/uploads/docs/doc04/doc/monuments-version2.html">monuments-version2.html</a> et <a href="/uploads/docs/doc04/doc/monuments-fonction2.js">monuments-fonction2.js</a>
-Les fonctions qu&rsquo;ils contiennent sont susceptibles d&rsquo;être bloquées par le serveur qui héberge les fichiers.
+Les fonctions qu'ils contiennent sont susceptibles d'être bloquées par le serveur qui héberge les fichiers.
 Dans la suite du document tous les liens mènent vers ces fichiers.</p>
-
 <ol>
 <li>Consultez les 2 pages suivantes : <a href="/uploads/docs/doc04/doc/monuments-version1.html">version 1</a>, <a href="/uploads/docs/doc04/doc/monuments-version2.html">version 2</a>. Rafraîchir la page si les images ne se chargent pas.</li>
 <li>Voyez-vous des différences entre ces 2 versions ?</li>
 <li>Consultez les codes HTML de ces 2 pages.</li>
-<li>Quelles différences constatez-vous ? Qu&rsquo;en pensez-vous ? L&rsquo;un des deux fichiers HTML est-il plus facile à comprendre ? Si oui, lequel ?</li>
-<li>Le château de Chambord se trouve aux coordonnées (47.616141,1.517105). Ajoutez pour chacun des 2 documents HTML l&rsquo;affichage de ce monument. Cela vous semble-t-il plus facile, ou plus naturel, dans un cas que dans l&rsquo;autre ?</li>
+<li>Quelles différences constatez-vous ? Qu'en pensez-vous ? L'un des deux fichiers HTML est-il plus facile à comprendre ? Si oui, lequel ?</li>
+<li>Le château de Chambord se trouve aux coordonnées (47.616141,1.517105). Ajoutez pour chacun des 2 documents HTML l'affichage de ce monument. Cela vous semble-t-il plus facile, ou plus naturel, dans un cas que dans l'autre ?</li>
 </ol>
-
-<p>Le code de la version 2 est particulièrement épuré. On devine facilement que la responsabilité de l&rsquo;affichage des monuments a été déléguée à la fonction <code>afficheMonument</code> que l&rsquo;on voit apparaître dans le code source. On n&rsquo;en connaît pas la spécification précise, mais on parvient néanmoins à l&rsquo;utiliser par mimétisme pour ajouter le château de Chambord.</p>
-
-<p>D&rsquo;après le comportement observé dans le document version 2, donnez une spécification (probable) de la fonction <code>afficheMonument</code>.</p>
-
+<p>Le code de la version 2 est particulièrement épuré. On devine facilement que la responsabilité de l'affichage des monuments a été déléguée à la fonction <code>afficheMonument</code> que l'on voit apparaître dans le code source. On n'en connaît pas la spécification précise, mais on parvient néanmoins à l'utiliser par mimétisme pour ajouter le château de Chambord.</p>
+<p>D'après le comportement observé dans le document version 2, donnez une spécification (probable) de la fonction <code>afficheMonument</code>.</p>
 <p>Vous vous en doutez sûrement, la
-fonction <code>afficheMonument</code> n&rsquo;est pas une fonction prédéfinie en Javascript. Elle a été créée spécifiquement pour notre exemple. Mais alors où est-elle définie ? La réponse se situe dans la zone <code>head</code> du document version 2. Les plus attentifs ont peut-être constaté la ligne :</p>
+fonction <code>afficheMonument</code> n'est pas une fonction prédéfinie en Javascript. Elle a été créée spécifiquement pour notre exemple. Mais alors où est-elle définie ? La réponse se situe dans la zone <code>head</code> du document version 2. Les plus attentifs ont peut-être constaté la ligne :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;monuments-fonction.js&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;</span><span style="color:#09f;font-style:italic">// &lt;![CDATA[
 </span><span style="color:#09f;font-style:italic"></span>    <span style="color:#09f;font-style:italic">// ]]&gt;&lt;/script&gt;
-</span></code></pre></div>
-<p>Cette instruction indique que du code Javascript se trouve dans
-un fichier précisé par l&rsquo;attribut <code>src</code>,
+</span></code></pre></div><p>Cette instruction indique que du code Javascript se trouve dans
+un fichier précisé par l'attribut <code>src</code>,
 ici <code>monuments-fonction.js</code> qui va être chargé et évalué
 par le navigateur.</p>
-
 <p>Dans la fenêtre contenant le code source de la
-page <code>monuments-fonction.js</code> est un hyperlien qui lorsqu&rsquo;on
+page <code>monuments-fonction.js</code> est un hyperlien qui lorsqu'on
 le sélectionne permet de consulter le contenu du
 fichier <code>monuments-fonction.js</code>.</p>
-
 <p>On peut également définir des fonctions sans utiliser du
-mot-clé <code>var</code> à l&rsquo;aide de la syntaxe suivante :</p>
+mot-clé <code>var</code> à l'aide de la syntaxe suivante :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> afficheMonument (nomMonument, longitude, latitude) {
   <span style="color:#069;font-weight:bold">var</span> texte <span style="color:#555">=</span> texteMonument(nomMonument, longitude, latitude);
   <span style="color:#366">document</span>.writeln(texte);
 }
-</code></pre></div>
-<p>Prenez quelques instants pour étudier attentivement le contenu de ce
+</code></pre></div><p>Prenez quelques instants pour étudier attentivement le contenu de ce
 fichier, en particulier  :</p>
-
 <ol>
 <li>Quelles sont les 3 fonctions définies dans ce fichier ?</li>
-<li>Etudiez chacun des commentaires qui précédent les définitions. La spécification que vous avez proposée pour <code>afficheMonument</code> correspond-elle ? Ces commentaires vous permettent-ils d&rsquo;utiliser les fonctions sans étudier de manière plus poussée le code de leur définition ? Cela serait-il aussi facile sans ces commentaires ?</li>
+<li>Etudiez chacun des commentaires qui précédent les définitions. La spécification que vous avez proposée pour <code>afficheMonument</code> correspond-elle ? Ces commentaires vous permettent-ils d'utiliser les fonctions sans étudier de manière plus poussée le code de leur définition ? Cela serait-il aussi facile sans ces commentaires ?</li>
 <li>Quel mot-clé introduit la définition de ces fonctions ?</li>
 <li>Quelles sont les 2 fonctions qui produisent un résultat ?</li>
 <li>Dans ces fonctions, quel mot-clé, absent dans la troisème fonction, vous semble leur permettre de produire ce résultat ?</li>
-
-<li><p>Dans cette définition :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> afficheMonument <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> (nomMonument, longitude, latitude) {
-<span style="color:#069;font-weight:bold">var</span> texte <span style="color:#555">=</span> texteMonument(nomMonument, longitude, latitude);
-<span style="color:#366">document</span>.writeln(texte);
-}
-</code></pre></div></li>
+<li>Dans cette définition :</li>
 </ol>
-
-<p>désignez les paramètres formels, les paramètres effectifs et les variables.</p>
-
-<h2 id="définition-de-fonctions">Définition de fonctions</h2>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> afficheMonument <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> (nomMonument, longitude, latitude) {
+    <span style="color:#069;font-weight:bold">var</span> texte <span style="color:#555">=</span> texteMonument(nomMonument, longitude, latitude);
+    <span style="color:#366">document</span>.writeln(texte);
+}
+</code></pre></div><p>désignez les paramètres formels, les paramètres effectifs et les variables.</p>
+<h2 id="dfinition-de-fonctions">Définition de fonctions</h2>
 <p>Ce fichier <code>monuments-fonction.js</code> contient la
 définition de 3 fonctions que ne proposent pas initialement le
-langage Javascript. La définition de ces fonctions permet d&rsquo;enrichir
+langage Javascript. La définition de ces fonctions permet d'enrichir
 le langage en fournissant de nouveaux outils (les 3
 fonctions <code>afficheMonument</code>, <code>texteMonument</code> et
 <code>imageGoogleMap</code>) mis à
 la disposition du programmeur. Une fois définies celles-ci peuvent
-être utilisées exactement comme l&rsquo;est par exemple la
-fonction prédéfinie <code>parseInt</code>. C&rsquo;est ce qui est fait
+être utilisées exactement comme l'est par exemple la
+fonction prédéfinie <code>parseInt</code>. C'est ce qui est fait
 dans le fichier <code>monuments-version2.html</code>.</p>
-
-<p>Déduisez de ce qui précède la syntaxe de la définition d&rsquo;une fonction en Javascript.</p>
-
+<p>Déduisez de ce qui précède la syntaxe de la définition d'une fonction en Javascript.</p>
 <p>&ldquo;<em>return</em>&rdquo; peut se traduire par &ldquo;<em>retourner</em>&rdquo; ou aussi
-&ldquo;<em>renvoyer</em>&rdquo; d&rsquo;où l&rsquo;usage des expressions &ldquo;<em>valeur retournée/renvoyée
-par une fonction</em>&ldquo;
-ou &ldquo;<em>la fonction retourne/renvoie la valeur &hellip;</em>&rdquo;.</p>
-
+&ldquo;<em>renvoyer</em>&rdquo; d'où l'usage des expressions &ldquo;<em>valeur retournée/renvoyée
+par une fonction</em>&rdquo;
+ou &ldquo;<em>la fonction retourne/renvoie la valeur &hellip;</em>&quot;.</p>
 <p>Dans la définition on peut distinguer 2 parties :</p>
-
 <ul>
-<li>l&rsquo;entête de la fonction qui
+<li>l'entête de la fonction qui
 reprend le nom et la liste des paramètres entre parenthèses (on doit
-noter <code>()</code> si aucun paramètre n&rsquo;est requis),</li>
+noter <code>()</code> si aucun paramètre n'est requis),</li>
 <li>le corps de la fonction qui
-contient le code exécuté lors de l&rsquo;appel de la fonction.
+contient le code exécuté lors de l'appel de la fonction.
 Dans le corps de la fonction le mot-clé return permet
-d&rsquo;introduire une expression dont la valeur est résultat de l&rsquo;appel
+d'introduire une expression dont la valeur est résultat de l'appel
 de fonction.</li>
 </ul>
-
-<p>Le traitement d&rsquo;une fonction se termine dès qu&rsquo;une
+<p>Le traitement d'une fonction se termine dès qu'une
 expression <code>return</code> est rencontrée avec le résultat
 associé. Si le corps la fonction ne contient pas une telle
 expression, la fonction ne renverra aucun résultat et son traitement
 se termine lorsque la dernière expression du corps a été évaluée.</p>
-
 <h2 id="au-coeur-du-traitement">Au coeur du traitement</h2>
-
-<p>Cherchez l&rsquo;origine du mot <em>bug</em> en informatique et en
+<p>Cherchez l'origine du mot <em>bug</em> en informatique et en
 programmation en particulier.</p>
-
 <p>Nous allons étudier en détail le fonctionnement de ces fonctions. Pour
 cela nous utiliserons à nouveau Firebug et cette fois-ci ses fonctions
 de debugger. Un debugger est un
-programme informatique dont le but est de permettre l&rsquo;étude en
-détail du fonctionnement d&rsquo;un code écrit dans un langage donné. Le
-plus souvent cette étude est menée lorsque ce code n&rsquo;a pas le
-comportement attendu (&rdquo;<em>il buggue</em>&rdquo;) et donc y trouver et
+programme informatique dont le but est de permettre l'étude en
+détail du fonctionnement d'un code écrit dans un langage donné. Le
+plus souvent cette étude est menée lorsque ce code n'a pas le
+comportement attendu (&quot;<em>il buggue</em>&quot;) et donc y trouver et
 comprendre le problème afin de le corriger. Les fonctionnalités
-habituelles d&rsquo;un debugger sont de permettre :</p>
-
+habituelles d'un debugger sont de permettre :</p>
 <ul>
-<li>la mise en place de <strong>points d&rsquo;arrêt</strong> dans le code
-afin d&rsquo;en interrompre l&rsquo;exécution au moment précis ou cet endroit du
+<li>la mise en place de <strong>points d'arrêt</strong> dans le code
+afin d'en interrompre l'exécution au moment précis ou cet endroit du
 code est traité,</li>
 <li>l&rsquo;<strong>exécution pas-à-pas</strong> du programme,</li>
-<li>d&rsquo;<strong>inspecter l&rsquo;état des données</strong> manipulées par le code,
-notamment afin de vérifier s&rsquo;il correspond à ce que l&rsquo;on attendait.</li>
+<li>d&rsquo;<strong>inspecter l'état des données</strong> manipulées par le code,
+notamment afin de vérifier s'il correspond à ce que l'on attendait.</li>
 </ul>
-
-<p>Dans notre cas, notre programme ne comporte pas d&rsquo;erreur dans son
+<p>Dans notre cas, notre programme ne comporte pas d'erreur dans son
 fonctionnement, mais nous allons néanmoins expoiter ces possibilités pour
 en examiner le fonctionnement en détail :</p>
-
 <ol>
-<li>Activez Firebug et ouvrez le document dans
-sa <a href="/uploads/docs/doc04/doc/monuments-version2.html">version 2</a>.</li>
-
-<li><p>Ouvrez l&rsquo;onglet script et choisissez le
+<li>
+<p>Activez Firebug et ouvrez le document dans
+sa <a href="/uploads/docs/doc04/doc/monuments-version2.html">version 2</a>.</p>
+</li>
+<li>
+<p>Ouvrez l'onglet script et choisissez le
 fichier<code>monuments-fonction.js</code> contenant le code des
 fonctions que nous voulons analyser.
-<img src="/uploads/docs/doc04/doc/firebugDebugger1.png" alt="Firebug - code" /></p></li>
-
-<li><p>Placez un point d&rsquo;arrêt sur la première ligne de code du corps de la
+<img src="/uploads/docs/doc04/doc/firebugDebugger1.png" alt="Firebug - code"></p>
+</li>
+<li>
+<p>Placez un point d'arrêt sur la première ligne de code du corps de la
 fonction <code>afficheMonument</code> en cliquant dans la marge du
 code :
-<img src="/uploads/docs/doc04/doc/firebugDebugger2.png" alt="Firebug - point arret" /></p></li>
-
-<li><p>Rechargez la page. Celle-ci commence à être évaluée, comme
-l&rsquo;indique l&rsquo;affichage du contenu de la balise <code>h1</code> puis
-le traitement s&rsquo;arrête et dans la zone Firebug la ligne sur laquelle
-nous avions mis un point d&rsquo;arrêt est surlignée. Dans la marge un
+<img src="/uploads/docs/doc04/doc/firebugDebugger2.png" alt="Firebug - point arret"></p>
+</li>
+<li>
+<p>Rechargez la page. Celle-ci commence à être évaluée, comme
+l'indique l'affichage du contenu de la balise <code>h1</code> puis
+le traitement s'arrête et dans la zone Firebug la ligne sur laquelle
+nous avions mis un point d'arrêt est surlignée. Dans la marge un
 curseur en forme de triangle nous indique que le traitement du code
-est en attente avant l&rsquo;évaluation de cette ligne.</p></li>
-
-<li><p>Dans la zone de droite de Firebug, activez
-l&rsquo;onglet <strong>Pile</strong>. Celui-ci indique par quel chemin (qui se lit
-de bas en haut) on est arrivé à ce point d&rsquo;arrêt. Vous pouvez
+est en attente avant l'évaluation de cette ligne.</p>
+</li>
+<li>
+<p>Dans la zone de droite de Firebug, activez
+l'onglet <strong>Pile</strong>. Celui-ci indique par quel chemin (qui se lit
+de bas en haut) on est arrivé à ce point d'arrêt. Vous pouvez
 cliquer sur les noms pour accéder directement aux codes impliqués.
-<img src="/uploads/docs/doc04/doc/firebugDebugger3.png" alt="Firebug - pile exécution" /></p></li>
-
-<li><p>Dans l&rsquo;image ci-dessus on peut apercevoir un groupe de
+<img src="/uploads/docs/doc04/doc/firebugDebugger3.png" alt="Firebug - pile exécution"></p>
+</li>
+<li>
+<p>Dans l'image ci-dessus on peut apercevoir un groupe de
 boutons, située au-dessus de la zone contenant le code
 Javascript. Passez en laissant un peu votre souris au-dessus de
-chacun d&rsquo;entre eux pour voir apparaitre leur rôle.</p></li>
-
-<li><p>Nous
+chacun d'entre eux pour voir apparaitre leur rôle.</p>
+</li>
+<li>
+<p>Nous
 allons commencer par utiliser le troisième appelé <strong>Pas à pas
-détaillé</strong>.</p></li>
+détaillé</strong>.</p>
+</li>
 </ol>
-
-<p>Appuyez sur ce bouton jusqu&rsquo;à la fin du traitement de l&rsquo;appel de
-la fonction <code>afficheMonument</code> en cours (c&rsquo;est-à-dire
-jusqu&rsquo;à l&rsquo;affichage de la tour eiffel par le navigateur). Soyez
-attentif à la séquence d&rsquo;opérations exécutées et notamment à ce qui
-se passe lorsqu&rsquo;une fonction en appelle une autre et lors du &ldquo;<em>retour</em>&ldquo;
+<p>Appuyez sur ce bouton jusqu'à la fin du traitement de l'appel de
+la fonction <code>afficheMonument</code> en cours (c'est-à-dire
+jusqu'à l'affichage de la tour eiffel par le navigateur). Soyez
+attentif à la séquence d'opérations exécutées et notamment à ce qui
+se passe lorsqu'une fonction en appelle une autre et lors du &ldquo;<em>retour</em>&rdquo;
 de cette fonction. Surveillez notamment le contenu de la
 zone <strong>Pile</strong> sur la droite.
-8. Recommencez jusqu&rsquo;à affichage du Mont Saint-Michel.
+8. Recommencez jusqu'à affichage du Mont Saint-Michel.
 9. Appuyez cette fois sur le second bouton
 (appelé <strong>Continuer</strong>).
-10. Placez un point d&rsquo;arrêt sur la première ligne de chacune des 2
+10. Placez un point d'arrêt sur la première ligne de chacune des 2
 autres fonctions puis, en observant ce qui se passe, utilisez le
-bouton <strong>Continuer</strong> jusqu&rsquo;à afficher le chateau de Chambord.
-Donnez une description de l&rsquo;action de ce bouton.</p>
-
+bouton <strong>Continuer</strong> jusqu'à afficher le chateau de Chambord.
+Donnez une description de l'action de ce bouton.</p>
 <p><strong>Meilleure pratique.</strong>
 Dans les règles de bonne pratique de
-code il est universellement admis qu&rsquo;il est
+code il est universellement admis qu'il est
 préférable de ne pas utiliser de valeur littérale (&ldquo;constante&rdquo;)
 &ldquo;directement&rdquo; dans le code. Un exemple de telle valeur est
 le <code>17</code> utilisé pour fixer le facteur de zoom dans le
-texte de l&rsquo;url de l&rsquo;image à afficher.
+texte de l'url de l'image à afficher.
 La recommandation de tous les programmeurs expérimentés est de nommer les
 valeurs utilisées et de faire référence aux noms (on peut même placer
 ces définitions dans un fichier &ldquo;à part&rdquo;).</p>
-
 <ol>
 <li>Chargez le
 fichier <a href="/uploads/docs/doc04/doc/monuments-fonction-meilleurePratique.js">monuments-fonction-meilleurePratique.js</a>
@@ -6222,61 +6361,64 @@ et
 <li>Quelles sont les données qui ont été nommées ? Où sont-elles utilisées ?</li>
 <li>Faites une copie du fichier <code>monuments-version2.html</code>
 et modifiez la partie <code>head</code> de la copie pour utiliser
-ce fichier Javascript. Vérifiez que le comportement n&rsquo;a pas été
+ce fichier Javascript. Vérifiez que le comportement n'a pas été
 perturbé.</li>
-<li>Reprenez l&rsquo;exercice avec les modifications sur le document
-d&rsquo;affichage des monuments avec cette version et comparez avec ce que
+<li>Reprenez l'exercice avec les modifications sur le document
+d'affichage des monuments avec cette version et comparez avec ce que
 vous aviez dû faire pour les 2 autres versions. Peut-être cela vous
-donne-t-il l&rsquo;idée de créer d&rsquo;autres données globales pour ce
+donne-t-il l'idée de créer d'autres données globales pour ce
 document ? Faites le.</li>
 </ol>
-
 <p>Cette pratique facilite la modification du code et en facilite le
-&ldquo;paramétrage&rdquo;. Cela évite par exemple d&rsquo;avoir à rechercher dans le
-code toutes les apparitions de cette valeur lorsque l&rsquo;on veut faire
-une modification (cf. <code>tailleImage</code> que l&rsquo;on n&rsquo;a plus qu&rsquo;à
+&ldquo;paramétrage&rdquo;. Cela évite par exemple d'avoir à rechercher dans le
+code toutes les apparitions de cette valeur lorsque l'on veut faire
+une modification (cf. <code>tailleImage</code> que l'on n'a plus qu'à
 modifier une seule fois).</p>
-
 <p>Faites les modifications demandées pour les 2 versions précédentes et
 comparez le travail à faire dans chacun des cas :</p>
-
 <ol>
-<li>passez le facteur de zoom de 17 à 16</li>
-<li>modifiez la taille d&rsquo;affichage des images de 400 à 500</li>
-
-<li><p>modifiez le titre qui précède chaque monument :</p>
-
-<ol>
-<li>remplacez le texte <em>Monument </em> par <em>Voici :</em></li>
-<li>créez une feuille de style qui définit une classe CSS pour un
+<li>
+<p>passez le facteur de zoom de 17 à 16</p>
+</li>
+<li>
+<p>modifiez la taille d'affichage des images de 400 à 500</p>
+</li>
+<li>
+<p>modifiez le titre qui précède chaque monument :</p>
+</li>
+<li>
+<p>remplacez le texte _Monument _ par <em>Voici :</em></p>
+</li>
+<li>
+<p>créez une feuille de style qui définit une classe CSS pour un
 texte blanc sur fond bleu et affectée cette classe aux
-éléments <code>h2</code> de titre des monuments</li>
-<li>ajoutez après le nom du monument ses
+éléments <code>h2</code> de titre des monuments</p>
+</li>
+<li>
+<p>ajoutez après le nom du monument ses
 coordonnées GPS, par exemple pour avoir <em>La tour Eiffel se trouve aux
-coordonnées (48.85826,2.294591)</em></li>
-</ol></li>
+coordonnées (48.85826,2.294591)</em></p>
+</li>
 </ol>
-
-<p>Nous avons déjà indiqué l&rsquo;importance du choix des identificateurs pour
-les variables, le choix du nom d&rsquo;une fonction est tout aussi important, voire
-plus. Celui-ci doit permettre à celui qui l&rsquo;utilise de se faire une
+<p>Nous avons déjà indiqué l'importance du choix des identificateurs pour
+les variables, le choix du nom d'une fonction est tout aussi important, voire
+plus. Celui-ci doit permettre à celui qui l'utilise de se faire une
 intuition de ce que fait la fonction. Si cela ne lui évitera pas
 de lire la documentation-spécification de la fonction pour bien
-l&rsquo;utiliser, le nom permet certainement de retrouver parmi toutes
+l'utiliser, le nom permet certainement de retrouver parmi toutes
 celles qui existent la fonction qui a de bonnes chances de
-correspondre à ce que l&rsquo;on
+correspondre à ce que l'on
 cherche. Ainsi les noms de fonction <code>charAt</code>
 ou <code>getYear</code> nous aident à imaginer leur rôle.
 De même le choix <code>fahrenheitEnCelsius</code> est
 certainement plus pertinent que <code>f</code>
 ou <code>fahrcels</code> par exemple.</p>
-
 <ol>
 <li>Dans un fichier <code>temperature.js</code> écrivez le code une
 fonction <code>fahrenheitEnCelsius</code> qui prend un paramètre
 numérique représentant une température exprimée en degré Fahrenheit et
 a pour résultat la même température exprimée en degré Celsius.</li>
-<li>Avez-vous rédigé la partie documentation ? Si non, c&rsquo;est un
+<li>Avez-vous rédigé la partie documentation ? Si non, c'est un
 tort elle fait partie de la fonction et est tout aussi
 indispensable que le code lui-même. Pourquoi selon vous ?</li>
 <li>Ecrivez une page HTML qui utilise la définition de cette fonction
@@ -6286,23 +6428,20 @@ Fahrenheit affiche la valeur en Celsius correspondante.</li>
 <li>Définissez la fonction qui réalise la conversion inverse et
 testez-la également.</li>
 </ol>
-
 <p><strong>Calcul de la date de Pâques.</strong>
 Le calcul de la date de
-Pâques est loin d&rsquo;être une chose si facile. La définition
+Pâques est loin d'être une chose si facile. La définition
 actuelle de la date de Pâques est celle définie en 325 lors du
 concile de Nicée : &ldquo;<em>Pâques est le dimanche qui suit le
 quatorzième jour de la Lune qui atteint cet âge au 21 mars ou
-immédiatement après</em>&rdquo;. Le quatorzième jour de la Lune étant le
+immédiatement après</em>&quot;. Le quatorzième jour de la Lune étant le
 jour de la pleine Lune et le 21 mars correspondant à la date de
 l´équinoxe de printemps.
 L&rsquo;<em>algorithme de Oudin</em> permet le calcul de la date de pâques
 pour une année donnée. Il est présenté ci-dessous sous sa forme
 non simplifiée donc utilisable pour toute année postérieure à 1583
-(après l&rsquo;apparition du calendrier grégorien).</p>
-
+(après l'apparition du calendrier grégorien).</p>
 <p>Dans la suite, RESTE représente le reste dans la division entière et QUO le quotient entier</p>
-
 <ul>
 <li>G = <em>annee</em> RESTE 19</li>
 <li>C = <em>annee</em> QUO 100</li>
@@ -6314,15 +6453,14 @@ non simplifiée donc utilisable pour toute année postérieure à 1583
 <li>P = 29 QUO (H + 1)</li>
 <li>Q = (21 - G) QUO 11</li>
 <li>I = H - K x (1 - K x P x Q)</li>
-<li>J=(<em>annee</em>+<em>annee</em> QUO 4 + I + 2 -D) RESTE 7</li>
+<li>J=(<em>annee_+_annee</em> QUO 4 + I + 2 -D) RESTE 7</li>
 <li>R = 28+I-</li>
 </ul>
-
 <p>Le résultat R représente le nombre de jours après le 1er mars
 correspondant au dimanche de Pâques.
-En Javascript l&rsquo;opérateur RESTE se note <code>%</code>. S&rsquo;il n&rsquo;existe
-pas d&rsquo;opérateur prédéfini correspondant à QUO, on peut sur les
-nombres positifs composer l&rsquo;opérateur de division avec la fonction
+En Javascript l'opérateur RESTE se note <code>%</code>. S'il n'existe
+pas d'opérateur prédéfini correspondant à QUO, on peut sur les
+nombres positifs composer l'opérateur de division avec la fonction
 <code>Math.floor</code> qui fournit la valeur arrondie par
 défaut. En exploitant les conversions de type implicites de
 Javascript (ici de <code>Float</code> vers <code>String</code>) on
@@ -6334,75 +6472,69 @@ n <span style="color:#555">%</span> <span style="color:#f60">3</span>           
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#366">Math</span>.floor(n<span style="color:#555">/</span><span style="color:#f60">5</span>)  <span style="color:#09f;font-style:italic">//  2        // valeur arrondie par défaut de la division flottante
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#366">parseInt</span>(n<span style="color:#555">/</span><span style="color:#f60">5</span>)    <span style="color:#09f;font-style:italic">//  2        // permet d&#39;obtenir le quotient
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#366">Math</span>.floor(n<span style="color:#555">/</span><span style="color:#f60">3</span>)  <span style="color:#09f;font-style:italic">//  4
-</span></code></pre></div>
-<ol>
-<li>Dans un fichier écrivez le code d&rsquo;une fonction qui prend pour paramètre une année
+</span></code></pre></div><ol>
+<li>
+<p>Dans un fichier écrivez le code d'une fonction qui prend pour paramètre une année
 et a pour résultat le nombre de jours après le 1er mars de cette
-année correspondant au dimanche de Pâques.</li>
-
-<li><p>Ecrivez un document HTML qui utilise cette fonction pour</p>
-
-<ol>
-<li>afficher le nombre de jours qui sépare le dimanche de Pâques du
-1er mars pour l&rsquo;année en cours (reprenez ce qui a été vue sur le
-type <code>Date</code> !)</li>
-<li>demander à l&rsquo;utilisateur de fournir une année et affiche la même
-information pour l&rsquo;année fournie</li>
-</ol></li>
-
-<li><p>Faites plusieurs tests et utilisez Firebug pour suivre pas à pas
-l&rsquo;exécution de votre fonction.</p></li>
+année correspondant au dimanche de Pâques.</p>
+</li>
+<li>
+<p>Ecrivez un document HTML qui utilise cette fonction pour</p>
+</li>
+<li>
+<p>afficher le nombre de jours qui sépare le dimanche de Pâques du
+1er mars pour l'année en cours (reprenez ce qui a été vue sur le
+type <code>Date</code> !)</p>
+</li>
+<li>
+<p>demander à l'utilisateur de fournir une année et affiche la même
+information pour l'année fournie</p>
+</li>
+<li>
+<p>Faites plusieurs tests et utilisez Firebug pour suivre pas à pas
+l'exécution de votre fonction.</p>
+</li>
 </ol>
-
 <h2 id="tests">Tests</h2>
-
-<p>Contrairement à ce que l&rsquo;on peut peut-être penser dans une première
-intuition, l&rsquo;activité de programmation ne se limite pas à l&rsquo;écriture du
+<p>Contrairement à ce que l'on peut peut-être penser dans une première
+intuition, l'activité de programmation ne se limite pas à l'écriture du
 code informatique du programme.</p>
-
-<p>Ecrire un programme c&rsquo;est aussi le
+<p>Ecrire un programme c'est aussi le
 commenter (le spécifier) et le tester.</p>
-
 <p>En cela les projets
-informatique ne diffèrent pas de ceux dans d&rsquo;autres domaines :
-lorsque l&rsquo;on produit une voiture on commence par en établir le cahier
-des charges et on n&rsquo;imagine pas ne pas en tester chaque composant (le
-moteur, les freins, l&rsquo;airbag, etc.).</p>
-
+informatique ne diffèrent pas de ceux dans d'autres domaines :
+lorsque l'on produit une voiture on commence par en établir le cahier
+des charges et on n'imagine pas ne pas en tester chaque composant (le
+moteur, les freins, l'airbag, etc.).</p>
 <p>Dans les manipulations qui ont été proposées depuis le début de
-l&rsquo;apprentissage de la programmation, il était demandé (quasi)
+l'apprentissage de la programmation, il était demandé (quasi)
 systématiquement de <strong>tester</strong>. Il est temps de revenir sur
-cette phase fondamentale de l&rsquo;activité de programmation qui avait
-été annoncée dès l&rsquo;introduction : la phase
+cette phase fondamentale de l'activité de programmation qui avait
+été annoncée dès l'introduction : la phase
 de test. Une règle simple à retenir
 et appliquer :</p>
-
 <p>Tout code informatique écrit doit être testé.</p>
-
-<p>Cela doit finalement être une évidence. Il est en effet naturel de s&rsquo;assurer
+<p>Cela doit finalement être une évidence. Il est en effet naturel de s'assurer
 que ce qui a été produit fonctionne conformément à ce qui était
-prévu. Il n&rsquo;est pas concevable de réaliser le branchement d&rsquo;une prise
+prévu. Il n'est pas concevable de réaliser le branchement d'une prise
 électrique sans en vérifier le bon fonctionnement.</p>
-
 <p>Les programmes informatiques sont cependant des systèmes complexes où
 les différents composants (fonctions par exemple) interagissent entre
 eux. Ces interactions rendent très difficiles la construction de tests
-complets permettant de s&rsquo;assurer de leur bon fonctionnement. La
-notion de test de programme est d&rsquo;ailleurs une thématique de recherche
-à part entière de l&rsquo;informatique. Vous avez sûrement eu l&rsquo;occasion
-d&rsquo;être confronté, déjà à plusieurs reprises, au dysfonctionnement de
+complets permettant de s'assurer de leur bon fonctionnement. La
+notion de test de programme est d'ailleurs une thématique de recherche
+à part entière de l'informatique. Vous avez sûrement eu l'occasion
+d'être confronté, déjà à plusieurs reprises, au dysfonctionnement de
 programmes. Pourtant on peut imaginer que, dans la plupart des cas du
 moins, leurs concepteurs ont apporté toute leur attention à leur
 réalisation et les avaient testés avant de les diffuser.</p>
-
 <p>Néanmoins, une première étape consiste à tester indépendamment chacun des éléments
 programmés, chacune des fonctions, afin de vérifier que son
 comportement correspond à sa spécification. Une des difficultés
-lors de tests est de s&rsquo;assurer que l&rsquo;on parvient à vérifier tous les
+lors de tests est de s'assurer que l'on parvient à vérifier tous les
 cas de figure, y compris, et surtout, les cas particuliers sources
-des erreurs non prévues. Plusieurs essais s&rsquo;avèrent donc nécessaires,
+des erreurs non prévues. Plusieurs essais s'avèrent donc nécessaires,
 avec différentes valeurs de paramètres bien choisies.</p>
-
 <p>Vous devez et devrez donc systématiquement
 procéder au test de chacune des fonctions que vous programmez.</p>
 </article>
@@ -6437,15 +6569,12 @@ procéder au test de chacune des fonctions que vous programmez.</p>
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#création-de-fonctions">Création de fonctions</a>
-<ul>
-<li><a href="#du-code-javascript-en-dehors-de-la-page-html">Du code javascript en dehors de la page HTML</a></li>
-<li><a href="#définition-de-fonctions">Définition de fonctions</a></li>
-<li><a href="#au-coeur-du-traitement">Au coeur du traitement</a></li>
-<li><a href="#tests">Tests</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#du-code-javascript-en-dehors-de-la-page-html">Du code javascript en dehors de la page HTML</a></li>
+    <li><a href="#dfinition-de-fonctions">Définition de fonctions</a></li>
+    <li><a href="#au-coeur-du-traitement">Au coeur du traitement</a></li>
+    <li><a href="#tests">Tests</a></li>
+  </ul>
 </nav>
   </aside>
 

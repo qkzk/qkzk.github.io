@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,60 +6176,42 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p><a href="/uploads/docsnsi/algo/tris/tris_3-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_3-Beamer.pdf">diapos</a></p>
-
-<h1 id="troisième-partie-preuves-de-la-correction">troisième partie : preuves de la correction</h1>
-
+<article class="markdown"><p><a href="/uploads/docsnsi/algo/tris/tris_3-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_3-Beamer.pdf">diapos</a></p>
+<h1 id="troisime-partie--preuves-de-la-correction">troisième partie : preuves de la correction</h1>
 <h2 id="prouver-un-algorithme">Prouver un algorithme</h2>
-
-<p>Comment s&rsquo;assurer que l&rsquo;algorithme fait ce qu&rsquo;il annonce ?</p>
-
+<p>Comment s'assurer que l'algorithme fait ce qu'il annonce ?</p>
 <ul>
-<li>Est-on certain d&rsquo;obtenir une tableau triée à la fin ?</li>
+<li>Est-on certain d'obtenir une tableau triée à la fin ?</li>
 <li>Comment le prouver ?</li>
 </ul>
-
 <h2 id="invariant-de-boucle">Invariant de boucle</h2>
-
 <p>Un invariant de boucle est une propriété qui est vraie AVANT et APRÈS
-l&rsquo;exécution d&rsquo;un tour de la boucle.</p>
-
-<h1 id="tri-par-sélection-invariant-et-terminaison">Tri par sélection : invariant et terminaison</h1>
-
-<h2 id="tri-par-sélection-rappel">Tri par sélection : rappel</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">tri_selection(tableau t, entier n)
+l'exécution d'un tour de la boucle.</p>
+<h1 id="tri-par-slection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</h1>
+<h2 id="tri-par-slection--rappel">Tri par sélection : rappel</h2>
+<pre><code>tri_selection(tableau t, entier n)
     pour i de 1 à n - 1
         min = i
         pour j de i + 1 à n
             si t[j] &lt; t[min], alors min = j
         fin pour
         si min = i, alors échanger t[i] et t[min]
-    fin pour</pre></div>
-<h2 id="tri-par-sélection-invariant-de-boucle">Tri par sélection : invariant de boucle</h2>
-
+    fin pour
+</code></pre><h2 id="tri-par-slection--invariant-de-boucle">Tri par sélection : invariant de boucle</h2>
 <p><strong>Les <code>i</code> premiers éléments sont triés.</strong></p>
-
 <ol>
-<li>C&rsquo;est vrai <strong>dès le départ</strong> car on commence à <code>i = 1</code></li>
+<li>C'est vrai <strong>dès le départ</strong> car on commence à <code>i = 1</code></li>
 <li>Cela <strong>reste vrai</strong> car on ajoute à droite un élément plus grand que les autres.</li>
 </ol>
-
-<h2 id="terminaison-du-tri-par-sélection">Terminaison du tri par sélection</h2>
-
+<h2 id="terminaison-du-tri-par-slection">Terminaison du tri par sélection</h2>
 <p>Est-on certain que notre algorithme va se termine bien ?</p>
-
 <ol>
 <li>À chaque tour de la boucle extérieure, la liste restante (les non triés) diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s&rsquo;arrête bien.</li>
+<li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s'arrête bien.</li>
 </ol>
-
-<h1 id="quatrième-partie-programmer-les-tris-en-python">Quatrième partie : programmer les tris en Python</h1>
-
+<h1 id="quatrime-partie--programmer-les-tris-en-python">Quatrième partie : programmer les tris en Python</h1>
 <h2 id="convertir-les-algorithmes-du-pseudo-code-vers-python">Convertir les algorithmes du pseudo code vers Python</h2>
-
-<h2 id="programme-donné">Programme donné</h2>
+<h2 id="programme-donn">Programme donné</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(a):
 	n <span style="color:#555">=</span> <span style="color:#366">len</span>(a)
 	<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
@@ -6072,28 +6219,21 @@ l&rsquo;exécution d&rsquo;un tour de la boucle.</p>
 		<span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(i<span style="color:#555">+</span><span style="color:#f60">1</span>, n):
 			<span style="color:#069;font-weight:bold">if</span> a[m] <span style="color:#555">&gt;</span> a[j]:
         m <span style="color:#555">=</span> j
-    a[m],a[i] <span style="color:#555">=</span> a[i],a[m] <span style="color:#09f;font-style:italic"># on echange</span></code></pre></div>
-<h2 id="tri-par-insertion-invariant">Tri par insertion : invariant</h2>
-
+    a[m],a[i] <span style="color:#555">=</span> a[i],a[m] <span style="color:#09f;font-style:italic"># on echange</span>
+</code></pre></div><h2 id="tri-par-insertion--invariant">Tri par insertion : invariant</h2>
 <h3 id="invariant">Invariant</h3>
-
 <p>Les <code>i</code> premiers éléments sont triés.</p>
-
 <ol>
-<li>C&rsquo;est vrai dès le départ car on commence à <code>i = 1</code></li>
+<li>C'est vrai dès le départ car on commence à <code>i = 1</code></li>
 <li>Cela reste vrai car on ajoute le nouvel élément à sa place.</li>
 </ol>
-
-<p><strong>L&rsquo;algorithme est correct : le résultat est une liste triée</strong></p>
-
+<p><strong>L'algorithme est correct : le résultat est une liste triée</strong></p>
 <h3 id="terminaison">Terminaison</h3>
-
 <ol>
 <li>À chaque tour de la boucle extérieure, la liste restante diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> diminue. Elle s&rsquo;arrête bien.</li>
+<li>À chaque tour de la boucle intérieure, <code>j</code> diminue. Elle s'arrête bien.</li>
 </ol>
-
-<p><strong>L&rsquo;algorithme se termine bien.</strong></p>
+<p><strong>L'algorithme se termine bien.</strong></p>
 </article>
 
       <div class="backtotop">
@@ -6126,29 +6266,27 @@ l&rsquo;exécution d&rsquo;un tour de la boucle.</p>
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#troisième-partie-preuves-de-la-correction">troisième partie : preuves de la correction</a>
-<ul>
-<li><a href="#prouver-un-algorithme">Prouver un algorithme</a></li>
-<li><a href="#invariant-de-boucle">Invariant de boucle</a></li>
-</ul></li>
-<li><a href="#tri-par-sélection-invariant-et-terminaison">Tri par sélection : invariant et terminaison</a>
-<ul>
-<li><a href="#tri-par-sélection-rappel">Tri par sélection : rappel</a></li>
-<li><a href="#tri-par-sélection-invariant-de-boucle">Tri par sélection : invariant de boucle</a></li>
-<li><a href="#terminaison-du-tri-par-sélection">Terminaison du tri par sélection</a></li>
-</ul></li>
-<li><a href="#quatrième-partie-programmer-les-tris-en-python">Quatrième partie : programmer les tris en Python</a>
-<ul>
-<li><a href="#convertir-les-algorithmes-du-pseudo-code-vers-python">Convertir les algorithmes du pseudo code vers Python</a></li>
-<li><a href="#programme-donné">Programme donné</a></li>
-<li><a href="#tri-par-insertion-invariant">Tri par insertion : invariant</a>
-<ul>
-<li><a href="#invariant">Invariant</a></li>
-<li><a href="#terminaison">Terminaison</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#prouver-un-algorithme">Prouver un algorithme</a></li>
+    <li><a href="#invariant-de-boucle">Invariant de boucle</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#tri-par-slection--rappel">Tri par sélection : rappel</a></li>
+    <li><a href="#tri-par-slection--invariant-de-boucle">Tri par sélection : invariant de boucle</a></li>
+    <li><a href="#terminaison-du-tri-par-slection">Terminaison du tri par sélection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#convertir-les-algorithmes-du-pseudo-code-vers-python">Convertir les algorithmes du pseudo code vers Python</a></li>
+    <li><a href="#programme-donn">Programme donné</a></li>
+    <li><a href="#tri-par-insertion--invariant">Tri par insertion : invariant</a>
+      <ul>
+        <li><a href="#invariant">Invariant</a></li>
+        <li><a href="#terminaison">Terminaison</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1934,6 +1934,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6023,32 +6188,22 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h1 id="1-principe-et-exemples">1. Principe et exemples</h1>
-
-<p>Les algorithmes récursifs et les fonctions récursives sont fondamentaux en informatique. Un algorithme est dit récursif s&rsquo;il s&rsquo;appelle lui-même.</p>
-
-<p>On oppose généralement les algorithmes récursifs aux algorithmes dits impératifs ou itératifs qui s&rsquo;exécutent sans invoquer ou appeler explicitement l&rsquo;algorithme lui-même.</p>
-
+<article class="markdown"><h1 id="1-principe-et-exemples">1. Principe et exemples</h1>
+<p>Les algorithmes récursifs et les fonctions récursives sont fondamentaux en informatique. Un algorithme est dit récursif s'il s'appelle lui-même.</p>
+<p>On oppose généralement les algorithmes récursifs aux algorithmes dits impératifs ou itératifs qui s'exécutent sans invoquer ou appeler explicitement l'algorithme lui-même.</p>
 <p>Prenons un exemple issu des mathématiques, celui de la factorielle. Celle-ci se définit intuitivement pour des entiers positifs par la fonction suivante :</p>
-
 <p>$$n! = 1 \times 2 \times &hellip; (n-1) \times n.$$</p>
-
-<p>L&rsquo;idée de la récursivité est d&rsquo;utiliser une définition équivalente, à savoir une suite récurrente :</p>
-
+<p>L'idée de la récursivité est d'utiliser une définition équivalente, à savoir une suite récurrente :</p>
 <p>$n!=1$ si $n=0$ ou $1$, sinon $n!=n \times (n-1)!$</p>
-
 <p>Vérifiez sur $n=1,2,3,4$ que les deux définitions sont équivalentes.</p>
-
 <p>En récursif, la factorielle peut se traduire par le programme suivant en pseudo-code :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">factorielle(entier k) :
+<pre><code>factorielle(entier k) :
 si k=0
 alors renvoyer 1
 sinon renvoyer k * factorielle(k-1)
-finsi</pre></div>
+finsi
+</code></pre>
 <p>Analysez les deux exemples qui suivent ligne par ligne puis testez les. Dans cet ordre !</p>
-
 <p><strong>Exemple 1</strong> :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#069;font-weight:bold">function</span> factorial(num)
   {
@@ -6073,8 +6228,7 @@ finsi</pre></div>
       <span style="color:#366">document</span>.write(result);
 
       <span style="color:#09f;font-style:italic">// Sortie : 40320
-</span></code></pre></div>
-<p><strong>Exemple 2</strong>. On peut transformer la fonction pour la rendre recursive très simplement. Au lieu d&rsquo;utiliser une boucle while pour calculer la valeur, on peut se contenter d&rsquo;appeler &ldquo;factorial&rdquo; à nouveau.</p>
+</span></code></pre></div><p><strong>Exemple 2</strong>. On peut transformer la fonction pour la rendre recursive très simplement. Au lieu d'utiliser une boucle while pour calculer la valeur, on peut se contenter d'appeler &ldquo;factorial&rdquo; à nouveau.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> factorial(num)
 {
     <span style="color:#09f;font-style:italic">// si le nombre est négatif, le rejetter.
@@ -6095,207 +6249,129 @@ finsi</pre></div>
 <span style="color:#366">document</span>.write(result);
 
 <span style="color:#09f;font-style:italic">// Sortie : 40320
-</span></code></pre></div>
-<p>Testez ces fonctions sur quelques exemples : 0, 1, 2, 5, 12.</p>
-
+</span></code></pre></div><p>Testez ces fonctions sur quelques exemples : 0, 1, 2, 5, 12.</p>
 <p>Attention : $2! = 479~001~600$</p>
-
-<p>Il est important de remarquer qu&rsquo;un algorithme récursif peut très bien ne pas s&rsquo;arrêter.</p>
-
+<p>Il est important de remarquer qu'un algorithme récursif peut très bien ne pas s'arrêter.</p>
 <p>Par exemple dans le calcul des factorielles, un mauvais argument en entrée renvoie une infinté de calculs !</p>
-
 <p>$(-1)! = (-1)\times(-2)\times(-3)\times(-4)&hellip;$ et le calcul est infini !</p>
-
-<p>Il est donc important de tester les fonctions récursives de manière précise avant de lancer la machine. Une mauvaise programmation entrainera toujours un plantage. Javascript n&rsquo;affichera alors qu&rsquo;une page blanche ou un espace vide à la place du calcul attendu.</p>
-
-<h1 id="d-autres-exemples-simples">D&rsquo;autres exemples simples.</h1>
-
-<h2 id="calcul-des-puissances-7-3-7-times-7-times-7-343">Calcul des puissances : $7^3 = 7 \times 7 \times 7 = 343$.</h2>
-
-<p>Le calcul des puissances d&rsquo;un entier peut se traiter de manière récursive.</p>
-
+<p>Il est donc important de tester les fonctions récursives de manière précise avant de lancer la machine. Une mauvaise programmation entrainera toujours un plantage. Javascript n'affichera alors qu'une page blanche ou un espace vide à la place du calcul attendu.</p>
+<h1 id="dautres-exemples-simples">D'autres exemples simples.</h1>
+<h2 id="calcul-des-puissances--73--7-times-7-times-7--343">Calcul des puissances : $7^3 = 7 \times 7 \times 7 = 343$.</h2>
+<p>Le calcul des puissances d'un entier peut se traiter de manière récursive.</p>
 <p>$$7^3 = 7 \times (7^2) = 7 \times (7 \times (7^1) = 7 \times (7 \times (7 \times (7^0)))$$</p>
-
-<p>Ce qui peut s&rsquo;intérpréter par une fonction f prenant 2 variables n et p et renvoyant n^p.</p>
-
+<p>Ce qui peut s'intérpréter par une fonction f prenant 2 variables n et p et renvoyant n^p.</p>
 <p>$f(n, p)=1$ si $p=0$, sinon $f(n,p) = n \times f(n, p-1)$</p>
-
 <p>Ecrire deux algorithmes en pseudo code sur le drive permettant de calculer n^p des façons suivantes :</p>
-
 <ol>
 <li>Avec une boucle while.</li>
 <li>En récursif.</li>
 <li>Programmer les algorithme en JavaScript dans de nouveaux fichiers : puissance-while.html et puissance-recursive.html</li>
 <li>Commenter toutes les lignes de votre code afin de le rendre lisible par un camarade. Cette question sera fortement évaluée !!!</li>
 </ol>
-
-<h2 id="l-algorithme-d-euclide">L&rsquo;algorithme d&rsquo;Euclide</h2>
-
+<h2 id="lalgorithme-deuclide">L'algorithme d'Euclide</h2>
 <p>Le PGCD (Plus Grand Commun Diviseur)</p>
-
 <p>Exemple : cherchons le pgcd de 24 et 36</p>
-
 <p>Les diviseurs de 24 sont : 1, 2, 3, 4, 6, 8, 12 et 24</p>
-
 <p>Les diviseurs de 36 sont : 1, 2, 3, 4, 6, 9, 12, 18 et 36</p>
-
 <p>24 et 36 ont pour diviseurs communs: 1, 2, 3, 4, 6 et 12</p>
-
-<p>Le plus grand d&rsquo;entre eux est 12</p>
-
+<p>Le plus grand d'entre eux est 12</p>
 <p>12 est le pgcd de 24 et de 36. On écrit pgcd(24, 36)=12
-L&rsquo;algorithme d&rsquo; Euclide permet de déterminer le pgcd de la manière suivante :</p>
-
+L'algorithme d&rsquo; Euclide permet de déterminer le pgcd de la manière suivante :</p>
 <ul>
 <li>pgcd(a, a) = a,</li>
 <li>pgcd(a, b) = pgcd(a − b, b) si a &gt; b ou pgcd(a, b − a) si a</li>
 </ul>
-
-<p>Programmez l&rsquo;algorithme d&rsquo;Euclide de façon récursive en suivant les étapes respectées lors de la manip précédente : papier, drive, javascript.</p>
-
-<p>NB : une autre méthode pour calculer l&rsquo;algorithme d&rsquo;Euclide est l&rsquo;opérateur modulo &ldquo;%&rdquo; (le reste de la division euclidienne de a par b si b &lt; a ou de b par a sinon.</p>
-
+<p>Programmez l'algorithme d'Euclide de façon récursive en suivant les étapes respectées lors de la manip précédente : papier, drive, javascript.</p>
+<p>NB : une autre méthode pour calculer l'algorithme d'Euclide est l'opérateur modulo &ldquo;%&rdquo; (le reste de la division euclidienne de a par b si b &lt; a ou de b par a sinon.</p>
 <p>pgcd (a,b) = b si a%b == 0 , ou sinon (a%b) % b ;</p>
-
 <p><strong>Solution :</strong></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> pgcd(a,b){
 <span style="color:#069;font-weight:bold">return</span>  a<span style="color:#555">&gt;</span>b <span style="color:#555">&amp;&amp;</span> pgcd(a<span style="color:#555">-</span>b, b)<span style="color:#555">||</span> a<span style="color:#555">&lt;</span> b <span style="color:#555">&amp;&amp;</span> pgcd(a,b<span style="color:#555">-</span>a) <span style="color:#555">||</span> a<span style="color:#555">===</span>b <span style="color:#555">&amp;&amp;</span> a ; } <span style="color:#09f;font-style:italic">//Et avec l&#39;opérateur modulo : function pgcd(a,b){ return a&gt;b &amp;&amp; a%b&gt;0 &amp;&amp; pgcd(b,a%b) || (b&gt;a)&amp;&amp; pgcd(b,a) || a%b===0 &amp;&amp; b ;
 </span><span style="color:#09f;font-style:italic"></span>}
 pgcd(<span style="color:#f60">2736</span>,<span style="color:#f60">486144</span>);<span style="color:#09f;font-style:italic">//30
-</span></code></pre></div>
-<p>Ici on utilise volontairement les expressions javascript pour raccourcir l&rsquo;écriture, ce qui n&rsquo;est pas forcément toujours à conseiller.</p>
-
+</span></code></pre></div><p>Ici on utilise volontairement les expressions javascript pour raccourcir l'écriture, ce qui n'est pas forcément toujours à conseiller.</p>
 <h1 id="2-exercices">2. Exercices</h1>
-
-<p>Ils sont presque tous corrigés ! Indispensable étant donné que je ne pourrais pas être partout à la fois et que les solutions sont très faciles d&rsquo;accès sur internet. La tentation serait trop grande de toute manière.</p>
-
-<p>Néanmoins il est indispensable de s&rsquo;initier sérieusement à l&rsquo;algorithmique afin d&rsquo;être à l&rsquo;aise dans vos projets.</p>
-
+<p>Ils sont presque tous corrigés ! Indispensable étant donné que je ne pourrais pas être partout à la fois et que les solutions sont très faciles d'accès sur internet. La tentation serait trop grande de toute manière.</p>
+<p>Néanmoins il est indispensable de s'initier sérieusement à l'algorithmique afin d'être à l'aise dans vos projets.</p>
 <p>Aussi, faîtes les sérieusement.</p>
-
-<p>Voici une liste de quelques exercices illustrant la notion de fonction recursive. Presque tous sont faisables &ldquo;directement&rdquo;, c&rsquo;est à dire en n&rsquo;employant que des boucles, des tests et des affectations.</p>
-
-<p>Cependant la plupart d&rsquo;entre eux seront plus faciles et plus concis en recursif.</p>
-
+<p>Voici une liste de quelques exercices illustrant la notion de fonction recursive. Presque tous sont faisables &ldquo;directement&rdquo;, c'est à dire en n'employant que des boucles, des tests et des affectations.</p>
+<p>Cependant la plupart d'entre eux seront plus faciles et plus concis en recursif.</p>
 <p>Ces exercices illustrent aussi des pièges et des difficultés.</p>
-
 <p>Les exercices ne sont pas obligatoires. Ils peuvent constituer un travail supplémentaire si vous le souhaitez. Si cela vous intéresse et que vous souhaitez le faire, écrivez-moi un mail après avoir déposé vos travaux dans votre dossier google drive.</p>
-
-<p>Vous répondrez donc à chaque exercice par un fichier individuel (ou avec le nom de chacun d&rsquo;entre vous) sur le drive. Vous vous assurerez du partage de chacun de ces fichiers.</p>
-
-<h3 id="exercice-1-le-nombre-de-chiffres">Exercice 1 : Le nombre de chiffres.</h3>
-
-<p>L&rsquo;objectif est de créer une fonction récursive en JavaScript qui calcule le nombre de chiffres d&rsquo;un entier :</p>
-
+<p>Vous répondrez donc à chaque exercice par un fichier individuel (ou avec le nom de chacun d'entre vous) sur le drive. Vous vous assurerez du partage de chacun de ces fichiers.</p>
+<h3 id="exercice-1--le-nombre-de-chiffres">Exercice 1 : Le nombre de chiffres.</h3>
+<p>L'objectif est de créer une fonction récursive en JavaScript qui calcule le nombre de chiffres d'un entier :</p>
 <p>nchiffres(123456789) renvoie 9.</p>
-
 <ol>
-<li><p>Etudier la fonction suivante qui répond au problème MAIS n&rsquo;utilise pas de récursif :</p>
+<li>Etudier la fonction suivante qui répond au problème MAIS n'utilise pas de récursif :</li>
+</ol>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#069;font-weight:bold">function</span> nchiffres(n) {
 <span style="color:#069;font-weight:bold">var</span> p<span style="color:#555">=</span><span style="color:#f60">1</span>
 <span style="color:#069;font-weight:bold">while</span>(n<span style="color:#555">&gt;</span><span style="color:#f60">1</span>){
-p<span style="color:#555">++</span>;
-n<span style="color:#555">=</span><span style="color:#366">Math</span>.floor(n<span style="color:#555">/</span><span style="color:#f60">10</span>);
+  p<span style="color:#555">++</span>;
+  n<span style="color:#555">=</span><span style="color:#366">Math</span>.floor(n<span style="color:#555">/</span><span style="color:#f60">10</span>);
 }
 <span style="color:#069;font-weight:bold">return</span> p;
 }
 
 <span style="color:#366">document</span>.write(nchiffres(<span style="color:#f60">123456</span>));
-</code></pre></div></li>
-
-<li><p>Créer une nouvelle fonction sur le même principe en utilisant le JavaScript.</p></li>
+</code></pre></div><ol start="2">
+<li>Créer une nouvelle fonction sur le même principe en utilisant le JavaScript.</li>
 </ol>
-
-<h3 id="exercice-2-la-liste-des-chiffres-d-un-nombre">Exercice 2 : La liste des chiffres d&rsquo;un nombre.</h3>
-
+<h3 id="exercice-2--la-liste-des-chiffres-dun-nombre">Exercice 2 : La liste des chiffres d'un nombre.</h3>
 <p>Dans javascript un nombre est un nombre et sa liste de chiffres demande un peu de travail pour être obtenue.</p>
-
-<p>Partir d&rsquo;un entier défini par n=123456789 et aboutir à la liste l=[1,2,3,4,5,6,7,8,9]</p>
-
-<p>C&rsquo;est un exercice indispensable pour la suite étant donné que les variables obtenues dans la pratique n&rsquo;ont pas toujours le bon format.</p>
-
+<p>Partir d'un entier défini par n=123456789 et aboutir à la liste l=[1,2,3,4,5,6,7,8,9]</p>
+<p>C'est un exercice indispensable pour la suite étant donné que les variables obtenues dans la pratique n'ont pas toujours le bon format.</p>
 <ol>
-<li>Créer une fonction NON RECURSIVE à l&rsquo;aide d&rsquo;une boucle &ldquo;for&rdquo; en JavaScript qui prend un nombre en variable et renvoie sa liste de chiffre dans un tableau.
+<li>Créer une fonction NON RECURSIVE à l'aide d'une boucle &ldquo;for&rdquo; en JavaScript qui prend un nombre en variable et renvoie sa liste de chiffre dans un tableau.
 <code>chiffres(123456789)</code> renvoie <code>[1,2,3,4,5,6,7,8,9]</code>.</li>
-
-<li><p>Tester le script suivant :</p>
+<li>Tester le script suivant :</li>
+</ol>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span>  <span style="color:#f60">123456789</span>;
 <span style="color:#069;font-weight:bold">var</span> digits <span style="color:#555">=</span> (<span style="color:#f60">123456789</span>).toString(<span style="color:#f60">10</span>).split(<span style="color:#c30">&#34;&#34;</span>);
-</code></pre></div></li>
-</ol>
-
-<p>Il a pour inconvénient de renvoyer un tableau contenant des chaines de caractères et non des nombres. C&rsquo;est facheux.
+</code></pre></div><p>Il a pour inconvénient de renvoyer un tableau contenant des chaines de caractères et non des nombres. C'est facheux.
 3. Voilà pourquoi je vous propose de tester cette fonction :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span>  <span style="color:#f60">123456789</span>;
 <span style="color:#069;font-weight:bold">var</span> digits2 <span style="color:#555">=</span> (<span style="color:#f60">123456789</span>).toString(<span style="color:#f60">10</span>).split(<span style="color:#c30">&#34;&#34;</span>).map(<span style="color:#069;font-weight:bold">function</span>(t){<span style="color:#069;font-weight:bold">return</span> <span style="color:#366">parseInt</span>(t)});;
-</code></pre></div>
-<p>Testez ces deux fonctions et réalisez des calculs sur les éléments de la liste du type
- <code>digits[0] + digits[1]</code> qui renvoie la somme des deux premiers éléments de la liste.</p>
-
+</code></pre></div><p>Testez ces deux fonctions et réalisez des calculs sur les éléments de la liste du type
+<code>digits[0] + digits[1]</code> qui renvoie la somme des deux premiers éléments de la liste.</p>
 <p>Attention la liste est numérotée à partir de 0 en JavaScript !</p>
-
 <p>Reprendre ce test avec la nouvelle fonction afin de comparer le résultat.</p>
-
-<p>Que s&rsquo;est il passé ?</p>
-
-<h3 id="exercice-3-la-somme-de-ces-mêmes-chiffres">Exercice 3 : La somme de ces mêmes chiffres.</h3>
-
-<p>Créer une fonction récursive en JavaScript qui calcule la somme des chiffres d&rsquo;un nombre entier et recommence jusqu&rsquo;à obtenir un nombre entre 1 et 9.</p>
-
+<p>Que s'est il passé ?</p>
+<h3 id="exercice-3--la-somme-de-ces-mmes-chiffres">Exercice 3 : La somme de ces mêmes chiffres.</h3>
+<p>Créer une fonction récursive en JavaScript qui calcule la somme des chiffres d'un nombre entier et recommence jusqu'à obtenir un nombre entre 1 et 9.</p>
 <p>sommechiffres( 685977856 ) donne 6+8+5+9+7+7+8+5+6 = 61 puis 6+1 = 7.</p>
-
-<p>La fonction doit réaliser tous les calculs en une seule fois, en n&rsquo;étant appelée qu&rsquo;une seule fois.</p>
-
+<p>La fonction doit réaliser tous les calculs en une seule fois, en n'étant appelée qu'une seule fois.</p>
 <p>Tester cette fonction sur de grandes valeurs.</p>
-
-<h1 id="exercice-4-les-tours-de-hanoi">Exercice 4 : Les tours de Hanoi</h1>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tower_of_Hanoi.jpeg/300px-Tower_of_Hanoi.jpeg" alt="" /></p>
-
-<p>Voici (enfin) l&rsquo;incontournable problème qui illustre la récursivité, ce problème a été inventé au début du siècle par un mathématicien français afin d&rsquo;illustrer la résolution d&rsquo;un problème par récursivité.</p>
-
-<p>Attention, essayez de comprendre ce problème et sa solution&hellip; c&rsquo;est un problème fondamental.</p>
-
-<p>Dans un temple bouddhiste, à Hanoi 3 mâts sont disposés en ligne l&rsquo;un à côté de l&rsquo;autre. Sur le mât de gauche sont empilés des disques d&rsquo;or très lourds, percés au centre, de diamètre variable, et ordonnés du plus grand au plus petit.</p>
-
-<p>Un moine est chargé de transférer ces disques sur le troisième piquet à droite, avec cependant un impératif: il ne doit jamais déposer un disque d&rsquo;un diamètre supérieur aux disques précédents sur un mât donné.</p>
-
+<h1 id="exercice-4--les-tours-de-hanoi">Exercice 4 : Les tours de Hanoi</h1>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tower_of_Hanoi.jpeg/300px-Tower_of_Hanoi.jpeg" alt=""></p>
+<p>Voici (enfin) l'incontournable problème qui illustre la récursivité, ce problème a été inventé au début du siècle par un mathématicien français afin d'illustrer la résolution d'un problème par récursivité.</p>
+<p>Attention, essayez de comprendre ce problème et sa solution&hellip; c'est un problème fondamental.</p>
+<p>Dans un temple bouddhiste, à Hanoi 3 mâts sont disposés en ligne l'un à côté de l'autre. Sur le mât de gauche sont empilés des disques d'or très lourds, percés au centre, de diamètre variable, et ordonnés du plus grand au plus petit.</p>
+<p>Un moine est chargé de transférer ces disques sur le troisième piquet à droite, avec cependant un impératif: il ne doit jamais déposer un disque d'un diamètre supérieur aux disques précédents sur un mât donné.</p>
 <p>La légende dit que la fin du monde surviendra lorsque le moine aura terminé son travail&hellip;</p>
-
-<p>Pouvez vous programmer un mode d&rsquo;emploi pour aider notre moine dans sa tache interminable ? Il faut écrire un programme qui donne</p>
-
+<p>Pouvez vous programmer un mode d'emploi pour aider notre moine dans sa tache interminable ? Il faut écrire un programme qui donne</p>
 <p>hanoi( ndisques, &ldquo;gauche&rdquo;, &ldquo;droite&rdquo;, &ldquo;milieu&rdquo;)</p>
-
-<p>qui permet à notre moine de savoir de transférer ndisques de gauche à droite, en s&rsquo;aidant du mât du milieu .</p>
-
-<h5 id="résumé-des-règles-du-problème">Résumé des règles du problème :</h5>
-
-<p>Le problème des tours de Hanoï consiste à déplacer des disques de diamètres différents d&rsquo;une tour de « départ » à une tour d&rsquo;« arrivée » en passant par une tour « intermédiaire », et ceci en un minimum de coups, tout en respectant les règles suivantes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  * on ne peut déplacer plus d&#39;un disque à la fois,
-  * on ne peut placer un disque que sur un autre disque plus grand que lui ou sur un emplacement vide.</pre></div>
+<p>qui permet à notre moine de savoir de transférer ndisques de gauche à droite, en s'aidant du mât du milieu .</p>
+<h5 id="rsum-des-rgles-du-problme-">Résumé des règles du problème :</h5>
+<p>Le problème des tours de Hanoï consiste à déplacer des disques de diamètres différents d'une tour de « départ » à une tour d&rsquo;« arrivée » en passant par une tour « intermédiaire », et ceci en un minimum de coups, tout en respectant les règles suivantes :</p>
+<pre><code>  * on ne peut déplacer plus d'un disque à la fois,
+  * on ne peut placer un disque que sur un autre disque plus grand que lui ou sur un emplacement vide.
+</code></pre>
 <p>On suppose que cette dernière règle est également respectée dans la configuration de départ.</p>
-
 <p>Réponse:</p>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Tower_of_Hanoi_4.gif/300px-Tower_of_Hanoi_4.gif" alt="" /></p>
-
-<p>Le principe de récurrence dit que si vous pouvez le faire pour 1 élément et si vous savez passer de l&rsquo;élément n à n-1 alors vous savez résoudre le problème ! &hellip;.</p>
-
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Tower_of_Hanoi_4.gif/300px-Tower_of_Hanoi_4.gif" alt=""></p>
+<p>Le principe de récurrence dit que si vous pouvez le faire pour 1 élément et si vous savez passer de l'élément n à n-1 alors vous savez résoudre le problème ! &hellip;.</p>
 <p>Ainsi on suppose que vous savez passer une colonne de n-1 disques de gauche au milieu ou à droite.. comment passer une colonne de n disques de gauche à droite :</p>
-
 <p>passer une colonne entière de n-1 disques de gauche au milieu, // vous prétendez que vous savez le faire
 passer le disque large de la base de gauche à droite // vous savez le faire pour de bon !</p>
-
 <p>puis repasser la colonne de n-1 disques du milieu à gauche&hellip; // vous prétendez savoir le faire</p>
-
 <ol>
 <li>Réaliser un dessin papier des trois tours avec seulement 2 disques.Ecrire la liste des manipulation : Faire passer le disque de gauche à droite etc. conduisant à une solution</li>
 <li>Reprendre la démarche avec 3 disques. On pourra s’entraîner avec <a href="http://proficio.free.fr/AP/tour%20de%20Hanoi.htm">cette animation flash</a></li>
 <li>Programmer la solution en JavaScript.</li>
 </ol>
-
-<p>C&rsquo;est l&rsquo;exercice le plus difficile.</p>
-
+<p>C'est l'exercice le plus difficile.</p>
 <p><a href="/uploads/docs/doc04b/corrections.zip">corrections</a></p>
 </article>
 
@@ -6329,36 +6405,28 @@ passer le disque large de la base de gauche à droite // vous savez le faire pou
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#1-principe-et-exemples">1. Principe et exemples</a></li>
-<li><a href="#d-autres-exemples-simples">D&rsquo;autres exemples simples.</a>
-<ul>
-<li><a href="#calcul-des-puissances-7-3-7-times-7-times-7-343">Calcul des puissances : $7^3 = 7 \times 7 \times 7 = 343$.</a></li>
-<li><a href="#l-algorithme-d-euclide">L&rsquo;algorithme d&rsquo;Euclide</a></li>
-</ul></li>
-<li><a href="#2-exercices">2. Exercices</a>
-<ul>
-<li>
-<ul>
-<li><a href="#exercice-1-le-nombre-de-chiffres">Exercice 1 : Le nombre de chiffres.</a></li>
-<li><a href="#exercice-2-la-liste-des-chiffres-d-un-nombre">Exercice 2 : La liste des chiffres d&rsquo;un nombre.</a></li>
-<li><a href="#exercice-3-la-somme-de-ces-mêmes-chiffres">Exercice 3 : La somme de ces mêmes chiffres.</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#exercice-4-les-tours-de-hanoi">Exercice 4 : Les tours de Hanoi</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#résumé-des-règles-du-problème">Résumé des règles du problème :</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#calcul-des-puissances--73--7-times-7-times-7--343">Calcul des puissances : $7^3 = 7 \times 7 \times 7 = 343$.</a></li>
+    <li><a href="#lalgorithme-deuclide">L'algorithme d'Euclide</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#exercice-1--le-nombre-de-chiffres">Exercice 1 : Le nombre de chiffres.</a></li>
+        <li><a href="#exercice-2--la-liste-des-chiffres-dun-nombre">Exercice 2 : La liste des chiffres d'un nombre.</a></li>
+        <li><a href="#exercice-3--la-somme-de-ces-mmes-chiffres">Exercice 3 : La somme de ces mêmes chiffres.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

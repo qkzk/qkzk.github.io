@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,77 +6176,63 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p><a href="/uploads/docsnsi/algo/tris/tris_2-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_2-Beamer.pdf">diapos</a></p>
-
-<h1 id="seconde-partie-pseudo-code">Seconde partie : pseudo code</h1>
-
-<h2 id="tri-par-sélection">Tri par sélection</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">tri_selection(tableau t, entier n)
+<article class="markdown"><p><a href="/uploads/docsnsi/algo/tris/tris_2-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_2-Beamer.pdf">diapos</a></p>
+<h1 id="seconde-partie--pseudo-code">Seconde partie : pseudo code</h1>
+<h2 id="tri-par-slection">Tri par sélection</h2>
+<pre><code>tri_selection(tableau t, entier n)
     pour i de 1 à n - 1
         min = i
         pour j de i + 1 à n
             si t[j] &lt; t[min], alors min = j
         fin pour
         si min = i, alors échanger t[i] et t[min]
-    fin pour</pre></div>
-<h2 id="tri-sélection-à-la-main-1">Tri sélection à la main 1.</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">tableau = [1, 3, 4, 2]
+    fin pour
+</code></pre><h2 id="tri-slection--la-main-1">Tri sélection à la main 1.</h2>
+<pre><code>tableau = [1, 3, 4, 2]
 Boucle (i allant de 1 à 3)
   i = 1
   min = 1
   Boucle (j allant de 2 à 4)
-    j = 2 t[min] = 1 &lt; t[2] = 3. Pas d&#39;échange
-    j = 3 t[min] = 1 &lt; t[3] = 4. Pas d&#39;échange
-    j = 4 t[min] = 1 &lt; t[4] = 2. Pas d&#39;échange
+    j = 2 t[min] = 1 &lt; t[2] = 3. Pas d'échange
+    j = 3 t[min] = 1 &lt; t[3] = 4. Pas d'échange
+    j = 4 t[min] = 1 &lt; t[4] = 2. Pas d'échange
   Fin boucle
-  rien à faire</pre></div>
-<h2 id="tri-sélection-à-la-main-2">Tri sélection à la main 2.</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  i = 2
+  rien à faire
+</code></pre><h2 id="tri-slection--la-main-2">Tri sélection à la main 2.</h2>
+<pre><code>  i = 2
   min = 2
   Boucle (j allant de 3 à 4)
-    j = 3 t[min] = 3 &lt; t[3] = 4. Pas d&#39;échange
+    j = 3 t[min] = 3 &lt; t[3] = 4. Pas d'échange
     j = 3 t[min] = 3 &gt; t[4] = 2. On échange : min = 4
   Fin boucle
   min a changé, on échange dans le tableau :
-  tableau = [1, 2, 4, 3]</pre></div>
-<h2 id="tri-sélection-à-la-main-3">Tri sélection à la main 3.</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  i = 3
+  tableau = [1, 2, 4, 3]
+</code></pre><h2 id="tri-slection--la-main-3">Tri sélection à la main 3.</h2>
+<pre><code>  i = 3
   min = 3
   Boucle (j allant de 4 à 4)
     j = 4 t[min] = 4 &gt; t[4] = 3. On échange : min = 4
   Fin boucle
   min a changé, on échange dans le tableau :
-  tableau = [1, 2, 3, 4]</pre></div>
-<h2 id="le-tri-par-insertion">Le tri par insertion</h2>
-
+  tableau = [1, 2, 3, 4]
+</code></pre><h2 id="le-tri-par-insertion">Le tri par insertion</h2>
 <p>On commence avec une liste déjà triée vide.
 On itère sur la liste et, à chaque tour on insère le premier élément non trié</p>
-
 <p>à sa place dans la liste triée</p>
-
-<p>Tri <em>stable</em> : il ne change pas l&rsquo;ordre de deux éléments &ldquo;égaux&rdquo;
-Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
-
+<p>Tri <em>stable</em> : il ne change pas l'ordre de deux éléments &ldquo;égaux&rdquo;
+Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
 <h2 id="exemple">Exemple</h2>
-
 <p>Triés                   Non Triés            Élément le plus à gauche</p>
-
-<hr />
-
+<hr>
 <p>()                      (1, 3, 4, 2)            (1)
-  (1)                     (3, 4, 2)               (3)
-  (1, 3)                  (4, 2)                  (4)
-  (1, 3, 4)               (2)                     (4)
-  (1, 2, 3, 4)</p>
-
+(1)                     (3, 4, 2)               (3)
+(1, 3)                  (4, 2)                  (4)
+(1, 3, 4)               (2)                     (4)
+(1, 2, 3, 4)</p>
 <h2 id="exemple-2">Exemple 2</h2>
-
-<p><img src="/uploads/docsnsi/algo/tris/insertionsort.png" alt="Tri par insertion" /></p>
-
+<p><img src="/uploads/docsnsi/algo/tris/insertionsort.png" alt="Tri par insertion"></p>
 <h2 id="pseudo-code">Pseudo code</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Tri Insertion(tableau t, entier n)
+<pre><code>Tri Insertion(tableau t, entier n)
 i = 1
 Tant que i &lt; n
     j = i
@@ -6090,24 +6241,24 @@ Tant que i &lt; n
         j = j - 1
     fin tant que
     i = i + 1
-fin tant que</pre></div>
-<h2 id="tri-insertion-à-la-main-1">Tri insertion à la main 1</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">tableau = [1, 3, 4, 2]
+fin tant que
+</code></pre><h2 id="tri-insertion--la-main-1">Tri insertion à la main 1</h2>
+<pre><code>tableau = [1, 3, 4, 2]
 
 i = 1
 Boucle tant que i &lt; n:
   j = 1
   Boucle interne:
       t[0] = 1 &lt; t[1] = 3-&gt; sortie boucle
-  i = 2</pre></div>
-<h2 id="tri-insertion-à-la-main-2">Tri insertion à la main 2</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  2eme tour de la boucle externe
+  i = 2
+</code></pre><h2 id="tri-insertion--la-main-2">Tri insertion à la main 2</h2>
+<pre><code>  2eme tour de la boucle externe
   j = 2
   Boucle interne
     t[1] = 3 &lt; t[2] = 4 -&gt; sortie boucle
-  i = 3</pre></div>
-<h2 id="tri-insertion-à-la-main-3">Tri insertion à la main 3</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  3eme tour de la boucle externe
+  i = 3
+</code></pre><h2 id="tri-insertion--la-main-3">Tri insertion à la main 3</h2>
+<pre><code>  3eme tour de la boucle externe
   j = 3
   Boucle interne
     t[2] = 4 &gt; t[3] = 2 : on échange t[3] et t[2]
@@ -6120,7 +6271,8 @@ Boucle tant que i &lt; n:
     j = 1
     t[0] = 1 &lt; t[1] = 2 -&gt; sortie boucle
     i = 4
-  Fin de la boucle externe   (4 &lt; 4 est Faux)</pre></div></article>
+  Fin de la boucle externe   (4 &lt; 4 est Faux)
+</code></pre></article>
 
       <div class="backtotop">
 
@@ -6152,22 +6304,19 @@ Boucle tant que i &lt; n:
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#seconde-partie-pseudo-code">Seconde partie : pseudo code</a>
-<ul>
-<li><a href="#tri-par-sélection">Tri par sélection</a></li>
-<li><a href="#tri-sélection-à-la-main-1">Tri sélection à la main 1.</a></li>
-<li><a href="#tri-sélection-à-la-main-2">Tri sélection à la main 2.</a></li>
-<li><a href="#tri-sélection-à-la-main-3">Tri sélection à la main 3.</a></li>
-<li><a href="#le-tri-par-insertion">Le tri par insertion</a></li>
-<li><a href="#exemple">Exemple</a></li>
-<li><a href="#exemple-2">Exemple 2</a></li>
-<li><a href="#pseudo-code">Pseudo code</a></li>
-<li><a href="#tri-insertion-à-la-main-1">Tri insertion à la main 1</a></li>
-<li><a href="#tri-insertion-à-la-main-2">Tri insertion à la main 2</a></li>
-<li><a href="#tri-insertion-à-la-main-3">Tri insertion à la main 3</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tri-par-slection">Tri par sélection</a></li>
+    <li><a href="#tri-slection--la-main-1">Tri sélection à la main 1.</a></li>
+    <li><a href="#tri-slection--la-main-2">Tri sélection à la main 2.</a></li>
+    <li><a href="#tri-slection--la-main-3">Tri sélection à la main 3.</a></li>
+    <li><a href="#le-tri-par-insertion">Le tri par insertion</a></li>
+    <li><a href="#exemple">Exemple</a></li>
+    <li><a href="#exemple-2">Exemple 2</a></li>
+    <li><a href="#pseudo-code">Pseudo code</a></li>
+    <li><a href="#tri-insertion--la-main-1">Tri insertion à la main 1</a></li>
+    <li><a href="#tri-insertion--la-main-2">Tri insertion à la main 2</a></li>
+    <li><a href="#tri-insertion--la-main-3">Tri insertion à la main 3</a></li>
+  </ul>
 </nav>
   </aside>
 

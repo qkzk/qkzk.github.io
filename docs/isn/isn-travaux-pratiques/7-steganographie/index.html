@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,119 +6176,91 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p>Pré-requis</p>
-
+<article class="markdown"><p>Pré-requis</p>
 <ul>
 <li>le codage des couleurs (voir partie 3</li>
 <li>le code ASCII (voir partie 3)</li>
 </ul>
-
 <p>Notions abordées</p>
-
 <ul>
-<li>codage de l&rsquo;information : application (codage des couleurs,
+<li>codage de l'information : application (codage des couleurs,
 codage des caractères, codage binaire)</li>
 <li>représentation/codage des images, formats</li>
 <li>compression avec ou sans perte</li>
 </ul>
-
-<h1 id="stéganographie">Stéganographie</h1>
-
+<h1 id="stganographie">Stéganographie</h1>
 <p>La stéganographie est l’étude des
 procédés de dissimulation d’une information dans une
 autre.</p>
-
-<p>L&rsquo;<a href="http://fr.wikipedia.org/wiki/St%C3%A9ganographie">article de wikipédia qui lui est consacré</a> commence ainsi :&rdquo;<em>Si la
-cryptographie est l&rsquo;«art du secret», la stéganographie est l&rsquo;art
-de la dissimulation : l&rsquo;objet de la stéganographie est de faire
+<p>L&rsquo;<a href="http://fr.wikipedia.org/wiki/St%C3%A9ganographie">article de wikipédia qui lui est consacré</a> commence ainsi :&quot;<em>Si la
+cryptographie est l&rsquo;«art du secret», la stéganographie est l'art
+de la dissimulation : l'objet de la stéganographie est de faire
 passer inaperçu un message dans un autre message et non de rendre un
 message inintelligible à autre que qui-de-droit. Pour prendre une
 métaphore, la stéganographie consisterait à enterrer son argent dans
-son jardin là où la cryptographie consisterait à l&rsquo;enfermer dans un
-coffre-fort — cela dit, rien n&rsquo;empêche de combiner les deux
-techniques, de même que l&rsquo;on peut enterrer un coffre dans son
-jardin.</em>&rdquo;.</p>
-
+son jardin là où la cryptographie consisterait à l'enfermer dans un
+coffre-fort — cela dit, rien n'empêche de combiner les deux
+techniques, de même que l'on peut enterrer un coffre dans son
+jardin.</em>&quot;.</p>
 <p>Nous allons nous intéresser à un procédé élémentaire
 de dissimulation d’information dans une image.</p>
-
 <h2 id="les-pixels-dans-une-image">Les pixels dans une image</h2>
-
 <p>Une image informatisée est discrétisée en pixels (<em>picture
-  elements</em>), c’est-à-dire en (petites) zones carrées. Chaque
+elements</em>), c’est-à-dire en (petites) zones carrées. Chaque
 pixel possède une couleur (ou une nuance de gris). L’ensemble des
 pixels est organisé sous forme d’un tableau bidimensionnel dans
 lequel chacun d’eux peut-être repéré par un numéro de
 lignes <em>x</em> et un numéro de colonnes <em>y</em>. Le couple
 (<em>x</em>,<em>y</em>) forme les coordonnées du pixel dans l’image.</p>
-
 <p>Ce nombre de pixels est souvent mis en avant comme un critère de qualité d’un appareil photo numérique.</p>
-
 <p>Le nombre de lignes et de colonnes donnent la dimension de l’image, et
 le produit de ces deux nombres est égal au nombre de pixels contenus
 dans l’image.</p>
-
 <p>Les logiciels de traitement d’images numériques comme Photoshop ou
 Gimp permettent par un fort agrandissement de mettre en évidence les
 pixels d’une image.</p>
-
 <p>Quelques éléments de la boîte à outils de Gimp que nous utiliserons :</p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-boite-outils-annotee.png" alt="boite à outils de Gimp" /></p>
-
+<p><img src="/uploads/docs/doc07/doc/gimp-boite-outils-annotee.png" alt="boite à outils de Gimp"></p>
 <ol>
 <li>Récupérez <a href="/uploads/docs/doc07/doc/img0.png">cette image</a>, et visualisez-la avec le logiciel Gimp.</li>
-<li>Effectuez le grossissement maximal de l’image : utilisez l&rsquo;outil &ldquo;loupe&rdquo; et cliquez sur l&rsquo;image (un appui sur la touche &ldquo;Ctrl&rdquo; pendant le clic permet un zoom arrière).</li>
+<li>Effectuez le grossissement maximal de l’image : utilisez l'outil &ldquo;loupe&rdquo; et cliquez sur l'image (un appui sur la touche &ldquo;Ctrl&rdquo; pendant le clic permet un zoom arrière).</li>
 </ol>
-
 <p>Avec la version 2.6 de Gimp ce grossissement maximal est
-   de 25600%, autrement dit un pixel est visualisé à l’écran comme un
-   carré de dimensions 256x256, voici vues avec Gimp les images entière
-   et avec grossissement maximal.</p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-100.png" alt="" /></p>
-
-<p><img src="/uploads/docs/doc07/doc/gimp-img0-25600.png" alt="" /></p>
-
-<h2 id="couleur-d-un-pixel">Couleur d’un pixel</h2>
-
+de 25600%, autrement dit un pixel est visualisé à l’écran comme un
+carré de dimensions 256x256, voici vues avec Gimp les images entière
+et avec grossissement maximal.</p>
+<p><img src="/uploads/docs/doc07/doc/gimp-img0-100.png" alt=""></p>
+<p><img src="/uploads/docs/doc07/doc/gimp-img0-25600.png" alt=""></p>
+<h2 id="couleur-dun-pixel">Couleur d’un pixel</h2>
 <p>La couleur d’un pixel peut être décrite de plusieurs façons par un ou
 plusieurs nombres. Un codage courant que nous avons déjà rencontré est
 le codage RVB.</p>
-
-<p>A l&rsquo;aide de Gimp, déterminez la couleur du pixel de coordonnées
- (252,214) de l’image précédente : il suffit d&rsquo;utiliser l’outil
- pipette et de cliquer sur le pixel voulu en maintenant la
- touche <em>Majuscules</em> appuyée. Il peut être pratique de zoomer
- avant&hellip;</p>
-
+<p>A l'aide de Gimp, déterminez la couleur du pixel de coordonnées
+(252,214) de l’image précédente : il suffit d'utiliser l’outil
+pipette et de cliquer sur le pixel voulu en maintenant la
+touche <em>Majuscules</em> appuyée. Il peut être pratique de zoomer
+avant&hellip;</p>
 <p>Quel est le code hexadécimal, celui utilisé en html, pour cette
- couleur ?</p>
-
-<h2 id="description-du-procédé-stéganographique">Description du procédé stéganographique</h2>
-
+couleur ?</p>
+<h2 id="description-du-procd-stganographique">Description du procédé stéganographique</h2>
 <p>Si on modifie la couleur d’un pixel en ajoutant ou retranchant un
-  petit nombre à l’une ou l’autre des trois composantes, le changement
-  de couleur du pixel est imperceptible pour l’oeil.</p>
-
+petit nombre à l’une ou l’autre des trois composantes, le changement
+de couleur du pixel est imperceptible pour l’oeil.</p>
 <ol>
 <li>Vérifiez que les deux points de coordonnées (0,0) et (0,1)
 (tout en haut à gauche de l’image) sont exactement de la même
 couleur.</li>
 <li>Modifiez la couleur du pixel de coordonnées (0,0) en ajoutant 1 à
 la composante bleue de sa couleur : dans la &ldquo;<em>Boîte à
-outils</em>&rdquo;, après avoir sélectionnée la couleur du pixel avec la
+outils</em>&quot;, après avoir sélectionnée la couleur du pixel avec la
 pipette cliquez sur la couleur de premier plan, vous pouvez alors
-modifier la composante bleue puis faites la modification à l&rsquo;aide de
-l&rsquo;outil rayon que vous aurez réglé pour qu&rsquo;il n&rsquo;affecte qu&rsquo;un seul
+modifier la composante bleue puis faites la modification à l'aide de
+l'outil rayon que vous aurez réglé pour qu'il n'affecte qu'un seul
 pixel.</li>
 <li>Voyez-vous une
-différence de couleur avec le pixel voisin ? N&rsquo;hésitez pas à
+différence de couleur avec le pixel voisin ? N'hésitez pas à
 zoomer au maximum.</li>
 </ol>
-
 <p>On peut exploiter cette non perception de la modification d’une unité
 d’une des trois composantes de la couleur d’un pixel pour cacher un
 bit dans un pixel. Plus précisément si le bit à cacher vaut 0 on
@@ -6131,26 +6268,18 @@ modifie la composante de couleur de sorte que son écriture binaire se
 termine par 0. Si le bit à cacher vaut 1 on modifie cette composante
 de sorte que l’écriture binaire se termine par 1, tous les autres bits
 restant inchangés.</p>
-
 <p>Pour dissimuler dans une image un message composé de <em>n</em> bits, on
-  cache chacun de ses bits dans <em>n</em> pixels convenus de l’image.</p>
-
+cache chacun de ses bits dans <em>n</em> pixels convenus de l’image.</p>
 <h2 id="retrouver-un-message">Retrouver un message</h2>
-
 <p>Dans l’image que vous pouvez récupérer <a href="http://www.fil.univ-lille1.fr/~wegrzyno/ISN/Stegano/stega-img0.png">ici</a>, un message a été dissimulé en suivant le procédé précédent. Tous les bits dissimulés correspondent au bit de poids faible de la composante bleue de la   couleur des pixels.</p>
-
-<p>Le nombre <em>l</em> de caractères du message dissimulé dans l’image est codée par les huit premiers pixels de la première ligne (ligne d&rsquo;ordonnée 0), chacun d’eux donnant un bit de l’écriture binaire de cette longueur.</p>
-
+<p>Le nombre <em>l</em> de caractères du message dissimulé dans l’image est codée par les huit premiers pixels de la première ligne (ligne d'ordonnée 0), chacun d’eux donnant un bit de l’écriture binaire de cette longueur.</p>
 <p>Utilisez Gimp pour retrouver le nombre <em>l</em> du message dissimulé.</p>
-
 <p>Le message dissimulé est un (petit) texte codé en binaire en
 utilisant le codage ASCII. Ce codage codant chaque caractère sur
 huit bits, le nombre de pixels dissimulant un bit du message est
-donc égal à 8x<em>l</em>. Ces pixels sont situés sur la deuxième ligne
-(ligne d&rsquo;ordonnée 1) de l’image en partant de la gauche.</p>
-
-<p>Retrouvez le message dissimulé dans l&rsquo;image :</p>
-
+donc égal à 8x_l_. Ces pixels sont situés sur la deuxième ligne
+(ligne d'ordonnée 1) de l’image en partant de la gauche.</p>
+<p>Retrouvez le message dissimulé dans l'image :</p>
 <ol>
 <li>commencez par noter les valeurs des composantes bleus,</li>
 <li>puis déterminez les valeurs de leur bit de poids faible,</li>
@@ -6158,20 +6287,15 @@ donc égal à 8x<em>l</em>. Ces pixels sont situés sur la deuxième ligne
 <li>enfin en vous aidant de la <a href="http://fr.wikipedia.org/wiki/Code_ASCII">table du codage
 ASCII sur Wikipedia</a> révélez le message.</li>
 </ol>
-
 <h2 id="dissimuler-un-message">Dissimuler un message</h2>
-
 <p>À vous de dissimuler maintenant ! Cachez le message de votre choix
 dans l’image d’origine. Afin de vérifier le succès de votre codage,
 transmettez l’image que vous aurez produite à votre voisin qui se
 chargera de retrouver le message que vous y avez mis.</p>
-
 <h1 id="choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</h1>
-
 <p>Il existe plusieurs formats de sauvegarde des images dans des
 fichiers : bitmap (bmp), jpeg (jpg), portable network graphics
 (png), &hellip;</p>
-
 <ol>
 <li>Reprenez l’image de laquelle vous avez extrait le message qui y
 était dissimulé. En utilisant Gimp, enregistrez-la sur disque au
@@ -6182,7 +6306,7 @@ avec Gimp et tentez de retrouver l’information dissimulée. Que
 constatez-vous ?</li>
 <li>Comparez la taille des deux fichiers  aux
 formats jpg
-et png. Qu&rsquo;en pensez-vous ?</li>
+et png. Qu'en pensez-vous ?</li>
 <li>Examinez d’autres formats possibles. Lesquels conviennent pour
 notre procédé stéganographique ?</li>
 </ol>
@@ -6218,17 +6342,13 @@ notre procédé stéganographique ?</li>
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#stéganographie">Stéganographie</a>
-<ul>
-<li><a href="#les-pixels-dans-une-image">Les pixels dans une image</a></li>
-<li><a href="#couleur-d-un-pixel">Couleur d’un pixel</a></li>
-<li><a href="#description-du-procédé-stéganographique">Description du procédé stéganographique</a></li>
-<li><a href="#retrouver-un-message">Retrouver un message</a></li>
-<li><a href="#dissimuler-un-message">Dissimuler un message</a></li>
-</ul></li>
-<li><a href="#choix-du-format-de-sauvegarde-du-fichier">Choix du format de sauvegarde du fichier</a></li>
-</ul>
+  <ul>
+    <li><a href="#les-pixels-dans-une-image">Les pixels dans une image</a></li>
+    <li><a href="#couleur-dun-pixel">Couleur d’un pixel</a></li>
+    <li><a href="#description-du-procd-stganographique">Description du procédé stéganographique</a></li>
+    <li><a href="#retrouver-un-message">Retrouver un message</a></li>
+    <li><a href="#dissimuler-un-message">Dissimuler un message</a></li>
+  </ul>
 </nav>
   </aside>
 

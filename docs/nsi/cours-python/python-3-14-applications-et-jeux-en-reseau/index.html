@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,109 +6176,77 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p>Les applications et jeux en réseau se basent sur le modèle clients/serveur.</p>
-
+<article class="markdown"><p>Les applications et jeux en réseau se basent sur le modèle clients/serveur.</p>
 <p>Au niveau de la programmation, la tâche est ardue car il faut avoir des connaissances en réseau (module <code>socket</code>) et en multithreading (module <code>threading</code>) :</p>
-
 <ul>
-<li><p>Un <code>socket</code> permet de connecter deux machines à travers un réseau.
+<li>
+<p>Un <code>socket</code> permet de connecter deux machines à travers un réseau.
 Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il faut créer 10 sockets (chaque client est connecté au serveur).
-Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).</p></li>
-
-<li><p>Le <code>multithreading</code> est une technique qui permet d&rsquo;exécuter plusieurs tâches (<code>thread</code>) en même temps et de manière indépendante dans un même processus.
+Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).</p>
+</li>
+<li>
+<p>Le <code>multithreading</code> est une technique qui permet d'exécuter plusieurs tâches (<code>thread</code>) en même temps et de manière indépendante dans un même processus.
 Pour un jeu en réseau avec 10 joueurs, le serveur utilisera 10 threads pour communiquer individuellement avec chaque client.
 Chaque thread gère donc le socket du client.
-On retrouve le multithreading du côté de l&rsquo;application cliente : pour traiter l&rsquo;émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.</p></li>
+On retrouve le multithreading du côté de l'application cliente : pour traiter l'émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.</p>
+</li>
 </ul>
-
-<h3 id="exemple-un-qcm-en-réseau">Exemple : un QCM en réseau</h3>
-
-<p>Il s&rsquo;agit d&rsquo;un jeu multijoueurs.
+<h3 id="exemple--un-qcm-en-rseau">Exemple : un QCM en réseau</h3>
+<p>Il s'agit d'un jeu multijoueurs.
 On peut y jouer en réseau local (LAN) ou sur Internet.</p>
-
 <p>Chaque joueur lance son application cliente pour se connecter au serveur.
-La première étape consiste à créer un pseudonyme, puis quand le nombre de joueurs est suffisant (3 dans l&rsquo;exemple ci-dessous), la partie commence.
-Le serveur envoie alors simultanément la première question à l&rsquo;ensemble des joueurs : le but est d&rsquo;y répondre correctement et le plus rapidement possible.
+La première étape consiste à créer un pseudonyme, puis quand le nombre de joueurs est suffisant (3 dans l'exemple ci-dessous), la partie commence.
+Le serveur envoie alors simultanément la première question à l'ensemble des joueurs : le but est d'y répondre correctement et le plus rapidement possible.
 Quand tout le monde a répondu ou si la limite de temps est dépassée, on passe à la question suivante&hellip;
-Un classement est établi à partir d&rsquo;un système de points.</p>
-
+Un classement est établi à partir d'un système de points.</p>
 <h4 id="le-serveur">Le serveur</h4>
-
 <p>Avant toute chose, il faut lancer le serveur.
 Le port par défaut est 50026 et le nombre de joueurs est 3.
-Mais on peut choisir pour le numéro de port une valeur arbitraire comprise entre 49152 et 65535, ainsi qu&rsquo;un nombre quelconque de joueurs : il suffit de modifier ces paramètres dans le script.</p>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/serveur_ubuntu.png" alt="Python" /></p>
-
+Mais on peut choisir pour le numéro de port une valeur arbitraire comprise entre 49152 et 65535, ainsi qu'un nombre quelconque de joueurs : il suffit de modifier ces paramètres dans le script.</p>
+<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/serveur_ubuntu.png" alt="Python"></p>
 <h4 id="les-clients">Les clients</h4>
-
 <p>Ici, on joue à trois en réseau local (chez vous, derrière votre box, par exemple).
-Pour se connecter au serveur, il faut connaître son adresse IP (192.168.1.10) et le port qu&rsquo;il utilise (50026).</p>
-
-<p>Python étant multiplateforme, on peut mélanger les systèmes d&rsquo;exploitation : Windows, Linux, Mac&hellip;
+Pour se connecter au serveur, il faut connaître son adresse IP (192.168.1.10) et le port qu'il utilise (50026).</p>
+<p>Python étant multiplateforme, on peut mélanger les systèmes d'exploitation : Windows, Linux, Mac&hellip;
 Dans cet exemple :</p>
-
 <ul>
 <li>le serveur et un client tournent sur le même ordinateur sous Linux/Ubuntu (192.168.1.10)</li>
 <li>un deuxième client sur un ordinateur sous Windows (192.168.1.11)</li>
 <li>un troisième client sur un troisième ordinateur sous Linux/Ubuntu (192.168.1.13)</li>
 </ul>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu1.png" alt="Python" /></p>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Windows.png" alt="Python" /></p>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu2.png" alt="Python" /></p>
-
-<p>Finalement, c&rsquo;est Ubuntu qui gagne devant Windows ;)</p>
-
+<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu1.png" alt="Python"></p>
+<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Windows.png" alt="Python"></p>
+<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu2.png" alt="Python"></p>
+<p>Finalement, c'est Ubuntu qui gagne devant Windows ;)</p>
 <h4 id="remarques">Remarques</h4>
-
-<p>Cette application fonctionne mais est loin d&rsquo;être parfaite : les pertes de connexion ne sont pas gérées, etc&hellip;
-Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un retour de votre part.</p>
-
-<h4 id="télécharger-les-scripts">Télécharger les scripts</h4>
-
+<p>Cette application fonctionne mais est loin d'être parfaite : les pertes de connexion ne sont pas gérées, etc&hellip;
+Si vous avez testé cette application, cela m'intéresse d'avoir un retour de votre part.</p>
+<h4 id="tlcharger-les-scripts">Télécharger les scripts</h4>
 <ul>
 <li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">serveur</a></li>
 <li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">client (mode graphique avec Tkinter)</a></li>
 <li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">client (mode console)</a></li>
 </ul>
-
 <h3 id="projet">Projet</h3>
-
-<h4 id="jeu-tic-tac-toe-en-réseau-jeu-du-morpion">Jeu Tic-Tac-Toe en réseau (jeu du morpion)</h4>
-
-<p>Ecrire l&rsquo;application serveur et l&rsquo;application cliente d&rsquo;un jeu de morpion en réseau local (LAN) ou sur Internet (plus d&rsquo;informations <a href="http://fsincere.free.fr/jeu/jeu.php">ici</a>) :</p>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/tkinter_tic_tac_toe_en_reseau.png" alt="Python Tkinter Canvas" /></p>
-
-<p><img src="http://fsincere.free.fr/isn/python/picto/tic_tac_toe_serveur.png" alt="Python Tkinter Canvas" /></p>
-
+<h4 id="jeu-tictactoe-en-rseau-jeu-du-morpion">Jeu Tic-Tac-Toe en réseau (jeu du morpion)</h4>
+<p>Ecrire l'application serveur et l'application cliente d'un jeu de morpion en réseau local (LAN) ou sur Internet (plus d'informations <a href="http://fsincere.free.fr/jeu/jeu.php">ici</a>) :</p>
+<p><img src="http://fsincere.free.fr/isn/python/picto/tkinter_tic_tac_toe_en_reseau.png" alt="Python Tkinter Canvas"></p>
+<p><img src="http://fsincere.free.fr/isn/python/picto/tic_tac_toe_serveur.png" alt="Python Tkinter Canvas"></p>
 <h3 id="bibliographie">Bibliographie</h3>
-
 <p>Le cours de Gérard Swinnen, avec deux exemples concrets à essayer (un chat et un jeu de bombardes) :</p>
-
 <ul>
 <li><a href="http://inforef.be/swi/python.htm">inforef.be/swi/python.htm</a></li>
 <li><a href="http://python.developpez.com/cours/TutoSwinnen/?page=page_20#L18">python.developpez.com/cours/TutoSwinnen/?page=page_20#L18</a></li>
 </ul>
-
 <p>Le livre de Brandon Rhodes et John Goerzen :</p>
-
 <ul>
 <li>Foundations of Python Network Programming (<a href="http://www.apress.com/">Apress</a>)</li>
 </ul>
-
 <p>La documentation officielle de Python :</p>
-
 <ul>
 <li><a href="http://docs.python.org/3/library/socket.html">socket : low-level networking interface</a></li>
 <li><a href="http://docs.python.org/3/library/threading.html">threading : higher-level threading interface</a></li>
 </ul>
-
 <p>Source - <a href="http://fsincere.free.fr/isn/python/cours_python_reseau.php">Fabrice Sincère</a> -<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
 </article>
 
@@ -6147,26 +6280,15 @@ Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#exemple-un-qcm-en-réseau">Exemple : un QCM en réseau</a>
-<ul>
-<li><a href="#le-serveur">Le serveur</a></li>
-<li><a href="#les-clients">Les clients</a></li>
-<li><a href="#remarques">Remarques</a></li>
-<li><a href="#télécharger-les-scripts">Télécharger les scripts</a></li>
-</ul></li>
-<li><a href="#projet">Projet</a>
-<ul>
-<li><a href="#jeu-tic-tac-toe-en-réseau-jeu-du-morpion">Jeu Tic-Tac-Toe en réseau (jeu du morpion)</a></li>
-</ul></li>
-<li><a href="#bibliographie">Bibliographie</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#exemple--un-qcm-en-rseau">Exemple : un QCM en réseau</a></li>
+        <li><a href="#projet">Projet</a></li>
+        <li><a href="#bibliographie">Bibliographie</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

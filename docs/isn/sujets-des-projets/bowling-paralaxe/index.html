@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,81 +6176,84 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<h2 id="présentation">Présentation</h2>
-
-<p>[video width=&ldquo;662&rdquo; height=&ldquo;776&rdquo; mp4=&ldquo;/uploads/uploads/2018/12/bowling_paralax_1.mp4&rdquo;][/video]</p>
-
-<p>Dans cette version du jeu de Bowling on s&rsquo;approche davantage des jeux de bowling type &ldquo;bowling 3D&rdquo;  concernant les graphismes et on s&rsquo;en éloigne d&rsquo;un point de vue de la physique.</p>
-
+<article class="markdown"><h2 id="prsentation">Présentation</h2>
+<p>[video width=&quot;662&rdquo; height=&quot;776&rdquo; mp4=&rdquo;/uploads/uploads/2018/12/bowling_paralax_1.mp4&rdquo;][/video]</p>
+<p>Dans cette version du jeu de Bowling on s'approche davantage des jeux de bowling type &ldquo;bowling 3D&rdquo;  concernant les graphismes et on s'en éloigne d'un point de vue de la physique.</p>
 <p>On représente la piste en vue à la première personne avec les quilles dans le fond.
-Le joueur est représenté par sa boule de bowling qu&rsquo;il lance pour faire tomber les quilles.</p>
-
+Le joueur est représenté par sa boule de bowling qu'il lance pour faire tomber les quilles.</p>
 <p>Collisions, rigoles, calcul des scores sont implémentés mais grandement simplifiés pour rendre le jeu raisonnable.</p>
-
 <h2 id="principe">Principe</h2>
-
-<p>La piste est représentée en 2D avec une vue &ldquo;avec point de fuite&rdquo;. Un point &ldquo;à l&rsquo;infini&rdquo; est choisi au delà du décor et les bords de la piste convergent vers ce point.
+<p>La piste est représentée en 2D avec une vue &ldquo;avec point de fuite&rdquo;. Un point &ldquo;à l'infini&rdquo; est choisi au delà du décor et les bords de la piste convergent vers ce point.
 Un lancer &ldquo;tout droit&rdquo; de la boule converge aussi vers ce point.
 A chaque lancer on anime la boule, détecte les collisions, déclenche les animations des quilles et compte les points.
 On initialise ensuite la partie avec le lancer suivant.</p>
-
 <h3 id="cahier-des-charges">Cahier des charges</h3>
-
 <ul>
-<li>Il est important de comprendre le principe avant de se lancer. Une figure détaillée sur géogebra peut servir de point de départ. Je peux la fournir si nécessaire. Les coordonnées des objets doivent être bien connues et comprises. Il n&rsquo;est pas possible de réaliser ce jeu &ldquo;à l&rsquo;arrache&rdquo; en développant au fur et à mesure sans une compréhension globale du principe.</li>
-<li>Le décor est fixe. On ne dessinera d&rsquo;abord QUE LA PISTE (un trapèze). inutile de passer des heures à faire des dessins, cela ne sert à rien.</li>
-
-<li><p>La boule est un objet qui a une position (x, y), un rayon (dépendant de y).
-Plus y est proche de 0 (le haut de l&rsquo;écran), plus le rayon est petit. Elle semble donc PLUS LOIN au fur et à mesure qu&rsquo;elle monte sur l&rsquo;écran.
-(regarder la vidéo si ce n&rsquo;est pas clair).
-Ce principe est appelé parallaxe, on l&rsquo;utilise souvent en jeux vidéos pour simuler la 3D.</p></li>
-
-<li><p>Les quilles sont toutes identiques, seule leur position à l&rsquo;écran change.
-Elles peuvent &ldquo;tomber&rdquo;, c&rsquo;est à dire tourner sur elle même et se déplacer de façon à simuler grossièrement une chute (cette partie est presque une extension, on peut se contenter de les colorier autrement pendant tout le développement).
-Elles ont de nombreux statuts : &ldquo;touchée&rdquo;, &ldquo;tombée&rdquo;, &ldquo;en jeu&rdquo; (selon le 1er ou 2nd lancer)</p></li>
-
-<li><p>Les rigoles sont des trapèzes noirs représentés de manière fixe.
+<li>
+<p>Il est important de comprendre le principe avant de se lancer. Une figure détaillée sur géogebra peut servir de point de départ. Je peux la fournir si nécessaire. Les coordonnées des objets doivent être bien connues et comprises. Il n'est pas possible de réaliser ce jeu &ldquo;à l'arrache&rdquo; en développant au fur et à mesure sans une compréhension globale du principe.</p>
+</li>
+<li>
+<p>Le décor est fixe. On ne dessinera d'abord QUE LA PISTE (un trapèze). inutile de passer des heures à faire des dessins, cela ne sert à rien.</p>
+</li>
+<li>
+<p>La boule est un objet qui a une position (x, y), un rayon (dépendant de y).
+Plus y est proche de 0 (le haut de l'écran), plus le rayon est petit. Elle semble donc PLUS LOIN au fur et à mesure qu'elle monte sur l'écran.
+(regarder la vidéo si ce n'est pas clair).
+Ce principe est appelé parallaxe, on l'utilise souvent en jeux vidéos pour simuler la 3D.</p>
+</li>
+<li>
+<p>Les quilles sont toutes identiques, seule leur position à l'écran change.
+Elles peuvent &ldquo;tomber&rdquo;, c'est à dire tourner sur elle même et se déplacer de façon à simuler grossièrement une chute (cette partie est presque une extension, on peut se contenter de les colorier autrement pendant tout le développement).
+Elles ont de nombreux statuts : &ldquo;touchée&rdquo;, &ldquo;tombée&rdquo;, &ldquo;en jeu&rdquo; (selon le 1er ou 2nd lancer)</p>
+</li>
+<li>
+<p>Les rigoles sont des trapèzes noirs représentés de manière fixe.
 On détermine quand la boule y entre en résolvant une équation affine :
 _ si (x&lt; telle fonction de y) alors (suivre la rigole de gauche) _pour la rigole de gauche
-<em>si (x&gt; autre fonction de y) alors (suivre la rigole de droite)</em></p></li>
-
-<li><p>Le lancer d&rsquo;une boule s&rsquo;effectue en 2 temps. On se place sur l&rsquo;écran et on fait glisser la boule avec la souris. On calcule alors une vitesse et la boule se déplace.
-Pour rendre le jeu jouable, on mesurera l&rsquo;écart des x entre un &ldquo;glisser&rdquo; tout droit et le &ldquo;glisser&rdquo; du joueur et on adaptera la trajectoire de la boule. Cela peut paraître compliqué mais rendra l&rsquo;ajustement facile.
-Pour le développement on introduira un lancer par pression sur &ldquo;espace&rdquo; qui va forcement tout droit.</p></li>
-
-<li><p>Les collisions sont gérées de manière très très simplifiée :
-Si la boule passe trop près d&rsquo;un quille en jeu, celle-ci devient &ldquo;touchée&rdquo;. Elle devient alors &ldquo;tombée&rdquo;. On garde la liste des quilles &ldquo;touchées&rdquo;.</p></li>
-
-<li><p>Si certaines combinaisons sont touchées, cela déclenche un strike et toutes tombent.</p></li>
-
-<li><p>D&rsquo;autres combinaisons font tomber certaines quilles à coup sûr.</p></li>
-
-<li><p>Les scores sont grandement simplifiés par rapport aux règles du bowling.</p>
-
+<em>si (x&gt; autre fonction de y) alors (suivre la rigole de droite)</em></p>
+</li>
+<li>
+<p>Le lancer d'une boule s'effectue en 2 temps. On se place sur l'écran et on fait glisser la boule avec la souris. On calcule alors une vitesse et la boule se déplace.
+Pour rendre le jeu jouable, on mesurera l'écart des x entre un &ldquo;glisser&rdquo; tout droit et le &ldquo;glisser&rdquo; du joueur et on adaptera la trajectoire de la boule. Cela peut paraître compliqué mais rendra l'ajustement facile.
+Pour le développement on introduira un lancer par pression sur &ldquo;espace&rdquo; qui va forcement tout droit.</p>
+</li>
+<li>
+<p>Les collisions sont gérées de manière très très simplifiée :
+Si la boule passe trop près d'un quille en jeu, celle-ci devient &ldquo;touchée&rdquo;. Elle devient alors &ldquo;tombée&rdquo;. On garde la liste des quilles &ldquo;touchées&rdquo;.</p>
+</li>
+<li>
+<p>Si certaines combinaisons sont touchées, cela déclenche un strike et toutes tombent.</p>
+</li>
+<li>
+<p>D'autres combinaisons font tomber certaines quilles à coup sûr.</p>
+</li>
+<li>
+<p>Les scores sont grandement simplifiés par rapport aux règles du bowling.</p>
 <ul>
 <li>12 tours. Fin de partie au 13ème (on développera avec moins, bien sûr)</li>
 <li>2 lancers par tours. Un strike fait passer au premier lancer du tour suivant.</li>
 <li>Chaque boule rapporte un point, un strike (toutes les quilles au premier lancer) en ajoute 10. Un spare (toutes les quilles après le second lancer) en ajoute 5.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="extensions">Extensions</h2>
-
 <ul>
-<li><p>Améliorer la physique du jeu. Les possibilités sont infinies :</p>
-
+<li>
+<p>Améliorer la physique du jeu. Les possibilités sont infinies :</p>
 <ul>
 <li>collisions des quilles entre elles,</li>
 <li>choc élastique entre les objets,</li>
-</ul></li>
-
-<li><p>Graphismes. De toute évidence, il y a de la marge. Là aussi c&rsquo;est infini.</p></li>
-
-<li><p>Interface. Les données apparaissent simplement dans des balises HTML. On pourrait faire apparaître les informations à l&rsquo;écran. Je n&rsquo;avais plus le temps de m&rsquo;en occuper.</p></li>
-
-<li><p>Contrôles. Le principe est sommaire&hellip; On peut chercher d&rsquo;autres manières de faire. Les développeurs ont beaucoup de mal avec ce point, d&rsquo;ailleurs.</p></li>
+</ul>
+</li>
+<li>
+<p>Graphismes. De toute évidence, il y a de la marge. Là aussi c'est infini.</p>
+</li>
+<li>
+<p>Interface. Les données apparaissent simplement dans des balises HTML. On pourrait faire apparaître les informations à l'écran. Je n'avais plus le temps de m'en occuper.</p>
+</li>
+<li>
+<p>Contrôles. Le principe est sommaire&hellip; On peut chercher d'autres manières de faire. Les développeurs ont beaucoup de mal avec ce point, d'ailleurs.</p>
+</li>
 </ul>
 </article>
 
@@ -6119,17 +6287,15 @@ Si la boule passe trop près d&rsquo;un quille en jeu, celle-ci devient &ldquo;t
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#présentation">Présentation</a></li>
-<li><a href="#principe">Principe</a>
-<ul>
-<li><a href="#cahier-des-charges">Cahier des charges</a></li>
-</ul></li>
-<li><a href="#extensions">Extensions</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#prsentation">Présentation</a></li>
+    <li><a href="#principe">Principe</a>
+      <ul>
+        <li><a href="#cahier-des-charges">Cahier des charges</a></li>
+      </ul>
+    </li>
+    <li><a href="#extensions">Extensions</a></li>
+  </ul>
 </nav>
   </aside>
 

@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,28 +6176,25 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p>Intéressons-nous au script suivant :</p>
+<article class="markdown"><p>Intéressons-nous au script suivant :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script inverse.py</span>
-chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer un nombre : &#39;</span>)
+chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Entrer un nombre : </span><span style="color:#c30">&#39;</span>)
 nombre <span style="color:#555">=</span> <span style="color:#366">float</span>(chaine)
 inverse <span style="color:#555">=</span> <span style="color:#f60">1.0</span><span style="color:#555">/</span>nombre
-<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;L&#39;inverse de&#34;</span>, nombre, <span style="color:#c30">&#34;est :&#34;</span>, inverse)</code></pre></div>
-<p>Ce script vous demande de saisir un nombre, puis il calcule et affiche son inverse.</p>
-
+<span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">L</span><span style="color:#c30">&#39;</span><span style="color:#c30">inverse de</span><span style="color:#c30">&#34;</span>, nombre, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">est :</span><span style="color:#c30">&#34;</span>, inverse)
+</code></pre></div><p>Ce script vous demande de saisir un nombre, puis il calcule et affiche son inverse.</p>
 <h3 id="les-exceptions">Les exceptions</h3>
-
 <p>Quand vous entrez un nombre, tout se déroule normalement :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<pre><code>&gt;&gt;&gt;
 Entrer un nombre : 10
-L&#39;inverse de 10.0 est : 0.1
-&gt;&gt;&gt;</pre></div>
+L'inverse de 10.0 est : 0.1
+&gt;&gt;&gt;
+</code></pre>
 <p>Mais que se passe-t-il autrement ?</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<pre><code>&gt;&gt;&gt;
 Entrer un nombre : bonjour
 Traceback (most recent call last):
-  File &#34;inverse.py&#34;, line 3, in &lt;module&gt;
+  File &quot;inverse.py&quot;, line 3, in &lt;module&gt;
     nombre = float(chaine)
 ValueError: could not convert string to float: bonjour
 &gt;&gt;&gt;
@@ -6043,103 +6205,130 @@ ValueError: could not convert string to float: bonjour
 &gt;&gt;&gt;
 Entrer un nombre : 0
 Traceback (most recent call last):
-  File &#34;inverse.py&#34;, line 4, in &lt;module&gt;
+  File &quot;inverse.py&quot;, line 4, in &lt;module&gt;
     inverse = 1.0/nombre
 ZeroDivisionError: float division by zero
-&gt;&gt;&gt;</pre></div>
+&gt;&gt;&gt;
+</code></pre>
 <p>Python a détecté une erreur : une <strong>exception est levée</strong>.
 Ici nous avons une exception de type <code>ZeroDivisionError</code> (division par 0) et une exception de type <code>ValueError</code>.
-Une exception arrête l&rsquo;exécution normale d&rsquo;un programme.</p>
-
+Une exception arrête l'exécution normale d'un programme.</p>
 <h3 id="gestion-des-exceptions">Gestion des exceptions</h3>
-
-<p>Heureusement, il est possible de gérer les exceptions pour éviter l&rsquo;arrêt brutal du programme.
+<p>Heureusement, il est possible de gérer les exceptions pour éviter l'arrêt brutal du programme.
 Pour cela, on utilise conjointement les instructions <code>try</code> et <code>except</code>.
-L&rsquo;instruction <code>else</code> est optionnelle :</p>
+L'instruction <code>else</code> est optionnelle :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">try</span>:
-    chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer un nombre : &#39;</span>)
+    chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Entrer un nombre : </span><span style="color:#c30">&#39;</span>)
     nombre <span style="color:#555">=</span> <span style="color:#366">float</span>(chaine)
     inverse <span style="color:#555">=</span> <span style="color:#f60">1.0</span><span style="color:#555">/</span>nombre
 <span style="color:#069;font-weight:bold">except</span>:
     <span style="color:#09f;font-style:italic">#ce bloc est exécuté si une exception est levée dans le bloc try</span>
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Erreur !&#34;</span>)
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Erreur !</span><span style="color:#c30">&#34;</span>)
 <span style="color:#069;font-weight:bold">else</span>:
     <span style="color:#09f;font-style:italic">#on arrive ici si aucune exception n&#39;est levée dans le bloc try</span>
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;L&#39;inverse de&#34;</span>, nombre, <span style="color:#c30">&#34;est :&#34;</span>, inverse)</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">L</span><span style="color:#c30">&#39;</span><span style="color:#c30">inverse de</span><span style="color:#c30">&#34;</span>, nombre, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">est :</span><span style="color:#c30">&#34;</span>, inverse)
+</code></pre></div><pre><code>&gt;&gt;&gt;
 Entrer un nombre : 56
-L&#39;inverse de 56.0 est : 0.0178571428571
+L'inverse de 56.0 est : 0.0178571428571
 &gt;&gt;&gt;
 Entrer un nombre : 0
 Erreur !
-&gt;&gt;&gt;</pre></div>
-<p>On peut distinguer les différents types d&rsquo;exceptions :</p>
+&gt;&gt;&gt;
+</code></pre>
+<p>On peut distinguer les différents types d'exceptions :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">try</span>:
-    chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer un nombre : &#39;</span>)
+    chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Entrer un nombre : </span><span style="color:#c30">&#39;</span>)
     nombre <span style="color:#555">=</span> <span style="color:#366">float</span>(chaine)
     inverse <span style="color:#555">=</span> <span style="color:#f60">1.0</span><span style="color:#555">/</span>nombre
 <span style="color:#069;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ValueError</span>:
     <span style="color:#09f;font-style:italic">#ce bloc est exécuté si une exception de type ValueError est levée dans le bloc try</span>
-    <span style="color:#069;font-weight:bold">print</span>(chaine, <span style="color:#c30">&#34;n&#39;est pas un nombre !&#34;</span>)
+    <span style="color:#069;font-weight:bold">print</span>(chaine, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">n</span><span style="color:#c30">&#39;</span><span style="color:#c30">est pas un nombre !</span><span style="color:#c30">&#34;</span>)
 <span style="color:#069;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ZeroDivisionError</span>:
 <span style="color:#09f;font-style:italic">#ce bloc est exécuté si une exception de type ZeroDivisionError est levée dans le bloc try</span>
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Division par zéro !&#34;</span>)
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Division par zéro !</span><span style="color:#c30">&#34;</span>)
 <span style="color:#069;font-weight:bold">else</span>:
     <span style="color:#09f;font-style:italic">#on arrive ici si aucune exception n&#39;est levée dans le bloc try</span>
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;L&#39;inverse de&#34;</span>, nombre, <span style="color:#c30">&#34;est :&#34;</span>, inverse)</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">L</span><span style="color:#c30">&#39;</span><span style="color:#c30">inverse de</span><span style="color:#c30">&#34;</span>, nombre, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">est :</span><span style="color:#c30">&#34;</span>, inverse)
+</code></pre></div><pre><code>&gt;&gt;&gt;
 Entrer un nombre : 0
 Division par zéro !
 &gt;&gt;&gt;
 Entrer un nombre : bonjour
-bonjour n&#39;est pas un nombre !
-&gt;&gt;&gt;</pre></div>
-<p>N&rsquo;oubliez pas : un programme bien écrit doit gérer proprement les exceptions.</p>
-
+bonjour n'est pas un nombre !
+&gt;&gt;&gt;
+</code></pre>
+<p>N'oubliez pas : un programme bien écrit doit gérer proprement les exceptions.</p>
 <h3 id="exercices">Exercices</h3>
-
-<p><strong>Exercice 5.1</strong>
-1) Compléter le script précédent de manière à ressaisir le nombre en cas d&rsquo;erreur. On pourra englober le script dans une boucle <code>while</code>.
+<p><strong>Exercice 5.1</strong></p>
+<ol>
+<li>
+<p>Compléter le script précédent de manière à ressaisir le nombre en cas d'erreur. On pourra englober le script dans une boucle <code>while</code>.
 Par exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
-Entrer un nombre : salut !
-salut ! n&#39;est pas un nombre !
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Entrer un nombre : salut !
+salut ! n'est pas un nombre !
 Entrer un nombre : 2,3
-2,3 n&#39;est pas un nombre !
+2,3 n'est pas un nombre !
 Entrer un nombre : 2.3
-L&#39;inverse de 2.3 est : 0.434782608696
-&gt;&gt;&gt;</pre></div>
-<p>2) Compléter le script de manière à accepter la virgule comme séparateur décimal.
+L'inverse de 2.3 est : 0.434782608696</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>Compléter le script de manière à accepter la virgule comme séparateur décimal.
 Par exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
-Entrer un nombre : 2,3
-L&#39;inverse de 2.3 est : 0.434782608696
-&gt;&gt;&gt;</pre></div>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Entrer un nombre : 2,3
+L'inverse de 2.3 est : 0.434782608696</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
 <p>On pourra utiliser la méthode <code>replace()</code> de la classe <code>str</code></p>
-
 <p>Exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;abc&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;z&#34;</span>) <span style="color:#09f;font-style:italic"># b est remplacé par z</span>
-<span style="color:#c30">&#39;azc&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;raoul&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39;z&#39;</span>) <span style="color:#09f;font-style:italic"># pas de x dans la chaîne de départ...</span>
-<span style="color:#c30">&#39;raoul&#39;</span> <span style="color:#09f;font-style:italic"># la méthode renvoie la chaîne initiale</span></code></pre></div>
-<p><strong>Exercice 5.2</strong> Ecrire un script qui calcule la racine carrée d&rsquo;un nombre, avec gestion des exceptions.
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">abc</span><span style="color:#c30">&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">b</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">z</span><span style="color:#c30">&#34;</span>) <span style="color:#09f;font-style:italic"># b est remplacé par z</span>
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">azc</span><span style="color:#c30">&#39;</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">raoul</span><span style="color:#c30">&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">x</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">z</span><span style="color:#c30">&#39;</span>) <span style="color:#09f;font-style:italic"># pas de x dans la chaîne de départ...</span>
+<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">raoul</span><span style="color:#c30">&#39;</span> <span style="color:#09f;font-style:italic"># la méthode renvoie la chaîne initiale</span>
+</code></pre></div><p><strong>Exercice 5.2</strong> Ecrire un script qui calcule la racine carrée d'un nombre, avec gestion des exceptions.
 Par exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<pre><code>&gt;&gt;&gt;
 Entrer un nombre : go
-go n&#39;est pas un nombre valide !
+go n'est pas un nombre valide !
 Entrer un nombre : -5.26
--5.26 n&#39;est pas un nombre valide !
+-5.26 n'est pas un nombre valide !
 Entrer un nombre : 16
 La racine carrée de 16.0 est : 4.0
-&gt;&gt;&gt;</pre></div>
-<p>Remarquez bien qu&rsquo;on demande le nombre à l&rsquo;utilisateur <em>jusqu&rsquo;à</em> ce qu&rsquo;il convienne.</p>
-
+&gt;&gt;&gt;
+</code></pre>
+<p>Remarquez bien qu'on demande le nombre à l'utilisateur <em>jusqu'à</em> ce qu'il convienne.</p>
 <p><strong>Exercice 5.3</strong> Soit le script :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">i = 0
+<pre><code>i = 0
 while True:
     i += 1
-    print(i)</pre></div>
-<p>Il s&rsquo;agit d&rsquo;une boucle sans fin.
+    print(i)
+</code></pre>
+<p>Il s'agit d'une boucle sans fin.
 Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C quand on exécute dans la console et le bouton arrêter dans Colab, ce qui lève une exception de type <code>KeyboardInterrupt</code> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+<pre><code>&gt;&gt;&gt;
 1
 ...
 1216
@@ -6150,20 +6339,20 @@ Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C quand on ex
 Traceback (most recent call last):
     raise KeyboardInterrupt
 KeyboardInterrupt
-&gt;&gt;&gt;</pre></div>
-<p>Compléter le script pour gérer proprement l&rsquo;exception :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt;&gt;&gt;
+&gt;&gt;&gt;
+</code></pre>
+<p>Compléter le script pour gérer proprement l'exception :</p>
+<pre><code>&gt;&gt;&gt;
 1
 ...
 966
 967
 968
 Fin du programme
-&gt;&gt;&gt;</pre></div>
+&gt;&gt;&gt;
+</code></pre>
 <h3 id="webographie">Webographie</h3>
-
 <p><a href="http://docs.python.org/3/tutorial/errors.html#exceptions">Documentation sur les exceptions</a></p>
-
 <p>Source : <a href="http://fsincere.free.fr/isn/python/cours_python_ch5.php">Fabrice Sincère</a> - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
 </article>
 
@@ -6197,18 +6386,16 @@ Fin du programme
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#les-exceptions">Les exceptions</a></li>
-<li><a href="#gestion-des-exceptions">Gestion des exceptions</a></li>
-<li><a href="#exercices">Exercices</a></li>
-<li><a href="#webographie">Webographie</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#les-exceptions">Les exceptions</a></li>
+        <li><a href="#gestion-des-exceptions">Gestion des exceptions</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+        <li><a href="#webographie">Webographie</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

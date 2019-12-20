@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f59d291d2f5940e16dab0efcdbdf484c6f4fa1c32b8e15a6eda8a9322bbd6080.css">
+<link rel="stylesheet" href="/book.min.1ee16c58b748434752d0580bd539a61c91cb4fb31045efe5220336560377e2f9.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -1922,6 +1922,171 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/modele_von_neumann/" >
+        
+  
+    
+    
+    Modèle Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Travaux dirigés assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
           
   
@@ -6011,103 +6176,79 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown">
-
-<p><table rules="none" width="638" style="height: 122px;" class="docinfo docutils field-list" frame="void" >
-<tbody valign="top" >
-<tr class="field-odd field" >
-Author:</p>
-
-<p><td class="field-body" >by Nirav Patel
-</td>
-</tr>
-<tr class="field-even field" >
-Contact:</p>
-
-<p><td class="field-body" ><a href="mailto:nrp%40eclecti.cc">nrp@eclecti.cc</a>
-</td>
-</tr>
-<tr class="field-odd field" >
-Tradution:</p>
-
-<p><td class="field-body" >par qkzk
-</td>
-</tr>
-</tbody>
-</table>
-<a href="http://www.pygame.org/docs/tut/CameraIntro.html">Lien vers l&rsquo;article original</a></p>
-
+<article class="markdown"><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h2 id="introduction">Introduction</h2>
-
-<h4 id="remarques-préliminaires">Remarques préliminaires :</h4>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  1. ** **Ce tutoriel est difficile, il demande de régulièrement mettre à jour un script Python et, pour cela, il faut parfaitement comprendre ce qu&#39;il fait. Voilà pourquoi une solution complète est disponible à la fin de cet article. Vous pouvez tout à fait l&#39;utiliser en première lecture ; comprenez bien que vous ne parviendrez pas à dépasser ce tutoriel si vous n&#39;en faites pas parfaitement l&#39;acquisition.
-  2. Il fonctionne sous LINUX et donc pas directement sur vos PC WINDOWS. Il faut donc l&#39;utiliser sur un raspberry pi équipé D&#39;UNE CAMERA... sur lequel Pygame est installé.
-  3. Ce tutoriel utilise **Pygame**. Il est inutile d&#39;espérer le comprendre si vous n&#39;avez jamais rien fait dans Pygame. Les manipulations élémentaires (display, window, blit, events etc.) doivent être comprises.
-  4. Pygame 1.9 supporte la gestion des camera, vous permettant de capturer des images fixes, de regarder des vidéos en live et de faire un peu de computer vision. Ce tutoriel va présenter ces situations et fournir des exemples de code sur lesquels appuyer vos jeux et applications. Vous pouvez vous appuyer sur [`reference documentation`](http://www.pygame.org/docs/ref/camera.html#module-pygame.camera) pour l&#39;API complète.</pre></div>
-<p>**Remarque : **Dans Pygame 1.9, le module camera fournit une utilisation native de la camera pour celles qui utilisent v4l2 dans Linux. Certaines autres plateformes sont supportées en via Videocapture ou OpenCV, mais ce guide va se concentrer sur l&rsquo;utilisation native. La plupart des exemples vont fonctionner sur d&rsquo;autres plateformes, mais certains outils comme les contrôles ne fonctionneront plus. Ce module est aussi qualifié <strong>D&rsquo;EXPERIMENTAL</strong>, signifiant qu&rsquo;il peut évoluer dans les versions ultérieures.</p>
-
-<h3 id="import-et-init">Import et Init</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import pygame
+<h4 id="remarques-prliminaires-">Remarques préliminaires :</h4>
+<pre><code>  1. ** **Ce tutoriel est difficile, il demande de régulièrement mettre à jour un script Python et, pour cela, il faut parfaitement comprendre ce qu'il fait. Voilà pourquoi une solution complète est disponible à la fin de cet article. Vous pouvez tout à fait l'utiliser en première lecture ; comprenez bien que vous ne parviendrez pas à dépasser ce tutoriel si vous n'en faites pas parfaitement l'acquisition.
+  2. Il fonctionne sous LINUX et donc pas directement sur vos PC WINDOWS. Il faut donc l'utiliser sur un raspberry pi équipé D'UNE CAMERA... sur lequel Pygame est installé.
+  3. Ce tutoriel utilise **Pygame**. Il est inutile d'espérer le comprendre si vous n'avez jamais rien fait dans Pygame. Les manipulations élémentaires (display, window, blit, events etc.) doivent être comprises.
+  4. Pygame 1.9 supporte la gestion des camera, vous permettant de capturer des images fixes, de regarder des vidéos en live et de faire un peu de computer vision. Ce tutoriel va présenter ces situations et fournir des exemples de code sur lesquels appuyer vos jeux et applications. Vous pouvez vous appuyer sur [`reference documentation`](http://www.pygame.org/docs/ref/camera.html#module-pygame.camera) pour l'API complète.
+</code></pre>
+<p>**Remarque : **Dans Pygame 1.9, le module camera fournit une utilisation native de la camera pour celles qui utilisent v4l2 dans Linux. Certaines autres plateformes sont supportées en via Videocapture ou OpenCV, mais ce guide va se concentrer sur l'utilisation native. La plupart des exemples vont fonctionner sur d'autres plateformes, mais certains outils comme les contrôles ne fonctionneront plus. Ce module est aussi qualifié <strong>D'EXPERIMENTAL</strong>, signifiant qu'il peut évoluer dans les versions ultérieures.</p>
+<h3 id="import-etinit">Import et Init</h3>
+<pre><code>import pygame
 import pygame.camera
 from pygame.locals import *
 
 pygame.init()
-pygame.camera.init()</pre></div>
+pygame.camera.init()
+</code></pre>
 <p>Le module camera est optionnel, il doit donc être importé et initialisé manuellement de cette manière.</p>
-
-<h3 id="capture-d-une-simple-image">Capture d&rsquo;une simple image</h3>
-
+<h3 id="capture-dune-simple-image">Capture d'une simple image</h3>
 <p>Commençons par le cas le plus simple, on ouvre la camera et on capture une frame comme une surface de pygame.
-On assume dans l&rsquo;exemple suivant qu&rsquo;il y a une camera à /dev/video0 et on l&rsquo;initialise en 640x480
+On assume dans l'exemple suivant qu'il y a une camera à /dev/video0 et on l'initialise en 640x480
 La surface est ce que la camera voit quand get_image() est appelé</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cam = pygame.camera.Camera(&#34;/dev/video0&#34;,(640,480))
+<pre><code>cam = pygame.camera.Camera(&quot;/dev/video0&quot;,(640,480))
 cam.start()
-image = cam.get_image()</pre></div>
-<h4 id="lister-les-cameras-connectées">Lister les cameras connectées</h4>
-
-<p>Et si on ne connait pas le chemin de la camera ? On peut demander au module de fournir une liste de cameras raccordées à l&rsquo;ordi et d&rsquo;initialiser la première de la liste.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">camlist = pygame.camera.list_cameras()
+image = cam.get_image()
+</code></pre>
+<h4 id="lister-les-cameras-connectes">Lister les cameras connectées</h4>
+<p>Et si on ne connait pas le chemin de la camera ? On peut demander au module de fournir une liste de cameras raccordées à l'ordi et d'initialiser la première de la liste.</p>
+<pre><code>camlist = pygame.camera.list_cameras()
 if camlist:
-    cam = pygame.camera.Camera(camlist[0],(640,480))</pre></div>
-<h4 id="utiliser-les-contrôles-de-la-camera">Utiliser les contrôles de la camera</h4>
-
-<p>La plupart des cameras supportent les contrôles tels que retourner l&rsquo;image et changer sa luminosité.
+    cam = pygame.camera.Camera(camlist[0],(640,480))
+</code></pre>
+<h4 id="utiliser-les-contrles-de-la-camera">Utiliser les contrôles de la camera</h4>
+<p>La plupart des cameras supportent les contrôles tels que retourner l'image et changer sa luminosité.
 set_controls() et get_controls() peuvent etre utilisés à tout moment après avoir utilisé start().</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cam.set_controls(hflip = True, vflip = False)
-print cam.get_controls()</pre></div>
+<pre><code>cam.set_controls(hflip = True, vflip = False)
+print cam.get_controls()
+</code></pre>
 <h3 id="capturer-un-stream-en-live">Capturer un Stream en live</h3>
-
-<p>Le reste du tutoriel sera focalisé sur la capture d&rsquo;un stream en live d&rsquo;images.
-Pour cela, nous utiliserons la classe définie ci-dessous. Comme décrit, nous allons seulement blit un stream de frames issues de la camera sur l&rsquo;écran, ce qui montrera la vidéo en live.
-C&rsquo;est grosso-modo ce à quoi on s&rsquo;attend, on boucle get_image(), on blit sur la surface d&rsquo;affichage et on la retourne.
-Pour des raisons de performance, on demandera à la camera d&rsquo;utiliser toujours la même surface.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Capture(object):
+<p>Le reste du tutoriel sera focalisé sur la capture d'un stream en live d'images.
+Pour cela, nous utiliserons la classe définie ci-dessous. Comme décrit, nous allons seulement blit un stream de frames issues de la camera sur l'écran, ce qui montrera la vidéo en live.
+C'est grosso-modo ce à quoi on s'attend, on boucle get_image(), on blit sur la surface d'affichage et on la retourne.
+Pour des raisons de performance, on demandera à la camera d'utiliser toujours la même surface.</p>
+<pre><code>class Capture(object):
     def __init__(self):
         self.size = (640,480)
-        # crée une suface d&#39;affichage. comme tjrs dans pygame
+        # crée une suface d'affichage. comme tjrs dans pygame
         self.display = pygame.display.set_mode(self.size, 0)
 
-        # on reprend ce qu&#39;on a fait plus tot
+        # on reprend ce qu'on a fait plus tot
         self.clist = pygame.camera.list_cameras()
         if not self.clist:
-            raise ValueError(&#34;Sorry, no cameras detected.&#34;)
+            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
         self.cam = pygame.camera.Camera(self.clist[0], self.size)
         self.cam.start()
 
         # on crée une surface sur laquelle capture. Pour des raisons
         # de performance, les dimensions sont celles de la surface
-        # d&#39;affichage
+        # d'affichage
         self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
 
     def get_and_flip(self):
-        # Vous pouvez délier les framerates de la camera et de l&#39;application
+        # Vous pouvez délier les framerates de la camera et de l'application
         # vous pouvez vérifier si la camera a une image de prete.
         # Remarquez que cela fonctionne sur la majorite des cameras mais
         # certaines ne répondront jamais True.
         if self.cam.query_image():
             self.snapshot = self.cam.get_image(self.snapshot)
 
-        # on blit l&#39;objet sur la surface d&#39;affichage. Simple !
+        # on blit l'objet sur la surface d'affichage. Simple !
         self.display.blit(self.snapshot, (0,0))
         pygame.display.flip()
 
@@ -6121,57 +6262,55 @@ Pour des raisons de performance, on demandera à la camera d&rsquo;utiliser tou
                     self.cam.stop()
                     going = False
 
-            self.get_and_flip()</pre></div>
+            self.get_and_flip()
+</code></pre>
 <p>Etant donné que get_image() est un appel bloquant cela peut prendre un peu de temps sur une camera lente, cet exemple utilise query_image() pour voir si la camera est prête. Cela permet de séparer le framerate de votre jeu de celui de la camera. Si vous trouvez que votre camera ne supporte pas bien
-les query_image(), c&rsquo;est aussi possible d&rsquo;avoir la capture d&rsquo;images de la camera dans un thread séparé,
+les query_image(), c'est aussi possible d'avoir la capture d'images de la camera dans un thread séparé,
 pour environ le même gain de performance.</p>
-
 <h3 id="computer-vision-de-base">Computer Vision de base</h3>
-
 <p>En utilisant la camera et les masques, pygame peut faire un peu de computer vision.</p>
-
 <h4 id="colorspaces">Colorspaces</h4>
-
 <p>En initialisant une camera on peut définir un paramètre optionnel de couleur, avec &lsquo;RGB&rsquo;, &lsquo;YUV&rsquo; et &lsquo;HSB&rsquo; comme choix possibles.</p>
-
 <p>&lsquo;YUV&rsquo; et &lsquo;HSB&rsquo; sont plus utiles pour le computer vision car il est plus facile de filtrer par couleur, ce que nous ferons plus bas dans ce tutoriel.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">self.cam = pygame.camera.Camera(self.clist[0], self.size, &#34;RGB&#34;)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_rgb.jpg" alt="" /></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">self.cam = pygame.camera.Camera(self.clist[0], self.size, &#34;YUV&#34;)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_yuv.jpg" alt="" /></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> self.cam = pygame.camera.Camera(self.clist[0], self.size, &#34;HSV&#34;)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_hsv.jpg" alt="" /></p>
-
-<h4 id="thresholding-filtrage-par-seuil">Thresholding = filtrage par seuil</h4>
-
-<p>En employant la fonction threshold du module transform on peut isoler des objets de couleur dans une scène. Dans l&rsquo;exemple ci-dessous, on filtre l&rsquo;arbre vert (en l&rsquo;affichant) et on rend le reste de l&rsquo;image noir. Lisez la référence à la fonction threshold pour plus de détails. <a href="http://www.pygame.org/docs/ref/transform.html#pygame.transform.threshold"><code>threshold function</code></a>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
+<pre><code>self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;RGB&quot;)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_rgb.jpg" alt=""></p>
+<pre><code>self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;YUV&quot;)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_yuv.jpg" alt=""></p>
+<pre><code> self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_hsv.jpg" alt=""></p>
+<h4 id="thresholding--filtrage-par-seuil">Thresholding = filtrage par seuil</h4>
+<p>En employant la fonction threshold du module transform on peut isoler des objets de couleur dans une scène. Dans l'exemple ci-dessous, on filtre l'arbre vert (en l'affichant) et on rend le reste de l'image noir. Lisez la référence à la fonction threshold pour plus de détails. <a href="http://www.pygame.org/docs/ref/transform.html#pygame.transform.threshold"><code>threshold function</code></a>.</p>
+<pre><code>self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
 self.snapshot = self.cam.get_image(self.snapshot)
-pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(90,170,170),(0,0,0),2)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_thresholded.jpg" alt="" /></p>
-
-<p>Bien sur, ceci n&rsquo;est utile que si vous connaissez déjà la couleur exacte d&rsquo;un objet que vous recherchez.
-Pour éviter ce problème et rendre le filtrage par seuil utile dans le monde réel, on a besoin d&rsquo;une étape de calibrage où l&rsquo;on identifie la couleur d&rsquo;un objet et où on l&rsquo;utilise pour filtrer contre elle.
-Nous allons utiliser la fonction average_color() du module transform pour faire ça. Un exemple de fonction de calibrage est fourni ci-dessous. Vous pouvez la faire tourner en boucle jusqu&rsquo;à avoir une couleur satisfaisante et l&rsquo;arrêter par un événement comme une pression clavier. La couleur dans la boite sera celle utilisée comme seuil. Remarquez qu&rsquo;on utilise les couleurs HSV.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def calibrate(self):
+pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(90,170,170),(0,0,0),2)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_thresholded.jpg" alt=""></p>
+<p>Bien sur, ceci n'est utile que si vous connaissez déjà la couleur exacte d'un objet que vous recherchez.
+Pour éviter ce problème et rendre le filtrage par seuil utile dans le monde réel, on a besoin d'une étape de calibrage où l'on identifie la couleur d'un objet et où on l'utilise pour filtrer contre elle.
+Nous allons utiliser la fonction average_color() du module transform pour faire ça. Un exemple de fonction de calibrage est fourni ci-dessous. Vous pouvez la faire tourner en boucle jusqu'à avoir une couleur satisfaisante et l'arrêter par un événement comme une pression clavier. La couleur dans la boite sera celle utilisée comme seuil. Remarquez qu'on utilise les couleurs HSV.</p>
+<pre><code>def calibrate(self):
     # capture the image
     self.snapshot = self.cam.get_image(self.snapshot)
     # on la blit sur la display surface
     self.display.blit(self.snapshot, (0,0))
-    # dessiner un rectangle au milieu de l&#39;ecran
+    # dessiner un rectangle au milieu de l'ecran
     crect = pygame.draw.rect(self.display, (255,0,0), (145,105,30,30), 4)
     # recupere la couleur moyenne de la zone dans le rectangle
     self.ccolor = pygame.transform.average_color(self.snapshot, crect)
-    # rempli le coin superieur gauche de l&#39;ecran avec cette couleur
+    # rempli le coin superieur gauche de l'ecran avec cette couleur
     self.display.fill(self.ccolor, (0,0,50,50))
-    pygame.display.flip()</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_average.jpg" alt="" /></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># threshold recupéré pendant le calibrage
-pygame.transform.threshold(self.thresholded,self.snapshot,self.ccolor,(30,30,30),(0,0,0),2)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_thresh.jpg" alt="" /></p>
-
-<p>Vous pouvez utiliser la meme idee pour faire un fond vert/bleu, d&rsquo;abord en en recuperant une image de fond et ensuite en filtrant par seuil contre elle. L&rsquo;exemple ci dessous pointe d&rsquo;abord la camera sur un mur blanc en couleur HSV.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def calibrate(self):
+    pygame.display.flip()
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_average.jpg" alt=""></p>
+<pre><code># threshold recupéré pendant le calibrage
+pygame.transform.threshold(self.thresholded,self.snapshot,self.ccolor,(30,30,30),(0,0,0),2)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_thresh.jpg" alt=""></p>
+<p>Vous pouvez utiliser la meme idee pour faire un fond vert/bleu, d'abord en en recuperant une image de fond et ensuite en filtrant par seuil contre elle. L'exemple ci dessous pointe d'abord la camera sur un mur blanc en couleur HSV.</p>
+<pre><code>def calibrate(self):
     # capture quelques images de fond
     bg = []
     for i in range(0,5):
@@ -6180,34 +6319,33 @@ pygame.transform.threshold(self.thresholded,self.snapshot,self.ccolor,(30,30,30)
     pygame.transform.average_surfaces(bg,self.background)
     # la blit sur la surface
     self.display.blit(self.background, (0,0))
-    pygame.display.flip()</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_background.jpg" alt="" /></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(30,30,30),(0,0,0),1,self.background)</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_green.jpg" alt="" /></p>
-
+    pygame.display.flip()
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_background.jpg" alt=""></p>
+<pre><code>pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(30,30,30),(0,0,0),1,self.background)
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_green.jpg" alt=""></p>
 <h4 id="utiliser-le-module-mask">Utiliser le module Mask</h4>
-
 <p>Les exemples ci-dessus sont très bien si vous voulez simplement afficher une image mais avec le
 <a href="http://www.pygame.org/docs/ref/mask.html#module-pygame.mask"><code>mask module</code></a>, vous pouvez aussi utiliser la camera comme un périphérique de jeu.
-Par exemple, en filtrant par seuil un objet particulier, on peut s&rsquo;en servir pour repérer la position d&rsquo;un objet spécifique et l&rsquo;utiliser pour contrôler un autre objet sur l&rsquo;écran.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def get_and_flip(self):
+Par exemple, en filtrant par seuil un objet particulier, on peut s'en servir pour repérer la position d'un objet spécifique et l'utiliser pour contrôler un autre objet sur l'écran.</p>
+<pre><code>def get_and_flip(self):
     self.snapshot = self.cam.get_image(self.snapshot)
     # filtre contre la couleur obtenue plus tot
     mask = pygame.mask.from_threshold(self.snapshot, self.ccolor, (30, 30, 30))
     self.display.blit(self.snapshot,(0,0))
-    # ne garde que le plus grand blob a l&#39;ecran
+    # ne garde que le plus grand blob a l'ecran
     connected = mask.connected_component()
-    # on s&#39;assure que le blob est grand, afin de filtrer le bruit
+    # on s'assure que le blob est grand, afin de filtrer le bruit
     if mask.count() &gt; 100:
         # trouve son centre
         coord = mask.centroid()
         # dessine un cercle de taille correspondant a celle du blob
         pygame.draw.circle(self.display, (0,255,0), coord, max(min(50,mask.count()/400),5))
-    pygame.display.flip()</pre></div>
-<p><img src="http://www.pygame.org/docs/_images/camera_mask.jpg" alt="" /></p>
-
-<p>Ce ne sont que les exemples les plus simples. Vous pouvez suivre différents objets de couleur à l&rsquo;écran, déterminer les contours d&rsquo;objets, gérer des détections de collision entre le monde réel et un objet à l&rsquo;écran, déterminer les coins d&rsquo;un objets pour manipuler plus précisément etc. Amusez vous bien !</p>
-
+    pygame.display.flip()
+</code></pre>
+<p><img src="http://www.pygame.org/docs/_images/camera_mask.jpg" alt=""></p>
+<p>Ce ne sont que les exemples les plus simples. Vous pouvez suivre différents objets de couleur à l'écran, déterminer les contours d'objets, gérer des détections de collision entre le monde réel et un objet à l'écran, déterminer les coins d'un objets pour manipuler plus précisément etc. Amusez vous bien !</p>
 <p><a href="http://qkzk.xyz/?page_id=869">Solution complète</a></p>
 </article>
 
@@ -6241,31 +6379,17 @@ Par exemple, en filtrant par seuil un objet particulier, on peut s&rsquo;en serv
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
-<li>
-<ul>
-<li><a href="#remarques-préliminaires">Remarques préliminaires :</a></li>
-</ul></li>
-<li><a href="#import-et-init">Import et Init</a></li>
-<li><a href="#capture-d-une-simple-image">Capture d&rsquo;une simple image</a>
-<ul>
-<li><a href="#lister-les-cameras-connectées">Lister les cameras connectées</a></li>
-<li><a href="#utiliser-les-contrôles-de-la-camera">Utiliser les contrôles de la camera</a></li>
-</ul></li>
-<li><a href="#capturer-un-stream-en-live">Capturer un Stream en live</a></li>
-<li><a href="#computer-vision-de-base">Computer Vision de base</a>
-<ul>
-<li><a href="#colorspaces">Colorspaces</a></li>
-<li><a href="#thresholding-filtrage-par-seuil">Thresholding = filtrage par seuil</a></li>
-<li><a href="#utiliser-le-module-mask">Utiliser le module Mask</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li></li>
+        <li><a href="#import-etinit">Import et Init</a></li>
+        <li><a href="#capture-dune-simple-image">Capture d'une simple image</a></li>
+        <li><a href="#capturer-un-stream-en-live">Capturer un Stream en live</a></li>
+        <li><a href="#computer-vision-de-base">Computer Vision de base</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 
