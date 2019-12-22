@@ -13,7 +13,7 @@
   
     
     
-    Resumes
+    9 - Résumés
   
  | qkzk</title>
 
@@ -33,10 +33,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1881,7 +1869,7 @@ MathJax.Hub.Config({
   
     
     
-    Resumes
+    9 - Résumés
   
 
       </a>
@@ -1893,6 +1881,72 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/resumes/intro/" >
+        
+  
+    
+    
+    Intro
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/resumes/tris/" >
+        
+  
+    
+    
+    Tris
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
     </ul>
 
@@ -6248,423 +6302,19 @@ MathJax.Hub.Config({
   
     
     
-    Resumes
+    9 - Résumés
   
 </strong>
 </header>
 
       
-<article class="markdown"><h1 id="programme">Programme</h1>
-<table>
-<thead>
-<tr>
-<th>Contenus</th>
-<th>Capacités attendues</th>
-<th>Commentaires</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parcours séquentiel d’un tableau</td>
-<td>Écrire un algorithme de recherche d’une occurrence sur des valeurs de type quelconque. Écrire un algorithme de recherche d’un extremum, de calcul d’une moyenne.</td>
-<td>On montre que le coût est linéaire.</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Tris par insertion, par sélection</td>
-<td>Écrire un algorithme de tri. Décrire un invariant de boucle qui prouve la correction des tris par insertion, par sélection.</td>
-<td>La terminaison de ces algorithmes est à justifier. On montre que leur coût est quadratique dans le pire cas.</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Algorithme des k plus proches voisins</td>
-<td>Écrire un algorithme qui prédit la classe d’un élément en fonction de la classe majoritaire de ses k plus proches voisins.</td>
-<td>Il s’agit d’un exemple d’algorithme d’apprentissage.</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Recherche dichotomique dans un tableau trié</td>
-<td>Montrer la terminaison de la recherche dichotomique à l’aide d’un variant de boucle.</td>
-<td>Des assertions peuvent être utilisées. La preuve de la correction peut être présentée par le professeur.</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Algorithmes gloutons</td>
-<td>Résoudre un problème grâce à un algorithme glouton.</td>
-<td>Exemples : problèmes du sac à dos ou du rendu de monnaie. Les algorithmes gloutons constituent une méthode algorithmique parmi d’autres qui seront vues en terminale.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h1 id="parcours-squentiel-dun-tableau">Parcours séquentiel d'un tableau</h1>
-<p><strong>Attendus :</strong> Écrire un algorithme de recherche d’une occurrence sur des valeurs de type quelconque. Écrire un algorithme de recherche d’un extremum, de calcul d’une moyenne.</p>
-<p><strong>Commentaire :</strong> On montre que le coût est linéaire.</p>
-<h2 id="les-tableaux-en-informatique">Les tableaux en informatique</h2>
-<p>Un tableau est une série d'objets, généralement situés côte à côté dans la
-mémoire.</p>
-<p>On suppose pouvoir parcourir le tableau, élément par élément.</p>
-<h2 id="les-tableaux-en-python">Les tableaux en Python</h2>
-<p>En Python, pour illustrer les tableaux, on utilise les objets <code>list</code>.</p>
-<p>Pour le tableau <code>T=[0, 1, 2, ..., 10]</code>, on peut :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># le définir à la main :</span>
-T <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]
-<span style="color:#09f;font-style:italic"># utiliser un range :</span>
-T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">11</span>))
-</code></pre></div><h2 id="recherche-dun-lment-dans-un-tableau">Recherche d'un élément dans un tableau</h2>
-<p><strong>Contexte :</strong> on dispose d'un tableau, par exemple <code>T=[0, 1, 2, ..., 10]</code>.</p>
-<p>On veut savoir si un nombre $x$ figure dans le tableau.</p>
-<h3 id="algorithme-">Algorithme :</h3>
-<pre><code>fonction (tableau T, objet x) ---&gt; booléen:
-  Pour chaque élément e de T,
-    Si e = x, alors on renvoit Vrai
-  Si la boucle se termine, on renvoit Faux.
-</code></pre><p>En Python :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parcours_sequentiel</span>(tableau, x):
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    <span style="color:#069;font-weight:bold">if</span> x <span style="color:#555">==</span> e:
-      <span style="color:#069;font-weight:bold">return</span> True
-  <span style="color:#069;font-weight:bold">return</span> False <span style="color:#09f;font-style:italic"># on n&#39;arrive ici que si l&#39;élément n&#39;est pas dans le tableau</span>
-</code></pre></div><h2 id="recherche-dextremum">Recherche d'extremum</h2>
-<p><strong>Contexte :</strong> On cherche la valeur extrème d'un tableau de nombres T.</p>
-<h3 id="algorithme">Algorithme</h3>
-<pre><code>fonction maximum(tableau T, nombre x) ---&gt; nombre:
-  On affecte à max la valeur de l'élément d'indice 0 du tableau.
-  Pour chaque élément e du tableau:
-    si e &gt; max:
-      max = e
-  renvoyer max
-</code></pre><p>En Python :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">maximum</span>(tableau):
-  m <span style="color:#555">=</span> tableau[<span style="color:#f60">0</span>]
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#555">&gt;</span> m:
-      m <span style="color:#555">=</span> elt
-  <span style="color:#069;font-weight:bold">return</span> m
-</code></pre></div><h2 id="moyenne-des-lments-dun-tableau">Moyenne des éléments d'un tableau</h2>
-<p><strong>Contexte :</strong> On calcule la moyenne d'un tableau de nombres</p>
-<h3 id="algorithme1">Algorithme</h3>
-<pre><code>fonction moyenne(tableau T, nombre x) ---&gt; nombre:
-  On affecte à Somme la valeur 0
-  On affecte à Effectif la valeur 0
-  Pour chaque élément e du tableau:
-    Somme = Somme + e
-    Effectif = Effectif + 1
-  renvoyer Somme / Effectif
-</code></pre><p>En Python :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(tableau):
-  somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  effectif <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    somme <span style="color:#555">+</span><span style="color:#555">=</span> elt
-    effectif <span style="color:#555">+</span><span style="color:#555">=</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">return</span> somme <span style="color:#555">/</span> effectif
-</code></pre></div><p>Version courte qui n'illustre pas le programme :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne2</span>(tableau):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(tableau) <span style="color:#555">/</span> <span style="color:#366">len</span>(tableau)
-</code></pre></div><p>Difficile de comprendre ce qui se passe réellement avec cette version !</p>
-<h1 id="recherche-dichotomique-dans-un-tableau-tri">Recherche dichotomique dans un tableau trié</h1>
-<p><strong>Attendus :</strong> Montrer la terminaison de la recherche dichotomique
-à l’aide d’un variant de boucle.</p>
-<p><strong>Commentaire :</strong> Des assertions peuvent être utilisées.
-La preuve de la correction peut être présentée par le professeur.</p>
-<h3 id="le-cot-est-linaire">Le coût est linéaire</h3>
-<p>Le &ldquo;coût&rdquo; désigne ici le nombre d'opérations qu'on effectue lors d'un parcours
-séquentiel.</p>
-<p>Qu'on soit en train d'afficher les valeurs ou de calculer quelque chose, on réalise
-les mêmes opérations à chaque parcours.</p>
-<p>De plus, lorsqu'on accède à un élément d'un tableau, il faut toujours le même temps
-d'exécution.</p>
-<p>Nous allons compter les opérations nécessaires au calcul de la moyenne.
-Parce qu'on travaille avec un tableau, on peut supposer que ces opérations prennent toutes
-le même temps d'exécution.</p>
-<pre><code>fonction moyenne(tableau T, nombre x) ---&gt; nombre:
-  On affecte à Somme la valeur 0
-  On affecte à Effectif la valeur 0
-  Pour chaque élément e du tableau:
-    Somme = Somme + e
-    Effectif = Effectif + 1
-  renvoyer Somme / Effectif
-</code></pre><p>On note $nombre$ le nombre d'opérations.</p>
-<ul>
-<li>début de l'algorithme : $nombre=0$</li>
-<li><code>On affecte à Somme</code>, <code>on affecte à Effectif</code>&hellip; : $nombre=2$</li>
-<li><code>Pour chaque élément e du tableau</code>:
-<ul>
-<li>
-<p>on note $N$ le nombre d'éléments du tableau,
-ces opérations seront répétées $N$ fois.</p>
-<p><code>Somme =  Somme + e</code> : 2 opérations</p>
-<p><code>Effectif = Effectif + 1</code> : 2 opérations</p>
-<p>Dans la boucle complète il y a donc : $4 \times N$ opérations</p>
-</li>
-<li>
-<p>A la fin de la boucle : $nombre = 4\times N + 2$</p>
-</li>
-</ul>
-</li>
-<li><code>renvoyer... </code> : $nombre = 4\times N +3$</li>
-</ul>
-<p>En considérant que le tableau est immense, le nombre $3$ est <em>négligeable</em> devant $N$.
-On peut considérer que notre décompte $nombre \leq 5 \times N$, qui est une fonction linéaire.</p>
-<p>Qu'est ce que cela signifie en pratique ?</p>
-<ul>
-<li>Si votre algorithme est programmé (implémenté) dans un programme qui nécessite 1 seconde pour calculer  la moyenne d'un tableau de taille 1000,</li>
-<li>il prendra : 2 secondes pour un tableau de taille 2000,</li>
-<li>il prendra : 1000 secondes pour un tableau de taille 1 million etc.</li>
-</ul>
-<p>on que <em>le coût est linéaire.</em></p>
-<h3 id="cot--la-complexit">coût = la complexité</h3>
-<p>En appliquant ces méthodes de décompte, on peut ranger les algorithmes en catégories</p>
-<ul>
-<li>coût constant : on note $O(1)$</li>
-<li>coût linéaire : on note $O(n)$</li>
-<li>coût quadratique ($n^2$) : on note $O(n^2)$</li>
-<li>coût exponentiel ($2^n$) : on note $O(2^n)$</li>
-</ul>
-<p>Plus un avance dans ces catégorie, plus l'algorithme est MAUVAIS&hellip;</p>
-<p>Dans le tableau suivant on suppose avoir des algorithmes qui prennent tous 1 seconde à s'exécuter
-pour un tableau de taille 1000.</p>
-<p>On les exécute avec un tableau de taille 1000 fois plus grande, combien de temps vont-ils mettre
-à s'exécuter ?</p>
-<table>
-<thead>
-<tr>
-<th>catégorie</th>
-<th>complexité</th>
-<th>$n=1000$</th>
-<th>$n=1.000.000$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constant</td>
-<td>$O(1)$</td>
-<td>1 seconde</td>
-<td>1 seconde</td>
-</tr>
-<tr>
-<td>linéaire</td>
-<td>$O(n)$</td>
-<td>1 seconde</td>
-<td>1000 secondes</td>
-</tr>
-<tr>
-<td>quadratique</td>
-<td>$O(n^2)$</td>
-<td>1 seconde</td>
-<td>1.000.000 secondes</td>
-</tr>
-<tr>
-<td>exponentiel</td>
-<td>$O(2^n)$</td>
-<td>1 seconde</td>
-<td>$10^{302}$ secondes</td>
-</tr>
-</tbody>
-</table>
-<p>$1.000.000$ secondes = $11$ jours.</p>
-<p>Pour information, l'age de l'univers est de 13.7 milliards d'années soit :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> age <span style="color:#555">=</span> <span style="color:#f60">13.7</span> <span style="color:#555">*</span> <span style="color:#f60">10</span> <span style="color:#555">*</span><span style="color:#555">*</span> <span style="color:#f60">9</span> <span style="color:#555">*</span> <span style="color:#f60">365</span> <span style="color:#555">*</span> <span style="color:#f60">24</span> <span style="color:#555">*</span> <span style="color:#f60">3600</span>
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> age
-<span style="color:#f60">4.320432e+17</span>
-</code></pre></div><p>La partie suivante s'intéresse à une autre manière de chercher les éléments d'un tableau : la dichotomie.</p>
-<p>Cette fois le complexité est bien meilleure.</p>
-<hr>
-<h1 id="recherche-dichotomique-dans-un-tableau-tri1">Recherche dichotomique dans un tableau trié</h1>
-<h2 id="principe-de-la-recherche-dichotomique">Principe de la recherche dichotomique</h2>
-<p>C'est celui du jeu du &ldquo;plus ou moins&rdquo;</p>
-<ul>
-<li>Un tableau trié : <code>T = [0, 1, 2, ... ,9]</code></li>
-<li>L'élément 3 est-il dans le tableau ?</li>
-<li>L'objectif : répondre Oui ou Non en réalisant <strong>le moins d'opérations</strong> possibles.</li>
-</ul>
-<h2 id="pr-condition">Pré condition</h2>
-<p>Pour cet algorithme on suppose une précondition : le tableau est
-<strong>trié par ordre croissant.</strong></p>
-<p>C'est un effort important qui a déjà été réalisé et nous allons en tirer partie.</p>
-<h2 id="description-de-lalgorithme">Description de l'algorithme</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c'est l'élément cherché, on a trouvé et la réponse est Oui.</li>
-<li>Si la valeur centrale est supérieure à l'élément cherché on recommence avec
-la partie gauche</li>
-<li>Sinon on recommence avec la partie droite.</li>
-<li>Si la partie gauche ou la partie droite est vide, l'élément n'est pas dans le
-tableau et la réponse est : Non.</li>
-</ul>
-<h2 id="terminaison-de-lalgorithme">Terminaison de l'algorithme</h2>
-<p>On se demande si cet algorithme va réellement se terminer ?
-Il utilise une boucle, celle-ci n'est-elle pas infinie ?</p>
-<p>À chaque étape, le nombre d'élément restant est divisé par deux (au moins).
-En un nombre fini d'étapes, on n'aura plus qu'un élément à tester. Donc l'algorithme
-se termine bien.</p>
-<h2 id="droul-sur-lexemple--la-main">Déroulé sur l'exemple, à la main.</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
+<article class="markdown"><h1 id="rsums-des-cours-dalgorithmie">Résumés des cours d'algorithmie</h1>
 <ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc on recommence avec la partie avant 4 : <code>T1 = [0,1,2,3]</code></p>
-</li>
-<li>
-<p>On propose : 2</p>
-<p>2 &lt; 3 donc on recommence avec la partie après 2 : <code>T2 = [3]</code></p>
-</li>
-<li>
-<p>On propose : 3</p>
-<p>3 = 3 donc <strong>on a trouvé l'élément et la réponse est : Oui, 3 est dans T.</strong></p>
-</li>
+<li><a href="intro">Introduction, parcours séquentiel, dichotomie, tableaux à deux dimensions</a></li>
+<li><a href="tris">Les tris par insertion et par sélection</a></li>
+<li>Les algorithmes glouton : TODO</li>
+<li>Les k plus proches voisins : TODO</li>
 </ol>
-<h2 id="lalgorithme-complet">L'algorithme complet</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rechercheDicho(liste, clé)
-  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  haut <span style="color:#555">=</span> longueur(liste) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  Tant que (bas <span style="color:#555">&lt;</span> haut) :
-    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">/</span><span style="color:#555">/</span> <span style="color:#f60">2</span>
-    si clé <span style="color:#555">==</span> liste[med]:
-      haut <span style="color:#555">=</span> med
-      bas <span style="color:#555">=</span> med
-    Sinon :
-      si clé <span style="color:#555">&gt;</span> liste[med]:
-        bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
-      sinon:
-        haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  si cle <span style="color:#555">==</span> liste[bas]:
-    renvoyer Vrai
-  sinon:
-    renvoyer Faux
-</code></pre></div><h2 id="tableau-pour-prsenter-les-tapes">Tableau pour présenter les étapes</h2>
-<table>
-<thead>
-<tr>
-<th>Tour</th>
-<th>début</th>
-<th>milieu</th>
-<th>fin</th>
-<th>trouvé ?</th>
-<th><code>val &gt; milieu</code> ?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avant la boucle</td>
-<td>0</td>
-<td>/</td>
-<td>9</td>
-<td>faux</td>
-<td>/</td>
-</tr>
-<tr>
-<td>1er tour</td>
-<td>0</td>
-<td>4</td>
-<td>9</td>
-<td>faux</td>
-<td>3 &gt; 4 : faux</td>
-</tr>
-<tr>
-<td>2ème tour</td>
-<td>0</td>
-<td>2</td>
-<td>4</td>
-<td>faux</td>
-<td>3 &gt; 2 : vrai</td>
-</tr>
-<tr>
-<td>3ème tour</td>
-<td>3</td>
-<td>3</td>
-<td>4</td>
-<td><strong>vrai</strong></td>
-<td>/</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="en-python">En Python</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">dicho</span>(tableau, cle):
-  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  haut <span style="color:#555">=</span> <span style="color:#366">len</span>(tableau) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">while</span> bas <span style="color:#555">&lt;</span> haut:
-    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">/</span><span style="color:#555">/</span> <span style="color:#f60">2</span>
-    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">==</span> tableau[med]:
-      <span style="color:#069;font-weight:bold">return</span> True
-    <span style="color:#069;font-weight:bold">elif</span> cle <span style="color:#555">&lt;</span> tableau[med]:
-      haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-      bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">return</span> cle <span style="color:#555">==</span> tableau[bas]
-</code></pre></div><p>Attention, il faut aussi tester si la clé n'est pas égale à la dernière valeur !</p>
-<h2 id="verifications">Verifications</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> tableau <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">10</span>))
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> tableau:
-<span style="color:#555">.</span><span style="color:#555">.</span><span style="color:#555">.</span>    <span style="color:#069;font-weight:bold">assert</span> dicho(tableau, cle) <span style="color:#09f;font-style:italic"># on trouve bien les 10 clés</span>
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#09f;font-style:italic"># -1 n&#39;est pas dans le tableau</span>
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#f60">11</span>) <span style="color:#09f;font-style:italic"># 11 n&#39;est pas dans le tableau</span>
-</code></pre></div><hr>
-<h1 id="tableaux--deux-dimensions">Tableaux à deux dimensions</h1>
-<p>On rencontre souvent des données qui sont présentées sous la forme d'un tableau
-à deux dimensions :</p>
-<pre><code>1234
-5678
-</code></pre><p>Ces tableaux sont appelés des matrices. Celle-ci a 2 lignes et 4 colonnes</p>
-<h3 id="affecter-une-matrice--une-variable">Affecter une matrice à une variable</h3>
-<p>Chaque ligne de la matrice est dans un tableau.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mat <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>],
-       [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
-</code></pre></div><h3 id="atteindre-un-lment">Atteindre un élément.</h3>
-<p>Disons qu'on veut atteindre le nombre 3. Il est dans la première ligne, 3ème
-colonne :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> mat[<span style="color:#f60">0</span>][<span style="color:#f60">2</span>]
-<span style="color:#f60">3</span>
-</code></pre></div><p>On utilise deux série de [] pour les lignes puis pour les colonnes.</p>
-<h3 id="parcourir-une-matrice-pour-afficher-ses-lments">Parcourir une matrice pour afficher ses éléments</h3>
-<p>On utilise toujours deux boucles <strong>imbriquées</strong> pour parcourir une matrice</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
-  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
-    <span style="color:#069;font-weight:bold">print</span>(cellule, end<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">, </span><span style="color:#c30">&#39;</span>)
-</code></pre></div><p>Va nous afficher :</p>
-<pre><code>1, 2, 3, 4, 5, 6, 7, 8,
-</code></pre><h4 id="application--calculer-la-somme-des-lments--la-main">Application : calculer la somme des éléments &ldquo;à la main&rdquo;</h4>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
-  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
-    somme <span style="color:#555">+</span><span style="color:#555">=</span> cellule
-</code></pre></div><p>va nous renvoyer <code>36</code></p>
-<h3 id="dautres-reprsentations-des-matrices">D'autres représentations des matrices</h3>
-<p>On a vu dans le TP sur les tableaux à 2 dimensions qu'il était parfois nécessaire
-de connaître la position d'une cellule dans la matrice, par exemple, pour
-construire un dégradé de pixels.</p>
-<p>Dans l'exemple suivant, non seulement nous parcourons le tableau à l'aide
-d'indices, mais en plus les éléments de la matrice sont atteints autrement.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL</span> <span style="color:#069;font-weight:bold">import</span> image
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">IPython.display</span> <span style="color:#069;font-weight:bold">import</span> display <span style="color:#09f;font-style:italic"># si on travaille dans Colab</span>
-img <span style="color:#555">=</span> Image<span style="color:#555">.</span>new(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">RGB</span><span style="color:#c30">&#39;</span>, (<span style="color:#f60">255</span>, <span style="color:#f60">128</span>)) <span style="color:#09f;font-style:italic"># nouvelle image, 255 de large, 128 de haut</span>
-pixels <span style="color:#555">=</span> img<span style="color:#555">.</span>load() <span style="color:#09f;font-style:italic"># on charge la matrice des pixels</span>
-
-<span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">255</span>):
-  <span style="color:#069;font-weight:bold">for</span> y <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">128</span>):
-    <span style="color:#09f;font-style:italic"># attention à la notation [x, y] !!!</span>
-    pixels[x, y] <span style="color:#555">=</span> (<span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>)
-
-display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</span>
-<span style="color:#09f;font-style:italic"># img.show() # afficher dans la console</span>
-</code></pre></div><p><img src="/uploads/docsnsi/algo/degrade.jpg" alt="Degradé rouge -> noir"></p>
 </article>
 
       <div class="backtotop">
@@ -6696,59 +6346,7 @@ display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</s
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#les-tableaux-en-informatique">Les tableaux en informatique</a></li>
-    <li><a href="#les-tableaux-en-python">Les tableaux en Python</a></li>
-    <li><a href="#recherche-dun-lment-dans-un-tableau">Recherche d'un élément dans un tableau</a>
-      <ul>
-        <li><a href="#algorithme-">Algorithme :</a></li>
-      </ul>
-    </li>
-    <li><a href="#recherche-dextremum">Recherche d'extremum</a>
-      <ul>
-        <li><a href="#algorithme">Algorithme</a></li>
-      </ul>
-    </li>
-    <li><a href="#moyenne-des-lments-dun-tableau">Moyenne des éléments d'un tableau</a>
-      <ul>
-        <li><a href="#algorithme1">Algorithme</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#le-cot-est-linaire">Le coût est linéaire</a></li>
-        <li><a href="#cot--la-complexit">coût = la complexité</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#principe-de-la-recherche-dichotomique">Principe de la recherche dichotomique</a></li>
-    <li><a href="#pr-condition">Pré condition</a></li>
-    <li><a href="#description-de-lalgorithme">Description de l'algorithme</a></li>
-    <li><a href="#terminaison-de-lalgorithme">Terminaison de l'algorithme</a></li>
-    <li><a href="#droul-sur-lexemple--la-main">Déroulé sur l'exemple, à la main.</a></li>
-    <li><a href="#lalgorithme-complet">L'algorithme complet</a></li>
-    <li><a href="#tableau-pour-prsenter-les-tapes">Tableau pour présenter les étapes</a></li>
-    <li><a href="#en-python">En Python</a></li>
-    <li><a href="#verifications">Verifications</a></li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#affecter-une-matrice--une-variable">Affecter une matrice à une variable</a></li>
-        <li><a href="#atteindre-un-lment">Atteindre un élément.</a></li>
-        <li><a href="#parcourir-une-matrice-pour-afficher-ses-lments">Parcourir une matrice pour afficher ses éléments</a></li>
-        <li><a href="#dautres-reprsentations-des-matrices">D'autres représentations des matrices</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
