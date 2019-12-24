@@ -13,7 +13,7 @@
   
     
     
-    tutoriel_python_camera
+    Modèle de Von Neumann - Résumé
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/architecture/resume/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -2227,7 +2227,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/architecture/resume/" >
+      <a href="/docs/nsi/cours_premiere/architecture/resume/"  class="active">
         
   
     
@@ -5964,7 +5964,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/"  class="active">
+      <a href="/docs/icn/11.pygame-et-la-camera-introduction-du-module/tutoriel_python_camera/" >
         
   
     
@@ -6335,555 +6335,139 @@ MathJax.Hub.Config({
   
     
     
-    tutoriel_python_camera
+    Modèle de Von Neumann - Résumé
   
 </strong>
 </header>
 
       
-<article class="markdown"><pre><code>#!/usr/bin/env python
-# coding=utf-8
-
-
-# importer la camera dans pygame
-
-import pygame
-import pygame.camera
-from pygame.locals import *
-
-pygame.init()
-pygame.camera.init()
-
-# Capturer une simple image
-'''
-On ouvre la camera et on capture une frame comme une surface
-de pygame.
-On assume dans l'exemple suivant qu'il y a une camera à
-/dev/video0 et on l'initialise en 640x480
-La surface est ce que la camera voit quand get_image() est appelé
-'''
-
-# cam = pygame.camera.Camera(&quot;/dev/video0&quot;,(640,480))
-# cam.start()
-# image = cam.get_image()
-
-# Lister les cameras connectees
-'''
-Et si on ne connait pas le chemin de la camera ?
-On peut demander au module de fournir une liste de cameras
-raccordées à l'ordi et d'initialiser la premiere de la liste
-'''
-# camlist = pygame.camera.list_cameras()
-# if camlist:
-#     cam = pygame.camera.Camera(camlist[0],(640,480))
-
-# Utiliser les controles de la camera
-'''
-La plupart des cameras supportent les controles tels que
-retourner l'image et changer sa luminosité.
-set_controls() et get_controls() peuvent etre utilisés
-à tout moment apres avoir utilise start()
-'''
-
-# cam.set_controls(hflip = True, vflip = False)
-# print cam.get_controls()
-
-
-# Capturing a Live Stream
-'''
-Le reste du tutoriel sera focalisé sur la capture d'un
-stream en live d'images.
-Pour cela, nous utiliserons la classe définie ci-dessous.
-Comme décrit, nous allons seulement blit un stream de frames
-issues de la camera sur l'ecran, ce qui montrera
-la video en live.
-C'est grosso-modo ce à quoi on s'attend, on boucle get_image(),
-on blit sur la surface d'affichage et on la retourne.
-Pour des raisons de performance, on demandera à la camera
-d'utiliser toujours la meme surface.
-'''
-class Capture(object):
-    def __init__(self):
-        self.size = (640,480)
-        # crée une suface d'affichage. comme tjrs dans pygame
-        self.display = pygame.display.set_mode(self.size, 0)
-
-        # on reprend ce qu'on a fait plus tot
-        self.clist = pygame.camera.list_cameras()
-        if not self.clist:
-            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
-        self.cam = pygame.camera.Camera(self.clist[0], self.size)
-        self.cam.start()
-
-        # on crée une surface sur laquelle capture. Pour des raisons
-        # de performance, les dimensions sont celles de la surface
-        # d'affichage
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-
-    def get_and_flip(self):
-        # Vous pouvez délier les framerates de la camera et de l'application
-        # vous pouvez vérifier si la camera a une image de prete.
-        # Remarquez que cela fonctionne sur la majorite des cameras mais
-        # certaines ne répondront jamais True.
-        if self.cam.query_image():
-            self.snapshot = self.cam.get_image(self.snapshot)
-
-        # on blit l'objet sur la surface d'affichage. Simple !
-        self.display.blit(self.snapshot, (0,0))
-        pygame.display.flip()
-
-    def main(self):
-        going = True
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
-                    # ferme proprement la camera
-                    self.cam.stop()
-                    going = False
-
-            self.get_and_flip()
-
-
-
-
-
-'''
-Etant donné que get_image() est un appel bloquant cela peut
-prendre un peu de temps sur une camera lente, cet
-exemple utilise query_image() pour voir si la camera
-est prête. Cela permet de séparer le framerate de votre jeu
-de celui de la camera.
-Si vous trouvez que votre camera ne supporte pas bien
-les query_image(), c'est aussi possible d'avoir la camera
-qui capture des images dans un thread à part,
-pour environ le même gain de performance.
-'''
-
-# Computer Vision de base
-'''
-En utilisant la camera et les masques, pygame peut faire un peu
-de computer vision
-'''
-
-# Colorspaces
-'''
-En initilisant une camera on peut définir un parametre optionnel
-de couleur, avec 'RGB', 'YUV' et 'HSB' comme choix possibles.
-'YUV' et 'HSB' sont plus utiles pour le computer vision car il est
-plus facile de filtrer par couleur, ce que nous ferons plus bas dans
-ce tutoriel.
-
-'''
-# pour tester remplacer self.cam = ... avec l'un des trois exemples ci-dessous
-# self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;RGB&quot;)
-# self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;YUV&quot;)
-#  self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-
-# Thresholding = filtrage par seuil
-
-'''
-
-En employant la fonction threshold du module transform on peut
-isoler des objets de couleur dans une scene.
-Dans l'exemple ci-dessous, on filtre l'arbre vert (en l'affichant) et
-on rend le reste de l'image noir.
-Lisez la référence à la fonction threshold pour plus de détails.
-http://www.pygame.org/docs/ref/transform.html#pygame.transform.threshold
-'''
-
-# self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-# self.snapshot = self.cam.get_image(self.snapshot)
-# pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(90,170,170),(0,0,0),2)
-
-class CaptureThresholded(object):
-    def __init__(self):
-        self.size = (640,480)
-        # crée une suface d'affichage. comme tjrs dans pygame
-        self.display = pygame.display.set_mode(self.size, 0)
-
-        # on reprend ce qu'on a fait plus tot
-        self.clist = pygame.camera.list_cameras()
-        if not self.clist:
-            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
-        self.cam = pygame.camera.Camera(self.clist[0], self.size)
-        self.cam.start()
-
-        # on crée une surface sur laquelle capture. Pour des raisons
-        # de performance, les dimensions sont celles de la surface
-        # d'affichage
-        self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-
-    def get_and_flip(self):
-        # Vous pouvez délier les framerates de la camera et de l'application
-        # vous pouvez vérifier si la camera a une image de prete.
-        # Remarquez que cela fonctionne sur la majorite des cameras mais
-        # certaines ne répondront jamais True.
-        if self.cam.query_image():
-            self.snapshot = self.cam.get_image(self.snapshot)
-            self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-            pygame.transform.threshold(self.thresholded,self.snapshot,(255,255,0),(170,170,170),(0,0,0),2)
-            # self.thresholded = self.cam.get_image(self.thresholded)
-
-
-
-        # on blit l'objet sur la surface d'affichage. Simple !
-        # self.display.blit(self.snapshot, (0,0))
-        self.display.blit(self.thresholded, (0,0))
-        pygame.display.flip()
-
-    def main(self):
-        going = True
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
-                    # ferme proprement la camera
-                    self.cam.stop()
-                    going = False
-
-            self.get_and_flip()
-
-
-
-
-'''
-
-Bien sur, ceci n'est utile que si vous connaissez déjà la couleur exacte
-d'un objet que vous recherchez.
-Pour éviter ce problème et rendre le filtrage par seuil utile dans
-le monde réel, on a besoin d'une étape de calibrage où l'on identifie
-la couleur d'un obet et où on l'utilise pour filtrer contre elle.
-Nous allons utiliser la fonction average_color() du module transform
-pour faire ça.
-Un exemple de fonction de calibrage est fourni ci-dessous. Vous pouvez
-la faire tourner en boucle jusqu'à avoir une couleur satisfaisante et
-l'arrêter par un évenement comme une pression clavier.
-La couleur dans la boite sera celle utilisée comme seuil.
-Remarquez qu'on utilise les couleurs HSV
-
-'''
-
-# def calibrate(self):
-#     # capture the image
-#     self.snapshot = self.cam.get_image(self.snapshot)
-#     # blit it to the display surface
-#     self.display.blit(self.snapshot, (0,0))
-#     # make a rect in the middle of the screen
-#     crect = pygame.draw.rect(self.display, (255,0,0), (145,105,30,30), 4)
-#     # get the average color of the area inside the rect
-#     self.ccolor = pygame.transform.average_color(self.snapshot, crect)
-#     # fill the upper left corner with that color
-#     self.display.fill(self.ccolor, (0,0,50,50))
-#     pygame.display.flip()
-
-class CaptureCalibrate(object):
-    def __init__(self):
-        self.size = (640,480)
-        # crée une suface d'affichage. comme tjrs dans pygame
-        self.display = pygame.display.set_mode(self.size, 0)
-
-        # on reprend ce qu'on a fait plus tot
-        self.clist = pygame.camera.list_cameras()
-        if not self.clist:
-            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
-        # mode par defaut
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size)
-        # RGB
-        self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        # YUV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;YUV&quot;)
-        # HSV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        print self.cam
-        self.cam.start()
-
-        # on crée une surface sur laquelle capture. Pour des raisons
-        # de performance, les dimensions sont celles de la surface
-        # d'affichage
-
-        # capture initiale normale
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-
-    def get_and_flip(self):
-        # Vous pouvez délier les framerates de la camera et de l'application
-        # vous pouvez vérifier si la camera a une image de prete.
-        # Remarquez que cela fonctionne sur la majorite des cameras mais
-        # certaines ne répondront jamais True.
-        if self.cam.query_image():
-
-            # thresholded
-            self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-
-            # threshold recupéré pendant le calibrage
-            pygame.transform.threshold(self.thresholded,self.snapshot,self.ccolor,(30,30,30),(0,0,0),2)
-
-            # on blit l'objet sur la surface d'affichage. Simple !
-
-            # thresholded
-            self.display.blit(self.thresholded, (0,0))
-
-            pygame.display.flip()
-
-    def calibrate(self):
-        # capture the image
-        self.snapshot = self.cam.get_image(self.snapshot)
-        # on la blit sur la display surface
-        self.display.blit(self.snapshot, (0,0))
-        # dessiner un rectangle au milieu de l'ecran
-        crect = pygame.draw.rect(self.display, (255,0,0), (145,105,30,30), 4)
-        # recupere la couleur moyenne de la zone dans le rectangle
-        self.ccolor = pygame.transform.average_color(self.snapshot, crect)
-        # rempli le coin superieur gauche de l'ecran avec cette couleur
-        self.display.fill(self.ccolor, (0,0,50,50))
-        pygame.display.flip()
-
-
-
-    def main(self):
-
-        going = True
-        # calibrate
-        # On calibre jusqu'à appuyer sur espace... tant qu'on n'appuie pas sur espace
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == KEYDOWN and e.key == K_SPACE:
-                    going = False
-            self.calibrate()
-
-        # ensuite on affiche !
-        going = True
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
-                    # ferme proprement la camera
-                    self.cam.stop()
-                    going = False
-
-            self.get_and_flip()
-
-
-# Fond vert
-
-# Vous pouvez utiliser la meme idee pour faire un fond vert/bleu, d'abord en en recuperant une image de fond et ensuite en filtrant par seuil contre elle. L'exemple ci dessous pointe d'abord la camera sur un mur blanc en couleur HSV
-
-
-class CaptureGreenScreen(object):
-    def __init__(self):
-        self.size = (640,480)
-        # crée une suface d'affichage. comme tjrs dans pygame
-        self.display = pygame.display.set_mode(self.size, 0)
-
-        # on reprend ce qu'on a fait plus tot
-        self.clist = pygame.camera.list_cameras()
-        if not self.clist:
-            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
-        # mode par defaut
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size)
-        # RGB
-        self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        # YUV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;YUV&quot;)
-        # HSV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        print self.cam
-        self.cam.start()
-
-        # on crée une surface sur laquelle capture. Pour des raisons
-        # de performance, les dimensions sont celles de la surface
-        # d'affichage
-
-        # capture initiale normale
-        self.background = pygame.surface.Surface(self.size, 0, self.display)
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-        self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-
-    def get_and_flip(self):
-        # Vous pouvez délier les framerates de la camera et de l'application
-        # vous pouvez vérifier si la camera a une image de prete.
-        # Remarquez que cela fonctionne sur la majorite des cameras mais
-        # certaines ne répondront jamais True.
-        if self.cam.query_image():
-
-            # thresholded
-            self.snapshot = self.cam.get_image(self.snapshot)
-            # self.thresholded = self.cam.get_image(self.thresholded)
-            self.thresholded = pygame.surface.Surface(self.size, 0, self.display)
-            # self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-            # threshold recupéré pendant le calibrage
-            pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(30,30,30),(0,0,0),1,self.background)
-
-
-            # on blit l'objet sur la surface d'affichage. Simple !
-
-        # thresholded
-        self.display.blit(self.thresholded, (0,0))
-
-        pygame.display.flip()
-
-    def calibrate(self):
-        # capture quelques images de fond
-        bg = []
-        for i in range(0,5):
-          bg.append(self.cam.get_image(self.background))
-        # prend la moyenne pour filtrer le bruit
-        pygame.transform.average_surfaces(bg,self.background)
-        # la blit sur la surface
-        self.display.blit(self.background, (0,0))
-        pygame.display.flip()
-
-
-
-    def main(self):
-
-        # on calibre d'abord l'image
-        self.calibrate()
-
-        # ensuite on affiche !
-        going = True
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
-                    # ferme proprement la camera
-                    self.cam.stop()
-                    going = False
-
-            self.get_and_flip()
-
-# Utiliser le module Mask
-
-'''
-Les exemples ci-dessus sont très bien si vous voulez simplement afficher
-une image mais avec le module mask (http://www.pygame.org/docs/ref/mask.html#module-pygame.mask)
-vous pouvez aussi utiliser la camera comme un périphérique de jeu.
-Par exemple, en filtrant par seuil un objet particulier, on peut s'en servir
-pour repérer la position d'un objet specifique et l'utiliser pour controler
-un autre objet sur l'écran.
-'''
-
-class CaptureMask(object):
-    def __init__(self):
-        self.size = (640,480)
-        # crée une suface d'affichage. comme tjrs dans pygame
-        self.display = pygame.display.set_mode(self.size, 0)
-
-        # on reprend ce qu'on a fait plus tot
-        self.clist = pygame.camera.list_cameras()
-        if not self.clist:
-            raise ValueError(&quot;Sorry, no cameras detected.&quot;)
-        # mode par defaut
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size)
-        # RGB
-        self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        # YUV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;YUV&quot;)
-        # HSV
-        # self.cam = pygame.camera.Camera(self.clist[0], self.size, &quot;HSV&quot;)
-        print self.cam
-        self.cam.start()
-
-        # on crée une surface sur laquelle capture. Pour des raisons
-        # de performance, les dimensions sont celles de la surface
-        # d'affichage
-
-        # capture initiale normale
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
-
-    def get_and_flip(self):
-        self.snapshot = self.cam.get_image(self.snapshot)
-        # filtre contre la couleur obtenue plus tot
-        mask = pygame.mask.from_threshold(self.snapshot, self.ccolor, (30, 30, 30))
-        self.display.blit(self.snapshot,(0,0))
-        # ne garde que le plus grand blob a l'ecran
-        connected = mask.connected_component()
-        # on s'assure que le blob est grand, afin de filtrer le bruit
-        if mask.count() &gt; 100:
-            # trouve son centre
-            coord = mask.centroid()
-            # dessine un cercle de taille correspondant a celle du blob
-            pygame.draw.circle(self.display, (0,255,0), coord, max(min(50,mask.count()/400),5))
-        pygame.display.flip()
-
-    def calibrate(self):
-        # capture the image
-        self.snapshot = self.cam.get_image(self.snapshot)
-        # blit it to the display surface
-        self.display.blit(self.snapshot, (0,0))
-        # make a rect in the middle of the screen
-        crect = pygame.draw.rect(self.display, (255,0,0), (145,105,30,30), 4)
-        # get the average color of the area inside the rect
-        self.ccolor = pygame.transform.average_color(self.snapshot, crect)
-        # fill the upper left corner with that color
-        self.display.fill(self.ccolor, (0,0,50,50))
-        pygame.display.flip()
-
-
-
-    def main(self):
-
-        going = True
-        # calibrate
-        # On calibre jusqu'à appuyer sur espace... tant qu'on n'appuie pas sur espace
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == KEYDOWN and e.key == K_SPACE:
-                    going = False
-            self.calibrate()
-
-        # ensuite on affiche !
-        going = True
-        while going:
-            events = pygame.event.get()
-            for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
-                    # ferme proprement la camera
-                    self.cam.stop()
-                    going = False
-
-            self.get_and_flip()
-
-
-# def get_and_flip(self):
-#     self.snapshot = self.cam.get_image(self.snapshot)
-#     # threshold against the color we got before
-#     mask = pygame.mask.from_threshold(self.snapshot, self.ccolor, (30, 30, 30))
-#     self.display.blit(self.snapshot,(0,0))
-#     # keep only the largest blob of that color
-#     connected = mask.connected_component()
-#     # make sure the blob is big enough that it isn't just noise
-#     if mask.count() &gt; 100:
-#         # find the center of the blob
-#         coord = mask.centroid()
-#         # draw a circle with size variable on the size of the blob
-#         pygame.draw.circle(self.display, (0,255,0), coord, max(min(50,mask.count()/400),5))
-#     pygame.display.flip()
-
-
-'''
-Ce ne sont que les exemples les plus simples. Vous pouvez suivre differents
-objets de couleur à l'écran, déterminer les contours d'objets, gérer des
-détections de collision entre le monde réel et un objet à l'écran,
-déterminer les coins d'un objets pour manipuler plus précisément etc. Amusez vous bien !
-
-'''
-if __name__ == '__main__':
-    # test des differentes classes
-    # decommentez les autres exemples
-
-
-    webcam = Capture()
-    # webcam = CaptureThresholded()
-    # webcam = CaptureCalibrate()
-    # webcam = CaptureGreenScreen()
-    # webcam = CaptureMask()
-
-    webcam.main()
-</code></pre>
+<article class="markdown"><h2 id="modle-de-von-neumann">Modèle de Von Neumann</h2>
+<h3 id="modle-originaluploadsdocsnsiarchitectureimgmodeleoriginel2gif"><img src="/uploads/docsnsi/architecture/img/modele-originel2.gif" alt="Modèle original"></h3>
+<ul>
+<li><strong>Unité de commande</strong> : contrôle la séquence d'instruction</li>
+<li><strong>Unité arithmétique</strong> : exécution de ces instruction</li>
+<li><strong>Processeur</strong> : réalise les calculs</li>
+<li><strong>Mémoire</strong> : contient les données et <strong>les programmes</strong></li>
+<li><strong>Entrées</strong> : clavier, cartes perforées, etc.</li>
+<li><strong>Sorties</strong> : affichages, imprimantes, écran</li>
+</ul>
+<h3 id="cycle">Cycle</h3>
+<p>La machine fonctionne par cycle :</p>
+<ul>
+<li>fetch</li>
+<li>read</li>
+<li>execute</li>
+</ul>
+<p>Durant chaque cycle elle récupère une instruction, la décode et la réalise.</p>
+<h3 id="unit-de-commande">Unité de commande</h3>
+<p>Elle contrôle les instructions réalisées par la machine.</p>
+<p>C'est elle qui récupère les instructions et les décode.</p>
+<p>Elle s'occupe donc des parties &ldquo;fetch&rdquo; et &ldquo;read&rdquo;</p>
+<h3 id="unit-arithmtique-et-logique">Unité arithmétique et logique</h3>
+<p>Elle s'occupe de réaliser les <em>calculs</em> à effectuer.</p>
+<p>Tous les calculs correspondent à des circuits électroniques dont on contrôle
+les entrées et sorties.</p>
+<p>EX : l'additionneur 1 bit.</p>
+<h3 id="mmoire">Mémoire</h3>
+<p>La mémoire est constituée de cellule de 1 octet disposant d'une adresse.</p>
+<p>On peut lire et écrire dans chaque cellule.</p>
+<p>On y trouve à la fois les données et les programmes.</p>
+<h2 id="les-composants">Les composants</h2>
+<p>L'ordinateur utilise seulement des 0 et des 1. Les composants fonctionnent souvent
+en 5V (parfois 12V, parfois 3.3V, plus rarement autre chose).</p>
+<p>+5V : 1 : True
+0V : 0 : False</p>
+<h3 id="le-transistor">Le transistor</h3>
+<p><img src="/uploads/docsnsi/architecture/aqa/img/transistor.png" alt="transistor"></p>
+<p>C'est un interrupteur contrôlable. Il dispose de 3 broches (2 entrées, 1 sortie.)</p>
+<p>Il existe différent modèle mais, par exemple, si la base est alimentée, le courant
+circule entre le collecteur et l'emeteur. Sinon, il ne circule pas.</p>
+<h3 id="circuit-intgr">Circuit intégré</h3>
+<p>Composé de plusieurs transistors.</p>
+<h3 id="oprations-boolennes">Opérations booléennes</h3>
+<p>En combinant les transistors on forme les portes logiques.</p>
+<h3 id="mmoire-vive">Mémoire vive</h3>
+<p>La mémoire vive est elle-même un circuit électronique. Tant qu'elle est alimentée,
+elle permet de conserver de l'information. Dès qu'elle n'est plus alimentée, l'information
+est perdue. Unité minimale : l'octet.</p>
+<h3 id="le-processeur">Le processeur</h3>
+<p>Les processeurs modernes comportent tous les éléments du modèles de Von Neumann :</p>
+<ul>
+<li>des registres (mémoire vive)</li>
+<li>Unité arithmétique et logique</li>
+<li>Unité de commande</li>
+</ul>
+<h3 id="les-bus">Les bus</h3>
+<p>L'information circule dans des bus. Physiquement, des câbles.
+Il existe différents bus (au moins adresses, données, contrôle)</p>
+<h2 id="lvolution-des-performances">L'évolution des performances</h2>
+<p>A explosé depuis l'invention des premiers ordinateurs.
+Avant ça, les progrès étaient déjà fulgurants.</p>
+<p>Loi de Moore (1965) :</p>
+<p><strong>tous les 18 mois, le nombre de transistor par processeur double</strong></p>
+<p>Restée valable jusqu'en 2005.</p>
+<h2 id="problme-de-la-chaleur">Problème de la chaleur</h2>
+<p>Depuis : insoluble problème de la dissipation de la chaleur.</p>
+<p>La surface de contact a diminué, on ne peut plus dissiper la chaleur.</p>
+<h2 id="volution-moderne--multicoeur">Évolution moderne : multicoeur</h2>
+<p>Autre approche : multiplier les coeurs dans un processeur.</p>
+<p>Coeur = UAL, registres et unité de commande.</p>
+<p>Un coeur peut exécuter des programmes de façon autonome.</p>
+<p>Difficulté : programmer les machines en parallèle.</p>
+<h2 id="assembleur">Assembleur</h2>
+<h3 id="quelques-principes">Quelques principes</h3>
+<ul>
+<li>Les instructions machines sont propres à chaque processeur (heureusement, il
+existe des principes communs de grandes familles).</li>
+<li>Les humains programment les machines dans des langages plus haut niveau.</li>
+</ul>
+<h3 id="langages-de-diffrents-niveaux">Langages de différents niveaux</h3>
+<ol>
+<li>langage machine : <code>01111111 11001010 01001000</code></li>
+<li>assembleur : <code>ADD, R0, R0, #3</code> : ajoute le contenu de R0 au nombre 3, stocke le dans R0.</li>
+<li>langage haut niveau :</li>
+<li>C, Rust etc. : on peut contrôler directement la mémoire et piloter du matériel
+La majorité des pilotes matériels sont écrits en C (à ma connaissance).</li>
+<li>langages haut niveau : pas d'accès direct aux composants.</li>
+</ol>
+<p>Donc, pour contrôler du matériel directement, un humain écrit en assembleur.
+Un programme (&lsquo;l'assembleur&rsquo;) le compile en langage machine.</p>
+<p>Un <em>compilateur</em> est un programme qui traduit du langage haut niveau en langage
+machine. Ex : gcc (linux) compile du C en langage machine.</p>
+<h3 id="exemples-dinstructions-en-assembleur">Exemples d'instructions en assembleur</h3>
+<ul>
+<li>
+<p><code>SUB R1, R0, #30</code></p>
+<p>réalise la soustraction R0 - 30 et stocke le résultat dans R1.</p>
+</li>
+<li>
+<p><code>LDR R0, 70</code></p>
+<p>Place le contenu de la mémoire 70 dans le registre R0</p>
+</li>
+<li>
+<p><code>STR R0, 123</code></p>
+<p>Stocke le contenu de R0 à l'adresse mémoire 123.</p>
+</li>
+<li>
+<p><code>CMP R0, #24</code></p>
+<p>Compare le registre R0 et le nombre 24</p>
+</li>
+<li>
+<p><code>BEQ label</code></p>
+<p>Deux parties :</p>
+<ul>
+<li>
+<p><code>BEQ</code> : Branch Equal (<code>BNE, BGT, BLT</code> etc.) :</p>
+</li>
+<li>
+<p><code>label</code> : un label = une adresse spécifique de la mémoire.</p>
+<p>Si la dernière &lsquo;comparaison&rsquo; est égale, continue au label
+Sans &ldquo;branchement&rdquo;, la machine exécute les instructions en allant d'une
+adresse à la suivante.</p>
+</li>
+</ul>
+</li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -6915,7 +6499,39 @@ if __name__ == '__main__':
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#modle-de-von-neumann">Modèle de Von Neumann</a>
+      <ul>
+        <li><a href="#modle-originaluploadsdocsnsiarchitectureimgmodeleoriginel2gif">Modèle original</a></li>
+        <li><a href="#cycle">Cycle</a></li>
+        <li><a href="#unit-de-commande">Unité de commande</a></li>
+        <li><a href="#unit-arithmtique-et-logique">Unité arithmétique et logique</a></li>
+        <li><a href="#mmoire">Mémoire</a></li>
+      </ul>
+    </li>
+    <li><a href="#les-composants">Les composants</a>
+      <ul>
+        <li><a href="#le-transistor">Le transistor</a></li>
+        <li><a href="#circuit-intgr">Circuit intégré</a></li>
+        <li><a href="#oprations-boolennes">Opérations booléennes</a></li>
+        <li><a href="#mmoire-vive">Mémoire vive</a></li>
+        <li><a href="#le-processeur">Le processeur</a></li>
+        <li><a href="#les-bus">Les bus</a></li>
+      </ul>
+    </li>
+    <li><a href="#lvolution-des-performances">L'évolution des performances</a></li>
+    <li><a href="#problme-de-la-chaleur">Problème de la chaleur</a></li>
+    <li><a href="#volution-moderne--multicoeur">Évolution moderne : multicoeur</a></li>
+    <li><a href="#assembleur">Assembleur</a>
+      <ul>
+        <li><a href="#quelques-principes">Quelques principes</a></li>
+        <li><a href="#langages-de-diffrents-niveaux">Langages de différents niveaux</a></li>
+        <li><a href="#exemples-dinstructions-en-assembleur">Exemples d'instructions en assembleur</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
 
 
