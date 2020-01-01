@@ -3420,6 +3420,72 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/" >
+        
+  
+    
+    
+    Listes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -6848,7 +6914,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h1 id="rseau-de-neurones--partie-1--un-neurone-trs-simple">Réseau de neurones - Partie 1 : un neurone très simple</h1>
+<article class="markdown"><h1 id="rseau-de-neurones---partie-1--un-neurone-trs-simple">Réseau de neurones - Partie 1 : un neurone très simple</h1>
 <h2 id="le-problme">Le problème</h2>
 <p>Nous allons construire un simple réseau de neurone pour résoudre un problème.</p>
 <p>Nous en profiterons pour expliquer le fonctionnement d'un réseau de neurones.</p>
@@ -6984,7 +7050,7 @@ et sera pratique si le neurone contient un grand nombre d'entrées.</p>
 d'obtenir. $\phi$ est la fonction de <em>normalisation</em>.</p>
 </li>
 </ol>
-<h3 id="la-fonction-de-normalisation-sigmoid">La fonction de normalisation <em>sigmoid</em>.</h3>
+<h3 id="la-fonction-de-normalisation--sigmoid-">La fonction de normalisation <em>sigmoid</em>.</h3>
 <p>Une fonction de <em>normalisation</em> doit prendre en entrée un nombre réel et
 renvoyer en sortie un nombre entre $0$ et $1$. Elle doit respecter d'autres
 critères : être croissante, avoir une certaine allure graphique etc.</p>
@@ -7088,16 +7154,16 @@ $\overrightarrow{W}$ la variable <code>synaptic_weights</code>.</p>
 <p>Ensuite on applique la fonction <code>sigmoid</code> $\phi$ et on retrouve notre formule :</p>
 <p>$$\widehat{y} = \phi \left( \sum_{i=1}^3 x_i w_i\right)$$</p>
 <p>Lorsqu'on exécute le code à cette étape, voici ce qu'on obtient :</p>
-<pre><code>Poids synaptiques aléatoires:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Poids synaptiques aléatoires:
 [[-0.16595599]
  [ 0.44064899]
  [-0.99977125]]
-Sorties après l'entraînement
+Sorties après l&#39;entraînement
 [[0.2689864 ]
  [0.3262757 ]
  [0.23762817]
  [0.36375058]]
-</code></pre><p>Les trois premiers nombres sont les poids tirés au sort. Vous obtiendrez les
+</code></pre></div><p>Les trois premiers nombres sont les poids tirés au sort. Vous obtiendrez les
 mêmes car le générateur est initialisé avec une racine.</p>
 <p>Les quatre nombres suivants sont les sorties prédites pour nos entrées.</p>
 <p><strong>Déception !</strong> On est loin du compte.</p>
@@ -7169,11 +7235,11 @@ ces résultats étape après étape afin de s'approcher des valeurs souhaitées.
 </tbody>
 </table>
 <p>et nos poids aléatoires :</p>
-<pre><code>Poids synaptiques aléatoires:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Poids synaptiques aléatoires:
 [[-0.16595599]
  [ 0.44064899]
  [-0.99977125]]
-</code></pre><p>On a donc :</p>
+</code></pre></div><p>On a donc :</p>
 <p>$x_1 = 0,$<!-- raw HTML omitted -->
 $x_2 = 0,$<!-- raw HTML omitted -->
 $x_3 = 1$<!-- raw HTML omitted --></p>
@@ -7187,9 +7253,9 @@ $w_3=-0.999$</p>
 <p>On applique la fonction sigmoid $\phi$ à ce résultat :</p>
 <p>$\phi(x) = \dfrac{1}{1+e^{-x}}$ donc $\phi(-0.999) = 0.2689\ldots$</p>
 <p>Exactement ce qu'on a obtenu plus tôt :</p>
-<pre><code>Sorties après l'entrainement
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Sorties après l&#39;entrainement
 [[0.2689864 ]
-</code></pre><h3 id="le-principe-de-lentranement">Le principe de l'entraînement</h3>
+</code></pre></div><h3 id="le-principe-de-lentranement">Le principe de l'entraînement</h3>
 <ol>
 <li>D'abord, on prend les les entrées d'entraînement et on les passe à la formule
 pour obtenir la sortie du neurone.</li>
@@ -7203,11 +7269,11 @@ obtenu.</li>
 <h2 id="drive-pondre-par-lerreur-">Dérivée pondérée par l'erreur :</h2>
 <p>On multiplie l'erreur par l'entrée et par la dérivée de la fonction
 sigmoid.</p>
-<pre><code>ajustement des poids = erreur * input * derivee_sigmoid(sortie)
-</code></pre><p>avec</p>
-<pre><code>erreur = sortie réelle - sortie obtenue
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ajustement des poids = erreur * input * derivee_sigmoid(sortie)
+</code></pre></div><p>avec</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">erreur = sortie réelle - sortie obtenue
 input = 0 ou 1
-</code></pre><p>D'abord on s'assure que l'ajustement est proportionnel à l'erreur.
+</code></pre></div><p>D'abord on s'assure que l'ajustement est proportionnel à l'erreur.
 Si l'erreur est petite, il faut un ajustement petit et inversement.
 Si l'entrée est 0, le poids n'est pas ajusté. Enfin on multiplie par la dérivée
 de la fonction sigmoid.</p>
@@ -7243,8 +7309,8 @@ sera le cas.</li>
 <p><strong>Vers l'arrière</strong></p>
 <!-- raw HTML omitted -->
 <p>On ajuste les poids avec la formule vue plus haut :</p>
-<pre><code>ajustement des poids = erreur * input * derivee_sigmoid(sortie)
-</code></pre><p>Et on recommence (20.000 fois).</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ajustement des poids = erreur * input * derivee_sigmoid(sortie)
+</code></pre></div><p>Et on recommence (20.000 fois).</p>
 <h2 id="code-de-la-deuxime-partie">Code de la deuxième partie</h2>
 <p>On peut maintenant programmer ce procédé de backpropagation.</p>
 <p>On commence par calculer l'erreur. Modifier la boucle comme ceci :</p>
@@ -7314,20 +7380,20 @@ entrées par le vecteur des ajustements.</li>
 <li>On n'affiche les poids finaux qu'après la boucle, pas à chaque tour.</li>
 </ul>
 <p>Quand on exécute ce code on obtient les résultats suivants :</p>
-<pre><code>Poids synaptiques aléatoires:
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Poids synaptiques aléatoires:
 [[-0.16595599]
  [ 0.44064899]
  [-0.99977125]]
-Poids synpatiques après l'entrainement :
+Poids synpatiques après l&#39;entrainement :
 [[ 9.67299303]
  [-0.2078435 ]
 ￼ [-4.62963669]]
-Sorties après l'entrainement
+Sorties après l&#39;entrainement
 [[0.00966449]
  [0.99211957]
  [0.99358898]
  [0.00786506]]
-</code></pre><p>Ce qui correspond bien aux résultats espérés :</p>
+</code></pre></div><p>Ce qui correspond bien aux résultats espérés :</p>
 <table>
 <thead>
 <tr>
@@ -7426,7 +7492,7 @@ de tester sa qualité.</p>
         <li><a href="#entres-et-sortie">entrées et sortie</a></li>
         <li><a href="#les-poids">Les poids</a></li>
         <li><a href="#le-neurone">Le neurone</a></li>
-        <li><a href="#la-fonction-de-normalisation-sigmoid">La fonction de normalisation sigmoid.</a></li>
+        <li><a href="#la-fonction-de-normalisation--sigmoid-">La fonction de normalisation sigmoid.</a></li>
       </ul>
     </li>
     <li><a href="#premire-partie-du-dveloppement">Première partie du développement</a></li>

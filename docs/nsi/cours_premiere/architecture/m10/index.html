@@ -3408,6 +3408,72 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/" >
+        
+  
+    
+    
+    Listes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -6836,7 +6902,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h1 id="1-m10-la-machine-dbranche">1.- M-10, la machine débranchée</h1>
+<article class="markdown"><h1 id="1--m-10-la-machine-dbranche">1.- M-10, la machine débranchée</h1>
 <p>Dans cette première partie, une brêve présentation d'une machine informatique élémentaire nommée M-10 et la proposition de programmes pour cette machine permettent une première découverte de ce qu'est un ordinateur.</p>
 <p>Cette présentation peut faire l'objet d'un atelier au cours duquel on distribuera une machine, impression du fichier <a href="/uploads/docsnsi/architecture/img/m10.png">m10.png</a> (généré à partir de <a href="/uploads/docsnsi/architecture/img/m10-0.svg">m10.svg</a>).</p>
 <h2 id="la-petite-machine-dbranche">La petite machine débranchée</h2>
@@ -6897,11 +6963,11 @@ Par exemple :</p>
 </ul>
 <p><img src="/uploads/docsnsi/architecture/img/m10-0.png" alt="Illustration état initial de la mémoire"></p>
 <p>Et de proposer le programme :</p>
-<pre><code>    SUB 0 1
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    SUB 0 1
     STO 0
     MUL 0 2
     STO 0
-</code></pre><p>que l'on peut exécuter pas à pas à partir d'une mémoire dans un état initial donné.</p>
+</code></pre></div><p>que l'on peut exécuter pas à pas à partir d'une mémoire dans un état initial donné.</p>
 <p>On essaie de programmer un second &ldquo;programme de calcul&rdquo;, modification du premier :</p>
 <ul>
 <li>choisir un nombre</li>
@@ -6922,7 +6988,7 @@ Nous choisissons donc un autre état initial de la mémoire :</p>
 <li>de réserver les cases mémoires d'adresse 4 et 5 pour des résultats intermédiaires</li>
 </ul>
 <p>On en vient à proposer le programme :</p>
-<pre><code>    SUB 0 1
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    SUB 0 1
     STO 4
     MUL 4 2
     STO 4
@@ -6930,7 +6996,7 @@ Nous choisissons donc un autre état initial de la mémoire :</p>
     STO 5
     ADD 4 5
     STO 3
-</code></pre><p>Il est possible de poursuivre avec la programmation d'autres programmes de calcul :</p>
+</code></pre></div><p>Il est possible de poursuivre avec la programmation d'autres programmes de calcul :</p>
 <ul>
 <li>effectuer le produit de 3 nombres consécutifs</li>
 <li>etc.</li>
@@ -6939,24 +7005,24 @@ Nous choisissons donc un autre état initial de la mémoire :</p>
 <p>Cette activité vise à se familiariser avec le fonctionnement de la machine M-10. Ellet permet aussi de voir différentes stratégies d'utilisation des cases mémoire.
 Elle peut être proposée après la programmation du premier programme de calcul (et pas avant&hellip;).</p>
 <p>Soient les 3 états initiaux suivants des premières cases mémoire :</p>
-<pre><code>@    +----+    +----+    +----+
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">@    +----+    +----+    +----+
 0    |  5 |    |  5 |    |  6 |
 1    |  2 |    |  2 |    |  3 |
 2    |  4 |    |  4 |    |  3 |
 3    |  8 |    | 12 |    | 12 |
-</code></pre><p>et les 3 programmes suivants</p>
-<pre><code>    SUB 0 1        SUB 0 1        SUB 0 1
+</code></pre></div><p>et les 3 programmes suivants</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    SUB 0 1        SUB 0 1        SUB 0 1
     STO 0          STO 0          STO 1
     MUL 0 2        MUL 0 2        MUL 1 2
     STO 0          STO 3          STO 3
-</code></pre><p>Combien d'exécutions d'un des programmes sur un des états initiaux produisent l'état final suivant :</p>
-<pre><code>@    +----+
+</code></pre></div><p>Combien d'exécutions d'un des programmes sur un des états initiaux produisent l'état final suivant :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">@    +----+
 0    |  3 |
 1    |  2 |
 2    |  4 |
 3    | 12 |
-</code></pre><p>Une exploration systématique est possible, mais non nécessaire.</p>
-<h2 id="faisons-le-point-m10-est-un-ordinateur">Faisons le point. M-10 est un ordinateur</h2>
+</code></pre></div><p>Une exploration systématique est possible, mais non nécessaire.</p>
+<h2 id="faisons-le-point-m-10-est-un-ordinateur">Faisons le point. M-10 est un ordinateur</h2>
 <p>M-10 est une machine informatique principalement constituée</p>
 <ul>
 <li>d'une mémoire (ainsi qu'un accumulateur, qui est un registre particulier)</li>
@@ -6968,7 +7034,7 @@ Elle peut être proposée après la programmation du premier programme de calcul
 <ul>
 <li>exécute une à une les instructions du programme</li>
 </ul>
-<h1 id="2--suivre-avec-m10">2.- À suivre avec M-10</h1>
+<h1 id="2---suivre-avec-m-10">2.- À suivre avec M-10</h1>
 <ul>
 <li>expression, affectation</li>
 <li>programmation haut niveau, compilation</li>
@@ -7017,7 +7083,7 @@ Elle peut être proposée après la programmation du premier programme de calcul
     <li><a href="#jeu-dinstructions">Jeu d'instructions</a></li>
     <li><a href="#premiers-programmes">Premiers programmes</a></li>
     <li><a href="#activit-complmentaire--lecture-et-excution-de-programmes">Activité complémentaire : lecture et exécution de programmes</a></li>
-    <li><a href="#faisons-le-point-m10-est-un-ordinateur">Faisons le point. M-10 est un ordinateur</a></li>
+    <li><a href="#faisons-le-point-m-10-est-un-ordinateur">Faisons le point. M-10 est un ordinateur</a></li>
   </ul>
 </nav>
   </aside>

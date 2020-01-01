@@ -3420,6 +3420,72 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/" >
+        
+  
+    
+    
+    Listes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -6850,7 +6916,7 @@ MathJax.Hub.Config({
       
 <article class="markdown"><h1 id="complments-algorithmique">Compléments algorithmique</h1>
 <h1 id="recherche-dichotomique">Recherche dichotomique</h1>
-<h2 id="x-estil-un-lment-de-ma-liste-">$x$ est-il un élément de ma $liste$ ?</h2>
+<h2 id="x-est-il-un-lment-de-ma-liste-">$x$ est-il un élément de ma $liste$ ?</h2>
 <p>On considère une liste de nombres <strong>rangés par ordre croissant</strong></p>
 <p>Ex : $l = [0, 1, 5, 17]$.</p>
 <p>On cherche à savoir si un nombre y figure.</p>
@@ -6867,20 +6933,20 @@ MathJax.Hub.Config({
 </code></pre></div><p>Oui mais comment ?</p>
 <h2 id="solution-nave">solution naïve</h2>
 <p>On parcoure les éléments :</p>
-<pre><code>Pour i allant de 0 à la longueur -1 {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Pour i allant de 0 à la longueur -1 {
   si l[i] vaut 5 {
     renvoyer Vrai
   }
 }
 Renvoyer Faux
-</code></pre><p>En python :</p>
+</code></pre></div><p>En python :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Recherche</span>(l, x):
   <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(l)):
     <span style="color:#069;font-weight:bold">if</span> l[i] <span style="color:#555">==</span> x:
       <span style="color:#069;font-weight:bold">return</span> i
   <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">-</span><span style="color:#f60">1</span> <span style="color:#09f;font-style:italic"># x n&#39;est pas dedans</span>
 </code></pre></div><p>Dans le pire des cas, <strong>on parcourt tout le tableau.</strong></p>
-<h2 id="recherche-dichotomique1">Recherche dichotomique</h2>
+<h2 id="recherche-dichotomique-1">Recherche dichotomique</h2>
 <p>Disons qu'on cherche 5.</p>
 <ul>
 <li>
@@ -6918,8 +6984,8 @@ Renvoyer Faux
 <p>Coder cet algorithme en Python</p>
 </li>
 </ul>
-<h2 id="solution--pseudo-code">Solution - pseudo code</h2>
-<pre><code>rechercheDicho(liste, clé){
+<h2 id="solution---pseudo-code">Solution - pseudo code</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">rechercheDicho(liste, clé){
   bas = 0
   haut = longueur(liste) - 1
   Tant que (bas &lt; haut){
@@ -6933,7 +6999,7 @@ Renvoyer Faux
   si cle == liste[bas]{renvoyer Vrai}
   sinon {renvoyer Faux}
 }
-</code></pre><h2 id="solution-suite">Solution (suite)</h2>
+</code></pre></div><h2 id="solution-suite">Solution (suite)</h2>
 <ul>
 <li>
 <p>Le pire des cas est atteint quand la clé n'est pas dans la liste.</p>
@@ -7002,7 +7068,7 @@ $1 \leq 1$ donc on prend 1. Il reste 0. Terminé.</p>
 </li>
 </ol>
 <p>$5 = 1 \times 4 + 0 \times 2 + 1 \times 1$</p>
-<h2 id="estce-le-meilleur-algorithme-">Est-ce le meilleur algorithme ?</h2>
+<h2 id="est-ce-le-meilleur-algorithme-">Est-ce le meilleur algorithme ?</h2>
 <p>NON !</p>
 <p>Par exemple :</p>
 <p>3 objets dans le coffre, capacité du sac : 5</p>
@@ -7045,7 +7111,7 @@ $1 \leq 1$ donc on prend 1. Il reste 0. Terminé.</p>
 <p>Découpe des matériaux : réaliser un maximum de pièces en limitant les chutes</p>
 </li>
 </ul>
-<h2 id="sac--dos--un-problme-npcomplet">Sac à dos : un problème $NP$-complet</h2>
+<h2 id="sac--dos--un-problme-np-complet">Sac à dos : un problème $NP$-complet</h2>
 <ul>
 <li>
 <p>On dit d'un problème informatique qu'il est de classe $P$ s'il existe un algorithme &ldquo;polynomial&rdquo; (en $n^2$, $n^8$ etc) qui renvoie une solution.</p>
@@ -7202,12 +7268,12 @@ $1 \leq 1$ donc on prend 1. Il reste 0. Terminé.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#x-estil-un-lment-de-ma-liste-">$x$ est-il un élément de ma $liste$ ?</a></li>
+    <li><a href="#x-est-il-un-lment-de-ma-liste-">$x$ est-il un élément de ma $liste$ ?</a></li>
     <li><a href="#solutions-natives-en-python">Solutions natives en Python</a></li>
     <li><a href="#solution-nave">solution naïve</a></li>
-    <li><a href="#recherche-dichotomique1">Recherche dichotomique</a></li>
+    <li><a href="#recherche-dichotomique-1">Recherche dichotomique</a></li>
     <li><a href="#exercice">Exercice</a></li>
-    <li><a href="#solution--pseudo-code">Solution - pseudo code</a></li>
+    <li><a href="#solution---pseudo-code">Solution - pseudo code</a></li>
     <li><a href="#solution-suite">Solution (suite)</a></li>
     <li><a href="#solution-en-python-p-tutorhttpsgooglcqlv7c">Solution en python (P. Tutor)</a></li>
   </ul>
@@ -7220,14 +7286,14 @@ $1 \leq 1$ donc on prend 1. Il reste 0. Terminé.</p>
       </ul>
     </li>
     <li><a href="#sac--dos--glouton-exemple">Sac à dos : glouton, exemple</a></li>
-    <li><a href="#estce-le-meilleur-algorithme-">Est-ce le meilleur algorithme ?</a></li>
+    <li><a href="#est-ce-le-meilleur-algorithme-">Est-ce le meilleur algorithme ?</a></li>
     <li><a href="#algorithme-glouton--inutile-">Algorithme glouton : inutile ?</a>
       <ul>
         <li><a href="#suite-super-croissante-">suite super croissante :</a></li>
       </ul>
     </li>
     <li><a href="#sac--dos--un-problme-frquent">Sac à dos : un problème fréquent</a></li>
-    <li><a href="#sac--dos--un-problme-npcomplet">Sac à dos : un problème $NP$-complet</a></li>
+    <li><a href="#sac--dos--un-problme-np-complet">Sac à dos : un problème $NP$-complet</a></li>
     <li><a href="#recherche-dune-solution">Recherche d'une solution</a></li>
     <li><a href="#arbre-binaire">Arbre binaire</a></li>
     <li><a href="#cot-exponentiel">coût exponentiel</a></li>

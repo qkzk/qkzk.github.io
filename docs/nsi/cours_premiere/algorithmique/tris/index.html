@@ -3420,6 +3420,72 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/" >
+        
+  
+    
+    
+    Listes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -6887,13 +6953,13 @@ MathJax.Hub.Config({
 <li>Joueurs par score,</li>
 <li>Fichiers par date d'édition etc.</li>
 </ul>
-<h2 id="mais-pourquoi-auraiton-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</h2>
+<h2 id="mais-pourquoi-aurait-on-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</h2>
 <p>À nouveau car les applications varient.</p>
 <ul>
 <li>Si les données sont très nombreuses on va limiter la <strong>complexité calculatoire</strong></li>
 <li>Si les données occupent beaucoup d'espace, on est tenté de limiter la <strong>complexité spatiale</strong></li>
 </ul>
-<h2 id="doiton-programmer-nous-mme-pour-trier-">Doit-on programmer nous même pour trier ?</h2>
+<h2 id="doit-on-programmer-nous-mme-pour-trier-">Doit-on programmer nous même pour trier ?</h2>
 <p>Tout dépend des langages ! Python (mais beaucoup d'autres aussi) dispose de son propre tri qui est le plus efficace à ma connaissance.</p>
 <p>Python emploie <a href="https://fr.wikipedia.org/wiki/Timsort">Timsort</a> (<em>Tim Peters</em>, 2002) qui résout à la fois presque tous les problèmes :</p>
 <ol>
@@ -7019,7 +7085,7 @@ fin tant que
         i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
 </code></pre></div><p><a href="http://interactivepython.org/courselib/static/pythonds/SortSearch/TheInsertionSort.html">InteractivePython.org</a></p>
 <h1 id="tri-par-selection">Tri par selection</h1>
-<h2 id="prsentation1">Présentation</h2>
+<h2 id="prsentation-1">Présentation</h2>
 <p>Amélioration du tri à bulle.</p>
 <p>On sépare la liste en 2 parties :</p>
 <ul>
@@ -7030,7 +7096,7 @@ fin tant que
 On itère sur la liste et, à chaque tour on range le plus petit élément de la liste non triée à droite de la liste triée.</p>
 <p>Tri <em>stable</em> : il ne change pas l'ordre de deux éléments &ldquo;égaux&rdquo;
 Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
-<h2 id="exemple1">Exemple</h2>
+<h2 id="exemple-1">Exemple</h2>
 <table>
 <thead>
 <tr>
@@ -7067,7 +7133,7 @@ Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
 </tr>
 </tbody>
 </table>
-<h2 id="pseudo-code1">Pseudo code</h2>
+<h2 id="pseudo-code-1">Pseudo code</h2>
 <pre><code>tri_selection(tableau t, entier n)
     pour i de 1 à n - 1
         min = i
@@ -7077,7 +7143,7 @@ Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
         si min = i, alors échanger t[i] et t[min]
     fin pour
 </code></pre>
-<h2 id="python1">Python</h2>
+<h2 id="python-1">Python</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(a):
 	n <span style="color:#555">=</span> <span style="color:#366">len</span>(a)
 	<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
@@ -7088,7 +7154,7 @@ Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
     a[m],a[i] <span style="color:#555">=</span> a[i],a[m] <span style="color:#09f;font-style:italic"># on echange</span>
 </code></pre></div><p><a href="http://interactivepython.org/courselib/static/pythonds/SortSearch/TheSelectionSort.html">InteractivePython</a></p>
 <h1 id="invariants-de-boucle">Invariants de boucle</h1>
-<h2 id="comment-saiton-que-a-fonctionne-">Comment sait-on que ça fonctionne ?</h2>
+<h2 id="comment-sait-on-que-a-fonctionne-">Comment sait-on que ça fonctionne ?</h2>
 <p>Question pertinente !</p>
 <p>On s'en assure</p>
 <ol>
@@ -7098,8 +7164,8 @@ Tri en <em>place</em> : il n'utilise pas plus de mémoire</p>
 <p>## Invariants de boucle</p>
 <p>C'est une propriété qui est <strong>vraie à chaque étape d'une boucle</strong></p>
 <h2 id="tri-par-insertion--invariant-et-terminaison">Tri par insertion : invariant et terminaison</h2>
-<h3 id="tri-par-insertion1">Tri par insertion</h3>
-<pre><code>i = 1
+<h3 id="tri-par-insertion-1">Tri par insertion</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">i = 1
 Tant que i &lt; longueur(A)
     j = i
     Tant que j &gt; 0 et A[j-1] &gt; A[j]
@@ -7108,7 +7174,7 @@ Tant que i &lt; longueur(A)
     fin tant que
     i = i + 1
 fin tant que
-</code></pre><h2 id="tri-par-insertion--invariant-et-terminaison1">Tri par insertion : invariant et terminaison</h2>
+</code></pre></div><h2 id="tri-par-insertion--invariant-et-terminaison-1">Tri par insertion : invariant et terminaison</h2>
 <h3 id="invariant">Invariant</h3>
 <p>Les <code>i</code> premiers éléments sont triés.</p>
 <ol>
@@ -7121,8 +7187,8 @@ fin tant que
 <li>À chaque tour de la boucle intérieure, <code>j</code> diminue. Elle s'arrête bien.</li>
 </ol>
 <h2 id="tri-par-selection--invariant-et-terminaison">Tri par selection : invariant et terminaison</h2>
-<h3 id="tri-par-selection1">Tri par selection</h3>
-<pre><code>tri_selection(tableau t, entier n)
+<h3 id="tri-par-selection-1">Tri par selection</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tri_selection(tableau t, entier n)
     pour i de 1 à n - 1
         min = i
         pour j de i + 1 à n
@@ -7130,14 +7196,14 @@ fin tant que
         fin pour
         si min = i, alors échanger t[i] et t[min]
     fin pour
-</code></pre><h2 id="tri-par-slection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</h2>
-<h3 id="invariant1">Invariant</h3>
+</code></pre></div><h2 id="tri-par-slection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</h2>
+<h3 id="invariant-1">Invariant</h3>
 <p>Les <code>i</code> premiers éléments sont triés.</p>
 <ol>
 <li>C'est vrai dès le départ car on commence à <code>i = 1</code></li>
 <li>Cela reste vrai car on ajoute à droite un élément plus grand que les autres.</li>
 </ol>
-<h3 id="terminaison1">Terminaison</h3>
+<h3 id="terminaison-1">Terminaison</h3>
 <ol>
 <li>À chaque tour de la boucle extérieure, la liste restante diminue.</li>
 <li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s'arrête bien.</li>
@@ -7214,7 +7280,7 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
 <h1 id="complments">Compléments</h1>
 <h2 id="tri--bulles">Tri à bulles</h2>
 <p>Le plus facile à comprendre et implémenter</p>
-<pre><code>tri_à_bulles(Tableau T)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tri_à_bulles(Tableau T)
     pour i allant de taille de T - 1 à 1
         tableau_trié = vrai
         pour j allant de 0 à i - 1
@@ -7223,7 +7289,7 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
                 tableau_trié = faux
         si tableau_trié
             fin tri_à_bulles
-</code></pre><h2 id="tri--bulles1">Tri à bulles</h2>
+</code></pre></div><h2 id="tri--bulles-1">Tri à bulles</h2>
 <ul>
 <li>Complexite : $O(n^2)$</li>
 <li>Complexité en espace : constante (en place)</li>
@@ -7286,8 +7352,8 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
     <li><a href="#varit">Variété</a></li>
     <li><a href="#pourquoi-en-faire-autant-">Pourquoi en faire autant ?</a></li>
     <li><a href="#pourquoi-trier-">Pourquoi trier ?</a></li>
-    <li><a href="#mais-pourquoi-auraiton-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</a></li>
-    <li><a href="#doiton-programmer-nous-mme-pour-trier-">Doit-on programmer nous même pour trier ?</a></li>
+    <li><a href="#mais-pourquoi-aurait-on-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</a></li>
+    <li><a href="#doit-on-programmer-nous-mme-pour-trier-">Doit-on programmer nous même pour trier ?</a></li>
     <li><a href="#python">Python</a></li>
   </ul>
 
@@ -7307,20 +7373,20 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
   </ul>
 
   <ul>
-    <li><a href="#prsentation1">Présentation</a></li>
-    <li><a href="#exemple1">Exemple</a></li>
-    <li><a href="#pseudo-code1">Pseudo code</a></li>
-    <li><a href="#python1">Python</a></li>
+    <li><a href="#prsentation-1">Présentation</a></li>
+    <li><a href="#exemple-1">Exemple</a></li>
+    <li><a href="#pseudo-code-1">Pseudo code</a></li>
+    <li><a href="#python-1">Python</a></li>
   </ul>
 
   <ul>
-    <li><a href="#comment-saiton-que-a-fonctionne-">Comment sait-on que ça fonctionne ?</a></li>
+    <li><a href="#comment-sait-on-que-a-fonctionne-">Comment sait-on que ça fonctionne ?</a></li>
     <li><a href="#tri-par-insertion--invariant-et-terminaison">Tri par insertion : invariant et terminaison</a>
       <ul>
-        <li><a href="#tri-par-insertion1">Tri par insertion</a></li>
+        <li><a href="#tri-par-insertion-1">Tri par insertion</a></li>
       </ul>
     </li>
-    <li><a href="#tri-par-insertion--invariant-et-terminaison1">Tri par insertion : invariant et terminaison</a>
+    <li><a href="#tri-par-insertion--invariant-et-terminaison-1">Tri par insertion : invariant et terminaison</a>
       <ul>
         <li><a href="#invariant">Invariant</a></li>
         <li><a href="#terminaison">Terminaison</a></li>
@@ -7328,13 +7394,13 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
     </li>
     <li><a href="#tri-par-selection--invariant-et-terminaison">Tri par selection : invariant et terminaison</a>
       <ul>
-        <li><a href="#tri-par-selection1">Tri par selection</a></li>
+        <li><a href="#tri-par-selection-1">Tri par selection</a></li>
       </ul>
     </li>
     <li><a href="#tri-par-slection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</a>
       <ul>
-        <li><a href="#invariant1">Invariant</a></li>
-        <li><a href="#terminaison1">Terminaison</a></li>
+        <li><a href="#invariant-1">Invariant</a></li>
+        <li><a href="#terminaison-1">Terminaison</a></li>
       </ul>
     </li>
   </ul>
@@ -7351,7 +7417,7 @@ $C$ est toujours plus petit qu'un polynôme en $n^2$.</li>
 
   <ul>
     <li><a href="#tri--bulles">Tri à bulles</a></li>
-    <li><a href="#tri--bulles1">Tri à bulles</a></li>
+    <li><a href="#tri--bulles-1">Tri à bulles</a></li>
     <li><a href="#tri-fusion">Tri Fusion</a></li>
     <li><a href="#tri-rapide">Tri rapide</a></li>
   </ul>
