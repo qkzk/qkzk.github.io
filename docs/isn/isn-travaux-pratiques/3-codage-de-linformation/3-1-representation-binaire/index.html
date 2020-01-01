@@ -81,6 +81,8 @@ MathJax.Hub.Config({
 
 
 
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+
 
 </head>
 
@@ -3551,12 +3553,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_diriges/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td/" >
         
   
     
     
-    Travaux pratiques
+    Travaux dirigés
   
 
       </a>
@@ -3584,12 +3586,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_pratiques/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/tp/" >
         
   
     
     
-    Travaux dirigés
+    Travaux pratiques
   
 
       </a>
@@ -7227,43 +7229,117 @@ Boole</a>. Il est le créateur de la logique moderne qui s'appuie sur l'algèbr
 la disjonction, également appelées le NON, le ET et le OU logiques.</p>
 <h3 id="le-non-logique">Le NON logique</h3>
 <p>Le NON logique d'un booléen <em>a</em> se définit par :</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="verite droite" >
+<tbody >
+<tr >
+a
+NON a
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+</tr>
+</tbody>
+</table>
+NON _a_ vaut VRAI si et seulement si _a_ vaut FAUX.
 <p>Cet opérateur peut également être défini par sa table de vérité présentée ci-contre.</p>
 <h3 id="le-et-logique">Le ET logique</h3>
 <p>Le ET logique entre deux booléens <em>a</em> et <em>b</em> se définit par :</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="verite droite" >
+<tbody >
+<tr >
+a
+b
+a ET b
+</tr>
+<tr >
+<td >0
+</td>
+<td >0
+</td>
+<td >0
+</td>
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+<td >0
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >1
+</td>
+<td >1
+</td>
+</tr>
+</tbody>
+</table>
+_a_ ET _b_ vaut VRAI si et seulement si _a_ vaut VRAI et _b_ vaut VRAI
 <p>Cet opérateur peut également être défini par sa table de vérité présentée ci-contre.</p>
 <h3 id="le-ou-logique">Le OU logique</h3>
 <p>Le OU logique entre deux booléens <em>a</em> et <em>b</em> se définit par :</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="verite droite" >
+<tbody >
+<tr >
+a
+b
+a OU b
+</tr>
+<tr >
+<td >0
+</td>
+<td >0
+</td>
+<td >0
+</td>
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+<td >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >1
+</td>
+<td >1
+</td>
+</tr>
+</tbody>
+</table>
+_a_ OU _b_ vaut VRAI si et seulement si _a_ vaut VRAI ou _b_ vaut VRAI
 <p>Cet opérateur peut également être défini par sa table de vérité présentée ci-contre.</p>
 <h3 id="equivalences">Equivalences</h3>
 <p>Il est possible de définir l'opérateur OU logique à partir du NON logique et du ET logique. En effet, si <em>a</em> et <em>b</em> sont des booléens alors <em>a OU B = NON ((NON a) ET (NON B))</em>.</p>
@@ -7272,66 +7348,156 @@ besoin. Les contenus des colonnes sont construits en appliquant aux colonnes co
 <p>Dans notre cas en plus de <em>a</em>, <em>b</em>, parmi les expressions utiles à notre calcul on trouve NON <em>a</em>,
 NON <em>b</em>. Une fois la table remplie pour ces deux expressions on peut déterminer celle de l'expression (NON <em>a</em>) ET (NON <em>b</em>) : si on définit _x_=NON _a _et _y_= NON <em>b</em>,</p>
 <p>alors (NON <em>a</em>) ET (NON <em>b</em>)=_x_ ET _y_.</p>
-<!-- raw HTML omitted -->
+<table class="verite" >
+<tbody >
+<tr >
+a
+b
+NON a
+NON b
+(NON a) ET (NON b)
+</tr>
+<tr >
 <p>x
 y
 x ET y</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</tr>
+<tr >
+<td >0
+</td>
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+<td class="highlight" >1
+</td>
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+<td >0
+</td>
+<td class="highlight" >0
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td >1
+</td>
+<td class="highlight" >0
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td class="highlight" >0
+</td>
+</tr>
+</tbody>
+</table>
+On complète alors la table avec les expressions :
 <p>NON ((NON <em>a</em>) ET (NON <em>b</em>)) et (<em>a</em> OU <em>b</em>)</p>
-<!-- raw HTML omitted -->
+<table class="verite" >
+<tbody >
+<tr >
+a
+b
+NON a
+NON b
+(NON a) ET (NON b)
+((NON _a_) ET (NON _b_))
+(_a_ OU _b_)
+</tr>
+<tr >
 <p>x
 y
 (x ET y) = z
 NON z</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</tr>
+<tr >
+<td >0
+</td>
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+<td >1
+</td>
+<td class="highlight" >0
+</td>
+<td class="highlight" >0
+</td>
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td class="highlight" >1
+</td>
+<td class="highlight" >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td >1
+</td>
+<td >0
+</td>
+<td class="highlight" >1
+</td>
+<td class="highlight" >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >1
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td >0
+</td>
+<td class="highlight" >1
+</td>
+<td class="highlight" >1
+</td>
+</tr>
+</tbody>
+</table>
+L'égalité des contenus des deux dernières colonnes démontrent l'équivalence des deux expressions.
 <ol>
 <li>
 <p>Trouvez une expression équivalente à <em>a</em> ET _b _construite uniquement à partir des opérateurs NON et OU.</p>
@@ -7358,19 +7524,48 @@ NON z</p>
 <p>NON (<em>a</em> ET <em>b</em>) = (NON <em>a</em>) OU (NON <em>b</em>)</p>
 </li>
 </ol>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="droite verite" >
+<tbody >
+<tr >
+a
+b
+a XOR b
+</tr>
+<tr >
+<td >0
+</td>
+<td >0
+</td>
+<td >0
+</td>
+</tr>
+<tr >
+<td >0
+</td>
+<td >1
+</td>
+<td >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >0
+</td>
+<td >1
+</td>
+</tr>
+<tr >
+<td >1
+</td>
+<td >1
+</td>
+<td >0
+</td>
+</tr>
+</tbody>
+</table>
+On rencontre également défini l'opérateur OU-exclusif, également appelé XOR (pour "eXclusive OR"). Vous trouvez sa table de vérité ci-contre.
 <ol>
 <li>Démontrez l'équivalence : <em>a</em> XOR <em>b</em> = (<em>a</em> ET (NON <em>b</em>))) OU ((NON <em>a</em>) ET <em>b</em>)</li>
 </ol>

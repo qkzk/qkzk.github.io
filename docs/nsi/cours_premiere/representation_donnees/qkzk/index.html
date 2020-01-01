@@ -81,6 +81,8 @@ MathJax.Hub.Config({
 
 
 
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+
 
 </head>
 
@@ -3551,12 +3553,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_diriges/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td/" >
         
   
     
     
-    Travaux pratiques
+    Travaux dirigés
   
 
       </a>
@@ -3584,12 +3586,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_pratiques/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/tp/" >
         
   
     
     
-    Travaux dirigés
+    Travaux pratiques
   
 
       </a>
@@ -7178,8 +7180,14 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<article class="markdown"><!--
+Lier la mémoire et le stockage des données
+
+max de pratique parce que chiant
+
+réaliser exposé sur différents essais
+
+-->
 <h1 id="comment-stocker-des-informations-dans-une-machine-">Comment stocker des informations dans une machine ?</h1>
 <h2 id="une-ide-relativement-rcente">Une idée relativement récente</h2>
 <p>Nous allons aborder rapidement les procédés employés pour stocker et manipuler de l'information.</p>
@@ -7189,7 +7197,7 @@ MathJax.Hub.Config({
 <p>On stockait, par exemple, les plans de conception de tricot jacquard</p>
 <p><img src="/uploads/docsnsi/donnees_qkzk_img/metier_jacquard.jpg" alt="Métier jacquard"></p>
 <h2 id="une-acclration-rcente">Une accélération récente</h2>
-<!-- raw HTML omitted -->
+<!-- ![Carte perforée](/uploads/docsnsi/donnees_qkzk_img/papertape.jpg) -->
 <p>On a rapidement distingué la <em>mémoire vive</em> (qui se vide quand le courant ne circule plus) de la <em>mémoire morte</em> (dont l'information persiste).</p>
 <p>Au XXeme siècle on utilise</p>
 <ul>
@@ -7403,7 +7411,7 @@ la représentation binaire d'une valeur entière ?</p>
 <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">0b1010</span><span style="color:#c30">&#39;</span>
 </code></pre></div><h2 id="heading-5"></h2>
 <p>Pour l'instant nous n'avons parlé que d'entiers <strong>positifs</strong> et pour justifier le choix effectués concernant les entiers <strong>négatifs</strong>, il faut faire un peu de calcul.</p>
-<!-- raw HTML omitted -->
+<!-- Complément info : convertisseur binaire à la main, algo à la main -->
 <h1 id="tp--calcul-boolen">TP : Calcul booléen</h1>
 <h3 id="boolen">Booléen</h3>
 <p>Le terme <em>booléen</em> vient du nom du mathématicien britannique <a href="/uploads/docsnsi/donnees_qkzk_img/http://fr.wikipedia.org/wiki/George_Boole">George
@@ -7808,7 +7816,7 @@ XOR 0011
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#f60">128</span> <span style="color:#555">&gt;&gt;</span> <span style="color:#f60">4</span>
 <span style="color:#f60">8</span>
 </code></pre></div><h1 id="complment--2">Complément à 2</h1>
-<!-- raw HTML omitted -->
+<!--  Source [Complément à 2](/uploads/docsnsi/donnees_qkzk_img/https://mathsp.tuxfamily.org/spip.php?article312)-->
 <h2 id="mise-en-garde">Mise en garde</h2>
 <h3 id="dans-toute-cette-partie-on-travaille-avec-des-binaires">Dans toute cette partie on travaille avec des binaires</h3>
 <h3 id="sur-un-octet"><strong>SUR UN OCTET</strong></h3>
@@ -7927,7 +7935,7 @@ Chaque paquet de 4 bits donne un chiffre hexa :</p>
 <h2 id="on-peut-utiliser-une-table">On peut utiliser une table</h2>
 <p><img src="/uploads/docsnsi/donnees_qkzk_img/table_hexa.png" alt="Table de conversion"></p>
 <h2 id="de-lhexadcimal-vers-le-dcimal">De l'hexadécimal vers le décimal</h2>
-<p>Pour convertir $4D5_{16}$ de l'hexa. vers le décimal,<!-- raw HTML omitted --> on commence par le dernier chiffre :</p>
+<p>Pour convertir $4D5_{16}$ de l'hexa. vers le décimal,<br> on commence par le dernier chiffre :</p>
 <ul>
 <li>$5 \times 16^0$ et on recule :</li>
 <li>$13 \times 16^1$ ($D$ correspond au nombre 13)</li>
@@ -7936,7 +7944,7 @@ Chaque paquet de 4 bits donne un chiffre hexa :</p>
 <p>$4D5_{16} = 5 \times 16^0 + 13 \times 16 ^ 1 + 4 \times 16^2 = 1237$</p>
 <h2 id="du-dcimal-vers-lhexadcimal">Du décimal vers l'hexadécimal</h2>
 <ul>
-<li>Divisions entières successives par 16 jusqu'à trouver 0.<!-- raw HTML omitted -->
+<li>Divisions entières successives par 16 jusqu'à trouver 0.<br>
 Les <strong>restes</strong> donnent les chiffres dans l'ordre <strong>inverse</strong>
 $$959 = 59 \times 16 + 15 ; \longrightarrow F$$
 $$59 = 3 \times 16 + 11   ; \longrightarrow B$$
@@ -8143,7 +8151,7 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
 <p>Tout élément de la table est codé sur 7 bits, 1 octet par caractère suffit ($2^8 = 256$)</p>
 </li>
 <li>
-<p>Pour obtenir la notation binaire, on part de l'hexa.<!-- raw HTML omitted -->
+<p>Pour obtenir la notation binaire, on part de l'hexa.<br>
 Premier chiffre : 3 bits, second chiffre 4 bits</p>
 <p>$$A \rightarrow 41_{16} \rightarrow 4\times 16 + 1 \rightarrow 0100~0001$$</p>
 <p>$$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</p>
@@ -8167,9 +8175,9 @@ Premier chiffre : 3 bits, second chiffre 4 bits</p>
 D'autres versions pour les caractères iso-Latin-2 de l'Europe de l'est etc.</p>
 <ul>
 <li>Reprend la table ascii et ajoute les accents au coût d'un octet supplémentaire.</li>
-<li>Encore incomplet : œ et Œ n'y sont pas !<!-- raw HTML omitted -->
+<li>Encore incomplet : œ et Œ n'y sont pas !<br>
 <em>Ce qui a contribué à leur disparition de nombreux documents écrits dans les années 90&hellip;</em></li>
-<li>Windows (Windows-1252) et Mac (MacRoman) ont leurs versions<!-- raw HTML omitted -->
+<li>Windows (Windows-1252) et Mac (MacRoman) ont leurs versions<br>
 Échange de documents et développement de logiciels <strong>plus que pénibles.</strong></li>
 </ul>
 <p>Bref, c'est <del>de la merde</del> imparfait.</p>
@@ -8223,12 +8231,12 @@ $\rightarrow$ problèmes de sécurité informatique : certaines opérations inte
 <span style="color:#a00;background-color:#faa">猫</span> <span style="color:#09f;font-style:italic"># qui signifie &#34;chat&#34; en chinois traditionnel</span>
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#366">ord</span>(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">猫</span><span style="color:#c30">&#39;</span>) <span style="color:#09f;font-style:italic"># Et qui se prononce Māo</span>
 <span style="color:#f60">29483</span>
-</code></pre></div><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</code></pre></div><!-- cours LLG
+https://www.youtube.com/watch?v=PZRI1IfStY0 -->
 <h2 id="tp-python">TP Python</h2>
 <p>convertisseur de base
 calculer en binaire</p>
-<!-- raw HTML omitted -->
+<!--  TODO -->
 </article>
 
       <div class="backtotop">

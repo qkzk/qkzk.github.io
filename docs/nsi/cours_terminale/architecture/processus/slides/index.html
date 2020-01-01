@@ -81,6 +81,8 @@ MathJax.Hub.Config({
 
 
 
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+
 
 </head>
 
@@ -3551,12 +3553,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_diriges/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td/" >
         
   
     
     
-    Travaux pratiques
+    Travaux dirigés
   
 
       </a>
@@ -3584,12 +3586,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_pratiques/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/tp/" >
         
   
     
     
-    Travaux dirigés
+    Travaux pratiques
   
 
       </a>
@@ -7178,8 +7180,9 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<article class="markdown"><!-- à compiler par
+pandoc -t beamer --slide-level 2 -V "aspectratio=1610" -s psfssh.md -o psfssh.pdf
+-->
 <p>Ce contenu est prévu pour être projeté avec ces <a href="/uploads/docnsitale/processus/psfssh.pdf">slides</a></p>
 <h1 id="systme-dexploitation">Système d'exploitation</h1>
 <p>Première</p>
@@ -7442,8 +7445,13 @@ MathJax.Hub.Config({
 <li>contient les données — suite d'octets (/bits, /blocs)</li>
 <li>sans organisation particulière</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!--
+### Système de fichiers = abstraction d'un disque
+* plusieurs disques
+* plusieurs systèmes de fichiers !
+* éventuellement de types différents !
+* vue unifiée des systèmes de fichiers présents = une unique hiérarchie
+-->
 <h2 id="hirarchie">Hiérarchie</h2>
 <h3 id="systme-de-fichiers-prsente-une-hirarchie">Système de fichiers présente une hiérarchie</h3>
 <ul>
@@ -7494,13 +7502,32 @@ MathJax.Hub.Config({
 </ul>
 <hr>
 <h2 class="allowframebreaks" id="systme-de-fichiers-un-arbre">Système de fichiers, un arbre</h2>
-<!-- raw HTML omitted -->
+<!-- ![](/uploads/docnsitale/processus/fig/fs-tree-1){width=80%} -->
 <p><img src="/uploads/docnsitale/processus/fig/fs-tree-2.png" alt="">{width=80%}</p>
-<!-- raw HTML omitted -->
+<!-- ![](/uploads/docnsitale/processus/fig/fs-node-1){width=80%} -->
 <p><img src="/uploads/docnsitale/processus/fig/fs-node-2.png" alt="">{width=80%}</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!-- Slide supprimé -->
+<!--
+Chemins dans le système de fichiers
+-----------------------------------
+
+### Système de fichiers arborescent
+* nommage non ambigu d'un fichier depuis la racine
+* `/`(racine) nom de l'ascendant `/` ...
+            `/` nom du parent `/` nom du fichier
+* caractère `/` de construction de noms de chemin
+
+### Chemin absolu
+* interprété depuis la racine
+* précédé de `/` qui désigne la racine
+* `/home/diueil/duchmol/bloc1/adn/adn.py`
+
+### Chemin relatif
+* position courante dans le système de fichiers
+* interprété par rapport à cette position
+* `adn/adn.py` ou `../bloc2/tri/tris_anonymes.py` \normalsize
+
+-->
 <h2 class="allowframebreaks" id="systme-de-fichiers-un-arbre-ou-presque">Système de fichiers, un arbre, ou presque</h2>
 <p><img src="/uploads/docnsitale/processus/fig/fs-node-3.png" alt="">{height=85%}</p>
 <p><img src="/uploads/docnsitale/processus/fig/fs-node-4.png" alt="">{height=85%}</p>
@@ -7544,8 +7571,11 @@ MathJax.Hub.Config({
 <ul>
 <li>assurer la cohérence de la hiérarchie</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!--
+### Nœud associé à un périphérique
+* couple (numéro de périphérique, numéro d'inœud)
+* pas de lien physique entre nœuds de périphériques différents
+-->
 <h2 id="liens-multiples-ii">Liens multiples II</h2>
 <p><img src="/uploads/docnsitale/processus/fig/fs-ln-1.png" alt="">{height=90%}</p>
 <h2 id="liens-multiples-iii-----------ln-adnadnpy-srcpy">Liens multiples III \ \ \ \ \ \ \ \ \  <code>ln ../adn/adn.py src.py</code></h2>
@@ -7784,7 +7814,7 @@ marquet         tty2    Sep 24  7:14
 <li>la commande <code>ls</code> ne connaît rien de l'<code>*</code></li>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% echo *.py
-</code></pre></div><!-- raw HTML omitted -->
+</code></pre></div><!-- eof -->
 </article>
 
       <div class="backtotop">

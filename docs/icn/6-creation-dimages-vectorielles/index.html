@@ -69,6 +69,8 @@ MathJax.Hub.Config({
 
 
 
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+
 
 </head>
 
@@ -3539,12 +3541,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_diriges/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td/" >
         
   
     
     
-    Travaux pratiques
+    Travaux dirigés
   
 
       </a>
@@ -3572,12 +3574,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/travaux_pratiques/" >
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/tp/" >
         
   
     
     
-    Travaux dirigés
+    Travaux pratiques
   
 
       </a>
@@ -7209,13 +7211,16 @@ MathJax.Hub.Config({
 <p>Comme vous pouvez le constater, une zone délimitée par une bordure apparait sur la page proposée par le navigateur. Cette zone sera notre zone de dessin. Pour ce qui est du code, rien de très compliqué, le html utilise le fichier &ldquo;style.css&rdquo;. Ce fichier &ldquo;style.css&rdquo; permet de définir la largeur et la hauteur de notre zone de dessin ainsi que la bordure entourant cette même zone de dessin (zone de dessin qui aura été défini par la balise svg dans le code html). Dans la prochaine activité, nous commençerons à dessiner.</p>
 <h1 id="2-cercles-disques--premires-formes">2. Cercles, disques : premières formes</h1>
 <p>Pour dessiner dans la zone créée dans l'activité précédente, nous allons utiliser des balises, voici quelques exemples :</p>
-<!-- raw HTML omitted -->
-<p>Commençons par nous intéresser à la balise <!-- raw HTML omitted --> qui, comme vous l'avez sans doute deviné, permet de dessiner un cercle !</p>
+ <circle/>
+ <rect/>
+ <line/>
+ <path/>
+<p>Commençons par nous intéresser à la balise <circle/> qui, comme vous l'avez sans doute deviné, permet de dessiner un cercle !</p>
 <p>Problème, un cercle à un rayon, où va-t-on renseigner cette information ?</p>
-<p>Il est possible de rajouter des attributs dans les balises. Pour définir le rayon du cercle nous écrirons : <!-- raw HTML omitted --></p>
+<p>Il est possible de rajouter des attributs dans les balises. Pour définir le rayon du cercle nous écrirons : <circle r="40"/></p>
 <p>Nous avons ajouté un attribut r à notre balise, le cercle aura donc un rayon de 40 pixels.</p>
-<p>Il est aussi possible de renseigner les coordonnées du centre du cercle grâce aux attributs &ldquo;cx&rdquo; et &ldquo;cy&rdquo; : <!-- raw HTML omitted --></p>
-<p>ATTENTION : ci-dessus, 400 et 300 correspondent aux coordonnées du centre du cercle sachant que l'origine du repère (le point de coordonnées (0,0)), se trouve dans le coin supérieur gauche de la zone de dessin définie grâce à la balise <!-- raw HTML omitted --></p>
+<p>Il est aussi possible de renseigner les coordonnées du centre du cercle grâce aux attributs &ldquo;cx&rdquo; et &ldquo;cy&rdquo; : <circle r="40" cx="400" cy="300"/></p>
+<p>ATTENTION : ci-dessus, 400 et 300 correspondent aux coordonnées du centre du cercle sachant que l'origine du repère (le point de coordonnées (0,0)), se trouve dans le coin supérieur gauche de la zone de dessin définie grâce à la balise <svg></p>
 <h4 id="-faire-vous-mme-21">À faire vous même 2.1</h4>
 <p>Compléter le fichier &ldquo;index.html&rdquo; comme suit :</p>
 <pre><code>&lt;!doctype html&gt;
@@ -7278,11 +7283,11 @@ MathJax.Hub.Config({
 <h1 id="3-rectangles-et-formes-premier-dessin-compos">3. Rectangles et formes, premier dessin composé</h1>
 <p>Évidemment, le svg ne propose pas seulement de dessiner des cercles. Nous allons présenter d'autres figures géométriques.</p>
 <p>Commençons par les rectangles :</p>
-<p>Nous devons utiliser la balise <!-- raw HTML omitted -->. Cette balise peut prendre pour attributs :</p>
-<p>x : coordonnée x du coin haut-gauche du rectangle, exemple <!-- raw HTML omitted -->
-y : coordonnée y du coin haut-gauche du rectangle, exemple <!-- raw HTML omitted -->
-width : la largeur du rectangle, exemple <!-- raw HTML omitted -->
-height : la longueur du rectangle, exemple <!-- raw HTML omitted --></p>
+<p>Nous devons utiliser la balise <rect/>. Cette balise peut prendre pour attributs :</p>
+<p>x : coordonnée x du coin haut-gauche du rectangle, exemple <rect x="400"/>
+y : coordonnée y du coin haut-gauche du rectangle, exemple <rect x="400" y="300"/>
+width : la largeur du rectangle, exemple <rect x="400" y="300" width="100"/>
+height : la longueur du rectangle, exemple <rect x="400" y="300" width="100" height="50"/></p>
 <p>Il est possible d'utiliser les attributs vus dans l'activité précédente (&ldquo;fill&rdquo;, &ldquo;stroke&rdquo;, &ldquo;fill-opacity&rdquo;, &ldquo;stroke-opacity&rdquo; et &ldquo;stroke-width&rdquo;)</p>
 <h4 id="-faire-vous-mme-31">À faire vous même 3.1</h4>
 <p>Compléter le fichier &ldquo;index.html&rdquo; comme suit :</p>
@@ -7303,7 +7308,7 @@ height : la longueur du rectangle, exemple <!-- raw HTML omitted --></p>
 <p>Le fichier &ldquo;style.css&rdquo; reste identique à celui vu dans l'activité 1.</p>
 <p>Tester cet exemple en effectuant un &ldquo;double-clic&rdquo; sur le fichier &ldquo;index.html&rdquo;.</p>
 <hr>
-<p>Il est possible de tracer un segment de droite avec la balise <!-- raw HTML omitted -->. Nous avons 4 attributs : x1, y1, x2 et y2. Le couple (x1,y1) correspond aux coordonnées du point de départ du segment de droite, le couple (x2,y2) correspond aux coordonnées du point d'arrivée du segment.</p>
+<p>Il est possible de tracer un segment de droite avec la balise <line/>. Nous avons 4 attributs : x1, y1, x2 et y2. Le couple (x1,y1) correspond aux coordonnées du point de départ du segment de droite, le couple (x2,y2) correspond aux coordonnées du point d'arrivée du segment.</p>
 <p>Les autres attributs restent valables.</p>
 <h4 id="-faire-vous-mme-32">À faire vous même 3.2</h4>
 <p>Compléter le fichier &ldquo;index.html&rdquo; comme suit :</p>
@@ -7359,7 +7364,7 @@ height : la longueur du rectangle, exemple <!-- raw HTML omitted --></p>
 <h4 id="-faire-vous-mme-35">À faire vous même 3.5</h4>
 <p>Essayez de reproduire (à peu près) ce dessin :</p>
 <hr>
-<p>svg permet aussi d'afficher du texte à l'aide de la balise <!-- raw HTML omitted --></p>
+<p>svg permet aussi d'afficher du texte à l'aide de la balise <text></p>
 <h4 id="-faire-vous-mme-36">À faire vous même 3.6</h4>
 <p>Compléter le fichier &ldquo;index.html&rdquo; comme suit :</p>
 <pre><code>&lt;!doctype html&gt;
@@ -7500,7 +7505,7 @@ des mises à l'échelle (en gros, des zooms)</p>
     &lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
 </code></pre></div><p><img src="https://pixees.fr/informatiquelycee/img/svg_a4_5.png" alt="repere"></p>
 <hr>
-<p>Il est possible, à l'aide de la balise <!-- raw HTML omitted --> de regrouper vos dessins afin de leur faire subir des transformations (rotation, translation ou changement d'échelle de façon simultanée.</p>
+<p>Il est possible, à l'aide de la balise <g> de regrouper vos dessins afin de leur faire subir des transformations (rotation, translation ou changement d'échelle de façon simultanée.</p>
 <h4 id="-faire-vous-mme-46">À faire vous-même 4.6</h4>
 <p>Saisissez et testez ce code</p>
 <pre><code>&lt;!doctype html&gt;
@@ -7521,7 +7526,7 @@ des mises à l'échelle (en gros, des zooms)</p>
 &lt;/html&gt;
 </code></pre>
 <hr>
-<p>Il suffit d'appliquer la transformation au groupe défini avec la balise <!-- raw HTML omitted --> pour que le dessin dans son ensemble subisse la transformation.</p>
+<p>Il suffit d'appliquer la transformation au groupe défini avec la balise <g> pour que le dessin dans son ensemble subisse la transformation.</p>
 <h4 id="-faire-vous-mme-47">À faire vous-même 4.7</h4>
 <p>En repartant de l'exemple que vous avez développé dans le &ldquo;À faire vous même 3.5&rdquo;, essayez de reproduire (à peu près) ce dessin :</p>
 <h1 id="5-dessiner-avec-des-outils-un-peu-plus-agrables">5. Dessiner avec des outils un peu plus agréables</h1>
