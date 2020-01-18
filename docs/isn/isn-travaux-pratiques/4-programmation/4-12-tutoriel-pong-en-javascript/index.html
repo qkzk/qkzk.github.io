@@ -943,6 +943,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours-python/python-3-16-turle-et-iss/" >
+        
+  
+    
+    
+    Python 3 - 16 Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7172,7 +7205,7 @@ MathJax.Hub.Config({
 </a></p>
 <p>Pré-requis  : <em>HTML, CSS, JavaScript.</em></p>
 <p>Notions abordées : _canvas, __boucle de rafraîchissement, _<em>événements clavier, <strong>déplacement</strong> d'un objet, collisions simples</em></p>
-<h1 id="tutoriel--cration-du-jeu-pong-en-html5-avec-la-balise-canvas">Tutoriel : création du jeu Pong en html5 avec la balise canvas.</h1>
+<h1 id="tutoriel--création-du-jeu-pong-en-html5-avec-la-balise-canvas">Tutoriel : création du jeu Pong en html5 avec la balise canvas.</h1>
 <p>Durant tout le tutoriel, construire le code étape par étape. Il doit fonctionner à chaque étape intermédiaire et être régulièrement partagé avec votre enseignant via les procédés habituels (google drive). Cela peut sembler très long mais tout est décrit en détail.</p>
 <h3 id="pong">Pong</h3>
 <p><img src="http://amigamuseum.emu-france.info/Fichiers/Biographie/images/pong/pong.gif" alt="">
@@ -7192,8 +7225,8 @@ Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui 
 <li>La balle : une animation simple mais des contraintes multiples</li>
 <li>Rebonds, but : c'est gagné !</li>
 </ul>
-<h2 id="description-pas--pas-des-lments-du-code">Description pas à pas des éléments du code</h2>
-<h3 id="elements-gnraux">Elements généraux</h3>
+<h2 id="description-pas-à-pas-des-éléments-du-code">Description pas à pas des éléments du code</h2>
+<h3 id="elements-généraux">Elements généraux</h3>
 <p>On commence par créer un fichier html avec les balises usuelles.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#309;font-weight:bold">html</span>&gt;
     &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
@@ -7215,10 +7248,10 @@ Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui 
 <p>En 2D on dispose d'un repère orthonormé usuel en informatique. L&rsquo;<strong>origine en haut à gauche</strong>, les x vers la droite et les y <strong>vers le bas</strong>.
 Sa taille sera ici de 600x600 pixels.</p>
 <p>Le contenu html ne changera plus et tout ce que nous allons ajouter sera dans le script. En utilisant les propriétés css, mettre un fond noir à la page, centrer le canvas à l'aide de son id et choisir une police et une taille de caractères pour le h1</p>
-<h2 id="le-script-et-les-premiers-lments-graphiques">Le script et les premiers éléments graphiques</h2>
+<h2 id="le-script-et-les-premiers-éléments-graphiques">Le script et les premiers éléments graphiques</h2>
 <p>A l'aide d'un script on va utiliser les fonctions javascript associées à la balise canvas pour dessiner des objets.</p>
 <p>** L'animation** est ensuite rendue possible en nettoyant le canvas et dessinant régulièrement les éléments à l'écran à la manière d'un dessin-animé.</p>
-<h3 id="rcupration-du-canvas-coute-des-vnements-boucle-de-rafraichissement">Récupération du canvas, écoute des événements, boucle de rafraichissement</h3>
+<h3 id="récupération-du-canvas-écoute-des-événements-boucle-de-rafraichissement">Récupération du canvas, écoute des événements, boucle de rafraichissement</h3>
 <p>Le principe est le suivant :
 Une fois la page chargée par le navigateur, javascript execute à intervalle régulier la même fonction (la boucle de rafraichissement). Celle-ci dessine tous les éléments présents, calcule les états etc.</p>
 <p>Avant d'insérer la boucle de rafraichissement il faut s'assurer que canvas est bien pris en charge par le navigateur.</p>
@@ -7275,7 +7308,7 @@ Elle s'arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo; indiq
 <li>Cette même fonction lance une autre fonction (vide&hellip;) qui servira à dessiner, animer, interpréter les événements (pression du clavier, clic souris etc.).</li>
 </ul>
 <p>Aussi surprenant que cela puisse paraître, c'est le squelette de n'importe quel jeux vidéo 2d qui se déroule dans une seule fenêtre. Tout ce dont on a besoin y figure déjà !</p>
-<h2 id="variables-et-lments-initiaux">Variables et éléments initiaux</h2>
+<h2 id="variables-et-éléments-initiaux">Variables et éléments initiaux</h2>
 <p>Le jeu est assez simple pour l'envisager intégralement dès le départ.</p>
 <p>On se contentera à chaque rafraichissement de :</p>
 <ul>
@@ -7297,7 +7330,7 @@ Elle s'arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo; indiq
 <li>les &ldquo;vitesses&rdquo; de la balle, des raquettes</li>
 </ul>
 <p><strong>Remarque importante concernant la vitesse</strong>. Chaque déplacement se fait via un rafraichissement de l'écran. Toutes les positions sont donc calculées étape par étape. La vitesse de la balle est donc le nombre de pixels dont elle se déplace en abscisses, en ordonnées, entre deux rafraichissement.</p>
-<h3 id="comment-dterminer-les-variables-et-leurs-valeurs-">Comment déterminer les variables et leurs valeurs ?</h3>
+<h3 id="comment-déterminer-les-variables-et-leurs-valeurs-">Comment déterminer les variables et leurs valeurs ?</h3>
 <p>En commençant le projet je ne savais pas quelle taille donner aux éléments. J'ai donc choisi des valeurs à tâtons.</p>
 <p>Avant de progresser il faut reflechir aux collisions. Les objets étant tous des rectangles verticaux on va simplement résoudre des inéquations très simples&hellip; mais pénibles à écrire.</p>
 <p><strong>Remarque :</strong> une autre méthode est possible pour les collisions. Elle consiste à utiliser l'ordre dans lequel on dessine les éléments pour repérer si un pixel de la balle est dessiné sur un pixel d'une couleur particulière. Les collisions sont généralement des problèmes difficiles&hellip; Elles sont souvent résolues en entourant les objets de forme complexe d'une boite rectangulaire : c'est la &ldquo;hit box&rdquo; bien connue des joueurs de FPS&hellip; et on en revient à des inéquations à résoudre.</p>
@@ -7309,7 +7342,7 @@ Elle s'arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo; indiq
 <p>Question niveau maternelle : si les coordonnées du centre d'un rectangle dont les côtés sont parallèles aux axes sont x et y, si l est sa demi-largeur et h sa demi-hauteur, quelles sont les coordonnées des quatre coins ?
 Faire une figure en se souvenant que les ordonnées sont vers le bas.
 Prendre une photo, l'insérer dans le drive au bon endroit et la renommer pour le dossier projet.</p>
-<h2 id="et-maintenant-les-variables-en-elle-mme-">Et maintenant les variables en elle même :</h2>
+<h2 id="et-maintenant-les-variables-en-elle-même-">Et maintenant les variables en elle même :</h2>
 <p>Elles iront en haut du script, avant la récupération du canvas. Elles sont toutes locales, certaines étant juste nommées sans valeur particulière à ce moment.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">//variables internes
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> boucleJeu; <span style="color:#09f;font-style:italic">//appelée pour refresh
@@ -7419,7 +7452,7 @@ En recliquant sur ce numero de ligne, vous enlevez ce breakpoint.</li>
 <p>Après avoir ajouté un breakpoint à chaque appel de dessinerBarre et de dessinerBalle dans refreshGame, faites tourner pas à pas votre script en appuyant sur pause. Le navigateur vous affiche alors des informations supplémentaires (valeurs des variables définies juste avant, juste après etc.) et vous devriez voir apparaître une raquette puis l'autre et le canvas se vider. etc.
 Voici, dans les grandes lignes, comment vous debugguerez vos programmes à l'avenir. Ces outils sont considérés par les webdeveloppeurs comme la révolution des années 2000.</p>
 <p>Créer la fonction qui dessine la balle : dessinerBalle(x,y){&hellip;} en adaptant la précédente.</p>
-<h2 id="dplacement-des-raquettes">Déplacement des raquettes</h2>
+<h2 id="déplacement-des-raquettes">Déplacement des raquettes</h2>
 <p>La dernière ligne de <code>refreshGame()</code> écoute les événements du clavier. Selon la touche pressée (z,s, haut et bas) la première ou la seconde raquette va bouger vers le haut ou vers le bas.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> caBouge(e){
 	<span style="color:#09f;font-style:italic">//raquette de droite
@@ -7446,9 +7479,9 @@ Si le centre est assez haut, on peut continuer à descendre : <code>{ ord_raquet
 <p>Ajouter cette fonction et la tester. On doit pouvoir déplacer la raquette de droite jusqu'en bas de l'écran sans qu'elle n'en sorte.</p>
 <p>Compléter cette fonction avec les autres événements possibles : touches haut, Z et S. Déterminer d'abord les keyCode relatifs à chaque touche puis compléter la fonction précédente. On utilisera trois <code>else if(){}</code>.</p>
 <p>S'aider de la console et des outils développeurs si nécessaire.</p>
-<h3 id="rsum-de-la-situation">Résumé de la situation</h3>
+<h3 id="résumé-de-la-situation">Résumé de la situation</h3>
 <p>On devrait maintenant avoir une fenêtre html contenant un canvas. Celui-ci fait apparaître deux raquettes mobiles (déplacées par les touches du clavier ; elles ne peuvent pas quitter l'écran) et une balle immobile au centre de l'écran.</p>
-<h2 id="dplacement-de-la-balle">Déplacement de la balle</h2>
+<h2 id="déplacement-de-la-balle">Déplacement de la balle</h2>
 <p>Réalisée en plusieurs étapes, on s'en doutait un peu.</p>
 <h3 id="trajectoire-initiale">Trajectoire initiale</h3>
 <p>la balle va d'abord simplement se déplacer de gauche à droite et sortir de l'écran.</p>
@@ -7497,7 +7530,7 @@ C'est là qu'intervient <code>ord_depart;</code> où on avait gardé en mémoire
 		ord_raquette2<span style="color:#555">=</span>barreStart;
 	}
 </code></pre></div><p>Insérer dans votre code (au bon endroit&hellip;) l'extrait précédent. Le décrire (pourquoi devoir modifier horiz et vertic ?) et écrire la partie correspondant au but de gauche.</p>
-<h2 id="etat-des-lieux-aprs-toutes-ces-tapes-">Etat des lieux après toutes ces étapes :</h2>
+<h2 id="etat-des-lieux-après-toutes-ces-étapes-">Etat des lieux après toutes ces étapes :</h2>
 <p>La balle ne peut plus quitter l'écran&hellip; mais sa trajectoire est définie par les valeurs initiales de horiz et vertic et elle ne &ldquo;touche&rdquo; pas encore les raquettes&hellip;</p>
 <p>Vous devez être capable d'expliquer chacune des instructions, de l'illustrer. Sinon reprendre.</p>
 <h3 id="collision-avec-les-raquettes">Collision avec les raquettes</h3>
@@ -7533,7 +7566,7 @@ Indication : ajouter un breakpoint à horiz=-horiz.</p>
 	}
 </code></pre></div><p>Il faut, à nouveau, choisir une couleur de remplissage (plus prudent), une taille et une police de caractère et indiquer où écrire le message.</p>
 <p>Que contient la variable s qui apparait à la dernière ligne ? writescore est appelée deux fois dans refreshgame, quelles sont les valeurs de <code>ZW/2 +200*j-300</code> dans chacun des appels ?</p>
-<h2 id="complments">Compléments</h2>
+<h2 id="compléments">Compléments</h2>
 <p>Le jeu est maintenant presque terminé, ne reste que le filet à ajouter. Vous ne devriez avoir aucun mal si vous êtes parvenus jusqu'ici.</p>
 <p>D'autres idées :</p>
 <ul>
@@ -7579,43 +7612,43 @@ Indication : ajouter un breakpoint à horiz=-horiz.</p>
       </ul>
     </li>
     <li><a href="#cahier-des-charges">Cahier des charges</a></li>
-    <li><a href="#description-pas--pas-des-lments-du-code">Description pas à pas des éléments du code</a>
+    <li><a href="#description-pas-à-pas-des-éléments-du-code">Description pas à pas des éléments du code</a>
       <ul>
-        <li><a href="#elements-gnraux">Elements généraux</a></li>
+        <li><a href="#elements-généraux">Elements généraux</a></li>
       </ul>
     </li>
-    <li><a href="#le-script-et-les-premiers-lments-graphiques">Le script et les premiers éléments graphiques</a>
+    <li><a href="#le-script-et-les-premiers-éléments-graphiques">Le script et les premiers éléments graphiques</a>
       <ul>
-        <li><a href="#rcupration-du-canvas-coute-des-vnements-boucle-de-rafraichissement">Récupération du canvas, écoute des événements, boucle de rafraichissement</a></li>
+        <li><a href="#récupération-du-canvas-écoute-des-événements-boucle-de-rafraichissement">Récupération du canvas, écoute des événements, boucle de rafraichissement</a></li>
       </ul>
     </li>
-    <li><a href="#variables-et-lments-initiaux">Variables et éléments initiaux</a>
+    <li><a href="#variables-et-éléments-initiaux">Variables et éléments initiaux</a>
       <ul>
-        <li><a href="#comment-dterminer-les-variables-et-leurs-valeurs-">Comment déterminer les variables et leurs valeurs ?</a></li>
+        <li><a href="#comment-déterminer-les-variables-et-leurs-valeurs-">Comment déterminer les variables et leurs valeurs ?</a></li>
       </ul>
     </li>
-    <li><a href="#et-maintenant-les-variables-en-elle-mme-">Et maintenant les variables en elle même :</a></li>
+    <li><a href="#et-maintenant-les-variables-en-elle-même-">Et maintenant les variables en elle même :</a></li>
     <li><a href="#le-contenu-de-refreshgame">Le contenu de refreshgame</a></li>
     <li><a href="#dessin-des-raquettes">Dessin des raquettes</a></li>
-    <li><a href="#dplacement-des-raquettes">Déplacement des raquettes</a>
+    <li><a href="#déplacement-des-raquettes">Déplacement des raquettes</a>
       <ul>
-        <li><a href="#rsum-de-la-situation">Résumé de la situation</a></li>
+        <li><a href="#résumé-de-la-situation">Résumé de la situation</a></li>
       </ul>
     </li>
-    <li><a href="#dplacement-de-la-balle">Déplacement de la balle</a>
+    <li><a href="#déplacement-de-la-balle">Déplacement de la balle</a>
       <ul>
         <li><a href="#trajectoire-initiale">Trajectoire initiale</a></li>
         <li><a href="#rebonds-verticaux">Rebonds verticaux</a></li>
         <li><a href="#but-">But !</a></li>
       </ul>
     </li>
-    <li><a href="#etat-des-lieux-aprs-toutes-ces-tapes-">Etat des lieux après toutes ces étapes :</a>
+    <li><a href="#etat-des-lieux-après-toutes-ces-étapes-">Etat des lieux après toutes ces étapes :</a>
       <ul>
         <li><a href="#collision-avec-les-raquettes">Collision avec les raquettes</a></li>
         <li><a href="#les-scores">Les scores</a></li>
       </ul>
     </li>
-    <li><a href="#complments">Compléments</a></li>
+    <li><a href="#compléments">Compléments</a></li>
   </ul>
 </nav>
   </aside>

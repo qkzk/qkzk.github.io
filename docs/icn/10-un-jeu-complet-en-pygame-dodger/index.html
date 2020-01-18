@@ -943,6 +943,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours-python/python-3-16-turle-et-iss/" >
+        
+  
+    
+    
+    Python 3 - 16 Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7407,7 +7440,7 @@ import pygame, random, sys
 from pygame.locals import *
 </code></pre>
 <p>Le jeu Dodger import les modules usuels après avoir défini l'encodage et l'environnement :pygame, random, sys, et pygame.locals. pygame.locals contient plusieurs variables utilisées par Pygame tels que les événements  (QUIT, KEYDOWN, etc.) et les touches du clavier (K_ESCAPE, etc.). En utilisant cette la syntaxe from pygame.locals import * syntax, vous pouvez simplement taper QUIT dans le code source au lieu de pygame.locals.QUIT.</p>
-<h3 id="rglage-des-variables-constantes">Réglage des variables Constantes</h3>
+<h3 id="réglage-des-variables-constantes">Réglage des variables Constantes</h3>
 <pre><code>WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
 TEXTCOLOR = (255, 255, 255)
@@ -7429,7 +7462,7 @@ ADDNEWBADDIERATE = 6
 <pre><code>PLAYERMOVERATE = 5
 </code></pre>
 <p>PLAYERMOVERATE décrit le nombre de pixel que le jouer traverse à chaque itération. L'augmenter permet donc d'accélérer le joueur.</p>
-<h2 id="dfinir-les-fonctions">Définir les fonctions</h2>
+<h2 id="définir-les-fonctions">Définir les fonctions</h2>
 <p>Plusieurs fonctions sont utilisées dans le jeu.</p>
 <pre><code>def terminate():
     pygame.quit()
@@ -7471,7 +7504,7 @@ ADDNEWBADDIERATE = 6
 Ensuite on doit connaître la taille et la position de cet objet Surface. On peut obtenir définir cette position à l'aide d'un get_rect(). Ainsi l'objet Rect de la ligne 40 contient une copie de la taille et la hauteur définie par la surface. Ligne 41 on met à joueur la position du Rect en lui passant un tuple (x, y).
 Enfin, ligne 42 on blit la Surface du textobj sur le textrect.</p>
 <p>Ecrire du texte en pygame est plus complexe que d'appeler un simple print() néanmoins, en créant cette fonction, vous n'avez plus qu'à l'appeler une fois avec tous les paramètres pour le faire.</p>
-<h2 id="initialiser-pygame-et-et-dfinir-la-fentre">Initialiser pygame et et définir la fenêtre.</h2>
+<h2 id="initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</h2>
 <p>Les constantes et les fonctions étant définies, il est possible de définir la fenêtre et l'horloge.</p>
 <pre><code>pygame.init()
 mainClock = pygame.time.Clock()
@@ -7486,7 +7519,7 @@ mainClock = pygame.time.Clock()
 <pre><code>pygame.mouse.set_visible(False)
 </code></pre>
 <p>On cache le curseur de la souris. En effet, on se servira de la souris pour déplacer le joueur.</p>
-<h2 id="mode-plein-cran">Mode plein écran</h2>
+<h2 id="mode-plein-écran">Mode plein écran</h2>
 <pre><code> windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)
 </code></pre>
 <p>En changeant ainsi la ligne 47 on rend le jeu plein écran. La fenêtre est étendue jusqu'aux dimensions maximales de l'écran. Testez le jeu dans les deux modes pour bien comprendre son fonctionnement.</p>
@@ -7507,7 +7540,7 @@ playerRect = playerImage.get_rect()
 baddieImage = pygame.image.load('baddie.png')
 </code></pre>
 <p>On défini ici les images qui seront utilisées pour le joueur et les méchants. Tous les méchants ont la même image donc un seul fichier suffit.</p>
-<h2 id="afficher-lcran-de-dmarrage">Afficher l'écran de démarrage</h2>
+<h2 id="afficher-lécran-de-démarrage">Afficher l'écran de démarrage</h2>
 <p>Quand le jeu se lance, on affiche son nom à l'écran. On souhaite aussi expliquer à l'utilisateur comment jouer. Cet écran sert à donner le temps à l'utilisateur de se préparer.</p>
 <pre><code># show the &quot;Start&quot; screen
 drawText('Dodger', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
@@ -7562,7 +7595,7 @@ Le second est un réel (float) qui indique à quelle seconde de la musique vous 
 </code></pre>
 <p>On lance la boucle infinie et on augmente de 1 le score à chaque tour.
 Elle ne s'arrêtera que lorsqu'on va perdre ou quitter la partie.</p>
-<h2 id="gestion-des-vnements">Gestion des événements</h2>
+<h2 id="gestion-des-événements">Gestion des événements</h2>
 <p>Il y a 4 types d'événements que le programme va gérer : QUIT, KEYDOWN, KEYUP et MOUSEMOTION</p>
 <pre><code>for event in pygame.event.get():
     if event.type == QUIT:
@@ -7866,7 +7899,7 @@ Voici une table présentant les valeurs des touches du clavier.</p>
 </code></pre>
 <p>L'événement KEYUP est crée à chaque fois que le joueur relache une touche. Ils disposent d'un numéro de touche identiques à ceux de KEYDOWN.
 On arrête alors les déplacements et les cheat code en passant les valeurs à False.</p>
-<h2 id="la-mthode-move-ip">La méthode move_ip()</h2>
+<h2 id="la-méthode-move_ip">La méthode move_ip()</h2>
 <pre><code>if event.type == MOUSEMOTION:
         # If the mouse moves, move the player where the cursor is.
         playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)
@@ -7896,7 +7929,7 @@ La surface est définie de la même manière que celle du joueur.</p>
 <pre><code>baddies.append(newBaddie)
 </code></pre>
 <p>On ajoute ensuite ce nouveau baddie à la liste comme précédemment.</p>
-<h2 id="le-dplacement-du-joueur">Le déplacement du joueur</h2>
+<h2 id="le-déplacement-du-joueur">Le déplacement du joueur</h2>
 <pre><code>if moveLeft and playerRect.left &gt; 0:
     playerRect.move_ip(-1 * PLAYERMOVERATE, 0)
 </code></pre>
@@ -7904,7 +7937,7 @@ La surface est définie de la même manière que celle du joueur.</p>
 C'est ce qu'on fait à l'aide de move_ip.</p>
 <p>On se déplace selon la vitesse PLAYERMOVERATE définie plus haut. -1*PLAYERMOVERATE est donc la version négative de l'entier en question.</p>
 <p>On défini de la même manière les autres déplacements.</p>
-<h2 id="la-fonction-pygamemouseset-pos">La fonction pygame.mouse.set_pos()</h2>
+<h2 id="la-fonction-pygamemouseset_pos">La fonction pygame.mouse.set_pos()</h2>
 <pre><code># Move the mouse cursor to match the player.
 pygame.mouse.set_pos(playerRect.centerx, playerRect.centery)
 </code></pre>
@@ -7925,7 +7958,7 @@ elif slowCheat:
     b['rect'].move_ip(0, 1)
 </code></pre>
 <p>On fait reculer les monstres ou on les ralenti si selon le cheatmode activé.</p>
-<h2 id="retirer-les-mchants">Retirer les méchants</h2>
+<h2 id="retirer-les-méchants">Retirer les méchants</h2>
 <pre><code># Delete baddies that have fallen past the bottom.
 for b in baddies[:]:
     if b['rect'].top &gt; WINDOWHEIGHT:
@@ -7936,7 +7969,7 @@ Attention cependant, il faut s'assurer de ne pas modifier la liste elle même al
 <p>Cette copie est réalisée en écrivant baddies[:]
 b[&lsquo;rect&rsquo;] récupère la valeur de la clé &lsquo;rect&rsquo; de l'élément b de la liste. b[&lsquo;rect&rsquo;].top est donc le haut de cet élément.</p>
 <p>On compare ensuite le haut de l'élément Rect à la taille de l'écran et, s'il est supérieur on retire le baddie de la liste.</p>
-<h2 id="dessiner-la-fentre">Dessiner la fenêtre</h2>
+<h2 id="dessiner-la-fenêtre">Dessiner la fenêtre</h2>
 <p>Tous les éléments étant à jour, il est temps de dessiner la fenêtre.</p>
 <p>La fenêtre étant rafraîchie plusieurs fois par seconde, cela rend les animations fluides.</p>
 <p>Les éléments sont dessinés <strong>LES UNS AU DESSUS DES AUTRES. On commence donc par le fond</strong></p>
@@ -7958,17 +7991,17 @@ drawText('Top Score: %s' % (topScore), font, windowSurface, 10, 40)
 windowSurface.blit(playerImage, playerRect)
 </code></pre>
 <p>Les informations du joueur sont stockées dans deux variables : playerImage (son sprite) et playerRect (position et dimension). La méthode blit() dessine l'image playerImage sur la surface windowSurface aux positions de playerRect() et selon ses dimensions.</p>
-<h2 id="dessiner-les-mchants">Dessiner les méchants</h2>
+<h2 id="dessiner-les-méchants">Dessiner les méchants</h2>
 <pre><code># Draw each baddie
 for b in baddies:
     windowSurface.blit(b['surface'], b['rect'])
 </code></pre>
 <p>On fait de même pour chaque méchant de la liste. On récupère depuis le dictionnaire b les éléments &lsquo;surface&rsquo; et &lsquo;rect&rsquo; qu'on envoie à blit.</p>
-<h2 id="mise--jour-de-la-fentre">Mise à jour de la fenêtre</h2>
+<h2 id="mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</h2>
 <pre><code>pygame.display.update()
 </code></pre>
 <p>On dessine enfin cette surface sur celle de l'écran et tous les éléments vont apparaître.</p>
-<h2 id="dtection-des-collisions">Détection des collisions</h2>
+<h2 id="détection-des-collisions">Détection des collisions</h2>
 <p>A cette étape toutes les données sont dessinées à l'écran. Il ne reste plus qu'à détecter les collisions entre le joueur et les méchants.</p>
 <pre><code># Check if any of the baddies have hit the player.
 if playerHasHitBaddie(playerRect, baddies):
@@ -8043,27 +8076,27 @@ Si vous ne souhaitez que ralentir les méchants, changez leur vitesse maximale B
     <li><a href="#revue-des-objets-typiques-de-pygame">Revue des objets typiques de Pygame</a>
       <ul>
         <li><a href="#importer-les-modules">Importer les modules</a></li>
-        <li><a href="#rglage-des-variables-constantes">Réglage des variables Constantes</a></li>
+        <li><a href="#réglage-des-variables-constantes">Réglage des variables Constantes</a></li>
       </ul>
     </li>
-    <li><a href="#dfinir-les-fonctions">Définir les fonctions</a></li>
-    <li><a href="#initialiser-pygame-et-et-dfinir-la-fentre">Initialiser pygame et et définir la fenêtre.</a></li>
-    <li><a href="#mode-plein-cran">Mode plein écran</a></li>
-    <li><a href="#afficher-lcran-de-dmarrage">Afficher l'écran de démarrage</a></li>
+    <li><a href="#définir-les-fonctions">Définir les fonctions</a></li>
+    <li><a href="#initialiser-pygame-et-et-définir-la-fenêtre">Initialiser pygame et et définir la fenêtre.</a></li>
+    <li><a href="#mode-plein-écran">Mode plein écran</a></li>
+    <li><a href="#afficher-lécran-de-démarrage">Afficher l'écran de démarrage</a></li>
     <li><a href="#lancement-du-mode-de-jeu">Lancement du mode de jeu</a></li>
     <li><a href="#la-boucle-de-jeu">La boucle de jeu</a></li>
-    <li><a href="#gestion-des-vnements">Gestion des événements</a></li>
-    <li><a href="#la-mthode-move-ip">La méthode move_ip()</a></li>
-    <li><a href="#le-dplacement-du-joueur">Le déplacement du joueur</a></li>
-    <li><a href="#la-fonction-pygamemouseset-pos">La fonction pygame.mouse.set_pos()</a></li>
+    <li><a href="#gestion-des-événements">Gestion des événements</a></li>
+    <li><a href="#la-méthode-move_ip">La méthode move_ip()</a></li>
+    <li><a href="#le-déplacement-du-joueur">Le déplacement du joueur</a></li>
+    <li><a href="#la-fonction-pygamemouseset_pos">La fonction pygame.mouse.set_pos()</a></li>
     <li><a href="#les-cheatmode">Les cheatmode</a></li>
-    <li><a href="#retirer-les-mchants">Retirer les méchants</a></li>
-    <li><a href="#dessiner-la-fentre">Dessiner la fenêtre</a></li>
+    <li><a href="#retirer-les-méchants">Retirer les méchants</a></li>
+    <li><a href="#dessiner-la-fenêtre">Dessiner la fenêtre</a></li>
     <li><a href="#dessiner-le-score">Dessiner le score</a></li>
     <li><a href="#dessiner-le-joueur">Dessiner le joueur</a></li>
-    <li><a href="#dessiner-les-mchants">Dessiner les méchants</a></li>
-    <li><a href="#mise--jour-de-la-fentre">Mise à jour de la fenêtre</a></li>
-    <li><a href="#dtection-des-collisions">Détection des collisions</a></li>
+    <li><a href="#dessiner-les-méchants">Dessiner les méchants</a></li>
+    <li><a href="#mise-à-jour-de-la-fenêtre">Mise à jour de la fenêtre</a></li>
+    <li><a href="#détection-des-collisions">Détection des collisions</a></li>
     <li><a href="#game-over">Game Over</a></li>
     <li><a href="#modifierle-jeu-dodger">Modifier le jeu Dodger</a></li>
   </ul>

@@ -955,6 +955,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours-python/python-3-16-turle-et-iss/" >
+        
+  
+    
+    
+    Python 3 - 16 Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7180,8 +7213,8 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h1 id="rseau-de-neurones---partie-1--un-neurone-trs-simple">Réseau de neurones - Partie 1 : un neurone très simple</h1>
-<h2 id="le-problme">Le problème</h2>
+<article class="markdown"><h1 id="réseau-de-neurones---partie-1--un-neurone-très-simple">Réseau de neurones - Partie 1 : un neurone très simple</h1>
+<h2 id="le-problème">Le problème</h2>
 <p>Nous allons construire un simple réseau de neurone pour résoudre un problème.</p>
 <p>Nous en profiterons pour expliquer le fonctionnement d'un réseau de neurones.</p>
 <p>Voici notre problème de départ.</p>
@@ -7272,7 +7305,7 @@ qu'on appelle un <em>perceptron.</em></p>
 <li>Le neurone lui même qui fait les calculs,</li>
 <li>La sortie, qui est la réponse du neurone aux entrées qu'on lui fournit.</li>
 </ol>
-<h3 id="entres-et-sortie">entrées et sortie</h3>
+<h3 id="entrées-et-sortie">entrées et sortie</h3>
 <p>On peut lui donner les valeurs qu'on veut,</p>
 <ol>
 <li>
@@ -7316,7 +7349,7 @@ et sera pratique si le neurone contient un grand nombre d'entrées.</p>
 d'obtenir. $\phi$ est la fonction de <em>normalisation</em>.</p>
 </li>
 </ol>
-<h3 id="la-fonction-de-normalisation--sigmoid-">La fonction de normalisation <em>sigmoid</em>.</h3>
+<h3 id="la-fonction-de-normalisation-_sigmoid_">La fonction de normalisation <em>sigmoid</em>.</h3>
 <p>Une fonction de <em>normalisation</em> doit prendre en entrée un nombre réel et
 renvoyer en sortie un nombre entre $0$ et $1$. Elle doit respecter d'autres
 critères : être croissante, avoir une certaine allure graphique etc.</p>
@@ -7339,7 +7372,7 @@ finaux.</p>
 <li>On applique <em>sigmoid</em> au résultat.</li>
 </ul>
 <p>On en sait assez pour commencer à développer notre programme. Attaquons !</p>
-<h2 id="premire-partie-du-dveloppement">Première partie du développement</h2>
+<h2 id="première-partie-du-développement">Première partie du développement</h2>
 <p>Dans un premier temps nous allons importer <code>numpy</code> qui nous évitera d'avoir à
 implémenter nous même le détail des calculs. Ils ne posent pas vraiment de
 problèmes mais :</p>
@@ -7477,7 +7510,7 @@ mêmes car le générateur est initialisé avec une racine.</p>
 </table>
 <p>Nous allons maintenant aborder <em>l'entraînement</em> qui nous permet d'améliorer
 ces résultats étape après étape afin de s'approcher des valeurs souhaitées.</p>
-<h2 id="lentranement">L'entraînement</h2>
+<h2 id="lentraînement">L'entraînement</h2>
 <p>Commençons par détailler les calculs effectués.</p>
 <p>On prend notre premier exemple :</p>
 <table>
@@ -7521,7 +7554,7 @@ $w_3=-0.999$</p>
 <p>Exactement ce qu'on a obtenu plus tôt :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Sorties après l&#39;entrainement
 [[0.2689864 ]
-</code></pre></div><h3 id="le-principe-de-lentranement">Le principe de l'entraînement</h3>
+</code></pre></div><h3 id="le-principe-de-lentraînement">Le principe de l'entraînement</h3>
 <ol>
 <li>D'abord, on prend les les entrées d'entraînement et on les passe à la formule
 pour obtenir la sortie du neurone.</li>
@@ -7532,7 +7565,7 @@ obtenu.</li>
 </ol>
 <p>Ce principe s'appelle <em>back propagation</em></p>
 <p>Mais comment connaître l'ajustement à apporter aux poids ?</p>
-<h2 id="drive-pondre-par-lerreur-">Dérivée pondérée par l'erreur :</h2>
+<h2 id="dérivée-pondérée-par-lerreur-">Dérivée pondérée par l'erreur :</h2>
 <p>On multiplie l'erreur par l'entrée et par la dérivée de la fonction
 sigmoid.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ajustement des poids = erreur * input * derivee_sigmoid(sortie)
@@ -7577,7 +7610,7 @@ sera le cas.</li>
 <p>On ajuste les poids avec la formule vue plus haut :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ajustement des poids = erreur * input * derivee_sigmoid(sortie)
 </code></pre></div><p>Et on recommence (20.000 fois).</p>
-<h2 id="code-de-la-deuxime-partie">Code de la deuxième partie</h2>
+<h2 id="code-de-la-deuxième-partie">Code de la deuxième partie</h2>
 <p>On peut maintenant programmer ce procédé de backpropagation.</p>
 <p>On commence par calculer l'erreur. Modifier la boucle comme ceci :</p>
 <p>Seule la dernière ligne change.</p>
@@ -7752,27 +7785,27 @@ de tester sa qualité.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#le-problme">Le problème</a></li>
+    <li><a href="#le-problème">Le problème</a></li>
     <li><a href="#perceptron">Perceptron</a>
       <ul>
-        <li><a href="#entres-et-sortie">entrées et sortie</a></li>
+        <li><a href="#entrées-et-sortie">entrées et sortie</a></li>
         <li><a href="#les-poids">Les poids</a></li>
         <li><a href="#le-neurone">Le neurone</a></li>
-        <li><a href="#la-fonction-de-normalisation--sigmoid-">La fonction de normalisation sigmoid.</a></li>
+        <li><a href="#la-fonction-de-normalisation-_sigmoid_">La fonction de normalisation sigmoid.</a></li>
       </ul>
     </li>
-    <li><a href="#premire-partie-du-dveloppement">Première partie du développement</a></li>
-    <li><a href="#lentranement">L'entraînement</a>
+    <li><a href="#première-partie-du-développement">Première partie du développement</a></li>
+    <li><a href="#lentraînement">L'entraînement</a>
       <ul>
-        <li><a href="#le-principe-de-lentranement">Le principe de l'entraînement</a></li>
+        <li><a href="#le-principe-de-lentraînement">Le principe de l'entraînement</a></li>
       </ul>
     </li>
-    <li><a href="#drive-pondre-par-lerreur-">Dérivée pondérée par l'erreur :</a>
+    <li><a href="#dérivée-pondérée-par-lerreur-">Dérivée pondérée par l'erreur :</a>
       <ul>
         <li><a href="#la-propogation">La propogation</a></li>
       </ul>
     </li>
-    <li><a href="#code-de-la-deuxime-partie">Code de la deuxième partie</a></li>
+    <li><a href="#code-de-la-deuxième-partie">Code de la deuxième partie</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
     <li><a href="#le-code-complet">Le code complet</a></li>
   </ul>

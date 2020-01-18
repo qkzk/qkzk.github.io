@@ -955,6 +955,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours-python/python-3-16-turle-et-iss/" >
+        
+  
+    
+    
+    Python 3 - 16 Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7180,7 +7213,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h1 id="la-structure-de-donnes-liste">La structure de données liste</h1>
+<article class="markdown"><h1 id="la-structure-de-données-liste">La structure de données liste</h1>
 <p>Notre objet d'étude aujourd'hui est la structure de données linéaire <strong>liste</strong>.</p>
 <p>Les objectifs de ce travail sont :</p>
 <ul>
@@ -7198,7 +7231,7 @@ programmation. Nous reviendrons sur cette notion dans une prochaine
 séance du DIU. Lorsque les notions décrites abordent spécifiquement
 la programmation objet, le paragraphe sera formaté comme celui-ci.</p>
 </blockquote>
-<h2 id="la-structure-de-donnes">La structure de données</h2>
+<h2 id="la-structure-de-données">La structure de données</h2>
 <p>Vous connaissez déjà la structure de liste puisque vous l'avez
 largement utilisée dans les programmes Python que vous avez pu écrire
 précédemment. Vous avez créé des listes, ajouté des éléments, accédé à
@@ -7256,13 +7289,13 @@ les opérations primitives qui suivent.</p>
 <li>soit un couple constitué de l'élément de tête suivi de la liste des éléments qui suivent.</li>
 </ul>
 <p>Le constructeur de liste doit donc permettre de produire soit une liste vide et pour cela aucun argument n'est nécessaire, soit une liste à partir de deux arguments.</p>
-<h4 id="slecteurs">Sélecteurs</h4>
+<h4 id="sélecteurs">Sélecteurs</h4>
 <p>Les listes non vides possèdent une tête et un reste. Il nous faut les sélecteurs pour accéder à ces
 deux composantes.</p>
-<h4 id="prdicat">Prédicat</h4>
+<h4 id="prédicat">Prédicat</h4>
 <p>Un prédicat testant la vacuité d'une liste peut s'avérer utile dans bien des circonstances.</p>
-<h2 id="une-classe-implmentant-les-listes">Une classe implémentant les listes</h2>
-<h3 id="quelques-lments-de-programmation-objet">Quelques éléments de programmation objet</h3>
+<h2 id="une-classe-implémentant-les-listes">Une classe implémentant les listes</h2>
+<h3 id="quelques-éléments-de-programmation-objet">Quelques éléments de programmation objet</h3>
 <blockquote>
 <p>En programmation objet le code est centré, comme son nom l'indique, sur la
 notion d&rsquo;<em>objet</em> qui <em>instancie</em> une <em>classe</em>.  Une <em>classe</em> est un concept dont
@@ -7339,11 +7372,11 @@ s'exercer à manipuler la structure de liste telle qu'implantée ici :</p>
 
     <span style="color:#09f;font-style:italic"># On crée la liste (1, (2, (3, ())), qu&#39;on écrit plus couramment (1, 2, 3)</span>
     L <span style="color:#555">=</span> List(<span style="color:#f60">1</span>, List(<span style="color:#f60">2</span>, List(<span style="color:#f60">3</span>, List())))
-</code></pre></div><h3 id="visualisation-de-la-structure-de-donne-construite">Visualisation de la structure de donnée construite</h3>
+</code></pre></div><h3 id="visualisation-de-la-structure-de-donnée-construite">Visualisation de la structure de donnée construite</h3>
 <ul>
 <li>Suivez le <a href="http://pythontutor.com/visualize.html#code=class%20ListError%28Exception%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Exception%20used%20by%20methods%0A%0A%20%20%20%20*%20%60%60__init__%60%60%0A%20%20%20%20*%20%60%60head%60%60%0A%20%20%20%20*%20%60%60tail%60%60%0A%20%20%20%20%0A%20%20%20%20of%20class%20%3Aclass%3A%60List%60.%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20__init__%28self,%20msg%29%3A%0A%20%20%20%20%20%20%20%20self.message%20%3D%20msg%0A%20%20%20%20%0Aclass%20List%28object%29%3A%0A%0A%20%20%20%20def%20__init__%20%28self,%20*args%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Builds%20a%20new%20list.%0A%20%20%20%20%20%20%20%20As%20explained%20in%20the%20%60Readme.md%60%20a%20list%20can%20either%20be%3A%0A%20%20%20%20%20%20%20%20*%20empty%3B%0A%20%20%20%20%20%20%20%20*%20built%20from%20an%20element%20an%20a%20list.%0A%0A%20%20%20%20%20%20%20%20Either%20we%20don't%20have%20any%20arguments,%20or%20two%20arguments.%0A%0A%20%20%20%20%20%20%20%20%3Aparam%20*args%3A%20The%20arguments%20to%20the%20function.%20Either%20no%20argument%20is%20provided%0A%20%20%20%20%20%20%20%20or%20two%20are%20provided%20%28the%20second%20one%20being%20a%20list%29.%0A%20%20%20%20%20%20%20%20%3ACU%3A%20len%28args%29%20%3D%3D%200%20or%20%28len%28args%29%20%3D%3D%202%20and%20args%5B1%5D%20is%20a%20List%29%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20len%28args%29%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20No%20parameter%3A%20builds%20an%20empty%20list%0A%20%20%20%20%20%20%20%20%20%20%20%20self.__cell%20%3D%20None%0A%20%20%20%20%20%20%20%20elif%20len%28args%29%20%3D%3D%202%3A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Les%20tests%20ont%20ici%20%C3%A9t%C3%A9%20comment%C3%A9s%20pour%20faciliter%20l'ex%C3%A9cution%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Two%20parameters%3A%20an%20element%20and%20a%20list%0A%20%20%20%20%20%20%20%20%20%20%20%20%23if%20isinstance%28args%5B1%5D,List%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.__cell%20%3D%20%28args%5B0%5D,args%5B1%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20%20raise%20ListError%28%22Second%20argument%20must%20be%20a%20List%22%29%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ListError%28%22Bad%20arguments%20number%22%29%0A%0A%20%20%20%20def%20head%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Return%20the%20head%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20first%20element%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%3DList%281,%20List%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%201%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%282,%20List%281,%20List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%202%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%3A%20empty%20list%20has%20no%20head%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20not%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20self.__cell%5B0%5D%0A%20%20%20%20%20%20%20%20raise%20ListError%28%22empty%20list%20has%20no%20head%22%29%0A%20%20%20%20%0A%20%20%20%20def%20tail%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Return%20the%20tail%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20the%20list%20without%20its%20first%20element%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%3DList%281,%20List%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.tail%28%29%0A%20%20%20%20%20%20%20%20%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%282,%20List%281,%20List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.tail%28%29%0A%20%20%20%20%20%20%20%20%281.%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.tail%28%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%3A%20empty%20list%20has%20no%20tail%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20not%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20self.__cell%5B1%5D%0A%20%20%20%20%20%20%20%20raise%20ListError%28%22empty%20list%20has%20no%20tail%22%29%0A%0A%20%20%20%20def%20is_empty%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Returns%20whether%20the%20list%20is%20empty%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20True%20iff%20the%20list%20doesn't%20have%20any%20element%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20List%28%29.is_empty%28%29%0A%20%20%20%20%20%20%20%20True%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20List%281,%20List%28%29%29.is_empty%28%29%0A%20%20%20%20%20%20%20%20False%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20return%20self.__cell%20%3D%3D%20None%0A%0A%0A%20%20%20%20def%20__repr__%20%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Returns%20the%20dot%20notation%20of%20a%20list%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%281,%28List%282,%28List%283,List%28%29%29%29%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20repr%28l%29%0A%20%20%20%20%20%20%20%20'%281.%282.%283.%28%29%29%29%29'%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20'%28%29'%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20'%28'%2Brepr%28self.head%28%29%29%2B'.'%2Brepr%28self.tail%28%29%29%2B'%29'%0A%20%20%20%20%0A%0A%20%20%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20l%20%3D%20List%281,List%282,List%283,List%28%29%29%29%29%0A&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">lien</a> suivant pour exécuter la création de la liste (1.(2.3())) sous PythonTutor et observer la structure récursive construite.</li>
 </ul>
-<h2 id="construire-des-fonctions-avances-avec-les-primitives">Construire des fonctions avancées avec les primitives</h2>
+<h2 id="construire-des-fonctions-avancées-avec-les-primitives">Construire des fonctions avancées avec les primitives</h2>
 <p>Nous allons maintenant voir que les méthodes primitives définies sur
 les <code>List</code> sont suffisantes pour réaliser des opérations plus
 complexes.</p>
@@ -7405,7 +7438,7 @@ Python équivalente à la liste.</li>
 <p>Toutes ces méthodes auraient aussi bien pu s'écrire itérativement que récursivement.
 Le concept de liste ayant été défini récursivement, chacune des méthodes peut s'écrire
 récursivement sans difficulté théorique.</p>
-<h3 id="cration-de-nouvelles-listes">Création de nouvelles listes</h3>
+<h3 id="création-de-nouvelles-listes">Création de nouvelles listes</h3>
 <p>On propose maintenant d'écrire deux méthodes qui vont créer une
 nouvelle liste à partir d'une liste donnée.</p>
 <ul>
@@ -7417,7 +7450,7 @@ résultante soit encore triée.</li>
 liste et renvoie une nouvelle liste dont les éléments sont dans l'ordre
 inverse de la liste de départ.</li>
 </ul>
-<h2 id="changer-de-reprsentation-des-listes">Changer de représentation des listes</h2>
+<h2 id="changer-de-représentation-des-listes">Changer de représentation des listes</h2>
 <p>La classe <code>List</code> implante les listes en considérant des couples dont
 le premier élément est l'objet à stocker dans la liste et le second
 est le reste de la liste.</p>
@@ -7489,7 +7522,7 @@ méthode est invoquée. La liste doit contenir au moins un élément.</li>
 &gt;&gt;&gt; l1.append(3)
 &gt;&gt;&gt; l1.length()
 &gt;&gt;&gt; l2.length()
-</code></pre></div><h2 id="itrer-sur-des-listes-plutt-quaccder-au-i-me-lment">Itérer sur des listes plutôt qu'accéder au i-ème élément</h2>
+</code></pre></div><h2 id="itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu'accéder au i-ème élément</h2>
 <p>Nous allons procéder à une expérience pour comparer le temps
 d'exécution des deux fonctions ci-dessous:</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">somme_des_elements_a</span>(l):
@@ -7509,7 +7542,7 @@ d'exécution des deux fonctions ci-dessous:</p>
 <li>d'un côté en accédant aux éléments par leur indice</li>
 <li>d'un autre côté en itérant sur les éléments</li>
 </ul>
-<h3 id="utilisation-des-fonctions-spciales-de-python">Utilisation des fonctions spéciales de Python</h3>
+<h3 id="utilisation-des-fonctions-spéciales-de-python">Utilisation des fonctions spéciales de Python</h3>
 <p>Les fonctions précédentes ne peuvent pas être utilisées directement sur nos <code>Extendedlist</code>.
 Afin de pouvoir garder la même écriture qu'avec les listes Python,
 nous allons ajouter quelques méthodes spéciales de Python à notre
@@ -7546,7 +7579,7 @@ classe <code>Extendedlist</code>:</p>
         self<span style="color:#555">.</span>__iter <span style="color:#555">=</span> self
         <span style="color:#069;font-weight:bold">return</span> self
 
-</code></pre></div><h3 id="exprimenter">Expérimenter</h3>
+</code></pre></div><h3 id="expérimenter">Expérimenter</h3>
 <ul>
 <li>Écrire un programme Python, utilisant les listes de type <code>Extendedlist</code> et des listes Python, et qui calcule le temps d'exécution des deux fonctions sommes pour :
 <ul>
@@ -7628,33 +7661,33 @@ natives Python.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#la-structure-de-donnes">La structure de données</a>
+    <li><a href="#la-structure-de-données">La structure de données</a>
       <ul>
         <li><a href="#quest-ce-quune-liste-">Qu'est ce qu'une liste ?</a></li>
         <li><a href="#primitives-sur-les-listes">Primitives sur les listes</a></li>
       </ul>
     </li>
-    <li><a href="#une-classe-implmentant-les-listes">Une classe implémentant les listes</a>
+    <li><a href="#une-classe-implémentant-les-listes">Une classe implémentant les listes</a>
       <ul>
-        <li><a href="#quelques-lments-de-programmation-objet">Quelques éléments de programmation objet</a></li>
+        <li><a href="#quelques-éléments-de-programmation-objet">Quelques éléments de programmation objet</a></li>
         <li><a href="#la-classe-list">La classe List</a></li>
         <li><a href="#remarque">Remarque</a></li>
         <li><a href="#manipulation-des-listes">Manipulation des listes</a></li>
-        <li><a href="#visualisation-de-la-structure-de-donne-construite">Visualisation de la structure de donnée construite</a></li>
+        <li><a href="#visualisation-de-la-structure-de-donnée-construite">Visualisation de la structure de donnée construite</a></li>
       </ul>
     </li>
-    <li><a href="#construire-des-fonctions-avances-avec-les-primitives">Construire des fonctions avancées avec les primitives</a>
+    <li><a href="#construire-des-fonctions-avancées-avec-les-primitives">Construire des fonctions avancées avec les primitives</a>
       <ul>
         <li><a href="#parcours-de-liste">Parcours de liste</a></li>
-        <li><a href="#cration-de-nouvelles-listes">Création de nouvelles listes</a></li>
+        <li><a href="#création-de-nouvelles-listes">Création de nouvelles listes</a></li>
       </ul>
     </li>
-    <li><a href="#changer-de-reprsentation-des-listes">Changer de représentation des listes</a></li>
+    <li><a href="#changer-de-représentation-des-listes">Changer de représentation des listes</a></li>
     <li><a href="#listes-mutables">Listes mutables</a></li>
-    <li><a href="#itrer-sur-des-listes-plutt-quaccder-au-i-me-lment">Itérer sur des listes plutôt qu'accéder au i-ème élément</a>
+    <li><a href="#itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu'accéder au i-ème élément</a>
       <ul>
-        <li><a href="#utilisation-des-fonctions-spciales-de-python">Utilisation des fonctions spéciales de Python</a></li>
-        <li><a href="#exprimenter">Expérimenter</a></li>
+        <li><a href="#utilisation-des-fonctions-spéciales-de-python">Utilisation des fonctions spéciales de Python</a></li>
+        <li><a href="#expérimenter">Expérimenter</a></li>
         <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </li>
