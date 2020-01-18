@@ -7273,6 +7273,140 @@ y <span style="color:#555">=</span> <span style="color:#f60">1</span>
 </ol>
 <p><em>Remarquez qu'on obtient les résultats en lignes, ce qui nous convient tout à</em>
 <em>à fait</em></p>
+<h2 id="5-test-de-parité">5. Test de parité</h2>
+<h3 id="problème">Problème</h3>
+<p>On souhaite écrire un programme assembleur qui résolve le problème suivant :</p>
+<p>on lui donne un nombre entier et il affiche &ldquo;pair&rdquo; ou &ldquo;impair&rdquo;.</p>
+<h3 id="solution-naïve-en-python">Solution naïve en Python</h3>
+<p>En Python, c'est trivial : il suffit d'utiliser modulo. <code>n % 2</code> renvoie le
+reste de la division entière par 2. Si ce reste est nul, l'entier est pair.
+Sinon, l'entier est impair.</p>
+<p>Dans une fonction, on peut envisager ceci :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parite</span>(entier):
+  <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  @param entier: (int)</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  @return: (str)</span><span style="color:#c30">
+</span><span style="color:#c30"></span><span style="color:#c30">  </span><span style="color:#c30">&#39;&#39;&#39;</span>
+  <span style="color:#069;font-weight:bold">if</span> entier <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">pair</span><span style="color:#c30">&#34;</span>
+  <span style="color:#069;font-weight:bold">else</span>:
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">impair</span><span style="color:#c30">&#34;</span>
+</code></pre></div><p>qui s'utilise comme ceci :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> parite(<span style="color:#f60">20</span>)
+<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">pair</span><span style="color:#c30">&#34;</span>
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> parite(<span style="color:#f60">21</span>)
+<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">impair</span><span style="color:#c30">&#34;</span>
+</code></pre></div><p>On le comprend bien :</p>
+<p><strong>Créer un test de parité équivaut à créer un opérateur &ldquo;modulo 2&rdquo;</strong></p>
+<p>C'est ce que nous allons faire.</p>
+<p>Mais comment faire quand on ne dispose que de très peu d'opérations comme
+dans l'assembleur AQA ?</p>
+<h3 id="solution-avec-des-soustractions">Solution avec des soustractions</h3>
+<p>Considérons l'algorithme suivant :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">n un entier positif
+Tant que n &gt; 0:
+    n prend la valeur n - 2
+Si n == 0:
+    renvoyer &#34;pair&#34;
+Si n &lt; 0:
+    renvoyer &#34;impair&#34;
+</code></pre></div><ul>
+<li>
+<p>Testons pour <code>n=3</code> :</p>
+<p><code>n</code> prend successivement les valeurs <code>3, 1 et -1</code> ensuite la boucle s'arrête.<br>
+<code>-1</code> étant négatif, l'algorithme renvoie &ldquo;impair&rdquo;. C'est juste.</p>
+</li>
+<li>
+<p>Testons pour <code>n=4</code> :</p>
+<p><code>n</code> prend successivement les valeurs <code>4, 2, 0</code> et la boucle s'arrête.<br>
+<code>n=0</code> et l'algorithme renvoie &ldquo;pair&rdquo;. C'est juste encore une fois.</p>
+</li>
+</ul>
+<h3 id="programmer-cet-algorithme-en-aqa">Programmer cet algorithme en AQA</h3>
+<p>Description des étapes du code assembleur.</p>
+<p>On commence par demander une entrée, sous la forme d'un entier:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">   INP R0, 2
+</code></pre></div><p>Ensuite on crée un label &ldquo;soustraction&rdquo;</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">soustraction:
+</code></pre></div><p>On compare le registre 0 avec l'entier <code>1</code>. Si la comparaison  est égale, on saute au label &ldquo;impair&rdquo;
+On compare le registre 0 avec l'entier <code>0</code>. Si la comparaison  est égale, on saute au label &ldquo;pair&rdquo;</p>
+<p>Sinon, on soustrait 2 au registre 0 et on revient à &ldquo;soustraction&rdquo;</p>
+<ul>
+<li>programmer cette partie</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">SUB R0, R0, #2
+B soustraction
+</code></pre></div><p>Après avoir écrit la boucle, il faut écrire ce que contiennent les labels &ldquo;pair&rdquo; et &ldquo;impair&rdquo;</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">impair:
+      MOV R1,#1
+      OUT R1,4
+      HALT
+</code></pre></div><p>Ajouter ensuite le label &ldquo;pair&rdquo;</p>
+<!--
+### Correction complète
+
+~~~
+  INP R0,2
+soustraction:
+  CMP R0,#1
+  BEQ impair
+  CMP R0,#0
+  BEQ pair
+  SUB R0, R0, #2
+  B soustraction
+impair:
+  MOV R1,#1
+  OUT R1,4
+  HALT
+pair:
+  MOV R1,#0
+  OUT R1,4
+  HALT
+~~~
+-->
+<h3 id="complément--lopérateur-modulo">Complément : l'opérateur modulo</h3>
+<p>L'opérateur modulo peut se programmer pour n'importe quel couple d'entier <code>a, b</code>
+de la même manière, par soustraction successives.</p>
+<p>Écrire un algorithme en langage naturel qui renvoie <code>a % b</code> et n'utilise
+que des soustraction.</p>
+<p>Programmez le dans l'assembleur AQA.</p>
+<p>Votre programme a deux entrées successives (<code>a</code> et <code>b</code>) et une sortie <code>a % b</code></p>
+<!--
+~~~
+  INP R0,2
+  INP R1,2
+soustraction:
+  CMP R0,R1
+  BLT sortie
+  SUB R0, R0, R1
+  B soustraction
+sortie:
+  OUT R0,4
+  HALT
+~~~
+-->
+<h3 id="complément--la-division-entière">Complément : la division entière</h3>
+<p>Améliorez votre algorithme pour qu'il renvoie le quotient et le reste de la
+division entière de <code>a</code> par <code>b</code>.</p>
+<p>Par exemple, pour les entiers <code>a=7</code> et <code>b=3</code> votre algorithme renvoie <code>2</code> et <code>1</code></p>
+<p>car <code>7 = 2 * 3 + 1</code></p>
+<!--
+~~~
+  INP R0,2
+  INP R1,2
+  MOV R2,#0
+soustraction:
+  CMP R0,R1
+  BLT sortie
+  SUB R0, R0, R1
+  ADD R2, R2, #1
+  B soustraction
+sortie:
+  OUT R2,4
+  OUT R0,4
+  HALT
+~~~
+-->
 </article>
 
       <div class="backtotop">
@@ -7310,6 +7444,16 @@ y <span style="color:#555">=</span> <span style="color:#f60">1</span>
     <li><a href="#exercice-2---minimum">Exercice 2 - minimum</a></li>
     <li><a href="#exercice-3---multiplication">Exercice 3 - multiplication</a></li>
     <li><a href="#exercice-4---suite-de-fibonacci">Exercice 4 - suite de Fibonacci</a></li>
+    <li><a href="#5-test-de-parité">5. Test de parité</a>
+      <ul>
+        <li><a href="#problème">Problème</a></li>
+        <li><a href="#solution-naïve-en-python">Solution naïve en Python</a></li>
+        <li><a href="#solution-avec-des-soustractions">Solution avec des soustractions</a></li>
+        <li><a href="#programmer-cet-algorithme-en-aqa">Programmer cet algorithme en AQA</a></li>
+        <li><a href="#complément--lopérateur-modulo">Complément : l'opérateur modulo</a></li>
+        <li><a href="#complément--la-division-entière">Complément : la division entière</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>
