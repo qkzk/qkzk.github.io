@@ -13,7 +13,7 @@
   
     
     
-    Python 3 - 12 Créer un programme exécutable avec Py2exe
+    pgzero snake
   
  | qkzk</title>
 
@@ -25,17 +25,13 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/programmation/snake/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -599,7 +587,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/"  class="active">
+      <a href="/docs/nsi/cours-python/python-3-12-creer-un-programme-executable-avec-py2exe/" >
         
   
     
@@ -2637,7 +2625,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/programmation/snake/" >
+      <a href="/docs/nsi/cours_premiere/programmation/snake/"  class="active">
         
   
     
@@ -7471,66 +7459,18 @@ MathJax.Hub.Config({
   
     
     
-    Python 3 - 12 Créer un programme exécutable avec Py2exe
+    pgzero snake
   
 </strong>
 </header>
 
       
-<article class="markdown"><h4 id="attention-">Attention !</h4>
-<p>L&rsquo;extension Py2exe ne fonction que pour la version 2 de Python, sous Windows.
-Pour la version 3, il existe des solutions comme cx_freeze</p>
-<p>L&rsquo;extension <strong>Py2exe</strong> permet de convertir un script Python en un programme exécutable (uniquement pour le système d&rsquo;exploitation Windows).
-Ce programme exécutable (fichier avec l&rsquo;extension .exe) peut ensuite être lancé sur un ordinateur où Python n&rsquo;est pas installé.</p>
-<h3 id="téléchargement-et-installation-de-py2exe">Téléchargement et installation de Py2exe</h3>
-<p>Il faut un ordinateur avec Windows et Python déjà installé (attention : Py2exe ne supporte pas la version 3 de Python).</p>
-<p>Le programme d&rsquo;installation de Py2exe est disponible ici :</p>
-<p><a href="http://www.py2exe.org/">Py 2 exe : site officiel</a></p>
-<p>Une fois téléchargé (<a href="https://pypi.org/project/py2exe/#files">ici</a>, choisir la version pour windows 64 à moins que vous ayez un PC très ancien, alors prendre windows 32), il suffit d&rsquo;exécuter ce fichier pour installer Py2exe.</p>
-<h3 id="utilisation-de-py2exe">Utilisation de Py2exe</h3>
-<p>A titre d&rsquo;exemple, voici le script d&rsquo;un jeu de puissance 4 :</p>
-<p><a href="http://fsincere.free.fr/isn/python/script/jeu_puissance4.py">jeu_puissance4.py</a></p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/jeu_puissance4.png" alt=""></p>
-<p>Télécharger et enregistrer ce script dans le répertoire où est installé Python (chez moi, c&rsquo;est le répertoire C:\Python27).</p>
-<p>Créer le script <code>setup.py</code> :</p>
-<pre><code># setup.py
-from distutils.core import setup
-import py2exe
-
-setup(windows=[&quot;jeu_puissance4.py&quot;])
-</code></pre>
-<p>Enregistrer le script <code>setup.py</code> dans le répertoire courant de Python.</p>
-<h4 id="remarques">Remarques</h4>
-<ul>
-<li>si vous voulez disposer de la console en plus de l&rsquo;interface graphique (GUI), remplacer <code>setup(windows=[&quot;jeu_puissance4.py&quot;])</code> par <code>setup(console=[&quot;jeu_puissance4.py&quot;])</code></li>
-<li>pour traiter plusieurs scripts en même temps, il suffit de compléter la liste :
-<code>setup(windows=[&quot;jeu_puissance4.py&quot;,&quot;script2.py&quot;,&quot;script3.py&quot;])</code></li>
-</ul>
-<p>Ouvrir l&rsquo;interpréteur de commande de Windows (Démarrer → Exécuter → cmd)</p>
-<p>Placez-vous dans le répertoire courant de Python (commande <code>cd</code> : change directory) :</p>
-<pre><code>&gt; cd C:\Python27
-</code></pre>
-<p>puis lancer Py2exe :</p>
-<pre><code>&gt; python setup.py py2exe
-</code></pre>
-<p>Un sous répertoire nommé <code>dist</code> est créé (chez moi C:\Python27\dist).
-Il contient le fichier exécutable <code>jeu_puissance4.exe</code> ainsi que toutes les ressources nécessaires à un fonctionnement autonome (<code>python27.dll library.zip</code>&hellip;).</p>
-<p>Vous pouvez maintenant copier le répertoire complet <code>dist</code> et le distribuer vers des ordinateurs qui ne possèdent pas Python.
-Le programme se lancera en exécutant le fichier <code>jeu_puissance4.exe</code>.</p>
-<p>Notez que le code source Python (jeu_puissance4.py) n&rsquo;est plus visible (comme c&rsquo;est le cas pour des programmes compilés avec des langages de programmation comme C ou C++).
-Cet aspect est intéressant pour un enseignant qui veut montrer un projet de programme, sans pour autant dévoiler le code source à ses étudiants&hellip;
-Py2exe est donc un moyen de fermer le code source (stratégie commerciale des logiciels propriétaires).</p>
-<h3 id="webographie">Webographie</h3>
-<ul>
-<li><a href="http://www.py2exe.org/">www.py2exe.org</a></li>
-<li><a href="http://inventwithpython.com/appendixc.html">inventwithpython.com</a></li>
-</ul>
-<h3 id="applications-similaires">Applications similaires</h3>
-<p>Dans la même catégorie de logiciels que Py2exe, on peut citer :</p>
-<pre><code>  * [cx_Freeze](http://cx-freeze.sourceforge.net/) (pour Python 2 et 3)
-  * [py2app (pour Mac OS)](http://svn.pythonmac.org/py2app/py2app/trunk/doc/index.html)
-</code></pre>
-<p>Source : <a href="http://fsincere.free.fr/isn/python/cours_python_py2exe.php">Fabrice Sincère</a> - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
+<article class="markdown"><h1 id="snake">Snake</h1>
+<p>Tutoriel pour la création de snake à destination des débutants n&rsquo;ayant
+jamais crée de jeu-vidéo.</p>
+<p>Il est disponible sur <a href="https://github.com/qkzk/snake">github</a>,
+je n&rsquo;ai pas le courage de le copier ici (pour l&rsquo;instant).</p>
+<p>Have fun.</p>
 </article>
 
       <div class="backtotop">
@@ -7562,19 +7502,7 @@ Py2exe est donc un moyen de fermer le code source (stratégie commerciale des lo
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-        <li><a href="#téléchargement-et-installation-de-py2exe">Téléchargement et installation de Py2exe</a></li>
-        <li><a href="#utilisation-de-py2exe">Utilisation de Py2exe</a></li>
-        <li><a href="#webographie">Webographie</a></li>
-        <li><a href="#applications-similaires">Applications similaires</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
