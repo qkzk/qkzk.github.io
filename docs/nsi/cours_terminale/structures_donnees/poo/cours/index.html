@@ -7492,11 +7492,11 @@ MathJax.Hub.Config({
 <li>le module <code>Competitor.py</code> permet de manipuler des valeurs représentant les compétiteurs de la course. (&hellip;)</li>
 <li>Les performances des compétiteurs vont être représentées par leur temps de course (&hellip;) Créer un module <code>Time.py</code> qui définit le type <code>Time</code></li>
 </ul>
-<h3 id="première-projet-wator">Première, projet &ldquo;Wator&rdquo;</h3>
+<h3 id="première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</h3>
 <ul>
 <li>
 <p>expression d&rsquo;un typage de données à représenter :</p>
-<p><em>Une correction possible qui utilise les dictionnaires pour modéliser des poissons.</em></p>
+<p><em>Une correction possible qui utilise les dictionnaires pour modéliser les combattants.</em></p>
 </li>
 </ul>
 <h2 id="définition-dun-type-competitor">définition d&rsquo;un type <code>Competitor</code></h2>
@@ -7550,16 +7550,15 @@ alors pourquoi devoir préfixer <code>to_string</code> par <code>Competitor</cod
   comp[<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">performance</span><span style="color:#c30">&#39;</span>] <span style="color:#555">=</span> time
 
 <span style="color:#09f;font-style:italic"># dans wator</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">create_shark</span>():
-  <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
-</span><span style="color:#c30"></span><span style="color:#c30">  create a shark data</span><span style="color:#c30">
-</span><span style="color:#c30"></span><span style="color:#c30">  :return: the created shark</span><span style="color:#c30">
-</span><span style="color:#c30"></span><span style="color:#c30">  </span><span style="color:#c30">&#39;&#39;&#39;</span>
-  <span style="color:#069;font-weight:bold">return</span> {<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">char</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">S</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">gestation</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">energy</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">3</span>}
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> shark <span style="color:#555">=</span> Wator<span style="color:#555">.</span>create_shark()
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> Competitor<span style="color:#555">.</span>set_performance(shark, None)
-<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> shark
-{<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">char</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">S</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">gestation</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">energy</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">3</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">performance</span><span style="color:#c30">&#39;</span>: None}
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">joueur</span>(nom<span style="color:#555">=</span>None, vie<span style="color:#555">=</span><span style="color:#f60">5</span>, force<span style="color:#555">=</span><span style="color:#f60">1</span>):
+    <span style="color:#069;font-weight:bold">if</span> nom <span style="color:#000;font-weight:bold">is</span> None:
+        <span style="color:#069;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Vous devez donner un nom à votre joueur</span><span style="color:#c30">&#34;</span>)
+    <span style="color:#069;font-weight:bold">return</span> {<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>: nom,
+            <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">vie</span><span style="color:#c30">&#34;</span>: vie,
+            <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">force</span><span style="color:#c30">&#34;</span>: force}
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> robert <span style="color:#555">=</span> Joueur(<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Robert</span><span style="color:#c30">&#39;</span>)
+<span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> robert
+{<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">nom</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Robert</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">vie</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">force</span><span style="color:#c30">&#39;</span>: <span style="color:#f60">1</span>}
 </code></pre></div><p>Le type n&rsquo;existe que &ldquo;dans la tête&rdquo; du programmeur, les données et les traitements sont séparés.</p>
 <h2 id="programmation-orientée-objet">Programmation Orientée Objet</h2>
 <p>Approche de la modélisation du problème à résoudre en terme d&rsquo;objets :</p>
@@ -7576,7 +7575,7 @@ Un objet est une modélisation d&rsquo;une entité du monde réel ou d&rsquo;un 
 <hr>
 <ul>
 <li><strong>421</strong> : Dés/Groupe de 3 dés/Joueur/Partie</li>
-<li><strong>wator</strong> : Mer/Case/Poisson/Simulation</li>
+<li><strong>combat rpg</strong> : Combattant/Arme/Combat etc.</li>
 <li><strong>chicon</strong> : Compétiteur/Temps(performance)/Course(/Palmares)</li>
 <li><strong>minimax</strong> : Jeu/Situation/Joueur/Algorithme/Fonction évaluation</li>
 </ul>
@@ -7938,7 +7937,7 @@ donc de <em>maintenir</em> du code.</li>
     <li><a href="#mise-en-oeuvre">Mise en oeuvre</a>
       <ul>
         <li><a href="#première-données-en-table-course-au-chicon">Première, données en table, &ldquo;course au chicon&rdquo;</a></li>
-        <li><a href="#première-projet-wator">Première, projet &ldquo;Wator&rdquo;</a></li>
+        <li><a href="#première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</a></li>
       </ul>
     </li>
     <li><a href="#définition-dun-type-competitor">définition d&rsquo;un type Competitor</a></li>
