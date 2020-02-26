@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7467,8 +7500,8 @@ MathJax.Hub.Config({
       
 <article class="markdown"><h1 id="2-effectuer-des-recherches-dans-les-données">2. Effectuer des recherches dans les données</h1>
 <h2 id="nettoyer-la-liste">Nettoyer la liste</h2>
-<p>Souvenons nous de ce qu&rsquo;on a obtenu après notre précédent import :</p>
-<p>un dictionnaire Python avec les valeurs provenant d&rsquo;un fichier csv.</p>
+<p>Souvenons nous de ce qu'on a obtenu après notre précédent import :</p>
+<p>un dictionnaire Python avec les valeurs provenant d'un fichier csv.</p>
 <p>Et, si on imprime, cela donne.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#069;font-weight:bold">print</span>(liste_csv)
 [{<span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">nom</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Nom</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">prenom</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">Prénom</span><span style="color:#c30">&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">email</span><span style="color:#c30">&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">email</span><span style="color:#c30">&#39;</span>},
@@ -7478,11 +7511,11 @@ MathJax.Hub.Config({
 </code></pre></div><p>On obtient bien les valeurs, mais pas seulement</p>
 <p>Mais pas seulement.</p>
 <p>On a aussi un élément surprenant, le premier.</p>
-<p>L&rsquo;entête a été lue comme une série de valeurs. Ce n&rsquo;est pas correct.</p>
+<p>L'entête a été lue comme une série de valeurs. Ce n'est pas correct.</p>
 <p>Pour rectifier, plusieurs approches :</p>
 <ol>
 <li>enlever l'élément de la liste,</li>
-<li>reparcourir la liste en ne gardant que les suivants, c&rsquo;est du gâchis,</li>
+<li>reparcourir la liste en ne gardant que les suivants, c'est du gâchis,</li>
 </ol>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">del</span> liste_csv[<span style="color:#f60">0</span>]
 </code></pre></div><h2 id="rechercher-les-éléments-particuliers">Rechercher les éléments particuliers</h2>
@@ -7501,7 +7534,7 @@ est de construire la liste des noms.</p>
 {<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>: <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Boulier</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">prenom</span><span style="color:#c30">&#34;</span>: <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Thomas</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">moyenne_brute</span><span style="color:#c30">&#34;</span>: <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">&#34;</span>}
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> liste_csv(<span style="color:#f60">14</span>)[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">prenom</span><span style="color:#c30">&#34;</span>]
 <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Thomas</span><span style="color:#c30">&#34;</span>
-</code></pre></div><p>Attention, <code>index</code> lève une exception <code>ValueError</code> s&rsquo;il ne trouve pas l'élément.</p>
+</code></pre></div><p>Attention, <code>index</code> lève une exception <code>ValueError</code> s'il ne trouve pas l'élément.</p>
 <p>On peut être plus prudent :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">trouver_element</span>(liste, element):
   <span style="color:#c30"></span><span style="color:#c30">&#39;&#39;&#39;</span><span style="color:#c30">
@@ -7514,7 +7547,7 @@ est de construire la liste des noms.</p>
     liste<span style="color:#555">.</span>index(element)
   <span style="color:#069;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ValueError</span> <span style="color:#069;font-weight:bold">as</span> e:
     <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
-</code></pre></div><p>qui s&rsquo;utilise ainsi :</p>
+</code></pre></div><p>qui s'utilise ainsi :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> trouver_element([<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">a</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">b</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">c</span><span style="color:#c30">&#34;</span>], <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">b</span><span style="color:#c30">&#34;</span>)
 <span style="color:#f60">1</span>
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> trouver_element([<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">a</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">b</span><span style="color:#c30">&#34;</span>, <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">c</span><span style="color:#c30">&#34;</span>], <span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">d</span><span style="color:#c30">&#34;</span>)
@@ -7524,44 +7557,44 @@ est de construire la liste des noms.</p>
 <p>Deux approches :</p>
 <ol>
 <li>parcourir et attribuer la colle immédiatement</li>
-<li>récupérer la liste en question et coller l&rsquo;ensemble</li>
+<li>récupérer la liste en question et coller l'ensemble</li>
 </ol>
-<p>Selon la difficulté du traitement, on préférera l&rsquo;une ou l&rsquo;autre.</p>
+<p>Selon la difficulté du traitement, on préférera l'une ou l'autre.</p>
 <p>La seconde approche est jugée plus propre car les étapes sont clairement
 séparées.</p>
 <p>Elle nécessite cependant deux parcours.</p>
 <h3 id="parcourir-et-traiter-ensemble">Parcourir et traiter ensemble</h3>
-<p>Voilà le traitement qu&rsquo;on souhaite appliquer :</p>
+<p>Voilà le traitement qu'on souhaite appliquer :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">coller</span>(nom):
   <span style="color:#069;font-weight:bold">print</span>(f<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">{nom} je t</span><span style="color:#c30">&#39;</span><span style="color:#c30">aime pas, tu as 2h !</span><span style="color:#c30">&#34;</span>)
 </code></pre></div><p>Le parcours est très simple, 3 lignes</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> eleve <span style="color:#000;font-weight:bold">in</span> liste_csv:
   <span style="color:#069;font-weight:bold">if</span> eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">moyenne</span><span style="color:#c30">&#34;</span>] <span style="color:#555">&gt;</span> <span style="color:#f60">14</span>:
     coller(eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>])
-</code></pre></div><h3 id="récupérer-et-traiter-lensemble">Récupérer et traiter l&rsquo;ensemble</h3>
+</code></pre></div><h3 id="récupérer-et-traiter-lensemble">Récupérer et traiter l'ensemble</h3>
 <p>Par compréhension :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">punis <span style="color:#555">=</span> [eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>] <span style="color:#069;font-weight:bold">for</span> eleve <span style="color:#000;font-weight:bold">in</span> liste_csv
                       <span style="color:#069;font-weight:bold">if</span> eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">moyenne</span><span style="color:#c30">&#34;</span>] <span style="color:#555">&gt;</span> <span style="color:#f60">14</span>]
 <span style="color:#069;font-weight:bold">for</span> nom <span style="color:#000;font-weight:bold">in</span> punis:
   coller(nom)
-</code></pre></div><p>Ce n&rsquo;est pas beaucoup plus long&hellip;</p>
+</code></pre></div><p>Ce n'est pas beaucoup plus long&hellip;</p>
 <p>Bien sûr, on peut adapter à des critères plus délicats.
 Si nécessaire, créer une fonction booléenne qui renvoie <code>True</code> si le critère
 est vérifié.</p>
 <h2 id="doublons">Doublons</h2>
-<p>Il arrive fréquemment qu&rsquo;on croise des données. Celles-ci comporte alors
-souvent des doublons qu&rsquo;il faut nettoyer.</p>
+<p>Il arrive fréquemment qu'on croise des données. Celles-ci comporte alors
+souvent des doublons qu'il faut nettoyer.</p>
 <p>Autre contexte conduisant à des doublons, ajouter des éléments au fur et à
 mesure.</p>
 <ol>
 <li>
 <p>Supposons que les élèves aient tous des noms différents, repérer les doublons
 est aisé.</p>
-<p>On remplit une liste vide en ne gardant que les individus qui n&rsquo;y figurent pas déjà.</p>
+<p>On remplit une liste vide en ne gardant que les individus qui n'y figurent pas déjà.</p>
 <p>liste vide</p>
 <ul>
-<li>1er élève Robert : il n&rsquo;est pas dans la liste, je l&rsquo;ajoute</li>
-<li>2eme élève Martin : il n&rsquo;est pas dans la liste, je l&rsquo;ajoute</li>
+<li>1er élève Robert : il n'est pas dans la liste, je l'ajoute</li>
+<li>2eme élève Martin : il n'est pas dans la liste, je l'ajoute</li>
 <li>3eme élève Robert : il est déjà dans la liste, je passe au suivant</li>
 </ul>
 <p>etc.</p>
@@ -7569,8 +7602,8 @@ est aisé.</p>
 <span style="color:#069;font-weight:bold">for</span> eleve <span style="color:#000;font-weight:bold">in</span> liste_csv:
   <span style="color:#069;font-weight:bold">if</span> eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>] <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> listes_nom_sans_doublon:
     listes_nom_sans_doublon<span style="color:#555">.</span>append(eleve[<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">nom</span><span style="color:#c30">&#34;</span>])
-</code></pre></div><p>Remarquons qu&rsquo;on n&rsquo;obtient que les <strong>noms</strong>, pas les données complètes.</p>
-<p>Pour retrouver l&rsquo;ensemble des valeurs, on peut créer les deux objets en
+</code></pre></div><p>Remarquons qu'on n'obtient que les <strong>noms</strong>, pas les données complètes.</p>
+<p>Pour retrouver l'ensemble des valeurs, on peut créer les deux objets en
 même temps :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">listes_nom_sans_doublon <span style="color:#555">=</span> []
 listes_csv_sans_doublon <span style="color:#555">=</span> []
@@ -7589,7 +7622,7 @@ listes_csv_sans_doublon <span style="color:#555">=</span> []
 </code></pre></div><p>Cette fois on ajoute un <code>tuple</code> (ou une liste, un dictionnaire&hellip;)</p>
 </li>
 </ol>
-<h2 id="tester-la-cohérence-dune-table">Tester la cohérence d&rsquo;une table</h2>
+<h2 id="tester-la-cohérence-dune-table">Tester la cohérence d'une table</h2>
 <p>On ouvre ici la boite de Pandore. Toutes les situations sont possibles.</p>
 <p>incohérences possibles :</p>
 <ul>
@@ -7599,14 +7632,14 @@ listes_csv_sans_doublon <span style="color:#555">=</span> []
 <p>etc.</p>
 <p>Que faire ? Tout dépend du contexte.</p>
 <ul>
-<li>Lors d&rsquo;un enregistrement d&rsquo;une valeur, il est prudent d’empêcher et d&rsquo;alerter.</li>
-<li>Lors du calcul d&rsquo;une moyenne on peut décider à l&rsquo;avance de planter le programme
+<li>Lors d'un enregistrement d'une valeur, il est prudent d’empêcher et d'alerter.</li>
+<li>Lors du calcul d'une moyenne on peut décider à l'avance de planter le programme
 ou seulement d'éviter la valeur.</li>
 </ul>
 <p>Dans tous les cas il faut parcourir au moins une fois les valeurs et tester
-la cohérence de chacune d&rsquo;entre elle.
-Il est commode de créer une fonction qui teste la cohérence d&rsquo;un enregistrement.</p>
-<p>Ensuite, cela revient à filtrer comme on l&rsquo;a vu plus haut.</p>
+la cohérence de chacune d'entre elle.
+Il est commode de créer une fonction qui teste la cohérence d'un enregistrement.</p>
+<p>Ensuite, cela revient à filtrer comme on l'a vu plus haut.</p>
 </article>
 
       <div class="backtotop">
@@ -7645,11 +7678,11 @@ Il est commode de créer une fonction qui teste la cohérence d&rsquo;un enregis
     <li><a href="#rechercher-des-valeurs-selon-des-critères">Rechercher des valeurs selon des critères</a>
       <ul>
         <li><a href="#parcourir-et-traiter-ensemble">Parcourir et traiter ensemble</a></li>
-        <li><a href="#récupérer-et-traiter-lensemble">Récupérer et traiter l&rsquo;ensemble</a></li>
+        <li><a href="#récupérer-et-traiter-lensemble">Récupérer et traiter l'ensemble</a></li>
       </ul>
     </li>
     <li><a href="#doublons">Doublons</a></li>
-    <li><a href="#tester-la-cohérence-dune-table">Tester la cohérence d&rsquo;une table</a></li>
+    <li><a href="#tester-la-cohérence-dune-table">Tester la cohérence d'une table</a></li>
   </ul>
 </nav>
   </aside>

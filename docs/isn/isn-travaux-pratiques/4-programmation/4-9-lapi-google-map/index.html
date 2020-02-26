@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7465,22 +7498,22 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><p><strong>Remarque :</strong> l&rsquo;API Google Map a considérablement changé depuis la rédaction
-de ce tutoriel. Il n&rsquo;est plus possible de l&rsquo;intégrer à une page web et d&rsquo;y
+<article class="markdown"><p><strong>Remarque :</strong> l'API Google Map a considérablement changé depuis la rédaction
+de ce tutoriel. Il n'est plus possible de l'intégrer à une page web et d'y
 faire des requêtes. Des alternatives gratuites et libres existent comme openStreetMap
 mais ce tutoriel ne sera pas remis à jour pour autant.</p>
 <p>Notions abordées dans cette page</p>
 <ul>
-<li>un exemple d&rsquo;API : Google Map v3</li>
+<li>un exemple d'API : Google Map v3</li>
 </ul>
 <h1 id="bibliothèque-de-code">Bibliothèque de code</h1>
-<p>L&rsquo;activité de programmation consite à produire un traitement dédié
-à une tâche particulière. Pour cela le programmeur dispose d&rsquo;outils
-proposés par le langage qu&rsquo;il utilise. Certains de ces outils sont
-prédéfinis dans ce langage. C&rsquo;est par exemple en Javascript le cas
+<p>L'activité de programmation consite à produire un traitement dédié
+à une tâche particulière. Pour cela le programmeur dispose d'outils
+proposés par le langage qu'il utilise. Certains de ces outils sont
+prédéfinis dans ce langage. C'est par exemple en Javascript le cas
 de la fonction <code>parseInt</code> ou du type <code>String</code>
 et de certaines de ses fonctions telle <code>charAt</code>. Si ce
-n&rsquo;est pas le cas, c&rsquo;est à ce moment là que le programmeur utilise
+n'est pas le cas, c'est à ce moment là que le programmeur utilise
 ses compétences pour créer (programmer) à partir des éléments
 existants un nouveau traitement, défini dans une fonction par
 exemple. Dès lors cette fonction, telle <code>texteMonument</code>,
@@ -7498,57 +7531,57 @@ choisissent de mettre à disposition des autres programmeurs les
 fruits de leur travail. La communauté peut ainsi bénéficier du
 travail réalisé sans effort supplémentaire, exceptée la lecture de la
 documentation qui prend alors toute son importance.</p>
-<p>Cette mise à disposition est d&rsquo;autant plus intéressante et perinente
+<p>Cette mise à disposition est d'autant plus intéressante et perinente
 que la portée du travail mise à disposition est générale. Ainsi
 mettre à disposition des autres nos fonctions de conversion de
 Celsius en Fahrenheit intéressera certainement moins de programmeurs que
 des fonctions qui permettent de crypter des messages ou de manipuler
 des fichiers audio de différents formats.</p>
-<p>Le succès d&rsquo;un langage peut se mesurer au nombre d&rsquo;API
+<p>Le succès d'un langage peut se mesurer au nombre d'API
 proposées, et réciproquement les API proposées peuvent contribuer à ce
 succès.</p>
-<p>Cependant une difficulté est parfois de trouver l&rsquo;outil que
-l&rsquo;on cherche dans la jungle des bibliothèques proposées. On peut
-également parfois rencontrer des problèmes d&rsquo;incompatibilité entre
+<p>Cependant une difficulté est parfois de trouver l'outil que
+l'on cherche dans la jungle des bibliothèques proposées. On peut
+également parfois rencontrer des problèmes d'incompatibilité entre
 plusieurs bibliothèques utilisées ensemble.</p>
 <p>Lorsque le travail mis à disposition rassemble un certain nombre
-d&rsquo;outils cohérents sur un même thème on parle
+d'outils cohérents sur un même thème on parle
 de bibliothèque ou encore
 de librairie et également
-d&rsquo;API pour &ldquo;<em>Application
-Programming Interface</em>&quot;. Une partie de l&rsquo;activité du
+d'API pour &ldquo;<em>Application
+Programming Interface</em>&quot;. Une partie de l'activité du
 programmeur consiste donc à assimiller et utiliser ces API. Nous
-allons explorer, partiellement, l&rsquo;API Google Map v3 proposée par Google.</p>
-<h1 id="quelques-éléments-de-lapi-google-map-v3">Quelques éléments de l&rsquo;API Google Map v3</h1>
+allons explorer, partiellement, l'API Google Map v3 proposée par Google.</p>
+<h1 id="quelques-éléments-de-lapi-google-map-v3">Quelques éléments de l'API Google Map v3</h1>
 <p>La découverte sera très partielle car cette API est riche. Un coup
-d&rsquo;oeil sur <a href="https://developers.google.com/maps/documentation/javascript/reference?hl=fr">cette
-page</a> permet de s&rsquo;en faire une idée. On comprend que le temps
-d&rsquo;appropriation d&rsquo;une API peut être long. Il faut exploiter les
-documentations proposées par le créateur de l&rsquo;API, comme sur le lien
-précédent en suivant les rubriques <em>Developer&rsquo;s Guide</em>
+d'oeil sur <a href="https://developers.google.com/maps/documentation/javascript/reference?hl=fr">cette
+page</a> permet de s'en faire une idée. On comprend que le temps
+d'appropriation d'une API peut être long. Il faut exploiter les
+documentations proposées par le créateur de l'API, comme sur le lien
+précédent en suivant les rubriques <em>Developer's Guide</em>
 ou <em>Code Sample</em> du menu sur la gauche, ou rechercher des
 informations sur le web.</p>
 <p>Nous nous contenterons de présenter quelques fonctionnalités les plus
-simples. Ce sera à vous d&rsquo;explorer et de mener des recherches si
+simples. Ce sera à vous d'explorer et de mener des recherches si
 vous voulez aller plus loin.</p>
-<p>La première chose à faire est de déclarer l&rsquo;utilisation de l&rsquo;API
+<p>La première chose à faire est de déclarer l'utilisation de l'API
 utilisée. Dans notre cas cela se fait en ajoutant la ligne suivante
 dans la partie <code>head</code> de la page HTML, avant la
 déclaration de nos propres scripts :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;http://maps.google.com/maps/api/js?sensor=false&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;</span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/</span><span style="color:#a00;background-color:#faa">s</span><span style="color:#a00;background-color:#faa">c</span><span style="color:#a00;background-color:#faa">r</span><span style="color:#a00;background-color:#faa">i</span><span style="color:#a00;background-color:#faa">p</span><span style="color:#a00;background-color:#faa">t</span><span style="color:#a00;background-color:#faa">&gt;</span>
 </code></pre></div><p>Il faudra également que notre page HTML contienne un élément
-identifié qui accueillera l&rsquo;image de la carte désirée. Donc quelque
+identifié qui accueillera l'image de la carte désirée. Donc quelque
 chose comme :</p>
 <p>On peut bien sûr ajouter des informations CSS telle <code>class=&quot;...&quot;</code></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;maCarte&#34;</span><span style="color:#555">&gt;</span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/</span><span style="color:#a00;background-color:#faa">d</span><span style="color:#a00;background-color:#faa">i</span><span style="color:#a00;background-color:#faa">v</span><span style="color:#a00;background-color:#faa">&gt;</span>
-</code></pre></div><p>Le chargement de cette API nous permet d&rsquo;en utiliser les
+</code></pre></div><p>Le chargement de cette API nous permet d'en utiliser les
 définitions. En particulier nous avons maintenant accès à un nouveau
 type de données représentant les
 cartes : <code>google.maps.Map</code>.</p>
 <p>Pour créer une telle donnée, il faut donner deux informations. La
 première est l'élément HTML de la page qui contiendra la carte, le
 second est une donnée représentant des propriétés de cette
-carte. L&rsquo;API définit la structure de ces propriétés représentées par le
+carte. L'API définit la structure de ces propriétés représentées par le
 type <code>google.map.MapOptions</code>. Ces <em>options</em>
 définissent en particulier :</p>
 <p>Les valeurs définies par le type <code>google.maps.MapTypeId</code>
@@ -7574,8 +7607,8 @@ quelque chose comme :</p>
 
 <span style="color:#069;font-weight:bold">var</span> laCarte <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.Map(lElement, lesOptions);
 </code></pre></div><p>Les scripts Google Map et les informations sur les images sont
-obtenus à partir d&rsquo;information récupérer par le réseau. Pour éviter
-des problèmes d&rsquo;affichage de la page, il est donc préférable des
+obtenus à partir d'information récupérer par le réseau. Pour éviter
+des problèmes d'affichage de la page, il est donc préférable des
 déclencher la création de la carte après le chargement complet de la
 page. On utilisera comme précédemment un événement <code>load</code>
 sur l'élément <code>window</code> qui appellera une fonction dont le
@@ -7583,21 +7616,21 @@ traitement correspondra au code ci-dessus.</p>
 <p>Rassemblez les différentes informations pour construire une page
 contenant votre première carte Google Map non statique.
 Vous devriez obtenir <a href="/uploads/docs/doc04/exemples/googleMap1.html"> ce résultat</a>.</p>
-<p>L&rsquo;API propose sur les données de type carte les
+<p>L'API propose sur les données de type carte les
 fonctions <code>setCenter</code>, <code>setZoom</code>
 et <code>setMapTypeId</code> qui ont pour effet de modifier les
 options correspondantes pour la carte concernée. Ainsi</p>
 <pre><code>laCarte.setZoom(15);
 </code></pre>
 <p>fixe le facteur de zoom de la donnée <code>laCarte</code> à 15.</p>
-<p>Pour obtenir les coordonnées d&rsquo;un point particulier, rendez-vous sur
+<p>Pour obtenir les coordonnées d'un point particulier, rendez-vous sur
 le site <a href="http://maps.google.fr/">http://maps.google.fr/</a>,
 affichez une carte contenant ce point, cliquez-droit dessus et
-choisissez <em>Plus d&rsquo;infos sur cet endroit</em>. Les coordonnées
-s&rsquo;affichent alors dans la zone de texte en haut.</p>
+choisissez <em>Plus d'infos sur cet endroit</em>. Les coordonnées
+s'affichent alors dans la zone de texte en haut.</p>
 <ol>
 <li>
-<p>Adaptez l&rsquo;exercice précédent pour centrer la carte sur votre lycée.</p>
+<p>Adaptez l'exercice précédent pour centrer la carte sur votre lycée.</p>
 </li>
 <li>
 <p>Ajoutez aux options déjà gérées celle-ci :</p>
@@ -7618,18 +7651,18 @@ Faites la modification nécessaire qui consiste à placer la déclaration</p>
 </li>
 </ol>
 <p>en dehors de toute fonction et à ne pas la masquer par une déclaration
-locale au sein d&rsquo;une fonction.
+locale au sein d'une fonction.
 5. Ajoutez à votre page un champ de saisie (<code>input</code>) dans
-lequel l&rsquo;utilisateur peut fournir un entier. A chaque changement de
+lequel l'utilisateur peut fournir un entier. A chaque changement de
 valeur, le facteur de zoom de la carte est changé.
 6. Ajoutez deux nouveaux champs de saisie, un pour la
-latitude, un pour la longitude, à chaque changement de l&rsquo;un ou
-l&rsquo;autre on change le centre de la carte en conséquence.
+latitude, un pour la longitude, à chaque changement de l'un ou
+l'autre on change le centre de la carte en conséquence.
 7. Ajoutez un &ldquo;bouton&rdquo; qui permet de basculer entre les affichages en
-mode &ldquo;<em>satellite</em>&rdquo; et &ldquo;<em>route</em>&quot;, sachant qu&rsquo;initialement
+mode &ldquo;<em>satellite</em>&rdquo; et &ldquo;<em>route</em>&quot;, sachant qu'initialement
 le mode est &ldquo;<em>route</em>&quot;.</p>
-<p>Parmi les possibilités offertes par l&rsquo;API on trouve aussi la
-gestion des &ldquo;<em>marqueurs</em>&rdquo; que l&rsquo;on place sur une carte. Ce sont
+<p>Parmi les possibilités offertes par l'API on trouve aussi la
+gestion des &ldquo;<em>marqueurs</em>&rdquo; que l'on place sur une carte. Ce sont
 des données de type <code>google.maps.Marker</code>. Pour créer un
 marqueur il faut préciser sa position (les coordonnées où il se
 trouve) et la carte où on le place. Ces informations sont cette fois
@@ -7652,11 +7685,11 @@ var punaise = new google.maps.Marker(marqueurOption);
 constater le résultat.</li>
 <li>Ajoutez deux nouveaux champs de saisie, un pour la
 latitude, un pour la longitude, plus un &ldquo;bouton&rdquo; <strong>Ajouter</strong>. Un
-clic sur ce bouton provoque l&rsquo;ajout sur la carte d&rsquo;un marqueur aux
+clic sur ce bouton provoque l'ajout sur la carte d'un marqueur aux
 coordonnées fournies par les deux champs de saisie.</li>
 </ol>
 <p>Une API bien construite doit être cohérente. Cela facilite son
-apprentissage. C&rsquo;est le cas de l&rsquo;API Google Map. Ainsi il existe un
+apprentissage. C'est le cas de l'API Google Map. Ainsi il existe un
 type <code>google.maps.InfoWindow</code> qui dispose des mêmes
 options que les marqueurs, avec en plus une
 option <code>content</code> dont la valeur est une chaîne de
@@ -7671,7 +7704,7 @@ précédente. Mettez pour <code>content</code> la valeur <code>&quot;un **premie
 </li>
 <li>
 <p>Modifiez pour centrer la carte sur votre lycée et afficher
-une fenêtre d&rsquo;information qui reprend le nom de votre lycée et une
+une fenêtre d'information qui reprend le nom de votre lycée et une
 photo de celui-ci (pas trop grande !)</p>
 </li>
 <li>
@@ -7706,7 +7739,7 @@ code suivant à la fin de la fonction de création de la carte :</p>
 </li>
 </ol>
 <p>Il vous permet de visualiser le trajet entre le bâtiment M3 qui
-héberge le Laboratoire d&rsquo;Informatique de Lille (<a href="http://www.lifl.fr">LIFL</a>) et le
+héberge le Laboratoire d'Informatique de Lille (<a href="http://www.lifl.fr">LIFL</a>) et le
 Restaurant Universitaire sur le campus de Lille 1.
 2. Testez le résultat et analysez ce code pour comprendre son
 fonctionnement

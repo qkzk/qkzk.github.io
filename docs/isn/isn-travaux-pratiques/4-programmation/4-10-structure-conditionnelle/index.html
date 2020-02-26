@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7465,7 +7498,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><p>Pré-requis On suppose qu&rsquo;ont été vues les notions de :</p>
+<article class="markdown"><p>Pré-requis On suppose qu'ont été vues les notions de :</p>
 <ul>
 <li>le  calcul booléen et le type booléen (partie 3)</li>
 </ul>
@@ -7481,38 +7514,38 @@ MathJax.Hub.Config({
 <p>Récupérez et étudiez ce <a href="/uploads/docs/doc04/exemples/temperature.html">document HTML</a> et sa <a href="/uploads/docs/doc04/exemples/styleTemperature.css">feuille de style</a>.</p>
 </li>
 <li>
-<p>Un événement <code>change</code> est déclenché à chaque fois que la valeur d&rsquo;un élément <code>input</code> est modifiée par l&rsquo;utilisateur (l'événement est activé lorsque l&rsquo;on &ldquo;quitte&rdquo; l'élément <code>input</code> - on dit qu&rsquo;il perd le focus). En partant du travail lors la <strong>Manip</strong> sur conversion de température, ajoutez à ce document le code Javascript qui permet lors d&rsquo;une saisie (numérique, <strong><em>on ne s&rsquo;occupera pas pour l&rsquo;instant de ce qui se passe dans un autre cas</em></strong>) dans un champ à la valeur correspondante pour l&rsquo;autre unité de mesure de afficher dans l&rsquo;autre champ.</p>
+<p>Un événement <code>change</code> est déclenché à chaque fois que la valeur d'un élément <code>input</code> est modifiée par l'utilisateur (l'événement est activé lorsque l'on &ldquo;quitte&rdquo; l'élément <code>input</code> - on dit qu'il perd le focus). En partant du travail lors la <strong>Manip</strong> sur conversion de température, ajoutez à ce document le code Javascript qui permet lors d'une saisie (numérique, <strong><em>on ne s'occupera pas pour l'instant de ce qui se passe dans un autre cas</em></strong>) dans un champ à la valeur correspondante pour l'autre unité de mesure de afficher dans l'autre champ.</p>
 </li>
 <li>
 <p>Testez évidemment&hellip;</p>
 </li>
 </ol>
 <p>Il avait alors été fait la remarque &ldquo;<em>on ne
-s&rsquo;occupera pas pour l&rsquo;instant de ce qui se passe dans un autre
-cas</em>&rdquo; n'était pas très satisfaisante et qu&rsquo;il &ldquo;<em>faudra bien un
-jour que l&rsquo;on se penche sur ce problème et que l&rsquo;on étudie comment
+s'occupera pas pour l'instant de ce qui se passe dans un autre
+cas</em>&rdquo; n'était pas très satisfaisante et qu'il &ldquo;<em>faudra bien un
+jour que l'on se penche sur ce problème et que l'on étudie comment
 on peut le résoudre</em>&quot;. Et bien disons que ce jour est arrivé.</p>
-<p>Reprenez la solution que vous avez produite, ou utilisez <a href="/uploads/docs/doc04/exemples/temperatureComplet.html">celle-ci</a> et son <a href="/uploads/docs/doc04/exemples/temperature.js">code javascript</a>,  pour la Manip&rsquo; précédente et testez ce qu&rsquo;il se passe avec une saisie non numérique.</p>
+<p>Reprenez la solution que vous avez produite, ou utilisez <a href="/uploads/docs/doc04/exemples/temperatureComplet.html">celle-ci</a> et son <a href="/uploads/docs/doc04/exemples/temperature.js">code javascript</a>,  pour la Manip&rsquo; précédente et testez ce qu'il se passe avec une saisie non numérique.</p>
 <p>Pour éviter ce dysfonctionnement, on ne peut pas simplement se
-rabattre sur l&rsquo;utilisateur. Même si on peut (dans ce cas précis)
-s&rsquo;attendre à qu&rsquo;il fournisse a priori une valeur numérique, une
-faute de frappe est toujours possible et on peut rencontrer d&rsquo;autres
+rabattre sur l'utilisateur. Même si on peut (dans ce cas précis)
+s'attendre à qu'il fournisse a priori une valeur numérique, une
+faute de frappe est toujours possible et on peut rencontrer d'autres
 situations similaires où la nature de la valeur à saisir est moins
 évidente.</p>
-<p>C&rsquo;est au programmeur de faire en sorte que son programme
-soit <strong>robuste</strong>, c&rsquo;est-à-dire qu&rsquo;il résiste à des conditions
-d&rsquo;utilisation &ldquo;anormales&rdquo; (pour lesquelles il n&rsquo;est pas a priori
-prévu). Dans notre cas, le cas &ldquo;normal&rdquo; est celui où l&rsquo;on cherche à
+<p>C'est au programmeur de faire en sorte que son programme
+soit <strong>robuste</strong>, c'est-à-dire qu'il résiste à des conditions
+d'utilisation &ldquo;anormales&rdquo; (pour lesquelles il n'est pas a priori
+prévu). Dans notre cas, le cas &ldquo;normal&rdquo; est celui où l'on cherche à
 convertir une valeur numérique en degrés Fahrenheit ou Celsius. Un
 cas &ldquo;anormal&rdquo; est celui où on essaie de le faire avec une valeur non
 numérique et le programme doit alors être capable de réaliser un
 traitement qui prend en compte cette situation.</p>
 <p>Dans notre cas on peut par exemple décider que si la saisie de
-l&rsquo;utilisateur ne correspond pas à un nombre, la valeur 100 sera
+l'utilisateur ne correspond pas à un nombre, la valeur 100 sera
 prise par défaut. L'énoncé de la question 2 devient alors :
 &ldquo;_ajoutez à ce document le code Javascript qui permet que lors
-d&rsquo;une saisie numérique dans un champ, la valeur correspondante pour
-l&rsquo;autre unité de mesure s&rsquo;affiche dans l&rsquo;autre champ. Une saisie non
+d'une saisie numérique dans un champ, la valeur correspondante pour
+l'autre unité de mesure s'affiche dans l'autre champ. Une saisie non
 numérique sera remplacée par défaut par la valeur 100 et la
 conversion sera réalisée.  _&rdquo;</p>
 <p>Considérons le code de la
@@ -7529,14 +7562,14 @@ l'élément <code>tFahrenheit</code> :</p>
 compte le nouveau cahier des charges et sa valeur par défaut en cas
 de saisie ? Une étude de ce code, que peut compléter un examen
 pas-à-pas de son exécution avec Firebug, permet de se rendre compte
-que si la saisie n&rsquo;est pas numérique <code>tempF</code> prend,
+que si la saisie n'est pas numérique <code>tempF</code> prend,
 logiquement, la valeur <code>NaN</code>. Le résultat
 de <code>((tempF - 32) *  5 / 9)</code> ne peut donc à partir de ce
 moment là qu'être lui aussi <code>NaN</code>. Pour pouvoir obtenir le
 comportement souhaité, il faut donc remplacer la valeur
-de <code>tempF</code> par <code>100</code> lorsqu&rsquo;elle
+de <code>tempF</code> par <code>100</code> lorsqu'elle
 vaut <code>NaN</code> et la laisser inchangée dans le cas contraire.</p>
-<p>Nous sommes donc confrontés à la situation où la réalisation d&rsquo;un
+<p>Nous sommes donc confrontés à la situation où la réalisation d'un
 traitement, ici fixer la valeur de <code>tempF</code>
 à <code>100</code>, ne doit être réalisée
 qu'à condition que sa valeur
@@ -7585,14 +7618,14 @@ obtient alors le nouveau code :</p>
 }
 </code></pre></div><ol>
 <li>
-<p>Faites la modification similaire pour l&rsquo;autre fonction de
+<p>Faites la modification similaire pour l'autre fonction de
 conversion de températures.</p>
 </li>
 <li>
 <p>Testez.</p>
 </li>
 <li>
-<p>Combien de tests devez-vous faire au minimum pour vous assurer que votre programme fonctionne correctement (c&rsquo;est-à-dire comme vous l&rsquo;avez prévu) ?</p>
+<p>Combien de tests devez-vous faire au minimum pour vous assurer que votre programme fonctionne correctement (c'est-à-dire comme vous l'avez prévu) ?</p>
 </li>
 </ol>
 <p>Le choix qui a été fait de prendre la valeur 100 par défaut en cas de mauvaise saisie était arbitraire. On aurait pu en faire un autre, comme celui de ne pas faire de calcul dans ce cas mais effacer le contenu des deux zones de saisie des températures.</p>
@@ -7605,8 +7638,8 @@ conversion de températures.</p>
 </li>
 </ol>
 <p>Observez la valeur de <code>image.width</code> pour
-comprendre la nécessité de l&rsquo;utilisation de la fonction <code>parseInt</code>.</p>
-<p>Si la variable <code>image</code> a pour valeur un élément d&rsquo;une page correspondant à une balise <code>img</code>, il est possible de connaître la largeur actuelle de cette image par l&rsquo;expression <code>parseInt(image.width)</code> et de modifier la largeur d&rsquo;affichage de cette même image par une expression telle que <code>image.style.width = &quot;250px&quot;</code>, par exemple.</p>
+comprendre la nécessité de l'utilisation de la fonction <code>parseInt</code>.</p>
+<p>Si la variable <code>image</code> a pour valeur un élément d'une page correspondant à une balise <code>img</code>, il est possible de connaître la largeur actuelle de cette image par l'expression <code>parseInt(image.width)</code> et de modifier la largeur d'affichage de cette même image par une expression telle que <code>image.style.width = &quot;250px&quot;</code>, par exemple.</p>
 <ol>
 <li>
 <p>Créez une page html et sa feuille de style qui contiendra un élément de balise <code>img</code>.</p>
@@ -7614,34 +7647,34 @@ comprendre la nécessité de l&rsquo;utilisation de la fonction <code>parseInt</
 <li>
 <p>Ajoutez à cette page deux zones &ldquo;bouton&rdquo; telles que :</p>
 <ul>
-<li>un clic sur la première diminue la taille de l&rsquo;image de 20px si cette taille est supérieure à 100px, sinon rien ne se passe</li>
-<li>un clic sur la seconde augmente la taille de l&rsquo;image de 20px si cette taille est inférieure à 400px, sinon rien ne se passe</li>
+<li>un clic sur la première diminue la taille de l'image de 20px si cette taille est supérieure à 100px, sinon rien ne se passe</li>
+<li>un clic sur la seconde augmente la taille de l'image de 20px si cette taille est inférieure à 400px, sinon rien ne se passe</li>
 </ul>
 </li>
 </ol>
-<h1 id="expression-dalternatives">Expression d&rsquo;alternatives</h1>
-<p>Dans les situations rencontrées ci-dessus un traitement &ldquo;particulier&rdquo; est réalisé si une condition est vérifiée et dans le cas contraire on passe à loa suite sans aucun traitement   complémentaire. On rencontre cependant fréquemment la situation dans laquelle un autre traitement doit être réalisé lorsque la condition n&rsquo;est pas vérifiée (càd vaut <code>false</code>). Il est possible de programmer un tel comportement en complétant la structure conditionnelle <code>if</code> par un bloc exprimant l&rsquo;alternative et identifié par le mot-clé <code>else</code>. La syntaxe est alors :</p>
+<h1 id="expression-dalternatives">Expression d'alternatives</h1>
+<p>Dans les situations rencontrées ci-dessus un traitement &ldquo;particulier&rdquo; est réalisé si une condition est vérifiée et dans le cas contraire on passe à loa suite sans aucun traitement   complémentaire. On rencontre cependant fréquemment la situation dans laquelle un autre traitement doit être réalisé lorsque la condition n'est pas vérifiée (càd vaut <code>false</code>). Il est possible de programmer un tel comportement en complétant la structure conditionnelle <code>if</code> par un bloc exprimant l'alternative et identifié par le mot-clé <code>else</code>. La syntaxe est alors :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition<span style="color:#555">&lt;</span>)
   traitement_vrai (à réaliser si condition vaut <span style="color:#069;font-weight:bold">true</span>)
 }
 <span style="color:#069;font-weight:bold">else</span> {
   traitement_faut (à réaliser si condition vaut <span style="color:#069;font-weight:bold">false</span>)
 }
-</code></pre></div><p>La sémantique d&rsquo;une expression est la suivante : lors du
+</code></pre></div><p>La sémantique d'une expression est la suivante : lors du
 traitement de cette expression, <code>condition</code> est
 évaluée. Si elle vaut <code>true</code> alors le
-code <code>traitement_vrai</code> est exécutée, sinon, c&rsquo;est-à-dire
-si <code>condition</code> est évaluée à <code>false</code>, c&rsquo;est le
+code <code>traitement_vrai</code> est exécutée, sinon, c'est-à-dire
+si <code>condition</code> est évaluée à <code>false</code>, c'est le
 code <code>traitement_faux</code> qui est exécutée.</p>
 <p>On retrouve la forme de phrases du langage courant telles que &ldquo;<em>Si
-c&rsquo;est pile je gagne sinon je perds</em>.&rdquo;</p>
-<p>La restriction d&rsquo;accès à l&rsquo;image est ici toute symbolique puisqu&rsquo;il
+c'est pile je gagne sinon je perds</em>.&rdquo;</p>
+<p>La restriction d'accès à l'image est ici toute symbolique puisqu'il
 suffit de consulter le code Javascript source pour connaître le mot
-secret et même le nom, et donc l&rsquo;URL, de l&rsquo;image &ldquo;cachée&rdquo;.</p>
-<p>Considérons l&rsquo;exemple fourni
+secret et même le nom, et donc l'URL, de l'image &ldquo;cachée&rdquo;.</p>
+<p>Considérons l'exemple fourni
 par <a href="/uploads/docs/doc04/exemples/sesame.html">cette page</a>. Une image est
-affichée <strong>si</strong> l&rsquo;utilisateur fourni le mot demandé <strong>sinon</strong> un message
-d&rsquo;alerte apparaît. Ce comportement est produit par la
+affichée <strong>si</strong> l'utilisateur fourni le mot demandé <strong>sinon</strong> un message
+d'alerte apparaît. Ce comportement est produit par la
 fonction <code>sesame</code> appelée au chargement de la page :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> sesame <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
     <span style="color:#069;font-weight:bold">var</span> motDePasse <span style="color:#555">=</span> <span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Indiquez le mot secret pour voir l&#39;image&#34;</span>);
@@ -7655,10 +7688,10 @@ fonction <code>sesame</code> appelée au chargement de la page :</p>
 }
 </code></pre></div><p>Vous pouvez &ldquo;habiller&rdquo; votre page en remplaçant les
 boutons <em>Pile</em> et <em>Face</em> par des images correspondant
-d&rsquo;une pièce de monnaie.</p>
+d'une pièce de monnaie.</p>
 <p>Ecrivez une page html qui comporte :</p>
 <ol>
-<li>2 boutons <em>Pile</em> et <em>Face</em> tels que le clic sur l&rsquo;un
+<li>2 boutons <em>Pile</em> et <em>Face</em> tels que le clic sur l'un
 de ces boutons affiche le texte &ldquo;<em>vous avez choisi pile/face</em>&rdquo;
 dans une zone prévue à cet effet</li>
 <li>1 bouton <em>Lancer</em> qui simule un lancer pièce en provoquant
@@ -7668,25 +7701,25 @@ le texte &ldquo;<em>le résultat du lancer est pile/face</em>&rdquo; est affich�
 dans la page</li>
 <li>le texte &ldquo;<em>GAGNE/PERDU</em>&rdquo; est affiché dans une zone résultat
 selon que le résultat du tirage correspond ou non au choix de
-l&rsquo;utilisateur</li>
+l'utilisateur</li>
 </ol>
 <h1 id="attention">Attention</h1>
-<p>Il est important de noter et de prendre conscience que l&rsquo;expression</p>
+<p>Il est important de noter et de prendre conscience que l'expression</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
    traitement_vrai
 }
 <span style="color:#069;font-weight:bold">else</span> {
    traitement_faux
 }
-</code></pre></div><p>n&rsquo;est pas équivalente à la séquence</p>
+</code></pre></div><p>n'est pas équivalente à la séquence</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
    traitement_vrai
 };
 <span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span> condition) {
    traitement_faux
 }
-</code></pre></div><p>contrairement à ce que l&rsquo;on peut peut-être penser dans une première
-impulsion qui s&rsquo;avère fausse. On est éventuellement d&rsquo;autant plus
+</code></pre></div><p>contrairement à ce que l'on peut peut-être penser dans une première
+impulsion qui s'avère fausse. On est éventuellement d'autant plus
 susceptible de commettre cette erreur logique que dans certains cas
 le comportement de ces deux expressions sont identiques. Ainsi les résultats des deux codes
 suivants sont équivalents :</p>
@@ -7698,19 +7731,19 @@ suivants sont équivalents :</p>
 <span style="color:#069;font-weight:bold">else</span> {				    	       <span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&gt;=</span> <span style="color:#f60">0.5</span>) {
   resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;		    	          resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;
 }	               		    	       }
-</code></pre></div><p>Ce n&rsquo;est cependant pas toujours le cas.</p>
-<p>La fonction de Collatz est à la base d&rsquo;une conjecture
+</code></pre></div><p>Ce n'est cependant pas toujours le cas.</p>
+<p>La fonction de Collatz est à la base d'une conjecture
 appelée <a href="http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse">conjecture de Collat ou de Syracuse</a> qui malgré sa simplicité d'énoncé
-résiste aux mathématiciens depuis près d&rsquo;un siècle.</p>
+résiste aux mathématiciens depuis près d'un siècle.</p>
 <p>La fonction de Collatz est une fonction qui prend pour paramère un
 entier <em>n</em> et dont le résultat dépend de la parité
 de <em>n</em>. Ce résultat est <em>3*n+1</em> si <em>n</em> est impair
 et <em>n/2</em> si <em>n</em> est pair.</p>
 <p>Ecrivez la spécification de la fonction de Collatz.</p>
 <p>On propose les deux codes suivants pour cette fonction :</p>
-<p>On rappelle que l&rsquo;opérateur modulo <code>%</code> fournit le reste de
-la division entière. On peut donc tester la parité d&rsquo;un
-entier <em>n</em> par l&rsquo;expression <code>n%2==0</code>
+<p>On rappelle que l'opérateur modulo <code>%</code> fournit le reste de
+la division entière. On peut donc tester la parité d'un
+entier <em>n</em> par l'expression <code>n%2==0</code>
 ou <code>n%2==1</code>.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(<span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Fournissez un entier positif&#34;</span>));
 <span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>) {
@@ -7738,20 +7771,20 @@ pages.</li>
 </ol>
 <h1 id="des-conditions-en-cascade">Des conditions en cascade</h1>
 <p>Les expressions conditionnelles permettent donc de distinguer deux
-situations différentes et d&rsquo;exécuter alors deux traitements
+situations différentes et d'exécuter alors deux traitements
 différents. La composition de plusieurs expressions conditionnelles
 permet alors de traiter les situations où il existe plus de deux cas
 qui diffèrent.</p>
-<p>Prenons l&rsquo;exemple de ce jeu dans lequel un joueur choisit
+<p>Prenons l'exemple de ce jeu dans lequel un joueur choisit
 secrètement un nombre
 que doit deviner un autre joueur. Pour cela ce dernier propose un
-nombre et le premier lui indiqué s&rsquo;il a trouvé le nombre secret ou
+nombre et le premier lui indiqué s'il a trouvé le nombre secret ou
 si sa proposition lui est supérieur ou inférieur. On le constate
 trois cas de figure sont possibles. Si on
 appelle <code>nombreSecret</code> la variable dont la valeur est le nombre
 secret choisi et <code>proposition</code> la variable dont la valeur
 est le nombre proposé, la portion de code suivante permet alors de
-fixer la valeur d&rsquo;une variable <code>resultat</code> en fonction de
+fixer la valeur d'une variable <code>resultat</code> en fonction de
 chacune des trois situations :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (proposition <span style="color:#555">==</span> nombreSecret) {
    resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trouve&#34;</span>;
@@ -7765,18 +7798,18 @@ chacune des trois situations :</p>
   }
 }
 </code></pre></div><p>La solution consiste à considérer plusieurs fois des alternatives
-entre deux situations. Ici, on teste d&rsquo;abord si la
+entre deux situations. Ici, on teste d'abord si la
 proposition est ou non égale au nombre secret, puis dans le second cas on
-teste si elle est ou non plus petite. Comme on sait déjà qu&rsquo;elle
-n&rsquo;est pas égale, le cas <code>false</code> correspond nécessairement à
+teste si elle est ou non plus petite. Comme on sait déjà qu'elle
+n'est pas égale, le cas <code>false</code> correspond nécessairement à
 une valeur trop grande.</p>
 <p>Nous verrons plus tard comment faire pour que le jeu se répète tant
-que le nombre secret n&rsquo;a pas été trouvé.</p>
+que le nombre secret n'a pas été trouvé.</p>
 <p>Ecrivez une page html qui :</p>
 <ol>
 <li>choisit aléatoirement un nombre secret  entre 0
 et 100,</li>
-<li>demande à l&rsquo;utilisateur de faire une proposition,</li>
+<li>demande à l'utilisateur de faire une proposition,</li>
 <li>affiche les deux nombres et le résultat de la comparaison.</li>
 </ol>
 <p>Il existe différents modèles de machines à sous, aussi appelées
@@ -7802,7 +7835,7 @@ chiffres compris entre 0 et 5 inclus, affiche la combinaison
 correspondante et a pour résultat les gains selon la combinaison obtenue.</p>
 </li>
 <li>
-<p>Ecrivez une page html qui permet de jouer à ce jeu et d&rsquo;afficher les
+<p>Ecrivez une page html qui permet de jouer à ce jeu et d'afficher les
 gains.</p>
 </li>
 </ol>
@@ -7821,7 +7854,7 @@ pour pparamètre un nombre entre 0 et 6 et a pour
 résultat la chaîne de caractères du nom du jour correspondant.</p>
 </li>
 <li>
-<p>Sachant que le type <code>Date</code> dispose d&rsquo;une
+<p>Sachant que le type <code>Date</code> dispose d'une
 méthode <code>getMonth</code> similaire où 0 correspond à janvier, 1
 à férvier, etc., spécifiez puis codez sur le même principe une fonction <code>nomDuMois</code></p>
 </li>
@@ -7829,7 +7862,7 @@ méthode <code>getMonth</code> similaire où 0 correspond à janvier, 1
 </ol>
 <p>Utilisez ces fonctions pour créer une
 fonction <code>aujourdHui</code> dont le résultat est une chaîne de
-caractères représentant la date d&rsquo;aujourd&rsquo;hui sous la forme
+caractères représentant la date d'aujourd'hui sous la forme
 &ldquo;<em>mardi 25 décembre 2012</em>&quot;.</p>
 <ol start="4">
 <li></li>

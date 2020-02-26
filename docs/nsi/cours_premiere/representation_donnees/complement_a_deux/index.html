@@ -1995,6 +1995,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7483,15 +7516,15 @@ MathJax.Hub.Config({
 <ul>
 <li><strong>Entiers naturels :</strong> entiers positifs ou nuls
 (0, 1, 2 etc.)</li>
-<li><strong>Entiers relatifs :</strong> entiers de n&rsquo;importe quel signe
+<li><strong>Entiers relatifs :</strong> entiers de n'importe quel signe
 (&hellip;, -2, -1, 0, 1,&hellip;)</li>
 </ul>
 <h2 id="les-entiers-relatifs-1">Les entiers relatifs</h2>
 <h3 id="le-problème-du-signe-">Le problème du signe :</h3>
-<p>Un signe n&rsquo;est pas un nombre&hellip;</p>
-<p>On ne peut pas l&rsquo;encoder directement en binaire.</p>
+<p>Un signe n'est pas un nombre&hellip;</p>
+<p>On ne peut pas l'encoder directement en binaire.</p>
 <hr>
-<p>Le principe est d&rsquo;attribuer au <em>bit de poids fort</em> (premier bit) le signe du
+<p>Le principe est d'attribuer au <em>bit de poids fort</em> (premier bit) le signe du
 nombre.</p>
 <ul>
 <li>Si le <em>bit de poids</em> fort est <strong>0</strong>, le nombre est <strong>positif</strong>,</li>
@@ -7503,7 +7536,7 @@ nombre.</p>
 <p>Sinon :</p>
 <ul>
 <li>Comment déterminer &ldquo;le bit de poids fort&rdquo; ?</li>
-<li>Comment savoir où s&rsquo;arrête le nombre ?</li>
+<li>Comment savoir où s'arrête le nombre ?</li>
 </ul>
 <p>Durant tout le chapitre, on encodera <strong>nos nombres entiers sur 8 bits.</strong></p>
 <h2 id="approche-naïve--binaire-signé">Approche naïve : binaire signé</h2>
@@ -7539,9 +7572,9 @@ On complète sur 8 bits :
 -9 &lt; 0 on remplace le premier bit par -1 :
 
 -9 = 0b 1000 1001
-</code></pre></div><p><strong>Jusqu&rsquo;ici tout va bien&hellip;</strong></p>
-<h2 id="et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</h2>
-<h3 id="essayons-dajouter-ces-exemples-">Essayons d&rsquo;ajouter ces exemples :</h3>
+</code></pre></div><p><strong>Jusqu'ici tout va bien&hellip;</strong></p>
+<h2 id="et-soudain-cest-le-drame">Et soudain, c'est le drame&hellip;</h2>
+<h3 id="essayons-dajouter-ces-exemples-">Essayons d'ajouter ces exemples :</h3>
 <p>Vérifions que $27 + (-9) = 18$</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  0b 0001 1011
 + 0b 1000 1001
@@ -7553,26 +7586,26 @@ On complète sur 8 bits :
 <p>On suppose toujours nos entiers encodés sur un octet.</p>
 <ol>
 <li>Donner la représentation binaire naïve de 12 et -100 et de -88.</li>
-<li>Réaliser l&rsquo;addition binaire bit à bit de ces nombres.</li>
+<li>Réaliser l'addition binaire bit à bit de ces nombres.</li>
 <li>Comparer avec le résultat obtenu.</li>
 </ol>
 <h2 id="la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">La méthode naïve ne permet pas de faire de calculs !</h2>
-<p>Avec la méthode naïve, <strong>on ne peut plus réaliser d&rsquo;opération naturelle sur les entiers</strong>.
+<p>Avec la méthode naïve, <strong>on ne peut plus réaliser d'opération naturelle sur les entiers</strong>.
 On a maintenant deux objectifs :</p>
 <h3 id="1-représenter-les-entiers-relatifs">1. Représenter les entiers relatifs,</h3>
-<h3 id="2-conserver-le-même-algorithme-pour-laddition">2. Conserver le même algorithme pour l&rsquo;addition</h3>
+<h3 id="2-conserver-le-même-algorithme-pour-laddition">2. Conserver le même algorithme pour l'addition</h3>
 <h1 id="le-complément-à-deux">Le complément à deux</h1>
 <h2 id="complètement-à-deux--entiers-positifs">Complètement à deux : entiers positifs</h2>
 <h3 id="pour-les-entier-positifs">Pour les entier positifs</h3>
 <ol>
-<li>coder l&rsquo;entier en binaire comme d&rsquo;habitude,</li>
-<li>compléter l&rsquo;octet avec des 0 devant.</li>
+<li>coder l'entier en binaire comme d'habitude,</li>
+<li>compléter l'octet avec des 0 devant.</li>
 </ol>
 <h2 id="complément-à-deux--entiers-négatifs">Complément à deux : entiers négatifs</h2>
 <h3 id="pour-les-entiers-négatifs">Pour les entiers négatifs</h3>
 <ol>
 <li>Coder la valeur absolue du nombre en base 2,</li>
-<li>compléter l&rsquo;octet avec des 0 devant,</li>
+<li>compléter l'octet avec des 0 devant,</li>
 <li>échanger tous les bits ($1 \leftrightarrow 0$),</li>
 <li>ajouter 1.</li>
 </ol>
@@ -7613,20 +7646,20 @@ On a maintenant deux objectifs :</p>
 <p><strong>Remarque</strong> la dernière retenue (tout à gauche) disparait.</p>
 <h2 id="exercice-3">Exercice 3</h2>
 <ol>
-<li>Réaliser l&rsquo;addition binaire des compléments à 2 des nombres 12 et -100.</li>
-<li>Vérifier qu&rsquo;on retrouve bien le résultat précédent pour -88.</li>
+<li>Réaliser l'addition binaire des compléments à 2 des nombres 12 et -100.</li>
+<li>Vérifier qu'on retrouve bien le résultat précédent pour -88.</li>
 </ol>
 <h2 id="complément-à-deux-vers-décimal">Complément à deux vers décimal</h2>
-<h3 id="si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</h3>
-<p>On fait comme d&rsquo;habitude !</p>
+<h3 id="si-lentier-est-positif-son-premier-bit-est-0">Si l'entier est positif (son premier bit est 0)&hellip;</h3>
+<p>On fait comme d'habitude !</p>
 <p><strong>Exemple :</strong> <code>0b 0001 1011</code></p>
 <p>$1 \times 1 + 1\times 2 + 1\times 8 + 1\times 16 = 27$ boom</p>
 <h2 id="complément-à-deux-vers-décimal-1">Complément à deux vers décimal</h2>
-<h3 id="si-lentier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</h3>
+<h3 id="si-lentier-est-négatif-si-premier-bit-est-1">Si l'entier est négatif (si premier bit est 1)</h3>
 <ol>
 <li>On échange tous les bits $0 \leftrightarrow 1$,</li>
 <li>On ajoute 1,</li>
-<li>On converti en binaire comme d&rsquo;habitude,</li>
+<li>On converti en binaire comme d'habitude,</li>
 <li>On change le signe.</li>
 </ol>
 <h2 id="exemple--0b-1111-0111">Exemple : <code>0b 1111 0111</code></h2>
@@ -7647,7 +7680,7 @@ On a maintenant deux objectifs :</p>
 <li><code>0b0111 1111</code></li>
 <li><code>0b1010 0011</code></li>
 </ol>
-<p><strong>Remarque :</strong> Si mon entier négatif A à 4 chiffres décimaux, il est PLUS PETIT qu&rsquo;un entier négatif à 3 chiffres décimaux : $-1234 &lt; -999$</p>
+<p><strong>Remarque :</strong> Si mon entier négatif A à 4 chiffres décimaux, il est PLUS PETIT qu'un entier négatif à 3 chiffres décimaux : $-1234 &lt; -999$</p>
 <p>Cette propriété est-elle préservée dans le complément à deux ?</p>
 <h2 id="table-de-valeurs">Table de valeurs</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> bit
@@ -7663,14 +7696,14 @@ signe
     1      ...      =  ...
     1 0 0 0 0 0 0 1 = -127
     1 0 0 0 0 0 0 0 = -128
-</code></pre></div><h2 id="combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</h2>
+</code></pre></div><h2 id="combien-dentiers-relatifs-sur-un-octet-">Combien d'entiers relatifs sur un octet ?</h2>
 <h3 id="règle">Règle</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 </code></pre></div><ul>
 <li>Sur un octet on peut encoder de 0 (<code>0b00000000</code>) à 127 (<code>0b01111111</code>)</li>
 <li>Sur un octet on peut encoder de -1 (<code>0b11111111</code>) à -128 (<code>0b10000000</code>)</li>
 </ul>
-<h2 id="combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</h2>
+<h2 id="combien-dentiers-relatifs-sur-avec-n-bits-">Combien d'entiers relatifs sur avec <code>n</code> bits ?</h2>
 <h3 id="règle-1">Règle</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 </code></pre></div><ul>
@@ -7678,15 +7711,15 @@ signe
 <li>Sur un octet on peut encoder de $-1$ à $-2^n$.</li>
 </ul>
 <h2 id="complément-à-2--résumé">Complément à 2 : résumé</h2>
-<p>On a trouvé une méthode permettant d&rsquo;ajouter des entiers (et donc de faire les opérations habituelles&hellip;) qui fonctionne aussi avec les entiers <em>négatifs</em>.</p>
+<p>On a trouvé une méthode permettant d'ajouter des entiers (et donc de faire les opérations habituelles&hellip;) qui fonctionne aussi avec les entiers <em>négatifs</em>.</p>
 <h2 id="et-python-là-dedans-">et Python là dedans ?</h2>
-<p>Aie, c&rsquo;est compliqué. Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong></p>
+<p>Aie, c'est compliqué. Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong></p>
 <p>Dans Python les entiers ont une <em>taille arbitraire</em>, il ne peut afficher nativement le complément à deux.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">12</span>)
 <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">0b1100</span><span style="color:#c30">&#39;</span>
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> <span style="color:#366">bin</span>(<span style="color:#555">-</span><span style="color:#f60">12</span>)
 <span style="color:#c30"></span><span style="color:#c30">&#39;</span><span style="color:#c30">-0b1100</span><span style="color:#c30">&#39;</span>
-</code></pre></div><p>Pour ceux que ça intéresse j&rsquo;ai un TP Colab qui montre différentes manières d&rsquo;afficher le complément à deux dans Python.</p>
+</code></pre></div><p>Pour ceux que ça intéresse j'ai un TP Colab qui montre différentes manières d'afficher le complément à deux dans Python.</p>
 </article>
 
       <div class="backtotop">
@@ -7742,16 +7775,16 @@ signe
         <li><a href="#-9">-9</a></li>
       </ul>
     </li>
-    <li><a href="#et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a>
+    <li><a href="#et-soudain-cest-le-drame">Et soudain, c'est le drame&hellip;</a>
       <ul>
-        <li><a href="#essayons-dajouter-ces-exemples-">Essayons d&rsquo;ajouter ces exemples :</a></li>
+        <li><a href="#essayons-dajouter-ces-exemples-">Essayons d'ajouter ces exemples :</a></li>
       </ul>
     </li>
     <li><a href="#exercice-1">Exercice 1</a></li>
     <li><a href="#la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">La méthode naïve ne permet pas de faire de calculs !</a>
       <ul>
         <li><a href="#1-représenter-les-entiers-relatifs">1. Représenter les entiers relatifs,</a></li>
-        <li><a href="#2-conserver-le-même-algorithme-pour-laddition">2. Conserver le même algorithme pour l&rsquo;addition</a></li>
+        <li><a href="#2-conserver-le-même-algorithme-pour-laddition">2. Conserver le même algorithme pour l'addition</a></li>
       </ul>
     </li>
   </ul>
@@ -7783,23 +7816,23 @@ signe
     <li><a href="#exercice-3">Exercice 3</a></li>
     <li><a href="#complément-à-deux-vers-décimal">Complément à deux vers décimal</a>
       <ul>
-        <li><a href="#si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</a></li>
+        <li><a href="#si-lentier-est-positif-son-premier-bit-est-0">Si l'entier est positif (son premier bit est 0)&hellip;</a></li>
       </ul>
     </li>
     <li><a href="#complément-à-deux-vers-décimal-1">Complément à deux vers décimal</a>
       <ul>
-        <li><a href="#si-lentier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</a></li>
+        <li><a href="#si-lentier-est-négatif-si-premier-bit-est-1">Si l'entier est négatif (si premier bit est 1)</a></li>
       </ul>
     </li>
     <li><a href="#exemple--0b-1111-0111">Exemple : 0b 1111 0111</a></li>
     <li><a href="#exercice-4">Exercice 4</a></li>
     <li><a href="#table-de-valeurs">Table de valeurs</a></li>
-    <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a>
+    <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d'entiers relatifs sur un octet ?</a>
       <ul>
         <li><a href="#règle">Règle</a></li>
       </ul>
     </li>
-    <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec n bits ?</a>
+    <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d'entiers relatifs sur avec n bits ?</a>
       <ul>
         <li><a href="#règle-1">Règle</a></li>
       </ul>

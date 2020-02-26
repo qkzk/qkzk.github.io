@@ -1995,6 +1995,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7484,7 +7517,7 @@ MathJax.Hub.Config({
 <li><a href="#org30526d2">Fichier au format HTML bien formés</a></li>
 </ol>
 </li>
-<li><a href="#org7de6ade">Écriture d&rsquo;un parser HTML</a>
+<li><a href="#org7de6ade">Écriture d'un parser HTML</a>
 <ol>
 <li><a href="#orgb565df0">Structure de file</a></li>
 <li><a href="#orgcbecb1b">Première version</a></li>
@@ -7510,7 +7543,7 @@ lesquels on trouve des balises :</p>
 <code>head</code>, &hellip;
 Pour la syntaxe des tags HTML, voir <a href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax">ici</a>.
 Les balises auto-fermantes sont : <code>area</code>, <code>br</code>, <code>hr</code> , <code>img</code> , <code>input</code> , <code>link</code> , <code>meta</code> et <code>param</code>.</p>
-<p>Dans cette activité, on considère qu&rsquo;un document HTML est bien formé si :</p>
+<p>Dans cette activité, on considère qu'un document HTML est bien formé si :</p>
 <ul>
 <li>à chaque balise ouvrante correspond une balise fermante,</li>
 <li>on ne peut fermer une balise que si toutes les balises situées entre
@@ -7526,8 +7559,8 @@ document HTML bien formé et <code>False</code> dans le cas contraire.</p>
 sont des balises HTML existantes, ni si on respecte les attributs des balises).</p>
 <p>La première étape est d'écrire un parser de fichier HTML, permettant
 de parcourir séquentiellement les balises.</p>
-<h1 id="org7de6ade">Écriture d&rsquo;un parser HTML</h1>
-<p>L'écriture d&rsquo;un tel parser est une tâche difficile, car un caractère
+<h1 id="org7de6ade">Écriture d'un parser HTML</h1>
+<p>L'écriture d'un tel parser est une tâche difficile, car un caractère
 <code>&lt;</code> peut être rencontré dans différentes situations :</p>
 <ul>
 <li>Situation 1 : définition du type du document : <code>&lt;!DOCTYPE ...&gt;</code></li>
@@ -7541,7 +7574,7 @@ puis nous autoriserons dans une deuxième version les
 documents HTML contenant les situations 2 à 4.</p>
 <h2 id="orgb565df0">Structure de file</h2>
 <p>Les tags rencontrés seront ajoutés dans une file. Une file est une structure de
-données séquentielle agissant comme une file d&rsquo;attente : on peut ajouter et retirer
+données séquentielle agissant comme une file d'attente : on peut ajouter et retirer
 des éléments de la structure, mais les premiers éléments ajoutés seront toujours les
 premiers à sortir.</p>
 <p>La structure de file dispose des primitives suivantes :</p>
@@ -7553,11 +7586,11 @@ premiers à sortir.</p>
 </ul>
 <p>On dit que la file est une structure <strong>FIFO</strong> (<em>First In First Out</em>).</p>
 <p>Le fichier <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/queue_squel.py">queue_squel.py</a> contient le
-squelette d&rsquo;un module implémentant une structure de file.</p>
+squelette d'un module implémentant une structure de file.</p>
 <ul>
 <li>que proposez-vous pour représenter une file ?</li>
 <li>renommez de fichier squelette en <code>myqueue.py</code> et complétez le
-(on ne peut utiliser le nom <code>queue.py</code>  car Python dispose déjà d&rsquo;un
+(on ne peut utiliser le nom <code>queue.py</code>  car Python dispose déjà d'un
 module homonyme).</li>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">QueueEmptyError</span>(exception):
@@ -7611,7 +7644,7 @@ module homonyme).</li>
     <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">doctest</span>
     doctest<span style="color:#555">.</span>testmod(verbose <span style="color:#555">=</span> True)
 </code></pre></div><blockquote>
-<p>On rappelle que les listes offrent les fonctionnalités ci-dessous et on peut noter que la <a href="https://docs.python.org/fr/3/tutorial/datastructures.html">documentation Python</a> précise : &ldquo;<em>Alors que les ajouts et suppressions en fin de liste sont rapides, les opérations d&rsquo;insertions ou de retraits en début de liste sont lentes (car tous les autres éléments doivent être décalés d&rsquo;une position).</em>&rdquo; :</p>
+<p>On rappelle que les listes offrent les fonctionnalités ci-dessous et on peut noter que la <a href="https://docs.python.org/fr/3/tutorial/datastructures.html">documentation Python</a> précise : &ldquo;<em>Alors que les ajouts et suppressions en fin de liste sont rapides, les opérations d'insertions ou de retraits en début de liste sont lentes (car tous les autres éléments doivent être décalés d'une position).</em>&rdquo; :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> l<span style="color:#555">=</span> [<span style="color:#f60">1</span>,<span style="color:#f60">2</span>,<span style="color:#f60">3</span>,<span style="color:#f60">4</span>]
 <span style="color:#555">&gt;&gt;</span><span style="color:#555">&gt;</span> l
 [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
@@ -7636,11 +7669,11 @@ module homonyme).</li>
 <h2 id="orgcbecb1b">Première version</h2>
 <p>Dans un module <code>html_parser1.py</code>, écrire une première version du parser :
 la fonction <code>parse(document)</code> prend en paramètre un document sous forme
-d&rsquo;une chaîne de caractères et renvoie une file contenant les tags.</p>
-<p>Pour vous aider, le fichier <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/html_parser_squel.py">html_parser_squel.py</a> contient le squelette d&rsquo;un parser.</p>
+d'une chaîne de caractères et renvoie une file contenant les tags.</p>
+<p>Pour vous aider, le fichier <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/html_parser_squel.py">html_parser_squel.py</a> contient le squelette d'un parser.</p>
 <p>Dans cette première version, on considère que seule la situation 1 peut être rencontrée et
 on ignore les situations 2, 3 et 4. Et on rappelle que les balises auto-fermantes peuvent être ignorées.</p>
-<p>Par souci de simplification on pourra considérer que les attributs d&rsquo;une
+<p>Par souci de simplification on pourra considérer que les attributs d'une
 balise ne peuvent être séparés que par des espaces.</p>
 <p>On utilisera à profit la méthode <code>index</code> des chaînes de caractères.</p>
 <pre><code>Help on method_descriptor:
@@ -7654,16 +7687,16 @@ index(...)
 
     Raises ValueError when the substring is not found.
 </code></pre>
-<p>La méthode <code>split</code> (<a href="https://docs.python.org/3.6/library/stdtypes.html#str.split">documentation</a>) peut également s&rsquo;avérer utile.</p>
+<p>La méthode <code>split</code> (<a href="https://docs.python.org/3.6/library/stdtypes.html#str.split">documentation</a>) peut également s'avérer utile.</p>
 <h1 id="org9a8b7e7">Vérificateur HTML : un algorithme</h1>
-<p>Dès que l&rsquo;on peut récupérer les tags séquentiellement, nous pouvons nous attaquer à
-l'écriture du vérificateur HTML (checker). Il peut être utile de faire l&rsquo;analogie entre
+<p>Dès que l'on peut récupérer les tags séquentiellement, nous pouvons nous attaquer à
+l'écriture du vérificateur HTML (checker). Il peut être utile de faire l'analogie entre
 les documents HTML et les expressions correctement parenthésées.</p>
 <p>Une expression bien parenthésée est une expression contenant un certains nombre de
 type de parenthèses telle que :</p>
 <ul>
 <li>à chaque parenthèse ouvrante correspond une parenthèse fermante,</li>
-<li>à tout moment, on ne peut fermer une parenthèse que si l&rsquo;expression située entre
+<li>à tout moment, on ne peut fermer une parenthèse que si l'expression située entre
 les deux parenthèses se correspondant est bien parenthésée.</li>
 </ul>
 <p>Par exemple, les expressions suivantes sont bien parenthésées:</p>
@@ -7678,19 +7711,19 @@ les deux parenthèses se correspondant est bien parenthésée.</li>
 <li><code>(()</code></li>
 <li><code>([)]</code></li>
 </ul>
-<p>Pour vérifier si une expression est correctement parenthésée, une méthode est d&rsquo;utiliser
+<p>Pour vérifier si une expression est correctement parenthésée, une méthode est d'utiliser
 une pile :</p>
 <ul>
-<li>lorsque l&rsquo;on rencontre une parenthèse ouvrante on l&rsquo;empile,</li>
-<li>lorsque l&rsquo;on rencontre une parenthèse fermante, par exemple <code>]</code> :
+<li>lorsque l'on rencontre une parenthèse ouvrante on l'empile,</li>
+<li>lorsque l'on rencontre une parenthèse fermante, par exemple <code>]</code> :
 <ul>
-<li>si la pile est vide, alors l&rsquo;expression est mal parenthèsée (trop de fermantes),</li>
-<li>sinon, on  dépile l&rsquo;ouvrante située au sommet de la pile et on vérifie que les
+<li>si la pile est vide, alors l'expression est mal parenthèsée (trop de fermantes),</li>
+<li>sinon, on  dépile l'ouvrante située au sommet de la pile et on vérifie que les
 deux parenthèses correspondent (<code>(</code> et <code>)</code>, <code>[</code> et <code>]</code>).</li>
 </ul>
 </li>
 </ul>
-<p>Lorsque toute la chaîne a été parcourue, la pile doit être vide (pas d&rsquo;ouvrante non fermée).</p>
+<p>Lorsque toute la chaîne a été parcourue, la pile doit être vide (pas d'ouvrante non fermée).</p>
 <p>Un document HTML peut être vue comme une expression parenthésée :</p>
 <ul>
 <li>les tags ouvrants <code>&lt;tag&gt;</code> sont les parenthèses ouvrantes;</li>
@@ -7701,17 +7734,17 @@ deux parenthèses correspondent (<code>(</code> et <code>)</code>, <code>[</code
 <p>Les <em>piles</em> sont des structures de données linéaires admettant les <em>opérations primitives</em>
 suivantes :</p>
 <ul>
-<li>création d&rsquo;une pile vide</li>
-<li>empilement d&rsquo;un élément sur une pile</li>
-<li>dépilement du sommet d&rsquo;une pile</li>
-<li>test de vacuité d&rsquo;une pile.</li>
+<li>création d'une pile vide</li>
+<li>empilement d'un élément sur une pile</li>
+<li>dépilement du sommet d'une pile</li>
+<li>test de vacuité d'une pile.</li>
 </ul>
-<p>Le principe d&rsquo;une pile est le suivant : on ne peut accéder un élément (e) de la pile qu&rsquo;en ayant
-enlevé d&rsquo;abord tous les éléments empilés après (e).</p>
+<p>Le principe d'une pile est le suivant : on ne peut accéder un élément (e) de la pile qu'en ayant
+enlevé d'abord tous les éléments empilés après (e).</p>
 <p>L'élément renvoyé par la méthode <code>pop</code> est le dernier élément empilé. On dit que la pile est
 une structure <strong>LIFO</strong> (<em>Last In First Out</em>).</p>
 <h1 id="orgae4385e">Implémentation du module Stack</h1>
-<p>Le fichier <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/stack_squel.py">stack_squel.py</a> contient le squelette de l&rsquo;implémentation d&rsquo;une pile.</p>
+<p>Le fichier <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/stack_squel.py">stack_squel.py</a> contient le squelette de l'implémentation d'une pile.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">StackEmptyError</span>(<span style="color:#c00;font-weight:bold">Exception</span>):
     <span style="color:#c30"></span><span style="color:#c30">&#34;&#34;&#34;</span><span style="color:#c30">
 </span><span style="color:#c30"></span><span style="color:#c30">    exception pour pile vide</span><span style="color:#c30">
@@ -7796,11 +7829,11 @@ une structure <strong>LIFO</strong> (<em>Last In First Out</em>).</p>
     <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">doctest</span>
     doctest<span style="color:#555">.</span>testmode(verbose<span style="color:#555">=</span>True)
 </code></pre></div><p>Renommez-le et implémentez votre propre structure de pile.</p>
-<p>Enfin, implémenter l&rsquo;algorithme de vérification dans un fichier <code>html_checker.py</code>.</p>
+<p>Enfin, implémenter l'algorithme de vérification dans un fichier <code>html_checker.py</code>.</p>
 <p>Le <a href="/uploads/docnsitale/pile_file/tp_html_parser/src/html_checker_squel.py">squelette</a> est fourni.</p>
 <h1 id="org3181aef">Amélioration du parser</h1>
 <h2 id="orgb0d69af">Utiliser des expressions régulières</h2>
-<p>L&rsquo;objectif est ici d'écrire une nouvelle version du parser permettant de prendre en compte l&rsquo;ensemble des situations particulières listées plus haut.</p>
+<p>L'objectif est ici d'écrire une nouvelle version du parser permettant de prendre en compte l'ensemble des situations particulières listées plus haut.</p>
 <p>Pour cela, nous pouvons utiliser une expression régulière. Une expression régulière est une
 chaîne de caractère spécifiant un format permettant de :</p>
 <ul>
@@ -7808,7 +7841,7 @@ chaîne de caractère spécifiant un format permettant de :</p>
 <li>capturer certaines parties de ce format.</li>
 </ul>
 <p>Un cours sur les expressions régulières est hors du programme du DIU, mais nous allons en fournir
-une pour récupérer les tags d&rsquo;un document html.</p>
+une pour récupérer les tags d'un document html.</p>
 <p>Le code suivant contient une expression régulière présentée sur plusieurs lignes pour plus de
 lisibilité. Elle permet de récupérer les tags en tenant compte des guillemets.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">re</span>
@@ -7856,13 +7889,13 @@ p
 /html
 </code></pre>
 <p>En utilisant cette expression régulière, ou sa forme condensée (ci-dessous), écrire une deuxième version du parser : <code>html_parser2.py</code>.</p>
-<p>Forme condensée de l&rsquo;expression régulière :</p>
+<p>Forme condensée de l'expression régulière :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">HTML_REGEX <span style="color:#555">=</span> re<span style="color:#555">.</span>compile(
     <span style="color:#c30">r</span><span style="color:#c30">&#34;&#34;&#34;</span><span style="color:#c30">&lt;(/?</span><span style="color:#c30">\</span><span style="color:#c30">w+)((</span><span style="color:#c30">\</span><span style="color:#c30">s+</span><span style="color:#c30">\</span><span style="color:#c30">w+(</span><span style="color:#c30">\</span><span style="color:#c30">s*=</span><span style="color:#c30">\</span><span style="color:#c30">s*(?:</span><span style="color:#c30">&#34;</span><span style="color:#c30">.*?</span><span style="color:#c30">&#34;</span><span style="color:#c30">|</span><span style="color:#c30">&#39;</span><span style="color:#c30">.*?</span><span style="color:#c30">&#39;</span><span style="color:#c30">|[</span><span style="color:#c30">\</span><span style="color:#c30">^</span><span style="color:#c30">&#39;</span><span style="color:#c30">&#34;</span><span style="color:#c30">&gt;</span><span style="color:#c30">\</span><span style="color:#c30">s]+))?)+</span><span style="color:#c30">\</span><span style="color:#c30">s*|</span><span style="color:#c30">\</span><span style="color:#c30">s*)&gt;</span><span style="color:#c30">&#34;&#34;&#34;</span>)
 </code></pre></div><h2 id="org14a665f">Pour aller plus loin : utiliser une classe existante</h2>
 <p>Utiliser une expression régulière a toujours ses limites pour parser un fichier html.
-Des bibliothèques existent pour itérer sur les tags d&rsquo;un tel document.</p>
-<p>Parmi elles, on peut utiliser la classe <code>HTMLParser</code>. Voici le code d&rsquo;une classe héritant
+Des bibliothèques existent pour itérer sur les tags d'un tel document.</p>
+<p>Parmi elles, on peut utiliser la classe <code>HTMLParser</code>. Voici le code d'une classe héritant
 de <code>HTMLParser</code> et qui construit la liste des tags :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">html.parser</span> <span style="color:#069;font-weight:bold">import</span> HTMLParser
 

@@ -1995,6 +1995,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7478,68 +7511,68 @@ MathJax.Hub.Config({
 
       
 <article class="markdown"><h1 id="la-structure-de-données-liste">La structure de données liste</h1>
-<p>Notre objet d'étude aujourd&rsquo;hui est la structure de données linéaire <strong>liste</strong>.</p>
+<p>Notre objet d'étude aujourd'hui est la structure de données linéaire <strong>liste</strong>.</p>
 <p>Les objectifs de ce travail sont :</p>
 <ul>
 <li>de définir la structure de données liste via les méthodes qui la caractérise</li>
 <li>de manipuler cette structure de données</li>
-<li>d&rsquo;appréhender la notion de mutabilité des listes</li>
-<li>d&rsquo;appréhender la complexité de la manipulation des listes</li>
-<li>de comprendre que ce qui est appelé liste en Python n&rsquo;est pas une liste au sens commun du terme</li>
+<li>d'appréhender la notion de mutabilité des listes</li>
+<li>d'appréhender la complexité de la manipulation des listes</li>
+<li>de comprendre que ce qui est appelé liste en Python n'est pas une liste au sens commun du terme</li>
 </ul>
 <blockquote>
 <p>De manière parallèle, nous en profiterons pour introduire quelques
-éléments de programmation objet, puisqu&rsquo;il figure explicitement au
+éléments de programmation objet, puisqu'il figure explicitement au
 programme de discuter de différents paradigmes de
 programmation. Nous reviendrons sur cette notion dans une prochaine
 séance du DIU. Lorsque les notions décrites abordent spécifiquement
 la programmation objet, le paragraphe sera formaté comme celui-ci.</p>
 </blockquote>
 <h2 id="la-structure-de-données">La structure de données</h2>
-<p>Vous connaissez déjà la structure de liste puisque vous l&rsquo;avez
+<p>Vous connaissez déjà la structure de liste puisque vous l'avez
 largement utilisée dans les programmes Python que vous avez pu écrire
 précédemment. Vous avez créé des listes, ajouté des éléments, accédé à
 sa longueur, accédé à un élément, etc.</p>
 <p>Néanmoins vous ne vous êtes jamais interrogés sur ce qu'était la
 liste en tant que structure de données.</p>
-<h3 id="quest-ce-quune-liste-">Qu&rsquo;est ce qu&rsquo;une liste ?</h3>
-<p>Nous savons tous intuitivement ce qu&rsquo;est une liste. Une liste est une collection finie
-d'éléments qui se suivent. C&rsquo;est donc une structure de données <em>linéaire</em>.</p>
+<h3 id="quest-ce-quune-liste-">Qu'est ce qu'une liste ?</h3>
+<p>Nous savons tous intuitivement ce qu'est une liste. Une liste est une collection finie
+d'éléments qui se suivent. C'est donc une structure de données <em>linéaire</em>.</p>
 <p>Une liste peut contenir un nombre quelconque d'éléments y compris nul (la liste vide).</p>
-<p>Nous allons essayer de dégager une définition plus formalisée de ce qu&rsquo;est une liste afin
-d&rsquo;en dégager les opérations primitives et une structure essentielle qui nous permettra
-d&rsquo;en donner des implantations.</p>
-<p>Prenons une liste comme par exemple $\ell_1 = [3, 1, 4]$.  C&rsquo;est une liste à trois éléments
+<p>Nous allons essayer de dégager une définition plus formalisée de ce qu'est une liste afin
+d'en dégager les opérations primitives et une structure essentielle qui nous permettra
+d'en donner des implantations.</p>
+<p>Prenons une liste comme par exemple $\ell_1 = [3, 1, 4]$.  C'est une liste à trois éléments
 (ou de longueur trois) dont le premier est $3$, le deuxième $1$, et le dernier $4$.</p>
 <p>Une façon de décrire cette liste consiste à dire que</p>
 <ul>
-<li>la liste $\ell_1$ possède un premier élément $3$ qu&rsquo;on nommera élément de <em>tête</em>,</li>
+<li>la liste $\ell_1$ possède un premier élément $3$ qu'on nommera élément de <em>tête</em>,</li>
 <li>et que vient après cet élément de tête la liste $\ell_2 = [1, 4]$ des éléments qui suivent,
-liste qu&rsquo;on nommera <em>reste</em>.</li>
+liste qu'on nommera <em>reste</em>.</li>
 </ul>
-<p>Ce qu&rsquo;on vient de dire de la liste $\ell_1$ peut être répété pour la liste $\ell_2$ qui est donc constituée :</p>
+<p>Ce qu'on vient de dire de la liste $\ell_1$ peut être répété pour la liste $\ell_2$ qui est donc constituée :</p>
 <ul>
-<li>d&rsquo;un élément de <em>tête</em> : $1$,</li>
-<li>et d&rsquo;un <em>reste</em> : $\ell_3 = [4]$.</li>
+<li>d'un élément de <em>tête</em> : $1$,</li>
+<li>et d'un <em>reste</em> : $\ell_3 = [4]$.</li>
 </ul>
 <p>À nouveau on peut répéter le même discours pour la liste $\ell_3$ qui est donc constituée :</p>
 <ul>
-<li>d&rsquo;un élément de <em>tête</em> : $4$,</li>
-<li>et d&rsquo;un <em>reste</em> : $\ell_4 = []$.</li>
+<li>d'un élément de <em>tête</em> : $4$,</li>
+<li>et d'un <em>reste</em> : $\ell_4 = []$.</li>
 </ul>
 <p>La liste $\ell_4$ étant vide, elle ne possède pas d'élement de tête, et ne peut donc pas être décomposée comme nous venons de le faire à trois reprises.</p>
-<p>Si on convient d&rsquo;utiliser la notation $(x,\ell)$ pour désigner le couple constitué de
-l'élément $x$ de tête, et du reste $\ell$ d&rsquo;une liste, on peut alors écrire :</p>
+<p>Si on convient d'utiliser la notation $(x,\ell)$ pour désigner le couple constitué de
+l'élément $x$ de tête, et du reste $\ell$ d'une liste, on peut alors écrire :</p>
 <p>$$\ell_1 = (3, (1, (4, [])))$$</p>
 <p>On conçoit aisément que ce qui vient d'être fait pour notre exemple de  liste $\ell_1$ peut
-être reproduit pour n&rsquo;importe quelle liste.</p>
+être reproduit pour n'importe quelle liste.</p>
 <p>On peut conclure cette approche en donnant une définition abstraite et formelle
 des listes d'éléments appartenant tous à un ensemble $E$.</p>
-<p>Une <em>liste</em> d'éléments d&rsquo;un ensemble $E$ est</p>
+<p>Une <em>liste</em> d'éléments d'un ensemble $E$ est</p>
 <ul>
 <li>soit la liste vide</li>
-<li>soit un couple $(x,\ell)$ constitué d&rsquo;un élément $x\in E$
-et d&rsquo;une liste $\ell$ d'éléments de $E$.</li>
+<li>soit un couple $(x,\ell)$ constitué d'un élément $x\in E$
+et d'une liste $\ell$ d'éléments de $E$.</li>
 </ul>
 <p>Il ressort de cette définition que les listes peuvent être vues comme des structures de données
 récursives.</p>
@@ -7547,80 +7580,80 @@ récursives.</p>
 <p>En nous appuyant sur la définition formelle qui vient d'être établie, nous sommes en mesure de dégager
 les opérations primitives qui suivent.</p>
 <h4 id="constructeur">Constructeur</h4>
-<p>D&rsquo;après la définition, une liste est</p>
+<p>D'après la définition, une liste est</p>
 <ul>
 <li>soit la liste vide,</li>
 <li>soit un couple constitué de l'élément de tête suivi de la liste des éléments qui suivent.</li>
 </ul>
-<p>Le constructeur de liste doit donc permettre de produire soit une liste vide et pour cela aucun argument n&rsquo;est nécessaire, soit une liste à partir de deux arguments.</p>
+<p>Le constructeur de liste doit donc permettre de produire soit une liste vide et pour cela aucun argument n'est nécessaire, soit une liste à partir de deux arguments.</p>
 <h4 id="sélecteurs">Sélecteurs</h4>
 <p>Les listes non vides possèdent une tête et un reste. Il nous faut les sélecteurs pour accéder à ces
 deux composantes.</p>
 <h4 id="prédicat">Prédicat</h4>
-<p>Un prédicat testant la vacuité d&rsquo;une liste peut s&rsquo;avérer utile dans bien des circonstances.</p>
+<p>Un prédicat testant la vacuité d'une liste peut s'avérer utile dans bien des circonstances.</p>
 <h2 id="une-classe-implémentant-les-listes">Une classe implémentant les listes</h2>
 <h3 id="quelques-éléments-de-programmation-objet">Quelques éléments de programmation objet</h3>
 <blockquote>
-<p>En programmation objet le code est centré, comme son nom l&rsquo;indique, sur la
+<p>En programmation objet le code est centré, comme son nom l'indique, sur la
 notion d&rsquo;<em>objet</em> qui <em>instancie</em> une <em>classe</em>.  Une <em>classe</em> est un concept dont
 l&rsquo;<em>objet</em> est une réalisation.  Par exemple une classe peut être le concept de
 rectangle dont une réalisation est un rectangle de 2×3cm de côté.</p>
-<p>Une classe possède un certain nombre d&rsquo;attributs qui permettent de définir les
+<p>Une classe possède un certain nombre d'attributs qui permettent de définir les
 propriétés du concept (par exemple un rectangle possède une longueur et une
 largeur). Ces attributs sont des variables. Une classe possède également des
 méthodes qui sont des fonctions agissant sur un objet (par exemple une méthode
-<code>draw</code> pour la classe Rectangle, qui permettra de dessiner une instance d&rsquo;un
-rectangle). Une méthode s&rsquo;applique bien à un objet particulier et non à la classe :
-on peut dessiner une instance d&rsquo;un rectangle mais on ne peut pas dessiner la notion
+<code>draw</code> pour la classe Rectangle, qui permettra de dessiner une instance d'un
+rectangle). Une méthode s'applique bien à un objet particulier et non à la classe :
+on peut dessiner une instance d'un rectangle mais on ne peut pas dessiner la notion
 de rectangle.</p>
-<p>En Python, dans le code d&rsquo;une classe, toutes les méthodes ont un premier
-paramètre obligatoire : <code>self</code>. Il s&rsquo;agit de l&rsquo;objet lui-même, celui sur
-lequel on agit (le rectangle qu&rsquo;on est en train de dessiner pour poursuivre l&rsquo;exemple
+<p>En Python, dans le code d'une classe, toutes les méthodes ont un premier
+paramètre obligatoire : <code>self</code>. Il s'agit de l'objet lui-même, celui sur
+lequel on agit (le rectangle qu'on est en train de dessiner pour poursuivre l'exemple
 précédent).</p>
-<p>D&rsquo;autre part une méthode spéciale, appelée le constructeur, permet
-<em>d&rsquo;instancier</em> un objet, c&rsquo;est-à-dire d&rsquo;en créer un. En Python ce constructeur
-s&rsquo;appelle obligatoirement <code>__init__</code> (notez bien la présence de deux caractères <code>_</code>
+<p>D'autre part une méthode spéciale, appelée le constructeur, permet
+<em>d'instancier</em> un objet, c'est-à-dire d'en créer un. En Python ce constructeur
+s'appelle obligatoirement <code>__init__</code> (notez bien la présence de deux caractères <code>_</code>
 entourant le nom <code>init</code>).</p>
-<p>La notation permettant d&rsquo;accéder aux attributs ou aux méthodes d&rsquo;un objet est
-spécifique. C&rsquo;est la <em>notation pointée</em>. Elle s'écrit avec l&rsquo;identifiant de
-l&rsquo;objet suivi d&rsquo;un point suivi de l&rsquo;identifiant de l&rsquo;attribut ou de la
+<p>La notation permettant d'accéder aux attributs ou aux méthodes d'un objet est
+spécifique. C'est la <em>notation pointée</em>. Elle s'écrit avec l'identifiant de
+l'objet suivi d'un point suivi de l'identifiant de l'attribut ou de la
 méthode.  En Python vous avez déjà utilisé cette notation : par
 exemple pour trier une liste <code>l</code>, vous avez écrit <code>l.sort()</code> ce qui consiste
-à appeler la méthode <code>sort</code> sur l&rsquo;objet <code>l</code> de la classe <code>list</code>.</p>
+à appeler la méthode <code>sort</code> sur l'objet <code>l</code> de la classe <code>list</code>.</p>
 </blockquote>
 <h3 id="la-classe-list">La classe <code>List</code></h3>
 <p>On propose une implantation des listes en Python dans le module
-<a href="./list.py"><code>list.py</code></a> (que vous devez récupérer) sous la forme d&rsquo;une classe.
+<a href="./list.py"><code>list.py</code></a> (que vous devez récupérer) sous la forme d'une classe.
 Nous avons fait le choix de
 représenter une liste en suivant la définition donnée ci-dessus.</p>
 <blockquote>
-<p>C&rsquo;est l&rsquo;occasion de jeter un œil à la manière dont la classe est
-implantée. Le fichier contient en fait deux classes. L&rsquo;une est juste une exception
-définie uniquement pour la classe Liste. La seconde classe est l&rsquo;implantation de
+<p>C'est l'occasion de jeter un œil à la manière dont la classe est
+implantée. Le fichier contient en fait deux classes. L'une est juste une exception
+définie uniquement pour la classe Liste. La seconde classe est l'implantation de
 notre classe Liste. Dans les méthodes de la classe, et uniquement dans celles-ci, on
-peut accéder aux attributs de la classe. En l&rsquo;occurrence il n&rsquo;y a qu&rsquo;un
+peut accéder aux attributs de la classe. En l'occurrence il n'y a qu'un
 seul attribut <code>__cell</code> qui correspond à un couple $(x, \ell)$, suivant les
-explications ci-dessus. L&rsquo;attribut est initialisé dans le constructeur (<code>__init__</code>).
+explications ci-dessus. L'attribut est initialisé dans le constructeur (<code>__init__</code>).
 Le constructeur peut fonctionner de deux
 manières : soit sans argument pour créer une liste vide, soit avec
 deux arguments pour ajouter un élément en tête à une liste déjà
 existante.
-Dans les méthodes, l&rsquo;accès à cet attribut se fait <em>via</em> la variable
-spéciale <code>self</code> (déclarée comme premier paramètre de la méthode) qui représente l&rsquo;objet
+Dans les méthodes, l'accès à cet attribut se fait <em>via</em> la variable
+spéciale <code>self</code> (déclarée comme premier paramètre de la méthode) qui représente l'objet
 sur lequel la méthode est appelée. De même pour
-appeler une méthode de la classe au sein d&rsquo;une autre méthode (par exemple l&rsquo;appel
+appeler une méthode de la classe au sein d'une autre méthode (par exemple l'appel
 à <code>is_empty</code> dans <code>head</code>).</p>
 </blockquote>
 <h3 id="remarque">Remarque</h3>
-<p>Voici quelques relations qu&rsquo;on peut établir à partir de ces opérations primitives.</p>
+<p>Voici quelques relations qu'on peut établir à partir de ces opérations primitives.</p>
 <ul>
 <li>pour toute liste <code>l</code> et tout élément <code>x</code>, on a <code>List(x, l).tail() == l</code> et
 <code>List(x, l).head() == x</code>,</li>
 <li>et pour toute liste non vide, on a <code>List(l.head(), l.tail()) == l</code>.</li>
 </ul>
 <h3 id="manipulation-des-listes">Manipulation des listes</h3>
-<p>Dans un fichier autre que <code>list.py</code> ou directement dans l&rsquo;interpréteur,
-s&rsquo;exercer à manipuler la structure de liste telle qu&rsquo;implantée ici :</p>
+<p>Dans un fichier autre que <code>list.py</code> ou directement dans l'interpréteur,
+s'exercer à manipuler la structure de liste telle qu'implantée ici :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#09f;font-style:italic"># Appelle le constructeur de la liste</span>
     l <span style="color:#555">=</span> List()
     <span style="color:#09f;font-style:italic"># Notons que bien que le constructeur ne contienne pas de `return`</span>
@@ -7646,16 +7679,16 @@ les <code>List</code> sont suffisantes pour réaliser des opérations plus
 complexes.</p>
 <blockquote>
 <p>Pour ce faire, nous allons créer une classe <code>Extendedlist</code> qui
-permettra d&rsquo;enrichir la classe <code>List</code> d&rsquo;autres méthodes. La classe
+permettra d'enrichir la classe <code>List</code> d'autres méthodes. La classe
 <code>Extendedlist</code> héritera de la classe <code>List</code>. A gros trait, hériter
 cela veut dire créer un nouveau type en réutilisant ce qui a été déjà
-réalisé dans la définition d&rsquo;autres types.</p>
-<p>Dans le cas présent on veut étendre un type pour permettre d&rsquo;ajouter
+réalisé dans la définition d'autres types.</p>
+<p>Dans le cas présent on veut étendre un type pour permettre d'ajouter
 de nouvelles fonctionnalités.</p>
 </blockquote>
 <blockquote>
 <p>Faire cela est facile en Python, comme vous pouvez le voir ci-dessous,
-il suffit d&rsquo;indiquer dans la déclaration de classe, entre parenthèses,
+il suffit d'indiquer dans la déclaration de classe, entre parenthèses,
 la classe de laquelle on hérite.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">list</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
 
@@ -7670,7 +7703,7 @@ faisait avec les <code>List</code> et utiliser les méthodes déjà définies :<
 &gt;&gt;&gt; print(l)
 (1.(2.()))
 
-</code></pre></div><p>Il suffit ensuite d&rsquo;ajouter des méthodes.</p>
+</code></pre></div><p>Il suffit ensuite d'ajouter des méthodes.</p>
 </blockquote>
 <ul>
 <li>Récupérer le fichier <a href="./extendedlist.py">extendedlist.py</a> qui sera à compléter.</li>
@@ -7680,23 +7713,23 @@ faisait avec les <code>List</code> et utiliser les méthodes déjà définies :<
 réalisent des parcours de listes. La documentation et les doctests de
 ces méthodes sont accessibles dans le fichier <code>extendedlist.py</code>.</p>
 <blockquote>
-<p>Notez que vous n&rsquo;aurez pas d&rsquo;autre choix que d&rsquo;utiliser le
+<p>Notez que vous n'aurez pas d'autre choix que d'utiliser le
 constructeur et les méthodes <code>head</code>, <code>tail</code> et <code>is_empty</code> pour
-écrire les méthodes ci-dessous. En effet l&rsquo;accès à l&rsquo;attribut
+écrire les méthodes ci-dessous. En effet l'accès à l'attribut
 <code>__cell</code> de la classe <code>List</code> est interdit au sein de la classe <code>Extendedlist</code>.</p>
 </blockquote>
 <ul>
 <li>Écrire le code de la méthode <code>length</code> qui calcule de manière
 itérative la longueur de la liste.</li>
-<li>Écrire le code de la méthode <code>get</code> qui permet d&rsquo;accéder de manière
+<li>Écrire le code de la méthode <code>get</code> qui permet d'accéder de manière
 itérative à l'élément en position <code>i</code> dans la liste.</li>
-<li>Écrire le code d&rsquo;un prédicat <code>search</code> qui retourne vrai si un
+<li>Écrire le code d'un prédicat <code>search</code> qui retourne vrai si un
 élément donné en paramètre est dans la liste. Le calcul sera fait
 de manière récursive.</li>
-<li>Écrire le code d&rsquo;une méthode <code>toString</code> retournant une
+<li>Écrire le code d'une méthode <code>toString</code> retournant une
 représentation sous forme de chaîne de caractères de la liste. Le
 calcul sera fait de manière récursive.</li>
-<li>Écrire le code d&rsquo;une méthode <code>toPythonList</code> qui construit une liste
+<li>Écrire le code d'une méthode <code>toPythonList</code> qui construit une liste
 Python équivalente à la liste.</li>
 </ul>
 <p>Toutes ces méthodes auraient aussi bien pu s'écrire itérativement que récursivement.
@@ -7704,24 +7737,24 @@ Le concept de liste ayant été défini récursivement, chacune des méthodes pe
 récursivement sans difficulté théorique.</p>
 <h3 id="création-de-nouvelles-listes">Création de nouvelles listes</h3>
 <p>On propose maintenant d'écrire deux méthodes qui vont créer une
-nouvelle liste à partir d&rsquo;une liste donnée.</p>
+nouvelle liste à partir d'une liste donnée.</p>
 <ul>
-<li>Écrire le code de la méthode récursive <code>sortedInsert</code> qui s&rsquo;applique sur une liste
+<li>Écrire le code de la méthode récursive <code>sortedInsert</code> qui s'applique sur une liste
 triée et prend un élément. Elle doit renvoyer une liste, copie de la liste
-d&rsquo;origine, dans laquelle l'élément a été inséré de manière à ce que la liste
+d'origine, dans laquelle l'élément a été inséré de manière à ce que la liste
 résultante soit encore triée.</li>
-<li>Écrire le code de la méthode récursive <code>reverse</code> qui s&rsquo;applique à une
-liste et renvoie une nouvelle liste dont les éléments sont dans l&rsquo;ordre
+<li>Écrire le code de la méthode récursive <code>reverse</code> qui s'applique à une
+liste et renvoie une nouvelle liste dont les éléments sont dans l'ordre
 inverse de la liste de départ.</li>
 </ul>
 <h2 id="changer-de-représentation-des-listes">Changer de représentation des listes</h2>
 <p>La classe <code>List</code> implante les listes en considérant des couples dont
-le premier élément est l&rsquo;objet à stocker dans la liste et le second
+le premier élément est l'objet à stocker dans la liste et le second
 est le reste de la liste.</p>
-<p>Jamais nous n&rsquo;avons eu besoin de connaître cette implémentation pour
+<p>Jamais nous n'avons eu besoin de connaître cette implémentation pour
 écrire <code>Extendedlist</code>, il a suffit de connaître les primitives de
 manipulation des listes : constructeur, sélecteurs et prédicats.</p>
-<p>Si nous changeons l&rsquo;implémentation de la liste tout en gardant les
+<p>Si nous changeons l'implémentation de la liste tout en gardant les
 mêmes primitives alors <code>Extendedlist</code> restera fonctionnel.</p>
 <ul>
 <li>Récupérer le module <a href="./otherlist.py">otherlist.py</a> qui implémente une liste avec un dictionnaire à deux champs.</li>
@@ -7730,8 +7763,8 @@ mêmes primitives alors <code>Extendedlist</code> restera fonctionnel.</p>
 </ul>
 <h2 id="listes-mutables">Listes mutables</h2>
 <p>Les listes que nous avons utilisées jusqu'à maintenant sont <em>non
-mutables</em>. Cela signifie qu&rsquo;on ne dispose pas de la possibilité ni de
-changer la valeur d&rsquo;un élément de la liste, ni de modifier la liste en
+mutables</em>. Cela signifie qu'on ne dispose pas de la possibilité ni de
+changer la valeur d'un élément de la liste, ni de modifier la liste en
 elle-même, par exemple en y ajoutant des éléments.</p>
 <p>Dans la classe <code>OtherList</code> on a ajouté deux mutateurs (setter en
 anglais) : <code>set_tail</code> permet de modifier le reste de la liste, et
@@ -7739,7 +7772,7 @@ anglais) : <code>set_tail</code> permet de modifier le reste de la liste, et
 l'élément en tête de liste).</p>
 <ul>
 <li>Observer en suivant <a href="http://pythontutor.com/visualize.html#code=class%20ListError%28Exception%29%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Exception%20used%20by%20methods%0A%20%20%20%20*%20%60%60__init__%60%60%0A%20%20%20%20*%20%60%60head%60%60%0A%20%20%20%20*%20%60%60tail%60%60%0A%20%20%20%20of%20class%20%3Aclass%3A%60List%60.%0A%20%20%20%20%22%22%22%0A%20%20%20%20def%20__init__%28self,%20msg%29%3A%0A%20%20%20%20%20%20%20%20self.message%20%3D%20msg%0A%20%20%20%20%0Aclass%20List%28object%29%3A%0A%0A%20%20%20%20def%20__init__%20%28self,%20*args%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Builds%20a%20new%20list.%0A%20%20%20%20%20%20%20%20As%20explained%20in%20the%20%60Readme.md%60%20a%20list%20can%20either%20be%3A%0A%20%20%20%20%20%20%20%20*%20empty%3B%0A%20%20%20%20%20%20%20%20*%20built%20from%20an%20element%20an%20a%20list.%0A%0A%20%20%20%20%20%20%20%20Either%20we%20don't%20have%20any%20arguments,%20or%20two%20arguments.%0A%0A%20%20%20%20%20%20%20%20%3Aparam%20*args%3A%20The%20arguments%20to%20the%20function.%20Either%20no%20argument%20is%20provided%0A%20%20%20%20%20%20%20%20or%20two%20are%20provided%20%28the%20second%20one%20being%20a%20list%29.%0A%20%20%20%20%20%20%20%20%3ACU%3A%20len%28args%29%20%3D%3D%200%20or%20%28len%28args%29%20%3D%3D%202%20and%20args%5B1%5D%20is%20a%20List%29%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20len%28args%29%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20No%20parameter%3A%20builds%20an%20empty%20list%0A%20%20%20%20%20%20%20%20%20%20%20%20self.__cell%20%3D%20None%0A%20%20%20%20%20%20%20%20elif%20len%28args%29%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Les%20tests%20ont%20ici%20%C3%A9t%C3%A9%20supprim%C3%A9s%20pour%20faciliter%20l'ex%C3%A9cution%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%20%20self.__cell%20%3D%20%7B%20%22head%22%20%3A%20args%5B0%5D,%20%22tail%22%3A%20args%5B1%5D%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20def%20head%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Return%20the%20head%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20first%20element%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%3DList%281,%20List%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%201%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%282,%20List%281,%20List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%202%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20not%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20self.__cell%5B'head'%5D%0A%20%20%20%20%20%20%20%20raise%20ListError%28%22empty%20list%20has%20no%20head%22%29%0A%20%20%20%20%0A%20%20%20%20def%20tail%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Return%20the%20tail%20of%20the%20list%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20the%20list%20without%20its%20first%20element%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%3DList%281,%20List%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.tail%28%29%0A%20%20%20%20%20%20%20%20%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%282,%20List%281,%20List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.tail%28%29%0A%20%20%20%20%20%20%20%20%281.%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.head%28%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20if%20not%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20self.__cell%5B'tail'%5D%0A%20%20%20%20%20%20%20%20raise%20ListError%28%22empty%20list%20has%20no%20tail%22%29%0A%0A%0A%20%20%20%20def%20is_empty%20%28self%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Returns%20whether%20the%20list%20is%20empty%0A%0A%20%20%20%20%20%20%20%20%3Areturn%3A%20True%20iff%20the%20list%20doesn't%20have%20any%20element%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20List%28%29.is_empty%28%29%0A%20%20%20%20%20%20%20%20True%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20List%281,%20List%28%29%29.is_empty%28%29%0A%20%20%20%20%20%20%20%20False%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20return%20self.__cell%20%3D%3D%20None%0A%0A%0A%20%20%20%20def%20set_tail%20%28self,%20l%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Replaces%20the%20tail%20of%20the%20list%20by%20l.%20%0A%20%20%20%20%20%20%20%20Raises%20ListError%20if%20applied%20on%20an%20empty%20list.%0A%20%20%20%20%20%20%20%20Raises%20ListError%20if%20l%20is%20not%20a%20List.%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l1%20%3D%20List%281,List%282,List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l2%20%3D%20List%283,List%284,List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l1.set_tail%28l2%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l1%0A%20%20%20%20%20%20%20%20%281.%283.%284.%28%29%29%29%29%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.set_tail%28l1%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%23%20Les%20tests%20ont%20ici%20%C3%A9t%C3%A9%20supprim%C3%A9s%20pour%20faciliter%20l'ex%C3%A9cution%0A%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20self.__cell%5B'tail'%5D%20%3D%20l%0A%0A%20%20%20%20def%20set_head%20%28self,%20e%29%3A%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%20%20%20%20Replaces%20the%20head%20of%20the%20list%20by%20e.%20%0A%20%20%20%20%20%20%20%20Raises%20ListError%20if%20applied%20on%20an%20empty%20list.%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%28%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.set_head%283%29%0A%20%20%20%20%20%20%20%20Traceback%20%28most%20recent%20call%20last%29%3A%0A%20%20%20%20%20%20%20%20...%0A%20%20%20%20%20%20%20%20ListError%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%281,List%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.set_head%283%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%0A%20%20%20%20%20%20%20%20%283.%28%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%281,List%282,List%28%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l.set_head%283%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%0A%20%20%20%20%20%20%20%20%283.%282.%28%29%29%29%0A%20%20%20%20%20%20%20%20'''%20%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ListError%28%22can't%20change%20head%20of%20an%20empty%20list%22%29%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.__cell%5B'head'%5D%20%3D%20e%0A%20%20%20%20%0A%20%20%20%20def%20__repr__%20%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Returns%20the%20dot%20notation%20of%20a%20list%0A%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20l%20%3D%20List%281,%28List%282,%28List%283,List%28%29%29%29%29%29%29%0A%20%20%20%20%20%20%20%20%3E%3E%3E%20repr%28l%29%0A%20%20%20%20%20%20%20%20'%281.%282.%283.%28%29%29%29%29'%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20'%28%29'%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20'%28'%2Brepr%28self.head%28%29%29%2B'.'%2Brepr%28self.tail%28%29%29%2B'%29'%0A%20%20%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20l1%20%3D%20List%281,List%282,List%28%29%29%29%0A%20%20%20%20l2%20%3D%20List%283,List%284,List%28%29%29%29%0A%20%20%20%20l1.set_tail%28l2%29%0A&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">ce lien sur PythonTutor</a> ce qui se passe
-au niveau de la structure de données lorsqu&rsquo;on exécute le code
+au niveau de la structure de données lorsqu'on exécute le code
 suivant :</li>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt;&gt;&gt; l1 = List(1,List(2,List()))
@@ -7749,10 +7782,10 @@ suivant :</li>
 <li>Que va afficher <code>print(l1)</code> ? <code>print(l2)</code> ?</li>
 </ul>
 <p>Vous observerez que le chaînage des éléments de la liste a changé, et
-comme la liste dont la tête était 2 n&rsquo;est plus référencée, alors elle
-disparaît de l&rsquo;affichage. Remarquez que la liste vide correspondant à
+comme la liste dont la tête était 2 n'est plus référencée, alors elle
+disparaît de l'affichage. Remarquez que la liste vide correspondant à
 <code>l1.tail().tail()</code> disparaît aussi. Si on avait stocké <code>l1.tail()</code>dans
-une variable, alors ces deux éléments n&rsquo;auraient pas disparu.</p>
+une variable, alors ces deux éléments n'auraient pas disparu.</p>
 <ul>
 <li>Ajouter la méthode <code>append</code> à la classe <code>Extendedlist</code> qui ajoute un
 élément passé en paramètre en queue de la liste sur laquelle la
@@ -7777,7 +7810,7 @@ méthode est invoquée. La liste doit contenir au moins un élément.</li>
 </span><span style="color:#c30"></span><span style="color:#c30">        (1.(2.(3.())))</span><span style="color:#c30">
 </span><span style="color:#c30"></span><span style="color:#c30">        </span><span style="color:#c30">&#39;&#39;&#39;</span>
 </code></pre></div><ul>
-<li>Quels seront les affichages de la séquence d&rsquo;instructions suivante :</li>
+<li>Quels seront les affichages de la séquence d'instructions suivante :</li>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt;&gt;&gt; l1 = Extendedlist(1,Extendedlist(2,Extendedlist()))
 &gt;&gt;&gt; l2 = l1.tail()
@@ -7786,9 +7819,9 @@ méthode est invoquée. La liste doit contenir au moins un élément.</li>
 &gt;&gt;&gt; l1.append(3)
 &gt;&gt;&gt; l1.length()
 &gt;&gt;&gt; l2.length()
-</code></pre></div><h2 id="itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu&rsquo;accéder au i-ème élément</h2>
+</code></pre></div><h2 id="itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu'accéder au i-ème élément</h2>
 <p>Nous allons procéder à une expérience pour comparer le temps
-d&rsquo;exécution des deux fonctions ci-dessous:</p>
+d'exécution des deux fonctions ci-dessous:</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">somme_des_elements_a</span>(l):
     s <span style="color:#555">=</span> <span style="color:#f60">0</span>
     <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(l)):
@@ -7803,21 +7836,21 @@ d&rsquo;exécution des deux fonctions ci-dessous:</p>
 </code></pre></div><p>La différence est simplement la manière dont nous accédons aux
 éléments successifs :</p>
 <ul>
-<li>d&rsquo;un côté en accédant aux éléments par leur indice</li>
-<li>d&rsquo;un autre côté en itérant sur les éléments</li>
+<li>d'un côté en accédant aux éléments par leur indice</li>
+<li>d'un autre côté en itérant sur les éléments</li>
 </ul>
 <h3 id="utilisation-des-fonctions-spéciales-de-python">Utilisation des fonctions spéciales de Python</h3>
 <p>Les fonctions précédentes ne peuvent pas être utilisées directement sur nos <code>Extendedlist</code>.
-Afin de pouvoir garder la même écriture qu&rsquo;avec les listes Python,
+Afin de pouvoir garder la même écriture qu'avec les listes Python,
 nous allons ajouter quelques méthodes spéciales de Python à notre
 classe <code>Extendedlist</code>:</p>
 <ul>
-<li>la méthode <code>__str__</code> permet d&rsquo;obtenir une représentation de l&rsquo;objet sous forme de chaîne de caractères</li>
-<li>la méthode <code>__len__</code> permet d&rsquo;appliquer la fonction <code>len</code> à un objet</li>
+<li>la méthode <code>__str__</code> permet d'obtenir une représentation de l'objet sous forme de chaîne de caractères</li>
+<li>la méthode <code>__len__</code> permet d'appliquer la fonction <code>len</code> à un objet</li>
 <li>la méthode <code>__getitem__</code> permet l'écriture avec <code>[i]</code> pour obtenir l'élément en position <code>i</code></li>
 <li>les méthodes <code>__next__</code> et <code>__iter__</code> permettent l'écriture de boucle <code>for elt in</code></li>
 </ul>
-<p>Récupérer le code ci-dessous et l&rsquo;ajouter au code de la classe <code>Extendedlist</code></p>
+<p>Récupérer le code ci-dessous et l'ajouter au code de la classe <code>Extendedlist</code></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">def</span> __str__ (self):
         <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>toString()
 
@@ -7845,7 +7878,7 @@ classe <code>Extendedlist</code>:</p>
 
 </code></pre></div><h3 id="expérimenter">Expérimenter</h3>
 <ul>
-<li>Écrire un programme Python, utilisant les listes de type <code>Extendedlist</code> et des listes Python, et qui calcule le temps d&rsquo;exécution des deux fonctions sommes pour :
+<li>Écrire un programme Python, utilisant les listes de type <code>Extendedlist</code> et des listes Python, et qui calcule le temps d'exécution des deux fonctions sommes pour :
 <ul>
 <li>des listes contenant 500, 1000, 1500, 2500, 3000 entiers</li>
 <li>avec des listes de type <code>Extendedlist</code></li>
@@ -7854,43 +7887,43 @@ classe <code>Extendedlist</code>:</p>
 </li>
 </ul>
 <p>On en profitera pour calculer également le rapport de temps des deux fonctions somme pour les deux types de listes.</p>
-<p>On rappelle qu&rsquo;on peut utiliser le module <code>timeit</code> pour calculer le
+<p>On rappelle qu'on peut utiliser le module <code>timeit</code> pour calculer le
 temps mis par une fonction. Le paramètre <code>number</code> de la fonction
-<code>timeit</code> permet de demander la répétition de l&rsquo;expérience un certain
+<code>timeit</code> permet de demander la répétition de l'expérience un certain
 nombre de fois. Pour une expérimentation qui fasse du sens, il faut
-bien sûr que ce nombre soit plus grand que 1. On remarquera que c&rsquo;est
+bien sûr que ce nombre soit plus grand que 1. On remarquera que c'est
 le temps total qui est retourné par <code>timeit</code>, pas le temps moyen.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        d <span style="color:#555">=</span> timeit<span style="color:#555">.</span>timeit(<span style="color:#069;font-weight:bold">lambda</span>: somme_des_elements_a(l), number <span style="color:#555">=</span> <span style="color:#f60">1</span>)
 </code></pre></div><ul>
-<li>comparer les temps d&rsquo;exécution en utilisant les listes natives de Python et notre implantation</li>
+<li>comparer les temps d'exécution en utilisant les listes natives de Python et notre implantation</li>
 </ul>
-<p>Pour observer l'évolution des temps d&rsquo;exécution, vous pouvez tracer un
-graphique de ces temps, en utilisant <code>pylab</code> (comme vous l&rsquo;avez déjà fait pour
+<p>Pour observer l'évolution des temps d'exécution, vous pouvez tracer un
+graphique de ces temps, en utilisant <code>pylab</code> (comme vous l'avez déjà fait pour
 <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/tree/master/bloc1/wator#compl%C3%A9ments">Wator</a>).
 Contrairement à Wator, il pourrait être utile de tracer un graphique avec une
-échelle logarithmique sur l&rsquo;axe des ordonnées, ce qui nécessitera d&rsquo;utiliser
+échelle logarithmique sur l'axe des ordonnées, ce qui nécessitera d'utiliser
 <code>pylab.semilogy(data_x, data_y)</code> au lieu de <code>pylab.plot(data_x, data_y)</code>.</p>
 <ul>
-<li>comparer les temps d&rsquo;exécution des deux fonctions pour notre implantation, pouvait-on s&rsquo;attendre au résultat observé ?</li>
-<li>comparer les temps d&rsquo;exécution des deux fonctions pour les listes natives de Python, pouvait-on s&rsquo;attendre au résultat observé ?</li>
+<li>comparer les temps d'exécution des deux fonctions pour notre implantation, pouvait-on s'attendre au résultat observé ?</li>
+<li>comparer les temps d'exécution des deux fonctions pour les listes natives de Python, pouvait-on s'attendre au résultat observé ?</li>
 </ul>
 <h3 id="conclusion">Conclusion</h3>
-<p>En réalité, la structure de liste en Python n&rsquo;est pas celle que nous croyons. Ce n&rsquo;est pas la structure de données communément appelée liste. Celle-ci ressemble plus à un tableau qu'à une liste.</p>
+<p>En réalité, la structure de liste en Python n'est pas celle que nous croyons. Ce n'est pas la structure de données communément appelée liste. Celle-ci ressemble plus à un tableau qu'à une liste.</p>
 <p><strong>Quelles différences ?</strong></p>
-<p>Dans un tableau les éléments sont alloués de manière consécutive en mémoire, ce qui fait que la complexité d&rsquo;accès au i-ème élément est attendue en temps constant : un simple calcul d&rsquo;adresse permet d&rsquo;y accéder. L&rsquo;inconvénient est que le tableau ne peut être redimensionné. Alors que dans la liste, les éléments sont alloués à chaque fois qu&rsquo;un élément est ajouté en tête, ce qui fait qu&rsquo;ils ne sont pas nécessairement alloués consécutivement. Il est nécessaire de parcourir la liste pour accéder au i-ème.</p>
-<p>En Python la structure est plus complexe. Pour garantir une bonne efficacité la liste Python utilise des tableaux tout en permettant un redimensionnement (i.e. l&rsquo;ajout d&rsquo;un nouvel élément). Pour comprendre comment cela fonctionne on pourra se plonger dans le code C de l&rsquo;implantation de Python ou bien <a href="https://www.laurentluce.com/posts/python-list-implementation/">lire ceci (an anglais)</a>.</p>
-<p>Vous aurez peut-être noté également que l&rsquo;itération est plus rapide avec les
-« listes » natives de Python plutôt qu&rsquo;avec nos Extendedlist. Cela peut
-sembler étrange puisque dans les deux cas l&rsquo;opération est en temps constant.
+<p>Dans un tableau les éléments sont alloués de manière consécutive en mémoire, ce qui fait que la complexité d'accès au i-ème élément est attendue en temps constant : un simple calcul d'adresse permet d'y accéder. L'inconvénient est que le tableau ne peut être redimensionné. Alors que dans la liste, les éléments sont alloués à chaque fois qu'un élément est ajouté en tête, ce qui fait qu'ils ne sont pas nécessairement alloués consécutivement. Il est nécessaire de parcourir la liste pour accéder au i-ème.</p>
+<p>En Python la structure est plus complexe. Pour garantir une bonne efficacité la liste Python utilise des tableaux tout en permettant un redimensionnement (i.e. l'ajout d'un nouvel élément). Pour comprendre comment cela fonctionne on pourra se plonger dans le code C de l'implantation de Python ou bien <a href="https://www.laurentluce.com/posts/python-list-implementation/">lire ceci (an anglais)</a>.</p>
+<p>Vous aurez peut-être noté également que l'itération est plus rapide avec les
+« listes » natives de Python plutôt qu'avec nos Extendedlist. Cela peut
+sembler étrange puisque dans les deux cas l'opération est en temps constant.
 La différence tient aux accès mémoire. Deux cases consécutives dans un tableau
 sont consécutives en mémoire. Récupérer la case suivante est donc très peu
 coûteux car une partie, voire la totalité, du tableau a été placée dans la mémoire cache. À
-l&rsquo;inverse, pour accéder à l'élément suivant d&rsquo;une <code>Extendedlist</code>, il est
-nécessaire d&rsquo;accéder à une autre <code>ExtendedList</code> qui peut (ou pas) être
-consécutive en mémoire. Avec les <code>ExtendedList</code> il est possible qu&rsquo;il y ait
-besoin d&rsquo;aller chercher l&rsquo;objet dans la mémoire centrale, et non dans la mémoire cache
+l'inverse, pour accéder à l'élément suivant d'une <code>Extendedlist</code>, il est
+nécessaire d'accéder à une autre <code>ExtendedList</code> qui peut (ou pas) être
+consécutive en mémoire. Avec les <code>ExtendedList</code> il est possible qu'il y ait
+besoin d'aller chercher l'objet dans la mémoire centrale, et non dans la mémoire cache
 du processeur, ce qui est une opération bien plus coûteuse. Cela explique les
-différences de temps observées entre l&rsquo;itération sur des <code>Extendedlist</code> et avec des « listes »
+différences de temps observées entre l'itération sur des <code>Extendedlist</code> et avec des « listes »
 natives Python.</p>
 </article>
 
@@ -7927,7 +7960,7 @@ natives Python.</p>
   <ul>
     <li><a href="#la-structure-de-données">La structure de données</a>
       <ul>
-        <li><a href="#quest-ce-quune-liste-">Qu&rsquo;est ce qu&rsquo;une liste ?</a></li>
+        <li><a href="#quest-ce-quune-liste-">Qu'est ce qu'une liste ?</a></li>
         <li><a href="#primitives-sur-les-listes">Primitives sur les listes</a></li>
       </ul>
     </li>
@@ -7948,7 +7981,7 @@ natives Python.</p>
     </li>
     <li><a href="#changer-de-représentation-des-listes">Changer de représentation des listes</a></li>
     <li><a href="#listes-mutables">Listes mutables</a></li>
-    <li><a href="#itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu&rsquo;accéder au i-ème élément</a>
+    <li><a href="#itérer-sur-des-listes-plutôt-quaccéder-au-i-ème-élément">Itérer sur des listes plutôt qu'accéder au i-ème élément</a>
       <ul>
         <li><a href="#utilisation-des-fonctions-spéciales-de-python">Utilisation des fonctions spéciales de Python</a></li>
         <li><a href="#expérimenter">Expérimenter</a></li>

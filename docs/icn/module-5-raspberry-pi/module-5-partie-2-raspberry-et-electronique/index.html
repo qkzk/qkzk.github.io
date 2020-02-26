@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7466,81 +7499,81 @@ MathJax.Hub.Config({
 
       
 <article class="markdown"><h2 id="lélectronique-et-le-raspberry-pi">L'électronique et le Raspberry Pi.</h2>
-<p>Le raspberry Pi permet <strong>d’interagir physiquement avec l&rsquo;extérieur</strong>. Ceci est fait en utilisant le GPIO : General Purpose Input and Output (Entrées / sorties d&rsquo;usage général).</p>
-<p>Ce sont des ports d&rsquo;entrée et de sortie couramment employés dans l’électronique. Ces ports sont souvent présents sur des machines et l&rsquo;Arduino et le Raspberry Pi sont les premières cartes à vraiment les avoir démocratisés. Jusqu&rsquo;ici il était préférable de maîtriser un minimum d'électronique avant de commencer à s&rsquo;en servir. Ce n&rsquo;est plus le cas. On peut maintenant inverser les rôles et découvrir l'électronique en créant des projets simples.</p>
+<p>Le raspberry Pi permet <strong>d’interagir physiquement avec l'extérieur</strong>. Ceci est fait en utilisant le GPIO : General Purpose Input and Output (Entrées / sorties d'usage général).</p>
+<p>Ce sont des ports d'entrée et de sortie couramment employés dans l’électronique. Ces ports sont souvent présents sur des machines et l'Arduino et le Raspberry Pi sont les premières cartes à vraiment les avoir démocratisés. Jusqu'ici il était préférable de maîtriser un minimum d'électronique avant de commencer à s'en servir. Ce n'est plus le cas. On peut maintenant inverser les rôles et découvrir l'électronique en créant des projets simples.</p>
 <p>Cette présentation vise à vous familiariser avec le GPIO. Je pars du principe que vous ne connaissez rien ou presque à ce sujet et vais donc tâcher de exposer les grandes lignes.</p>
 <h3 id="présentation-du-gpio">Présentation du GPIO.</h3>
 <p>Le GPIO des raspberry Pi 2, 3 et zero se présente sous la forme de 40 pins qui sont organisés de la même manière sur toutes ces cartes.</p>
 <p>Le site de référence (à mes yeux) pour explorer les possibilités du GPIO est <a href="https://fr.pinout.xyz/">pinout.xyz</a>. Entièrement traduit en français il propose les trois numérotations (!) courantes.</p>
 <p>Commençons par regarder le raspberry et apprendre à se repérer. Ouvrez le site <a href="https://fr.pinout.xyz/">pinout.xyz</a> et réduisez les dimensions de la fenêtre afin de lire ce document en même temps.</p>
 <p><img src="/uploads/uploads/2017/06/Raspberry_Pi_2_Model_B_v1.1_top_new-683x1024.jpg" alt="Raspberry_Pi_2_Model_B_v1.1_top_new"></p>
-<p>Voici l&rsquo;orientation du raspberry permettant le mieux de se repérer. Le pin physique numéro 1 est celui en haut à gauche. Le 2 est à sa droite et on continue ainsi de suite. Toute la colonne de gauche est impaire (1, 3, 5 etc.) et celle de droite paire (2, 4, 6). <strong>Quel est le numéro physique du dernier pin en bas à gauche ?</strong></p>
-<p>Cette numérotation, physique, n&rsquo;est pas celle que vous rencontrerez le plus souvent. Il en existe deux autres : <strong>BCM</strong> numbering (parfois référence en GPIO numbering) et <strong>WiringPi</strong> numbering.</p>
+<p>Voici l'orientation du raspberry permettant le mieux de se repérer. Le pin physique numéro 1 est celui en haut à gauche. Le 2 est à sa droite et on continue ainsi de suite. Toute la colonne de gauche est impaire (1, 3, 5 etc.) et celle de droite paire (2, 4, 6). <strong>Quel est le numéro physique du dernier pin en bas à gauche ?</strong></p>
+<p>Cette numérotation, physique, n'est pas celle que vous rencontrerez le plus souvent. Il en existe deux autres : <strong>BCM</strong> numbering (parfois référence en GPIO numbering) et <strong>WiringPi</strong> numbering.</p>
 <h3 id="quel-est-le-rôle-des-pins-">Quel est le rôle des pins ?</h3>
 <p>On peut découper les fonctions du GPIO en 5 grandes catégories.</p>
 <pre><code>  1. Les pins **d'alimentation**. On en compte quatre : deux pins en 3.3 volts et deux pins en 5 volts. **Repérez les sur le raspberry.**
 </code></pre>
 <p>Remarquons que les pins en 3.3V sont limités à 50 mA : de quoi alimenter quelques petits composants. Pas assez pour faire tourner un moteur.
-Les pins en 5 v sont directement raccordés à l&rsquo;alimentation du raspberry. Il faut donc faire très attention si on s&rsquo;en sert. Il est d&rsquo;ailleurs possible d&rsquo;alimenter le raspberry lui même en employant ces pins.
-2. Les <strong>GROUNDS</strong>. Souvent référencés en GND ou Masse pour les docs en français. Ils permettent de fermer un circuit électrique. L&rsquo;alimentation électrique d&rsquo;un composant nécessite toujours un circuit fermé
+Les pins en 5 v sont directement raccordés à l'alimentation du raspberry. Il faut donc faire très attention si on s'en sert. Il est d'ailleurs possible d'alimenter le raspberry lui même en employant ces pins.
+2. Les <strong>GROUNDS</strong>. Souvent référencés en GND ou Masse pour les docs en français. Ils permettent de fermer un circuit électrique. L'alimentation électrique d'un composant nécessite toujours un circuit fermé
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Ohm%27s_Law_with_Voltage_source_TeX.svg" alt=""></p>
-<p>C&rsquo;est un peu plus compliqué en réalité mais disons que le courant circule du &ldquo;plus&rdquo; vers le &ldquo;moins&rdquo;. Dans le montage ci-dessous le plus serait un pin 3.3v du rapsberry et le moins un des grounds.
-L&rsquo;alimentation est symbolisée par le rond à gauche, et le R à droite représente une résistance. Ce montage electrique est grosso modo celui d&rsquo;un radiateur électrique ou d&rsquo;un grille pain ! Ajoutons une led et voici un premier montage. Vous le réaliserez bientôt.
+<p>C'est un peu plus compliqué en réalité mais disons que le courant circule du &ldquo;plus&rdquo; vers le &ldquo;moins&rdquo;. Dans le montage ci-dessous le plus serait un pin 3.3v du rapsberry et le moins un des grounds.
+L'alimentation est symbolisée par le rond à gauche, et le R à droite représente une résistance. Ce montage electrique est grosso modo celui d'un radiateur électrique ou d'un grille pain ! Ajoutons une led et voici un premier montage. Vous le réaliserez bientôt.
 <img src="https://www.raspberrypi.org/learning/robot-antenna/images/gpio.png" alt=""></p>
-<p>Le &ldquo;truc&rdquo; rouge est une LED, c&rsquo;est d&rsquo;une diode électroluminescente (yeah). Elle est orientée - comme une pile, on dit qu&rsquo;elle est polarisée - et on se repère facilement ainsi : la tige courte part vers le moins (ground), la tige longue vers le plus (3.3 V).
-L&rsquo;espèce d&rsquo;haltère marron est une résistance (qui protège la LED). On peut connaître la résistivité de celle-ci en repérant les stries colorées qu&rsquo;elle présente. On trouve facilement sur internet les correspondances entre couleur et valeur.
-Ce montage n&rsquo;a aucun intérêt : la LED s&rsquo;allume, point.Les grounds sont tous raccordés entre eux, on peut les échanger à notre convenance.
+<p>Le &ldquo;truc&rdquo; rouge est une LED, c'est d'une diode électroluminescente (yeah). Elle est orientée - comme une pile, on dit qu'elle est polarisée - et on se repère facilement ainsi : la tige courte part vers le moins (ground), la tige longue vers le plus (3.3 V).
+L'espèce d'haltère marron est une résistance (qui protège la LED). On peut connaître la résistivité de celle-ci en repérant les stries colorées qu'elle présente. On trouve facilement sur internet les correspondances entre couleur et valeur.
+Ce montage n'a aucun intérêt : la LED s'allume, point.Les grounds sont tous raccordés entre eux, on peut les échanger à notre convenance.
 <strong>Combien le rapsberry comporte-t-il de ground ? Comptez les sur pinout.xyz.</strong>
-Astuce : si vous cliquez sur un ground, les autres s&rsquo;affichent aussi  !
+Astuce : si vous cliquez sur un ground, les autres s'affichent aussi  !
 Les autres pins ont trois fonctions possibles.
-3. Les <strong>Sorties</strong> &ldquo;standard&rdquo;. Tous les autres pins peuvent peuvent émettre un courant à notre convenance. La tension est alors +3.3V et l&rsquo;intensité maximale celle du +3.3V soit 50 mA.
+3. Les <strong>Sorties</strong> &ldquo;standard&rdquo;. Tous les autres pins peuvent peuvent émettre un courant à notre convenance. La tension est alors +3.3V et l'intensité maximale celle du +3.3V soit 50 mA.
 <img src="https://leanpub.com/site_images/rpiintheclassroom/led-gpio17.png" alt=""></p>
-<p>Ce montage est déjà plus intéressant ! Le + est ici le pin noté (GP17), sa numérotation physique est 11. On peut allumer (à l&rsquo;aide d&rsquo;un petit programme) ou éteindre la LED quand ça nous chante.
+<p>Ce montage est déjà plus intéressant ! Le + est ici le pin noté (GP17), sa numérotation physique est 11. On peut allumer (à l'aide d'un petit programme) ou éteindre la LED quand ça nous chante.
 Si vous réalisez ce montage sans rien programmer il ne se passera rien ! Par défaut tous les pins sont en mode &ldquo;entrée&rdquo;.
 <img src="http://akshaim.in/4DIAC/images/Chapter_3/Pi_Blink.gif" alt=""></p>
 <pre><code>  4. Entrée &quot;standard&quot;. Ils peuvent recevoir un signal digital et donc servir de lecteur d'interrupteur. Dans un programme on aura donc une commande d'écoute sur un des pins et, lorsqu'un signal est reçu, on pourra l'interpréter.
 </code></pre>
 <p>Voici, par exemple, un simple bouton raccordé en entrée.
-Remarquons qu&rsquo;on alimente le bouton en +3.3 V. D&rsquo;après ce qu&rsquo;on a dit plus haut concernant les circuits électriques cela signifie que le pin d&rsquo;entrée est vu comme une masse.
+Remarquons qu'on alimente le bouton en +3.3 V. D'après ce qu'on a dit plus haut concernant les circuits électriques cela signifie que le pin d'entrée est vu comme une masse.
 <img src="http://www.scratchmypi.co.uk/wp-content/uploads/2014/05/pushuppi_bb-1024x959.png" alt="">
-<em>Le grand rectangle blanc au centre de l&rsquo;image est un **breadboard.
-**Il est découpé en 4 parties similaires. Les traits verticaux tout à gauche et à droite sont reliés entre eux. On relie généralement l&rsquo;alimentation sur le rouge, la masse sur le bleu.</em>
+<em>Le grand rectangle blanc au centre de l'image est un **breadboard.
+**Il est découpé en 4 parties similaires. Les traits verticaux tout à gauche et à droite sont reliés entre eux. On relie généralement l'alimentation sur le rouge, la masse sur le bleu.</em>
 _La partie centrale fonctionne différemment. Les LIGNES horizontales sont reliées entre elles. Ce qui permet la connexion du circuit que vous voyez.
 _
-5. Les autres fonctions sont, pour l&rsquo;instant, toutes regroupées dans cette catégorie. Disons simplement que tous les pins (sauf alimentations et masses) peut être des entrées et sorties standard mais seuls certains peuvent servir aux autres fonctions.
-Ces fonctions permettent de réaliser des montages beaucoup plus complexes : alimentation de moteur, lecture de valeurs (température renvoyée par un capteur), gestion d&rsquo;un écran à cristaux liquides etc.
+5. Les autres fonctions sont, pour l'instant, toutes regroupées dans cette catégorie. Disons simplement que tous les pins (sauf alimentations et masses) peut être des entrées et sorties standard mais seuls certains peuvent servir aux autres fonctions.
+Ces fonctions permettent de réaliser des montages beaucoup plus complexes : alimentation de moteur, lecture de valeurs (température renvoyée par un capteur), gestion d'un écran à cristaux liquides etc.
 Parmi ces fonctions citons :
-<strong>I2C</strong> qui permet de connecter de nombreux périphériques à l&rsquo;aide de 4 broches seulement (pin 3 et 5 pour les données et l&rsquo;horloge, une masse et une alimentation).
+<strong>I2C</strong> qui permet de connecter de nombreux périphériques à l'aide de 4 broches seulement (pin 3 et 5 pour les données et l'horloge, une masse et une alimentation).
 <img src="/uploads/uploads/2017/06/grove-lcd-rgb_bb-1024x695.png" alt="grove-lcd-rgb_bb"></p>
-<p>_Un écran à cristaux liquides RGB raccordés à un raspberry. La &ldquo;logique&rdquo; électronique de cet écran est 5V il faut donc l&rsquo;alimenter en 5V (fil rouge). Les informations (fils blanc et jaune) transitent par un convertisseur de niveau logique (le carré rouge) (à gauche 3.3V, à droite 5V). Le circuit est complété par une masse (fil noir) qui transite elle aussi par le convertisseur.
-Ajoutons un capteur d&rsquo;humidité et de température et voilà ce qu&rsquo;on peut réaliser :
+<p>_Un écran à cristaux liquides RGB raccordés à un raspberry. La &ldquo;logique&rdquo; électronique de cet écran est 5V il faut donc l'alimenter en 5V (fil rouge). Les informations (fils blanc et jaune) transitent par un convertisseur de niveau logique (le carré rouge) (à gauche 3.3V, à droite 5V). Le circuit est complété par une masse (fil noir) qui transite elle aussi par le convertisseur.
+Ajoutons un capteur d'humidité et de température et voilà ce qu'on peut réaliser :
 <img src="https://32414320wji53mwwch1u68ce-wpengine.netdna-ssl.com/wp-content/uploads/2014/08/GrovePi_Home_Weather_Station_display.jpg" alt="">
 _
 Evoquons aussi <strong>SPI</strong> qui permet de réaliser de multiples liaisons séries (pour connecter un Arduino ou un microcontrôleur).
-D&rsquo;autre standards de l'électronique sont incorporés mais ce n&rsquo;est pas notre but que de les présenter tous ici.
+D'autre standards de l'électronique sont incorporés mais ce n'est pas notre but que de les présenter tous ici.
 Si ces technologies vous intéressent elles sont présentées sur pinout.xyz</p>
-<h3 id="est-ce-aussi-bien-quun-arduino-">Est-ce aussi bien qu&rsquo;un Arduino ?</h3>
-<p>Le concept est différent ! Un arduino ne fait que de l'électronique et il la fait mieux qu&rsquo;un raspberry. En effet l&rsquo;arduino n&rsquo;est pas un ordinateur, pas de système d&rsquo;exploitation, pas de clavier, souris, caméra. Pas de jeux etc.
-L&rsquo;arduino propose aussi nativement de la lecture <strong>analogique : il peut mesurer une tension, une résistivité etc.</strong>
+<h3 id="est-ce-aussi-bien-quun-arduino-">Est-ce aussi bien qu'un Arduino ?</h3>
+<p>Le concept est différent ! Un arduino ne fait que de l'électronique et il la fait mieux qu'un raspberry. En effet l'arduino n'est pas un ordinateur, pas de système d'exploitation, pas de clavier, souris, caméra. Pas de jeux etc.
+L'arduino propose aussi nativement de la lecture <strong>analogique : il peut mesurer une tension, une résistivité etc.</strong>
 Pour faire cela avec un raspberry il faut une puce supplémentaire.
-D&rsquo;autre part, l&rsquo;arduino est plus fiable que le raspberry. Ce n&rsquo;est pas son objectif mais l&rsquo;arduino pourrait être employé dans l&rsquo;industrie. Une fois correctement programmé il tourne indéfiniment et fait exactement ce qu&rsquo;on attend de lui.
-Le raspberry est plus complexe et peut planter ou ramer comme n&rsquo;importe quel ordinateur.
-Enfin, bien qu&rsquo;il existe un raspberry zero à 5€, il est difficile de se le procurer sans devoir acheter un pack complet qui coûte vite 25€&hellip; et il faut encore souder etc.
-L&rsquo;arduino mini se trouve à 1.50€ sur des sites grands publics. Vous aurez alors un &ldquo;remake&rdquo; totalement identique fabriqué en Chine. C&rsquo;est légal, je vous l&rsquo;assure.</p>
+D'autre part, l'arduino est plus fiable que le raspberry. Ce n'est pas son objectif mais l'arduino pourrait être employé dans l'industrie. Une fois correctement programmé il tourne indéfiniment et fait exactement ce qu'on attend de lui.
+Le raspberry est plus complexe et peut planter ou ramer comme n'importe quel ordinateur.
+Enfin, bien qu'il existe un raspberry zero à 5€, il est difficile de se le procurer sans devoir acheter un pack complet qui coûte vite 25€&hellip; et il faut encore souder etc.
+L'arduino mini se trouve à 1.50€ sur des sites grands publics. Vous aurez alors un &ldquo;remake&rdquo; totalement identique fabriqué en Chine. C'est légal, je vous l'assure.</p>
 <h3 id="comment-cela-fonctionne-t-il-">Comment cela fonctionne-t-il ?</h3>
 <p>Des variantes existent mais grosso-mode toutes reprennent le même principe.</p>
 <pre><code>  1. On réalise un montage électronique en s'aidant d'un schéma (ou alors on en invente un !)
   2. On installe éventuellement une librairie propre à un langage de programmation (Python, C etc.) et on se documente un peu sur son fonctionnement
   3. On écrit un programme dans ce langage, on le lance et hop, le tour est joué.
 </code></pre>
-<p>La majorité des projets disponibles sur internet proposent le montage électronique et le code qui les accompagne. Les plus aboutis peuvent rarement être reproduits à l&rsquo;identique : il faut exactement le même matériel et les mêmes installations&hellip;</p>
+<p>La majorité des projets disponibles sur internet proposent le montage électronique et le code qui les accompagne. Les plus aboutis peuvent rarement être reproduits à l'identique : il faut exactement le même matériel et les mêmes installations&hellip;</p>
 <h3 id="les-librairies-les-plus-courantes">Les librairies les plus courantes</h3>
-<p>La libraire historique est **<a href="https://pypi.python.org/pypi/RPi.GPIO">RPi.GPIO</a>. **C&rsquo;est une librairie Python installée par défaut dans raspbian. Elle est assez simple et puissante. Vous trouverez des tonnes de scripts l&rsquo;utilisant.
-Il convient d&rsquo;apprendre à s&rsquo;en servir, au moins de manière rudimentaire.
-Elle n&rsquo;est pas toujours intuitive mais permet de comprendre assez bien ce qui se passe.</p>
-<p>Ensuite vint <strong><a href="http://wiringpi.com/">WiringPi</a>.</strong> C&rsquo;est une librairie très puissante qui gère toutes les possibilités du GPIO. Développée en C elle fonctionne directement dans le shell (la console). Des adaptations au langage Python sont proposées mais méfiance, certaines sont incompatibles avec vos programmes.
+<p>La libraire historique est **<a href="https://pypi.python.org/pypi/RPi.GPIO">RPi.GPIO</a>. **C'est une librairie Python installée par défaut dans raspbian. Elle est assez simple et puissante. Vous trouverez des tonnes de scripts l'utilisant.
+Il convient d'apprendre à s'en servir, au moins de manière rudimentaire.
+Elle n'est pas toujours intuitive mais permet de comprendre assez bien ce qui se passe.</p>
+<p>Ensuite vint <strong><a href="http://wiringpi.com/">WiringPi</a>.</strong> C'est une librairie très puissante qui gère toutes les possibilités du GPIO. Développée en C elle fonctionne directement dans le shell (la console). Des adaptations au langage Python sont proposées mais méfiance, certaines sont incompatibles avec vos programmes.
 On la réservera à des projets avancés (moteurs en particulier).</p>
-<p>Une nouveauté : **<a href="https://gpiozero.readthedocs.io/en/stable/">gpioZero</a>. **Développée dans l&rsquo;optique de simplifier la découverte de l'électronique elle est assez puissante et TRES SIMPLE d&rsquo;emploi.</p>
+<p>Une nouveauté : **<a href="https://gpiozero.readthedocs.io/en/stable/">gpioZero</a>. **Développée dans l'optique de simplifier la découverte de l'électronique elle est assez puissante et TRES SIMPLE d'emploi.</p>
 <pre><code>from gpiozero import LED
 from time import sleep
 
@@ -7553,7 +7586,7 @@ while True:
     sleep(1)
 </code></pre>
 <p>Et hop vous avez une led qui clignote toutes les secondes. Les autres recettes proposées sur gpioZero sont du même ordre : simples et lisibles. Nous allons en découvrir quelques unes.</p>
-<p>Enfin, certains fabricants d'électronique proposent leurs propres librairies. Citons <a href="https://www.adafruit.com/">Adafruit</a> qui publie aussi une tonne de tutoriels et une plateforme dédiée à l&rsquo;IoT (internet des objets, domotique etc.) mais aussi <a href="https://www.sparkfun.com/">Sparkfun</a> ou <a href="http://wiki.seeed.cc/Grove_System/">Grove</a>.</p>
+<p>Enfin, certains fabricants d'électronique proposent leurs propres librairies. Citons <a href="https://www.adafruit.com/">Adafruit</a> qui publie aussi une tonne de tutoriels et une plateforme dédiée à l'IoT (internet des objets, domotique etc.) mais aussi <a href="https://www.sparkfun.com/">Sparkfun</a> ou <a href="http://wiki.seeed.cc/Grove_System/">Grove</a>.</p>
 <p>Nous allons maintenant réaliser quelques montages utilisant les composants présents dans le kit de démarrage.</p>
 </article>
 
@@ -7592,7 +7625,7 @@ while True:
       <ul>
         <li><a href="#présentation-du-gpio">Présentation du GPIO.</a></li>
         <li><a href="#quel-est-le-rôle-des-pins-">Quel est le rôle des pins ?</a></li>
-        <li><a href="#est-ce-aussi-bien-quun-arduino-">Est-ce aussi bien qu&rsquo;un Arduino ?</a></li>
+        <li><a href="#est-ce-aussi-bien-quun-arduino-">Est-ce aussi bien qu'un Arduino ?</a></li>
         <li><a href="#comment-cela-fonctionne-t-il-">Comment cela fonctionne-t-il ?</a></li>
         <li><a href="#les-librairies-les-plus-courantes">Les librairies les plus courantes</a></li>
       </ul>

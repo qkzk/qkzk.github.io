@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7468,11 +7501,11 @@ MathJax.Hub.Config({
 <article class="markdown"><h1 id="englober-notre-neurone-dans-une-classe">Englober notre neurone dans une classe</h1>
 <p>Dans la précédente partie nous avons crée un simple neurone qui prédit une
 sortie et résout un problème très simple.</p>
-<p>Avant d&rsquo;aborder des problèmes plus délicats comme la classification d&rsquo;images
-nous allons rendre ce premier neurone un peu plus commode en l&rsquo;englobant
+<p>Avant d'aborder des problèmes plus délicats comme la classification d'images
+nous allons rendre ce premier neurone un peu plus commode en l'englobant
 dans une classe.</p>
 <h2 id="les-classes">Les classes</h2>
-<p><em>Nous n&rsquo;allons pas utiliser énormément de notions liées au classes, seulement
+<p><em>Nous n'allons pas utiliser énormément de notions liées au classes, seulement
 celles au programme de Terminale NSI.</em></p>
 <p>On suppose que vous avez déjà travaillé avec les classes en Python, aussi les
 notions ne seront pas rappelées au fur et à mesure.</p>
@@ -7492,7 +7525,7 @@ notions ne seront pas rappelées au fur et à mesure.</p>
 
 </code></pre></div><h2 id="simoid-et-sa-dérivée">Simoid et sa dérivée</h2>
 <p>Nous allons les intégrer comme deux méthodes à la classe.
-Ce n&rsquo;est pas indispensable mais l&rsquo;idée est d&rsquo;englober les outils dans la classe
+Ce n'est pas indispensable mais l'idée est d'englober les outils dans la classe
 aussi&hellip; Ajoutez ces deux méthodes après <code>__init__</code>.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NeuralNetwork</span>():
 
@@ -7514,10 +7547,10 @@ aussi&hellip; Ajoutez ces deux méthodes après <code>__init__</code>.</p>
 </span><span style="color:#c30"></span><span style="color:#c30">      @return: (float) la dérivée</span><span style="color:#c30">
 </span><span style="color:#c30"></span><span style="color:#c30">      </span><span style="color:#c30">&#39;&#39;&#39;</span>
       <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">*</span> (<span style="color:#f60">1</span> <span style="color:#555">-</span> x)
-</code></pre></div><p>La seule différence avec les fonctions de la version 1 est qu&rsquo;elle prenne aussi
+</code></pre></div><p>La seule différence avec les fonctions de la version 1 est qu'elle prenne aussi
 <code>self</code> en paramètre.</p>
 <h2 id="la-méthode-think">La méthode <code>think</code></h2>
-<p>C&rsquo;est la méthode qui permet au neurone de prédire une résultat en fonction
+<p>C'est la méthode qui permet au neurone de prédire une résultat en fonction
 des poids synaptiques.</p>
 <p>Je ne reviens pas sur la démarche, largement abordée dans la partie précédente.</p>
 <p>Ajoutez la méthode suivante après les fonctions sigmoid.</p>
@@ -7531,7 +7564,7 @@ des poids synaptiques.</p>
     inputs <span style="color:#555">=</span> inputs<span style="color:#555">.</span>astype(<span style="color:#366">float</span>)
     output <span style="color:#555">=</span> self<span style="color:#555">.</span>sigmoid(np<span style="color:#555">.</span>dot(inputs, self<span style="color:#555">.</span>synaptic_weights))
     <span style="color:#069;font-weight:bold">return</span> output
-</code></pre></div><h2 id="lentraînement">L&rsquo;entraînement</h2>
+</code></pre></div><h2 id="lentraînement">L'entraînement</h2>
 <p>À nouveau une seule méthode va suffire, qui va simplement contenir notre
 boucle de la première partie.</p>
 <p>Ajoutez cette dernière méthode à la classe :</p>
@@ -7566,7 +7599,7 @@ boucle de la première partie.</p>
             self<span style="color:#555">.</span>synaptic_weights <span style="color:#555">+</span><span style="color:#555">=</span> adjustments
 </code></pre></div><p>La classe est maintenant terminée.</p>
 <h2 id="la-fonction-main">La fonction <code>main</code></h2>
-<p>Il reste à écrire une fonction qui crée les objets, réalise l&rsquo;entrainement
+<p>Il reste à écrire une fonction qui crée les objets, réalise l'entrainement
 et teste le résultat.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">main</span>():
@@ -7611,23 +7644,23 @@ et teste le résultat.</p>
     <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;</span><span style="color:#c30">Our network thinks :</span><span style="color:#c30">&#34;</span>)
     <span style="color:#069;font-weight:bold">print</span>(test_outputs)
 </code></pre></div><p>On réalise les mêmes calculs que dans la partie précédente.</p>
-<p>D&rsquo;abord on initialise la classe avec <code>neural_network = NeuralNetwork()</code>.
+<p>D'abord on initialise la classe avec <code>neural_network = NeuralNetwork()</code>.
 Cette variable est un objet de la classe <code>NeuralNetwork</code>.</p>
 <p>À cette étape, seule la fonction <code>__init__</code> a été exécutée.
-Ensuite on  crée les deux tableaux pour l&rsquo;entraînement : <code>training_inputs</code> et
+Ensuite on  crée les deux tableaux pour l'entraînement : <code>training_inputs</code> et
 <code>training_outputs</code> comme précédemment.</p>
-<p>On réalise l&rsquo;entrainement en appelant la méthode <code>train</code></p>
-<p>Remarquons qu&rsquo;il ne fait pas faire référence à <code>self</code> dans les paramètres
-d&rsquo;appel d&rsquo;une méthode de classe.</p>
-<p>L&rsquo;entraînement est terminé et on peut tester le réseau avec la
-méthode <code>think</code>. Pour cela on l&rsquo;appelle avec les données de test.</p>
+<p>On réalise l'entrainement en appelant la méthode <code>train</code></p>
+<p>Remarquons qu'il ne fait pas faire référence à <code>self</code> dans les paramètres
+d'appel d'une méthode de classe.</p>
+<p>L'entraînement est terminé et on peut tester le réseau avec la
+méthode <code>think</code>. Pour cela on l'appelle avec les données de test.</p>
 <p>Il ne reste plus qu'à afficher les résultats pour comparer.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>On a maintenant englobé notre réseau dans une classe.
-Ce n&rsquo;est toujours pas un réseau très ambitieux et, à ce point, vous pouvez
+Ce n'est toujours pas un réseau très ambitieux et, à ce point, vous pouvez
 avoir remarqué son défaut majeur : les poids synaptiques obtenus ne sont
 pas formidables&hellip;</p>
-<p>En effet, on l&rsquo;a entraîné avec bien trop peu de données pour qu&rsquo;il soit
+<p>En effet, on l'a entraîné avec bien trop peu de données pour qu'il soit
 efficace !</p>
 <p>Dans la partie suivante nous allons aborder un problème réel et nous allons
 utiliser les méthode abordées ici pour le résoudre : la classification des
@@ -7672,7 +7705,7 @@ nombres.</p>
     <li><a href="#définition-et-initialisation-de-la-classe">Définition et initialisation de la classe.</a></li>
     <li><a href="#simoid-et-sa-dérivée">Simoid et sa dérivée</a></li>
     <li><a href="#la-méthode-think">La méthode think</a></li>
-    <li><a href="#lentraînement">L&rsquo;entraînement</a></li>
+    <li><a href="#lentraînement">L'entraînement</a></li>
     <li><a href="#la-fonction-main">La fonction main</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
     <li><a href="#le-code-complet">le code complet</a></li>

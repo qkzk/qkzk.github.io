@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7466,60 +7499,60 @@ MathJax.Hub.Config({
 
       
 <article class="markdown"><h2 id="prérequis-">Prérequis :</h2>
-<p>il est souhaitable (mais non indispensable) d&rsquo;avoir quelques idées sur les notions de réseau et de client-serveur. Vous trouverez <a href="http://qkzk.xyz/?page_id=631">ici</a> toutes les informations dont vous aurez besoin pour suivre cette série d&rsquo;activités. Des connaissances en JavaScript sont aussi souhaitables.</p>
-<p>Sur internet, il est possible de trouver un grand nombre d&rsquo;informations. Ces informations sont, dans la plupart des cas, stockées sur des serveurs dans des bases de données.</p>
+<p>il est souhaitable (mais non indispensable) d'avoir quelques idées sur les notions de réseau et de client-serveur. Vous trouverez <a href="http://qkzk.xyz/?page_id=631">ici</a> toutes les informations dont vous aurez besoin pour suivre cette série d'activités. Des connaissances en JavaScript sont aussi souhaitables.</p>
+<p>Sur internet, il est possible de trouver un grand nombre d'informations. Ces informations sont, dans la plupart des cas, stockées sur des serveurs dans des bases de données.</p>
 <p>Quand un client interroge un serveur afin de récupérer des données, le serveur effectue une requête auprès de la base de données et renvoie ensuite les informations demandées vers le client.</p>
 <p>Sous quelle forme ces données transitent-elles entre le client et le serveur ?</p>
-<p>Nous n&rsquo;allons pas chercher à être exhaustifs et nous allons uniquement voir 3 exemples : le CSV, le JSON et le geoJSON.</p>
-<p>Vous devez savoir qu&rsquo;il existe d&rsquo;autres formats de données, par exemple le XML (pour en savoir plus sur le XML, vous pouvez consulter le cours proposé par l&rsquo;excellent site openclassrooms : <a href="https://openclassrooms.com/courses/structurez-vos-donnees-avec-xml">ici</a>), mais j&rsquo;ai choisi de me restreindre aux 3 formats évoqués ci-dessus.</p>
+<p>Nous n'allons pas chercher à être exhaustifs et nous allons uniquement voir 3 exemples : le CSV, le JSON et le geoJSON.</p>
+<p>Vous devez savoir qu'il existe d'autres formats de données, par exemple le XML (pour en savoir plus sur le XML, vous pouvez consulter le cours proposé par l'excellent site openclassrooms : <a href="https://openclassrooms.com/courses/structurez-vos-donnees-avec-xml">ici</a>), mais j'ai choisi de me restreindre aux 3 formats évoqués ci-dessus.</p>
 <h2 id="le-format-csv">Le format CSV</h2>
 <p>Premier format que nous allons étudier, le CSV (Comma separated values). Sur de nombreux sites, il est possible de télécharger des fichiers au format csv (nom_du_fichier.csv).</p>
 <p>Voici ce que nous dit Wikipédia sur le format CSV :</p>
 <p><em>Comma-separated values, connu sous le sigle CSV, est un format informatique ouvert représentant des données tabulaires sous forme de valeurs séparées par des virgules.</em></p>
 <p><em>Un fichier CSV est un fichier texte, par opposition aux formats dits « binaires ». Chaque ligne du texte correspond à une ligne du tableau et les virgules correspondent aux séparations entre les colonnes. Les portions de texte séparées par une virgule correspondent ainsi aux contenus des cellules du tableau.</em></p>
-<p>Voici un exemple du contenu d&rsquo;un fichier CSV:</p>
+<p>Voici un exemple du contenu d'un fichier CSV:</p>
 <pre><code>nom,prenom,date_naissance
 Durand,Jean-Pierre,23/05/1985
 Dupont,Christophe,15/12/1967
 Terta,Henry,12/06/1978
 </code></pre>
-<p>Je pense qu&rsquo;il est évident pour vous que nous avons ici 3 personnes :</p>
+<p>Je pense qu'il est évident pour vous que nous avons ici 3 personnes :</p>
 <p>Jean-Pierre Durand qui est né le 23/05/1985
 Christophe Dupont qui est né le 15/12/1967
 Henry Terta qui est né le 12/06/1978</p>
 <p>ATTENTION :</p>
 <p>La virgule est un standard pour les données anglo-saxonnes, mais pas pour les données aux normes françaises. En effet, en français, la virgule est le séparateur des chiffres décimaux. Il serait impossible de différencier les virgules des décimaux et les virgules de séparation des informations. C’est pourquoi on utilise un autre séparateur : le point-virgule (;). Dans certains cas cela peut engendrer quelques problèmes, vous devrez donc rester vigilants sur le type de séparateur utilisé.</p>
-<p>Les tableurs, tels que &ldquo;Calc&rdquo; (Libre Office), sont normalement capables de lire les fichiers au format CSV. J&rsquo;ai précisé &ldquo;normalement&rdquo; car certains tableurs gèrent mal le séparateur CSV &ldquo;point-virgule&rdquo; et le séparateur des chiffres décimaux &ldquo;virgule&rdquo;.</p>
+<p>Les tableurs, tels que &ldquo;Calc&rdquo; (Libre Office), sont normalement capables de lire les fichiers au format CSV. J'ai précisé &ldquo;normalement&rdquo; car certains tableurs gèrent mal le séparateur CSV &ldquo;point-virgule&rdquo; et le séparateur des chiffres décimaux &ldquo;virgule&rdquo;.</p>
 <h4 id="à-faire-vous-même-11">À faire vous-même 1.1</h4>
-<p>Après avoir téléchargé le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ident_pointVirgule.csv</a>, ouvrez ce dernier à l&rsquo;aide d&rsquo;un tableur.</p>
+<p>Après avoir téléchargé le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ident_pointVirgule.csv</a>, ouvrez ce dernier à l'aide d'un tableur.</p>
 <p>Si par hasard votre tableur ne gère pas correctement le fichier avec le séparateur &ldquo;point-virgule&rdquo;, voici une version &ldquo;séparateur virgule&rdquo; du fichier : <a href="https://pixees.fr/informatiquelycee/asset/ident_virgule.csv">ident_virgule.csv</a></p>
-<p>Dans la suite, gardez toujours cet éventuel problème à l&rsquo;esprit (surtout avec des données &ldquo;made in France&rdquo;)</p>
+<p>Dans la suite, gardez toujours cet éventuel problème à l'esprit (surtout avec des données &ldquo;made in France&rdquo;)</p>
 <hr>
 <p>Vous devriez obtenir ceci :</p>
 <p><img src="https://pixees.fr/informatiquelycee/img/procAnDo_a1_1.png" alt=""></p>
 <p>Vous pouvez constater que les données sont bien &ldquo;rangées&rdquo; dans un tableau avec des lignes et des colonnes (voilà pourquoi on parle de données tabulaires.</p>
-<p>Il est possible de trouver sur le web des données beaucoup plus intéressantes à traiter que celles contenues dans le fichier &ldquo;ident_pointVirgule.csv&rdquo; (ou &ldquo;ident_virgule.csv&rdquo;). Par exemple, le site <a href="http://sql.sh/736-base-donnees-villes-francaises">sql.sh</a>, propose un fichier csv contenant des informations sur l&rsquo;ensemble des communes françaises.</p>
+<p>Il est possible de trouver sur le web des données beaucoup plus intéressantes à traiter que celles contenues dans le fichier &ldquo;ident_pointVirgule.csv&rdquo; (ou &ldquo;ident_virgule.csv&rdquo;). Par exemple, le site <a href="http://sql.sh/736-base-donnees-villes-francaises">sql.sh</a>, propose un fichier csv contenant des informations sur l'ensemble des communes françaises.</p>
 <h4 id="à-faire-vous-même-12">À faire vous-même 1.2</h4>
-<p>Ouvrez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ville_point_virgule.csv</a> à l&rsquo;aide d&rsquo;un tableur (c’est une version légèrement modifiée de celle disponible sur le site sql.sh, j’y ai notamment ajouté des entêtes). En cas de problème avec votre tableur, voici une version &ldquo;séparateur virgule&rdquo; : <a href="https://pixees.fr/informatiquelycee/asset/ident_virgule.csv">ville_virgule.csv</a> (attention le séparateur &ldquo;décimal&rdquo; est ici le point)</p>
+<p>Ouvrez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ville_point_virgule.csv</a> à l'aide d'un tableur (c’est une version légèrement modifiée de celle disponible sur le site sql.sh, j’y ai notamment ajouté des entêtes). En cas de problème avec votre tableur, voici une version &ldquo;séparateur virgule&rdquo; : <a href="https://pixees.fr/informatiquelycee/asset/ident_virgule.csv">ville_virgule.csv</a> (attention le séparateur &ldquo;décimal&rdquo; est ici le point)</p>
 <hr>
-<p>Comme vous pouvez le constater, nous avons 12 colonnes (et 36700 lignes si on ne compte pas l&rsquo;entête !), voici la signification de ces colonnes :</p>
+<p>Comme vous pouvez le constater, nous avons 12 colonnes (et 36700 lignes si on ne compte pas l'entête !), voici la signification de ces colonnes :</p>
 <p>dep : numéro de département
 nom : nom de la commune
 cp : code postal
-nb_hab_2010 : nombre d&rsquo;habitants en 2010
-nb_hab_1999 : nombre d&rsquo;habitants en 1999
-nb_hab_2012 : nombre d&rsquo;habitants en 2012 (approximatif)
+nb_hab_2010 : nombre d'habitants en 2010
+nb_hab_1999 : nombre d'habitants en 1999
+nb_hab_2012 : nombre d'habitants en 2012 (approximatif)
 dens : densité de la population (habitants par kilomètre carré)
 surf : superficie de la commune en kilomètre carré
 long : longitude
 lat : latitude
-alt_min : altitude minimale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)
-alt_max : altitude maximale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)</p>
+alt_min : altitude minimale de la commune (il manque des données pour certains territoires d'outre-mer)
+alt_max : altitude maximale de la commune (il manque des données pour certains territoires d'outre-mer)</p>
 <p>Vous trouverez un grand nombre de données, diverses et variées, au format CSV sur le site gouvernemental <a href="https://www.data.gouv.fr/fr/datasets/?format=csv">data.gouv.fr</a>.</p>
 <p>Il existe aussi un format très voisin du CSV, le TSV (Tab-separated values) où le séparateur est une tabulation (touche avec le symbole ↹)</p>
 <hr>
 <h2 id="le-format-json">Le format JSON</h2>
-<p>Autre format de données très courant sur le &ldquo;web&rdquo;, le JSON (JavaScript Object Notation). Le JSON fonctionne avec un système de paire clé/valeur. Le format JSON, comme son nom l&rsquo;indique, est dérivé de la notation des objets du JavaScript.</p>
+<p>Autre format de données très courant sur le &ldquo;web&rdquo;, le JSON (JavaScript Object Notation). Le JSON fonctionne avec un système de paire clé/valeur. Le format JSON, comme son nom l'indique, est dérivé de la notation des objets du JavaScript.</p>
 <p>Un objet JavaScript est encadré par des accolades :</p>
 <pre><code>{cle_1 : val_1, cle_2 : val_2, cle_3 : val_3}
 </code></pre>
@@ -7530,7 +7563,7 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
     cle_3 : val_3
 }
 </code></pre>
-<p>Un fichier au format JSON peut regrouper un grand nombre d&rsquo;objets :</p>
+<p>Un fichier au format JSON peut regrouper un grand nombre d'objets :</p>
 <pre><code>[{
     &quot;nom&quot; : &quot;Durand&quot;,
     &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
@@ -7548,7 +7581,7 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
 }]
 </code></pre>
 <p>Ci-dessus, nous avons un tableau contenant des objets.</p>
-<p>La &ldquo;valeur&rdquo; d&rsquo;une paire &ldquo;clé/valeur&rdquo; peut être un tableau :</p>
+<p>La &ldquo;valeur&rdquo; d'une paire &ldquo;clé/valeur&rdquo; peut être un tableau :</p>
 <pre><code>{
     &quot;nom&quot; : &quot;Durand&quot;,
     &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
@@ -7564,9 +7597,9 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
     &quot;adresse&quot; : {&quot;num&quot;:6, &quot;rue&quot;:&quot;impasse du rossignol&quot;, &quot;ville&quot;:&quot;Nogent-le-Rotrou&quot;, &quot;cp&quot;:&quot;28400&quot;}
 }
 </code></pre>
-<p>Comme vous pouvez le constater, il est possible d&rsquo;obtenir des structures de données très complexes avec le format JSON.</p>
+<p>Comme vous pouvez le constater, il est possible d'obtenir des structures de données très complexes avec le format JSON.</p>
 <p>Comment utiliser les données présentes dans le fichier JSON ?</p>
-<p>Si le fichier JSON contient un seul objet (pour simplifier l&rsquo;explication, nous &ldquo;rangerons&rdquo; cet objet dans une variable) :</p>
+<p>Si le fichier JSON contient un seul objet (pour simplifier l'explication, nous &ldquo;rangerons&rdquo; cet objet dans une variable) :</p>
 <pre><code>var data = {
     &quot;nom&quot; : &quot;Durand&quot;,
     &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
@@ -7575,8 +7608,8 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
     &quot;ville&quot;:&quot;Nogent-le-Rotrou&quot;, &quot;cp&quot;:&quot;28400&quot;}
 }
 </code></pre>
-<p>Il suffit d&rsquo;utiliser la &ldquo;notation pointée&rdquo; : &ldquo;data.nom&rdquo; permet de récupérer le nom (ici &ldquo;Durand&rdquo;), &ldquo;data.prenom&rdquo; permet de récupérer le prénom (ici &ldquo;Jean-Pierre&rdquo;) ou plus compliqué, &ldquo;data.adresse.rue&rdquo; sera égal à &ldquo;impasse du rossignol&rdquo; dans l&rsquo;exemple ci-dessus</p>
-<p>Si le fichier JSON contient un tableau d&rsquo;objet :</p>
+<p>Il suffit d'utiliser la &ldquo;notation pointée&rdquo; : &ldquo;data.nom&rdquo; permet de récupérer le nom (ici &ldquo;Durand&rdquo;), &ldquo;data.prenom&rdquo; permet de récupérer le prénom (ici &ldquo;Jean-Pierre&rdquo;) ou plus compliqué, &ldquo;data.adresse.rue&rdquo; sera égal à &ldquo;impasse du rossignol&rdquo; dans l'exemple ci-dessus</p>
+<p>Si le fichier JSON contient un tableau d'objet :</p>
 <pre><code>var tabData=[{
     &quot;nom&quot; : &quot;Durand&quot;,
     &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
@@ -7595,20 +7628,20 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
 </code></pre>
 <p>Comme ici, nous avons un tableau contenant des objets, il faudra utiliser la notation habituelle pour les tableaux, suivit de la &ldquo;notation pointée&rdquo; :</p>
 <p>&ldquo;tabData[0].nom&rdquo; renverra &ldquo;Durand&rdquo;, &ldquo;tabData[1].prenom&rdquo; renverra &ldquo;Christophe&rdquo;&hellip;</p>
-<p>Pour en savoir plus sur le JSON, vous pouvez lire l&rsquo;article sur <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">Wikipédia</a>.</p>
+<p>Pour en savoir plus sur le JSON, vous pouvez lire l'article sur <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">Wikipédia</a>.</p>
 <h4 id="à-faire-vous-même-21">À faire vous-même 2.1</h4>
-<p>Téléchargez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident.json">ident.json</a> et ouvrez-le à l&rsquo;aide d&rsquo;un éditeur de texte.</p>
+<p>Téléchargez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident.json">ident.json</a> et ouvrez-le à l'aide d'un éditeur de texte.</p>
 <hr>
-<p>De nombreux sites web proposent des services basés sur des API (Application Programming Interface). Ces sites sont capables de fournir des données aux formats JSON sur &ldquo;simple demande&rdquo;. Souvent, ces &ldquo;demandes&rdquo; sont effectuées par l&rsquo;intermédiaire d&rsquo;une url (si vous avez besoin de vous rafraichir la mémoire à propos de la notion d&rsquo;url, n&rsquo;hésitez pas à consulter ce <a href="https://pixees.fr/informatiquelycee/reseau_a1.html">document</a>).</p>
-<p>Nous allons illustrer ce propos en utilisant l&rsquo;API d&rsquo;un site qui fournit des informations météo au format JSON. Vous trouverez ce site à l&rsquo;adresse suivante : <a href="http://openweathermap.org/api">openweathermap.org/api</a></p>
-<p>Pour profiter de ce service, il est nécessaire de s&rsquo;inscrire (<a href="http://home.openweathermap.org/users/sign_up">http://home.openweathermap.org/users/sign_up</a>) afin de pouvoir récupérer une clé (API key). Notez bien cette clé quelque part, elle vous servira dès que vous voulez accéder au service.</p>
+<p>De nombreux sites web proposent des services basés sur des API (Application Programming Interface). Ces sites sont capables de fournir des données aux formats JSON sur &ldquo;simple demande&rdquo;. Souvent, ces &ldquo;demandes&rdquo; sont effectuées par l'intermédiaire d'une url (si vous avez besoin de vous rafraichir la mémoire à propos de la notion d'url, n'hésitez pas à consulter ce <a href="https://pixees.fr/informatiquelycee/reseau_a1.html">document</a>).</p>
+<p>Nous allons illustrer ce propos en utilisant l'API d'un site qui fournit des informations météo au format JSON. Vous trouverez ce site à l'adresse suivante : <a href="http://openweathermap.org/api">openweathermap.org/api</a></p>
+<p>Pour profiter de ce service, il est nécessaire de s'inscrire (<a href="http://home.openweathermap.org/users/sign_up">http://home.openweathermap.org/users/sign_up</a>) afin de pouvoir récupérer une clé (API key). Notez bien cette clé quelque part, elle vous servira dès que vous voulez accéder au service.</p>
 <h4 id="à-faire-vous-même-22">À faire vous-même 2.2</h4>
-<p>Ouvrez votre navigateur préféré et copier-coller l&rsquo;url suivante dans la barre d&rsquo;url du navigateur :</p>
+<p>Ouvrez votre navigateur préféré et copier-coller l'url suivante dans la barre d'url du navigateur :</p>
 <pre><code>http://api.openweathermap.org/data/2.5/weather?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX
 </code></pre>
 <p>ATTENTION : il faut remplacer les &ldquo;X&rdquo; par la clé (API key) que vous aurez obtenue lors de votre inscription.</p>
 <hr>
-<p>Au lieu d&rsquo;obtenir, comme d&rsquo;habitude, une page web, vous devriez obtenir uniquement quelque chose qui ressemblera à ceci :</p>
+<p>Au lieu d'obtenir, comme d'habitude, une page web, vous devriez obtenir uniquement quelque chose qui ressemblera à ceci :</p>
 <pre><code>{&quot;coord&quot;:{&quot;lon&quot;:2.54,&quot;lat&quot;:50.72},
 &quot;weather&quot;:[{&quot;id&quot;:501,&quot;main&quot;:&quot;Rain&quot;,&quot;description&quot;:&quot;pluies modérées&quot;,&quot;icon&quot;:&quot;10d&quot;}],
 &quot;base&quot;:&quot;stations&quot;,
@@ -7623,46 +7656,46 @@ alt_max : altitude maximale de la commune (il manque des données pour certains 
 &quot;name&quot;:&quot;Hazebrouck&quot;,
 &quot;cod&quot;:200}
 </code></pre>
-<p>Comme les données sont réactualisées relativement souvent, vous n&rsquo;obtiendrez pas la même chose que moi !</p>
+<p>Comme les données sont réactualisées relativement souvent, vous n'obtiendrez pas la même chose que moi !</p>
 <p>Avec une simple url, le site open weather renvoie des informations météo sous forme de données JSON.</p>
-<p>Détaillons l&rsquo;url :</p>
+<p>Détaillons l'url :</p>
 <pre><code>http://api.openweathermap.org/data/2.5/weather
 </code></pre>
-<p>Cette partie de l&rsquo;url ne changera pas (sauf si vous désirez autre chose que les conditions météo actuelles, à ce moment-là, il faudra remplacer &ldquo;weather&rdquo; par autre chose (consulter le site open weather pour plus d&rsquo;informations)).</p>
+<p>Cette partie de l'url ne changera pas (sauf si vous désirez autre chose que les conditions météo actuelles, à ce moment-là, il faudra remplacer &ldquo;weather&rdquo; par autre chose (consulter le site open weather pour plus d'informations)).</p>
 <pre><code>?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX
 </code></pre>
-<p>À partir du point d&rsquo;interrogation, vous devez renseigner les différents paramètres qui permettront à open weather de vous renvoyer les bonnes informations. Ces paramètres sont séparés par le caractère &ldquo;&amp;&quot;.</p>
+<p>À partir du point d'interrogation, vous devez renseigner les différents paramètres qui permettront à open weather de vous renvoyer les bonnes informations. Ces paramètres sont séparés par le caractère &ldquo;&amp;&quot;.</p>
 <p>&ldquo;q=hazebrouck,fr&rdquo; le paramètre &ldquo;q&rdquo; correspond au nom de la ville suivi du pays (fr dans notre cas)
 &ldquo;lang=fr&rdquo; la langue utilisée sera le français
 &ldquo;units=metric&rdquo; on désire avoir les longueurs en mètres (et les vitesses en mètre par seconde).
-&ldquo;APPID&rdquo; correspond à l&rsquo;API key</p>
-<p>Il est possible de construire des requêtes beaucoup plus complexes, encore une fois, veuillez consulter le site open weather pour plus d&rsquo;informations.</p>
-<p>Intéressons-nous maintenant aux données JSON renvoyées (nous n&rsquo;allons pas tout détailler) :</p>
+&ldquo;APPID&rdquo; correspond à l'API key</p>
+<p>Il est possible de construire des requêtes beaucoup plus complexes, encore une fois, veuillez consulter le site open weather pour plus d'informations.</p>
+<p>Intéressons-nous maintenant aux données JSON renvoyées (nous n'allons pas tout détailler) :</p>
 <p>&ldquo;coord&rdquo;:{&ldquo;lon&rdquo;:2.54,&ldquo;lat&rdquo;:50.72} latitude et longitude du lieu
 &ldquo;weather&rdquo;:[{&ldquo;id&rdquo;:501,&ldquo;main&rdquo;:&ldquo;Rain&rdquo;,&ldquo;description&rdquo;:&ldquo;pluies modérées&rdquo;,&ldquo;icon&rdquo;:&ldquo;10d&rdquo;}] &ldquo;weather&rdquo; correspond à un tableau qui contient un seul objet.
-&ldquo;main&rdquo;:{&ldquo;temp&rdquo;:17.46,&ldquo;pressure&rdquo;:1020,&ldquo;humidity&rdquo;:82,&ldquo;temp_min&rdquo;:16,&ldquo;temp_max&rdquo;:20.1} &ldquo;main&rdquo; correspond à un objet qui contient différents types d&rsquo;informations
-&ldquo;dt&rdquo;:1468048824 &ldquo;dt&rdquo; nous donne l&rsquo;heure et la date de diffusion du bulletin au format &ldquo;timestamp&rdquo; (voir <a href="http://www.timestamp.fr/">ici</a> pour plus d&rsquo;informations sur la notion de timestamp). Nous utiliserons &ldquo;dt&rdquo; dans le prochain &ldquo;À faire vous-même&rdquo;.
+&ldquo;main&rdquo;:{&ldquo;temp&rdquo;:17.46,&ldquo;pressure&rdquo;:1020,&ldquo;humidity&rdquo;:82,&ldquo;temp_min&rdquo;:16,&ldquo;temp_max&rdquo;:20.1} &ldquo;main&rdquo; correspond à un objet qui contient différents types d'informations
+&ldquo;dt&rdquo;:1468048824 &ldquo;dt&rdquo; nous donne l'heure et la date de diffusion du bulletin au format &ldquo;timestamp&rdquo; (voir <a href="http://www.timestamp.fr/">ici</a> pour plus d'informations sur la notion de timestamp). Nous utiliserons &ldquo;dt&rdquo; dans le prochain &ldquo;À faire vous-même&rdquo;.
 &ldquo;sunrise&rdquo;:1468036100,&ldquo;sunset&rdquo;:1468094487 : respectivement heure de lever et de coucher du soleil au format timestamp</p>
 <hr>
 <h2 id="les-données-geojson">Les données GeoJSON</h2>
-<p>Le geoJSON est un format (<a href="http://geojson.org/">http://geojson.org/</a>) qui permet d&rsquo;encoder des données à &ldquo;caractère géographiques&rdquo;. Voici ce que dit Wikipédia à propos de ce format :</p>
+<p>Le geoJSON est un format (<a href="http://geojson.org/">http://geojson.org/</a>) qui permet d'encoder des données à &ldquo;caractère géographiques&rdquo;. Voici ce que dit Wikipédia à propos de ce format :</p>
 <blockquote>GeoJSON (de l'anglais Geographic JSON, signifiant littéralement JSON géographique) est un format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON (JavaScript Object Notation). Il permet de décrire des données de type point, ligne, chaîne de caractères, polygone, ainsi que des ensembles et sous-ensembles de ces types de données et d'y ajouter des attributs d'information qui ne sont pas spatiale. Le format GeoJSON, contrairement à la majorité des standards de systèmes d'informations géographiques, n'est pas écrit par l'Open Geospatial Consortium, mais par un groupe de travail de développeurs au travers d'internet.</blockquote>
 <p>Comme indiqué dans Wikipédia, le geoJSON est avant tout du JSON et nous le traiterons comme tel.</p>
 <h4 id="à-faire-vous-même-31">À faire vous-même 3.1</h4>
-<p>Dans la barre d&rsquo;adresse de votre navigateur, tapez l&rsquo;adresse suivante :</p>
+<p>Dans la barre d'adresse de votre navigateur, tapez l'adresse suivante :</p>
 <pre><code>http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
 </code></pre>
 <p>Vous devriez obtenir quelque chose ressemblant à ceci :</p>
 <hr>
-<p>Le site &ldquo;earthquake.usgs.gov&rdquo;, comme le site &ldquo;<a href="http://openweathermap.org/%22,">http://openweathermap.org/&quot;,</a> propose une API qui renvoie des données à partir d&rsquo;une simple url. Le site &ldquo;earthquake.usgs.gov&rdquo; renvoie des données au format geoJSON (c&rsquo;est donc du JSON), ces données contiennent des informations sur les tremblements de terre détectés dans le monde sur une période de 30 jours. Le site vous propose différentes options pour la requête, vous trouverez une description complète de ces options <a href="http://earthquake.usgs.gov/fdsnws/event/1/">ici</a></p>
+<p>Le site &ldquo;earthquake.usgs.gov&rdquo;, comme le site &ldquo;<a href="http://openweathermap.org/%22,">http://openweathermap.org/&quot;,</a> propose une API qui renvoie des données à partir d'une simple url. Le site &ldquo;earthquake.usgs.gov&rdquo; renvoie des données au format geoJSON (c'est donc du JSON), ces données contiennent des informations sur les tremblements de terre détectés dans le monde sur une période de 30 jours. Le site vous propose différentes options pour la requête, vous trouverez une description complète de ces options <a href="http://earthquake.usgs.gov/fdsnws/event/1/">ici</a></p>
 <h4 id="à-faire-vous-même-32">À faire vous-même 3.2</h4>
-<p>En vous aidant de la documentation présente sur le site <a href="http://earthquake.usgs.gov/fdsnws/event/1/">http://earthquake.usgs.gov</a>, écrivez une requête sous forme d&rsquo;url qui permettra d&rsquo;obtenir des données (au format geoJSON) sur les tremblements de terre, d&rsquo;une magnitude supérieure à 5, ayant eu lieu ces 30 derniers jours partout dans le monde.</p>
-<p>Testez votre requête en la copiant dans la barre d&rsquo;adresse de votre navigateur. Une fois les données obtenues, étudiez-les afin de comprendre la structure de ces données.</p>
+<p>En vous aidant de la documentation présente sur le site <a href="http://earthquake.usgs.gov/fdsnws/event/1/">http://earthquake.usgs.gov</a>, écrivez une requête sous forme d'url qui permettra d'obtenir des données (au format geoJSON) sur les tremblements de terre, d'une magnitude supérieure à 5, ayant eu lieu ces 30 derniers jours partout dans le monde.</p>
+<p>Testez votre requête en la copiant dans la barre d'adresse de votre navigateur. Une fois les données obtenues, étudiez-les afin de comprendre la structure de ces données.</p>
 <hr>
 <h4 id="approfondissement">Approfondissement</h4>
-<p>Ces données incluant des coordonnées GPS il est possible de les intégrer dans une carte&hellip; Celle-ci peut être statique (Le tremblements de terre des 30 derniers jours à la date à laquelle vous l&rsquo;aurez crée) ou dynamique (Les tremblements de terre des 30 derniers jours à la date du chargement de la page !)
-C&rsquo;est difficile cependant étant donné qu&rsquo;il faut formater beaucoup de données et les lier à un objet très différent, la carte.
-d3js est une librairie javascript permettant ce genre d&rsquo;opération complexe.</p>
+<p>Ces données incluant des coordonnées GPS il est possible de les intégrer dans une carte&hellip; Celle-ci peut être statique (Le tremblements de terre des 30 derniers jours à la date à laquelle vous l'aurez crée) ou dynamique (Les tremblements de terre des 30 derniers jours à la date du chargement de la page !)
+C'est difficile cependant étant donné qu'il faut formater beaucoup de données et les lier à un objet très différent, la carte.
+d3js est une librairie javascript permettant ce genre d'opération complexe.</p>
 <p>_Sources : <a href="https://pixees.fr/informatiquelycee/_">https://pixees.fr/informatiquelycee/_</a></p>
 </article>
 

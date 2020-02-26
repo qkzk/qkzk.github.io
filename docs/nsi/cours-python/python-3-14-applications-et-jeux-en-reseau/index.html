@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7474,29 +7507,29 @@ Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il
 Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).</p>
 </li>
 <li>
-<p>Le <code>multithreading</code> est une technique qui permet d&rsquo;exécuter plusieurs tâches (<code>thread</code>) en même temps et de manière indépendante dans un même processus.
+<p>Le <code>multithreading</code> est une technique qui permet d'exécuter plusieurs tâches (<code>thread</code>) en même temps et de manière indépendante dans un même processus.
 Pour un jeu en réseau avec 10 joueurs, le serveur utilisera 10 threads pour communiquer individuellement avec chaque client.
 Chaque thread gère donc le socket du client.
-On retrouve le multithreading du côté de l&rsquo;application cliente : pour traiter l'émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.</p>
+On retrouve le multithreading du côté de l'application cliente : pour traiter l'émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.</p>
 </li>
 </ul>
 <h3 id="exemple--un-qcm-en-réseau">Exemple : un QCM en réseau</h3>
-<p>Il s&rsquo;agit d&rsquo;un jeu multijoueurs.
+<p>Il s'agit d'un jeu multijoueurs.
 On peut y jouer en réseau local (LAN) ou sur Internet.</p>
 <p>Chaque joueur lance son application cliente pour se connecter au serveur.
-La première étape consiste à créer un pseudonyme, puis quand le nombre de joueurs est suffisant (3 dans l&rsquo;exemple ci-dessous), la partie commence.
-Le serveur envoie alors simultanément la première question à l&rsquo;ensemble des joueurs : le but est d&rsquo;y répondre correctement et le plus rapidement possible.
+La première étape consiste à créer un pseudonyme, puis quand le nombre de joueurs est suffisant (3 dans l'exemple ci-dessous), la partie commence.
+Le serveur envoie alors simultanément la première question à l'ensemble des joueurs : le but est d'y répondre correctement et le plus rapidement possible.
 Quand tout le monde a répondu ou si la limite de temps est dépassée, on passe à la question suivante&hellip;
-Un classement est établi à partir d&rsquo;un système de points.</p>
+Un classement est établi à partir d'un système de points.</p>
 <h4 id="le-serveur">Le serveur</h4>
 <p>Avant toute chose, il faut lancer le serveur.
 Le port par défaut est 50026 et le nombre de joueurs est 3.
-Mais on peut choisir pour le numéro de port une valeur arbitraire comprise entre 49152 et 65535, ainsi qu&rsquo;un nombre quelconque de joueurs : il suffit de modifier ces paramètres dans le script.</p>
+Mais on peut choisir pour le numéro de port une valeur arbitraire comprise entre 49152 et 65535, ainsi qu'un nombre quelconque de joueurs : il suffit de modifier ces paramètres dans le script.</p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/reseau/serveur_ubuntu.png" alt="Python"></p>
 <h4 id="les-clients">Les clients</h4>
 <p>Ici, on joue à trois en réseau local (chez vous, derrière votre box, par exemple).
-Pour se connecter au serveur, il faut connaître son adresse IP (192.168.1.10) et le port qu&rsquo;il utilise (50026).</p>
-<p>Python étant multiplateforme, on peut mélanger les systèmes d&rsquo;exploitation : Windows, Linux, Mac&hellip;
+Pour se connecter au serveur, il faut connaître son adresse IP (192.168.1.10) et le port qu'il utilise (50026).</p>
+<p>Python étant multiplateforme, on peut mélanger les systèmes d'exploitation : Windows, Linux, Mac&hellip;
 Dans cet exemple :</p>
 <ul>
 <li>le serveur et un client tournent sur le même ordinateur sous Linux/Ubuntu (192.168.1.10)</li>
@@ -7506,10 +7539,10 @@ Dans cet exemple :</p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu1.png" alt="Python"></p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Windows.png" alt="Python"></p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu2.png" alt="Python"></p>
-<p>Finalement, c&rsquo;est Ubuntu qui gagne devant Windows ;)</p>
+<p>Finalement, c'est Ubuntu qui gagne devant Windows ;)</p>
 <h4 id="remarques">Remarques</h4>
 <p>Cette application fonctionne mais est loin d'être parfaite : les pertes de connexion ne sont pas gérées, etc&hellip;
-Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un retour de votre part.</p>
+Si vous avez testé cette application, cela m'intéresse d'avoir un retour de votre part.</p>
 <h4 id="télécharger-les-scripts">Télécharger les scripts</h4>
 <ul>
 <li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">serveur</a></li>
@@ -7518,7 +7551,7 @@ Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un 
 </ul>
 <h3 id="projet">Projet</h3>
 <h4 id="jeu-tic-tac-toe-en-réseau-jeu-du-morpion">Jeu Tic-Tac-Toe en réseau (jeu du morpion)</h4>
-<p>Ecrire l&rsquo;application serveur et l&rsquo;application cliente d&rsquo;un jeu de morpion en réseau local (LAN) ou sur Internet (plus d&rsquo;informations <a href="http://fsincere.free.fr/jeu/jeu.php">ici</a>) :</p>
+<p>Ecrire l'application serveur et l'application cliente d'un jeu de morpion en réseau local (LAN) ou sur Internet (plus d'informations <a href="http://fsincere.free.fr/jeu/jeu.php">ici</a>) :</p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/tkinter_tic_tac_toe_en_reseau.png" alt="Python Tkinter Canvas"></p>
 <p><img src="http://fsincere.free.fr/isn/python/picto/tic_tac_toe_serveur.png" alt="Python Tkinter Canvas"></p>
 <h3 id="bibliographie">Bibliographie</h3>

@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7468,18 +7501,18 @@ MathJax.Hub.Config({
 <article class="markdown"><p><a href="/uploads/uploads/2016/07/pong.gif"><img src="/uploads/uploads/2016/07/pong.gif" alt="pong">
 </a></p>
 <p>Pré-requis  : <em>HTML, CSS, JavaScript.</em></p>
-<p>Notions abordées : _canvas, __boucle de rafraîchissement, _<em>événements clavier, <strong>déplacement</strong> d&rsquo;un objet, collisions simples</em></p>
+<p>Notions abordées : _canvas, __boucle de rafraîchissement, _<em>événements clavier, <strong>déplacement</strong> d'un objet, collisions simples</em></p>
 <h1 id="tutoriel--création-du-jeu-pong-en-html5-avec-la-balise-canvas">Tutoriel : création du jeu Pong en html5 avec la balise canvas.</h1>
 <p>Durant tout le tutoriel, construire le code étape par étape. Il doit fonctionner à chaque étape intermédiaire et être régulièrement partagé avec votre enseignant via les procédés habituels (google drive). Cela peut sembler très long mais tout est décrit en détail.</p>
 <h3 id="pong">Pong</h3>
 <p><img src="http://amigamuseum.emu-france.info/Fichiers/Biographie/images/pong/pong.gif" alt="">
 Jeu historique où deux joueurs déplacent chacun une raquette permettant de faire rebondir une balle.
-Si celle-ci parvient derrière une raquette, l&rsquo;adversaire marque un point. La balle rebondit au sol et au plafond.
-Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui donne de l&rsquo;effet</p>
+Si celle-ci parvient derrière une raquette, l'adversaire marque un point. La balle rebondit au sol et au plafond.
+Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui donne de l'effet</p>
 <p>Jeu a deux joueur utilisant le clavier (Z et S pour le joueur 1, haut et bas pour le joueur 2).</p>
-<p>Il sera donc réalisé dans une page html, elle même contenant un script javascript s&rsquo;affichant dans une  balise canvas.</p>
+<p>Il sera donc réalisé dans une page html, elle même contenant un script javascript s'affichant dans une  balise canvas.</p>
 <h2 id="cahier-des-charges">Cahier des charges</h2>
-<p>Nous allons réaliser ensemble ce jeu afin de vous familiariser à canvas. L&rsquo;idée ici n&rsquo;est pas d&rsquo;illustrer les propriétés graphiques de canvas mais plutôt de vous montrer comment créer très rapidement (2h) un jeu vidéo &ldquo;jouable&rdquo; (sa jouabilité est lamentable - remarquons le).</p>
+<p>Nous allons réaliser ensemble ce jeu afin de vous familiariser à canvas. L'idée ici n'est pas d'illustrer les propriétés graphiques de canvas mais plutôt de vous montrer comment créer très rapidement (2h) un jeu vidéo &ldquo;jouable&rdquo; (sa jouabilité est lamentable - remarquons le).</p>
 <ul>
 <li>Créer une page html contenant un canvas</li>
 <li>Créer la boucle de rafraîchissement</li>
@@ -7487,7 +7520,7 @@ Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui 
 <li>Evénements clavier : déplacer la raquette en question</li>
 <li>Les raquettes : dessin et animation</li>
 <li>La balle : une animation simple mais des contraintes multiples</li>
-<li>Rebonds, but : c&rsquo;est gagné !</li>
+<li>Rebonds, but : c'est gagné !</li>
 </ul>
 <h2 id="description-pas-à-pas-des-éléments-du-code">Description pas à pas des éléments du code</h2>
 <h3 id="elements-généraux">Elements généraux</h3>
@@ -7502,27 +7535,27 @@ Contrainte supplémentaire : frapper la balle loin du centre de la raquette lui 
     &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
     &lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
 </code></pre></div><p>Ajouter les balises manquantes au début du fichier (doctype, meta etc.).</p>
-<p>Dans le body on insère le canvas qui va dessiner le jeu ainsi qu&rsquo;un message d&rsquo;erreur permettant de comprendre ce qui se passe si rien n&rsquo;arrive à l'écran.</p>
+<p>Dans le body on insère le canvas qui va dessiner le jeu ainsi qu'un message d'erreur permettant de comprendre ce qui se passe si rien n'arrive à l'écran.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#39;conteneur&#39;</span><span style="color:#555">&gt;</span>
 	<span style="color:#555">&lt;</span>canvas id<span style="color:#555">=</span><span style="color:#c30">&#34;canvasElem&#34;</span> width<span style="color:#555">=</span><span style="color:#c30">&#34;600&#34;</span> height<span style="color:#555">=</span><span style="color:#c30">&#34;600&#34;</span><span style="color:#555">&gt;</span>
 		Canvas failed
 	<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/</span><span style="color:#a00;background-color:#faa">c</span><span style="color:#a00;background-color:#faa">a</span><span style="color:#a00;background-color:#faa">n</span><span style="color:#a00;background-color:#faa">v</span><span style="color:#a00;background-color:#faa">a</span><span style="color:#a00;background-color:#faa">s</span><span style="color:#a00;background-color:#faa">&gt;</span>
 <span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/</span><span style="color:#a00;background-color:#faa">d</span><span style="color:#a00;background-color:#faa">i</span><span style="color:#a00;background-color:#faa">v</span><span style="color:#a00;background-color:#faa">&gt;</span>
-</code></pre></div><p><code>&lt;Canvas&gt;</code> (Cannevas, en anglais&hellip;) est une balise html5 permettant de représenter une figure 2d ou 3d et de l&rsquo;animer en javascript.</p>
-<p>En 2D on dispose d&rsquo;un repère orthonormé usuel en informatique. L&rsquo;<strong>origine en haut à gauche</strong>, les x vers la droite et les y <strong>vers le bas</strong>.
+</code></pre></div><p><code>&lt;Canvas&gt;</code> (Cannevas, en anglais&hellip;) est une balise html5 permettant de représenter une figure 2d ou 3d et de l'animer en javascript.</p>
+<p>En 2D on dispose d'un repère orthonormé usuel en informatique. L&rsquo;<strong>origine en haut à gauche</strong>, les x vers la droite et les y <strong>vers le bas</strong>.
 Sa taille sera ici de 600x600 pixels.</p>
-<p>Le contenu html ne changera plus et tout ce que nous allons ajouter sera dans le script. En utilisant les propriétés css, mettre un fond noir à la page, centrer le canvas à l&rsquo;aide de son id et choisir une police et une taille de caractères pour le h1</p>
+<p>Le contenu html ne changera plus et tout ce que nous allons ajouter sera dans le script. En utilisant les propriétés css, mettre un fond noir à la page, centrer le canvas à l'aide de son id et choisir une police et une taille de caractères pour le h1</p>
 <h2 id="le-script-et-les-premiers-éléments-graphiques">Le script et les premiers éléments graphiques</h2>
-<p>A l&rsquo;aide d&rsquo;un script on va utiliser les fonctions javascript associées à la balise canvas pour dessiner des objets.</p>
-<p>** L&rsquo;animation** est ensuite rendue possible en nettoyant le canvas et dessinant régulièrement les éléments à l'écran à la manière d&rsquo;un dessin-animé.</p>
+<p>A l'aide d'un script on va utiliser les fonctions javascript associées à la balise canvas pour dessiner des objets.</p>
+<p>** L'animation** est ensuite rendue possible en nettoyant le canvas et dessinant régulièrement les éléments à l'écran à la manière d'un dessin-animé.</p>
 <h3 id="récupération-du-canvas-écoute-des-événements-boucle-de-rafraichissement">Récupération du canvas, écoute des événements, boucle de rafraichissement</h3>
 <p>Le principe est le suivant :
 Une fois la page chargée par le navigateur, javascript execute à intervalle régulier la même fonction (la boucle de rafraichissement). Celle-ci dessine tous les éléments présents, calcule les états etc.</p>
-<p>Avant d&rsquo;insérer la boucle de rafraichissement il faut s&rsquo;assurer que canvas est bien pris en charge par le navigateur.</p>
-<p>On insère donc un &ldquo;ecouteur d'événements&rdquo; (window.addEventListener). Celui-ci servira tout d&rsquo;abord à s&rsquo;assurer que la page est bien chargée avant de lancer le canvas.</p>
+<p>Avant d'insérer la boucle de rafraichissement il faut s'assurer que canvas est bien pris en charge par le navigateur.</p>
+<p>On insère donc un &ldquo;ecouteur d'événements&rdquo; (window.addEventListener). Celui-ci servira tout d'abord à s'assurer que la page est bien chargée avant de lancer le canvas.</p>
 <p>Il servira ensuite à détecter les pressions du clavier servant à animer les raquettes.</p>
 <p>On insère dans le &ldquo;head&rdquo; le script suivant
-<strong>Une fois compris</strong> il peut être repris pour n&rsquo;importe quel jeu (ou animation) simple en 2D, la structure sera vraisemblablement la même.</p>
+<strong>Une fois compris</strong> il peut être repris pour n'importe quel jeu (ou animation) simple en 2D, la structure sera vraisemblablement la même.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">script</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span>&gt;
 		<span style="color:#09f;font-style:italic">//à chaque reload
 </span><span style="color:#09f;font-style:italic"></span>		<span style="color:#366">window</span>.addEventListener(<span style="color:#c30">&#39;load&#39;</span>, <span style="color:#069;font-weight:bold">function</span> () {
@@ -7552,28 +7585,28 @@ Une fois la page chargée par le navigateur, javascript execute à intervalle r�
 		<span style="color:#09f;font-style:italic">//fonctions : elles seront définies ici, appelées plus haut
 </span><span style="color:#09f;font-style:italic"></span>&lt;/<span style="color:#309;font-weight:bold">script</span>&gt;
 </code></pre></div><p>** Traduction :**</p>
-<p>On commence par &ldquo;écouter&rdquo; les &ldquo;événements&rdquo; de la page. <code>window.addEventListener(...)</code> : chargement de la page, action de l&rsquo;utilisateur (clavier, souris etc.)</p>
+<p>On commence par &ldquo;écouter&rdquo; les &ldquo;événements&rdquo; de la page. <code>window.addEventListener(...)</code> : chargement de la page, action de l'utilisateur (clavier, souris etc.)</p>
 <p>On charge une fonction javascript executée une seule fois (inutile donc de la nommer) <strong>après</strong> le reste du code html (load, ligne 3).</p>
-<p>Celle-ci va s&rsquo;arrêter si le code html ne contient aucun élément dont l&rsquo;id est &lsquo;canvasElem&rsquo;
-<code>(if !elem){return;}</code> se traduit en : si tu ne trouves pas d'élément appelé &lsquo;canvasElem&rsquo; tu sors de la fonction en ne faisant rien = tu t&rsquo;arrêtes.
+<p>Celle-ci va s'arrêter si le code html ne contient aucun élément dont l'id est &lsquo;canvasElem&rsquo;
+<code>(if !elem){return;}</code> se traduit en : si tu ne trouves pas d'élément appelé &lsquo;canvasElem&rsquo; tu sors de la fonction en ne faisant rien = tu t'arrêtes.
 <code>return;</code> permet de quitter une fonction et de renvoyer ce qui est entre <code>return</code> et <code>;</code>. Ici : rien.
-Elle s&rsquo;arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo; indiquant au programmeur d&rsquo;où vient le problème.</p>
-<p>Par exemple : <code>return 3;</code> aurait renvoyé la valeur 3 comme résultat, ce qui n&rsquo;aurait aucun sens.</p>
-<p>Si tout s&rsquo;est bien passé jusque là (ça sera le cas !) on nomme <code>context</code> le canvas. (<code>context = elem.getContext('2d')</code>) dont le nom complet est : <code>document.getElementById('canvasElem').getContext('2d')</code> = le contexte 2d de l'élément canvasElem du document&hellip;</p>
-<p>Ce nom étant bien trop pénible à employer, on l&rsquo;a donc raccourci en <code>context</code>. C&rsquo;est un nom assez usuel pour cet objet.</p>
-<p>Chaque fois qu&rsquo;on voudra dessiner dans le canvas ou y écrire du texte on utilisera cet objet. <code>context</code> comme on va rapidement le voir.</p>
-<p><code>context</code> n&rsquo;est pas une variable mais un <strong>objet</strong>. Disons simplement qu&rsquo;on traite context comme vous traiteriez une Ferrari durant un essai de 15 minutes : telle pédale fait ceci, tel bouton fait celà. On ne sait pas très bien de quoi c&rsquo;est fait, ce n&rsquo;est pas grave ; on fait confiance aux auteurs. Tant qu&rsquo;on respecte les consignes, ça marche&hellip;</p>
-<p>Toujours dans cet appel de fonction, on lance une autre fonction appelée <code>refreshGame</code>. Elle est définie plus bas et ne contient rien pour l&rsquo;instant.</p>
+Elle s'arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo; indiquant au programmeur d'où vient le problème.</p>
+<p>Par exemple : <code>return 3;</code> aurait renvoyé la valeur 3 comme résultat, ce qui n'aurait aucun sens.</p>
+<p>Si tout s'est bien passé jusque là (ça sera le cas !) on nomme <code>context</code> le canvas. (<code>context = elem.getContext('2d')</code>) dont le nom complet est : <code>document.getElementById('canvasElem').getContext('2d')</code> = le contexte 2d de l'élément canvasElem du document&hellip;</p>
+<p>Ce nom étant bien trop pénible à employer, on l'a donc raccourci en <code>context</code>. C'est un nom assez usuel pour cet objet.</p>
+<p>Chaque fois qu'on voudra dessiner dans le canvas ou y écrire du texte on utilisera cet objet. <code>context</code> comme on va rapidement le voir.</p>
+<p><code>context</code> n'est pas une variable mais un <strong>objet</strong>. Disons simplement qu'on traite context comme vous traiteriez une Ferrari durant un essai de 15 minutes : telle pédale fait ceci, tel bouton fait celà. On ne sait pas très bien de quoi c'est fait, ce n'est pas grave ; on fait confiance aux auteurs. Tant qu'on respecte les consignes, ça marche&hellip;</p>
+<p>Toujours dans cet appel de fonction, on lance une autre fonction appelée <code>refreshGame</code>. Elle est définie plus bas et ne contient rien pour l'instant.</p>
 <p>La syntaxe : <code>setInterval(refreshGame, intervalTemps)</code> permet de lancer cette fonction tous les 2 milisecondes. 2 ms parce que cette valeur rend le jeu très fluide. La valeur 2 est définie par <code>intervalTemps = 2;</code> définie plus bas.</p>
-<p>OUF ! Vous êtes arrivés jusqu&rsquo;ici&hellip; Rassurez-vous, ainsi que je l&rsquo;ai dit plus haut, vous n&rsquo;aurez pas besoin d'être capable de taper tout ça de mémoire, simplement comprendre les éléments principaux :</p>
+<p>OUF ! Vous êtes arrivés jusqu'ici&hellip; Rassurez-vous, ainsi que je l'ai dit plus haut, vous n'aurez pas besoin d'être capable de taper tout ça de mémoire, simplement comprendre les éléments principaux :</p>
 <ul>
-<li>Une fonction lance le canvas s&rsquo;il est correctement défini</li>
-<li>Celui-ci est appelé à l&rsquo;aide de la variable qu&rsquo;on a appelé context</li>
+<li>Une fonction lance le canvas s'il est correctement défini</li>
+<li>Celui-ci est appelé à l'aide de la variable qu'on a appelé context</li>
 <li>Cette même fonction lance une autre fonction (vide&hellip;) qui servira à dessiner, animer, interpréter les événements (pression du clavier, clic souris etc.).</li>
 </ul>
-<p>Aussi surprenant que cela puisse paraître, c&rsquo;est le squelette de n&rsquo;importe quel jeux vidéo 2d qui se déroule dans une seule fenêtre. Tout ce dont on a besoin y figure déjà !</p>
+<p>Aussi surprenant que cela puisse paraître, c'est le squelette de n'importe quel jeux vidéo 2d qui se déroule dans une seule fenêtre. Tout ce dont on a besoin y figure déjà !</p>
 <h2 id="variables-et-éléments-initiaux">Variables et éléments initiaux</h2>
-<p>Le jeu est assez simple pour l&rsquo;envisager intégralement dès le départ.</p>
+<p>Le jeu est assez simple pour l'envisager intégralement dès le départ.</p>
 <p>On se contentera à chaque rafraichissement de :</p>
 <ul>
 <li>Vider la fenêtre (sinon elle se remplit au fur et à mesure).</li>
@@ -7595,17 +7628,17 @@ Elle s&rsquo;arrêtera alors et on verra à l'écran &ldquo;Canvas Failed&rdquo;
 </ul>
 <p><strong>Remarque importante concernant la vitesse</strong>. Chaque déplacement se fait via un rafraichissement de l'écran. Toutes les positions sont donc calculées étape par étape. La vitesse de la balle est donc le nombre de pixels dont elle se déplace en abscisses, en ordonnées, entre deux rafraichissement.</p>
 <h3 id="comment-déterminer-les-variables-et-leurs-valeurs-">Comment déterminer les variables et leurs valeurs ?</h3>
-<p>En commençant le projet je ne savais pas quelle taille donner aux éléments. J&rsquo;ai donc choisi des valeurs à tâtons.</p>
+<p>En commençant le projet je ne savais pas quelle taille donner aux éléments. J'ai donc choisi des valeurs à tâtons.</p>
 <p>Avant de progresser il faut reflechir aux collisions. Les objets étant tous des rectangles verticaux on va simplement résoudre des inéquations très simples&hellip; mais pénibles à écrire.</p>
-<p><strong>Remarque :</strong> une autre méthode est possible pour les collisions. Elle consiste à utiliser l&rsquo;ordre dans lequel on dessine les éléments pour repérer si un pixel de la balle est dessiné sur un pixel d&rsquo;une couleur particulière. Les collisions sont généralement des problèmes difficiles&hellip; Elles sont souvent résolues en entourant les objets de forme complexe d&rsquo;une boite rectangulaire : c&rsquo;est la &ldquo;hit box&rdquo; bien connue des joueurs de FPS&hellip; et on en revient à des inéquations à résoudre.</p>
+<p><strong>Remarque :</strong> une autre méthode est possible pour les collisions. Elle consiste à utiliser l'ordre dans lequel on dessine les éléments pour repérer si un pixel de la balle est dessiné sur un pixel d'une couleur particulière. Les collisions sont généralement des problèmes difficiles&hellip; Elles sont souvent résolues en entourant les objets de forme complexe d'une boite rectangulaire : c'est la &ldquo;hit box&rdquo; bien connue des joueurs de FPS&hellip; et on en revient à des inéquations à résoudre.</p>
 <p>Il sera plus simple de traiter les collisions de la balle (=résoudre des inéquations) en utilisant le centre de chaque objet pour le repérer. Si la raquette fait 100 pixels de haut, son centre est à 50 en ordonnées du bord supérieur, 50 en ordonnées du bord inférieur.</p>
 <p>Cette décision étant prise, les variables peuvent toutes être définies.</p>
-<p>A nouveau, les valeurs retenues ont été obtenues en bidouillant, elles n&rsquo;ont rien de particulier si ce n&rsquo;est de rendre l&rsquo;affichage &ldquo;présentable&rdquo;.</p>
-<p>Ce choix pose un autre problème (on n&rsquo;a rien sans rien), canvas dessine les objets rectangulaires en partant de leur coin supérieur gauche&hellip;</p>
-<p>Afin d&rsquo;illustrer une méthode plus générale que celle du rectangle, on utilise ici le dessin d&rsquo;un polygone qui sera rempli par une couleur. Il est défini par ses sommets et se remplit à l&rsquo;aide d&rsquo;une fonction.</p>
-<p>Question niveau maternelle : si les coordonnées du centre d&rsquo;un rectangle dont les côtés sont parallèles aux axes sont x et y, si l est sa demi-largeur et h sa demi-hauteur, quelles sont les coordonnées des quatre coins ?
+<p>A nouveau, les valeurs retenues ont été obtenues en bidouillant, elles n'ont rien de particulier si ce n'est de rendre l'affichage &ldquo;présentable&rdquo;.</p>
+<p>Ce choix pose un autre problème (on n'a rien sans rien), canvas dessine les objets rectangulaires en partant de leur coin supérieur gauche&hellip;</p>
+<p>Afin d'illustrer une méthode plus générale que celle du rectangle, on utilise ici le dessin d'un polygone qui sera rempli par une couleur. Il est défini par ses sommets et se remplit à l'aide d'une fonction.</p>
+<p>Question niveau maternelle : si les coordonnées du centre d'un rectangle dont les côtés sont parallèles aux axes sont x et y, si l est sa demi-largeur et h sa demi-hauteur, quelles sont les coordonnées des quatre coins ?
 Faire une figure en se souvenant que les ordonnées sont vers le bas.
-Prendre une photo, l&rsquo;insérer dans le drive au bon endroit et la renommer pour le dossier projet.</p>
+Prendre une photo, l'insérer dans le drive au bon endroit et la renommer pour le dossier projet.</p>
 <h2 id="et-maintenant-les-variables-en-elle-même-">Et maintenant les variables en elle même :</h2>
 <p>Elles iront en haut du script, avant la récupération du canvas. Elles sont toutes locales, certaines étant juste nommées sans valeur particulière à ce moment.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">//variables internes
@@ -7646,12 +7679,12 @@ Prendre une photo, l&rsquo;insérer dans le drive au bon endroit et la renommer 
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> score1<span style="color:#555">=</span><span style="color:#f60">0</span>;
 <span style="color:#069;font-weight:bold">var</span> score2<span style="color:#555">=</span><span style="color:#f60">0</span>;
 </code></pre></div><p>Les noms ne sont pas clairs ! Ils ne le sont jamais, voilà pourquoi il faut ajouter des commentaires immédiatement afin de pouvoir relire son code.</p>
-<p>Représenter l&rsquo;ensemble de la fenêtre sur une autre figure. On doit y voir tous les éléments graphiques, leurs coordonnées à partir du point qui les repère noté en employant les variables que nous venons de définir.
+<p>Représenter l'ensemble de la fenêtre sur une autre figure. On doit y voir tous les éléments graphiques, leurs coordonnées à partir du point qui les repère noté en employant les variables que nous venons de définir.
 Même traitement que pour la figure précédente : photo, drive, la classer correctement.</p>
 <h2 id="le-contenu-de-refreshgame">Le contenu de refreshgame</h2>
-<p>Les variables étant choisies, on peut s&rsquo;attaquer à la boucle de rafraichissement.</p>
+<p>Les variables étant choisies, on peut s'attaquer à la boucle de rafraichissement.</p>
 <p>Les raquettes, la balle, les scores sont dessinés par des appels fonctions.
-Par choix on dessine d&rsquo;abord tous les éléments puis on calcule les états suivants.</p>
+Par choix on dessine d'abord tous les éléments puis on calcule les états suivants.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#069;font-weight:bold">function</span> refreshGame() {
     	<span style="color:#09f;font-style:italic">//nettoyage de l&#39;ecran
 </span><span style="color:#09f;font-style:italic"></span>    	context.clearRect(<span style="color:#f60">0</span>,<span style="color:#f60">0</span>,largeur_fenetre,hauteur_fenetre);
@@ -7673,15 +7706,15 @@ Par choix on dessine d&rsquo;abord tous les éléments puis on calcule les état
     }
 </code></pre></div><p>Chacune des nouvelles fonctions doit être définie, on les laissera vide <code>function dessinerBarre(){}</code>, en dessous de <code> refreshGame(){..}</code>. On ajoutera ensuite leurs actions entre les <code>{}</code> et leurs paramètres entre les <code>()</code>.</p>
 <p>Commençons par décrire <code>context.clearRect(0,0,largeur_fenetre,hauteur_fenetre);</code> : dans le <code>context</code> (vous vous souvenez !?) execute <code>clearRect</code> (nettoyer le rectangle = effacer) en partant de (0,0) avec comme largeur et hauteur les deux autres paramètres.</p>
-<p>Les suivantes sont assez évidentes. Remarquons simplement que certaines fonctions ont besoin de plusieurs paramètres et d&rsquo;autres d&rsquo;aucun. Cela dépend principalement du rôle qu&rsquo;on leur donne : si elle ne servent qu&rsquo;une fois, inutile de leur donner des paramètres. Remarquons aussi que <code>clearRect()</code> est une fonction qui existe déjà, tandis que <code>dessinerBalle()</code> est l&rsquo;invention de votre professeur. Je vous laisse deviner laquelle est la mieux foutue&hellip;</p>
-<p>D&rsquo;autres événements que le clavier peuvent être écoutés&hellip; par exemple ceux relatifs au touchscreen pour les versions mobile. Ce Pong est certainement injouable sur mobile, mais certains jeux supportent très bien les deux versions.</p>
-<p>Enfin, la dernière ligne est particulière : <code>window.document.onkeydown = caBouge;</code>. Si le focus est dans la fenêtre (la souris) et qu&rsquo;une touche est enfoncée (on pouvait préciser <code>onkeyup</code> pour &ldquo;relachée&rdquo;) alors execute la fonction <code>caBouge()</code>. Encore une fonction à définir.</p>
-<p>Créer toutes les fonctions dont on va avoir besoin. Elles sont vides pour l&rsquo;instant. Votre page doit se charger, afficher un canvas vide et aucun message d&rsquo;erreur n&rsquo;apparait dans la console.</p>
-<p>La console (touche F12 dans chrome ou firefox, menu &ldquo;console&rdquo;) vous affichera toutes les erreurs de syntaxe du code javascript et vous pouvez y faire apparaître des messages invisibles à l&rsquo;utilisateur. Essayez d&rsquo;ajouter <code>console.log(&quot;Where is brian ?&quot;)</code> dans la fonction <code>writescore()</code>.
+<p>Les suivantes sont assez évidentes. Remarquons simplement que certaines fonctions ont besoin de plusieurs paramètres et d'autres d'aucun. Cela dépend principalement du rôle qu'on leur donne : si elle ne servent qu'une fois, inutile de leur donner des paramètres. Remarquons aussi que <code>clearRect()</code> est une fonction qui existe déjà, tandis que <code>dessinerBalle()</code> est l'invention de votre professeur. Je vous laisse deviner laquelle est la mieux foutue&hellip;</p>
+<p>D'autres événements que le clavier peuvent être écoutés&hellip; par exemple ceux relatifs au touchscreen pour les versions mobile. Ce Pong est certainement injouable sur mobile, mais certains jeux supportent très bien les deux versions.</p>
+<p>Enfin, la dernière ligne est particulière : <code>window.document.onkeydown = caBouge;</code>. Si le focus est dans la fenêtre (la souris) et qu'une touche est enfoncée (on pouvait préciser <code>onkeyup</code> pour &ldquo;relachée&rdquo;) alors execute la fonction <code>caBouge()</code>. Encore une fonction à définir.</p>
+<p>Créer toutes les fonctions dont on va avoir besoin. Elles sont vides pour l'instant. Votre page doit se charger, afficher un canvas vide et aucun message d'erreur n'apparait dans la console.</p>
+<p>La console (touche F12 dans chrome ou firefox, menu &ldquo;console&rdquo;) vous affichera toutes les erreurs de syntaxe du code javascript et vous pouvez y faire apparaître des messages invisibles à l'utilisateur. Essayez d'ajouter <code>console.log(&quot;Where is brian ?&quot;)</code> dans la fonction <code>writescore()</code>.
 A chaque boucle de rafraichissement, 2 messages sont affichés&hellip; Pourquoi ?
 On découvrira bientôt un autre outil commode du panneau de développeurs.</p>
 <h2 id="dessin-des-raquettes">Dessin des raquettes</h2>
-<p>Ainsi qu&rsquo;il a été dit plus haut il existe une méthode plus simple. Elle ne permet de dessiner que des rectangles (très similaire à clearRect). J&rsquo;illustre ici un principe plus général.
+<p>Ainsi qu'il a été dit plus haut il existe une méthode plus simple. Elle ne permet de dessiner que des rectangles (très similaire à clearRect). J'illustre ici un principe plus général.
 Une seule fonction, appelée avec des variables différentes permet de dessiner les deux raquettes.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">//dessin de la balle, centree
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> dessinerBalle(x,y){
@@ -7695,7 +7728,7 @@ Une seule fonction, appelée avec des variables différentes permet de dessiner 
 	context.fill();
 
 }
-</code></pre></div><p>Il faut d&rsquo;abord choisir une couleur de remplissage: <code>context.fillStyle = 'black';</code>, sinon la précédente couleur sera utilisée. Sans problème ici, cela peut vite le devenir si vous avez plus de deux couleurs à l'écran&hellip;
+</code></pre></div><p>Il faut d'abord choisir une couleur de remplissage: <code>context.fillStyle = 'black';</code>, sinon la précédente couleur sera utilisée. Sans problème ici, cela peut vite le devenir si vous avez plus de deux couleurs à l'écran&hellip;
 On indique ensuite où placer le premier point <code>context.moveTo(x-ll,y+hh);</code>. On partira ici du coin inférieur gauche de la raquette. Puis :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">+</span>hh); <span style="color:#09f;font-style:italic">//bas droite
 </span><span style="color:#09f;font-style:italic"></span>context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut droit
@@ -7703,18 +7736,18 @@ On indique ensuite où placer le premier point <code>context.moveTo(x-ll,y+hh);<
 </span></code></pre></div><p>permet de tracer les côtés. Enfin</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">context.closePath();
 context.fill();
-</code></pre></div><p>pour terminer la construction et la remplir. L&rsquo;oubli de <code> closePath()</code> est une source d&rsquo;erreur majeure dont j&rsquo;ai régulièrement fait les frais&hellip;</p>
+</code></pre></div><p>pour terminer la construction et la remplir. L'oubli de <code> closePath()</code> est une source d'erreur majeure dont j'ai régulièrement fait les frais&hellip;</p>
 <p>Ajouter cette fonction et tester votre script. Deux raquettes immobiles doivent apparaître.
-C&rsquo;est l&rsquo;occasion de tester le menu &ldquo;Sources&rdquo; du panneau de développeurs (F12).
-Double cliquez sur votre fichier html dans les sources (son code apparait à droite). Parmi tout ce qu&rsquo;il est possible d&rsquo;y faire retenons deux choses :</p>
+C'est l'occasion de tester le menu &ldquo;Sources&rdquo; du panneau de développeurs (F12).
+Double cliquez sur votre fichier html dans les sources (son code apparait à droite). Parmi tout ce qu'il est possible d'y faire retenons deux choses :</p>
 <ul>
-<li>L'édition en direct. Aucune modification n&rsquo;est sauvegardée dans votre fichier réel, seulement dans le navigateur. On s&rsquo;en servira peu, vos programmes restant assez courts.</li>
-<li>L&rsquo;ajout d&rsquo;un <strong>breakpoint</strong> : cliquez sur le <strong>numero</strong> de la ligne de l&rsquo;appel à la fonction <code>dessinerBarre()</code> dans le panneau de développeur. Votre script s&rsquo;arrête de s&rsquo;executer au moment de l&rsquo;appel de cette fonction.
-Vous pouvez reprendre son execution en appuyant sur le bouton <strong>pause</strong> (triangle bleu, plus bas, à gauche) jusqu&rsquo;au prochain appel de cette fonction.
+<li>L'édition en direct. Aucune modification n'est sauvegardée dans votre fichier réel, seulement dans le navigateur. On s'en servira peu, vos programmes restant assez courts.</li>
+<li>L'ajout d'un <strong>breakpoint</strong> : cliquez sur le <strong>numero</strong> de la ligne de l'appel à la fonction <code>dessinerBarre()</code> dans le panneau de développeur. Votre script s'arrête de s'executer au moment de l'appel de cette fonction.
+Vous pouvez reprendre son execution en appuyant sur le bouton <strong>pause</strong> (triangle bleu, plus bas, à gauche) jusqu'au prochain appel de cette fonction.
 En recliquant sur ce numero de ligne, vous enlevez ce breakpoint.</li>
 </ul>
-<p>Après avoir ajouté un breakpoint à chaque appel de dessinerBarre et de dessinerBalle dans refreshGame, faites tourner pas à pas votre script en appuyant sur pause. Le navigateur vous affiche alors des informations supplémentaires (valeurs des variables définies juste avant, juste après etc.) et vous devriez voir apparaître une raquette puis l&rsquo;autre et le canvas se vider. etc.
-Voici, dans les grandes lignes, comment vous debugguerez vos programmes à l&rsquo;avenir. Ces outils sont considérés par les webdeveloppeurs comme la révolution des années 2000.</p>
+<p>Après avoir ajouté un breakpoint à chaque appel de dessinerBarre et de dessinerBalle dans refreshGame, faites tourner pas à pas votre script en appuyant sur pause. Le navigateur vous affiche alors des informations supplémentaires (valeurs des variables définies juste avant, juste après etc.) et vous devriez voir apparaître une raquette puis l'autre et le canvas se vider. etc.
+Voici, dans les grandes lignes, comment vous debugguerez vos programmes à l'avenir. Ces outils sont considérés par les webdeveloppeurs comme la révolution des années 2000.</p>
 <p>Créer la fonction qui dessine la balle : dessinerBalle(x,y){&hellip;} en adaptant la précédente.</p>
 <h2 id="déplacement-des-raquettes">Déplacement des raquettes</h2>
 <p>La dernière ligne de <code>refreshGame()</code> écoute les événements du clavier. Selon la touche pressée (z,s, haut et bas) la première ou la seconde raquette va bouger vers le haut ou vers le bas.</p>
@@ -7734,21 +7767,21 @@ Voici, dans les grandes lignes, comment vous debugguerez vos programmes à l&rsq
 </span><span style="color:#09f;font-style:italic"></span>
 
 }
-</code></pre></div><p>En fait : si l'événement <code>e</code> a un keyCode (c&rsquo;est alors une touche du clavier) et que cellle-ci est 38 (vers le haut)&hellip;</p>
+</code></pre></div><p>En fait : si l'événement <code>e</code> a un keyCode (c'est alors une touche du clavier) et que cellle-ci est 38 (vers le haut)&hellip;</p>
 <p>Le paramètre <code>e</code> de <code>caBouge</code> est donc l'événément transmis par <code>window.document.onkeydown = caBouge;</code> de <code>refreshGame</code>.
-<code>if (e.keyCode == 38)</code> s&rsquo;interprète comme ceci : &ldquo;si la touche enfoncée a pour keyCode 38&rdquo; &hellip; Alors deux actions effectuées :
-<code>console.log()</code> permet d&rsquo;afficher ce qu&rsquo;on veut dans la console (accessible par la touche F12). On peut donc faire apparaître des informations masquées à l&rsquo;utilisateur mais très commodes au développeur.
+<code>if (e.keyCode == 38)</code> s'interprète comme ceci : &ldquo;si la touche enfoncée a pour keyCode 38&rdquo; &hellip; Alors deux actions effectuées :
+<code>console.log()</code> permet d'afficher ce qu'on veut dans la console (accessible par la touche F12). On peut donc faire apparaître des informations masquées à l'utilisateur mais très commodes au développeur.
 Enfin, première collision éventuelle, celle de la raquette et du sol : <code>if ( ord_raquette2 &gt;= h){ ...};</code>. Il est atteint si son centre (sa référence) est supérieur ou égal à la moitié de la hauteur (variable h).
 Si le centre est assez haut, on peut continuer à descendre : <code>{ ord_raquette2=ord_raquette2-deplace};</code> . Sinon, presser vers le bas ne fait rien.</p>
-<p>Ajouter cette fonction et la tester. On doit pouvoir déplacer la raquette de droite jusqu&rsquo;en bas de l'écran sans qu&rsquo;elle n&rsquo;en sorte.</p>
-<p>Compléter cette fonction avec les autres événements possibles : touches haut, Z et S. Déterminer d&rsquo;abord les keyCode relatifs à chaque touche puis compléter la fonction précédente. On utilisera trois <code>else if(){}</code>.</p>
-<p>S&rsquo;aider de la console et des outils développeurs si nécessaire.</p>
+<p>Ajouter cette fonction et la tester. On doit pouvoir déplacer la raquette de droite jusqu'en bas de l'écran sans qu'elle n'en sorte.</p>
+<p>Compléter cette fonction avec les autres événements possibles : touches haut, Z et S. Déterminer d'abord les keyCode relatifs à chaque touche puis compléter la fonction précédente. On utilisera trois <code>else if(){}</code>.</p>
+<p>S'aider de la console et des outils développeurs si nécessaire.</p>
 <h3 id="résumé-de-la-situation">Résumé de la situation</h3>
 <p>On devrait maintenant avoir une fenêtre html contenant un canvas. Celui-ci fait apparaître deux raquettes mobiles (déplacées par les touches du clavier ; elles ne peuvent pas quitter l'écran) et une balle immobile au centre de l'écran.</p>
 <h2 id="déplacement-de-la-balle">Déplacement de la balle</h2>
-<p>Réalisée en plusieurs étapes, on s&rsquo;en doutait un peu.</p>
+<p>Réalisée en plusieurs étapes, on s'en doutait un peu.</p>
 <h3 id="trajectoire-initiale">Trajectoire initiale</h3>
-<p>la balle va d&rsquo;abord simplement se déplacer de gauche à droite et sortir de l'écran.</p>
+<p>la balle va d'abord simplement se déplacer de gauche à droite et sortir de l'écran.</p>
 <p>Deux nouvelles variables entrent en jeu : <code>var horiz = 1; var vertic = 0;</code></p>
 <p>Ce sont les vitesses horizontales et verticales de la balle au début du jeu.</p>
 <p><code>horiz</code> prendra les valeurs 1 et -1 tandis que <code>vertic</code> pourra changer énormément, augmentant la difficulté.</p>
@@ -7761,7 +7794,7 @@ y2<span style="color:#555">=</span>y2<span style="color:#555">+</span>vertic
 }
 </code></pre></div><p>A ce moment la balle doit quitter l'écran à droite et disparaitre.</p>
 <p>Ajouter ces éléments en l'état. Quelle est la trajectoire de la balle ? De quelles variables dépend-elle ?
-Proposer des valeurs de ces variables permettant de : déplacer la balle vers le bas, vers le haut, en diagonale haut gauche, bas gauche etc. Changer l&rsquo;angle de la trajectoire pour la rendre presque verticale et expliquer ce qu&rsquo;il faudrait faire pour gérer les rebonds sur le plafond et le sol.
+Proposer des valeurs de ces variables permettant de : déplacer la balle vers le bas, vers le haut, en diagonale haut gauche, bas gauche etc. Changer l'angle de la trajectoire pour la rendre presque verticale et expliquer ce qu'il faudrait faire pour gérer les rebonds sur le plafond et le sol.
 Compléter votre diagramme papier avec ces éléments (photo, drive, classée au bon endroit&hellip;).</p>
 <h3 id="rebonds-verticaux">Rebonds verticaux</h3>
 <p>On ajoute alors les tests de collision avec le haut et le bas.</p>
@@ -7777,13 +7810,13 @@ Compléter votre diagramme papier avec ces éléments (photo, drive, classée au
 </span><span style="color:#09f;font-style:italic"></span>	x2<span style="color:#555">=</span>x2<span style="color:#555">+</span>horiz
 	y2<span style="color:#555">=</span>y2<span style="color:#555">+</span>vertic
 }
-</code></pre></div><p>Compléter votre script avec les éléments nouveaux et tester la collision en donnant aux variables évoquées dans la manip précédente des valeurs permettant à la balle d&rsquo;avoir une trajectoire verticale.
+</code></pre></div><p>Compléter votre script avec les éléments nouveaux et tester la collision en donnant aux variables évoquées dans la manip précédente des valeurs permettant à la balle d'avoir une trajectoire verticale.
 On testera les deux cas (vers le haut, vers le bas). Que se passe-t-il ? Expliquer.
 La balle rebondit-elle quand son centre arrive au plafond ? Expliquer. Ajouter un breakpoint à la ligne <code>vertic=-vertic</code> si nécessaire.</p>
 <p>Décrire ligne par ligne ces ajouts et les compléter avec les rebonds sur le sol. La balle peut quitter l'écran par la gauche et la droite mais plus par le sol ou le plafond.</p>
 <h3 id="but-">But !</h3>
 <p>Les raquettes et la balle sont recentrées à chaque point. Le score du joueur qui a marqué augmente de 1.
-C&rsquo;est là qu&rsquo;intervient <code>ord_depart;</code> où on avait gardé en mémoire la position initiale de la raquette.</p>
+C'est là qu'intervient <code>ord_depart;</code> où on avait gardé en mémoire la position initiale de la raquette.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span>(abs_balle<span style="color:#555">+</span>ll<span style="color:#555">&gt;=</span>largeur_fenetre){<span style="color:#09f;font-style:italic">//a droite. but et on repart du centre
 </span><span style="color:#09f;font-style:italic"></span>		horiz<span style="color:#555">=</span><span style="color:#555">-</span>horiz;
 		vertic<span style="color:#555">=</span><span style="color:#f60">0</span>;
@@ -7793,17 +7826,17 @@ C&rsquo;est là qu&rsquo;intervient <code>ord_depart;</code> où on avait gardé
 		ord_raquette1<span style="color:#555">=</span>barreStart;
 		ord_raquette2<span style="color:#555">=</span>barreStart;
 	}
-</code></pre></div><p>Insérer dans votre code (au bon endroit&hellip;) l&rsquo;extrait précédent. Le décrire (pourquoi devoir modifier horiz et vertic ?) et écrire la partie correspondant au but de gauche.</p>
+</code></pre></div><p>Insérer dans votre code (au bon endroit&hellip;) l'extrait précédent. Le décrire (pourquoi devoir modifier horiz et vertic ?) et écrire la partie correspondant au but de gauche.</p>
 <h2 id="etat-des-lieux-après-toutes-ces-étapes-">Etat des lieux après toutes ces étapes :</h2>
 <p>La balle ne peut plus quitter l'écran&hellip; mais sa trajectoire est définie par les valeurs initiales de horiz et vertic et elle ne &ldquo;touche&rdquo; pas encore les raquettes&hellip;</p>
-<p>Vous devez être capable d&rsquo;expliquer chacune des instructions, de l&rsquo;illustrer. Sinon reprendre.</p>
+<p>Vous devez être capable d'expliquer chacune des instructions, de l'illustrer. Sinon reprendre.</p>
 <h3 id="collision-avec-les-raquettes">Collision avec les raquettes</h3>
 <p>Les raquettes font rebondir la balle (comment ?) et ajoutent un effet vertical à la balle. Plus le contact est éloigné du centre, plus il est important.
-D&rsquo;autres versions sont possibles, l&rsquo;idée est de vous en présenter une très simple.</p>
+D'autres versions sont possibles, l'idée est de vous en présenter une très simple.</p>
 <p>On va tester si 4 inéquations sont résolues en même temps ! Auquel cas la trajectoire de la balle est modifiée&hellip; Elle rebondit sur la raquette.</p>
-<p>L&rsquo;opérateur &amp;&amp; est un &ldquo;Et booleen&rdquo;. Si les propositions A et B sont vraies, A&amp;&amp;B renvoie True (ou 1 dans certains langages). Dans tous les autres cas il vaut False (ou 0).
+<p>L'opérateur &amp;&amp; est un &ldquo;Et booleen&rdquo;. Si les propositions A et B sont vraies, A&amp;&amp;B renvoie True (ou 1 dans certains langages). Dans tous les autres cas il vaut False (ou 0).
 Il est MULTIPLICATIF. On peut enchainer plusieurs propositions et si elles sont toutes vraies (et seulement dans ce cas), il vaut True.</p>
-<p>Un autre opérateur || (Ou booleen) permet de tester si (A ou B) est vrai (c&rsquo;est le cas si A est vrai ou B est vrai ou si les deux le sont en même temps). Il est ADDITIF. Il faut donc respecter les priorités opératoires quand on emploie les deux en même temps.</p>
+<p>Un autre opérateur || (Ou booleen) permet de tester si (A ou B) est vrai (c'est le cas si A est vrai ou B est vrai ou si les deux le sont en même temps). Il est ADDITIF. Il faut donc respecter les priorités opératoires quand on emploie les deux en même temps.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span>(
 abs_balle<span style="color:#555">-</span>ll <span style="color:#555">&lt;=</span> abs_raquette1<span style="color:#555">-</span>l <span style="color:#555">&amp;&amp;</span> abs_balle<span style="color:#555">+</span>ll <span style="color:#555">&gt;=</span> abs_raquette1<span style="color:#555">+</span>l
 <span style="color:#555">&amp;&amp;</span> ord_balle<span style="color:#555">+</span>hh <span style="color:#555">&lt;=</span> ord_raquette1<span style="color:#555">+</span>h <span style="color:#555">&amp;&amp;</span> ord_balle<span style="color:#555">-</span>hh <span style="color:#555">&gt;=</span> ord_raquette1<span style="color:#555">-</span>h
@@ -7812,15 +7845,15 @@ abs_balle<span style="color:#555">-</span>ll <span style="color:#555">&lt;=</spa
 </span><span style="color:#09f;font-style:italic"></span>	horiz<span style="color:#555">=</span><span style="color:#555">-</span>horiz;<span style="color:#09f;font-style:italic">//rebond
 </span><span style="color:#09f;font-style:italic"></span>	vertic <span style="color:#555">=</span> vertic <span style="color:#555">+</span> <span style="color:#f60">0.05</span><span style="color:#555">*</span>(ord_balle <span style="color:#555">-</span> ord_raquette1);<span style="color:#09f;font-style:italic">//effet
 </span><span style="color:#09f;font-style:italic"></span>}
-</code></pre></div><p>On a écrit les conditions sur plusieurs lignes. C&rsquo;est identique mais plus lisible.</p>
-<p>Compléter votre code avec cet extrait et l&rsquo;ajouter à votre script. La balle doit rebondir sur la raquette de gauche.
+</code></pre></div><p>On a écrit les conditions sur plusieurs lignes. C'est identique mais plus lisible.</p>
+<p>Compléter votre code avec cet extrait et l'ajouter à votre script. La balle doit rebondir sur la raquette de gauche.
 Expliquer ce que fait : <code>+ 0.05*(ord_balle - ord_raquette1); </code></p>
-<p>Compléter ce test avec celui de l&rsquo;autre raquette et l&rsquo;insérer dans votre code. La balle doit ENFIN rebondir sur les deux raquettes&hellip;</p>
-<p>Bien que ce code fonctionne un bug subsiste ! Je ne m&rsquo;en suis aperçu qu&rsquo;en rédigeant ce tutoriel.
+<p>Compléter ce test avec celui de l'autre raquette et l'insérer dans votre code. La balle doit ENFIN rebondir sur les deux raquettes&hellip;</p>
+<p>Bien que ce code fonctionne un bug subsiste ! Je ne m'en suis aperçu qu'en rédigeant ce tutoriel.
 Saurez-vous le débusquer et le corriger ?
 Indication : ajouter un breakpoint à horiz=-horiz.</p>
 <p>Il reste deux étapes : les scores et le filet.</p>
-<p>On peut faire plus simple mais j&rsquo;ai cherché à ne créer qu&rsquo;une seule fonction :</p>
+<p>On peut faire plus simple mais j'ai cherché à ne créer qu'une seule fonction :</p>
 <h3 id="les-scores">Les scores</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#09f;font-style:italic">//ecrit les scores
 </span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> writescore(s,j){
@@ -7831,11 +7864,11 @@ Indication : ajouter un breakpoint à horiz=-horiz.</p>
 </code></pre></div><p>Il faut, à nouveau, choisir une couleur de remplissage (plus prudent), une taille et une police de caractère et indiquer où écrire le message.</p>
 <p>Que contient la variable s qui apparait à la dernière ligne ? writescore est appelée deux fois dans refreshgame, quelles sont les valeurs de <code>ZW/2 +200*j-300</code> dans chacun des appels ?</p>
 <h2 id="compléments">Compléments</h2>
-<p>Le jeu est maintenant presque terminé, ne reste que le filet à ajouter. Vous ne devriez avoir aucun mal si vous êtes parvenus jusqu&rsquo;ici.</p>
-<p>D&rsquo;autres idées :</p>
+<p>Le jeu est maintenant presque terminé, ne reste que le filet à ajouter. Vous ne devriez avoir aucun mal si vous êtes parvenus jusqu'ici.</p>
+<p>D'autres idées :</p>
 <ul>
 <li>arrêter le jeu quand un joueur arrive à 10 pts. On utilisera : <code>clearInterval(boucleJeu);</code>.</li>
-<li>Changer alors le titre de la fenêtre pour l&rsquo;indiquer au joueur. <code>document.getElementById(&quot;titre&quot;).innerHTML = &quot;Game Over&quot;</code>. RQ : on peut adapter ce message : &ldquo;Joueur 1 a gagné&rdquo;.</li>
+<li>Changer alors le titre de la fenêtre pour l'indiquer au joueur. <code>document.getElementById(&quot;titre&quot;).innerHTML = &quot;Game Over&quot;</code>. RQ : on peut adapter ce message : &ldquo;Joueur 1 a gagné&rdquo;.</li>
 </ul>
 </article>
 

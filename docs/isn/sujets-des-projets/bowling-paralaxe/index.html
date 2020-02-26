@@ -1983,6 +1983,39 @@ MathJax.Hub.Config({
   
 
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/tp/" >
+        
+  
+    
+    
+    Problème du rendu de monnaie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -7467,32 +7500,32 @@ MathJax.Hub.Config({
       
 <article class="markdown"><h2 id="présentation">Présentation</h2>
 <p>[video width=&quot;662&rdquo; height=&quot;776&rdquo; mp4=&rdquo;/uploads/uploads/2018/12/bowling_paralax_1.mp4&rdquo;][/video]</p>
-<p>Dans cette version du jeu de Bowling on s&rsquo;approche davantage des jeux de bowling type &ldquo;bowling 3D&rdquo;  concernant les graphismes et on s&rsquo;en éloigne d&rsquo;un point de vue de la physique.</p>
+<p>Dans cette version du jeu de Bowling on s'approche davantage des jeux de bowling type &ldquo;bowling 3D&rdquo;  concernant les graphismes et on s'en éloigne d'un point de vue de la physique.</p>
 <p>On représente la piste en vue à la première personne avec les quilles dans le fond.
-Le joueur est représenté par sa boule de bowling qu&rsquo;il lance pour faire tomber les quilles.</p>
+Le joueur est représenté par sa boule de bowling qu'il lance pour faire tomber les quilles.</p>
 <p>Collisions, rigoles, calcul des scores sont implémentés mais grandement simplifiés pour rendre le jeu raisonnable.</p>
 <h2 id="principe">Principe</h2>
-<p>La piste est représentée en 2D avec une vue &ldquo;avec point de fuite&rdquo;. Un point &ldquo;à l&rsquo;infini&rdquo; est choisi au delà du décor et les bords de la piste convergent vers ce point.
+<p>La piste est représentée en 2D avec une vue &ldquo;avec point de fuite&rdquo;. Un point &ldquo;à l'infini&rdquo; est choisi au delà du décor et les bords de la piste convergent vers ce point.
 Un lancer &ldquo;tout droit&rdquo; de la boule converge aussi vers ce point.
 A chaque lancer on anime la boule, détecte les collisions, déclenche les animations des quilles et compte les points.
 On initialise ensuite la partie avec le lancer suivant.</p>
 <h3 id="cahier-des-charges">Cahier des charges</h3>
 <ul>
 <li>
-<p>Il est important de comprendre le principe avant de se lancer. Une figure détaillée sur géogebra peut servir de point de départ. Je peux la fournir si nécessaire. Les coordonnées des objets doivent être bien connues et comprises. Il n&rsquo;est pas possible de réaliser ce jeu &ldquo;à l&rsquo;arrache&rdquo; en développant au fur et à mesure sans une compréhension globale du principe.</p>
+<p>Il est important de comprendre le principe avant de se lancer. Une figure détaillée sur géogebra peut servir de point de départ. Je peux la fournir si nécessaire. Les coordonnées des objets doivent être bien connues et comprises. Il n'est pas possible de réaliser ce jeu &ldquo;à l'arrache&rdquo; en développant au fur et à mesure sans une compréhension globale du principe.</p>
 </li>
 <li>
-<p>Le décor est fixe. On ne dessinera d&rsquo;abord QUE LA PISTE (un trapèze). inutile de passer des heures à faire des dessins, cela ne sert à rien.</p>
+<p>Le décor est fixe. On ne dessinera d'abord QUE LA PISTE (un trapèze). inutile de passer des heures à faire des dessins, cela ne sert à rien.</p>
 </li>
 <li>
 <p>La boule est un objet qui a une position (x, y), un rayon (dépendant de y).
-Plus y est proche de 0 (le haut de l'écran), plus le rayon est petit. Elle semble donc PLUS LOIN au fur et à mesure qu&rsquo;elle monte sur l'écran.
-(regarder la vidéo si ce n&rsquo;est pas clair).
-Ce principe est appelé parallaxe, on l&rsquo;utilise souvent en jeux vidéos pour simuler la 3D.</p>
+Plus y est proche de 0 (le haut de l'écran), plus le rayon est petit. Elle semble donc PLUS LOIN au fur et à mesure qu'elle monte sur l'écran.
+(regarder la vidéo si ce n'est pas clair).
+Ce principe est appelé parallaxe, on l'utilise souvent en jeux vidéos pour simuler la 3D.</p>
 </li>
 <li>
 <p>Les quilles sont toutes identiques, seule leur position à l'écran change.
-Elles peuvent &ldquo;tomber&rdquo;, c&rsquo;est à dire tourner sur elle même et se déplacer de façon à simuler grossièrement une chute (cette partie est presque une extension, on peut se contenter de les colorier autrement pendant tout le développement).
+Elles peuvent &ldquo;tomber&rdquo;, c'est à dire tourner sur elle même et se déplacer de façon à simuler grossièrement une chute (cette partie est presque une extension, on peut se contenter de les colorier autrement pendant tout le développement).
 Elles ont de nombreux statuts : &ldquo;touchée&rdquo;, &ldquo;tombée&rdquo;, &ldquo;en jeu&rdquo; (selon le 1er ou 2nd lancer)</p>
 </li>
 <li>
@@ -7502,19 +7535,19 @@ _ si (x&lt; telle fonction de y) alors (suivre la rigole de gauche) _pour la ri
 <em>si (x&gt; autre fonction de y) alors (suivre la rigole de droite)</em></p>
 </li>
 <li>
-<p>Le lancer d&rsquo;une boule s&rsquo;effectue en 2 temps. On se place sur l'écran et on fait glisser la boule avec la souris. On calcule alors une vitesse et la boule se déplace.
-Pour rendre le jeu jouable, on mesurera l'écart des x entre un &ldquo;glisser&rdquo; tout droit et le &ldquo;glisser&rdquo; du joueur et on adaptera la trajectoire de la boule. Cela peut paraître compliqué mais rendra l&rsquo;ajustement facile.
+<p>Le lancer d'une boule s'effectue en 2 temps. On se place sur l'écran et on fait glisser la boule avec la souris. On calcule alors une vitesse et la boule se déplace.
+Pour rendre le jeu jouable, on mesurera l'écart des x entre un &ldquo;glisser&rdquo; tout droit et le &ldquo;glisser&rdquo; du joueur et on adaptera la trajectoire de la boule. Cela peut paraître compliqué mais rendra l'ajustement facile.
 Pour le développement on introduira un lancer par pression sur &ldquo;espace&rdquo; qui va forcement tout droit.</p>
 </li>
 <li>
 <p>Les collisions sont gérées de manière très très simplifiée :
-Si la boule passe trop près d&rsquo;un quille en jeu, celle-ci devient &ldquo;touchée&rdquo;. Elle devient alors &ldquo;tombée&rdquo;. On garde la liste des quilles &ldquo;touchées&rdquo;.</p>
+Si la boule passe trop près d'un quille en jeu, celle-ci devient &ldquo;touchée&rdquo;. Elle devient alors &ldquo;tombée&rdquo;. On garde la liste des quilles &ldquo;touchées&rdquo;.</p>
 </li>
 <li>
 <p>Si certaines combinaisons sont touchées, cela déclenche un strike et toutes tombent.</p>
 </li>
 <li>
-<p>D&rsquo;autres combinaisons font tomber certaines quilles à coup sûr.</p>
+<p>D'autres combinaisons font tomber certaines quilles à coup sûr.</p>
 </li>
 <li>
 <p>Les scores sont grandement simplifiés par rapport aux règles du bowling.</p>
@@ -7535,13 +7568,13 @@ Si la boule passe trop près d&rsquo;un quille en jeu, celle-ci devient &ldquo;t
 </ul>
 </li>
 <li>
-<p>Graphismes. De toute évidence, il y a de la marge. Là aussi c&rsquo;est infini.</p>
+<p>Graphismes. De toute évidence, il y a de la marge. Là aussi c'est infini.</p>
 </li>
 <li>
-<p>Interface. Les données apparaissent simplement dans des balises HTML. On pourrait faire apparaître les informations à l'écran. Je n&rsquo;avais plus le temps de m&rsquo;en occuper.</p>
+<p>Interface. Les données apparaissent simplement dans des balises HTML. On pourrait faire apparaître les informations à l'écran. Je n'avais plus le temps de m'en occuper.</p>
 </li>
 <li>
-<p>Contrôles. Le principe est sommaire&hellip; On peut chercher d&rsquo;autres manières de faire. Les développeurs ont beaucoup de mal avec ce point, d&rsquo;ailleurs.</p>
+<p>Contrôles. Le principe est sommaire&hellip; On peut chercher d'autres manières de faire. Les développeurs ont beaucoup de mal avec ce point, d'ailleurs.</p>
 </li>
 </ul>
 </article>
