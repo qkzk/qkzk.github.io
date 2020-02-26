@@ -2007,7 +2007,7 @@ MathJax.Hub.Config({
   
     
     
-    Problème du rendu de monnaie
+    Travaux pratiques 1
   
 
       </a>
@@ -7518,7 +7518,7 @@ MathJax.Hub.Config({
 <p>Un achat dit <em>en espèce</em> se traduit par un échange de pièces et de billets. Dans la suite de cet exposé, les pièces désignent indifféremment les véritables pièces que les billets. Supposons qu'un achat induise un rendu de 49 euros. Quelles pièces peuvent être rendues ? La réponse, bien qu'évidente, n'est pas unique. Deux &ldquo;pièces&rdquo; de 20 euros, une pièce de 5 euros et deux pièces de 2 euros conviennent. Mais quarante-neuf pièces de 1 euro conviennent également ! Si la question est de <em>rendre la monnaie avec un minimum de pièces</em>, le problème change de nature. Mais la réponse reste simple : c'est la première solution proposée. Toutefois, comment parvient-on à un tel résultat ? Quels choix ont été faits qui optimisent le nombre de pièces rendus ? C'est le <em>problème du rendu de monnaie</em> dont la solution dépend du <em>système de monnaie</em> utilisé.</p>
 <p>Dans le système monétaire européen, les pièces prennent les valeurs 1, 2, 5, 10, 20, 50, 100 euros. Pour simplifier nous nous intéressons seulement aux valeurs entières et oublions l'existence des billets de 200 et 500 euros. Rendre 49 euros avec un minimum de pièces est un problème d'optimisation. En pratique, sans s'en rendre compte généralement, tout individu met en œuvre un <em>algorithme glouton</em>. Il choisit d'abord la plus grande valeur de monnaie, parmi 1, 2, 5, 10, 20, 50, contenue dans 49 euros. En l'occurrence, deux fois la pièce de 20 euros. La somme de 9 euros restant à rendre, il choisit une pièce de 5 euros puis deux pièces de 2 euros.  Cette stratégie gagnante pour la somme de 49 euros l'est-elle pour n'importe quelle somme à rendre ? On peut montrer que la réponse est positive pour le système monétaire français. Pour cette raison, un tel système de monnaie est qualifié de <em>canonique</em>.</p>
 <p>D'autres systèmes ne sont pas canoniques. L'algorithme glouton ne répond alors pas de manière optimale. Par exemple, avec le système ${1,3,6,12,24,30}$, l'algorithme glouton répond en proposant le rendu $49 = 30 + 12 + 6 + 1$, soit 4 pièces alors que la solution optimale est $49 = 2 \times 24 + 1$ soit trois pièces. La réponse à cette difficulté passe par la <em>programmation dynamique</em>, thème abordé en terminale.</p>
-<h2 id="21-un-algorithme-glouton">2.1 Un algorithme glouton</h2>
+<h2 id="2-un-algorithme-glouton">2 Un algorithme glouton</h2>
 <p>Considérons un ensemble de n pièces de monnaie de valeurs :
 $$v1 &lt; v2 &lt; \cdots &lt; v_n$$</p>
 <p>avec $v1 = 1$. On suppose que ce système est canonique. On peut noter le système de pièces :
@@ -7531,44 +7531,66 @@ et la compare à s.</p>
 </ul>
 <p>L'algorithme est ainsi répété jusqu'à obtenir une somme à rendre nulle.</p>
 <p><strong>Remarque.</strong> Il s'agit effectivement d'un algorithme glouton, la plus grande valeur de pièce étant systématiquement choisie si sa valeur est inférieure à la somme à rendre. Ce choix ne garantit en rien l'optimalité globale de la solution. Le choix fait est considéré comme pertinent et permet d'avancer plus avant dans le calcul. Toutefois, comme nous l'écrivions plus haut, si le système monétaire est canonique, la solution est optimale. Pour savoir si le système est canonique, on peut se contenter du principe suivant : la somme des $n$ premières pièces doit être inférieure à la pièce $n+1$ (1 + 2 &lt; 5, 1 + 2 + 5 &lt; 10 etc.)</p>
-<h2 id="22-code">2.2 Code</h2>
-<p>2.2. Code
-Définissons le système de pièces à l'aide d'un tableau de valeurs des pièces classées par valeurs croissantes <code>S</code>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># valeurs des pièces</span>
-systeme_monnaie <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">5</span>, <span style="color:#f60">10</span>, <span style="color:#f60">20</span>, <span style="color:#f60">50</span>, <span style="color:#f60">100</span>]
-</code></pre></div><p>Pour stocker les pièces à rendre, une liste Python initialement vide peut être utilisée.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># liste des pièces à rendre</span>
-lst_pieces <span style="color:#555">=</span> []
-</code></pre></div><p>La première pièce à rendre est potentiellement la dernière pièce du tableau <code>systeme_monnaie</code>. Une variable <code>i</code> de type entier est initialisée avec l'indice du dernier élément de ce tableau.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># indice de la première pièce comparer à la somme à rendre</span>
-i <span style="color:#555">=</span> <span style="color:#366">len</span>(systeme_monnaie) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-</code></pre></div><p>Chaque fois qu'une pièce de <code>S</code> n'est plus utilisable, la valeur de <code>i</code> sera diminuée de 1. Le programme s'arrête quand <code>i</code> atteint la valeur 0. Ce qui mène à l'écriture d'une boucle conditionnelle pour remplir la liste des pièces choisies. La somme à rendre à rendre
-est initialement stockée dans la variable <code>somme_a_rendre</code>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># somme à rendre</span>
-somme_a_rendre <span style="color:#555">=</span> <span style="color:#f60">87</span>
-<span style="color:#09f;font-style:italic"># boucle de construction de la liste des pièces</span>
-<span style="color:#069;font-weight:bold">while</span> somme_a_rendre <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>:
-  valeur <span style="color:#555">=</span> systeme_monnaie[i]
-  <span style="color:#069;font-weight:bold">if</span> somme_a_rendre <span style="color:#555">&lt;</span> valeur:
-    i <span style="color:#555">-</span><span style="color:#555">=</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">else</span>:
-    lst_pieces<span style="color:#555">.</span>append(valeur)
-    somme_a_rendre <span style="color:#555">-</span><span style="color:#555">=</span> valeur
-</code></pre></div><p>Pour finir, le code précédent peut être encapsulé dans une fonction qui reçoit deux arguments - la somme à rendre et le système de monnaie - et qui renvoie la liste des pièces choisies par l'algorithme glouton.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">pieces_a_rendre</span>(somme_a_rendre, systeme_monnaie):
-  <span style="color:#09f;font-style:italic"># liste des pièces à rendre</span>
-  lst_pieces <span style="color:#555">=</span> []
-  <span style="color:#09f;font-style:italic"># indice de la première pièce comparer à la somme à rendre</span>
-  i <span style="color:#555">=</span> <span style="color:#366">len</span>(systeme_monnaie) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">while</span> somme_a_rendre <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>:
-    valeur <span style="color:#555">=</span> systeme_monnaie[i]
-    <span style="color:#069;font-weight:bold">if</span> somme_a_rendre <span style="color:#555">&lt;</span> valeur:
-      i <span style="color:#555">-</span><span style="color:#555">=</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-      lst_pieces<span style="color:#555">.</span>append(valeur)
-      somme_a_rendre <span style="color:#555">-</span><span style="color:#555">=</span> valeur
-  <span style="color:#069;font-weight:bold">return</span> lst_pieces
-</code></pre></div></article>
+<!--
+## 2.2 Code
+
+2.2. Code
+Définissons le système de pièces à l'aide d'un tableau de valeurs des pièces classées par valeurs croissantes `S`.
+
+~~~python
+# valeurs des pièces
+systeme_monnaie = [1, 2, 5, 10, 20, 50, 100]
+~~~
+
+Pour stocker les pièces à rendre, une liste Python initialement vide peut être utilisée.
+
+~~~python
+# liste des pièces à rendre
+lst_pieces = []
+~~~
+
+La première pièce à rendre est potentiellement la dernière pièce du tableau `systeme_monnaie`. Une variable `i` de type entier est initialisée avec l'indice du dernier élément de ce tableau.
+
+~~~python
+# indice de la première pièce comparer à la somme à rendre
+i = len(systeme_monnaie) - 1
+~~~
+
+Chaque fois qu'une pièce de `S` n'est plus utilisable, la valeur de `i` sera diminuée de 1. Le programme s'arrête quand `i` atteint la valeur 0. Ce qui mène à l'écriture d'une boucle conditionnelle pour remplir la liste des pièces choisies. La somme à rendre à rendre
+est initialement stockée dans la variable `somme_a_rendre`.
+
+~~~python
+# somme à rendre
+somme_a_rendre = 87
+# boucle de construction de la liste des pièces
+while somme_a_rendre > 0:
+  valeur = systeme_monnaie[i]
+  if somme_a_rendre < valeur:
+    i -= 1
+  else:
+    lst_pieces.append(valeur)
+    somme_a_rendre -= valeur
+~~~
+
+Pour finir, le code précédent peut être encapsulé dans une fonction qui reçoit deux arguments - la somme à rendre et le système de monnaie - et qui renvoie la liste des pièces choisies par l'algorithme glouton.
+
+~~~python
+def pieces_a_rendre(somme_a_rendre, systeme_monnaie):
+  # liste des pièces à rendre
+  lst_pieces = []
+  # indice de la première pièce comparer à la somme à rendre
+  i = len(systeme_monnaie) - 1
+  while somme_a_rendre > 0:
+    valeur = systeme_monnaie[i]
+    if somme_a_rendre < valeur:
+      i -= 1
+    else:
+      lst_pieces.append(valeur)
+      somme_a_rendre -= valeur
+  return lst_pieces
+~~~
+-->
+</article>
 
       <div class="backtotop">
 
@@ -7603,8 +7625,7 @@ somme_a_rendre <span style="color:#555">=</span> <span style="color:#f60">87</sp
   <ul>
     <li><a href="#1-généralités">1. Généralités</a></li>
     <li><a href="#2-rendu-de-monnaie">2. Rendu de monnaie</a></li>
-    <li><a href="#21-un-algorithme-glouton">2.1 Un algorithme glouton</a></li>
-    <li><a href="#22-code">2.2 Code</a></li>
+    <li><a href="#2-un-algorithme-glouton">2 Un algorithme glouton</a></li>
   </ul>
 </nav>
   </aside>
