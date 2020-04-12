@@ -13,7 +13,7 @@
   
     
     
-    Python 3 - 14 Applications et jeux en réseau
+    Dodger
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/projets/dodger/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -653,7 +653,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/"  class="active">
+      <a href="/docs/nsi/cours-python/python-3-14-applications-et-jeux-en-reseau/" >
         
   
     
@@ -3021,7 +3021,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/projets/dodger/" >
+      <a href="/docs/nsi/cours_premiere/projets/dodger/"  class="active">
         
   
     
@@ -7624,84 +7624,33 @@ MathJax.Hub.Config({
   
     
     
-    Python 3 - 14 Applications et jeux en réseau
+    Dodger
   
 </strong>
 </header>
 
       
-<article class="markdown"><p>Les applications et jeux en réseau se basent sur le modèle clients/serveur.</p>
-<p>Au niveau de la programmation, la tâche est ardue car il faut avoir des connaissances en réseau (module <code>socket</code>) et en multithreading (module <code>threading</code>) :</p>
+<article class="markdown"><h1 id="tutoriel-dodger">tutoriel Dodger</h1>
+<p>Tutoriel présentant les étapes de création d&rsquo;un jeu en Pygame Zero</p>
+<h2 id="dodger">Dodger</h2>
+<p>Le but du jeu est d'éviter des rectangles à l'écran
+Les rectangles descendent régulièrement et réapparaissent au fur et à
+mesure qu&rsquo;ils quittent l'écran par le bas.</p>
+<p>Le joueur se déplace à l'écran dans les quatre directions.</p>
 <ul>
-<li>
-<p>Un <code>socket</code> permet de connecter deux machines à travers un réseau.
-Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il faut créer 10 sockets (chaque client est connecté au serveur).
-Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).</p>
-</li>
-<li>
-<p>Le <code>multithreading</code> est une technique qui permet d&rsquo;exécuter plusieurs tâches (<code>thread</code>) en même temps et de manière indépendante dans un même processus.
-Pour un jeu en réseau avec 10 joueurs, le serveur utilisera 10 threads pour communiquer individuellement avec chaque client.
-Chaque thread gère donc le socket du client.
-On retrouve le multithreading du côté de l&rsquo;application cliente : pour traiter l'émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.</p>
-</li>
+<li>S&rsquo;il touche un rectangle, il meurt.</li>
+<li>Si un rectangle quitte l'écran, il gagne un point.</li>
+<li>Le meilleur score est enregistré dans un fichier.</li>
 </ul>
-<h3 id="exemple--un-qcm-en-réseau">Exemple : un QCM en réseau</h3>
-<p>Il s&rsquo;agit d&rsquo;un jeu multijoueurs.
-On peut y jouer en réseau local (LAN) ou sur Internet.</p>
-<p>Chaque joueur lance son application cliente pour se connecter au serveur.
-La première étape consiste à créer un pseudonyme, puis quand le nombre de joueurs est suffisant (3 dans l&rsquo;exemple ci-dessous), la partie commence.
-Le serveur envoie alors simultanément la première question à l&rsquo;ensemble des joueurs : le but est d&rsquo;y répondre correctement et le plus rapidement possible.
-Quand tout le monde a répondu ou si la limite de temps est dépassée, on passe à la question suivante&hellip;
-Un classement est établi à partir d&rsquo;un système de points.</p>
-<h4 id="le-serveur">Le serveur</h4>
-<p>Avant toute chose, il faut lancer le serveur.
-Le port par défaut est 50026 et le nombre de joueurs est 3.
-Mais on peut choisir pour le numéro de port une valeur arbitraire comprise entre 49152 et 65535, ainsi qu&rsquo;un nombre quelconque de joueurs : il suffit de modifier ces paramètres dans le script.</p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/serveur_ubuntu.png" alt="Python"></p>
-<h4 id="les-clients">Les clients</h4>
-<p>Ici, on joue à trois en réseau local (chez vous, derrière votre box, par exemple).
-Pour se connecter au serveur, il faut connaître son adresse IP (192.168.1.10) et le port qu&rsquo;il utilise (50026).</p>
-<p>Python étant multiplateforme, on peut mélanger les systèmes d&rsquo;exploitation : Windows, Linux, Mac&hellip;
-Dans cet exemple :</p>
-<ul>
-<li>le serveur et un client tournent sur le même ordinateur sous Linux/Ubuntu (192.168.1.10)</li>
-<li>un deuxième client sur un ordinateur sous Windows (192.168.1.11)</li>
-<li>un troisième client sur un troisième ordinateur sous Linux/Ubuntu (192.168.1.13)</li>
-</ul>
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu1.png" alt="Python"></p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Windows.png" alt="Python"></p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/reseau/client_Ubuntu2.png" alt="Python"></p>
-<p>Finalement, c&rsquo;est Ubuntu qui gagne devant Windows ;)</p>
-<h4 id="remarques">Remarques</h4>
-<p>Cette application fonctionne mais est loin d'être parfaite : les pertes de connexion ne sont pas gérées, etc&hellip;
-Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un retour de votre part.</p>
-<h4 id="télécharger-les-scripts">Télécharger les scripts</h4>
-<ul>
-<li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">serveur</a></li>
-<li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">client (mode graphique avec Tkinter)</a></li>
-<li><a href="http://fsincere.free.fr/isn/python/download/reseau/python3">client (mode console)</a></li>
-</ul>
-<h3 id="projet">Projet</h3>
-<h4 id="jeu-tic-tac-toe-en-réseau-jeu-du-morpion">Jeu Tic-Tac-Toe en réseau (jeu du morpion)</h4>
-<p>Ecrire l&rsquo;application serveur et l&rsquo;application cliente d&rsquo;un jeu de morpion en réseau local (LAN) ou sur Internet (plus d&rsquo;informations <a href="http://fsincere.free.fr/jeu/jeu.php">ici</a>) :</p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/tkinter_tic_tac_toe_en_reseau.png" alt="Python Tkinter Canvas"></p>
-<p><img src="http://fsincere.free.fr/isn/python/picto/tic_tac_toe_serveur.png" alt="Python Tkinter Canvas"></p>
-<h3 id="bibliographie">Bibliographie</h3>
-<p>Le cours de Gérard Swinnen, avec deux exemples concrets à essayer (un chat et un jeu de bombardes) :</p>
-<ul>
-<li><a href="http://inforef.be/swi/python.htm">inforef.be/swi/python.htm</a></li>
-<li><a href="http://python.developpez.com/cours/TutoSwinnen/?page=page_20#L18">python.developpez.com/cours/TutoSwinnen/?page=page_20#L18</a></li>
-</ul>
-<p>Le livre de Brandon Rhodes et John Goerzen :</p>
-<ul>
-<li>Foundations of Python Network Programming (<a href="http://www.apress.com/">Apress</a>)</li>
-</ul>
-<p>La documentation officielle de Python :</p>
-<ul>
-<li><a href="http://docs.python.org/3/library/socket.html">socket : low-level networking interface</a></li>
-<li><a href="http://docs.python.org/3/library/threading.html">threading : higher-level threading interface</a></li>
-</ul>
-<p>Source - <a href="http://fsincere.free.fr/isn/python/cours_python_reseau.php">Fabrice Sincère</a> -<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Contenu sous licence CC BY-NC-SA 3.0</a></p>
+<h2 id="tutoriel">Tutoriel</h2>
+<p>Chaque étape apporte une amélioration simple depuis la précédente.</p>
+<p>En une douzaine d'étapes on a le jeu complet.</p>
+<h2 id="améliorations">Améliorations</h2>
+<p>Il reste très sommaire : il n&rsquo;y a pas d&rsquo;images, pas de sons, pas d&rsquo;augmentation
+de la difficulté&hellip; seulement une action possible : se déplacer.</p>
+<p>Ces améliorations sont laissées au soin du lecteur.</p>
+<h2 id="sources">Sources</h2>
+<p>Elles sont disponibles <a href="https://github.com/qkzk/tutoriel_dodger">ici</a></p>
 </article>
 
       <div class="backtotop">
@@ -7737,13 +7686,10 @@ Si vous avez testé cette application, cela m&rsquo;intéresse d&rsquo;avoir un 
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#exemple--un-qcm-en-réseau">Exemple : un QCM en réseau</a></li>
-        <li><a href="#projet">Projet</a></li>
-        <li><a href="#bibliographie">Bibliographie</a></li>
-      </ul>
-    </li>
+    <li><a href="#dodger">Dodger</a></li>
+    <li><a href="#tutoriel">Tutoriel</a></li>
+    <li><a href="#améliorations">Améliorations</a></li>
+    <li><a href="#sources">Sources</a></li>
   </ul>
 </nav>
   </aside>
