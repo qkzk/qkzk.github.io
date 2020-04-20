@@ -13,7 +13,7 @@
   
     
     
-    Les URL
+    processus, système de fichiers, shell
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_premiere/ihm_web/url/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.github.io/docs/nsi/cours_terminale/architecture/processus/processus/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -3223,7 +3223,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/ihm_web/url/"  class="active">
+      <a href="/docs/nsi/cours_premiere/ihm_web/url/" >
         
   
     
@@ -4304,7 +4304,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/architecture/processus/processus/" >
+      <a href="/docs/nsi/cours_terminale/architecture/processus/processus/"  class="active">
         
   
     
@@ -8544,71 +8544,648 @@ MathJax.Hub.Config({
   
     
     
-    Les URL
+    processus, système de fichiers, shell
   
 </strong>
 </header>
 
       
-<article class="markdown"><p>pdf : <a href="/uploads/docsnsi/ihm_web/nsi_prem_url_print.pdf">pour impression</a></p>
-<h1 id="les-url">Les URL</h1>
-<p>Dans la barre d&rsquo;adresse de votre navigateur web vous trouverez, quand
-vous visitez un site, des choses du genre :
-&ldquo;<a href="https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/%22">https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/&quot;</a>.
-Nous aurons l&rsquo;occasion de reparler du &ldquo;http&rdquo; et du
-&ldquo;qkzk.xyz&rdquo; plus tard. La partie
-&ldquo;/docs/nsi/cours_premiere/programmation/comparaison/&rdquo; s&rsquo;appelle une URL.</p>
-<p>Une URL (Uniform Resource Locator) permet d&rsquo;identifier une ressource
-(par exemple un fichier) sur un réseau.</p>
-<p>L&rsquo;URL indique « l&rsquo;endroit » où se trouve une ressource sur un
-ordinateur. Un fichier peut se trouver dans un dossier qui peut lui-même
-se trouver dans un autre dossier&hellip; On parle d&rsquo;une structure en
-arborescence, car elle ressemble à un arbre à l&rsquo;envers :</p>
-<p><img src="/uploads/docsnsi/ihm_web/img/url.jpg" alt="arbo"></p>
-<p>structure en arborescence</p>
-<p>Comme vous pouvez le constater, la base de l&rsquo;arbre s&rsquo;appelle la racine
-de l&rsquo;arborescence et se représente par un /</p>
-<h2 id="chemin-absolu-ou-chemin-relatif">Chemin absolu ou chemin relatif ?</h2>
-<p>Pour indiquer la position d&rsquo;un fichier (ou d&rsquo;un dossier) dans
-l&rsquo;arborescence, il existe 2 méthodes : indiquer un chemin absolu ou
-indiquer un chemin relatif. Le chemin absolu doit indiquer « le chemin »
-depuis la racine. Par exemple l&rsquo;URL du fichier fichier3.jpg sera :
-/dossier2/dossier3/fichier3.jpg</p>
-<p>Remarquez que nous démarrons bien de la racine / (attention les symboles
-de séparation sont aussi des /)</p>
-<p>Imaginons maintenant que le fichier fichier1.css fasse appel au fichier
-fichier3.jpg (comme un fichier HTML peut faire appel à un fichier CSS).
-Il est possible d&rsquo;indiquer le chemin non pas depuis la racine, mais
-depuis le dossier (dossier2) qui accueille le fichier1.css, nous
-parlerons alors de chemin relatif :</p>
-<p>dossier3/fichier3.jpg</p>
-<p>Remarquez l&rsquo;absence du / au début du chemin (c&rsquo;est cela qui nous
-permettra de distinguer un chemin relatif et un chemin absolu).</p>
-<p>Imaginons maintenant que nous désirions indiquer le chemin relatif du
-fichier fichier1.css depuis l&rsquo;intérieur du dossier dossier4.</p>
-<p>Comment faire ?</p>
-<p>Il faut « remonter » d&rsquo;un « niveau » dans l&rsquo;arborescence pour se
-retrouver dans le dossier dossier2 et ainsi pouvoir repartir vers la
-bonne « branche ». Pour ce faire il faut utiliser 2 points : ..</p>
-<p>../dossier2/fichier1.css</p>
-<p>Il est tout à fait possible de remonter de plusieurs « crans » : ../../
-depuis le dossier dossier4 permet de « retourner » à la racine.</p>
-<h2 id="à-faire-vous-même-1">À faire vous-même 1</h2>
-<p>Soit la structure en arborescence suivante:</p>
-<p><img src="/uploads/docsnsi/ihm_web/img/url.jpg" alt="arbo"></p>
-<p>Le contenu du fichier &ldquo;fichier7.odp&rdquo; utilise le fichier
-&ldquo;fichier5.svg&rdquo;. Donnez le chemin relatif qui devra être renseigner
-dans le fichier &ldquo;fichier7.odp&rdquo; afin d&rsquo;atteindre le fichier
-&ldquo;fichier5.svg&rdquo;.</p>
-<p>Donnez le chemin absolu permettant d&rsquo;atteindre le fichier
-&ldquo;fichier6.html&rdquo;.</p>
+<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitaleprocessuspsfssh_printpdf-diaporamauploadsdocnsitaleprocessuspsfssh_slidespdf"><a href="/uploads/docnsitale/processus/psfssh_print.pdf">pdf pour impression</a>, <a href="/uploads/docnsitale/processus/psfssh_slides.pdf">diaporama</a></h3>
+<!-- à compiler par
+pandoc -t beamer --slide-level 2 -V "aspectratio=1610" -s psfssh.md -o psfssh_slides.pdf
+-->
+<p>Système d&rsquo;exploitation</p>
+<p>Première</p>
+<ul>
+<li>pratique sous Linux avec la clé</li>
+<li>résumé des commandes de base</li>
+</ul>
+<p>Terminale</p>
+<ul>
+<li><strong>processus</strong></li>
+<li>fichier et système de fichiers (rappel)</li>
+<li>avec le shell (rappel)</li>
+</ul>
+<h1 id="processus">Processus</h1>
+<h2 id="processus--programme">Processus &amp; programme</h2>
+<h3 id="programme">Programme</h3>
+<ul>
+<li>description statique</li>
+<li>code, suite d&rsquo;instructions</li>
+</ul>
+<h3 id="processus-1">Processus</h3>
+<ul>
+<li>activité dynamique, temporelle</li>
+<li>vie d&rsquo;un processus : création d&rsquo;un processus, exécution, fin d&rsquo;un processus</li>
+</ul>
+<p>. . .</p>
+<h3 id="_un_-processus-est-_une_-instance-dexécution-dun-programme"><em>Un</em> processus est <em>une</em> instance d&rsquo;exécution d&rsquo;un programme</h3>
+<ul>
+<li>plusieurs exécutions de programmes</li>
+<li>plusieurs exécutions d&rsquo;un même programme</li>
+<li>plusieurs exécutions « simultanées » de programmes différents</li>
+<li>plusieurs exécutions « simultanées » d&rsquo;un même programme</li>
+</ul>
+<h2 id="p-p-processeur">P&hellip;, p&hellip;, processeur</h2>
+<h3 id="programme-processus-processeur">Programme, processus&hellip; processeur</h3>
+<ul>
+<li>entité matérielle</li>
+<li>désigne l&rsquo;utilisation du processeur</li>
+</ul>
+<h3 id="affectation-du-processeur-à-un-processus">Affectation du processeur à un processus</h3>
+<ul>
+<li>pour un temps donné</li>
+<li>permet de faire progresser le processus</li>
+</ul>
+<h3 id="choix-de-cette-affectation--ordonnancement">Choix de cette affectation = ordonnancement</h3>
+<ul>
+<li>système multiprocessus</li>
+<li>choix à la charge du système d&rsquo;exploitation</li>
+</ul>
+<h2 id="p-p-p-parallélisme-pseudo-parallélisme">P&hellip;, p&hellip;, p&hellip;, parallélisme, pseudo-parallélisme</h2>
+<h3 id="ordonnancement">Ordonnancement</h3>
+<ul>
+<li>plusieurs processus, un processeur</li>
+<li>entrelacement des processus</li>
+</ul>
+<h3 id="deux-processus">Deux processus</h3>
+<p>\</p>
+<p><img src="/uploads/docnsitale/processus/fig/p1p2-50.png" alt="">{height=10%}\</p>
+<p>. . .</p>
+<p>:::::: {.columns}
+::: {.column width=&quot;50%&quot;}
+→ exécution séquentielle
+:::
+::: {.column width=&quot;50%&quot;}
+<img src="/uploads/docnsitale/processus/fig/p1p2-60.png" alt="">
+:::
+:::::</p>
+<p>. . .</p>
+<p>:::::: {.columns}
+::: {.column width=&quot;50%&quot;}
+→ exécutions parallèles (deux processeurs)
+:::
+::: {.column width=&quot;50%&quot;}
+<img src="/uploads/docnsitale/processus/fig/p1p2-70.png" alt="">{height=10%}
+:::
+:::::</p>
+<p>. . .</p>
+<p>:::::: {.columns}
+::: {.column width=&quot;50%&quot;}
+→ exécutions entrelacées
+:::
+::: {.column width=&quot;50%&quot;}
+<img src="/uploads/docnsitale/processus/fig/p1p2-80.png" alt="">
+:::
+:::::</p>
+<p>. . .</p>
+<p>:::::: {.columns}
+::: {.column width=&quot;50%&quot;}
+→ autre entrelacement
+:::
+::: {.column width=&quot;50%&quot;}
+<img src="/uploads/docnsitale/processus/fig/p1p2-90.png" alt="">
+:::
+:::::</p>
+<p>. . .</p>
+<ul>
+<li>impression pour chacun de disposer d&rsquo;un processeur
+<ul>
+<li>le système <em>virtualise</em> la ressource processeur</li>
+</ul>
+</li>
+</ul>
+<h2 id="processus--abstraction">Processus = abstraction</h2>
+<h3 id="processus--exécution-abstraite-dun-programme">Processus = exécution abstraite d&rsquo;un programme</h3>
+<ul>
+<li>indépendante de l&rsquo;avancement réel de l&rsquo;exécution</li>
+</ul>
+<h3 id="exécution-dun-programme--réunion-des-instants-dexécution-réelle-du-programme">Exécution d&rsquo;un programme = réunion des instants d&rsquo;exécution réelle du programme</h3>
+<ul>
+<li>dépend de la disponibilité du processeur</li>
+</ul>
+<h3 id="processus--abstraction-1">Processus = abstraction</h3>
+<ul>
+<li>désigne une entité identifiable</li>
+<li>par exemple : priorité d&rsquo;un processus</li>
+<li>parallélisme, simultanéité, interaction&hellip; de deux processus</li>
+</ul>
+<h3 id="compétition-_race-condition_">Compétition (<em>race condition</em>)</h3>
+<ul>
+<li>résultats de deux processus dépend de cet entrelacement</li>
+<li>par exemple à cause d&rsquo;accès partagés à un ficher&hellip;</li>
+<li>danger potentiel, à éviter&hellip;</li>
+</ul>
+<h2 id="processus--ressources">Processus &amp; ressources</h2>
+<h3 id="processus--exécution-dun-programme">Processus = exécution d&rsquo;un programme</h3>
+<ul>
+<li>requiert des ressources</li>
+</ul>
+<h3 id="ressource">Ressource</h3>
+<ul>
+<li>entité nécessaire à l&rsquo;exécution d&rsquo;un processus</li>
+<li>ressources matérielles : processeur, périphérique&hellip;</li>
+<li>ressources logicielles : variable&hellip;</li>
+</ul>
+<h3 id="caractéristiques-dune-ressource">Caractéristiques d&rsquo;une ressource</h3>
+<ul>
+<li>état : libre, occupée</li>
+<li>nombre de possibles utilisations concurrentes<br>
+(ressource à accès multiples)</li>
+</ul>
+<h3 id="ressources-indispensables-à-un-processus">Ressources indispensables à un processus</h3>
+<ul>
+<li>mémoire propre (mémoire virtuelle)</li>
+<li>contexte d&rsquo;exécution (état instantané du processus)
+<ul>
+<li>pile (en mémoire)</li>
+<li>registres du processeur</li>
+</ul>
+</li>
+</ul>
+<h2 class="allowframebreaks" id="états-dun-processus-">États d&rsquo;un processus</h2>
+<p><img src="/uploads/docnsitale/processus/fig/psst-1.png" alt="">{height=80%}</p>
+<p><img src="/uploads/docnsitale/processus/fig/psst-2.png" alt=""></p>
+<p><img src="/uploads/docnsitale/processus/fig/psst-3.png" alt=""></p>
+<p><img src="/uploads/docnsitale/processus/fig/psst-4.png" alt="">{width=90%}</p>
+<h2 id="attributs-dun-processus">Attributs d&rsquo;un processus</h2>
+<h3 id="identification-univoque">Identification univoque</h3>
+<ul>
+<li>PID <em>process ID</em></li>
+<li>numéro entier <code>pid_t</code>{.c}</li>
+</ul>
+<h3 id="propriétaire">Propriétaire</h3>
+<ul>
+<li>utilisateur qui a lancé le processus, son groupe</li>
+<li>détermine les droits du processus</li>
+</ul>
+<h3 id="répertoire-de-travail">Répertoire de travail</h3>
+<ul>
+<li>origine de l&rsquo;interprétation des chemins relatifs</li>
+</ul>
+<h3 id="hiérarchie-des-processus">Hiérarchie des processus</h3>
+<ul>
+<li>création de processus&hellip; par un processus</li>
+<li>chaque processus a donc un processus père</li>
+<li>processus <code>init</code>{.c} ancêtre de tous les processus</li>
+<li>héritage — répertoire de travail, etc.</li>
+</ul>
+<h2 id="gérer-les-processus-depuis-le-shell">Gérer les processus depuis le shell</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% commande
+</code></pre></div><ul>
+<li>création d&rsquo;un processus qui va exécuter le programme <code>commande</code></li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% ps ax
+</code></pre></div><ul>
+<li>liste les processus</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% top
+</code></pre></div><ul>
+<li>affichage en continu des informations relatives aux processus
+<ul>
+<li><code>htop</code> et <code>atop</code> sont des alternatives</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% kill -9 pid
+</code></pre></div><ul>
+<li>« tue » le processus désigné
+<ul>
+<li>envoi d&rsquo;un signal 9</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% killall nom
+</code></pre></div><ul>
+<li>« tue » les processus désignés par leur nom</li>
+</ul>
+<h1 id="fichier-et-système-de-fichiers">Fichier et système de fichiers</h1>
+<h2 id="données-persistantes">Données persistantes</h2>
+<h3 id="processus-manipule-des-données">Processus manipule des données</h3>
+<ul>
+<li>conserve en mémoire</li>
+<li>tout au long de son exécution</li>
+</ul>
+<h3 id="besoin-de-conservation-des-données">Besoin de conservation des données</h3>
+<ul>
+<li>au delà de la fin du processus</li>
+</ul>
+<h3 id="besoin-de-mémoriser-de-grandes-quantités-de-données">Besoin de mémoriser de grandes quantités de données</h3>
+<ul>
+<li>taille supérieure à la mémoire (virtuelle)</li>
+</ul>
+<h3 id="besoin-de-partage-des-données">Besoin de partage des données</h3>
+<ul>
+<li>données accessibles (simultanément) par plusieurs processus</li>
+</ul>
+<h3 id="fichiers">Fichiers</h3>
+<ul>
+<li>mémoriser des données</li>
+<li>sur disques — ou autres « mémoires secondaires »</li>
+<li>de manière persistante</li>
+</ul>
+<h2 id="système-de-fichiers">Système de fichiers</h2>
+<h3 id="système-de-fichiers--partie-du-système-dexploitation">Système de fichiers = partie du système d&rsquo;exploitation</h3>
+<ul>
+<li>organisation des fichiers</li>
+<li>structuration, nommage, accès, protection, implantation&hellip;</li>
+</ul>
+<h3 id="fichier--mécanisme-dabstraction">Fichier = mécanisme d&rsquo;abstraction</h3>
+<ul>
+<li>présentation à l&rsquo;utilisateur</li>
+<li>opérations permises par le système d&rsquo;exploitation
+<ul>
+<li>création, lecture/écriture, déplacement, suppression&hellip;</li>
+</ul>
+</li>
+<li>&hellip; à partir d&rsquo;un nom, chemin d&rsquo;accès</li>
+</ul>
+<h3 id="implantation-des-systèmes-de-fichiers">Implantation des systèmes de fichiers</h3>
+<ul>
+<li>variées — FAT, ext2, ext4, HFS, AFS, NHS&hellip;</li>
+</ul>
+<h2 id="répertoires">Répertoires</h2>
+<h3 id="répertoire--fichier-particulier">Répertoire = fichier particulier</h3>
+<ul>
+<li>mémorise la structure du système de fichiers</li>
+<li>opérations contrôlées par le système d&rsquo;exploitation</li>
+</ul>
+<h3 id="fichier-ordinaire">Fichier ordinaire</h3>
+<ul>
+<li>contient les données — suite d&rsquo;octets (/bits, /blocs)</li>
+<li>sans organisation particulière</li>
+</ul>
+<!--
+### Système de fichiers = abstraction d'un disque
+* plusieurs disques
+* plusieurs systèmes de fichiers !
+* éventuellement de types différents !
+* vue unifiée des systèmes de fichiers présents = une unique hiérarchie
+-->
+<h2 id="hiérarchie">Hiérarchie</h2>
+<h3 id="système-de-fichiers-présente-une-hiérarchie">Système de fichiers présente une hiérarchie</h3>
+<ul>
+<li>répertoire « <em>contient</em> » des fichiers</li>
+<li>racine du système de fichiers</li>
+<li>position courante dans la hiérarchie</li>
+</ul>
+<h3 id="système-de-fichiers-nest-pas-une-hiérarchie">Système de fichiers n&rsquo;est pas une hiérarchie</h3>
+<ul>
+<li>implantation sur la machine est un ensemble de nœuds</li>
+<li>un nœud = un ensemble de blocs de données</li>
+<li>détails d&rsquo;implémentation cachés</li>
+</ul>
+<h3 id="lutilisateur-doit-savoir-que-le-système-de-fichiers-nest-pas-une-hiérarchie">L&rsquo;utilisateur doit savoir que le système de fichiers n&rsquo;est pas une hiérarchie</h3>
+<ul>
+<li>répertoire <em>contient une liste de noms</em> d&rsquo;entrées</li>
+<li>manipulation des liens symboliques</li>
+<li>manipulation des liens physiques</li>
+</ul>
+<h2 id="système-de-fichiers-arborescent">Système de fichiers arborescent</h2>
+<h3 id="le-système-de-fichier-est-un-arbre">Le système de fichier est un arbre</h3>
+<ul>
+<li>vue simplificatrice (&hellip; sur laquelle on reviendra)</li>
+<li>arbre = racine +  nœuds à un parent unique + arcs</li>
+</ul>
+<h3 id="racine">Racine</h3>
+<ul>
+<li>notée <code>/</code></li>
+<li>est son propre parent</li>
+</ul>
+<h3 id="arcs-ou-entrées">Arcs ou entrées</h3>
+<ul>
+<li>nommés, tous caractères sauf <code>\0</code> et <code>/</code></li>
+<li>éviter les espaces, les non imprimables, et non ASCII</li>
+</ul>
+<h3 id="nœuds-non-terminaux">Nœuds non terminaux</h3>
+<ul>
+<li>répertoires</li>
+<li>toujours deux fils :
+\LARGE <code>.</code> \normalsize et \LARGE <code>..</code> \normalsize</li>
+<li>\LARGE <code>.</code> \normalsize désigne le nœud lui-même,
+\LARGE <code>..</code> \normalsize désigne son père</li>
+</ul>
+<h3 id="nœuds-terminaux">Nœuds terminaux</h3>
+<ul>
+<li>fichiers standard</li>
+<li>contiennent des données</li>
+</ul>
 <hr>
-<p>Remarque : la façon d'écrire les chemins (avec des slash (/) comme
-séparateurs) est propre aux systèmes dits « UNIX », par exemple
-GNU/Linux ou encore Mac OS. Sous Windows, ce n&rsquo;est pas le slash qui est
-utilisé, mais l&rsquo;antislash (\). Pour ce qui nous concerne ici, les
-chemins réseau (et donc le web), pas de problème, c&rsquo;est le slash qui
-est utilisé.</p>
+<h2 class="allowframebreaks" id="système-de-fichiers-un-arbre-">Système de fichiers, un arbre</h2>
+<!-- ![](/uploads/docnsitale/processus/fig/fs-tree-1){width=80%} -->
+<p><img src="/uploads/docnsitale/processus/fig/fs-tree-2.png" alt="">{width=80%}</p>
+<!-- ![](/uploads/docnsitale/processus/fig/fs-node-1){width=80%} -->
+<p><img src="/uploads/docnsitale/processus/fig/fs-node-2.png" alt="">{width=80%}</p>
+<!-- Slide supprimé -->
+<!--
+Chemins dans le système de fichiers
+-----------------------------------
+
+### Système de fichiers arborescent
+* nommage non ambigu d'un fichier depuis la racine
+* `/`(racine) nom de l'ascendant `/` ...
+            `/` nom du parent `/` nom du fichier
+* caractère `/` de construction de noms de chemin
+
+### Chemin absolu
+* interprété depuis la racine
+* précédé de `/` qui désigne la racine
+* `/home/diueil/duchmol/bloc1/adn/adn.py`
+
+### Chemin relatif
+* position courante dans le système de fichiers
+* interprété par rapport à cette position
+* `adn/adn.py` ou `../bloc2/tri/tris_anonymes.py` \normalsize
+
+-->
+<h2 class="allowframebreaks" id="système-de-fichiers-un-arbre-ou-presque-">Système de fichiers, un arbre, ou presque</h2>
+<p><img src="/uploads/docnsitale/processus/fig/fs-node-3.png" alt="">{height=85%}</p>
+<p><img src="/uploads/docnsitale/processus/fig/fs-node-4.png" alt="">{height=85%}</p>
+<p><img src="/uploads/docnsitale/processus/fig/fs-node-5.png" alt="">{height=85%}</p>
+<h2 id="inombre---numérotation-des-nœuds">Inombre - numérotation des nœuds</h2>
+<h3 id="inœud">Inœud</h3>
+<ul>
+<li>structure de données sur le disque</li>
+<li>informations relatives à un fichier : taille, dates, droits&hellip;</li>
+<li>et moyen d&rsquo;accès aux données</li>
+</ul>
+<h3 id="désignation-dun-fichier-sur-le-support-matériel">Désignation d&rsquo;un fichier sur le support matériel</h3>
+<ul>
+<li>numéro d&rsquo;inœud (<em>inode</em>)</li>
+<li>(numéro de périphérique)</li>
+</ul>
+<h3 id="association-dune-numérotation-à-un-nœud">Association d&rsquo;une numérotation à un nœud</h3>
+<ul>
+<li>lien entre le nommage et le contenu</li>
+</ul>
+<h3 id="nommages-multiples-dun-nœud">Nommages multiples d&rsquo;un nœud</h3>
+<ul>
+<li>de part les arcs \LARGE <code>.</code> \normalsize et \LARGE <code>..</code> \normalsize</li>
+<li>de part les <em>liens physiques</em> (à suivre&hellip;)</li>
+<li>accès au même inœud - au même contenu</li>
+<li>partage des modifications du contenu</li>
+</ul>
+<h2 id="liens-multiples-i">Liens multiples I</h2>
+<h3 id="entrées-multiples-pour-un-nœud">Entrées multiples pour un nœud</h3>
+<ul>
+<li>plusieurs entrées (arcs)</li>
+<li>d&rsquo;un même répertoire ou de répertoires différents</li>
+<li>désignent le même nœud</li>
+</ul>
+<h3 id="lien-physique">Lien physique</h3>
+<ul>
+<li>ensemble des liens désignant un même nœud</li>
+<li>ensemble des chemins désignant un même nœud</li>
+</ul>
+<h3 id="non-autorisé-pour-les-répertoires">Non autorisé pour les répertoires</h3>
+<ul>
+<li>assurer la cohérence de la hiérarchie</li>
+</ul>
+<!--
+### Nœud associé à un périphérique
+* couple (numéro de périphérique, numéro d'inœud)
+* pas de lien physique entre nœuds de périphériques différents
+-->
+<h2 id="liens-multiples-ii">Liens multiples II</h2>
+<p><img src="/uploads/docnsitale/processus/fig/fs-ln-1.png" alt="">{height=90%}</p>
+<h2 id="liens-multiples-iii-----------ln-adnadnpy-srcpy">Liens multiples III \ \ \ \ \ \ \ \ \  <code>ln ../adn/adn.py src.py</code></h2>
+<p><img src="/uploads/docnsitale/processus/fig/fs-ln-2.png" alt="">{height=90%}</p>
+<h2 id="liens-multiples-iv">Liens multiples IV</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% pwd
+/home/diueil/duchmol/gee
+% ls -a ..
+.        .ssh      gee
+..        adn      readme.md
+
+% ls -li ../adn/
+total 16
+14255183 -rw-r--r--  1 phm  staff  1858 28 mai 12:21 adn.py
+14255577 -rw-r--r--  1 phm  staff   973 28 mai 12:21 arn.py
+
+% ln ../adn/adn.py src.py
+
+% ls -li
+total 24
+14255207 -rw-r--r--  1 phm  staff    41 28 mai 12:22 bar
+14255198 -rw-r--r--  1 phm  staff    31 28 mai 12:22 foo
+14255183 -rw-r--r--  2 phm  staff  1858 28 mai 12:21 src.py
+</code></pre></div><h2 id="différents-types-de-fichiers">Différents types de fichiers</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% ls -l
+total 8
+drwxr-xr-x  4 phm  staff  128 28 mai 12:21 adn
+drwxr-xr-x  5 phm  staff  160 28 mai 12:25 gee
+-rw-r--r--  1 phm  staff   32 28 mai 12:15 readme.md
+</code></pre></div><h3 id="fichiers-ordinaires">Fichiers ordinaires</h3>
+<h3 id="répertoires-1">Répertoires</h3>
+<h3 id="liens-symboliques">Liens symboliques</h3>
+<h2 id="liens-symboliques--i">Liens symboliques  I</h2>
+<h3 id="contient-des-données--chemin-qui-désigne-un-autre-nœud">Contient des données = chemin qui désigne un autre nœud</h3>
+<ul>
+<li>chemin absolu, ou</li>
+<li>chemin relatif</li>
+</ul>
+<h3 id="chemin-désigné--chemin">Chemin désigné = chemin</h3>
+<ul>
+<li>chemin d&rsquo;un répertoire, ou</li>
+<li>chemin d&rsquo;un fichier ordinaire</li>
+</ul>
+<h3 id="interprétation-du-nom">Interprétation du nom</h3>
+<ul>
+<li>
+<p>le lien symbolique lui-même, ou</p>
+</li>
+<li>
+<p>le fichier qu&rsquo;il désigne</p>
+</li>
+<li>
+<p>peut dépendre du contexte d&rsquo;utilisation</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% rm symlink
+% cat symlink
+</code></pre></div></li>
+</ul>
+<h2 id="liens-symboliques--ii">Liens symboliques  II</h2>
+<h3 id="création-par-ln--s">Création par <code>ln -s</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% ls
+foo.txt
+% cat foo.txt
+fOOOOOOoooo.....
+% ln -s foo.txt bar.txt
+% ls
+bar.txt   foo.txt
+% ls -l
+total 16
+lrwxr-xr-x  1 phm  phm   7 28 mai 23:33 bar.txt -&gt; foo.txt
+-rw-r--r--  1 phm  phm  17 28 mai 23:33 foo.txt
+% cat bar.txt
+fOOOOOOoooo.....
+</code></pre></div><h3 id="lien-symbolique-pas-toujours-valide">Lien symbolique pas toujours valide</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% rm foo.txt
+% cat bar.txt
+cat: bar.txt: No such file or directory
+</code></pre></div><h2 id="liens-symboliques-iii">Liens symboliques III</h2>
+<p><img src="/uploads/docnsitale/processus/fig/fs-lns-2.png" alt="">{width=80%}</p>
+<h2 id="opérations-sur-les-fichiers">Opérations sur les fichiers</h2>
+<h3 id="informations">Informations</h3>
+<ul>
+<li>numéro inœud</li>
+<li>type du fichier, taille&hellip;</li>
+<li>dates&hellip;</li>
+<li>propriétaire et groupe propriétaire</li>
+<li>droits</li>
+</ul>
+<h3 id="parcours-de-la-hiérarchie">Parcours de la hiérarchie</h3>
+<ul>
+<li>listage</li>
+<li>déplacement dans la hiérarchie</li>
+</ul>
+<h3 id="modification-de-la-hiérarchie">Modification de la hiérarchie</h3>
+<ul>
+<li>création, destruction de nœuds</li>
+<li>liens physiques et symboliques</li>
+</ul>
+<h3 id="écriture-et-lecture-des-données-des-fichiers-ordinaires">Écriture et lecture des données des fichiers ordinaires</h3>
+<h1 id="shell">Shell</h1>
+<hr>
+<p><em>Très et trop brève introduction à UNIX, à l&rsquo;interpréteur de commandes</em>,<br>
+sur le portail <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/bloc3/blob/master/seance0/shell-bref.md">gitlab-fil.univ-lille.fr/diu-eil-lil/bloc3/</a></p>
+<p>Précisions</p>
+<ul>
+<li>entrées-sorties, redirection</li>
+<li>substitutions</li>
+</ul>
+<h2 id="entrées-sorties">Entrées-sorties</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% commande [options]... [arguments]...
+</code></pre></div><p>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  <img src="/uploads/docnsitale/processus/fig/stdin+out.png" alt="">{width=60%}</p>
+<ul>
+<li>
+<p>création d&rsquo;un processus qui va exécuter le programme <code>commande</code></p>
+<ul>
+<li>entrée standard</li>
+<li>sortie standard</li>
+<li>associées au terminal</li>
+</ul>
+</li>
+<li>
+<p>une telle commande est appelée <em>filtre</em></p>
+</li>
+</ul>
+<h2 id="redirection-des-entrées-sorties">Redirection des entrées-sorties</h2>
+<p>:::::: {.columns}
+::: {.column width=&quot;60%&quot;}</p>
+<p><code>&gt; fichier</code></p>
+<ul>
+<li>redirige la sortie standard sur le fichier</li>
+</ul>
+<p><code>&lt; fichier </code></p>
+<ul>
+<li>redirige l&rsquo;entrée standard depuis le fichier</li>
+</ul>
+<p><code>&gt;&gt; fichier</code></p>
+<ul>
+<li>concatène la sortie standard au fichier
+:::
+::: {.column width=&quot;40%&quot;}</li>
+</ul>
+<p>. . .</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% pwd
+/home/diueil/duchmol/gee
+% pwd &gt; pwd.txt
+% ls
+pwd.txt
+% cat pwd.txt
+/home/diueil/duchmol/gee
+% ls &gt;&gt; pwd.txt
+% cat pwd.txt
+/home/diueil/duchmol/gee
+pwd.txt
+</code></pre></div><p>:::
+:::::</p>
+<p>. . .</p>
+<ul>
+<li>possible redirection de la sortie d&rsquo;erreur avec <code>2&gt;</code>, <code>2&gt;&gt;</code> et <code>2&gt;&amp;1</code></li>
+</ul>
+<h2 id="cat-un-éditeur-"><code>cat</code> un éditeur !</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% cat &gt; foo
+Ici je tape le contenu de foo
+Je finis par un Control-D en debut de ligne
+^D
+% cat foo
+Ici je tape le contenu de foo
+Je finis par un Control-D en debut de ligne
+% cat &gt;&gt; foo
+Voici la suite de foo
+^D
+% cat &lt; foo
+Ici je tape le contenu de foo
+Je finis par un Control-D en debut de ligne
+Voici la suite de foo
+%
+</code></pre></div><h2 id="cat-concatène-"><code>cat</code> concatène !</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% cat bar
+Bar bar
+% cat foo bar &gt;&gt; gee
+% cat gee
+Ici je tape le contenu de foo
+Je finis par un Control-D en debut de ligne
+Voici la suite de foo
+Bar bar
+%
+</code></pre></div><h2 id="digression-who-wc">Digression <code>who</code>, <code>wc</code></h2>
+<p>Commande <code>who</code> affiche la liste des utilisateurs connectés</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% who
+marquet         tty1    Sep 24  6:39
+duchmol         tty3    Sep 29 15:16
+marquet         tty2    Sep 24  7:14
+</code></pre></div><p>Commande <code>wc</code> compte les caractères, <code>wc -l</code> les lignes</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% wc gee
+4      23     104 gee
+% wc -l &lt; gee
+4
+</code></pre></div><h2 id="connecter-les-commandes-via-les-pipes">Connecter les commandes via les pipes</h2>
+<ul>
+<li>combien d&rsquo;utilisateurs connectés ?</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% who &gt; temp ; wc -l &lt; temp ; rm temp
+22
+</code></pre></div><h3 id="connecter-deux-commandes-par-un--pipe-">Connecter deux commandes par un « pipe »</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% who | wc -l
+22
+</code></pre></div><p>. . .</p>
+<p>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  <img src="/uploads/docnsitale/processus/fig/pipe.png" alt="">{width=60%}</p>
+<h2 id="heading"></h2>
+<ul>
+<li>Forme générale :</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">commande1 | commande2 | ... | commanden
+</code></pre></div><ul>
+<li>autre exemple</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% cat foo.txt bar.txt | spell -french | sort &gt; err.txt
+</code></pre></div><h2 id="substitutions">Substitutions</h2>
+<h3 id="substitutions-réalisées-par-le-shell">Substitutions réalisées par le shell</h3>
+<ul>
+<li>expressions régulières pour les fichiers — <code>*.py</code></li>
+<li>substitution de variables — <code>$HOME</code></li>
+<li>substitutions de commandes — <code>$(commande)</code></li>
+<li>protections <code>\</code>, <code>&quot; &quot;</code>, et <code>' '</code></li>
+</ul>
+<h3 id="expressions-régulières-pour-les-noms-de-fichiers">Expressions régulières pour les noms de fichiers</h3>
+<ul>
+<li><code>?</code> — un caractère quelconque (y compris le <code>.</code>)</li>
+<li><code>*</code> — tout motif (y compris le vide)</li>
+</ul>
+<p>\</p>
+<ul>
+<li><code>[list]</code> — un caractère quelconque de la <code>list</code></li>
+<li><code>[lower-upper]</code> — un caractère quelconque entre <code>lower</code> et <code>upper</code></li>
+</ul>
+<h3 id="substitution-_par-le-shell_">Substitution <em>par le shell</em></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% ls *.py
+</code></pre></div><ul>
+<li>la commande <code>ls</code> ne connaît rien de l'<code>*</code></li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">% echo *.py
+</code></pre></div><!-- eof -->
 </article>
 
       <div class="backtotop">
@@ -8644,8 +9221,171 @@ est utilisé.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#chemin-absolu-ou-chemin-relatif">Chemin absolu ou chemin relatif ?</a></li>
-    <li><a href="#à-faire-vous-même-1">À faire vous-même 1</a></li>
+    <li>
+      <ul>
+        <li><a href="#pdf-pour-impressionuploadsdocnsitaleprocessuspsfssh_printpdf-diaporamauploadsdocnsitaleprocessuspsfssh_slidespdf"><a href="/uploads/docnsitale/processus/psfssh_print.pdf">pdf pour impression</a>, <a href="/uploads/docnsitale/processus/psfssh_slides.pdf">diaporama</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#processus--programme">Processus &amp; programme</a>
+      <ul>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#processus-1">Processus</a></li>
+        <li><a href="#_un_-processus-est-_une_-instance-dexécution-dun-programme"><em>Un</em> processus est <em>une</em> instance d&rsquo;exécution d&rsquo;un programme</a></li>
+      </ul>
+    </li>
+    <li><a href="#p-p-processeur">P&hellip;, p&hellip;, processeur</a>
+      <ul>
+        <li><a href="#programme-processus-processeur">Programme, processus&hellip; processeur</a></li>
+        <li><a href="#affectation-du-processeur-à-un-processus">Affectation du processeur à un processus</a></li>
+        <li><a href="#choix-de-cette-affectation--ordonnancement">Choix de cette affectation = ordonnancement</a></li>
+      </ul>
+    </li>
+    <li><a href="#p-p-p-parallélisme-pseudo-parallélisme">P&hellip;, p&hellip;, p&hellip;, parallélisme, pseudo-parallélisme</a>
+      <ul>
+        <li><a href="#ordonnancement">Ordonnancement</a></li>
+        <li><a href="#deux-processus">Deux processus</a></li>
+      </ul>
+    </li>
+    <li><a href="#processus--abstraction">Processus = abstraction</a>
+      <ul>
+        <li><a href="#processus--exécution-abstraite-dun-programme">Processus = exécution abstraite d&rsquo;un programme</a></li>
+        <li><a href="#exécution-dun-programme--réunion-des-instants-dexécution-réelle-du-programme">Exécution d&rsquo;un programme = réunion des instants d&rsquo;exécution réelle du programme</a></li>
+        <li><a href="#processus--abstraction-1">Processus = abstraction</a></li>
+        <li><a href="#compétition-_race-condition_">Compétition (<em>race condition</em>)</a></li>
+      </ul>
+    </li>
+    <li><a href="#processus--ressources">Processus &amp; ressources</a>
+      <ul>
+        <li><a href="#processus--exécution-dun-programme">Processus = exécution d&rsquo;un programme</a></li>
+        <li><a href="#ressource">Ressource</a></li>
+        <li><a href="#caractéristiques-dune-ressource">Caractéristiques d&rsquo;une ressource</a></li>
+        <li><a href="#ressources-indispensables-à-un-processus">Ressources indispensables à un processus</a></li>
+      </ul>
+    </li>
+    <li><a href="#états-dun-processus-">États d&rsquo;un processus</a></li>
+    <li><a href="#attributs-dun-processus">Attributs d&rsquo;un processus</a>
+      <ul>
+        <li><a href="#identification-univoque">Identification univoque</a></li>
+        <li><a href="#propriétaire">Propriétaire</a></li>
+        <li><a href="#répertoire-de-travail">Répertoire de travail</a></li>
+        <li><a href="#hiérarchie-des-processus">Hiérarchie des processus</a></li>
+      </ul>
+    </li>
+    <li><a href="#gérer-les-processus-depuis-le-shell">Gérer les processus depuis le shell</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#données-persistantes">Données persistantes</a>
+      <ul>
+        <li><a href="#processus-manipule-des-données">Processus manipule des données</a></li>
+        <li><a href="#besoin-de-conservation-des-données">Besoin de conservation des données</a></li>
+        <li><a href="#besoin-de-mémoriser-de-grandes-quantités-de-données">Besoin de mémoriser de grandes quantités de données</a></li>
+        <li><a href="#besoin-de-partage-des-données">Besoin de partage des données</a></li>
+        <li><a href="#fichiers">Fichiers</a></li>
+      </ul>
+    </li>
+    <li><a href="#système-de-fichiers">Système de fichiers</a>
+      <ul>
+        <li><a href="#système-de-fichiers--partie-du-système-dexploitation">Système de fichiers = partie du système d&rsquo;exploitation</a></li>
+        <li><a href="#fichier--mécanisme-dabstraction">Fichier = mécanisme d&rsquo;abstraction</a></li>
+        <li><a href="#implantation-des-systèmes-de-fichiers">Implantation des systèmes de fichiers</a></li>
+      </ul>
+    </li>
+    <li><a href="#répertoires">Répertoires</a>
+      <ul>
+        <li><a href="#répertoire--fichier-particulier">Répertoire = fichier particulier</a></li>
+        <li><a href="#fichier-ordinaire">Fichier ordinaire</a></li>
+      </ul>
+    </li>
+    <li><a href="#hiérarchie">Hiérarchie</a>
+      <ul>
+        <li><a href="#système-de-fichiers-présente-une-hiérarchie">Système de fichiers présente une hiérarchie</a></li>
+        <li><a href="#système-de-fichiers-nest-pas-une-hiérarchie">Système de fichiers n&rsquo;est pas une hiérarchie</a></li>
+        <li><a href="#lutilisateur-doit-savoir-que-le-système-de-fichiers-nest-pas-une-hiérarchie">L&rsquo;utilisateur doit savoir que le système de fichiers n&rsquo;est pas une hiérarchie</a></li>
+      </ul>
+    </li>
+    <li><a href="#système-de-fichiers-arborescent">Système de fichiers arborescent</a>
+      <ul>
+        <li><a href="#le-système-de-fichier-est-un-arbre">Le système de fichier est un arbre</a></li>
+        <li><a href="#racine">Racine</a></li>
+        <li><a href="#arcs-ou-entrées">Arcs ou entrées</a></li>
+        <li><a href="#nœuds-non-terminaux">Nœuds non terminaux</a></li>
+        <li><a href="#nœuds-terminaux">Nœuds terminaux</a></li>
+      </ul>
+    </li>
+    <li><a href="#système-de-fichiers-un-arbre-">Système de fichiers, un arbre</a></li>
+    <li><a href="#système-de-fichiers-un-arbre-ou-presque-">Système de fichiers, un arbre, ou presque</a></li>
+    <li><a href="#inombre---numérotation-des-nœuds">Inombre - numérotation des nœuds</a>
+      <ul>
+        <li><a href="#inœud">Inœud</a></li>
+        <li><a href="#désignation-dun-fichier-sur-le-support-matériel">Désignation d&rsquo;un fichier sur le support matériel</a></li>
+        <li><a href="#association-dune-numérotation-à-un-nœud">Association d&rsquo;une numérotation à un nœud</a></li>
+        <li><a href="#nommages-multiples-dun-nœud">Nommages multiples d&rsquo;un nœud</a></li>
+      </ul>
+    </li>
+    <li><a href="#liens-multiples-i">Liens multiples I</a>
+      <ul>
+        <li><a href="#entrées-multiples-pour-un-nœud">Entrées multiples pour un nœud</a></li>
+        <li><a href="#lien-physique">Lien physique</a></li>
+        <li><a href="#non-autorisé-pour-les-répertoires">Non autorisé pour les répertoires</a></li>
+      </ul>
+    </li>
+    <li><a href="#liens-multiples-ii">Liens multiples II</a></li>
+    <li><a href="#liens-multiples-iii-----------ln-adnadnpy-srcpy">Liens multiples III \ \ \ \ \ \ \ \ \  <code>ln ../adn/adn.py src.py</code></a></li>
+    <li><a href="#liens-multiples-iv">Liens multiples IV</a></li>
+    <li><a href="#différents-types-de-fichiers">Différents types de fichiers</a>
+      <ul>
+        <li><a href="#fichiers-ordinaires">Fichiers ordinaires</a></li>
+        <li><a href="#répertoires-1">Répertoires</a></li>
+        <li><a href="#liens-symboliques">Liens symboliques</a></li>
+      </ul>
+    </li>
+    <li><a href="#liens-symboliques--i">Liens symboliques  I</a>
+      <ul>
+        <li><a href="#contient-des-données--chemin-qui-désigne-un-autre-nœud">Contient des données = chemin qui désigne un autre nœud</a></li>
+        <li><a href="#chemin-désigné--chemin">Chemin désigné = chemin</a></li>
+        <li><a href="#interprétation-du-nom">Interprétation du nom</a></li>
+      </ul>
+    </li>
+    <li><a href="#liens-symboliques--ii">Liens symboliques  II</a>
+      <ul>
+        <li><a href="#création-par-ln--s">Création par <code>ln -s</code></a></li>
+        <li><a href="#lien-symbolique-pas-toujours-valide">Lien symbolique pas toujours valide</a></li>
+      </ul>
+    </li>
+    <li><a href="#liens-symboliques-iii">Liens symboliques III</a></li>
+    <li><a href="#opérations-sur-les-fichiers">Opérations sur les fichiers</a>
+      <ul>
+        <li><a href="#informations">Informations</a></li>
+        <li><a href="#parcours-de-la-hiérarchie">Parcours de la hiérarchie</a></li>
+        <li><a href="#modification-de-la-hiérarchie">Modification de la hiérarchie</a></li>
+        <li><a href="#écriture-et-lecture-des-données-des-fichiers-ordinaires">Écriture et lecture des données des fichiers ordinaires</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#entrées-sorties">Entrées-sorties</a></li>
+    <li><a href="#redirection-des-entrées-sorties">Redirection des entrées-sorties</a></li>
+    <li><a href="#cat-un-éditeur-"><code>cat</code> un éditeur !</a></li>
+    <li><a href="#cat-concatène-"><code>cat</code> concatène !</a></li>
+    <li><a href="#digression-who-wc">Digression <code>who</code>, <code>wc</code></a></li>
+    <li><a href="#connecter-les-commandes-via-les-pipes">Connecter les commandes via les pipes</a>
+      <ul>
+        <li><a href="#connecter-deux-commandes-par-un--pipe-">Connecter deux commandes par un « pipe »</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#substitutions">Substitutions</a>
+      <ul>
+        <li><a href="#substitutions-réalisées-par-le-shell">Substitutions réalisées par le shell</a></li>
+        <li><a href="#expressions-régulières-pour-les-noms-de-fichiers">Expressions régulières pour les noms de fichiers</a></li>
+        <li><a href="#substitution-_par-le-shell_">Substitution <em>par le shell</em></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>
