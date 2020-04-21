@@ -8869,8 +8869,32 @@ Lors de la recherche, il faut bien sûr éviter de tourner en rond en revenant s
 <li>sur les mots qu&rsquo;il reste à examiner, ceux sont des voisins du dernier mot du chemin en construction.</li>
 </ul>
 <p><strong>Remarque</strong> Ce problème entre dans la classe plus large des problèmes qui consistent à chercher un chemin dans un graphe. Ici les nœuds du graphe sont les mots et il existe une arête entre deux mots s&rsquo;ils sont voisins. Ce sujet sera abordé en algorithmique (dans le chapitre sur les graphes).</p>
-<h3 id="flocons-de-von-koch">Flocons de Von Koch</h3>
-<p>Utilisez le <a href="https://docs.python.org/3.3/library/turtle.html?highlight=turtle#module-turtle">module <code>turtle</code></a> pour tracer des <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/tree/master/bloc1/recursivite/readme.md#processus-r%C3%A9cursif">flocons de Von Koch</a>.</p>
+<h3 id="flocons-de-von-koch--production-de-fractales">Flocons de Von Koch : Production de fractales</h3>
+<p>le <a href="./img/Koch_anime.gif">flocon de Von Koch</a></p>
+<p>On dispose de la primitive <em>tracer(l)</em> qui permet de tracer un segment de longueur <em>l</em>.</p>
+<p>Le processus de tracé d&rsquo;un segment de von koch de taille <em>l</em>  à l&rsquo;ordre <em>n</em> est :</p>
+<p><em>vonkoch</em>(l,n)</p>
+<ul>
+<li>
+<p>si n = 1, <em>tracer(l)</em></p>
+</li>
+<li>
+<p>sinon</p>
+<ul>
+<li><em>vonkoch</em>(l/3, n-1)</li>
+<li>tourner à gauche de 60°</li>
+<li><em>vonkoch</em>(l/3, n-1)</li>
+<li>tourner à droite de 120°</li>
+<li><em>vonkoch</em>(l/3, n-1)</li>
+<li>tourner à gauche de 60°</li>
+<li><em>vonkoch</em>(l/3, n-1)</li>
+</ul>
+</li>
+</ul>
+<p>Utilisez le <a href="https://docs.python.org/3.3/library/turtle.html?highlight=turtle#module-turtle">module <code>turtle</code></a> p</p>
+<p><img src="./img/vonkoch.jpg" alt="vonkoch"></p>
+<p>Si turtle n&rsquo;est pas installé sur vos postes : <a href="https://trinket.io/python">vous le trouverez ici</a></p>
+<p><em>tracer(l)</em> = <code>forward(l)</code> et les fonctions <code>right</code> et <code>left</code> permettent les rotations</p>
 </article>
 
       <div class="backtotop">
@@ -8971,7 +8995,7 @@ Lors de la recherche, il faut bien sûr éviter de tourner en rond en revenant s
         <li><a href="#permutations">Permutations</a></li>
         <li><a href="#organisation-des-rencontres-dun-championnat">Organisation des rencontres d&rsquo;un championnat</a></li>
         <li><a href="#mettre-lours-en-cage">Mettre l&rsquo;<em>ours</em> en <em>cage</em></a></li>
-        <li><a href="#flocons-de-von-koch">Flocons de Von Koch</a></li>
+        <li><a href="#flocons-de-von-koch--production-de-fractales">Flocons de Von Koch : Production de fractales</a></li>
       </ul>
     </li>
   </ul>
