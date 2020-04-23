@@ -13,7 +13,7 @@
   
     
     
-    Travaux dirigés
+    Travaux dirigés : arbres binaires
   
  | qkzk</title>
 
@@ -4804,7 +4804,7 @@ MathJax.Hub.Config({
   
     
     
-    Travaux dirigés
+    Travaux dirigés : arbres binaires
   
 
       </a>
@@ -8577,13 +8577,17 @@ MathJax.Hub.Config({
   
     
     
-    Travaux dirigés
+    Travaux dirigés : arbres binaires
   
 </strong>
 </header>
 
       
-<article class="markdown"><h1 id="quest-ce-quun-arbre-">Qu&rsquo;est-ce qu&rsquo;un arbre ?</h1>
+<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalearbrescours_td_intropdf">pdf: <a href="/uploads/docnsitale/arbres/cours_td_intro.pdf">pour impression</a></h3>
+<!-- à compiler par
+pandoc -t beamer --slide-level 2 -V "aspectratio=1610" -s cours_sql1.md -o cours_sql1_slides.pdf
+-->
+<h1 id="quest-ce-quun-arbre-">Qu&rsquo;est-ce qu&rsquo;un arbre ?</h1>
 <p>Dessinons un arbre !</p>
 <!--
 figures des arbres cours ASD Jean-Stéphane.
@@ -8596,16 +8600,40 @@ Images libres de droits ?
 <li>naturellement récursives,</li>
 </ul>
 <p>utilisées pour représenter des ensembles de données structurées
-hiérarchiquement.
-Par exemple<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> :</p>
+hiérarchiquement.</p>
+<h2 id="quelques-exemples">Quelques exemples</h2>
 <ul>
-<li>système de fichiers,</li>
-<li>base de données,</li>
-<li>sites web,</li>
-<li>fichiers XML.</li>
+<li>
+<p>En biologie :</p>
+<p>. <img src="https://runestone.academy/runestone/books/published/pythonds/_images/biology.png" alt="biologie"></p>
+</li>
+<li>
+<p>Les dossiers d&rsquo;un ordinateur</p>
+<p>. <img src="https://runestone.academy/runestone/books/published/pythonds/_images/directory.png" alt="dossiers UNIX"></p>
+</li>
+<li>
+<p>Les balises d&rsquo;une page web forment un arbre (appelé DOM) :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">xmlns</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://www.w3.org/1999/xhtml&#34;</span>
+      <span style="color:#309">xml:lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;en&#34;</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">http-equiv</span><span style="color:#555">=</span><span style="color:#c30">&#34;Content-Type&#34;</span>
+          <span style="color:#309">content</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#309;font-weight:bold">title</span>&gt;simple&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+&lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+&lt;<span style="color:#309;font-weight:bold">h1</span>&gt;A simple web page&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
+&lt;<span style="color:#309;font-weight:bold">ul</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">li</span>&gt;List item one&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">li</span>&gt;List item two&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
+&lt;<span style="color:#309;font-weight:bold">h2</span>&gt;&lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://www.cs.luther.edu&#34;</span>&gt;Luther CS &lt;/<span style="color:#309;font-weight:bold">a</span>&gt;&lt;<span style="color:#309;font-weight:bold">h2</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</code></pre></div><p>. <img src="https://runestone.academy/runestone/books/published/pythonds/_images/htmltree.png" alt="structure d&rsquo;une page web"></p>
+</li>
 </ul>
 <p>Un arbre est une structure de données non-linéaire (comparée aux
-tableaux, listes, piles, et files qui sont des strutures linéaires).</p>
+tableaux, listes, piles, et files qui sont des structures linéaires).</p>
 <p>Une structure de données arborescente peut être définie récursivement
 comme un ensemble de nœuds accessibles depuis un nœud racine. Chaque
 nœud étant une structure composée d&rsquo;une valeur et d&rsquo;une liste de
@@ -8834,8 +8862,8 @@ il existe des usages contradictoires des termes <em>complet</em> et
 aussi exister entre le français et l&rsquo;anglais, dans lequel on trouve
 les termes <em>perfect</em> et <em>complete</em>.<br>
 La terminologie utilisée ici est cohérente avec celle de Froidevaux
-<em>et al.</em><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, alors que Beauquier <em>et
-al.</em><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> en utilisent une autre.</em></p>
+<em>et al.</em><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, alors que Beauquier <em>et
+al.</em><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> en utilisent une autre.</em></p>
 <h2 id="se-repérer-dans-cette-forêt-darbres">Se repérer dans cette forêt d&rsquo;arbres</h2>
 <h3 id="gg-compter-ces-arbres-">$\gg$ Compter ces arbres</h3>
 <ul>
@@ -8907,27 +8935,19 @@ simplement <em>arbres</em>, et aux <em>arbres binaires</em>, un cas particulier 
 ces arbres enracinés. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>Voir aussi la section
-<a href="https://runestone.academy/runestone/books/published/pythonds/Trees/ExamplesofTrees.html"><em>Examples of trees</em></a>
-de <em>Problem Solving with Algorithms and Data Structures using Python</em>,
-Brad Miller and David Ranum, Luther College.
-Franklin, Beedle &amp; Associates Inc. (2011).
-Consultable en ligne à <a href="https://runestone.academy/runestone/static/pythonds/index.html">runestone.academy/runestone/static/pythonds/index.html</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
 <p><em>Types de données et algorithmes</em>,
 Christine Froidevaux, Marie-Claude Gaudel, Michèle Soria.
 McGraw-Hill (Paris, 1990), Ediscience (1994).
 Téléchargeable depuis la page de Marie-Claude Gaudel <a href="https://www.lri.fr/~mcg/">lri.fr/~mcg/</a></p>
 <!-- https://www.lri.fr/~mcg/PDF/FroidevauxGaudelSoria.pdf -->
- <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
-<li id="fn:4" role="doc-endnote">
+ <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+<li id="fn:3" role="doc-endnote">
 <p><em>Eléments d&rsquo;algorithmique</em>
 Danièle Beauquier, Jean Berstel, Philippe Chrétienne.
 Masson (1992 pour la 1re édition).
 Téléchargeable depuis la page de Jean Berstel <a href="http://www-igm.univ-mlv.fr/~berstel/">www-igm.univ-mlv.fr/~berstel/</a></p>
 <!-- http://www-igm.univ-mlv.fr/~berstel/Elements/Elements.pdf -->
- <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+ <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
 </ol>
 </section>
 </article>
@@ -8965,7 +8985,16 @@ Téléchargeable depuis la page de Jean Berstel <a href="http://www-igm.univ-mlv
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#pdf-pour-impressionuploadsdocnsitalearbrescours_td_intropdf">pdf: <a href="/uploads/docnsitale/arbres/cours_td_intro.pdf">pour impression</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li><a href="#arbre-en-informatique">Arbre en informatique</a></li>
+    <li><a href="#quelques-exemples">Quelques exemples</a></li>
     <li><a href="#un-peu-beaucoup-de-vocabulaire-préliminaire">Un peu (beaucoup&hellip;) de vocabulaire préliminaire</a>
       <ul>
         <li><a href="#-terminologie-">→ Terminologie</a></li>
