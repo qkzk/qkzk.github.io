@@ -4450,6 +4450,138 @@ MathJax.Hub.Config({
   
     <ul  class="nested">
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/introduction/" >
+        
+  
+    
+    
+    Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/asymetrique/" >
+        
+  
+    
+    
+    Chiffrement asymétrique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/diffie_hellman/" >
+        
+  
+    
+    
+    Diffie-Hellman
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/https/" >
+        
+  
+    
+    
+    Https
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -8729,7 +8861,7 @@ print cam.get_controls()
 </code></pre>
 <h3 id="capturer-un-stream-en-live">Capturer un Stream en live</h3>
 <p>Le reste du tutoriel sera focalisé sur la capture d&rsquo;un stream en live d&rsquo;images.
-Pour cela, nous utiliserons la classe définie ci-dessous. Comme décrit, nous allons seulement blit un stream de frames issues de la camera sur l'écran, ce qui montrera la vidéo en live.
+Pour cela, nous utiliserons la classe définie ci-dessous. Comme décrit, nous allons seulement blit un stream de frames issues de la camera sur l&rsquo;écran, ce qui montrera la vidéo en live.
 C&rsquo;est grosso-modo ce à quoi on s&rsquo;attend, on boucle get_image(), on blit sur la surface d&rsquo;affichage et on la retourne.
 Pour des raisons de performance, on demandera à la camera d&rsquo;utiliser toujours la même surface.</p>
 <pre><code>class Capture(object):
@@ -8800,7 +8932,7 @@ pygame.transform.threshold(self.thresholded,self.snapshot,(0,255,0),(90,170,170)
 <p><img src="http://www.pygame.org/docs/_images/camera_thresholded.jpg" alt=""></p>
 <p>Bien sur, ceci n&rsquo;est utile que si vous connaissez déjà la couleur exacte d&rsquo;un objet que vous recherchez.
 Pour éviter ce problème et rendre le filtrage par seuil utile dans le monde réel, on a besoin d&rsquo;une étape de calibrage où l&rsquo;on identifie la couleur d&rsquo;un objet et où on l&rsquo;utilise pour filtrer contre elle.
-Nous allons utiliser la fonction average_color() du module transform pour faire ça. Un exemple de fonction de calibrage est fourni ci-dessous. Vous pouvez la faire tourner en boucle jusqu'à avoir une couleur satisfaisante et l&rsquo;arrêter par un événement comme une pression clavier. La couleur dans la boite sera celle utilisée comme seuil. Remarquez qu&rsquo;on utilise les couleurs HSV.</p>
+Nous allons utiliser la fonction average_color() du module transform pour faire ça. Un exemple de fonction de calibrage est fourni ci-dessous. Vous pouvez la faire tourner en boucle jusqu&rsquo;à avoir une couleur satisfaisante et l&rsquo;arrêter par un événement comme une pression clavier. La couleur dans la boite sera celle utilisée comme seuil. Remarquez qu&rsquo;on utilise les couleurs HSV.</p>
 <pre><code>def calibrate(self):
     # capture the image
     self.snapshot = self.cam.get_image(self.snapshot)
@@ -8838,7 +8970,7 @@ pygame.transform.threshold(self.thresholded,self.snapshot,self.ccolor,(30,30,30)
 <h4 id="utiliser-le-module-mask">Utiliser le module Mask</h4>
 <p>Les exemples ci-dessus sont très bien si vous voulez simplement afficher une image mais avec le
 <a href="http://www.pygame.org/docs/ref/mask.html#module-pygame.mask"><code>mask module</code></a>, vous pouvez aussi utiliser la camera comme un périphérique de jeu.
-Par exemple, en filtrant par seuil un objet particulier, on peut s&rsquo;en servir pour repérer la position d&rsquo;un objet spécifique et l&rsquo;utiliser pour contrôler un autre objet sur l'écran.</p>
+Par exemple, en filtrant par seuil un objet particulier, on peut s&rsquo;en servir pour repérer la position d&rsquo;un objet spécifique et l&rsquo;utiliser pour contrôler un autre objet sur l&rsquo;écran.</p>
 <pre><code>def get_and_flip(self):
     self.snapshot = self.cam.get_image(self.snapshot)
     # filtre contre la couleur obtenue plus tot
@@ -8855,7 +8987,7 @@ Par exemple, en filtrant par seuil un objet particulier, on peut s&rsquo;en serv
     pygame.display.flip()
 </code></pre>
 <p><img src="http://www.pygame.org/docs/_images/camera_mask.jpg" alt=""></p>
-<p>Ce ne sont que les exemples les plus simples. Vous pouvez suivre différents objets de couleur à l'écran, déterminer les contours d&rsquo;objets, gérer des détections de collision entre le monde réel et un objet à l'écran, déterminer les coins d&rsquo;un objets pour manipuler plus précisément etc. Amusez vous bien !</p>
+<p>Ce ne sont que les exemples les plus simples. Vous pouvez suivre différents objets de couleur à l&rsquo;écran, déterminer les contours d&rsquo;objets, gérer des détections de collision entre le monde réel et un objet à l&rsquo;écran, déterminer les coins d&rsquo;un objets pour manipuler plus précisément etc. Amusez vous bien !</p>
 <p><a href="http://qkzk.xyz/?page_id=869">Solution complète</a></p>
 </article>
 

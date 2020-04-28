@@ -4450,6 +4450,138 @@ MathJax.Hub.Config({
   
     <ul  class="nested">
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/introduction/" >
+        
+  
+    
+    
+    Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/asymetrique/" >
+        
+  
+    
+    
+    Chiffrement asymétrique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/diffie_hellman/" >
+        
+  
+    
+    
+    Diffie-Hellman
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/https/" >
+        
+  
+    
+    
+    Https
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -8675,12 +8807,12 @@ MathJax.Hub.Config({
 cryptographie simple : le code césar</p>
 <h3 id="utiliser-la-lexicométrie-pour-casser-un-code-secret">Utiliser la lexicométrie pour casser un code secret.</h3>
 <h1 id="introduction">Introduction</h1>
-<p>Le principe de la cryptographie est aussi vieux que l&rsquo;histoire : transmettre un message succeptible d'être intercepté à une personne particulière en s&rsquo;assurant qu&rsquo;elle seule peut le lire.
+<p>Le principe de la cryptographie est aussi vieux que l&rsquo;histoire : transmettre un message succeptible d&rsquo;être intercepté à une personne particulière en s&rsquo;assurant qu&rsquo;elle seule peut le lire.
 Elle fait maintenant partie prenante de nos vie et, chaque fois que nous nous identifions sur un site sécurisé, elle entre en jeu pour s&rsquo;assurer que nos données ne puissent être comprises par des pirates qui les intercepteraient.</p>
 <p><img src="https://s-media-cache-ak0.pinimg.com/736x/a5/e7/b3/a5e7b392129104c982149a73f7d33480.jpg" alt=""></p>
-<p>La cryptographie est l'étude de ces procédés. Le procédé le plus connu est le code César utilisé par Jules César en personne. Il consiste à numéroter les lettres de l&rsquo;alphabet (A=1,B=2,&hellip;) et à décaler chaque lettre d&rsquo;un message. Par exemple si je décale de 5 le message ROBERT j&rsquo;obtiens : WTGJWY. Si nécessaire on revient à A après Z.
+<p>La cryptographie est l&rsquo;étude de ces procédés. Le procédé le plus connu est le code César utilisé par Jules César en personne. Il consiste à numéroter les lettres de l&rsquo;alphabet (A=1,B=2,&hellip;) et à décaler chaque lettre d&rsquo;un message. Par exemple si je décale de 5 le message ROBERT j&rsquo;obtiens : WTGJWY. Si nécessaire on revient à A après Z.
 Ce procédé, vieux comme le monde, ne résiste pas longtemps. Il n&rsquo;y a, après tout que 26 possibilités. Et si le message contient une information cruciale alors il est surement pertinent d&rsquo;y consacrer le temps nécessaire.
-D&rsquo;autres procédés furent inventés au fil du temps pour rendre le cryptage plus robuste. En voici un, il a résisté jusqu'à l&rsquo;invention de la lexicométrie.</p>
+D&rsquo;autres procédés furent inventés au fil du temps pour rendre le cryptage plus robuste. En voici un, il a résisté jusqu&rsquo;à l&rsquo;invention de la lexicométrie.</p>
 <p>_Remarquons que la cryptographie est beaucoup plus ancienne ! Le plus ancien document chiffré est une recette secrète de poterie qui date du xvie siècle av. J.-C., qui a été découverte dans l&rsquo;actuelle Irak. _</p>
 <h1 id="codage-simple-par-inversion">Codage simple par inversion</h1>
 <p>On écrit un tableau de 2 lignes et 26 colonnes. Première ligne : les 26 lettres. 2ème ligne, une lettre parmi l&rsquo;alphabet. La seule contrainte est de ne l&rsquo;employer qu&rsquo;une fois&hellip;</p>
@@ -8841,7 +8973,7 @@ cle = 3
 print chr(ord(message)+cle)
 </code></pre>
 <p>Pourquoi ce script est-il faux ? Il affiche pourtant E, ce qui est bien la réponse attendue !?</p>
-<p>Oui, c'était facile&hellip; si la clé est 3 alors x, y et z sont codés par les premières lettres de l&rsquo;alphabet&hellip; Notre code renverra des caractères qui ne sont pas des lettres pour X, Y et Z. Vous pouvez tester.</p>
+<p>Oui, c&rsquo;était facile&hellip; si la clé est 3 alors x, y et z sont codés par les premières lettres de l&rsquo;alphabet&hellip; Notre code renverra des caractères qui ne sont pas des lettres pour X, Y et Z. Vous pouvez tester.</p>
 <p>Reprenons ! Si la clé est 3, qu&rsquo;on numérote a = 0 (ce sera plus facile), b=1, c=2, &hellip;, z=25 (on numérote à partir de 0 kéké) et qu&rsquo;on ajoute 3 à tout le monde&hellip; alors il faut revenir à 0 à partir de 26.
 27 donnera 1 (donc b), 28 donnera 2 (donc c).
 <strong>C&rsquo;est le principe du reste dans la division par 26.</strong>
@@ -8858,25 +8990,25 @@ Améliorer votre script pour qu&rsquo;il code avec la variable <code>cle</code> 
 <p>Et ça marche enfin&hellip; Arrivé ici il vous reste écrire le tout en une seule étape : le message en clair en minuscule, son codage, l&rsquo;affichage du message codé en majuscule.</p>
 <p>Reprendre le principe précédent pour le décodage. Etape par étape si nécessaire. C&rsquo;est plus compliqué d&rsquo;employer les modulos ici et je n&rsquo;exige rien. Une correction vous sera transmise si vous buttez trop longtemps.</p>
 <h1 id="lanalyse-fréquentielle-dun-message">L&rsquo;analyse fréquentielle d&rsquo;un message</h1>
-<p>Souvenons nous que le code César n&rsquo;a que 26 combinaisons possibles&hellip; <em>&ldquo;A quoi bon s’enquiquiner la vie avec l&rsquo;analyse fréquentielle, je n&rsquo;ai qu'à tester les 26 combinaisons sur quelques lettres et j&rsquo;aurais rapidement décodé un message&hellip;&quot;</em> Ah kéké, tu me fatigues.</p>
-<p>L&rsquo;analyse fréquentielle nous permettra, si le message est assez long, de trouver immédiatement comme le E est codé. Et surtout elle s&rsquo;appliquera à un code beaucoup plus difficile : l'échange simple que nous avons vu en introduction&hellip;</p>
+<p>Souvenons nous que le code César n&rsquo;a que 26 combinaisons possibles&hellip; <em>&ldquo;A quoi bon s’enquiquiner la vie avec l&rsquo;analyse fréquentielle, je n&rsquo;ai qu&rsquo;à tester les 26 combinaisons sur quelques lettres et j&rsquo;aurais rapidement décodé un message&hellip;&quot;</em> Ah kéké, tu me fatigues.</p>
+<p>L&rsquo;analyse fréquentielle nous permettra, si le message est assez long, de trouver immédiatement comme le E est codé. Et surtout elle s&rsquo;appliquera à un code beaucoup plus difficile : l&rsquo;échange simple que nous avons vu en introduction&hellip;</p>
 <p>Reprendre le programme de la partie précédente.</p>
 <p>Voici un message codé par le code césar :</p>
 <blockquote>txdwuh ylqjw gla plooh hpsorlv ydfdqwv gdqv oh vhfwhxu gx qxphultxh g lfl ghxa plooh ylqjw dxmrxug kxl ghmd ohv hqwuhsulvhv irqw sduw gh ehvrlqv hq uhfuxwhphqw qrq vdwlvidlwv fhv gliilfxowhv d o hpedxfkh vh yhulilh fkhc ohv lqjhqlhxuv lqirupdwltxhv hw gdqv xqh prlqguh phvxuh fkhc ohv whfkqlflhqv</blockquote>
 <p>Vous allez chercher à le décrypter à l&rsquo;aide du programme d&rsquo;analyse des fréquences de la partie précédente.
 En l&rsquo;appliquant au message crypté, il devrait vous donner la lettre la plus fréquente du code. Vous connaîtrez alors la lettre qui code le e, la lettre la plus fréquente de la langue française. Quelle est la lettre la plus fréquente du message ? Et son pourcentage d&rsquo;apparition ? Quelle est la clé que j&rsquo;ai utilisé pour encoder ce message ? Que dit-il ?</p>
-<p>Cette étape était simple, vous n&rsquo;aviez qu'à trouver la clé et le tour était joué !</p>
+<p>Cette étape était simple, vous n&rsquo;aviez qu&rsquo;à trouver la clé et le tour était joué !</p>
 <p>C&rsquo;est plus délicat concernant le codage simple&hellip; mais ça reste faisable. Le principe ayant été exposé au début de cette partie, entrons directement dans le vif du sujet.</p>
 <p>Notre objectif est maintenant de coder un message par l’échange simple à l&rsquo;aide d&rsquo;une clé, de le décoder et, surtout de casser le code.</p>
 <p>Rien que ça.</p>
 <p>Concernant cette partie, je vais vous expliquer la démarche en détail et nous allons traiter ensemble chacune des étapes.</p>
 <h2 id="cahier-des-charges-">Cahier des charges :</h2>
 <p><strong>Codage</strong></p>
-<p>Comprendre le principe de l'échange simple. Cette fois la clé est l&rsquo;ordre dans lequel chacune des lettres de l&rsquo;alphabet apparaît. Pour notre exemple, on travaillera avec <code>cle = 'zyxwvutsrqponmlkjihgfedcba'</code> : l&rsquo;ordre inverse.
+<p>Comprendre le principe de l&rsquo;échange simple. Cette fois la clé est l&rsquo;ordre dans lequel chacune des lettres de l&rsquo;alphabet apparaît. Pour notre exemple, on travaillera avec <code>cle = 'zyxwvutsrqponmlkjihgfedcba'</code> : l&rsquo;ordre inverse.
 Cela n&rsquo;a aucune importance, n&rsquo;importe quel ordre fera l&rsquo;affaire.
 Pour coder le message on va parcourir la chaîne de caractère et relever le code ascii du message en clair.
 Les lettres étant des minuscules, c&rsquo;est un nombre entre 97 (a) et 122 (z). On soustrait à nouveau 97 à ce nombre et on aura le numéro de la lettre en clair dans le message. Disons qu&rsquo;on l&rsquo;appelle n, comme numéro.
-A ce nombre on fait correspondre l'élément de position n de la liste notée clé.
+A ce nombre on fait correspondre l&rsquo;élément de position n de la liste notée clé.
 On obtient alors le message codé en regroupant lettre par lettre sans oublier les espaces.</p>
 <p><strong>Décodage</strong>
 Inutile de réinventer la roue, direz-vous ! On a la clé, on l&rsquo;inverse et on refait pareil. C&rsquo;est ce qu&rsquo;un humain ferait, je vous le concède. Pour une machine, c&rsquo;est plus délicat. Notre clé n&rsquo;a pas le bon format pour se prêter à ce genre d&rsquo;exercice. On va plutôt employer une nouvelle fonction de Python qui renvoie l&rsquo;indice d&rsquo;un élément dans une chaîne de caractère.</p>

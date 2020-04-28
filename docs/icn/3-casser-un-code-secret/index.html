@@ -4462,6 +4462,138 @@ MathJax.Hub.Config({
   
     <ul  class="nested">
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/introduction/" >
+        
+  
+    
+    
+    Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/asymetrique/" >
+        
+  
+    
+    
+    Chiffrement asymétrique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/diffie_hellman/" >
+        
+  
+    
+    
+    Diffie-Hellman
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/https/" >
+        
+  
+    
+    
+    Https
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -8695,7 +8827,7 @@ MathJax.Hub.Config({
 <p>Le texte d&rsquo;origine, pré formaté : <a href="/uploads/uploads/2016/07/texte_clair.txt">texte_clair</a></p>
 <p>Le texte crypté : <a href="/uploads/uploads/2016/07/texte-crypt.txt">texte-crypt</a></p>
 <p>La tentative de décryptage : <a href="/uploads/uploads/2016/07/texte-decrypt.txt">texte-decrypt</a></p>
-<p>On peut remarquer que c&rsquo;est loin d'être parfait&hellip; C&rsquo;est tout à fait logique, les fréquences d&rsquo;apparition des lettres fluctuent d&rsquo;un texte à l&rsquo;autre. Néanmoins une quinzaine de lettres sont justes et, pour déterminer les autres on procède en repérant des mots probables.</p>
+<p>On peut remarquer que c&rsquo;est loin d&rsquo;être parfait&hellip; C&rsquo;est tout à fait logique, les fréquences d&rsquo;apparition des lettres fluctuent d&rsquo;un texte à l&rsquo;autre. Néanmoins une quinzaine de lettres sont justes et, pour déterminer les autres on procède en repérant des mots probables.</p>
 <p>Voici quelques un script (moche) qui fait tout ça (il est tard).</p>
 <pre><code>#!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -8745,7 +8877,7 @@ print dechiffre
 with open('texte-decrypt.txt', 'w') as decrypt:
     decrypt.write(dechiffre)
 </code></pre>
-<p>Pour aller plus loin on s&rsquo;intéressera à un chiffrement qui a longtemps résisté, celui de Vigénere. Il a tenu 300 ans avant d'être brisé, c&rsquo;est encore un record absolu.</p>
+<p>Pour aller plus loin on s&rsquo;intéressera à un chiffrement qui a longtemps résisté, celui de Vigénere. Il a tenu 300 ans avant d&rsquo;être brisé, c&rsquo;est encore un record absolu.</p>
 <p>Son principe le protège de l&rsquo;analyse fréquentielle simple&hellip; mais c&rsquo;est par une variante un peu plus élaborée qu&rsquo;il rendra les armes.</p>
 <h2 id="a-lheure-actuelle">A l&rsquo;heure actuelle</h2>
 <p>La cryptographie moderne repose sur des algorithmes plus élaborés et le plus célèbre est appelé <strong>RSA</strong>. Il est très solide. Grosso modo, sa robustesse vient du fait qu&rsquo;un ordinateur multiplie beaucoup plus vite qu&rsquo;il ne divise. Partons d&rsquo;une situation :</p>
@@ -8753,8 +8885,8 @@ with open('texte-decrypt.txt', 'w') as decrypt:
 <p>On fait alors le produit 31*29 = 899. Connaissant 29 (ma clé privée) et 899 (la clé publique) je n&rsquo;ai aucun mal à obtenir 899/29 = 31 : l&rsquo;autre clé. Les 2 clés étant nécessaires pour déchiffrer, cela ne me prend pas beaucoup de temps. Par contre si un pirate ne connait que 899 (la clé publique qu&rsquo;il intercepte facilement), il doit chercher quels sont ses diviseurs pour trouver péniblement 29 et 31 après beaucoup d&rsquo;essais. Il n&rsquo;existe pas de démarches vraiment meilleures que celle là pour déterminer les clés privées à partir des clés publiques.
 Bien sûr, me direz-vous, votre calculatrice trouverait très vite 899 = 29 * 31. Mais quand les clés sont des nombres premiers à 2048 bits (ce qui se converti en 617 chiffres en base 10) alors les combinaisons sont nombreuses et même les machines les plus puissantes mettent beaucoup de temps à obtenir les facteurs.</p>
 <h3 id="ordinateur-quantique">Ordinateur quantique</h3>
-<p>On entend régulièrement parler de <strong>l&rsquo;ordinateur quantique</strong>. Fondé sur un principe très différent de celui des machines qui nous entourent, il n&rsquo;a aucun mal à réaliser d'énormes divisions. Il offre d&rsquo;ailleurs d&rsquo;immenses possibilités dans beaucoup d&rsquo;autres domaines tant sa conception est révolutionnaire.
-Le hic est que son développement est extrêmement coûteux et qu&rsquo;il n&rsquo;est pas envisagé d&rsquo;en rendre l&rsquo;usage public. En effet il repose sur des propriétés de la matière qui ne sont accessibles qu'à des températures extrêmement basses et très coûteuses en énergie.
+<p>On entend régulièrement parler de <strong>l&rsquo;ordinateur quantique</strong>. Fondé sur un principe très différent de celui des machines qui nous entourent, il n&rsquo;a aucun mal à réaliser d&rsquo;énormes divisions. Il offre d&rsquo;ailleurs d&rsquo;immenses possibilités dans beaucoup d&rsquo;autres domaines tant sa conception est révolutionnaire.
+Le hic est que son développement est extrêmement coûteux et qu&rsquo;il n&rsquo;est pas envisagé d&rsquo;en rendre l&rsquo;usage public. En effet il repose sur des propriétés de la matière qui ne sont accessibles qu&rsquo;à des températures extrêmement basses et très coûteuses en énergie.
 Alors, certes, il permettrait de casser la sécurité de facebook et de lire les messages privées échangés par kéké et sa copine lulu&hellip; mais vu ce qu&rsquo;il coûte on aura mieux à faire.</p>
 <h2 id="et-mes-passwords-">Et mes passwords ?</h2>
 <p>Là c&rsquo;est à la fois très simple et très compliqué. En vous identifiant quelque part vous créez un password qui est sauvegardé dans la base de donnée du serveur. Si le serveur est bien foutu, ces mots de passes sont HASHES. Ce qui signifie qu&rsquo;ils sont encodés dès leur création en une version totalement illisible. Quand vous vous connectez, on compare le résultat du hashage de votre essai de mot de passe avec le hashage en mémoire. Le même : entrez ! Autre chose : recommencez.
