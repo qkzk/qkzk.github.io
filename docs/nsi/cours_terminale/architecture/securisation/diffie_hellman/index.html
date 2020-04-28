@@ -8841,26 +8841,34 @@ on ne dispose pas d&rsquo;algorithme efficace.</p>
 <p>Expliquons maintenant comment Alice et Bob peuvent s&rsquo;échanger une clé
 secrète par le protocole de Diffie-Hellman.</p>
 <p>Ils font des actions en parallèle, que l&rsquo;on décrit dans le tableau suivant :</p>
-<hr>
-<p>Étape    Alice                                                                  Bob</p>
-<hr>
-<p>1        Alice et Bob choisissent ensemble un grand
+<ol>
+<li>
+<p>Alice et Bob choisissent ensemble un grand
 nombre premier $p$ et un entier $1\leq a\leq p-1$.</p>
-<pre><code>     Cet échange n'a pas besoin d'être sécurisé.
+<pre><code> Cet échange n'a pas besoin d'être sécurisé.
 </code></pre>
-<p>$\quad$</p>
-<p>2        Alice choisit secrètement $x_1$.                                       Bob choisit secrètement $x_2$.</p>
-<p>$\quad$</p>
-<p>3        Alice calcule $y_1=a^{x_1} (\mod p)$.                                  Bob calcule $y_2=a^{x_2}\ (\mod p)$.</p>
-<p>$\quad$</p>
-<p>4        Alice et Bob s&rsquo;échangent les valeurs de
+</li>
+<li>
+<p>Alice choisit secrètement $x_1$.</p>
+<p>Bob choisit secrètement $x_2$.</p>
+</li>
+<li>
+<p>Alice calcule $y_1=a^{x_1} (\mod p)$.</p>
+<p>Bob calcule $y_2=a^{x_2}\ (\mod p)$.</p>
+</li>
+<li>
+<p>Alice et Bob s&rsquo;échangent les valeurs de
 $y_1$ et $y_2$.</p>
-<pre><code>     Cet échange n'a pas besoin d'être sécurisé.
+<pre><code>Cet échange n'a pas besoin d'être sécurisé.
 </code></pre>
-<p>$\quad$</p>
-<p>5        Alice calcule $y_2^{x_1}=(a^{x_2})^{x_1}=a^{x_1x_2}\ (\mod p)$         Bob calcule $y_1^{x_2}=(a^{x_1})^{x_2}=a^{x_1x_2}\ (\mod p)$</p>
-<pre><code>     et appelle ce nombre $K$, la clé secrète à partager avec Bob.          et appelle ce nombre $K$, la clé secrète à partager avec Alice.
-</code></pre>
+</li>
+<li>
+<p>Alice calcule $y_2^{x_1}=(a^{x_2})^{x_1}=a^{x_1x_2}\ (\mod p)$
+et appelle ce nombre $K$, la clé secrète à partager avec Bob.</p>
+<p>Bob calcule $y_1^{x_2}=(a^{x_1})^{x_2}=a^{x_1x_2}\ (\mod p)$
+et appelle ce nombre $K$, la clé secrète à partager avec Alice.</p>
+</li>
+</ol>
 <hr>
 <p>  À la fin du protocole, Alice et Bob sont donc en possession d&rsquo;une
 même clé secrète $K$, qu&rsquo;ils ne se sont pas échangés directement.</p>
