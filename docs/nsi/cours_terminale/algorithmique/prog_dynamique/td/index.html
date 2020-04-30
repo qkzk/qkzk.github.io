@@ -8913,7 +8913,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique2_td_prog_dynamique_corrigepdf">pdf: <a href="/uploads/docnsitale/algo/prog_dynamique/2_td_prog_dynamique_corrige.pdf">pour impression</a></h3>
+<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique2_td_prog_dynamiquepdf">pdf: <a href="/uploads/docnsitale/algo/prog_dynamique/2_td_prog_dynamique.pdf">pour impression</a></h3>
 <h2 id="introduction">Introduction</h2>
 <p>Dans ce T.D. nous allons résoudre quelques problèmes classiques
 en utilisant la <strong>programmation dynamique</strong>.</p>
@@ -8945,32 +8945,39 @@ niveaux, il y a $2^{n-1}$ chemins et $2^{n}-2$ calculs à effectuer.</p>
 <ol>
 <li>
 <p>Déterminer le chemin optimal de la seconde pyramide de nombres.</p>
-<p><strong>Correction</strong></p>
-<p><code>3 + 4 + 7 + 5 = 19</code></p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+`3 + 4 + 7 + 5 = 19`
+
+**Correction** -->
 </li>
 <li>
 <p>Proposer un algorithme récursif.</p>
 <p>On notera :</p>
 <p>$x$ la position, $v(x)$ la valeur, $c(x)$ la somme maximale quand on descend
 à partir de $x$.</p>
-<p><strong>Correction</strong></p>
-<p><strong>définition récursive de $c(x)$ :</strong></p>
-<blockquote>
-<p>$c(x)=v(x)$ pour toute position $x$ situé au rez-de chaussée de la pyramide</p>
-<p>$c(x)=v(x)+\max(c(g(x)),c(d(x)))$ pour toute autre position $x$, où $g(x)$
-et $d(x)$ sont les positions inférieures gauche et droite sous la
-position $x$.</p>
-</blockquote>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+**définition récursive de $c(x)$ :**
+
+> $c(x)=v(x)$ pour toute position $x$ situé au rez-de chaussée de la pyramide
+>
+> $c(x)=v(x)+\max(c(g(x)),c(d(x)))$ pour toute autre position $x$, où $g(x)$
+> et $d(x)$ sont les positions inférieures gauche et droite sous la
+> position $x$.
+
+**Correction** -->
 </li>
 <li>
 <p>Est-ce qu&rsquo;on effectue plusieurs fois le même calcul ? Est-ce optimal ?</p>
-<p><strong>Correction</strong></p>
-<p>Cet algorithme effectue toujours beaucoup trop de calculs.</p>
-<p>La valeur $7$ de la troisième ligne est visitée une fois en venant du 2
-et une fois en venant du 4 (de la première ligne).</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+Cet algorithme effectue toujours beaucoup trop de calculs.
+
+La valeur $7$ de la troisième ligne est visitée une fois en venant du 2
+et une fois en venant du 4 (de la première ligne).
+
+**Correction** -->
 </li>
 </ol>
 <h3 id="en-utilisant-la-progression-dynamique">En utilisant la progression dynamique.</h3>
@@ -8978,20 +8985,19 @@ et une fois en venant du 4 (de la première ligne).</p>
 <li>
 <p>Rappeler les deux principes à respecter avant d&rsquo;envisager la progression
 dynamique. Sont-ils respectés ici ?</p>
-<p><strong>Correction</strong></p>
-<ul>
-<li>
-<p><em>Chevauchement des sous-problèmes</em></p>
-<p>C&rsquo;est bien le cas, plusieurs chemins passent au même endroit.
-Par exemple <code>3 - 4 - 7 - 4</code> et <code>3 - 2 - 7 - 4</code>.</p>
-</li>
-<li>
-<p><em>Sous structure optimale</em></p>
-<p>Une fois qu&rsquo;on a la somme maximale qu&rsquo;on peut atteindre pour un noeud,
-il est inutile de la recalculer pour un autre</p>
-</li>
-</ul>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+*   _Chevauchement des sous-problèmes_
+
+    C'est bien le cas, plusieurs chemins passent au même endroit.
+    Par exemple `3 - 4 - 7 - 4` et `3 - 2 - 7 - 4`.
+
+*   _Sous structure optimale_
+
+    Une fois qu'on a la somme maximale qu'on peut atteindre pour un noeud,
+    il est inutile de la recalculer pour un autre
+
+**Correction** -->
 </li>
 </ol>
 <p>Nous allons construire un algorithme différent. Il ne part plus de la pointe
@@ -9013,59 +9019,74 @@ leur donner un nom !) du second exemple.</p>
 1     _   _
 2    _  12  _
 3   9  5  4  6
-</code></pre></div><p><strong>Correction</strong></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Sommes montantes ex 2
+</code></pre></div><!-- **Correction**
+
+```
+Sommes montantes ex 2
 0       19
 1     14  16
 2   11  12  11
 3  9   5   4   6
-</code></pre></div><p><strong>Correction</strong></p>
+```
+
+**Correction** -->
 </li>
 <li>
 <p>Proposer un algorithme calculant itérativement ces sommes montantes.
 Où la somme maximale est-elle référencée ?</p>
-<p><strong>Correction</strong></p>
-<p>On crée une pyramide de mêmes dimensions remplie de zéros.
-L&rsquo;étage le plus bas est initialisé avec les valeurs de la pyramide</p>
-<p>pour chaque étage à partir de l&rsquo;avant dernier, jusqu&rsquo;au premier</p>
-<ul>
-<li>La valeur de la somme montante à une position est la valeur
-de la pyramide + le max des fils gauche et droit de la somme montante
-les fils gauche et droit sont : 1 étage plus bas,</li>
-</ul>
-<p>La somme maximale est référencée tout en haut de la pyramide
-<strong>Correction</strong></p>
+<!-- **Correction**
+
+On crée une pyramide de mêmes dimensions remplie de zéros.
+L'étage le plus bas est initialisé avec les valeurs de la pyramide
+
+pour chaque étage à partir de l'avant dernier, jusqu'au premier
+
+*   La valeur de la somme montante à une position est la valeur
+    de la pyramide + le max des fils gauche et droit de la somme montante
+    les fils gauche et droit sont : 1 étage plus bas,
+
+La somme maximale est référencée tout en haut de la pyramide
+**Correction** -->
 </li>
 <li>
 <p>Combien de sommes sont-elles effectuées ?</p>
-<p><strong>Correction</strong></p>
-<p>Une somme par élément de la pyramide sauf la dernière ligne.</p>
-<p>Donc $n(n-1)/2$ sommes et $n(n-1)/2$ maximums.</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+Une somme par élément de la pyramide sauf la dernière ligne.
+
+Donc $n(n-1)/2$ sommes et $n(n-1)/2$ maximums.
+
+**Correction** -->
 </li>
 <li>
 <p>Vérifier sur les exemples.</p>
-<p><strong>Correction</strong></p>
-<p>Voir plus haut</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+Voir plus haut
+
+**Correction** -->
 </li>
 </ol>
 <p>On envisage d&rsquo;implémenter cet algorithme (lire : vous le ferez en TP).</p>
 <ol start="8">
 <li>
 <p>Choisir une structure de donnée adaptée pour les pyramides à cet algorithme.</p>
-<p><strong>Correction</strong></p>
-<p>On peut utiliser un dictionnaire ou une double liste.
-Chaque étage dans une liste.</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+On peut utiliser un dictionnaire ou une double liste.
+Chaque étage dans une liste.
+
+**Correction** -->
 </li>
 <li>
 <p><strong>Complément pas indispensable</strong>. On obtient bien la somme maximale, mais
 pas le chemin qui y mène. Que pourrait-on ajouter pour l&rsquo;obtenir ?</p>
-<p><strong>Correction</strong></p>
-<p>On peut conserver l&rsquo;information du fils qui a fourni la somme la meilleure.
-Par exemple sa valeur ou sa position.</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+On peut conserver l'information du fils qui a fourni la somme la meilleure.
+Par exemple sa valeur ou sa position.
+
+**Correction** -->
 </li>
 </ol>
 <p><em>Remarque finale :</em> les pyramides de nombres sont des graphes. Alors ce qu&rsquo;on
@@ -9200,67 +9221,27 @@ J&rsquo;additionne ces deux nombres et j&rsquo;écris la valeur <strong>1</stron
 <ol>
 <li>
 <p>Compléter le tableau</p>
-<p><strong>correction</strong></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$[;]$</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>$[\textbf{1}]$</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>$[1, \textbf{2}]$</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr>
-<td>$[1, 2, \textbf{5}]$</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p><strong>correction</strong></p>
+<!-- **correction**
+
+|                      	| 0  	| 1 	| 2 	| 3 	| 4 	| 5 	|
+|----------------------	|----	|---	|---	|---	|---	|---	|
+| $[\;]$               	| 1  	| 0 	| 0 	| 0 	| 0 	| 0 	|
+| $[\textbf{1}]$       	| 1  	| 1 	| 1 	| 1 	| 1 	| 1 	|
+| $[1, \textbf{2}]$    	| 1  	| 1 	| 2 	| 2 	| 3 	| 3 	|
+| $[1, 2, \textbf{5}]$ 	| 1  	| 1 	| 2 	| 2 	| 3 	| 4 	|
+
+**correction** -->
 </li>
 <li>
 <p>Proposer un algorithme pour résoudre le problème.</p>
-<p><strong>correction</strong></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pour toute pièce p de S,
+<!-- **correction**
+
+```
+pour toute pièce p de S,
     pour tout reste à rendre r entre 1 et n,
         C(S, r) = C(S - {p}, r) + C(S, r - p)
-</code></pre></div><p><strong>correction</strong></p>
+```
+**correction** -->
 </li>
 </ol>
 <h2 id="2-le-rendu-de-monnaie--nombre-minimal-de-pièces">2. Le rendu de monnaie : nombre minimal de pièces</h2>
@@ -9290,82 +9271,101 @@ qui retourne toujours la solution optimale.</p>
 <ol>
 <li>
 <p>Quel algorithme naïf pourrait-on envisager ? Inconvénient ?</p>
-<p><strong>Correction</strong></p>
-<p>On pourrait calculer toutes les sommes qui valent la somme à rendre
-Ensuite on choisit parmi ces dernières celle qui est optimale.</p>
-<p>Dès qu&rsquo;on a beaucoup de pièces, l&rsquo;algorithme explose. Le nombre de sommes à
-envisager croît très rapidement.</p>
-<p>Autre problème, on calcule plusieurs fois la même somme.</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+On pourrait calculer toutes les sommes qui valent la somme à rendre
+Ensuite on choisit parmi ces dernières celle qui est optimale.
+
+Dès qu'on a beaucoup de pièces, l'algorithme explose. Le nombre de sommes à
+envisager croît très rapidement.
+
+Autre problème, on calcule plusieurs fois la même somme.
+
+**Correction** -->
 </li>
 <li>
 <p>Peut-on appliquer ici la programmation dynamique ?</p>
-<p><strong>Correction</strong></p>
-<ul>
-<li>
-<p>Sous structure optimale :</p>
-<p>Si le nombre minimal pièces pour rendre un montant $S$ est $n$ et que
-la pièce de valeur la plus élevée vaut $x$ alors le nombre minimal de
-pièces pour rendre $S - x$ est $n-1$.</p>
-<p>Si ça n&rsquo;était pas le cas on pourrait trouver un moyen de rendre $S - x$
-avec moins de $n-1$ pièces.</p>
-<p>On ajoute alors une pièce de valeur $x$ et on obtient un montant $S-x+x=S$
-avec moins de $n$ pièces. C&rsquo;est une contradiction.</p>
-</li>
-<li>
-<p>_Chevauchement des sous problèmes.</p>
-<p>Lorsqu&rsquo;on cherche un nombre minimal de pièces à rendre $S$ avec les pièces,
-on peut décider de prendre la pièce $c$ ou de ne pas la prendre.</p>
-<p>Ces deux problèmes ne sont pas indépendants.</p>
-</li>
-</ul>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+
+*   Sous structure optimale :
+
+    Si le nombre minimal pièces pour rendre un montant $S$ est $n$ et que
+    la pièce de valeur la plus élevée vaut $x$ alors le nombre minimal de
+    pièces pour rendre $S - x$ est $n-1$.
+
+    Si ça n'était pas le cas on pourrait trouver un moyen de rendre $S - x$
+    avec moins de $n-1$ pièces.
+
+    On ajoute alors une pièce de valeur $x$ et on obtient un montant $S-x+x=S$
+    avec moins de $n$ pièces. C'est une contradiction.
+
+*   _Chevauchement des sous problèmes.
+
+    Lorsqu'on cherche un nombre minimal de pièces à rendre $S$ avec les pièces,
+    on peut décider de prendre la pièce $c$ ou de ne pas la prendre.
+
+    Ces deux problèmes ne sont pas indépendants.
+
+**Correction** -->
 </li>
 <li>
 <p>On note $S$ la somme, $n$ la somme, $S$ le jeu de pièces dont on dispose
 et $f(n, S)$ le nombre minimal de pièces à utiliser.</p>
 <p>Proposer une relation de récurrence sur $f$.</p>
-<p><strong>Correction</strong></p>
-<p>On considère une configuration optimale permettant de rendre $n$ et une
-pièce de valeur $c$.</p>
-<p>Si $c &gt; n$, $c$ ne figure pas dans la configuration.</p>
-<p>Sinon, deux cas se présentent : $c$ figure dans la configuration optimale ou
-$c$ n&rsquo;y figure pas.</p>
-<p>on a :</p>
-<p>$$f(n, S) = \min \left( 1 + f(n - c, S), f(n, S \setminus{c })  \right)$$</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+On considère une configuration optimale permettant de rendre $n$ et une
+pièce de valeur $c$.
+
+Si $c > n$, $c$ ne figure pas dans la configuration.
+
+Sinon, deux cas se présentent : $c$ figure dans la configuration optimale ou
+$c$ n'y figure pas.
+
+on a :
+
+$$f(n, S) = \min \left( 1 + f(n - c, S), f(n, S \setminus\{c \})  \right)$$
+
+**Correction** -->
 </li>
 <li>
 <p>Proposer un algorithme récursif pour résoudre le problème du rendu de
 monnaie.</p>
-<p><strong>Correction</strong></p>
-<p>$Système$ : le jeu de pièces, $n$ le montant, $p$ le numéro d&rsquo;une pièce
-dans le système.</p>
-<p>On référence les états possibles dans une matrice de taille :
-<code>(nb de pieces + 1) * (montant + 1)</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Rendu de monnaie (systeme de pieces, montant)
+<!-- **Correction**
 
-pour chaque piece d&#39;indice p du jeu,
+$Système$ : le jeu de pièces, $n$ le montant, $p$ le numéro d'une pièce
+dans le système.
+
+On référence les états possibles dans une matrice de taille :
+`(nb de pieces + 1) * (montant + 1)`
+
+```
+Rendu de monnaie (systeme de pieces, montant)
+
+pour chaque piece d'indice p du jeu,
   pour chaque reste r entre 1 et le montant,
     trois cas :
-    * la piece vaut le reste, on l&#39;utilise.
+    * la piece vaut le reste, on l'utilise.
       matrice[p][r] = 1
 
-    * la piece est &gt; au reste.
+    * la piece est > au reste.
       * on utilise la solution précédente en excluant la pièce
         matrice[p][r] = matrice[p - 1][r]
 
-    * la pièce est &lt; au reste,
+    * la pièce est < au reste,
       On choisit la meilleure des deux solutions :
 
-      1. la solution précédente pour faire r, sans l&#39;utiliser la pièce
+      1. la solution précédente pour faire r, sans l'utiliser la pièce
       2. utiliser la précédente solution pour faire reste - valeur
         avec une pièce supplémentaire
 
         matrice[p][r] = min(matrice[p - 1][r],
                             1 + matrice[p][r - systeme[p - 1]])
 
-</code></pre></div><p><strong>Correction</strong></p>
+```
+
+**Correction** -->
 </li>
 </ol>
 <hr>
@@ -9519,117 +9519,28 @@ la valeur de droite.</li>
 </tr>
 </tbody>
 </table>
-<p><strong>Correction</strong></p>
-<table>
-<thead>
-<tr>
-<th><code>n\k</code></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>1</td>
-<td>3</td>
-<td>3</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>1</td>
-<td>4</td>
-<td>6</td>
-<td>4</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td>1</td>
-<td>5</td>
-<td>10</td>
-<td>10</td>
-<td>5</td>
-<td>1</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>1</td>
-<td>6</td>
-<td>15</td>
-<td>20</td>
-<td>15</td>
-<td>6</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td>1</td>
-<td>7</td>
-<td>21</td>
-<td>35</td>
-<td>35</td>
-<td>21</td>
-<td>7</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>On y lit, par exemple que $\binom{7}{3} = 35$</p>
-<p>Prenons l&rsquo;exemple du nombre 20 (ligne 6). Il est obtenu en ajoutant les deux
-10 de la ligne supérieure.</p>
-<p>$\binom{6}{3} = \binom{5}{3} + \binom{5}{2} \Longleftrightarrow 20 = 10 + 10$</p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+| `n\k` | 0 	| 1 	| 2  	| 3  	| 4  	| 5  	| 6 	| 7 	|
+|-----	|---	|---	|----	|----	|----	|----	|---	|---	|
+| 0   	| 1 	|   	|    	|    	|    	|    	|   	|   	|
+| 1   	| 1 	| 1 	|    	|    	|    	|    	|   	|   	|
+| 2   	| 1 	| 2 	| 1  	|    	|    	|    	|   	|   	|
+| 3   	| 1 	| 3 	| 3  	| 1  	|    	|    	|   	|   	|
+| 4   	| 1 	| 4 	| 6  	| 4  	| 1  	|    	|   	|   	|
+| 5   	| 1 	| 5 	| 10 	| 10 	| 5  	| 1  	|   	|   	|
+| 6   	| 1 	| 6 	| 15 	| 20 	| 15 	| 6  	| 1 	|   	|
+| 7   	| 1 	| 7 	| 21 	| 35 	| 35 	| 21 	| 7 	| 1 	|
+
+
+On y lit, par exemple que $\binom{7}{3} = 35$
+
+Prenons l'exemple du nombre 20 (ligne 6). Il est obtenu en ajoutant les deux
+10 de la ligne supérieure.
+
+$\binom{6}{3} = \binom{5}{3} + \binom{5}{2} \Longleftrightarrow 20 = 10 + 10$
+
+**Correction** -->
 </li>
 </ol>
 <hr>
@@ -9644,20 +9555,25 @@ la valeur de droite.</li>
 <li>
 <p>Donner une fonction récursive (en langage naturel ou en Python) qui
 calcule $\binom{n}{k}$</p>
-<p><strong>Correction</strong>
-Voici l&rsquo;algorithme récursif qui correspond à ça :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction c(n, k):
-  si k = 0 ou si k = n, alors retourner 1
-  sinon retourner c(n-1, k) + c(n-1, k-1)
-</code></pre></div><p><strong>Correction</strong></p>
+ <!-- **Correction**
+ Voici l'algorithme récursif qui correspond à ça :
+
+ ```
+ fonction c(n, k):
+   si k = 0 ou si k = n, alors retourner 1
+   sinon retourner c(n-1, k) + c(n-1, k-1)
+ ```
+ **Correction** -->
 </li>
 <li>
 <p>Construire l&rsquo;arbre des appels récursifs du calcul de $\binom{5}{3}$</p>
 <p>(prévoir de la place, le nombre total d&rsquo;appels récursifs est $2\binom{n}{k} - 2$).</p>
-<p><strong>Correction</strong></p>
-<p>Voici les appels récursifs de notre fonction simple pour calculer $\binom{5}{3}$
-<a href="/uploads/docnsitale/algo/prog_dynamique/1_arbre_combinaison_recursion.png">appels récursifs</a></p>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+Voici les appels récursifs de notre fonction simple pour calculer $\binom{5}{3}$
+[appels récursifs](img/1_arbre_combinaison_recursion.png)
+
+**Correction** -->
 </li>
 <li>
 <p>proposer un algorithme utilisant la programmation dynamique qui
@@ -9668,23 +9584,16 @@ calcule $\binom{n}{k}$ en utilisant le triangle de Pascal.</p>
 </li>
 <li>
 <p>Doit-on remplir entièrement chaque ligne ?</p>
-<p><strong>Correction</strong> Solution</p>
-<ol>
-<li>
-<p>algorithme</p>
-<ol>
-<li>On remplit les $k$ premières cases de chaque ligne de haut en bas.</li>
-<li>On arrête à la ligne $n$</li>
-<li>Temps: $T(n,k)=O(nk)$</li>
-</ol>
-</li>
-<li>
-<p>Seule l&rsquo;avant dernière ligne doit être gardée en mémoire.</p>
-</li>
-<li>
-<p>Non, on peut améliorer en ne calculant que les cases &ldquo;en haut à gauche&rdquo; de la case initiale. <strong>Correction</strong></p>
-</li>
-</ol>
+<!-- **Correction** Solution
+
+1. algorithme
+
+    1. On remplit les $k$ premières cases de chaque ligne de haut en bas.
+    2. On arrête à la ligne $n$
+    3. Temps: $T(n,k)=O(nk)$
+
+2. Seule l'avant dernière ligne doit être gardée en mémoire.
+3. Non, on peut améliorer en ne calculant que les cases "en haut à gauche" de la case initiale. **Correction** -->
 </li>
 </ol>
 <hr>
@@ -9737,63 +9646,71 @@ et obtenir comme profit la somme $p_{i1} + p_{i2} + \cdots + p_{ik}$ des prix de
 </li>
 <li>
 <p>Quel est la solution optimale ?</p>
-<p><strong>Correction</strong>
-Solution</p>
-<ul>
-<li>Aucune découpe: profit 9</li>
-<li>Découpe 1 + 3: profit 1 + 8 = 9</li>
-<li>Découpe 2 + 2: profit 5 + 5 = 10</li>
-<li>Découpe 3 + 1: profit 8 + 1 = 9</li>
-<li>Découpe 1+1+2: profit 1 + 1 + 5 = 7</li>
-<li>Découpe 1+2+1: profit 1 + 5 + 1 = 7</li>
-<li>Découpe 2+1+1: profit 5 + 1 + 1 = 7</li>
-<li>Découpe 1+1+1+1: profit 1 + 1 + 1 + 1 = 4.</li>
-<li>Optimal: découpe 2+2, c’est-à-dire 2 morceaux de longueur 2.
-<strong>Correction</strong></li>
-</ul>
+<!-- **Correction**
+Solution
+
+* Aucune découpe: profit 9
+* Découpe 1 + 3: profit 1 + 8 = 9
+* Découpe 2 + 2: profit 5 + 5 = 10
+* Découpe 3 + 1: profit 8 + 1 = 9
+* Découpe 1+1+2: profit 1 + 1 + 5 = 7
+* Découpe 1+2+1: profit 1 + 5 + 1 = 7
+* Découpe 2+1+1: profit 5 + 1 + 1 = 7
+* Découpe 1+1+1+1: profit 1 + 1 + 1 + 1 = 4.
+* Optimal: découpe 2+2, c’est-à-dire 2 morceaux de longueur 2.
+**Correction** -->
 </li>
 </ol>
 <p>On note $r_n$ le profit maximal que l&rsquo;on peut atteindre pour une planche de longueur $n$.</p>
 <ol start="3">
 <li>
 <p>Proposer une relation de récurrence entre $r_n$ et les valeurs inférieures.</p>
-<p><strong>Correction</strong>
-Solution</p>
-<p><strong>recurrence 1</strong></p>
-<p>$$r_n = max(p_n,r_1 + r_{n-1},r_2 + r_{n-2}, \cdots ,r_{n-1} + r_1)$$</p>
-<ul>
-<li>Le premier argument correspond $p_n$ à ne faire aucune découpe</li>
-<li>les autres $n-1$ arguments, à faire un premier trait de découpe à la longueur $i$,
-et à obtenir le revenu maximal des deux morceaux obtenus de longueur $i$ et $n-i$.</li>
-</ul>
-<p><strong>recurrence 2</strong></p>
-<p>$$r_n = \max_{1 \leq i \leq n}  (p_i + r_{n-i})$$</p>
-<p>en posant $r_0=0$.</p>
-<p>S&rsquo;obtient en considérant en que ce que l&rsquo;on obtient au final est un morceau de longueur $i$
-sur l&rsquo;extrémité gauche, au prix $p_i$, et le reste, de longueur $n-i$ qui, dans une solution
-optimale, doit être un découpage optimal d&rsquo;une planche de longueur $n-i$.
-<strong>Correction</strong></p>
+<!-- **Correction**
+Solution
+
+**recurrence 1**
+
+$$r_n = max(p_n,r_1 + r_{n-1},r_2 + r_{n-2}, \cdots ,r_{n-1} + r_1)$$
+
+
+
+* Le premier argument correspond $p_n$ à ne faire aucune découpe
+* les autres $n-1$ arguments, à faire un premier trait de découpe à la longueur $i$,
+  et à obtenir le revenu maximal des deux morceaux obtenus de longueur $i$ et $n-i$.
+
+**recurrence 2**
+
+$$r_n = \max_{1 \leq i \leq n}  (p_i + r_{n-i})$$
+
+en posant $r_0=0$.
+
+S'obtient en considérant en que ce que l'on obtient au final est un morceau de longueur $i$
+sur l'extrémité gauche, au prix $p_i$, et le reste, de longueur $n-i$ qui, dans une solution
+optimale, doit être un découpage optimal d'une planche de longueur $n-i$.
+**Correction** -->
 </li>
 <li>
 <p>Proposer une fonction récursive <code>coupe</code> qui calcule $r_n$ en fonction des
 paramètres $p$ (le tableau des prix) et $n$ (la longueur de la planche).</p>
-<p><strong>Correction</strong> Solution</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction coupe(p, n):
-  si n=0 alors retourner 0
-  sinon
-    q = - infini
-    pour i allant de 1 à n
-      q = max(q, p[i] + coupe(p, n-i))
-    retourner q
-``` **Correction**
+ <!-- **Correction** Solution
 
-</code></pre></div></li>
+ ```
+ fonction coupe(p, n):
+   si n=0 alors retourner 0
+   sinon
+     q = - infini
+     pour i allant de 1 à n
+       q = max(q, p[i] + coupe(p, n-i))
+     retourner q
+ ``` **Correction** -->
+</li>
 <li>
 <p>Construire l&rsquo;arbre des appels récursifs de <code>coupe(p, 4)</code></p>
-<p><strong>Correction</strong>
-Solution</p>
-<p><img src="/uploads/docnsitale/algo/prog_dynamique/2_arbre_scierie_recursion.png" alt="Dérouler le calcul de coupe(p, 4)">
-<strong>Correction</strong></p>
+<!-- **Correction**
+Solution
+
+![Dérouler le calcul de coupe(p, 4)](img/2_arbre_scierie_recursion.png)
+**Correction** -->
 </li>
 <li>
 <p>Modifier votre fonction précédente pour qu&rsquo;elle utilise une solution
@@ -9802,116 +9719,60 @@ mémoisée.</p>
 <li>de haut en bas</li>
 <li>de bas en haut</li>
 </ol>
-<p><strong>Correction</strong></p>
-<ol>
-<li>
-<p>On considère un tableau $r[0..n]$ dont tous les éléments sont initialement tels que
-$r[i] = - \infty$</p>
-</li>
-<li>
-<p>de haut en bas</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Coupe_memoize(p,n,r):
-  si r[n] &gt;= 0 alors retourner r[n]
-  sinon,
-    si n = 0 alors q = 0
-    sinon
-      q = - infini
-      pour i allant de 1 à n
-        q = max(q, p[i] + Coupe_memoize(p, n-i, r))
-      r[n] = q
-    retourner q
-</code></pre></div><p>Complexité $O(n^2)$</p>
-</li>
-<li>
-<p>de bas en haut</p>
-<ul>
-<li>On considère un tableau $r[0..n]$</li>
-<li>$r[0] = 0$</li>
-<li>pour i=1 à j
-<ul>
-<li>
-<p>$q = -\infty$</p>
-</li>
-<li>
-<p>pour i = 1 à j</p>
-<p>$q = max(q, p[i] + r[j-i])$</p>
-</li>
-<li>
-<p>$r[j] = q$</p>
-</li>
-</ul>
-</li>
-<li>retourner $r[n]$</li>
-</ul>
-</li>
-</ol>
-<p>À partir de $r$ et $s$ produits par l&rsquo;algorithme plus haut, on peut
-reconstruire la solution. Il suffit de faire :</p>
-<ul>
-<li>
-<p>tant que $n &gt; 0$</p>
-<ul>
-<li>afficher &ldquo;un morceau de longueur $s[n]$&rdquo;</li>
-<li>$n=n-s[n]$</li>
-</ul>
-</li>
-<li>
-<p>sur l&rsquo;exemple précédent on obtient :</p>
-<table>
-<thead>
-<tr>
-<th>longueur $i$</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$r_i$</td>
-<td>0</td>
-<td>1</td>
-<td>5</td>
-<td>8</td>
-<td>10</td>
-<td>13</td>
-<td>17</td>
-<td>18</td>
-<td>22</td>
-<td>25</td>
-<td>30</td>
-</tr>
-<tr>
-<td>$s_i$</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>2</td>
-<td>6</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Par exemple, pour $n=7$ on affiche qu&rsquo;il faut découper en un morceau de longueur 1
-et un morceau de 6 (pour un profit de 18)</p>
-</li>
-</ul>
-<p><strong>Correction</strong></p>
+<!-- **Correction**
+
+1. On considère un tableau $r[0..n]$ dont tous les éléments sont initialement tels que
+    $r[i] = - \infty$
+2. de haut en bas
+
+    ```
+    Coupe_memoize(p,n,r):
+      si r[n] >= 0 alors retourner r[n]
+      sinon,
+        si n = 0 alors q = 0
+        sinon
+          q = - infini
+          pour i allant de 1 à n
+            q = max(q, p[i] + Coupe_memoize(p, n-i, r))
+          r[n] = q
+        retourner q
+    ```
+
+    Complexité $O(n^2)$
+
+3. de bas en haut
+
+
+    * On considère un tableau $r[0..n]$
+    * $r[0] = 0$
+    * pour i=1 à j
+      * $q = -\infty$
+      * pour i = 1 à j
+
+        $q = max(q, p[i] + r[j-i])$
+      * $r[j] = q$
+    * retourner $r[n]$
+
+
+  À partir de $r$ et $s$ produits par l'algorithme plus haut, on peut
+  reconstruire la solution. Il suffit de faire :
+
+  * tant que $n > 0$
+
+    * afficher "un morceau de longueur $s[n]$"
+    * $n=n-s[n]$
+
+  * sur l'exemple précédent on obtient :
+
+    | longueur $i$ 	| 0 	| 1 	| 2 	| 3 	| 4  	| 5  	| 6  	| 7  	| 8  	| 9  	| 10 	|
+    |--------------	|---	|---	|---	|---	|----	|----	|----	|----	|----	|----	|----	|
+    | $r_i$        	| 0 	| 1 	| 5 	| 8 	| 10 	| 13 	| 17 	| 18 	| 22 	| 25 	| 30 	|
+    | $s_i$        	| 0 	| 1 	| 2 	| 3 	| 2  	| 2  	| 6  	| 1  	| 2  	| 3  	| 10 	|
+
+  * Par exemple, pour $n=7$ on affiche qu'il faut découper en un morceau de longueur 1
+    et un morceau de 6 (pour un profit de 18)
+
+**Correction** -->
 </li>
 </ol>
 </article>
@@ -9951,7 +9812,7 @@ et un morceau de 6 (pour un profit de 18)</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique2_td_prog_dynamique_corrigepdf">pdf: <a href="/uploads/docnsitale/algo/prog_dynamique/2_td_prog_dynamique_corrige.pdf">pour impression</a></a></li>
+        <li><a href="#pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique2_td_prog_dynamiquepdf">pdf: <a href="/uploads/docnsitale/algo/prog_dynamique/2_td_prog_dynamique.pdf">pour impression</a></a></li>
       </ul>
     </li>
     <li><a href="#introduction">Introduction</a></li>
