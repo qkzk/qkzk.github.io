@@ -4891,39 +4891,6 @@ MathJax.Hub.Config({
   
 
         
-          
-  
-    <li class="bookkkk">
-      
-        
-  
-    <span class="caret">
-      <a href="/docs/nsi/cours_terminale/prog/recursivite/tp/" >
-        
-  
-    
-    
-    Travaux pratiques
-  
-
-      </a>
-    </span>
-  
-
-      
-
-      
-  
-    <ul  class="nested">
-        
-    </ul>
-
-  
-
-    </li>
-  
-
-        
     </ul>
 
   
@@ -9111,18 +9078,9 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalerecursivitepdf2_exo-recursivitepdf">pdf : <a href="/uploads/docnsitale/recursivite/pdf/2_exo-recursivite.pdf">pour impression</a></h3>
-<blockquote>
-<p>On pourra traiter, dans l&rsquo;ordre :</p>
-<ul>
-<li>des exercices précédés d&rsquo;un $\lozenge$</li>
-<li>d&rsquo;autres exercices, par exemple <em>Permutations de caractères</em> ou
-<em>Conversion des nombres romains</em></li>
-</ul>
-</blockquote>
-<!-- **[Correction possible pour les exercices](./src/solution-exo-recursivite.py)** -->
+<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalerecursivitepdf2_td_recursivitepdf">pdf : <a href="/uploads/docnsitale/recursivite/pdf/2_td_recursivite.pdf">pour impression</a></h3>
 <h1 id="généralités-sur-les-algorithmes-récursifs">Généralités sur les algorithmes récursifs</h1>
-<h3 id="lozenge-que-calculent-les-fonctions-even-et-odd">$\lozenge$ Que calculent les fonctions <code>even</code> et <code>odd</code> ?</h3>
+<h2 id="que-calculent-les-fonctions-even-et-odd">Que calculent les fonctions <code>even</code> et <code>odd</code> ?</h2>
 <p>Voici la déclaration en Python de deux fonctions :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">even</span>(n):
     <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">==</span> <span style="color:#f60">0</span>:
@@ -9137,7 +9095,7 @@ MathJax.Hub.Config({
        <span style="color:#069;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">not</span> even(n)
 </code></pre></div><p>Que pensez-vous des expressions calculées par chacune des deux fonctions
 dans les deux cas de base et récursif ?</p>
-<h3 id="lozenge-encore-la-fonction-even">$\lozenge$ Encore la fonction <code>even</code></h3>
+<h2 id="encore-la-fonction-even">Encore la fonction <code>even</code></h2>
 <p>Voici la déclaration en Python de la fonction <code>even</code> :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">even</span>(n):
     <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">==</span> <span style="color:#f60">0</span>:
@@ -9145,59 +9103,18 @@ dans les deux cas de base et récursif ?</p>
     <span style="color:#069;font-weight:bold">else</span>:
        <span style="color:#069;font-weight:bold">return</span> even(n <span style="color:#555">-</span> <span style="color:#f60">2</span>)
 </code></pre></div><p>Que pensez-vous de cette fonction ?</p>
-<h1 id="algorithmes-récursifs-sur-les-nombres">Algorithmes récursifs sur les nombres</h1>
-<h3 id="lozenge-somme-de-deux-entiers">$\lozenge$ Somme de deux entiers</h3>
-<p>Proposez un algorithme récursif de calcul de la somme de deux entiers
-naturels <em>a</em> et <em>b</em> en supposant que les seules opérations de base dont
-vous disposez sont</p>
-<ul>
+<h1 id="algorithmes-simples">Algorithmes simples</h1>
+<ol>
 <li>
-<p>l&rsquo;ajout de 1 à un entier <em>a</em> : <em>a+1</em></p>
+<p>Proposer un algorithme récursif qui calcule la <strong>somme</strong> des entiers de <code>1</code> à <code>n</code>.</p>
 </li>
 <li>
-<p>le retrait de 1 à un entier <em>a</em> : <em>a-1</em></p>
+<p><strong>Factorielle.</strong></p>
+<p><code>n! = 1 * 2 * 3 * ... * n</code> et <code>0! = 1</code>.
+Proposer un algorithme récursif qui calcule <code>n!</code></p>
 </li>
 <li>
-<p>et les comparaisons à 0 d&rsquo;un entier <em>a</em> : <em>a=0</em>, <em>a&gt;0</em> et <em>a&lt;0</em>.</p>
-</li>
-</ul>
-<p>Puis programmez cet algorithme en Python pour en faire une fonction
-<code>add</code> à deux paramètres.</p>
-<h3 id="lozenge-produit-de-deux-entiers">$\lozenge$ Produit de deux entiers</h3>
-<p>Proposez un algorithme récursif de calcul du produit de deux entiers
-naturels <em>a</em> et <em>b</em> en supposant que les seules opérations de base dont
-vous disposez sont</p>
-<ul>
-<li>
-<p>la somme de deux entiers <em>a</em> et <em>b</em> : <em>a+b</em></p>
-</li>
-<li>
-<p>le retrait de 1 à un entier <em>a</em> : <em>a-1</em></p>
-</li>
-<li>
-<p>et la comparaison à 0 d&rsquo;un entier <em>a</em> : <em>a=0</em>.</p>
-</li>
-</ul>
-<p>Puis programmez cet algorithme en Python pour en faire une fonction
-<code>mult</code> à deux paramètres.</p>
-<h3 id="puissance-entière-dun-nombre-réel">Puissance entière d&rsquo;un nombre réel</h3>
-<p>Proposez un algorithme récursif de calcul de la puissance <em>n</em>-ième
-(<em>n</em> entier &gt; 0) d&rsquo;un nombre réel <em>a</em> en supposant que les seules
-opérations de base dont vous disposez sont</p>
-<ul>
-<li>
-<p>le produit de deux réels <em>a</em> et <em>b</em> : <em>a x b</em></p>
-</li>
-<li>
-<p>le retrait de 1 à un entier <em>a</em> : <em>a-1</em></p>
-</li>
-<li>
-<p>et la comparaison à 0 d&rsquo;un entier <em>a</em> : <em>a=0</em>.</p>
-</li>
-</ul>
-<p>Puis programmez cet algorithme en Python pour en faire une fonction
-<code>power</code> à deux paramètres.</p>
-<h3 id="algorithme-deuclide">Algorithme d&rsquo;Euclide</h3>
+<p><strong>Algorithme d&rsquo;Euclide</strong></p>
 <p>L&rsquo;algorithme d&rsquo;Euclide permet de calculer le pgcd de deux nombres
 entiers, c&rsquo;est-à-dire le plus grand entier positif divisant ces deux
 nombres, par des divisions successives.</p>
@@ -9220,7 +9137,7 @@ et <em>b=544</em></p>
 <td>119</td>
 <td>=</td>
 <td>544</td>
-<td>x</td>
+<td><code>*</code></td>
 <td>0</td>
 <td>+</td>
 <td>119</td>
@@ -9229,7 +9146,7 @@ et <em>b=544</em></p>
 <td>544</td>
 <td>=</td>
 <td>119</td>
-<td>x</td>
+<td><code>*</code></td>
 <td>4</td>
 <td>+</td>
 <td>68</td>
@@ -9238,7 +9155,7 @@ et <em>b=544</em></p>
 <td>119</td>
 <td>=</td>
 <td>68</td>
-<td>x</td>
+<td><code>*</code></td>
 <td>1</td>
 <td>+</td>
 <td>51</td>
@@ -9247,7 +9164,7 @@ et <em>b=544</em></p>
 <td>68</td>
 <td>=</td>
 <td>51</td>
-<td>x</td>
+<td><code>*</code></td>
 <td>1</td>
 <td>+</td>
 <td><strong>17</strong></td>
@@ -9256,7 +9173,7 @@ et <em>b=544</em></p>
 <td>51</td>
 <td>=</td>
 <td><strong>17</strong></td>
-<td>x</td>
+<td><code>*</code></td>
 <td>3</td>
 <td>+</td>
 <td>0</td>
@@ -9269,9 +9186,70 @@ c&rsquo;est-à-dire 17.</p>
 <p>Exprimez de manière récursive cet algorithme. Vous pourrez supposer que
 les deux entiers <em>a</em> et <em>b</em> sont positifs ou nuls, et que l&rsquo;un au moins
 de ces deux entiers n&rsquo;est pas nul.</p>
-<p>Codez cet algorithme en Python en utilisant l&rsquo;opérateur modulo.</p>
-<h1 id="algorithme-récursif-géométrique">Algorithme récursif géométrique</h1>
-<h3 id="lozenge-coloriage">$\lozenge$ Coloriage</h3>
+</li>
+<li>
+<p><strong>Suite de Fibonacci</strong></p>
+<p>Proposer une fonction récursive pour calculer le terme d&rsquo;indice <code>n</code> de la
+suite de Fibonacci.</p>
+<p>Les premiers termes sont <code>1, 1, 2, 3, 5, 8, 13, 21...</code></p>
+<p>Le termes suivant est calculé en ajoutant les deux derniers termes.</p>
+<p>Dessiner le graphe des appels successifs de <code>fib(4)</code>.</p>
+</li>
+<li>
+<p><strong>Puissance d&rsquo;un nombre</strong></p>
+<p>Proposer un algorithme récursif qui calcule la puissance d&rsquo;un nombre.</p>
+<p><code>puissance(3, 2)  ---&gt; 9</code></p>
+</li>
+</ol>
+<h1 id="algorithmes-sur-les-tableaux-et-les-chaînes">Algorithmes sur les tableaux et les chaînes</h1>
+<ol>
+<li>
+<p><strong>Palindromes</strong></p>
+<p>Un <em>palindrome</em> est un mot dont les lettres, lues de droites à
+gauche sont les mêmes que celles lues de gauche à droite. Les mots <code>radar</code>,
+<code>elle</code>, <code>été</code>, <code>ici</code> sont des palindromes. <code>DraD</code> n&rsquo;est pas un palindrome.</p>
+<p>Proposez un prédicat récursif qui teste si un mot est un palindrome.</p>
+</li>
+<li>
+<p><strong>Somme d&rsquo;une liste</strong></p>
+<p>Proposez une fonction récursive <code>somme</code> qui calcule la somme des
+éléments d&rsquo;une liste d&rsquo;entiers passée en paramètre.</p>
+<p>On supposera que la somme d&rsquo;une liste vide est 0.</p>
+</li>
+<li>
+<p>Retourner une chaîne de caractères.</p>
+<p>Proposez une fonction <code>retourner</code> paramétrée par une chaîne de
+caractère et qui retourne la même chaîne écrite de droite à gauche.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> retourner(<span style="color:#c30">&#39;robert&#39;</span>)
+<span style="color:#c30">&#39;trebor&#39;</span>
+</code></pre></div></li>
+<li>
+<p><strong>Concaténer</strong></p>
+<p>Proposez une fonction qui concatène deux listes passées en paramètres.</p>
+<ul>
+<li>Votre fonction doit être récursive,</li>
+<li>Les seules méthodes sur les listes auxquelles vous avez droit sont :
+<ul>
+<li><code>ajouter</code> qui ajoute un élément à la fin de la <code>liste</code>,</li>
+<li><code>retirer</code> qui retourne le premier élément de la <code>liste</code> et supprime
+cet élément de la liste.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Occurrences</strong></p>
+<p>Proposez une fonction récursive qui compte les occurences
+d&rsquo;une lettre dans un mot.
+Elle prend deux paramètres, la lettre et le mot.</p>
+<p>Elle retourne le nombre de fois où cette lettre apparaît dans
+le mot.</p>
+</li>
+</ol>
+<h1 id="autres-algorithmes-récursifs">Autres algorithmes récursifs</h1>
+<ol>
+<li>
+<p><strong>Coloriage</strong></p>
 <p>Supposons données les coordonnées (entières) <em>(x ; y)</em> d’un pixel
 situé à l’intérieur d’une région du plan délimitée par une courbe
 fermée. Les points sur la courbe délimitant la région sont de couleur
@@ -9283,13 +9261,9 @@ du pixel de coordonnées <em>(x ; y)</em> et <code>set_color(x, y, color)</code
 couleur du pixel de coordonnées <em>(x ; y)</em>.</p>
 <p>Pour simplifier on peut supposer ici que les couleurs sont définies
 par des valeurs globales <code>BLACK</code>, <code>WHITE</code> et <code>RED</code>.</p>
-<h1 id="algorithmes-récursifs-sur-les-chaînes-de-caractères">Algorithmes récursifs sur les chaînes de caractères</h1>
-<h3 id="lozenge-palindrome">$\lozenge$ Palindrome</h3>
-<p>Un <em>palindrome</em> est un mot dont les lettres lues de gauche à droite sont
-les mêmes que celles lues de droite à gauche. Les mots <code>radar</code>, <code>elle</code>,
-<code>été</code>, <code>ici</code> sont des palindromes.</p>
-<p>Réalisez un prédicat qui teste si un mot est un palindrome.</p>
-<h3 id="permutations-des-caractères">Permutations des caractères</h3>
+</li>
+<li>
+<p><strong>Permutations des caractères</strong></p>
 <p>Dans cet exercice, on appelle <em>permutation</em> d&rsquo;une chaîne de caractères
 <em>s</em> toute chaîne de même longueur que <em>s</em> contenant les mêmes caractères
 que <em>s</em>. Par exemple, la chaîne <code>'eadbc'</code> est une permutation de la chaîne
@@ -9297,9 +9271,12 @@ que <em>s</em>. Par exemple, la chaîne <code>'eadbc'</code> est une permutation
 <p>Réalisez une fonction récursive qui construit la liste de toutes les permutations
 possibles d&rsquo;une chaîne $s$.</p>
 <p><em>NB</em>  il sera probablement nécessaire de définir des fonctions auxiliaires, on essaiera de les coder  récursivement aussi.</p>
-<h3 id="conversion-des-nombres-romains">Conversion des nombres romains</h3>
+</li>
+<li>
+<p><strong>Conversion des nombres romains</strong></p>
 <p>On suppose défini le dictionnaire :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">VALEUR_ROMAIN <span style="color:#555">=</span> { <span style="color:#c30">&#39;M&#39;</span> : <span style="color:#f60">1000</span>, <span style="color:#c30">&#39;D&#39;</span> : <span style="color:#f60">500</span>, <span style="color:#c30">&#39;C&#39;</span> : <span style="color:#f60">100</span>, <span style="color:#c30">&#39;L&#39;</span> : <span style="color:#f60">50</span>, <span style="color:#c30">&#39;X&#39;</span> : <span style="color:#f60">10</span>, <span style="color:#c30">&#39;V&#39;</span> : <span style="color:#f60">5</span>, <span style="color:#c30">&#39;I&#39;</span> : <span style="color:#f60">1</span>}
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">VALEUR_ROMAIN <span style="color:#555">=</span> { <span style="color:#c30">&#39;M&#39;</span> : <span style="color:#f60">1000</span>, <span style="color:#c30">&#39;D&#39;</span> : <span style="color:#f60">500</span>, <span style="color:#c30">&#39;C&#39;</span> : <span style="color:#f60">100</span>, <span style="color:#c30">&#39;L&#39;</span> : <span style="color:#f60">50</span>,
+                  <span style="color:#c30">&#39;X&#39;</span> : <span style="color:#f60">10</span>, <span style="color:#c30">&#39;V&#39;</span> : <span style="color:#f60">5</span>, <span style="color:#c30">&#39;I&#39;</span> : <span style="color:#f60">1</span>}
 </code></pre></div><p>Réalisez une fonction récursive <code>romain_to_arabe</code> qui prend en
 paramètre une chaîne de caractères représentant un « nombre romain »
 et dont le résultat est l&rsquo;entier correspondant.</p>
@@ -9311,38 +9288,19 @@ et dont le résultat est l&rsquo;entier correspondant.</p>
 <span style="color:#f60">2019</span>
 </code></pre></div><p><em>NB</em> Il est nécessaire de prendre en compte le cas où la valeur
 correspondante au second caractère est supérieure à celle du premier.</p>
-<h1 id="algorithmes-sur-les-listes-récursives">Algorithmes sur les listes récursives</h1>
-<p>On considère ici les listes définies récursivement comme présenté lors de <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/tree/master/bloc1/recursivite#structures-r%C3%A9cursives-1">la séance de cours</a>.</p>
-<p>On ne s&rsquo;autorise donc que l&rsquo;existence de la liste vide (<code>[]</code>) et des opérations permettant</p>
-<ul>
-<li>de construire un couple <em>(x, R)</em> : <code>[x]+R</code>, où <code>R</code> est une liste ;</li>
-<li>d&rsquo;accéder à la tête d&rsquo;une liste <code>l</code> non vide : <code>l[0]</code> ;</li>
-<li>d&rsquo;accéder au reste d&rsquo;une liste <code>l</code> non vide : <code>l[1:]</code>.</li>
-</ul>
-<h3 id="somme-des-éléments-dune-liste">Somme des éléments d&rsquo;une liste</h3>
-<p>Donnez une version récursive du calcul de la somme des éléments d&rsquo;une
-liste de nombres.</p>
-<h3 id="dernier-élément">Dernier élément</h3>
-<p>Réalisez la fonction <code>last</code> qui renvoie le dernier élément d&rsquo;une
-liste non vide et déclenche une exception si la liste est vide.</p>
-<h3 id="concaténer-deux-listes">Concaténer deux listes</h3>
-<p>Concaténer deux listes <code>l1</code> et <code>l2</code>, c&rsquo;est construire une liste contenant les éléments de <code>l1</code> suivis de ceux de <code>l2</code>.</p>
-<p>Réalisez la fonction <code>concat</code> qui renvoie la concaténation des deux listes passées en paramètre.</p>
-<h3 id="appliquer-une-fonction-à-tous-les-éléments-dune-liste">Appliquer une fonction à tous les éléments d&rsquo;une liste</h3>
-<p>Appliquer une fonction <em>f</em> à tous les éléments d&rsquo;une liste <em>l</em>, c&rsquo;est construire une liste contenant les images <em>f(x)</em> de tous les éléments <em>x</em> de <em>l</em>.</p>
-<p>Par exemple, appliquer la fonction <code>carre</code> à la liste <em>[1,2,3]</em> donne la liste <em>[1,4,9]</em>.</p>
-<p>Réalisez une fonction nommée <code>map</code> qui applique une fonction aux
-éléments d&rsquo;une liste.</p>
-<h3 id="mélange">Mélange</h3>
-<p>Réalisez récursivement une fonction nommée <code>shuffle</code> paramétrée par deux listes <code>l1</code>
-et <code>l2</code> qui renvoie une liste dont les éléments sont ceux de ces deux
-listes dans un ordre alterné, tant que c&rsquo;est possible.</p>
-<p>Si l&rsquo;une des listes est plus courte que l&rsquo;autre, on termine avec les éléments non utilisés de la plus longue liste.</p>
+</li>
+<li>
+<p><strong>Mélanger deux lises</strong></p>
+<p>Réalisez récursivement une fonction nommée <code>shuffle</code> paramétrée par deux
+listes <code>l1</code> et <code>l2</code> qui renvoie une liste dont les éléments sont ceux de ces
+deux listes dans un ordre alterné, tant que c&rsquo;est possible.</p>
+<p>Si l&rsquo;une des listes est plus courte que l&rsquo;autre, on termine avec les
+éléments non utilisés de la plus longue liste.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> shuffle([<span style="color:#f60">1</span>,<span style="color:#f60">5</span>,<span style="color:#f60">3</span>,<span style="color:#f60">9</span>,<span style="color:#f60">7</span>],[<span style="color:#f60">8</span>,<span style="color:#f60">2</span>,<span style="color:#f60">6</span>])
 [<span style="color:#f60">1</span>,<span style="color:#f60">8</span>,<span style="color:#f60">5</span>,<span style="color:#f60">2</span>,<span style="color:#f60">3</span>,<span style="color:#f60">6</span>,<span style="color:#f60">9</span>,<span style="color:#f60">7</span>]
-</code></pre></div><h1 id="autres-exercices">Autres exercices</h1>
-<p><em>NB</em> Dans les exercices suivants, vous pouvez à nouveau utiliser les listes natives de Python.</p>
-<h3 id="les-tours-de-hanoï">Les tours de Hanoï</h3>
+</code></pre></div></li>
+<li>
+<p><strong>Les tours de Hanoï</strong></p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tower_of_Hanoi.jpeg/300px-Tower_of_Hanoi.jpeg" alt="Hanoï"></p>
 <p>Il s&rsquo;agit d&rsquo;un exemple très classique d&rsquo;algorithme récursif.</p>
 <p>Voici ce qu&rsquo;en dit <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF">Wikipedia</a></p>
@@ -9362,67 +9320,52 @@ listes dans un ordre alterné, tant que c&rsquo;est possible.</p>
 </ul>
 <p>Trouver (puis programmer) un algorithme pour résoudre ce problème <em>n</em> disques.
 On pourra se contenter d&rsquo;afficher sur la sortie standard les déplacements réalisés au cours de la résolution (par exemple <em>&ldquo;dique de taille 3 déplacer de la tour 1 à la tour 2&rdquo;</em>).</p>
-<h3 id="tri-par-insertion">Tri par insertion</h3>
+</li>
+<li>
+<p><strong>Tri par insertion</strong></p>
 <p>Réalisez une version récursive du <em>tri par insertion</em> vu en première</p>
-<h3 id="permutations">Permutations</h3>
+</li>
+<li>
+<p><strong>Permutations</strong></p>
 <p>Cet exercice est similaire à celui du calcul des permutations sur les chaînes de caractères.<br>
 On cherche ici à produire la liste de toutes les listes obtenues par permutation des éléments d&rsquo;une liste donnée.</p>
 <p>On peut alors reproduire l&rsquo;<a href="https://fr.wikipedia.org/wiki/Algorithme_r%C3%A9cursif#Un_exemple_pr%C3%A9liminaire_:_les_permutations%5B2%5D">exemple donné sur Wikipedia</a> pour produire toutes les permutations de la liste <code>[&quot;Belle Marquise&quot;,&quot;vos beaux yeux&quot;,&quot;me font mourir&quot;,&quot;d'amour&quot;]</code>
 dont le texte est  tiré du Bourgeois gentilhomme (Acte II Scène IV) de Molière.</p>
-<h3 id="organisation-des-rencontres-dun-championnat">Organisation des rencontres d&rsquo;un championnat</h3>
+</li>
+<li>
+<p><strong>Organisation des rencontres d&rsquo;un championnat</strong></p>
 <p>Dans le cadre d&rsquo;un championnat sportif (ou autre) on dispose de la liste de tous les  joueurs (ou équipes) concernés. On souhaite organiser la liste de toutes les rencontres possibles entre ces joueurs. Chaque joueur devant rencontrer tous les autres une et une seule fois.</p>
 <p>On considère que chaque joueur est identifié par un nombre (qui peut par exemple correspondre à une clef dans une table qui permet d&rsquo;accéder aux informations détaillées sur le joueur). Une liste de joueurs est  donc en fait la liste des nombres associés à ces joueurs.</p>
 <p>Une rencontre est représentée par un couple (tuple) dont les deux composantes sont les numéros des deux joueurs impliqués.</p>
 <p>Donnez et codez un algorithme récursif qui produit, à partir d&rsquo;une liste de joueurs, la liste de toutes les parties possibles entre ces joueurs.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> rencontres([<span style="color:#f60">1</span>,<span style="color:#f60">2</span>,<span style="color:#f60">3</span>,<span style="color:#f60">4</span>])
 [ (<span style="color:#f60">1</span>,<span style="color:#f60">2</span>) , (<span style="color:#f60">1</span>,<span style="color:#f60">3</span>) , (<span style="color:#f60">1</span>,<span style="color:#f60">4</span>), (<span style="color:#f60">2</span>,<span style="color:#f60">3</span>), (<span style="color:#f60">2</span>,<span style="color:#f60">4</span>), (<span style="color:#f60">3</span>,<span style="color:#f60">4</span>) ]
-</code></pre></div><h3 id="mettre-lours-en-cage">Mettre l&rsquo;<em>ours</em> en <em>cage</em></h3>
-<p>On dispose d&rsquo;une variable <code>DICO</code> qui est une liste de mots de quatre lettres. (cf <a href="./src/dico.py">dico.py</a>).</p>
-<p>On dispose de deux mots <em>m1</em>  et <em>m2</em> de <code>DICO</code> et on cherche à construire une liste de mots telle que :</p>
-<ul>
-<li>la liste commence par <em>m1</em> et termine par <em>m2</em></li>
-<li>deux mots consécutifs de la liste ne diffèrent que d&rsquo;une lettre, sans tenir compte de l&rsquo;ordre des lettres dans chacun des mots (on dira qu&rsquo;ils sont <em>voisins</em>).</li>
-</ul>
-<p>On veut donc écrire une fonction <code>solve</code>, paramétrée par deux chaînes de caractères, dont le résultat est cette liste de mots quand elle existe et <code>None</code> dans le cas contraire.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> solve(<span style="color:#c30">&#39;ours&#39;</span>, <span style="color:#c30">&#39;cage&#39;</span>)
-[<span style="color:#c30">&#39;ours&#39;</span>, <span style="color:#c30">&#39;duos&#39;</span>, <span style="color:#c30">&#39;ducs&#39;</span>, <span style="color:#c30">&#39;dues&#39;</span>, <span style="color:#c30">&#39;dure&#39;</span>, <span style="color:#c30">&#39;bure&#39;</span>, <span style="color:#c30">&#39;brie&#39;</span>, <span style="color:#c30">&#39;baie&#39;</span>, <span style="color:#c30">&#39;aime&#39;</span>, <span style="color:#c30">&#39;came&#39;</span>, <span style="color:#c30">&#39;cage&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> solve(<span style="color:#c30">&#39;ours&#39;</span>, <span style="color:#c30">&#39;orme&#39;</span>)
-None
-</code></pre></div><p>On ne cherche pas nécessairement à produire le chemin le plus court.</p>
-<p><em>NB</em> Il faut, à partir d&rsquo;un mot, calculer ses mots voisins, puis les essayer un à un jusqu&rsquo;à en trouver un, s&rsquo;il existe, qui permette d&rsquo;atteindre le mot cible. On construit ainsi progressivement un chemin du mot initial jusqu&rsquo;au mot final. Lors de la construction du chemin on peut à un moment aboutir à une impasse, c&rsquo;est-à-dire atteindre un mot dont tous les voisins sont déjà dans le chemin. Dans ce cas il faut &ldquo;revenir en arrière&rdquo; pour essayer des voisins qui ont pu être laissés de côté.<br>
-Lors de la recherche, il faut bien sûr éviter de tourner en rond en revenant sur un mot déjà utilisé dans le chemin partiellement construit.</p>
-<p>Il est donc certainement pertinent de disposer de l&rsquo;information</p>
-<ul>
-<li>sur les mots déjà utilisés dans le chemin en construction ;</li>
-<li>sur les mots qu&rsquo;il reste à examiner, ceux sont des voisins du dernier mot du chemin en construction.</li>
-</ul>
-<p><strong>Remarque</strong> Ce problème entre dans la classe plus large des problèmes qui consistent à chercher un chemin dans un graphe. Ici les nœuds du graphe sont les mots et il existe une arête entre deux mots s&rsquo;ils sont voisins. Ce sujet sera abordé en algorithmique (dans le chapitre sur les graphes).</p>
-<h3 id="flocons-de-von-koch--production-de-fractales">Flocons de Von Koch : Production de fractales</h3>
-<p>le <a href="./img/Koch_anime.gif">flocon de Von Koch</a></p>
-<p>On dispose de la primitive <em>tracer(l)</em> qui permet de tracer un segment de longueur <em>l</em>.</p>
-<p>Le processus de tracé d&rsquo;un segment de von koch de taille <em>l</em>  à l&rsquo;ordre <em>n</em> est :</p>
-<p><em>vonkoch</em>(l,n)</p>
-<ul>
+</code></pre></div></li>
 <li>
-<p>si n = 1, <em>tracer(l)</em></p>
+<p><code>zip</code> et <code>unzip</code></p>
+<p>En Python ces deux fonctions permettent d&rsquo;itérer sur plusieurs objets
+ou, inversement, de séparer plusieurs itérables.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">zip</span>([<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>], [<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>])
+(<span style="color:#f60">1</span>, <span style="color:#c30">&#39;a&#39;</span>), (<span style="color:#f60">2</span>, <span style="color:#c30">&#39;b&#39;</span>), (<span style="color:#f60">3</span>, <span style="color:#c30">&#39;c&#39;</span>)
+</code></pre></div><p><em>Attention :</em> en pratique, <code>zip</code> retourne <em>un itérable</em>.
+Si vous faites <code>for x, y in zip([1, 2, 3], ['a', 'b', 'c']): ...</code>
+ça fonctionne, mais si vous voulez accéder au premier élément,
+il faut d&rsquo;abord convertir en <em>tuple</em>.</p>
+<ol>
+<li>
+<p>Proposer un algorithme récursif pour <code>zip</code>.</p>
 </li>
 <li>
-<p>sinon</p>
-<ul>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à gauche de 60°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à droite de 120°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à gauche de 60°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-</ul>
+<p>Proposer un algorithme récursif qui fait le contraire.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> x, y <span style="color:#555">=</span> unzip(((<span style="color:#f60">1</span>, <span style="color:#c30">&#39;a&#39;</span>), (<span style="color:#f60">2</span>, <span style="color:#c30">&#39;b&#39;</span>), (<span style="color:#f60">3</span>, <span style="color:#c30">&#39;c&#39;</span>)))
+<span style="color:#555">&gt;&gt;&gt;</span> x
+[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> y
+[<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>])
+</code></pre></div></li>
+</ol>
 </li>
-</ul>
-<p>Utilisez le <a href="https://docs.python.org/3.3/library/turtle.html?highlight=turtle#module-turtle">module <code>turtle</code></a> p</p>
-<p><img src="./img/vonkoch.jpg" alt="vonkoch"></p>
-<p>Si turtle n&rsquo;est pas installé sur vos postes : <a href="https://trinket.io/python">vous le trouverez ici</a></p>
-<p><em>tracer(l)</em> = <code>forward(l)</code> et les fonctions <code>right</code> et <code>left</code> permettent les rotations</p>
+</ol>
 </article>
 
       <div class="backtotop">
@@ -9460,72 +9403,14 @@ Lors de la recherche, il faut bien sûr éviter de tourner en rond en revenant s
   <ul>
     <li>
       <ul>
-        <li><a href="#pdf--pour-impressionuploadsdocnsitalerecursivitepdf2_exo-recursivitepdf">pdf : <a href="/uploads/docnsitale/recursivite/pdf/2_exo-recursivite.pdf">pour impression</a></a></li>
+        <li><a href="#pdf--pour-impressionuploadsdocnsitalerecursivitepdf2_td_recursivitepdf">pdf : <a href="/uploads/docnsitale/recursivite/pdf/2_td_recursivite.pdf">pour impression</a></a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li>
-      <ul>
-        <li><a href="#lozenge-que-calculent-les-fonctions-even-et-odd">$\lozenge$ Que calculent les fonctions <code>even</code> et <code>odd</code> ?</a></li>
-        <li><a href="#lozenge-encore-la-fonction-even">$\lozenge$ Encore la fonction <code>even</code></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#lozenge-somme-de-deux-entiers">$\lozenge$ Somme de deux entiers</a></li>
-        <li><a href="#lozenge-produit-de-deux-entiers">$\lozenge$ Produit de deux entiers</a></li>
-        <li><a href="#puissance-entière-dun-nombre-réel">Puissance entière d&rsquo;un nombre réel</a></li>
-        <li><a href="#algorithme-deuclide">Algorithme d&rsquo;Euclide</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#lozenge-coloriage">$\lozenge$ Coloriage</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#lozenge-palindrome">$\lozenge$ Palindrome</a></li>
-        <li><a href="#permutations-des-caractères">Permutations des caractères</a></li>
-        <li><a href="#conversion-des-nombres-romains">Conversion des nombres romains</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#somme-des-éléments-dune-liste">Somme des éléments d&rsquo;une liste</a></li>
-        <li><a href="#dernier-élément">Dernier élément</a></li>
-        <li><a href="#concaténer-deux-listes">Concaténer deux listes</a></li>
-        <li><a href="#appliquer-une-fonction-à-tous-les-éléments-dune-liste">Appliquer une fonction à tous les éléments d&rsquo;une liste</a></li>
-        <li><a href="#mélange">Mélange</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#les-tours-de-hanoï">Les tours de Hanoï</a></li>
-        <li><a href="#tri-par-insertion">Tri par insertion</a></li>
-        <li><a href="#permutations">Permutations</a></li>
-        <li><a href="#organisation-des-rencontres-dun-championnat">Organisation des rencontres d&rsquo;un championnat</a></li>
-        <li><a href="#mettre-lours-en-cage">Mettre l&rsquo;<em>ours</em> en <em>cage</em></a></li>
-        <li><a href="#flocons-de-von-koch--production-de-fractales">Flocons de Von Koch : Production de fractales</a></li>
-      </ul>
-    </li>
+    <li><a href="#que-calculent-les-fonctions-even-et-odd">Que calculent les fonctions <code>even</code> et <code>odd</code> ?</a></li>
+    <li><a href="#encore-la-fonction-even">Encore la fonction <code>even</code></a></li>
   </ul>
 </nav>
   </aside>
