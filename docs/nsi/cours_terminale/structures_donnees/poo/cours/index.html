@@ -9111,7 +9111,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalepoo2_cours_printpdf-slidesuploadsdocnsitalepoo2_cours_slidespdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides.pdf">slides</a></h3>
+<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalepoo2_cours_print_betterpdf-slidesuploadsdocnsitalepoo2_cours_slides_betterpdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print_better.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides_better.pdf">slides</a></h3>
 <h1 id="introduction-à-la-programmation-objet">Introduction à la programmation objet</h1>
 <h2 id="programmation-modulaire">Programmation modulaire</h2>
 <h3 id="pourquoi-la-programmation-modulaire-">Pourquoi la programmation modulaire ?</h3>
@@ -9127,11 +9127,11 @@ MathJax.Hub.Config({
 <li>le module <code>Competitor.py</code> permet de manipuler des valeurs représentant les compétiteurs de la course. (&hellip;)</li>
 <li>Les performances des compétiteurs vont être représentées par leur temps de course (&hellip;) Créer un module <code>Time.py</code> qui définit le type <code>Time</code></li>
 </ul>
-<h3 id="première-projet-wator">Première, projet &ldquo;Wator&rdquo;</h3>
+<h3 id="première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</h3>
 <ul>
 <li>
 <p>expression d&rsquo;un typage de données à représenter :</p>
-<p><em>Une correction possible qui utilise les dictionnaires pour modéliser des poissons.</em></p>
+<p><em>Une correction possible qui utilise les dictionnaires pour modéliser les combattants.</em></p>
 </li>
 </ul>
 <h2 id="définition-dun-type-competitor">définition d&rsquo;un type <code>Competitor</code></h2>
@@ -9179,22 +9179,24 @@ Time<span style="color:#555">.</span>compare(t, other_time)
 <li>Si <code>comp</code> est de type Competitor et <code>t</code> est de type <code>Time</code>,
 alors pourquoi devoir préfixer <code>to_string</code> par <code>Competitor</code> pour <code>comp</code>  et par <code>Time</code> pour <code>t</code> ?</li>
 </ul>
-<hr>
+<h2 id="heading"></h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># dans Competitor</span>
 <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">set_performance</span>(comp, time):
   comp[<span style="color:#c30">&#39;performance&#39;</span>] <span style="color:#555">=</span> time
 
-<span style="color:#09f;font-style:italic"># dans wator</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">create_shark</span>():
-  <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">  create a shark data
-</span><span style="color:#c30">  :return: the created shark
-</span><span style="color:#c30">  &#39;&#39;&#39;</span>
-  <span style="color:#069;font-weight:bold">return</span> {<span style="color:#c30">&#39;char&#39;</span>: <span style="color:#c30">&#39;S&#39;</span>, <span style="color:#c30">&#39;gestation&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#39;energy&#39;</span>: <span style="color:#f60">3</span>}
-<span style="color:#555">&gt;&gt;&gt;</span> shark <span style="color:#555">=</span> Wator<span style="color:#555">.</span>create_shark()
-<span style="color:#555">&gt;&gt;&gt;</span> Competitor<span style="color:#555">.</span>set_performance(shark, None)
-<span style="color:#555">&gt;&gt;&gt;</span> shark
-{<span style="color:#c30">&#39;char&#39;</span>, <span style="color:#c30">&#39;S&#39;</span>, <span style="color:#c30">&#39;gestation&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#39;energy&#39;</span>: <span style="color:#f60">3</span>, <span style="color:#c30">&#39;performance&#39;</span>: None}
+<span style="color:#555">&gt;&gt;&gt;</span> tymp(comp)
+<span style="color:#366">dict</span>
+</code></pre></div><h2 id="heading-1"></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># dans le rpg</span>
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">joueur</span>(nom<span style="color:#555">=</span>None, vie<span style="color:#555">=</span><span style="color:#f60">5</span>, force<span style="color:#555">=</span><span style="color:#f60">1</span>):
+    <span style="color:#069;font-weight:bold">return</span> {<span style="color:#c30">&#34;nom&#34;</span>: nom,
+            <span style="color:#c30">&#34;vie&#34;</span>: vie,
+            <span style="color:#c30">&#34;force&#34;</span>: force}
+<span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Joueur(<span style="color:#c30">&#39;Robert&#39;</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> robert
+{<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Robert&#39;</span>, <span style="color:#c30">&#39;vie&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#39;force&#39;</span>: <span style="color:#f60">1</span>}
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(robert)
+<span style="color:#366">dict</span>
 </code></pre></div><p>Le type n&rsquo;existe que &ldquo;dans la tête&rdquo; du programmeur, les données et les traitements sont séparés.</p>
 <h2 id="programmation-orientée-objet">Programmation Orientée Objet</h2>
 <p>Approche de la modélisation du problème à résoudre en terme d&rsquo;objets :</p>
@@ -9211,9 +9213,9 @@ Un objet est une modélisation d&rsquo;une entité du monde réel ou d&rsquo;un 
 <hr>
 <ul>
 <li><strong>421</strong> : Dés/Groupe de 3 dés/Joueur/Partie</li>
-<li><strong>wator</strong> : Mer/Case/Poisson/Simulation</li>
+<li><strong>combat rpg</strong> : Combattant/Arme/Combat etc.</li>
 <li><strong>chicon</strong> : Compétiteur/Temps(performance)/Course(/Palmares)</li>
-<li><strong>minimax</strong> : Jeu/Situation/Joueur/Algorithme/Fonction évaluation</li>
+<li><strong>messagerie</strong> : Contact/Message etc.</li>
 </ul>
 <h2 id="langage-à-objet">langage à objet</h2>
 <p>\hfill Alan Kay <em>SmallTalk</em></p>
@@ -9222,7 +9224,7 @@ Un objet est une modélisation d&rsquo;une entité du monde réel ou d&rsquo;un 
 <li>chaque objet a un <strong>type</strong></li>
 <li>chaque objet a sa propre mémoire, constituée d&rsquo;autres objets</li>
 <li>tous les objets d&rsquo;un type donné peuvent avoir les mêmes messages</li>
-<li>un programme est un regroupement d&rsquo;objets qui interagissent par <strong>envois de messages</strong></li>
+<li>un programme est un regroupement d&rsquo;objets qui interagissent par <strong>envoi de messages</strong></li>
 </ul>
 <h2 id="type">type</h2>
 <p>\begin{center}c&rsquo;est quoi un \textbf{type} ?</p>
@@ -9288,7 +9290,6 @@ double rôle : construire l&rsquo;objet et initialiser son état
 <ul>
 <li>initialisation de l&rsquo;état (attributs)</li>
 </ul>
-<p>un seul constructeur possible en Python</p>
 </li>
 <li>
 <p>une classe est un type (<code>type(), isinstance()</code>)</p>
@@ -9321,24 +9322,12 @@ notation pointée : <code>t1.to_seconds()</code> -&gt; <code>self</code> lié à
 </ul>
 </li>
 </ul>
-<h2 id="méthodes-2">méthodes</h2>
+<p>. . .</p>
 <ul>
-<li>
-<p><strong>méthodes d&rsquo;objets</strong> : invoquée par l&rsquo;objet<br>
-= envoi de messages possibles</p>
-<ul>
-<li>premier paramètre = <code>self</code> (cf <code>get_hours, __init__</code>)</li>
-<li><code>self</code> est lié à l&rsquo;objet utilisé pour invoquer la méthode<br>
-notation pointée : <code>t1.to_seconds()</code> -&gt; <code>self</code> lié à <code>t1</code></li>
-<li>permet d&rsquo;accéder aux attributs de l&rsquo;objet ou d&rsquo;invoquer une méthode sur cet objet. cf <code>compare</code></li>
-</ul>
-</li>
-<li>
-<p><strong>méthode de classe</strong> : méthode ne dépendant pas d&rsquo;un objet : <strong>statique</strong> appelée
+<li><strong>méthode de classe</strong> : méthode ne dépendant pas d&rsquo;un objet : <strong>statique</strong> appelée
 via la classe : <code>Time.from_seconds()</code> (= fonction, pas OO)<br>
-NB existence des décorateurs <code>@staticmethod</code>, <code>@classmethod</code><br>
-les attributs de classe sont également possible <code>Time.BASE</code></p>
-</li>
+NB existence du décorateur : <code>@classmethod</code> qui permet de retourner une instance<br>
+les attributs de classe sont également possible <code>Time.BASE</code></li>
 </ul>
 <h2 id="méthodes-spéciales">méthodes spéciales</h2>
 <ul>
@@ -9354,7 +9343,30 @@ les attributs de classe sont également possible <code>Time.BASE</code></p>
 <li><code>__getitem__</code> : <code>obj[i]</code></li>
 <li><code>__iter__</code> : <code>for v in obj</code></li>
 </ul>
-<h2 id="encapsulation">encapsulation</h2>
+<h2 id="exemple-dutilisation--la-méthode-__add__">Exemple d&rsquo;utilisation : la méthode <code>__add__</code></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Vecteur</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, x, y):
+    self<span style="color:#555">.</span>__x <span style="color:#555">=</span> x
+    self<span style="color:#555">.</span>__y <span style="color:#555">=</span> y
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">x</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__x
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">y</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__y
+
+  <span style="color:#069;font-weight:bold">def</span> __add__(self, autre):
+    <span style="color:#069;font-weight:bold">return</span> Vecteur(self<span style="color:#555">.</span>x() <span style="color:#555">+</span> autre<span style="color:#555">.</span>x(),
+                   self<span style="color:#555">.</span>y() <span style="color:#555">+</span> autre<span style="color:#555">.</span>y())
+</code></pre></div><h2 id="exemple-dutilisation---la-méthode-__add__-suite">Exemple d&rsquo;utilisation  : la méthode <code>__add__</code> (suite)</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> u <span style="color:#555">=</span> Vecteur(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> v <span style="color:#555">=</span> Vecteur(<span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> w <span style="color:#555">=</span> u <span style="color:#555">+</span> v <span style="color:#09f;font-style:italic"># utilise la méthdoe add !!!!</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>x()
+<span style="color:#f60">4</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>y()
+<span style="color:#f60">7</span>
+</code></pre></div><h2 id="encapsulation">encapsulation</h2>
 <p>\hrulefill coeur de la POO en NSI</p>
 <h3 id="encapsulation-1">encapsulation\</h3>
 <p>Les données (attributs) sont regroupées avec les traitements qui les manipulent
@@ -9367,74 +9379,13 @@ les attributs de classe sont également possible <code>Time.BASE</code></p>
 </ul>
 </li>
 </ul>
+<h2 id="heading-2"></h2>
 <h3 id="règle-dor">règle d&rsquo;or\</h3>
 <p><strong>les attributs sont déclarés privés</strong> = accessibles uniquement au sein de la
 classe</p>
 <p>en Python, identifiant préfixé de <code>__</code><br>
 on peut aussi définir des méthodes privées.</p>
-<h2 id="exemple">exemple</h2>
-<p>On veut modéliser les nombres complexes.<br>
-Quelles sont les fonctionnalités attendues ? <em>besoin piloté par application</em><br>
-càd que souhaite-t-on pouvoir faire avec une donnée de type <code>Complex</code> ?</p>
-<h2 id="exemple-1">exemple</h2>
-<p>On veut modéliser les nombres complexes.<br>
-Quelles sont les fonctionnalités attendues ? <em>besoin piloté par application</em><br>
-càd que souhaite-t-on pouvoir faire avec une donnée de type <code>Complex</code> ?</p>
-<ul>
-<li>construire (<em>partie réelle et partie imaginaire / module et argument</em>)</li>
-<li>accéder aux &ldquo;données&rdquo; :
-<ul>
-<li>partie réelle, partie imaginaire, module, argument</li>
-</ul>
-</li>
-<li>obtenir (<em>calculer</em>) le conjugué</li>
-<li>additionner deux complexes <em>pour en obtenir un nouveau</em></li>
-<li>avoir une représentation textuelle d&rsquo;un complexe</li>
-<li>etc. (<em>égalité, multiplication, &hellip;</em>)</li>
-</ul>
-<hr>
-<p>On a donc besoin de <strong>l&rsquo;interface publique</strong> suivante pour <code>Complex</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Complex</span>(builtins<span style="color:#555">.</span>object)
- <span style="color:#555">|</span>  Complex(x, y)
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  Methods defined here:
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  __add__(self, other)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span> Complex résultat de self<span style="color:#555">+</span>other
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  __init__(self, x, y)
- <span style="color:#555">|</span>      create Complex number [ x<span style="color:#555">+</span>i<span style="color:#555">.</span>y ]
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  arg(self)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span> argument de ce Complex
- <span style="color:#555">|</span>
-</code></pre></div><hr>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> <span style="color:#555">|</span>  conjugue(self)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span> conjugue de ce Complex
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  from_module_arg(module, arg)
- <span style="color:#555">|</span>      build Complex number [ module<span style="color:#555">.</span>e<span style="color:#555">^</span>i(arg) ]
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  im(self)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span> partie imaginaire de ce Complex
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  module(self)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span> module de ce Complex (of this <span style="color:#366">complex</span>)
- <span style="color:#555">|</span>
- <span style="color:#555">|</span>  re(self)
- <span style="color:#555">|</span>      <span style="color:#069;font-weight:bold">return</span>  partie réelle de ce Complex
- <span style="color:#555">|</span>
-
-</code></pre></div><h2 id="usage">usage</h2>
-<ul>
-<li>Ces informations sont suffisantes pour utiliser le type <code>Complex</code> dans un module.<br>
-<em>cf. main_complex.py</em></li>
-<li>Quelle est la représentation des données pour <code>Complex</code> ?
-<em>cf. complex1.py et complex2.py</em><br>
-<em>pas d&rsquo;impact sur main_complex.py</em></li>
-<li>Est-ce important ?
-<em>cf. mytime2.py</em></li>
-</ul>
+<h2 id="heading-3"></h2>
 <h3 id="séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</h3>
 <ul>
 <li><strong>interface publique d&rsquo;une classe</strong><br>
@@ -9443,10 +9394,13 @@ càd que souhaite-t-on pouvoir faire avec une donnée de type <code>Complex</cod
 </ul>
 <h2 id="intérêt-">intérêt ?</h2>
 <ul>
-<li>la représentation des données utilisée n&rsquo;a pas besoin d&rsquo;être connue elle
+<li>la représentation des données utilisée n&rsquo;a pas besoin d&rsquo;être connue, elle
 pourra donc <strong>évoluer</strong> sans perturber l&rsquo;existant &ldquo;code client&rdquo;</li>
 <li>ce qui compte c&rsquo;est ce que l&rsquo;on peut faire, pas comment on le fait<br>
 <em>en partant du principe que c&rsquo;est bien fait.</em></li>
+</ul>
+<h2 id="intérêt--suite">intérêt ? (suite)</h2>
+<ul>
 <li>possibilité d&rsquo;ajouter du contrôle
 <ul>
 <li>
@@ -9465,7 +9419,7 @@ classe <code>Person</code> avec attribut <code>__age</code></p>
 </ul>
 </li>
 </ul>
-<hr>
+<h2 id="heading-4"></h2>
 <ul>
 <li>
 <p>lorsque l&rsquo;on fait l&rsquo;analyse objet d&rsquo;un problème, on cherche à déterminer les <strong>services</strong> que doivent rendre les objets<br>
@@ -9476,8 +9430,8 @@ classe <code>Person</code> avec attribut <code>__age</code></p>
 <p>un attribut existe parce qu&rsquo;il permet l&rsquo;implémentation d&rsquo;une méthode</p>
 </li>
 </ul>
-<h2 id="exemple-2">exemple</h2>
-<p>On doit représenter des disques.
+<h2 id="exemple--les-disques">exemple : les disques</h2>
+<p>On doit représenter des <strong>disques</strong>.
 On a besoin de connaître le rayon, diamètre, aire, périmètre.</p>
 <ul>
 <li>
@@ -9490,21 +9444,44 @@ dépendent de choix d&rsquo;implémentation&hellip;</p>
 </li>
 </ul>
 <hr>
-<h3 id="implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">radius</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__radius
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diameter</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__radius
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> math<span style="color:#555">.</span>pi<span style="color:#555">*</span>self<span style="color:#555">.</span>__radius
-</code></pre></div><h3 id="implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">radius</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__diameter <span style="color:#555">/</span> <span style="color:#f60">2</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diameter</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__diameter
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
-  <span style="color:#069;font-weight:bold">return</span> math<span style="color:#555">.</span>pi<span style="color:#555">*</span>self<span style="color:#555">.</span>__diameter
-</code></pre></div><h2 id="javascript">javascript</h2>
+<h2 id="implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, rayon):
+    self<span style="color:#555">.</span>__rayon <span style="color:#555">=</span> rayon
+</code></pre></div><p>. . .</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__rayon
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
+</code></pre></div><h2 id="implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, diametre):
+    self<span style="color:#555">.</span>__diametre <span style="color:#555">=</span> diametre
+</code></pre></div><p>. . .</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__diametre <span style="color:#555">/</span> <span style="color:#f60">2</span>
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
+</code></pre></div><h2 id="quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</h2>
+<ul>
+<li>Pour le <strong>développeur</strong>, s&rsquo;il défini ses disques avec le diamètre,
+le constructeur et les méthodes changent.</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li>
+<p>Pour <strong>l&rsquo;utilisateur</strong>, rien ne change. Qu&rsquo;il utilise l&rsquo;un ou l&rsquo;autre,
+il obtient le même résultat.</p>
+<p>Inutile pour lui de savoir quelle formule on a employé.</p>
+</li>
+</ul>
+<h2 id="javascript">javascript</h2>
 <p><em>cf. Time.js</em></p>
 <ul>
 <li>similarités
@@ -9527,10 +9504,21 @@ mais : voir <code>getters/setters (get/set xxx)</code> dans version 2 de <code>T
 <h2 id="polymorphisme--héritage-1">Polymorphisme / héritage</h2>
 <ul>
 <li><strong>hors programme</strong>, donc pas abordé ici</li>
-<li>J&rsquo;ai des sources si ça vous intéresse.</li>
+<li>idée générale : un objet fils hérite des propriétés d&rsquo;un objet parent :
+<ul>
+<li><em>parent</em> : rectangle : défini avec (<code>x, y, l, h</code>).
+<ul>
+<li>méthodes : aire, périmètre, contient un point ? etc.</li>
+</ul>
+</li>
+<li><em>enfant</em> : carré : défini avec (<code>x, y, c</code>)<br>
+l&rsquo;enfant hérite aussi des méthodes du parent !</li>
+</ul>
+</li>
 <li>permet de créer des objets répondant à des contraintes
 succeptibles <em>d&rsquo;évoluer</em>&hellip;<br>
 donc de <em>maintenir</em> du code.</li>
+<li>J&rsquo;ai des sources si ça vous intéresse.</li>
 </ul>
 </article>
 
@@ -9569,7 +9557,7 @@ donc de <em>maintenir</em> du code.</li>
   <ul>
     <li>
       <ul>
-        <li><a href="#pdf--pour-impressionuploadsdocnsitalepoo2_cours_printpdf-slidesuploadsdocnsitalepoo2_cours_slidespdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides.pdf">slides</a></a></li>
+        <li><a href="#pdf--pour-impressionuploadsdocnsitalepoo2_cours_print_betterpdf-slidesuploadsdocnsitalepoo2_cours_slides_betterpdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print_better.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides_better.pdf">slides</a></a></li>
       </ul>
     </li>
   </ul>
@@ -9583,12 +9571,14 @@ donc de <em>maintenir</em> du code.</li>
     <li><a href="#mise-en-oeuvre">Mise en oeuvre</a>
       <ul>
         <li><a href="#première-données-en-table-course-au-chicon">Première, données en table, &ldquo;course au chicon&rdquo;</a></li>
-        <li><a href="#première-projet-wator">Première, projet &ldquo;Wator&rdquo;</a></li>
+        <li><a href="#première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</a></li>
       </ul>
     </li>
     <li><a href="#définition-dun-type-competitor">définition d&rsquo;un type <code>Competitor</code></a></li>
     <li><a href="#type-competitor--vraiment-">type <code>Competitor</code> : vraiment ?</a></li>
     <li><a href="#vraiment-">vraiment ?</a></li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#heading-1"></a></li>
     <li><a href="#programmation-orientée-objet">Programmation Orientée Objet</a></li>
     <li><a href="#langage-à-objet">langage à objet</a></li>
     <li><a href="#type">type</a>
@@ -9614,28 +9604,31 @@ donc de <em>maintenir</em> du code.</li>
     <li><a href="#en-python-1">En Python</a></li>
     <li><a href="#méthodes">méthodes</a></li>
     <li><a href="#méthodes-1">méthodes</a></li>
-    <li><a href="#méthodes-2">méthodes</a></li>
     <li><a href="#méthodes-spéciales">méthodes spéciales</a></li>
+    <li><a href="#exemple-dutilisation--la-méthode-__add__">Exemple d&rsquo;utilisation : la méthode <code>__add__</code></a></li>
+    <li><a href="#exemple-dutilisation---la-méthode-__add__-suite">Exemple d&rsquo;utilisation  : la méthode <code>__add__</code> (suite)</a></li>
     <li><a href="#encapsulation">encapsulation</a>
       <ul>
         <li><a href="#encapsulation-1">encapsulation\</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2"></a>
+      <ul>
         <li><a href="#règle-dor">règle d&rsquo;or\</a></li>
       </ul>
     </li>
-    <li><a href="#exemple">exemple</a></li>
-    <li><a href="#exemple-1">exemple</a></li>
-    <li><a href="#usage">usage</a>
+    <li><a href="#heading-3"></a>
       <ul>
         <li><a href="#séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</a></li>
       </ul>
     </li>
     <li><a href="#intérêt-">intérêt ?</a></li>
-    <li><a href="#exemple-2">exemple</a>
-      <ul>
-        <li><a href="#implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</a></li>
-        <li><a href="#implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</a></li>
-      </ul>
-    </li>
+    <li><a href="#intérêt--suite">intérêt ? (suite)</a></li>
+    <li><a href="#heading-4"></a></li>
+    <li><a href="#exemple--les-disques">exemple : les disques</a></li>
+    <li><a href="#implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</a></li>
+    <li><a href="#implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</a></li>
+    <li><a href="#quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</a></li>
     <li><a href="#javascript">javascript</a></li>
   </ul>
 
