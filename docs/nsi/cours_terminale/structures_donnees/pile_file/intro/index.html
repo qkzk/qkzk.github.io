@@ -33,6 +33,10 @@ https://github.com/alex-shpak/hugo-book
 
   
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -9101,6 +9113,7 @@ MathJax.Hub.Config({
       
 <article class="markdown"><h3 id="pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a></h3>
 <h1 id="les-files-et-les-piles">Les files et les piles</h1>
+<h2 id="une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</h2>
 <p>Les piles et les files sont des exemples de structures de données que faute de
 mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élémentaires :</p>
 <ol>
@@ -9110,7 +9123,7 @@ mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élém
 </ol>
 <p>Le sac est une structure impérative : un sac se modifie au cours du temps.</p>
 <p>En Python, il est logique de représenter un sac (d’éléments <em>E</em>) par un objet
-(d’une classe <em>Bag</em>) qui possède trois méthodes :</p>
+(d’une classe <em>Sac</em>) qui possède trois méthodes :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Sac</span>:
   <span style="color:#069;font-weight:bold">def</span> __init__(self):
     self<span style="color:#555">.</span>contenu <span style="color:#555">=</span> [ ]
@@ -9124,8 +9137,11 @@ mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élém
   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">retirer</span>(self):
     x <span style="color:#555">=</span> <span style="color:#555">...</span>
     <span style="color:#069;font-weight:bold">return</span> x
-</code></pre></div><p>Ainsi on ajoute par exemple un élément <code>e</code> dans le sac <code>b</code> par <code>b.ajouter(e)</code>,
+</code></pre></div><p>Remarquons le constructeur : <code>self.contenu = [ ]</code> : le contenu du sac est
+référencé dans une liste python. C&rsquo;est un choix qui sera commode.</p>
+<p>Ainsi on ajoute par exemple un élément <code>e</code> dans le sac <code>b</code> par <code>b.ajouter(e)</code>,
 ce qui modifie l’état interne du sac.</p>
+<h2 id="piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</h2>
 <p>Piles et files se distinguent par la relation entre éléments ajoutés et
 éléments retirés.</p>
 <ul>
@@ -9140,7 +9156,7 @@ ce qui modifie l’état interne du sac.</p>
 <p>Si on représente pile et file par des tas de cases, on voit que la pile possède
 un sommet, où sont ajoutés et d’où sont retirés les éléments, tandis que la
 file possède une entrée et une sortie.</p>
-<p><img src="/uploads/docnsitale/pile_file/img/file_pile.png" alt="pile_file"></p>
+<p><img src="img/file_pile.png" alt="pile_file">\</p>
 <p>Tout ceci est parfaitement conforme à l’intuition d’une pile d’assiettes, ou de
 la queue devant un guichet, et suggère fortement des techniques
 d’implémentations pour les piles et les files.</p>
@@ -9148,17 +9164,64 @@ d’implémentations pour les piles et les files.</p>
 <p>Soit la fonction <code>build</code> suivante qui ajoute tous les éléments d’une liste dans
 un sac puis construit une liste en vidant le sac.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">build</span>(tableau):
-  bag <span style="color:#555">=</span> Sac()
+  sachet <span style="color:#555">=</span> Sac()
 
   <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> tableau:
-    bag<span style="color:#555">.</span>ajouter(k)
+    sachet<span style="color:#555">.</span>ajouter(k)
 
   tableau_sortie <span style="color:#555">=</span> []
-  <span style="color:#069;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">not</span> bag<span style="color:#555">.</span>est_vide():
-    tableau_sortie<span style="color:#555">.</span>append( bag<span style="color:#555">.</span>retirer() )
+  <span style="color:#069;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">not</span> sachet<span style="color:#555">.</span>est_vide():
+    tableau_sortie<span style="color:#555">.</span>append( sachet<span style="color:#555">.</span>retirer() )
 
   <span style="color:#069;font-weight:bold">return</span> tableau_sortie
 </code></pre></div><p>Quelle est la liste renvoyée dans le cas où le sac est <em>une pile</em>, puis <em>une file</em> ?</p>
+<p>Traitons un exemple pour mieux comprendre :</p>
+<ol>
+<li>
+<p>Si le sac est <em>une pile</em>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [1, 2, 3]
+
+On exécute l&#39;instruction :
+
+for k in tableau:
+  sachet.ajouter(k)
+
+sachet contient alors les éléments [1, 2, 3]
+
+On exécute alors l&#39;instruction :
+
+while not sachet.est_vide():
+  tableau_sortie.append( sachet.retirer() )
+
+Comme la liste est une pile, on retire successivement 3, 2, 1.
+
+Qu&#39;on ajoute à la fin de tableau_sortie :
+
+Donc tableau sortie contient [3, 2, 1]
+</code></pre></div></li>
+<li>
+<p>Si le sac est <em>une file</em>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [1, 2, 3]
+
+On exécute l&#39;instruction :
+
+for k in tableau:
+  sachet.ajouter(k)
+
+sachet contient alors les éléments [1, 2, 3]
+
+On exécute alors l&#39;instruction :
+
+while not sachet.est_vide():
+  tableau_sortie.append( sachet.retirer() )
+
+Comme le sac est une file, on retire successivement 1, 2, 3
+
+Qu&#39;on ajoute à la fin de tableau_sortie :
+
+Donc tableau sortie contient [1, 2, 3]
+</code></pre></div></li>
+</ol>
 <p><strong>Solution.</strong> Si le sac est une pile, alors <code>build</code> renvoie une copie de la
 liste <code>p</code>. Si le sac est une file, alors build renvoie une copie en ordre
 inverse de la liste <code>p</code>.</p>
@@ -9198,12 +9261,17 @@ les notations traditionnelles (push, pop, enqueue, dequeue).</p>
 <h1 id="utilisation-des-piles-et-files-en-informatique">Utilisation des piles et files en informatique</h1>
 <ul>
 <li>
-<p>les gestionnaires de messages, utilisent un &ldquo;tampon&rdquo; pour accumuler les
+<p>Les gestionnaires de messages, utilisent un &ldquo;tampon&rdquo; pour accumuler les
 messages à traiter. Si le traitement est long et qu&rsquo;ils peuvent recevoir
 plusieurs messages simultanément, les messages sont rangés dans une file.</p>
+<p>Un serveur (de fichier, web ou autre) est généralement accompagné d&rsquo;un
+gestionnaire de message qui enregistre les requêtes avant de les faire
+exécuter par le serveur lui même.</p>
+<p>Ainsi une machine peu puissante traite les requêtes à son rythme et cela
+évite que les requêtes soient perdues.</p>
 </li>
 <li>
-<p>les appels successifs d&rsquo;une fonction récursive s&rsquo;accumulent dans la pile
+<p>Les appels successifs d&rsquo;une fonction récursive s&rsquo;accumulent dans la pile
 de récursion. Le dernier appel retourne une valeur au précédent, qui
 retourne au précédent etc.</p>
 </li>
@@ -9248,6 +9316,11 @@ retourne au précédent etc.</p>
         <li><a href="#pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a></a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</a></li>
+    <li><a href="#piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</a></li>
   </ul>
 
   <ul>
