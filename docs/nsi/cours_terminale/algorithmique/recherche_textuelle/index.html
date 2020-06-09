@@ -9144,7 +9144,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="les-pdf-format-imprimableuploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-articlepdf-et-diaporamauploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-beamerpdf">les pdf <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-Article.pdf">format imprimable</a> et <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-Beamer.pdf">diaporama</a>.</h3>
+<article class="markdown"><h3 id="les-pdf-format-imprimableuploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-printpdf-et-diaporamauploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-beamerpdf">les pdf <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-print.pdf">format imprimable</a> et <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-beamer.pdf">diaporama</a>.</h3>
 <h1 id="recherche-textuelle">Recherche textuelle</h1>
 <h2 id="pourquoi-parler-de-recherche-textuelle-">Pourquoi parler de recherche textuelle ?</h2>
 <h3 id="quest-ce-quun-texte-">Qu&rsquo;est-ce qu&rsquo;un texte ?</h3>
@@ -9165,25 +9165,24 @@ MathJax.Hub.Config({
 </ul>
 <h2 id="recherche-dans-un-texte-connu-à-lavance-livres-sites">Recherche dans un texte connu à l&rsquo;avance (livres, sites&hellip;)</h2>
 <p>On dispose alors généralement d&rsquo;un <strong>index</strong></p>
-<p>.<img src="/uploads/docnsitale/algo/recherche_textuelle/index.jpg" alt="index"></p>
+<p>.<img src="index.jpg" alt="index"></p>
 <p>L&rsquo;index peut-être vu comme un <em>dictionnaire</em> : on repère la clé qui nous intéresse
 et sa valeur nous indique la position du motif.</p>
 <p>L&rsquo;usage est alors simpliste et peu coûteux, tout le travail a été réalisé en amont.</p>
 <h2 id="quand-ne-construit-on-pas-dindex-">Quand ne construit-on pas d&rsquo;index ?</h2>
 <p>Lorsque le texte possède certaines propriétés</p>
 <ul>
-<li>court</li>
-</ul>
-<p>. . .</p>
-<ul>
-<li>modifiable</li>
-</ul>
-<p>. . .</p>
-<ul>
-<li>non connu à l&rsquo;avance</li>
+<li>
+<p>court</p>
+</li>
+<li>
+<p>modifiable</p>
+</li>
+<li>
+<p>non connu à l&rsquo;avance</p>
+</li>
 </ul>
 <p>Notez qu&rsquo;un pdf de 1000 pages ne remplit aucun de ces critères</p>
-<p>. . .</p>
 <p>\bigskip
 \bigskip
 \bigskip</p>
@@ -9273,28 +9272,33 @@ la distance est donnée par <code>taille - 1 - i</code></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dernière occurrence (motif)
   m = longueur du motif
   créer un dictionnaire associant chaque lettre à m
-  pour i allant de 0 à m-1,
+  pour i allant de 0 à m-2,
       dictionnaire [ motif[i] ] = m - 1 - i
   fin du pour
   retourner le dictionnaire
-</code></pre></div><h2 id="boyer-moore-horspool">Boyer-Moore-Horspool</h2>
+</code></pre></div><h2 id="dernière-occurence--remarque-importante">dernière occurence : remarque importante</h2>
+<p>Faîtes bien attention à la boucle:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    pour i allant de 0 à m-2
+</code></pre></div><p>Si on va jusqu&rsquo;au <em>dernier</em> caractère du motif, il se verra attribuer la
+distance 0 &hellip; ce qui entrainera une boucle infinie dans la partie
+suivante !</p>
+<h2 id="boyer-moore-horspool">Boyer-Moore-Horspool</h2>
 <ul>
 <li>
-<p>on commence avec <code>j</code> = taille du motif</p>
+<p>on commence avec <code>j</code> = 0</p>
 </li>
 <li>
-<p>on itère jusqu&rsquo;à ce que <code>j = taille du texte</code></p>
+<p>on itère jusqu&rsquo;à ce que <code>j = taille du texte - taille du motif</code></p>
 <p>on parcourt le motif à partir de la fin, donc <code>i = taille du motif</code>.</p>
 <p>on recule sur <code>i</code> jusqu&rsquo;à arriver à 0 ou jusqu&rsquo;à ce que les caractères ne
 se correspondent plus.</p>
 <ul>
 <li>
-<p>si <code>i = 0</code> alors</p>
-<p>le motif se termine en j</p>
-<p>et on augmente <code>j</code> de 1</p>
+<p>si <code>i = -1</code> alors</p>
+<p>le motif commence en j et on augmente <code>j</code> de 1</p>
 </li>
 <li>
-<p>sinon alors</p>
+<p>sinon</p>
 <p>on augmente <code>j</code> de la distance correspondant à cette position différente
 dans le texte.</p>
 </li>
@@ -9305,18 +9309,18 @@ dans le texte.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Algorithme Boyer-Moore-Horspool(x, t):
   &#39;&#39;&#39;
   x : motif, t : texte, m : longueur motif, n : celle du texte
-  d le tableau des dernières occurrences du motif
+  d : tableau des dernières occurrences du motif
   &#39;&#39;&#39;
-  tant que j &lt;= n,
-    i = m
-    tant que i &gt; 0 et que t[j - m + i - 1] = x[i - 1], faire :
+  tant que j &lt;= n - m,
+    i = m - 1
+    tant que i &gt;= 0 et t[j + i] = x[i]:
       i = i-1
     fin tant que
-    si i = 0 alors
-      j est une occurrence de fin de x
+    si i = -1 alors
+      j est une occurrence de x
       j = j + 1
     sinon
-      j = j + d[ t[j] ]
+      j = j + d[ t[j + i] ]
     fin du si
   fin du tant que
 </code></pre></div><h2 id="preuve">Preuve</h2>
@@ -9324,8 +9328,8 @@ dans le texte.</p>
 <li>
 <p>L&rsquo;algorithme se termine bien.</p>
 <p>En effet, le tableau des dernières occurrences comporte forcement des
-nombres strictement positifs.
-Dans le pire des cas, on augmente <code>j</code> de 1 à chaque tour de la boucle
+nombres strictement positifs. (cf remarque le concernant)</p>
+<p>Dans le pire des cas, on augmente <code>j</code> de 1 à chaque tour de la boucle
 extérieure.
 La boucle intérieure voit <code>i</code> augmenter de 1 à chaque fois.</p>
 </li>
@@ -9345,7 +9349,7 @@ que l&rsquo;algorithme naïf et on rencontre forcément toutes les occurrences.<
 <p>Deux cas se présentent :</p>
 <ul>
 <li>
-<p><code>d = m</code> (autrement dit, la lettre n&rsquo;est pas dans le motif.) Alors
+<p><code>d = m</code> (la lettre n&rsquo;est pas dans le motif.) Alors
 il est impossible que le motif commence dans le texte avant <code>j+d</code></p>
 </li>
 <li>
@@ -9489,7 +9493,7 @@ des corrections pour chaque mot mal orthographié.</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#les-pdf-format-imprimableuploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-articlepdf-et-diaporamauploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-beamerpdf">les pdf <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-Article.pdf">format imprimable</a> et <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-Beamer.pdf">diaporama</a>.</a></li>
+        <li><a href="#les-pdf-format-imprimableuploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-printpdf-et-diaporamauploadsdocnsitalealgorecherche_textuellecours_td_recherche_textuelle-beamerpdf">les pdf <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-print.pdf">format imprimable</a> et <a href="/uploads/docnsitale/algo/recherche_textuelle/cours_td_recherche_textuelle-beamer.pdf">diaporama</a>.</a></li>
       </ul>
     </li>
   </ul>
@@ -9523,6 +9527,7 @@ des corrections pour chaque mot mal orthographié.</p>
       </ul>
     </li>
     <li><a href="#pseudo-code--dernière-occurrence">pseudo code : dernière occurrence</a></li>
+    <li><a href="#dernière-occurence--remarque-importante">dernière occurence : remarque importante</a></li>
     <li><a href="#boyer-moore-horspool">Boyer-Moore-Horspool</a></li>
     <li><a href="#pseudo-code-boyer-moore-horspool">Pseudo-code Boyer-Moore-Horspool</a></li>
     <li><a href="#preuve">Preuve</a></li>
