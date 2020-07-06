@@ -33,6 +33,10 @@ https://github.com/alex-shpak/hugo-book
 
   
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -9132,15 +9144,35 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><p>Intéressons-nous au script suivant :</p>
+<article class="markdown"><h1 id="les-exceptions">Les exceptions</h1>
+<p>Chaque fois que Python rencontre un problème dans le déroulé d&rsquo;un programme,
+il génère une erreur qui interrompt son exécution.</p>
+<p>Dans certains cas,  il est possible de <em>capturer</em> cette erreur et de
+réagir autrement.</p>
+<p>C&rsquo;est ce qu&rsquo;on appelle une <em>exception</em>.</p>
+<p>Vous avez deux objectifs concernant les exceptions :</p>
+<ol>
+<li>
+<p>apprendre à lire les messages d&rsquo;erreur générés par Python.
+C&rsquo;est le seul moyen de progresser. Vous ferez toujours les mêmes erreurs
+si vous ne faîtes pas l&rsquo;effort de chercher à comprendre vos erreurs.
+C&rsquo;est un objectif de base et vous devez acquerir ce reflexe immédiatement.</p>
+</li>
+<li>
+<p>Apprendre à gérer les exceptions dans les programmes évolués avec <code>try except</code>.
+C&rsquo;est parfois nécessaire et souvent plus rapide.
+Cet objectif est à la limite du programme et ne sera jamais évalué en devoir.</p>
+</li>
+</ol>
+<h2 id="les-exceptions-1">Les exceptions</h2>
+<p>Intéressons-nous au script suivant :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script inverse.py</span>
 chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer un nombre : &#39;</span>)
 nombre <span style="color:#555">=</span> <span style="color:#366">float</span>(chaine)
-inverse <span style="color:#555">=</span> <span style="color:#f60">1.0</span><span style="color:#555">/</span>nombre
+inverse <span style="color:#555">=</span> <span style="color:#f60">1.0</span> <span style="color:#555">/</span> nombre
 <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;L&#39;inverse de&#34;</span>, nombre, <span style="color:#c30">&#34;est :&#34;</span>, inverse)
 </code></pre></div><p>Ce script vous demande de saisir un nombre, puis il calcule et affiche son inverse.</p>
-<h3 id="les-exceptions">Les exceptions</h3>
-<p>Quand vous entrez un nombre, tout se déroule normalement :</p>
+<p>Quand vous entrez un nombre non nul, tout se déroule normalement :</p>
 <pre><code>&gt;&gt;&gt;
 Entrer un nombre : 10
 L'inverse de 10.0 est : 0.1
@@ -9167,10 +9199,12 @@ ZeroDivisionError: float division by zero
 &gt;&gt;&gt;
 </code></pre>
 <p>Python a détecté une erreur : une <strong>exception est levée</strong>.
-Ici nous avons une exception de type <code>ZeroDivisionError</code> (division par 0) et une exception de type <code>ValueError</code>.
+Ici nous avons une exception de type <code>ZeroDivisionError</code> (division par 0) et
+une exception de type <code>ValueError</code>.
 Une exception arrête l&rsquo;exécution normale d&rsquo;un programme.</p>
-<h3 id="gestion-des-exceptions">Gestion des exceptions</h3>
-<p>Heureusement, il est possible de gérer les exceptions pour éviter l&rsquo;arrêt brutal du programme.
+<h2 id="gestion-des-exceptions">Gestion des exceptions</h2>
+<p>Heureusement, il est possible de gérer les exceptions pour éviter l&rsquo;arrêt
+brutal du programme.
 Pour cela, on utilise conjointement les instructions <code>try</code> et <code>except</code>.
 L&rsquo;instruction <code>else</code> est optionnelle :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">try</span>:
@@ -9214,57 +9248,97 @@ bonjour n'est pas un nombre !
 &gt;&gt;&gt;
 </code></pre>
 <p>N&rsquo;oubliez pas : un programme bien écrit doit gérer proprement les exceptions.</p>
-<h3 id="exercices">Exercices</h3>
-<p><strong>Exercice 5.1</strong></p>
+<h2 id="liste-des-exceptions-courantes">Liste des exceptions courantes</h2>
+<ol>
+<li>Le nom d&rsquo;une exception est toujours explicite.</li>
+<li>Toutes les exceptions sont documentées en ligne.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Nom de l&rsquo;exception</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AssertionError</td>
+<td>levée par <code>assert condition</code> avec <code>condition == False</code></td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>division par $0$</td>
+</tr>
+<tr>
+<td>ImportError</td>
+<td>Python ne parvient pas à charger un module</td>
+</tr>
+<tr>
+<td>ModuleNotFoundError</td>
+<td>Le module demandé est introuvable</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>Une variable est appelée avant d&rsquo;avoir été définie</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>Élément introuvable dans une liste</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td>Élément introuvable dans un dictionnaire</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>La syntaxe est incorrecte. Le script s&rsquo;arrête toujours</td>
+</tr>
+<tr>
+<td>IndentationError</td>
+<td>L&rsquo;indentation est incorrecte. Le script s&rsquo;arrête toujours</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>On appelle une méthode / fonction pour un type qu&rsquo;elle ne supporte pas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercices">Exercices</h2>
+<h2 id="exercice-51">Exercice 5.1</h2>
 <ol>
 <li>
-<p>Compléter le script précédent de manière à ressaisir le nombre en cas d&rsquo;erreur. On pourra englober le script dans une boucle <code>while</code>.
-Par exemple :</p>
-<blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Entrer un nombre : salut !
-salut ! n&rsquo;est pas un nombre !
-Entrer un nombre : 2,3
-2,3 n&rsquo;est pas un nombre !
-Entrer un nombre : 2.3
-L&rsquo;inverse de 2.3 est : 0.434782608696</p>
-<blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>Compléter le script précédent de manière à ressaisir le nombre en cas
+d&rsquo;erreur. On pourra englober le script dans une boucle <code>while</code>.</p>
+<p>Par exemple :</p>
+<pre><code> &gt;&gt;&gt;
+ Entrer un nombre : salut !
+ salut ! n'est pas un nombre !
+ Entrer un nombre : 2,3
+ 2,3 n'est pas un nombre !
+ Entrer un nombre : 2.3
+ L'inverse de 2.3 est : 0.434782608696
+ &gt;&gt;&gt;
+</code></pre>
 </li>
 <li>
 <p>Compléter le script de manière à accepter la virgule comme séparateur décimal.
 Par exemple :</p>
-<blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Entrer un nombre : 2,3
-L&rsquo;inverse de 2.3 est : 0.434782608696</p>
-<blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ol>
+<pre><code> &gt;&gt;&gt;
+ Entrer un nombre : 2,3
+ L'inverse de 2.3 est : 0.434782608696
+ &gt;&gt;&gt;
+</code></pre>
 <p>On pourra utiliser la méthode <code>replace()</code> de la classe <code>str</code></p>
 <p>Exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;abc&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;z&#34;</span>) <span style="color:#09f;font-style:italic"># b est remplacé par z</span>
 <span style="color:#c30">&#39;azc&#39;</span>
 <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;raoul&#39;</span><span style="color:#555">.</span>replace(<span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39;z&#39;</span>) <span style="color:#09f;font-style:italic"># pas de x dans la chaîne de départ...</span>
 <span style="color:#c30">&#39;raoul&#39;</span> <span style="color:#09f;font-style:italic"># la méthode renvoie la chaîne initiale</span>
-</code></pre></div><p><strong>Exercice 5.2</strong> Ecrire un script qui calcule la racine carrée d&rsquo;un nombre, avec gestion des exceptions.
+</code></pre></div></li>
+</ol>
+<h2 id="exercice-52">Exercice 5.2</h2>
+<p>Ecrire un script qui calcule la racine carrée d&rsquo;un nombre, avec gestion des
+exceptions.<br>
 Par exemple :</p>
 <pre><code>&gt;&gt;&gt;
 Entrer un nombre : go
@@ -9276,14 +9350,16 @@ La racine carrée de 16.0 est : 4.0
 &gt;&gt;&gt;
 </code></pre>
 <p>Remarquez bien qu&rsquo;on demande le nombre à l&rsquo;utilisateur <em>jusqu&rsquo;à</em> ce qu&rsquo;il convienne.</p>
-<p><strong>Exercice 5.3</strong> Soit le script :</p>
-<pre><code>i = 0
-while True:
-    i += 1
-    print(i)
-</code></pre>
-<p>Il s&rsquo;agit d&rsquo;une boucle sans fin.
-Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C quand on exécute dans la console et le bouton arrêter dans Colab, ce qui lève une exception de type <code>KeyboardInterrupt</code> :</p>
+<h2 id="exercice-53">Exercice 5.3</h2>
+<p>Soit le script :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+i <span style="color:#555">=</span> <span style="color:#f60">0</span>
+<span style="color:#069;font-weight:bold">while</span> True:
+    i <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">print</span>(i)
+</code></pre></div><p>Il s&rsquo;agit d&rsquo;une boucle sans fin.
+Pour arrêter ce programme, il faut appuyer sur les touches CTRL + C quand on
+exécute dans la console et le bouton arrêter dans Colab, ce qui lève une exception de type <code>KeyboardInterrupt</code> :</p>
 <pre><code>&gt;&gt;&gt;
 1
 ...
@@ -9297,7 +9373,7 @@ Traceback (most recent call last):
 KeyboardInterrupt
 &gt;&gt;&gt;
 </code></pre>
-<p>Compléter le script pour gérer proprement l&rsquo;exception :</p>
+<p>Compléter le script pour gérer proprement l&rsquo;exception : <code>KeyboardInterrupt</code></p>
 <pre><code>&gt;&gt;&gt;
 1
 ...
@@ -9345,11 +9421,14 @@ Fin du programme
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#les-exceptions-1">Les exceptions</a></li>
+    <li><a href="#gestion-des-exceptions">Gestion des exceptions</a></li>
+    <li><a href="#liste-des-exceptions-courantes">Liste des exceptions courantes</a></li>
+    <li><a href="#exercices">Exercices</a></li>
+    <li><a href="#exercice-51">Exercice 5.1</a></li>
+    <li><a href="#exercice-52">Exercice 5.2</a></li>
+    <li><a href="#exercice-53">Exercice 5.3</a>
       <ul>
-        <li><a href="#les-exceptions">Les exceptions</a></li>
-        <li><a href="#gestion-des-exceptions">Gestion des exceptions</a></li>
-        <li><a href="#exercices">Exercices</a></li>
         <li><a href="#webographie">Webographie</a></li>
       </ul>
     </li>
