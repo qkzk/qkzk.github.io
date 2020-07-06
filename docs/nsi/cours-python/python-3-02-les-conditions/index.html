@@ -9148,9 +9148,9 @@ MathJax.Hub.Config({
 <h3 id="linstruction-if">L&rsquo;instruction <code>if</code></h3>
 <p><img src="/uploads/uploads/2017/04/python_if.png" alt="python_if"></p>
 <h4 id="syntaxe">Syntaxe</h4>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">if expression:  			    # ne pas oublier la ponctuation &#39;:&#39;
-    bloc d&#39;instructions		# attention à l&#39;indentation
-# suite du programme
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> expression:                  <span style="color:#09f;font-style:italic"># ne pas oublier la ponctuation &#39;:&#39;</span>
+    bloc d instructions         <span style="color:#09f;font-style:italic"># attention à l&#39;indentation</span>
+<span style="color:#09f;font-style:italic"># suite du programme</span>
 </code></pre></div><p>Si l&rsquo;expression est vraie (True) alors le bloc d&rsquo;instructions est exécuté.
 Si l&rsquo;expression est fausse (False) on passe directement à la suite du programme.</p>
 <h4 id="premier-script">Premier script</h4>
@@ -9181,13 +9181,13 @@ Fin du programme
 </code></pre></div><h3 id="linstruction-else">L&rsquo;instruction <code>else</code></h3>
 <p>Une instruction <code>else</code> est toujours associée à une instruction <code>if</code></p>
 <h4 id="syntaxe-1">Syntaxe</h4>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">if expression:
-    bloc d&#39;instructions 1		# attention à l&#39;indentation
-else:					# else est au même niveau que if
-    bloc d&#39;instructions 2		# attention à l&#39;indentation
-# suite du programme
-</code></pre></div><p>Si l&rsquo;expression est vraie (True) alors le bloc d&rsquo;instructions 1 est exécuté.</p>
-<p>Si l&rsquo;expression est fausse (False) alors c&rsquo;est le bloc d&rsquo;instructions 2 qui est exécuté.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> expression:
+    bloc d instructions <span style="color:#f60">1</span>       <span style="color:#09f;font-style:italic"># attention à l&#39;indentation</span>
+<span style="color:#069;font-weight:bold">else</span>:                           <span style="color:#09f;font-style:italic"># else est au même niveau que if</span>
+    bloc d instructions <span style="color:#f60">2</span>       <span style="color:#09f;font-style:italic"># attention à l&#39;indentation</span>
+<span style="color:#09f;font-style:italic"># suite du programme</span>
+</code></pre></div><p>Si l&rsquo;expression est vraie (<code>True</code>) alors le bloc d&rsquo;instructions 1 est exécuté.</p>
+<p>Si l&rsquo;expression est fausse (<code>False</code>) alors c&rsquo;est le bloc d&rsquo;instructions 2 qui est exécuté.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script Condition2.py</span>
 
 chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#34;Note sur 20 : &#34;</span>)
@@ -9199,19 +9199,17 @@ note <span style="color:#555">=</span> <span style="color:#366">float</span>(cha
     <span style="color:#09f;font-style:italic"># ce bloc est exécuté si l&#39;expression (note &gt;= 10.0) est fausse</span>
     <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;C&#39;est en dessous de la moyenne&#34;</span>)
 <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Fin du programme&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span>
-Note sur <span style="color:#f60">20</span> : <span style="color:#f60">15</span>
-J<span style="color:#c30">&#39;ai la moyenne</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt;&gt;&gt; Note sur 20 : 15
+J&#39;ai la moyenne
 Fin du programme
-<span style="color:#555">&gt;&gt;&gt;</span>
-Note sur <span style="color:#f60">20</span> : <span style="color:#f60">8.5</span>
-C<span style="color:#c30">&#39;est en dessous de la moyenne</span>
+&gt;&gt;&gt; Note sur 20 : 8.5
+C&#39;est en dessous de la moyenne
 Fin du programme
-<span style="color:#555">&gt;&gt;&gt;</span>
-Note sur <span style="color:#f60">20</span> : <span style="color:#f60">56</span>
-J<span style="color:#c30">&#39;ai la moyenne</span>
+&gt;&gt;&gt; Note sur 20 : 56
+J&#39;ai la moyenne
 Fin du programme
-</code></pre></div><p>Pour traiter le cas des notes invalides (&lt;0 ou &gt;20), on peut imbriquer des instructions conditionnelles :</p>
+</code></pre></div><p>Pour traiter le cas des notes invalides (&lt;0 ou &gt;20), on peut imbriquer des
+instructions conditionnelles :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script Condition3.py</span>
 
 chaine <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#34;Note sur 20 : &#34;</span>)
@@ -9268,13 +9266,13 @@ Fin du programme
 <p>Une instruction <code>elif</code> (contraction de else if) est toujours associée à une instruction <code>if</code></p>
 <h4 id="syntaxe-2">Syntaxe</h4>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> expression <span style="color:#f60">1</span>:
-    bloc d<span style="color:#c30">&#39;instructions 1</span>
+    bloc d instructions <span style="color:#f60">1</span>
 <span style="color:#069;font-weight:bold">elif</span> expression <span style="color:#f60">2</span>:
-    bloc d<span style="color:#c30">&#39;instructions 2</span>
+    bloc d instructions <span style="color:#f60">2</span>
 <span style="color:#069;font-weight:bold">elif</span> expression <span style="color:#f60">3</span>:
-    bloc d<span style="color:#c30">&#39;instructions 3	# ici deux instructions elif, mais il n&#39;</span>y a pas de limitation
+    bloc d instructions <span style="color:#f60">3</span>   <span style="color:#09f;font-style:italic"># ici deux instructions elif, mais il n&#39;y a pas de limitation</span>
 <span style="color:#069;font-weight:bold">else</span>:
-    bloc d<span style="color:#c30">&#39;instructions 4</span>
+    bloc d instructions <span style="color:#f60">4</span>
 <span style="color:#09f;font-style:italic"># suite du programme</span>
 </code></pre></div><p>Si l&rsquo;expression 1 est vraie alors le bloc d&rsquo;instructions 1 est exécuté, et on passe à la suite du programme.
 Si l&rsquo;expression 1 est fausse alors on teste l&rsquo;expression 2 :</p>
@@ -9325,12 +9323,31 @@ Fin du programme
 Note sur <span style="color:#f60">20</span> : <span style="color:#f60">77</span>
 Note invalide <span style="color:#a00;background-color:#faa">!</span>
 Fin du programme
-</code></pre></div><h3 id="exercices">Exercices</h3>
-<p><strong>Exercice 2.1 ★</strong> Le numéro de sécurité sociale est constitué de 13 chiffres auquel s&rsquo;ajoute la clé de contrôle (2 chiffres).
+</code></pre></div><h2 id="exercices">Exercices</h2>
+<h3 id="exercice-21">Exercice 2.1</h3>
+<p>Robert a un hygiène de vie très stricte. Ils se pèse tous les matins.</p>
+<ul>
+<li>S&rsquo;il pèse moins de 100 kilos, durant la journée, il ne boit que de la bière.</li>
+<li>S&rsquo;il pèse entre 100 et 120 kilos, durant la journée, il ne boit que du vin.</li>
+<li>Si son poids dépasse 120 kilos, durant la journée il ne boit que de l&rsquo;eau.</li>
+</ul>
+<p>Quel athlète !</p>
+<p>Ecrire un script qui demande sa masse et affiche le régime qu&rsquo;il doit suivre.</p>
+<p><em>Exemples :</em></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Combien pèses-tu ? 140
+Eau
+Combien pèses-tu ? 95
+Bière
+Combien pèses-tu ? 105
+Vin
+</code></pre></div><p>Attention, <code>input</code> retourne toujours <em>une chaîne de caractères</em> du type <code>str</code>.<br>
+Pour en faire un entier (du type  <code>int</code>) :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">poids <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#34;Combien...&#34;</span>)
+</code></pre></div><p>Exemple :</p>
+<h3 id="exercice-22-">Exercice 2.2 ★</h3>
+<p>Le numéro de sécurité sociale est constitué de 13 chiffres auquel s&rsquo;ajoute la clé de contrôle (2 chiffres).
 La clé de contrôle est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97)</p>
-<p>Ecrire un script qui contrôle la validité d&rsquo;un numéro de sécurité sociale.
-On pourra utiliser la fonction <code>int()</code>pour convertir le type <code>str</code> en type <code>int</code>.
-Exemple :</p>
+<p>Ecrire un script qui contrôle la validité d&rsquo;un numéro de sécurité sociale.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt;&gt;&gt;
 Entrer votre numéro de sécurité sociale (13 chiffres) --&gt; 1891126108268
 Entrer votre clé de contrôle (2 chiffres) --------------&gt; 91
@@ -9340,7 +9357,8 @@ Entrer votre numéro de sécurité sociale (13 chiffres) --&gt; 2891126108268
 Entrer votre clé de contrôle (2 chiffres) --------------&gt; 91
 Votre numéro de sécurité sociale est INVALIDE !
 &gt;&gt;&gt;
-</code></pre></div><p><strong>Exercice 2.3 ★</strong> Ecrire un script qui demande la note au bac et qui affiche la mention correspondante.
+</code></pre></div><h3 id="exercice-23-">Exercice 2.3 ★</h3>
+<p>Ecrire un script qui demande la note au bac et qui affiche la mention correspondante.
 Par exemple :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt;&gt;&gt;
 Note au bac (sur 20) : 13.5
@@ -9352,7 +9370,8 @@ Bac avec mention Passable
 Note au bac (sur 20) : 4
 Recalé
 &gt;&gt;&gt;
-</code></pre></div><p><strong>Exercice 2.4 ★</strong> Ecrire un script qui calcule l&rsquo;indice de masse corporelle (IMC) d&rsquo;un adulte et qui en donne l&rsquo;interprétation (corpulence normale, surpoids&hellip;).</p>
+</code></pre></div><h3 id="exercice-24-">Exercice 2.4 ★</h3>
+<p>Ecrire un script qui calcule l&rsquo;indice de masse corporelle (IMC) d&rsquo;un adulte et qui en donne l&rsquo;interprétation (corpulence normale, surpoids&hellip;).</p>
 <p>Calculer mon IMC. Il se calcule simplement en divisant le poids (en kg) par le carré de la taille (m).</p>
 <table >
   <tr >
@@ -9416,7 +9435,8 @@ Interprétation : corpulence normale
 &gt;&gt;&gt;
 </code></pre>
 <hr>
-<p><strong>Exercice 2.5 ★★</strong> - Niveau première en mathématiques - Ecrire un script qui résout l&rsquo;équation du second degré : ax² + bx + c = 0
+<h3 id="exercice-25----niveau-première-en-mathématiques">Exercice 2.5 ★★ - Niveau première en mathématiques</h3>
+<p>Ecrire un script qui résout l&rsquo;équation du second degré : $ax^2 + bx + c = 0$<br>
 Par exemple :</p>
 <pre><code>&gt;&gt;&gt;
 Résolution de l'équation du second degré : ax² + bx + c = 0
@@ -9481,7 +9501,15 @@ Il n'y a pas de solution.
         <li><a href="#linstruction-if">L&rsquo;instruction <code>if</code></a></li>
         <li><a href="#linstruction-else">L&rsquo;instruction <code>else</code></a></li>
         <li><a href="#linstruction-elif">L&rsquo;instruction <code>elif</code></a></li>
-        <li><a href="#exercices">Exercices</a></li>
+      </ul>
+    </li>
+    <li><a href="#exercices">Exercices</a>
+      <ul>
+        <li><a href="#exercice-21">Exercice 2.1</a></li>
+        <li><a href="#exercice-22-">Exercice 2.2 ★</a></li>
+        <li><a href="#exercice-23-">Exercice 2.3 ★</a></li>
+        <li><a href="#exercice-24-">Exercice 2.4 ★</a></li>
+        <li><a href="#exercice-25----niveau-première-en-mathématiques">Exercice 2.5 ★★ - Niveau première en mathématiques</a></li>
         <li><a href="#qcm">QCM</a></li>
       </ul>
     </li>
