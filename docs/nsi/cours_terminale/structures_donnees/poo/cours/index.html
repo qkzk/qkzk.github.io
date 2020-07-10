@@ -9362,6 +9362,26 @@ False
 absurdes :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#c30">&#34;BONJOUR !&#34;</span>
 </code></pre></div><p>ce qui va générer des erreurs par la suite.</p>
+<h2 id="grand-principe-de-la-poo--le-passage-de-_messages_">Grand principe de la POO : le passage de <em>messages</em></h2>
+<p>Revenons sur le code de la méthode combattant, en particulier sur attaquer :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Combattant</span>:
+    <span style="color:#09f;font-style:italic"># debut du code...</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perdre_vie</span>(self, points):
+        self<span style="color:#555">.</span>vie <span style="color:#555">=</span> self<span style="color:#555">.</span>vie <span style="color:#555">-</span> points
+        <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>vie <span style="color:#555">&lt;=</span> <span style="color:#f60">0</span>:
+            self<span style="color:#555">.</span>vivant <span style="color:#555">=</span> False
+            self<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#f60">0</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">attaquer</span>(self, autre):
+        autre<span style="color:#555">.</span>perdre_vie(self<span style="color:#555">.</span>attaque)
+</code></pre></div><p>La méthode <code>attaquer</code> prend en paramètre un objet <code>autre</code> qui est lui même
+un objet du type <code>Combattant</code>.</p>
+<p>Elle exécute une méthode de cet objet (<code>autre.perdre_vie(...)</code>) ,
+c&rsquo;est un <em>message</em> !</p>
+<p>Ce n&rsquo;est pas le seul usage envisageable de la méthode <code>perdre_vie</code>,
+plus tard dans le développement du jeu, on peut imaginer qu&rsquo;un Combattant
+perde de la vie en marchant dans la lave ou sur un piège&hellip;</p>
 <h2 id="interface">Interface</h2>
 <ul>
 <li>Certaines méthodes sont internes à la classe, comme <code>__init__</code> : on n&rsquo;exécute
@@ -9739,6 +9759,28 @@ donc de <em>maintenir</em> du code.</li>
 </ul>
 <p>En pratique&hellip; en Python, toutes les classes héritent de <code>object</code> qui
 est un format général de classe.</p>
+<h1 id="bref-historique-de-la-poo">Bref historique de la POO</h1>
+<ul>
+<li>Introduite dans Simula en 1962</li>
+<li>Vraiment passée dans l&rsquo;usage courant en 1972 avec SmallTalk, grâce à Alan Kay
+(prix Turing en 2003)</li>
+<li>Généralisée à de nombreux langages dans les années 1970 et 1980 : C++ ajoute
+la programmation objet au langage le plus populaire de l&rsquo;époque : C.</li>
+<li>Depuis les années 90, tous les langages &ldquo;impératifs&rdquo; proposent de la POO :<br>
+python, java, javascript, ruby, C# (se prononce <em>C SHARP</em>), OCaml etc.</li>
+</ul>
+<p>La programmation objet est enseignée dans tous les parcours informatique.
+La grande majorité du code est écrit en POO&hellip;</p>
+<p>avec quelques exceptions notable de :</p>
+<ul>
+<li>C : le langage C permet de définir des &ldquo;structures&rdquo; mais pas de méthodes
+(d&rsquo;où C++). C est toujours employé pour écrire des logiciels
+&ldquo;proches du métal&rdquo; (pilotes matériels) ou qu&rsquo;on souhaite très rapides
+(fonctions de base d&rsquo;un OS).</li>
+<li>les langages fonctionnels purs comme Haskell,</li>
+<li>Golang : (le langage en vogue pour écrire des services dans le cloud). Un peu
+de POO mais pas tout le pataquès.</li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -9795,6 +9837,7 @@ est un format général de classe.</p>
       </ul>
     </li>
     <li><a href="#utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></a></li>
+    <li><a href="#grand-principe-de-la-poo--le-passage-de-_messages_">Grand principe de la POO : le passage de <em>messages</em></a></li>
     <li><a href="#interface">Interface</a></li>
     <li><a href="#encapsulation">Encapsulation</a>
       <ul>
