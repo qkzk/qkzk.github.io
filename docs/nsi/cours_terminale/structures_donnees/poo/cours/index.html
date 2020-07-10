@@ -9193,262 +9193,214 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalepoo2_cours_print_betterpdf-slidesuploadsdocnsitalepoo2_cours_slides_betterpdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print_better.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides_better.pdf">slides</a></h3>
+<article class="markdown"><h3 id="pdf--format-imprimableuploadsdocnsitalepoo2_cours_cleanpdf-fichier-contactpyuploadsdocnsitalepoocontactpy">pdf : <a href="/uploads/docnsitale/poo/2_cours_clean.pdf">format imprimable</a>, fichier <a href="/uploads/docnsitale/poo/contact.py">contact.py</a></h3>
 <h1 id="introduction-à-la-programmation-objet">Introduction à la programmation objet</h1>
-<h2 id="programmation-modulaire">Programmation modulaire</h2>
-<h3 id="pourquoi-la-programmation-modulaire-">Pourquoi la programmation modulaire ?</h3>
+<p>Jusqu&rsquo;ici les programmes que nous avons écrits utilisaient une approche
+procédurale :</p>
 <ul>
-<li>développement logiciel</li>
-<li>modification et maintenance logicielle</li>
-<li>ré-utilisabilité</li>
-<li>création de nouveaux types de données</li>
+<li>On définit les variables qui représentent ce qu&rsquo;on souhaite modéliser</li>
+<li>On crée les fonctions qui vont changer l&rsquo;état de ces variables</li>
+<li>L&rsquo;exécution coordonnée de ces fonctions fait passer nos variables d&rsquo;un état
+à l&rsquo;autre.</li>
 </ul>
-<h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
-<h3 id="première-données-en-table-course-au-chicon">Première, données en table, &ldquo;course au chicon&rdquo;</h3>
-<ul>
-<li>le module <code>Competitor.py</code> permet de manipuler des valeurs représentant les compétiteurs de la course. (&hellip;)</li>
-<li>Les performances des compétiteurs vont être représentées par leur temps de course (&hellip;) Créer un module <code>Time.py</code> qui définit le type <code>Time</code></li>
-</ul>
-<h3 id="première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</h3>
-<ul>
-<li>
-<p>expression d&rsquo;un typage de données à représenter :</p>
-<p><em>Une correction possible qui utilise les dictionnaires pour modéliser les combattants.</em></p>
-</li>
-</ul>
-<h2 id="définition-dun-type-competitor">définition d&rsquo;un type <code>Competitor</code></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">create</span>(first_name, last_name, sex, birth_date, bib_num):
-  <span style="color:#c30">&#34;&#34;&#34; (...)
-</span><span style="color:#c30">  :return: a new record for this competitor
-</span><span style="color:#c30">  :rtype: Competitor
-</span><span style="color:#c30">  &#34;&#34;&#34;</span>
-  <span style="color:#069;font-weight:bold">return</span> {
-    <span style="color:#c30">&#39;bib_num&#39;</span>: bib_num,
-    <span style="color:#c30">&#39;first_name&#39;</span>: first_name
-  }
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_firstname</span>(comp):
-  <span style="color:#c30">&#34;&#34;&#34;
-</span><span style="color:#c30">  :param comp: a competitor
-</span><span style="color:#c30">  :type comp: Competitor
-</span><span style="color:#c30">  :return: first name of competitor comp
-</span><span style="color:#c30">  (...)
-</span><span style="color:#c30">  &#34;&#34;&#34;</span>
-  <span style="color:#069;font-weight:bold">return</span> comp[<span style="color:#c30">&#39;first_name&#39;</span>]
-</code></pre></div><h2 id="type-competitor--vraiment-">type <code>Competitor</code> : vraiment ?</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">Competitor_chicon</span> <span style="color:#069;font-weight:bold">as</span> <span style="color:#0cf;font-weight:bold">Competitor</span>
-<span style="color:#555">&gt;&gt;&gt;</span> comp <span style="color:#555">=</span> Competitor<span style="color:#555">.</span>create(<span style="color:#c30">&#39;Alice&#39;</span>, <span style="color:#c30">&#39;L&#39;</span>, <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;2019/12/24&#39;</span>, <span style="color:#f60">1</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> Competitor<span style="color:#555">.</span>get_firstname(comp)
-<span style="color:#c30">&#39;Alice&#39;</span>
-</code></pre></div><p>mais :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(comp) <span style="color:#555">==</span> Competitor
-False
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(comp) <span style="color:#555">==</span> <span style="color:#366">dict</span>
+<p>Cette approche permet de résoudre tous les problèmes informatiques. On peut
+tout programmer de cette manière.</p>
+<p>Néanmoins elle présente un défaut majeur : il est difficile de dégager une
+structure à notre code.</p>
+<p>Cela le rend peu lisible et difficile à entretenir.</p>
+<p>Autre inconvénient, nos programmes ne sont pas réexploitables facilement.</p>
+<p>Pour réutiliser une fonction déjà écrite, la seule approche efficace
+est, pour l&rsquo;instant, d&rsquo;en faire un copier-coller.</p>
+<h2 id="programmation-objet--définir-des-_types_">Programmation objet : définir des <em>types</em>.</h2>
+<p>Les principes de la programmation objet vous sont familiers, vous les avez
+déjà rencontrés à chaque fois que vous avez crée une liste, un dictionnaire
+ou une fonction en Python.</p>
+<p>Ils sont moins visibles lorsqu&rsquo;on manipule des nombres directement mais,
+pourtant, les nombres en Python sont aussi des <em>objets</em>.</p>
+<h3 id="quest-ce-quun-objet-">Qu&rsquo;est-ce qu&rsquo;un objet ?</h3>
+<p>Un objet, c&rsquo;est simplement &ldquo;quelque chose&rdquo; qui respecte des règles préétablies.</p>
+<p>Par exemple : un nombre est un objet sur lequel je peux faire des comparaisons :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">3</span>
+<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">&lt;</span> b
 True
-</code></pre></div><h2 id="vraiment-">vraiment ?</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">Competitor_chicon</span> <span style="color:#069;font-weight:bold">as</span> <span style="color:#0cf;font-weight:bold">Competitor</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">Time_chicon</span> <span style="color:#069;font-weight:bold">as</span> <span style="color:#0cf;font-weight:bold">Time</span>
-<span style="color:#555">...</span>
-comp <span style="color:#555">=</span> Competitor<span style="color:#555">.</span>create(<span style="color:#555">...</span>)
-Competitor<span style="color:#555">.</span>get_birthdate(comp)
-Competitor<span style="color:#555">.</span>to_string(comp)
-Competitor<span style="color:#555">.</span>compare(comp, other_comp)
+</code></pre></div><p>Des opérations :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+</span> b
+<span style="color:#f60">5</span>
+</code></pre></div><p>Une liste est un objet qui a une longueur, qui contient un nombre fini
+d&rsquo;éléments auxquels je peux accéder, que je peux trier ou retourner :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">len</span>(ma_liste)
+<span style="color:#f60">3</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>append(<span style="color:#f60">4</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>sort()
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>reverse()
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
+</code></pre></div><h3 id="type-dun-objet">Type d&rsquo;un objet</h3>
+<p>Python propose d&rsquo;accéder au type d&rsquo;un objet de deux manière :</p>
+<ol>
+<li>En le consultant avec la fonction <code>type</code></li>
+<li>En le vérifiant avec <code>isinstance</code></li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(ma_liste)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">list</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(ma_liste, <span style="color:#366">list</span>)
+True
+</code></pre></div><p>Cependant, quand nous créons un objet supposé représenter quelque chose
+du monde extérieur (réel : une voiture, un participant de la course au chicon)
+ou imaginaire (un Pokémon etc.), leur type n&rsquo;est pas défini clairement</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> competiteur <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">42</span>}
+<span style="color:#555">&gt;&gt;&gt;</span> pikachu <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Pikachu&#34;</span>, <span style="color:#c30">&#34;cri&#34;</span>: <span style="color:#c30">&#34;Pika ! Pika !&#34;</span>, <span style="color:#c30">&#34;type1&#34;</span>: <span style="color:#c30">&#34;Electrique&#34;</span>,
+               <span style="color:#c30">&#34;type2&#34;</span>: None, <span style="color:#555">...</span>}
+</code></pre></div><p>Certes, le programmeur pense ces objets là comme des compétiteurs ou des
+Pokémons, il peut même les dessiner à l&rsquo;écran ou leur envoyer un email
+automatiquement&hellip; mais en pratique :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(competiteur)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(pikachu)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
+</code></pre></div><p>En pratique, ce sont toujours des dictionnaires.</p>
+<p>On pourrait par exemple, créer des objets qui n&rsquo;ont aucun sens :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> pikachu[<span style="color:#c30">&#34;telephone&#34;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;0678901234&#34;</span>
+</code></pre></div><p>Aussi, rien n&rsquo;est fait pour aider à la collaboration sur ce projet &ldquo;pokémon&rdquo;.</p>
+<p>Un nouveau développeur doit comprendre l&rsquo;intégralité du code s&rsquo;il veut utiliser
+certaines fonctions du programme.</p>
+<p>Il serait bon qu&rsquo;on ait une <em>interface</em> pour ces Pokémons.</p>
+<p>Elle nous permettrait :</p>
+<ul>
+<li>d&rsquo;accéder à leurs données (nom, points de vie, attaque etc.)</li>
+<li>de modifier ce qui peut l&rsquo;être (perdre de la vie, gagner de l&rsquo;expérience)</li>
+<li>d&rsquo;exécuter leurs actions (attaquer, lancer une technique spéciale etc.)</li>
+</ul>
+<p>Elle nous empêcherait aussi de faire n&rsquo;importe quoi avec ces objets !</p>
+<p>De la même manière qu&rsquo;avec les <code>list</code> on a accès à certaines méthodes sans
+avoir à comprendre exactement ce qui est fait dans la machine.</p>
+<h2 id="créer-un-nouveau-type-avec-class">Créer un nouveau type avec <code>class</code></h2>
+<p>De la même manière que le mot clé <code>def</code> permet de créer une fonction et de
+l&rsquo;affecter à une variable, le mot clé <code>class</code> permet de créer un type
+(une classe) et de l&rsquo;affecter à une variable.</p>
+<p>Une classe est un modèle qui permet de créer des objets de ce type.</p>
+<ul>
+<li>Les objets de cette classe sont appelés <em>instances</em>.</li>
+<li>Les variables propres à chaque éléments de cette classe sont appelés
+<em>attributs</em>.</li>
+<li>Les fonctions propres à chaque élément de cette classe sont appelées
+<em>méthodes</em>.</li>
+</ul>
+<p>L&rsquo;ensemble des méthodes accessibles à un utilisateur définit <em>l&rsquo;interface</em>
+de la classe.</p>
+<h2 id="exemple-de-classe--combattant">Exemple de classe : <code>Combattant</code></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Combattant:
 
-t <span style="color:#555">=</span> Time<span style="color:#555">.</span>create(<span style="color:#555">...</span>)
-Time<span style="color:#555">.</span>to_string(t)
-Time<span style="color:#555">.</span>compare(t, other_time)
-</code></pre></div><ul>
-<li>Si <code>comp</code> est de type Competitor et <code>t</code> est de type <code>Time</code>,
-alors pourquoi devoir préfixer <code>to_string</code> par <code>Competitor</code> pour <code>comp</code>  et par <code>Time</code> pour <code>t</code> ?</li>
-</ul>
-<h2 id="heading"></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># dans Competitor</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">set_performance</span>(comp, time):
-  comp[<span style="color:#c30">&#39;performance&#39;</span>] <span style="color:#555">=</span> time
+    def __init__(self, vie, attaque):
+        self.vie = vie
+        self.attaque = attaque
+        self.vivant = True
 
-<span style="color:#555">&gt;&gt;&gt;</span> tymp(comp)
-<span style="color:#366">dict</span>
-</code></pre></div><h2 id="heading-1"></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># dans le rpg</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">joueur</span>(nom<span style="color:#555">=</span>None, vie<span style="color:#555">=</span><span style="color:#f60">5</span>, force<span style="color:#555">=</span><span style="color:#f60">1</span>):
-    <span style="color:#069;font-weight:bold">return</span> {<span style="color:#c30">&#34;nom&#34;</span>: nom,
-            <span style="color:#c30">&#34;vie&#34;</span>: vie,
-            <span style="color:#c30">&#34;force&#34;</span>: force}
-<span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Joueur(<span style="color:#c30">&#39;Robert&#39;</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> robert
-{<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Robert&#39;</span>, <span style="color:#c30">&#39;vie&#39;</span>: <span style="color:#f60">5</span>, <span style="color:#c30">&#39;force&#39;</span>: <span style="color:#f60">1</span>}
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(robert)
-<span style="color:#366">dict</span>
-</code></pre></div><p>Le type n&rsquo;existe que &ldquo;dans la tête&rdquo; du programmeur, les données et les traitements sont séparés.</p>
-<h2 id="programmation-orientée-objet">Programmation Orientée Objet</h2>
-<p>Approche de la modélisation du problème à résoudre en terme d&rsquo;objets :</p>
-<ul>
-<li>on identifie : les &ldquo;familles&rdquo; d&rsquo;objets du problème<br>
-Un objet est une modélisation d&rsquo;une entité du monde réel ou d&rsquo;un concept</li>
-<li>on en déduit
-<ul>
-<li>les abstractions = les classes</li>
-<li>les fonctionnalités (= traitements/services) dont on a besoin pour chacune</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><strong>421</strong> : Dés/Groupe de 3 dés/Joueur/Partie</li>
-<li><strong>combat rpg</strong> : Combattant/Arme/Combat etc.</li>
-<li><strong>chicon</strong> : Compétiteur/Temps(performance)/Course(/Palmares)</li>
-<li><strong>messagerie</strong> : Contact/Message etc.</li>
-</ul>
-<h2 id="langage-à-objet">langage à objet</h2>
-<p>\hfill Alan Kay <em>SmallTalk</em></p>
-<ul>
-<li>tout est objet</li>
-<li>chaque objet a un <strong>type</strong></li>
-<li>chaque objet a sa propre mémoire, constituée d&rsquo;autres objets</li>
-<li>tous les objets d&rsquo;un type donné peuvent avoir les mêmes messages</li>
-<li>un programme est un regroupement d&rsquo;objets qui interagissent par <strong>envoi de messages</strong></li>
-</ul>
-<h2 id="type">type</h2>
-<p>\begin{center}c&rsquo;est quoi un \textbf{type} ?</p>
-<p>booléen, entier, Competiteur, Temps
-\end{center}</p>
-<h3 id="type-1">type\</h3>
-<p>un <strong>type</strong> de données définit</p>
-<ul>
-<li>l&rsquo;ensemble des valeurs possibles pour les données type</li>
-<li>les opérations applicables sur ces données</li>
-</ul>
-<h2 id="classes">classes</h2>
-<p>une <strong>classe</strong> est un type d&rsquo;objet</p>
-<p>une classe définit</p>
-<ul>
-<li>
-<p>la liste des <strong>méthodes</strong> et les traitements associés<br>
--&gt; le comportement des objets</p>
-</li>
-<li>
-<p>la liste des <strong>attributs</strong> nécessaires à la réalisation des traitements<br>
--&gt; l&rsquo;<strong>état</strong> des objets</p>
-<p>les méthodes portent les traitements (comportement, actions)
-les attributs portent les données</p>
-<p>classe = définition d&rsquo;un modèle pour les objets de la classe<br>
-classe = abstraction (on programme des définitions)</p>
-</li>
-</ul>
-<h2 id="instance">instance</h2>
-<ul>
-<li>une classe permet de <strong>créer</strong> des objets</li>
-<li>ces objets sont les valeurs du type de cette classe</li>
-</ul>
-<h3 id="instance-">instance \</h3>
-<p>on appelle <strong>instance</strong> un objet créé par une classe<br>
-tout objet est instance d&rsquo;une classe\</p>
-<p>\begin{center} nécessité d&rsquo;un \textbf{constructeur} dans une classe\<br>
-double rôle : construire l&rsquo;objet et initialiser son état
-\end{center}</p>
-<h2 id="méthodes-et-attributs">méthodes et attributs</h2>
-<h3 id="méthode">méthode</h3>
-<ul>
-<li>
-<p>une <strong>méthode</strong> est une fonction qui appartient à une classe</p>
-<p>&ldquo;<em>function member</em>&rdquo;</p>
-<p>ne peut être utilisée (<em>appelée, invoquée</em>) que par les instances de la classe qui la définit</p>
-</li>
-</ul>
-<h3 id="attribut">attribut</h3>
-<ul>
-<li>
-<p>un <strong>attribut</strong> est une donnée qui appartient à un objet</p>
-<p>&ldquo;<em>data member</em>&rdquo;</p>
-<p>les attributs sont définis par la classe de l&rsquo;objet</p>
-</li>
-</ul>
-<h1 id="en-python">En Python</h1>
-<h2 id="en-python-1">En Python</h2>
-<p>cf. <em>mytime.py</em></p>
-<ul>
-<li>
-<p>constructeur : <code>__init__</code></p>
-<ul>
-<li>initialisation de l&rsquo;état (attributs)</li>
-</ul>
-</li>
-<li>
-<p>une classe est un type (<code>type(), isinstance()</code>)</p>
-</li>
-<li>
-<p><strong>self</strong> : auto-référence = &ldquo;l&rsquo;objet dont on est en train de parler&rdquo;<br>
-ie. celui que l&rsquo;on construit ou celui qui invoque (utilise) la méthode\</p>
-<p>-&gt; permet d&rsquo;accéder aux attributs de l&rsquo;objet : (cf. <code>__init__, get_hours()</code>)</p>
-<ul>
-<li><code>this</code> en javascript, java</li>
-<li><code>self</code> n&rsquo;est <em>pas</em> imposé en Python mais <strong>très</strong> fortement recommandé</li>
-<li><code>self</code> ne doit jamais être modifié</li>
-</ul>
-</li>
-</ul>
-<h2 id="méthodes">méthodes</h2>
-<ul>
-<li><strong>méthode d&rsquo;objet</strong> vs <strong>méthode de classes</strong></li>
-</ul>
-<h2 id="méthodes-1">méthodes</h2>
-<ul>
-<li>
-<p><strong>méthodes d&rsquo;objets</strong> : invoquée par l&rsquo;objet<br>
-= envoi de messages possibles</p>
-<ul>
-<li>premier paramètre = <code>self</code> (cf <code>get_hours, __init__</code>)</li>
-<li><code>self</code> est lié à l&rsquo;objet utilisé pour invoquer la méthode<br>
-notation pointée : <code>t1.to_seconds()</code> -&gt; <code>self</code> lié à <code>t1</code></li>
-<li>permet d&rsquo;accéder aux attributs de l&rsquo;objet ou d&rsquo;invoquer une méthode sur cet objet. cf <code>compare</code></li>
-</ul>
-</li>
-</ul>
-<p>. . .</p>
-<ul>
-<li><strong>méthode de classe</strong> : méthode ne dépendant pas d&rsquo;un objet : <strong>statique</strong> appelée
-via la classe : <code>Time.from_seconds()</code> (= fonction, pas OO)<br>
-NB existence du décorateur : <code>@classmethod</code> qui permet de retourner une instance<br>
-les attributs de classe sont également possible <code>Time.BASE</code></li>
-</ul>
-<h2 id="méthodes-spéciales">méthodes spéciales</h2>
-<ul>
-<li>permet de définir des &ldquo;opérateurs&rdquo;
-<ul>
-<li><code>__add__ +, __mul__ *, __sub__ - </code></li>
-<li><code>__eq__ ==, __ne__ !=</code></li>
-<li><code>__lt__ &lt;, __ge__ &lt;=, __gt__ &gt;, __ge__ &gt;=</code></li>
-</ul>
-</li>
-<li><code>__repr__</code> : dans l&rsquo;interpréteur : <code>&gt;&gt;&gt; obj</code></li>
-<li><code>__str__</code> : <code>str(obj)</code> et <code>__len__</code> : <code>len(obj)</code></li>
-<li><code>__getitem__</code> : <code>obj[i]</code></li>
-<li><code>__iter__</code> : <code>for v in obj</code></li>
-</ul>
-<h2 id="exemple-dutilisation--la-méthode-__add__">Exemple d&rsquo;utilisation : la méthode <code>__add__</code></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Vecteur</span>:
-  <span style="color:#069;font-weight:bold">def</span> __init__(self, x, y):
-    self<span style="color:#555">.</span>__x <span style="color:#555">=</span> x
-    self<span style="color:#555">.</span>__y <span style="color:#555">=</span> y
+    def perdre_vie(self, points):
+        self.vie = self.vie - points
+        if self.vie &lt;= 0:
+            self.vivant = False
+            self.vie = 0
 
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">x</span>(self):
-    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__x
+    def attaquer(self, autre):
+        autre.perdre_vie(self.attaque)
+</code></pre></div><h3 id="commentaires-sur-le-code-de-la-classe">Commentaires sur le code de la classe.</h3>
+<ul>
+<li>Ligne 1. On utilise une majuscule pour un nom de classe.</li>
+<li>Lignes 2 à 15. La définition de la classe se termine quand on revient à
+l&rsquo;indentation de départ.</li>
+<li>Ligne 3, ligne 8, ligne 15. définition d&rsquo;une <em>méthode</em></li>
+<li>La variable <code>self</code> est toujours le premier paramètre d&rsquo;une méthode.
+Il désigne l&rsquo;objet lui même.</li>
+<li>Ligne 4, 5, 6 : des <em>attributs</em>.</li>
+<li>Ligne 4 à 6, ligne 9 : <em>dans</em> la classe on utilise <code>self.qqchose</code>
+pour accéder à un attribut ou une méthode.</li>
+<li>La méthode <code>__init__</code> est appelée &ldquo;constructeur&rdquo;, c&rsquo;est elle qui est exécutée
+quand vous exécutez l&rsquo;instruction <code>Combattant(10, 2)</code>.
+Elle crée un objet du type <code>Combattant</code></li>
+</ul>
+<p><strong>Attention !</strong> Python n&rsquo;impose pas le nom <code>self</code>&hellip; ce n&rsquo;est qu&rsquo;un <em>usage</em>.<br>
+Cependant, <em>je vous l&rsquo;impose.</em> Si vous écrivez autre chose que <code>self</code> :</p>
+<ol>
+<li>personne ne comprendra,</li>
+<li>vous aurez 0 à l&rsquo;exo.</li>
+</ol>
+<h2 id="utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier <span style="color:#555">=</span> Combattant(<span style="color:#f60">10</span>, <span style="color:#f60">2</span>)    <span style="color:#09f;font-style:italic"># on crée une instance. Utilise &#39;__init__&#39; </span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(guerrier)                  <span style="color:#09f;font-style:italic"># type d&#39;une instance = nom de la classe</span>
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">Combattant</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien <span style="color:#555">=</span> Combattant(<span style="color:#f60">5</span>, <span style="color:#f60">4</span>)     <span style="color:#09f;font-style:italic"># une autre instance</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># chaque instance a ses valeurs d&#39;attributs</span>
+<span style="color:#f60">10</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
+True
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># != guerrier.vie</span>
+<span style="color:#f60">5</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)     <span style="color:#09f;font-style:italic"># utilisation d&#39;une méthode</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">6</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">0</span>
+</code></pre></div><p>Dans la suite, nous introduirons peu à peu les bonnes pratiques.
+Par exemple, rien n&rsquo;empêche de faire ceci :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
+False
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant <span style="color:#555">=</span> True
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque <span style="color:#555">=</span> <span style="color:#f60">1000000000000000000000000</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque(magicien)
+</code></pre></div><p>Ce qui ne semble pas très cohérent. On pourrait même écrire des choses
+absurdes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#c30">&#34;BONJOUR !&#34;</span>
+</code></pre></div><p>ce qui va générer des erreurs par la suite.</p>
+<h2 id="interface">Interface</h2>
+<ul>
+<li>Certaines méthodes sont internes à la classe, comme <code>__init__</code> : on n&rsquo;exécute
+pas <code>__init__</code> directement. On parle généralement de méthodes <em>privées</em>.</li>
+<li>D&rsquo;autres sont <em>publiques</em> comme <code>list.reverse()</code> ou <code>Combattant.attaquer(...)</code></li>
+</ul>
+<p>L&rsquo;interface d&rsquo;un objet est définie par les méthodes qu&rsquo;il expose, celles
+qui sont publiques.</p>
+<p>Les attributs devraient tous être <em>privés</em> et ne servir qu&rsquo;aux méthodes.</p>
+<p>Aussi, lorsque nous faisons :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">5</span>
+</code></pre></div><p>On consulte un attribut directement et c&rsquo;est une mauvaise pratique.</p>
+<h2 id="encapsulation">Encapsulation</h2>
+<p>Le principe de l&rsquo;encapsulation est de protéger les attributs et de n&rsquo;exposer
+que l&rsquo;interface de la classe.</p>
+<p>Python permet (plus ou moins) de protéger les attributs en leur donnant
+un nom qui commence par <code>__</code>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Voiture</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
+</code></pre></div><p>Lorsqu&rsquo;on crée un attribut (ou une méthode) dont le nom commence par <code>__</code> il
+n&rsquo;est plus accessible directement.</p>
+<h3 id="setter-et-getter">setter et getter</h3>
+<p>Si on veut consulter ou modifier la couleur de la voiture, il faut créer
+des méthodes qui le permettent :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Voiture</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
 
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">y</span>(self):
-    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__y
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_couleur</span>(self):
+        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__couleur
 
-  <span style="color:#069;font-weight:bold">def</span> __add__(self, autre):
-    <span style="color:#069;font-weight:bold">return</span> Vecteur(self<span style="color:#555">.</span>x() <span style="color:#555">+</span> autre<span style="color:#555">.</span>x(),
-                   self<span style="color:#555">.</span>y() <span style="color:#555">+</span> autre<span style="color:#555">.</span>y())
-</code></pre></div><h2 id="exemple-dutilisation---la-méthode-__add__-suite">Exemple d&rsquo;utilisation  : la méthode <code>__add__</code> (suite)</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> u <span style="color:#555">=</span> Vecteur(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> v <span style="color:#555">=</span> Vecteur(<span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> w <span style="color:#555">=</span> u <span style="color:#555">+</span> v <span style="color:#09f;font-style:italic"># utilise la méthdoe add !!!!</span>
-<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>x()
-<span style="color:#f60">4</span>
-<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>y()
-<span style="color:#f60">7</span>
-</code></pre></div><h2 id="encapsulation">encapsulation</h2>
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">set_couleur</span>(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
+</code></pre></div><p>Ici, cela peut sembler inutile mais on pourrait, dans la méthode
+<code>set_couleur</code> restreindre les choix de couleurs à ceux qui la marque propose.</p>
+<p>Ou vérifier que la nouvelle valeur d&rsquo;un numéro de téléphone est valide, qu&rsquo;un
+age est positif, qu&rsquo;un compte bancaire bloqué n&rsquo;est pas à découvert etc.</p>
 <p>\hrulefill coeur de la POO en NSI</p>
 <h3 id="encapsulation-1">encapsulation\</h3>
 <p>Les données (attributs) sont regroupées avec les traitements qui les manipulent
@@ -9461,29 +9413,28 @@ les attributs de classe sont également possible <code>Time.BASE</code></li>
 </ul>
 </li>
 </ul>
-<h2 id="heading-2"></h2>
 <h3 id="règle-dor">règle d&rsquo;or\</h3>
 <p><strong>les attributs sont déclarés privés</strong> = accessibles uniquement au sein de la
 classe</p>
 <p>en Python, identifiant préfixé de <code>__</code><br>
 on peut aussi définir des méthodes privées.</p>
-<h2 id="heading-3"></h2>
 <h3 id="séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</h3>
 <ul>
-<li><strong>interface publique d&rsquo;une classe</strong><br>
+<li>
+<p><strong>interface publique d&rsquo;une classe</strong><br>
 = ensemble des méthodes <em>publiques</em> définies par la classe<br>
-= ensemble des services que peuvent rendre les objets</li>
-</ul>
-<h2 id="intérêt-">intérêt ?</h2>
-<ul>
-<li>la représentation des données utilisée n&rsquo;a pas besoin d&rsquo;être connue, elle
-pourra donc <strong>évoluer</strong> sans perturber l&rsquo;existant &ldquo;code client&rdquo;</li>
-<li>ce qui compte c&rsquo;est ce que l&rsquo;on peut faire, pas comment on le fait<br>
-<em>en partant du principe que c&rsquo;est bien fait.</em></li>
-</ul>
-<h2 id="intérêt--suite">intérêt ? (suite)</h2>
-<ul>
-<li>possibilité d&rsquo;ajouter du contrôle
+= ensemble des services que peuvent rendre les objets</p>
+</li>
+<li>
+<p>la représentation des données utilisée n&rsquo;a pas besoin d&rsquo;être connue, elle
+pourra donc <strong>évoluer</strong> sans perturber l&rsquo;existant &ldquo;code client&rdquo;</p>
+</li>
+<li>
+<p>ce qui compte c&rsquo;est ce que l&rsquo;on peut faire, pas comment on le fait<br>
+<em>en partant du principe que c&rsquo;est bien fait.</em></p>
+</li>
+<li>
+<p>possibilité d&rsquo;ajouter du contrôle</p>
 <ul>
 <li>
 <p>accès en lecture seulement d&rsquo;un attribut<br>
@@ -9500,9 +9451,6 @@ classe <code>Person</code> avec attribut <code>__age</code></p>
 </li>
 </ul>
 </li>
-</ul>
-<h2 id="heading-4"></h2>
-<ul>
 <li>
 <p>lorsque l&rsquo;on fait l&rsquo;analyse objet d&rsquo;un problème, on cherche à déterminer les <strong>services</strong> que doivent rendre les objets<br>
 = les <strong>méthodes</strong></p>
@@ -9518,7 +9466,7 @@ On a besoin de connaître le rayon, diamètre, aire, périmètre.</p>
 <ul>
 <li>
 <p>classe <code>Disc</code> + méthodes</p>
-<p><code>get_radius(), get_diameter(), get_aera(), get_perimeter()</code></p>
+<p><code>get_rayon(), get_diametre(), get_perimetre()</code></p>
 </li>
 <li>
 <p>attributs ?<br>
@@ -9526,63 +9474,250 @@ dépendent de choix d&rsquo;implémentation&hellip;</p>
 </li>
 </ul>
 <hr>
-<h2 id="implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</h2>
+<h3 id="implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
   <span style="color:#069;font-weight:bold">def</span> __init__(self, rayon):
     self<span style="color:#555">.</span>__rayon <span style="color:#555">=</span> rayon
-</code></pre></div><p>. . .</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
     <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__rayon
+
   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
     <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimetre</span>(self):
     <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
-</code></pre></div><h2 id="implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</h2>
+</code></pre></div><h3 id="implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
   <span style="color:#069;font-weight:bold">def</span> __init__(self, diametre):
     self<span style="color:#555">.</span>__diametre <span style="color:#555">=</span> diametre
-</code></pre></div><p>. . .</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
     <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__diametre <span style="color:#555">/</span> <span style="color:#f60">2</span>
+
   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
     <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimeter</span>(self):
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimetre</span>(self):
     <span style="color:#069;font-weight:bold">return</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
 </code></pre></div><h2 id="quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</h2>
 <ul>
-<li>Pour le <strong>développeur</strong>, s&rsquo;il défini ses disques avec le diamètre,
-le constructeur et les méthodes changent.</li>
-</ul>
-<p>. . .</p>
-<ul>
+<li>
+<p>Pour le <strong>développeur</strong>, s&rsquo;il défini ses disques avec le diamètre,
+le constructeur et les méthodes changent.</p>
+</li>
 <li>
 <p>Pour <strong>l&rsquo;utilisateur</strong>, rien ne change. Qu&rsquo;il utilise l&rsquo;un ou l&rsquo;autre,
 il obtient le même résultat.</p>
 <p>Inutile pour lui de savoir quelle formule on a employé.</p>
 </li>
 </ul>
-<h2 id="javascript">javascript</h2>
-<p><em>cf. Time.js</em></p>
+<h2 id="méthode-dobjet-_vs_-méthode-de-classes">méthode d&rsquo;objet <em>vs</em> méthode de classes</h2>
+<p>Attention cependant, il est toujours possibles de créer des attributs
+et des méthodes <em>pour la classe entière</em> plutôt que pour un objet particulier.</p>
 <ul>
-<li>similarités
+<li>
+<p><strong>méthodes d&rsquo;objets</strong> : invoquée par l&rsquo;objet<br>
+= envoi de messages possibles</p>
 <ul>
-<li>class</li>
-<li>constructor</li>
-<li>this</li>
+<li>premier paramètre = <code>self</code> (cf <code>__init__, rouler</code>)</li>
+<li><code>self</code> est lié à l&rsquo;objet utilisé pour invoquer la méthode<br>
+notation pointée : <code>ferrari.rouler()</code> -&gt; <code>self</code> lié à <code>ferrari</code></li>
+<li>permet d&rsquo;accéder aux attributs de l&rsquo;objet ou d&rsquo;invoquer une méthode sur cet
+objet. cf <code>rouler</code></li>
 </ul>
 </li>
-<li>différences
-<ul>
-<li>pas <code>this/self</code> en paramètres des méthodes</li>
-<li>mot-clé <code>static</code></li>
-<li>pas de notion &ldquo;privé&rdquo;
-mais : voir <code>getters/setters (get/set xxx)</code> dans version 2 de <code>Time2.js</code></li>
-</ul>
+<li>
+<p><strong>méthode de classe</strong> : méthode ne dépendant pas d&rsquo;un objet mais <strong>statique</strong>
+appelée via la classe :</p>
+<p>On utilise alors un décorateur : <code>@classmethod</code> qui permet de retourner
+une instance.</p>
+<p>les attributs de classe sont également possibles.</p>
 </li>
 </ul>
-<h1 id="polymorphisme--héritage">Polymorphisme / héritage</h1>
+<p>C&rsquo;est une nuance importante, vous devez savoir que ça existe, je ne pense pas
+qu&rsquo;on puisse exiger que vous sachiez créer ce genre de méthode en Python.</p>
+<h3 id="exemple-de-méthode-de-classe">Exemple de méthode de classe</h3>
+<p>Nous allons créer une classe dont les instances peuvent être définies de deux
+manières différentes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Contact</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, nom, prenom, telephone):
+        self<span style="color:#555">.</span>__nom <span style="color:#555">=</span> nom
+        self<span style="color:#555">.</span>__prenom <span style="color:#555">=</span> prenom
+        self<span style="color:#555">.</span>__telephone <span style="color:#555">=</span> telephone
+
+    <span style="color:#09f;font-style:italic"># ici les méthodes publiques</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_prenom</span>(self):
+        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__prenom
+
+    <span style="color:#99f">@classmethod</span>
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">depuis_dictionnaire</span>(cls, dictionnaire):
+        nom <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;nom&#34;</span>]
+        prenom <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;prenom&#34;</span>]
+        telephone <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;telephone&#34;</span>]
+        <span style="color:#069;font-weight:bold">return</span> cls(nom, prenom, telephone)
+</code></pre></div><p>La méthode <code>depuis_dictionnaire</code> définit un second constructeur (ce n&rsquo;est pas
+le seul usage mais le plus courant. Le premier paramètre est un nom de classe,
+identifié par <code>cls</code> il fait référence à la classe dans laquelle il est appelé.
+Comme pour <code>self</code> ce n&rsquo;est qu&rsquo;un usage.)</p>
+<p>On peut maintenant créer des contacts :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Contact(<span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;0678901234&#34;</span>)   <span style="color:#09f;font-style:italic"># directement</span>
+<span style="color:#555">&gt;&gt;&gt;</span> dict_martin <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Patrick&#34;</span>, <span style="color:#c30">&#34;telephone&#34;</span>: <span style="color:#c30">&#34;0789012345&#34;</span>} 
+<span style="color:#555">&gt;&gt;&gt;</span> martin <span style="color:#555">=</span> Contact<span style="color:#555">.</span>depuis_dictionnaire(dict_martin)     <span style="color:#09f;font-style:italic"># avec la méthode de classe</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(martin)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">Contact</span><span style="color:#555">&gt;</span><span style="color:#c30">&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> martin<span style="color:#555">.</span>get_prenom()
+<span style="color:#c30">&#34;Patrick&#34;</span>
+</code></pre></div><h2 id="lister-les-méthodes-et-attributs">Lister les méthodes et attributs</h2>
+<p>Python propose la fonction <code>dir</code> qui permet de lister les méthodes et attributs
+définis pour un objet :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dir</span>(ma_liste)
+[<span style="color:#c30">&#39;__add__&#39;</span>, <span style="color:#c30">&#39;__class__&#39;</span>, <span style="color:#c30">&#39;__contains__&#39;</span>, <span style="color:#c30">&#39;__delattr__&#39;</span>, <span style="color:#c30">&#39;__delitem__&#39;</span>,
+<span style="color:#c30">&#39;__dir__&#39;</span>, <span style="color:#c30">&#39;__doc__&#39;</span>, <span style="color:#c30">&#39;__eq__&#39;</span>, <span style="color:#c30">&#39;__format__&#39;</span>, <span style="color:#c30">&#39;__ge__&#39;</span>, <span style="color:#c30">&#39;__getattribute__&#39;</span>,
+<span style="color:#c30">&#39;__getitem__&#39;</span>, <span style="color:#c30">&#39;__gt__&#39;</span>, <span style="color:#c30">&#39;__hash__&#39;</span>, <span style="color:#c30">&#39;__iadd__&#39;</span>, <span style="color:#c30">&#39;__imul__&#39;</span>, <span style="color:#c30">&#39;__init__&#39;</span>,
+<span style="color:#c30">&#39;__init_subclass__&#39;</span>, <span style="color:#c30">&#39;__iter__&#39;</span>, <span style="color:#c30">&#39;__le__&#39;</span>, <span style="color:#c30">&#39;__len__&#39;</span>, <span style="color:#c30">&#39;__lt__&#39;</span>, <span style="color:#c30">&#39;__mul__&#39;</span>,
+<span style="color:#c30">&#39;__ne__&#39;</span>, <span style="color:#c30">&#39;__new__&#39;</span>, <span style="color:#c30">&#39;__reduce__&#39;</span>, <span style="color:#c30">&#39;__reduce_ex__&#39;</span>, <span style="color:#c30">&#39;__repr__&#39;</span>, <span style="color:#c30">&#39;__reversed__&#39;</span>,
+<span style="color:#c30">&#39;__rmul__&#39;</span>, <span style="color:#c30">&#39;__setattr__&#39;</span>, <span style="color:#c30">&#39;__setitem__&#39;</span>, <span style="color:#c30">&#39;__sizeof__&#39;</span>, <span style="color:#c30">&#39;__str__&#39;</span>,
+<span style="color:#c30">&#39;__subclasshook__&#39;</span>, <span style="color:#c30">&#39;append&#39;</span>, <span style="color:#c30">&#39;clear&#39;</span>, <span style="color:#c30">&#39;copy&#39;</span>, <span style="color:#c30">&#39;count&#39;</span>, <span style="color:#c30">&#39;extend&#39;</span>, <span style="color:#c30">&#39;index&#39;</span>,
+<span style="color:#c30">&#39;insert&#39;</span>, <span style="color:#c30">&#39;pop&#39;</span>, <span style="color:#c30">&#39;remove&#39;</span>, <span style="color:#c30">&#39;reverse&#39;</span>, <span style="color:#c30">&#39;sort&#39;</span>]
+</code></pre></div><p>Cela fonctionne aussi pour les objets que nous créons nous mêmes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Contact(<span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;0678901234&#34;</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dir</span>(robert)
+[<span style="color:#c30">&#39;_Contact__nom&#39;</span>, <span style="color:#c30">&#39;_Contact__prenom&#39;</span>, <span style="color:#c30">&#39;_Contact__telephone&#39;</span>, <span style="color:#c30">&#39;__class__&#39;</span>,
+<span style="color:#c30">&#39;__delattr__&#39;</span>, <span style="color:#c30">&#39;__dict__&#39;</span>, <span style="color:#c30">&#39;__dir__&#39;</span>, <span style="color:#c30">&#39;__doc__&#39;</span>, <span style="color:#c30">&#39;__eq__&#39;</span>, <span style="color:#c30">&#39;__format__&#39;</span>,
+<span style="color:#c30">&#39;__ge__&#39;</span>, <span style="color:#c30">&#39;__getattribute__&#39;</span>, <span style="color:#c30">&#39;__gt__&#39;</span>, <span style="color:#c30">&#39;__hash__&#39;</span>, <span style="color:#c30">&#39;__init__&#39;</span>,
+<span style="color:#c30">&#39;__init_subclass__&#39;</span>, <span style="color:#c30">&#39;__le__&#39;</span>, <span style="color:#c30">&#39;__lt__&#39;</span>, <span style="color:#c30">&#39;__module__&#39;</span>, <span style="color:#c30">&#39;__ne__&#39;</span>, <span style="color:#c30">&#39;__new__&#39;</span>,
+<span style="color:#c30">&#39;__reduce__&#39;</span>, <span style="color:#c30">&#39;__reduce_ex__&#39;</span>, <span style="color:#c30">&#39;__repr__&#39;</span>, <span style="color:#c30">&#39;__setattr__&#39;</span>, <span style="color:#c30">&#39;__sizeof__&#39;</span>,
+<span style="color:#c30">&#39;__str__&#39;</span>, <span style="color:#c30">&#39;__subclasshook__&#39;</span>, <span style="color:#c30">&#39;__weakref__&#39;</span>, <span style="color:#c30">&#39;depuis_dictionnaire&#39;</span>,
+<span style="color:#c30">&#39;get_prenom&#39;</span>, <span style="color:#c30">&#39;get_nom&#39;</span>, <span style="color:#c30">&#39;get_telephone&#39;</span>]
+</code></pre></div><p>Remarquons que :</p>
+<ul>
+<li>certaines méthodes ont un nom &ldquo;normal&rdquo; comme <code>append</code> ou <code>get_telephone</code><br>
+Ce sont les méthodes <em>publiques</em>.</li>
+<li>d&rsquo;autres ont un nom qui commence par <code>__</code> et se termine par <code>__</code><br>
+Ce sont les méthodes <em>spéciales</em>.</li>
+<li>certains attributs ont un nom de la forme <code>_Contact__telephone</code><br>
+Ce sont les attributs et méthodes <em>privés</em>. Python a changé leur nom.</li>
+</ul>
+<h2 id="méthodes-spéciales">méthodes spéciales</h2>
+<p>Lorsqu&rsquo;on utilise une fonction courante de Python sur un objet, il appelle
+une méthode spéciale de cet objet :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>                   <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__add__&#39; des &#39;int&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]    <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__init__&#39; des &#39;list&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste[<span style="color:#f60">1</span>]             <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__getitem__&#39; des &#39;list&#39;</span>
+<span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste                <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__repr__&#39; des &#39;list&#39;</span>
+[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+</code></pre></div><p>On peut implémenter nous mêmes ces méthodes spéciales.</p>
+<h3 id="quelques-méthodes-spéciales-courantes-">Quelques méthodes spéciales courantes :</h3>
+<p>Elles permettent de définir des &ldquo;opérateurs&rdquo; et de donner des propriétés aux
+objets :</p>
+<table>
+<thead>
+<tr>
+<th>Méthode spéciale</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__add__</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><code>__mul__</code></td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td><code>__sub__</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><code>__eq__</code></td>
+<td><code>==</code></td>
+</tr>
+<tr>
+<td><code>__ne__</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr>
+<td><code>__lt__</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr>
+<td><code>__ge__</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+<tr>
+<td><code>__gt__</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr>
+<td><code>__ge__</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr>
+<td><code>__repr__</code></td>
+<td>dans l&rsquo;interpréteur <code>&gt;&gt;&gt; obj</code></td>
+</tr>
+<tr>
+<td><code>__str__</code></td>
+<td><code>str(obj), print(obj)</code></td>
+</tr>
+<tr>
+<td><code>__getitem__</code></td>
+<td><code>obj[i]</code></td>
+</tr>
+<tr>
+<td><code>__iter__</code></td>
+<td><code>for v in obj</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exemple-dimplémentation-dune-méthode-__repr__-">Exemple d&rsquo;implémentation d&rsquo;une méthode <code>__repr__</code> :</h3>
+<p>Pour l&rsquo;instant lorsqu&rsquo;on exécute :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#555">&gt;&gt;&gt;</span> martin
+<span style="color:#555">&lt;</span>__main__<span style="color:#555">.</span>Contact <span style="color:#366">object</span> at <span style="color:#f60">0x7fc027ddd040</span><span style="color:#555">&gt;</span>
+</code></pre></div><p>Pas génial &hellip; On implémente maintenant une méthode <code>__repr__</code> :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Contact</span>():
+
+    <span style="color:#09f;font-style:italic"># le début du code de la classe</span>
+    <span style="color:#09f;font-style:italic"># ...</span>
+    <span style="color:#09f;font-style:italic"># ...</span>
+
+    <span style="color:#069;font-weight:bold">def</span> __repr__(self):
+        <span style="color:#069;font-weight:bold">return</span> f<span style="color:#c30">&#39;Contact(&#34;{self.get_nom()}&#34;, &#34;{self.get_prenom()}&#34;, &#34;{self.get_telephone()}&#34;)&#39;</span>
+</code></pre></div><p>Et maintenant :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> martin
+Contact(<span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;Patrick&#34;</span>, <span style="color:#c30">&#34;0789012345&#34;</span>)
+</code></pre></div><p>C&rsquo;est beaucoup plus pratique !</p>
+<h3 id="exemple-dimplémentation-dune-méthode-spéciale---__add__">Exemple d&rsquo;implémentation d&rsquo;une méthode spéciale :  <code>__add__</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Vecteur</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, x, y):
+    self<span style="color:#555">.</span>__x <span style="color:#555">=</span> x
+    self<span style="color:#555">.</span>__y <span style="color:#555">=</span> y
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">x</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__x
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">y</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__y
+
+  <span style="color:#069;font-weight:bold">def</span> __add__(self, autre):
+    <span style="color:#069;font-weight:bold">return</span> Vecteur(self<span style="color:#555">.</span>x() <span style="color:#555">+</span> autre<span style="color:#555">.</span>x(),
+                   self<span style="color:#555">.</span>y() <span style="color:#555">+</span> autre<span style="color:#555">.</span>y())
+</code></pre></div><h3 id="exemple-dutilisation-de-cette-méthode-spéciale">Exemple d&rsquo;utilisation de cette méthode spéciale</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> u <span style="color:#555">=</span> Vecteur(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>)       <span style="color:#09f;font-style:italic"># instance de la classe Vecteur</span>
+<span style="color:#555">&gt;&gt;&gt;</span> v <span style="color:#555">=</span> Vecteur(<span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> w <span style="color:#555">=</span> u <span style="color:#555">+</span> v               <span style="color:#09f;font-style:italic"># utilise la méthode __add__ !!!!</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>x()                   <span style="color:#09f;font-style:italic"># méthode</span>
+<span style="color:#f60">4</span>                           <span style="color:#09f;font-style:italic"># 1 + 3 = 4</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>y()
+<span style="color:#f60">7</span>                           <span style="color:#09f;font-style:italic"># 2 + 5 = 7</span>
+</code></pre></div><h1 id="polymorphisme--héritage">Polymorphisme / héritage</h1>
 <h2 id="polymorphisme--héritage-1">Polymorphisme / héritage</h2>
 <ul>
 <li><strong>hors programme</strong>, donc pas abordé ici</li>
@@ -9602,6 +9737,8 @@ succeptibles <em>d&rsquo;évoluer</em>&hellip;<br>
 donc de <em>maintenir</em> du code.</li>
 <li>J&rsquo;ai des sources si ça vous intéresse.</li>
 </ul>
+<p>En pratique&hellip; en Python, toutes les classes héritent de <code>object</code> qui
+est un format général de classe.</p>
 </article>
 
       <div class="backtotop">
@@ -9639,79 +9776,55 @@ donc de <em>maintenir</em> du code.</li>
   <ul>
     <li>
       <ul>
-        <li><a href="#pdf--pour-impressionuploadsdocnsitalepoo2_cours_print_betterpdf-slidesuploadsdocnsitalepoo2_cours_slides_betterpdf">pdf : <a href="/uploads/docnsitale/poo/2_cours_print_better.pdf">pour impression</a>, <a href="/uploads/docnsitale/poo/2_cours_slides_better.pdf">slides</a></a></li>
+        <li><a href="#pdf--format-imprimableuploadsdocnsitalepoo2_cours_cleanpdf-fichier-contactpyuploadsdocnsitalepoocontactpy">pdf : <a href="/uploads/docnsitale/poo/2_cours_clean.pdf">format imprimable</a>, fichier <a href="/uploads/docnsitale/poo/contact.py">contact.py</a></a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#programmation-modulaire">Programmation modulaire</a>
+    <li><a href="#programmation-objet--définir-des-_types_">Programmation objet : définir des <em>types</em>.</a>
       <ul>
-        <li><a href="#pourquoi-la-programmation-modulaire-">Pourquoi la programmation modulaire ?</a></li>
+        <li><a href="#quest-ce-quun-objet-">Qu&rsquo;est-ce qu&rsquo;un objet ?</a></li>
+        <li><a href="#type-dun-objet">Type d&rsquo;un objet</a></li>
       </ul>
     </li>
-    <li><a href="#mise-en-oeuvre">Mise en oeuvre</a>
+    <li><a href="#créer-un-nouveau-type-avec-class">Créer un nouveau type avec <code>class</code></a></li>
+    <li><a href="#exemple-de-classe--combattant">Exemple de classe : <code>Combattant</code></a>
       <ul>
-        <li><a href="#première-données-en-table-course-au-chicon">Première, données en table, &ldquo;course au chicon&rdquo;</a></li>
-        <li><a href="#première-rpg-texte">Première, &ldquo;rpg texte&rdquo;</a></li>
+        <li><a href="#commentaires-sur-le-code-de-la-classe">Commentaires sur le code de la classe.</a></li>
       </ul>
     </li>
-    <li><a href="#définition-dun-type-competitor">définition d&rsquo;un type <code>Competitor</code></a></li>
-    <li><a href="#type-competitor--vraiment-">type <code>Competitor</code> : vraiment ?</a></li>
-    <li><a href="#vraiment-">vraiment ?</a></li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#heading-1"></a></li>
-    <li><a href="#programmation-orientée-objet">Programmation Orientée Objet</a></li>
-    <li><a href="#langage-à-objet">langage à objet</a></li>
-    <li><a href="#type">type</a>
+    <li><a href="#utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></a></li>
+    <li><a href="#interface">Interface</a></li>
+    <li><a href="#encapsulation">Encapsulation</a>
       <ul>
-        <li><a href="#type-1">type\</a></li>
-      </ul>
-    </li>
-    <li><a href="#classes">classes</a></li>
-    <li><a href="#instance">instance</a>
-      <ul>
-        <li><a href="#instance-">instance \</a></li>
-      </ul>
-    </li>
-    <li><a href="#méthodes-et-attributs">méthodes et attributs</a>
-      <ul>
-        <li><a href="#méthode">méthode</a></li>
-        <li><a href="#attribut">attribut</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#en-python-1">En Python</a></li>
-    <li><a href="#méthodes">méthodes</a></li>
-    <li><a href="#méthodes-1">méthodes</a></li>
-    <li><a href="#méthodes-spéciales">méthodes spéciales</a></li>
-    <li><a href="#exemple-dutilisation--la-méthode-__add__">Exemple d&rsquo;utilisation : la méthode <code>__add__</code></a></li>
-    <li><a href="#exemple-dutilisation---la-méthode-__add__-suite">Exemple d&rsquo;utilisation  : la méthode <code>__add__</code> (suite)</a></li>
-    <li><a href="#encapsulation">encapsulation</a>
-      <ul>
+        <li><a href="#setter-et-getter">setter et getter</a></li>
         <li><a href="#encapsulation-1">encapsulation\</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-2"></a>
-      <ul>
         <li><a href="#règle-dor">règle d&rsquo;or\</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-3"></a>
-      <ul>
         <li><a href="#séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</a></li>
       </ul>
     </li>
-    <li><a href="#intérêt-">intérêt ?</a></li>
-    <li><a href="#intérêt--suite">intérêt ? (suite)</a></li>
-    <li><a href="#heading-4"></a></li>
-    <li><a href="#exemple--les-disques">exemple : les disques</a></li>
-    <li><a href="#implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</a></li>
-    <li><a href="#implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</a></li>
+    <li><a href="#exemple--les-disques">exemple : les disques</a>
+      <ul>
+        <li><a href="#implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</a></li>
+        <li><a href="#implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</a></li>
-    <li><a href="#javascript">javascript</a></li>
+    <li><a href="#méthode-dobjet-_vs_-méthode-de-classes">méthode d&rsquo;objet <em>vs</em> méthode de classes</a>
+      <ul>
+        <li><a href="#exemple-de-méthode-de-classe">Exemple de méthode de classe</a></li>
+      </ul>
+    </li>
+    <li><a href="#lister-les-méthodes-et-attributs">Lister les méthodes et attributs</a></li>
+    <li><a href="#méthodes-spéciales">méthodes spéciales</a>
+      <ul>
+        <li><a href="#quelques-méthodes-spéciales-courantes-">Quelques méthodes spéciales courantes :</a></li>
+        <li><a href="#exemple-dimplémentation-dune-méthode-__repr__-">Exemple d&rsquo;implémentation d&rsquo;une méthode <code>__repr__</code> :</a></li>
+        <li><a href="#exemple-dimplémentation-dune-méthode-spéciale---__add__">Exemple d&rsquo;implémentation d&rsquo;une méthode spéciale :  <code>__add__</code></a></li>
+        <li><a href="#exemple-dutilisation-de-cette-méthode-spéciale">Exemple d&rsquo;utilisation de cette méthode spéciale</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
