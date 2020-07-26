@@ -13,7 +13,7 @@
   
     
     
-    Complement a Deux
+    Complément à deux
   
  | qkzk</title>
 
@@ -2274,6 +2274,72 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
+      <a href="/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/"  class="active">
+        
+  
+    
+    
+    Complément à deux
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
       <a href="/docs/nsi/cours_premiere/representation_donnees/hexadecimal/" >
         
   
@@ -2313,39 +2379,6 @@ MathJax.Hub.Config({
     
     
     Chaines Caracteres
-  
-
-      </a>
-    </span>
-  
-
-      
-
-      
-  
-    <ul  class="nested">
-        
-    </ul>
-
-  
-
-    </li>
-  
-
-        
-          
-  
-    <li class="bookkkk">
-      
-        
-  
-    <span class="caret">
-      <a href="/docs/nsi/cours_premiere/representation_donnees/complement_a_deux/"  class="active">
-        
-  
-    
-    
-    Complement a Deux
   
 
       </a>
@@ -9286,13 +9319,13 @@ MathJax.Hub.Config({
   
     
     
-    Complement a Deux
+    Complément à deux
   
 </strong>
 </header>
 
       
-<article class="markdown"><h2 id="pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgcomplement_a_2_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgcomplement_a_2_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_slides.pdf">diaporama</a></h2>
+<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgcomplement_a_2_elevespdf-diaporamauploadsdocsnsidonnees_qkzk_imgcomplement_a_2_beamerpdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_eleves.pdf">pour impression</a>, <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_beamer.pdf">diaporama</a></h3>
 <h1 id="le-complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">Le complément à deux : comment coder les entiers négatifs dans une machine ?</h1>
 <h2 id="les-entiers-relatifs">Les entiers relatifs</h2>
 <p>Rappels :</p>
@@ -9363,13 +9396,13 @@ On complète sur 8 bits :
 + 0b 1000 1001
 --------------
 = 0b 1010 0100
-</code></pre></div><p>&hellip; mais <code>0b 1010 0100 = 164</code></p>
+</code></pre></div><p>&hellip; mais <code>0b 1010 0100 = -36</code> en binaire signé&hellip;</p>
 <p>Échec total ! <strong>Le binaire signé ne permet pas de réaliser les additions habitulles</strong></p>
 <h2 id="exercice-1">Exercice 1</h2>
 <p>On suppose toujours nos entiers encodés sur un octet.</p>
 <ol>
-<li>Donner la représentation binaire naïve de 12 et -100 et de -88.</li>
-<li>Réaliser l&rsquo;addition binaire bit à bit de ces nombres.</li>
+<li>Donner la représentation binaire naïve de 12, de -100 et de -88.</li>
+<li>Réaliser l&rsquo;addition binaire bit à bit $12 + (-100)$.</li>
 <li>Comparer avec le résultat obtenu.</li>
 </ol>
 <h2 id="la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">La méthode naïve ne permet pas de faire de calculs !</h2>
@@ -9397,7 +9430,7 @@ On a maintenant deux objectifs :</p>
 <li>Si le bit de poids fort est 0 : le nombre est positif</li>
 <li>Si le bit de poids fort est 1 : le nombre est négatif</li>
 </ul>
-<h2 id="exemples--27">Exemples : 27</h2>
+<h2 id="exemple-1--27">Exemple 1 : 27</h2>
 <h3 id="27-1">27</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 1. coder l&#39;entier en binaire comme d&#39;habitude,
@@ -9405,7 +9438,7 @@ On a maintenant deux objectifs :</p>
 2. compléter l&#39;octet avec des 0 devant.
     27 = 0b 0001 1011
 </code></pre></div><p>Le complément à 2 sur un octet de 27 est <code>0b 0001 1011</code></p>
-<h2 id="exemples---9">Exemples : -9</h2>
+<h2 id="exemple-2---9">Exemple 2 : -9</h2>
 <h3 id="-9-1">-9</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 1. coder la valeur absolue du nombre :
@@ -9417,8 +9450,32 @@ On a maintenant deux objectifs :</p>
 4. ajouter 1 :
     0b 1111 0111
 </code></pre></div><p>Le complément à 2 sur un octet de $-9$ est <code>0b 1111 0111</code></p>
+<h1 id="complément-à-2-méthode-rapide">Complément à 2, méthode rapide</h1>
+<h2 id="méthode-rapide">Méthode rapide</h2>
+<p>La méthode précédente se code facilement, elle est plus pénible à la main.</p>
+<p>La méthode rapide : complément à 2 sur un octet de $n$ :</p>
+<blockquote>
+<p>Si l&rsquo;entier est négatif :</p>
+<ol>
+<li>donner la représentation binaire de $|n|$\</li>
+<li>Compléter à gauche jusqu&rsquo;à avoir la taille voulue\</li>
+<li>de droite à gauche, conserver tous les bits jusqu&rsquo;au premier 1 inclus\</li>
+<li>changer tous les bits à gauche</li>
+</ol>
+</blockquote>
+<h2 id="méthode-rapide--exemple">Méthode rapide : exemple</h2>
+<p>$n = -108$</p>
+<p>Valeur absolue :</p>
+<p>$|n| = 108 = 64 + 32 + 8 + 4$</p>
+<p>Représentation binaire :</p>
+<p>$|n| = 108$ = <code>0b110 1100</code></p>
+<p>Compléter :</p>
+<p>$|n| = 108$ = <code>0b0110 1100</code></p>
+<p>Changer conserver les 0 à droite jusqu&rsquo;au premier 1 inclus, changer tous les
+bits à gauche.</p>
+<p>$n = -108$ = <code>  0b1001 0100</code></p>
 <h2 id="exercice-2">Exercice 2</h2>
-<p>Donner les compléments de à 2 de 12, -100 et -88.</p>
+<p>Donner les compléments de à 2 sur un octet de 12, -100 et de -88.</p>
 <h2 id="vérifions--27---9">Vérifions : $27 + (-9)$</h2>
 <p>Vérifions : $27 + (-9) = 18$</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  0001 1011
@@ -9436,14 +9493,14 @@ On a maintenant deux objectifs :</p>
 <h3 id="si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</h3>
 <p>On fait comme d&rsquo;habitude !</p>
 <p><strong>Exemple :</strong> <code>0b 0001 1011</code></p>
-<p>$1 \times 1 + 1\times 2 + 1\times 8 + 1\times 16 = 27$ boom</p>
-<h2 id="complément-à-deux-vers-décimal-1">Complément à deux vers décimal</h2>
+<p>$1 \times 1 + 1\times 2 + 1\times 8 + 1\times 16 = 27$</p>
+<h2 id="du-complément-à-deux-vers-le-décimal">Du complément à deux vers le décimal</h2>
 <h3 id="si-lentier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</h3>
 <ol>
-<li>On échange tous les bits $0 \leftrightarrow 1$,</li>
-<li>On ajoute 1,</li>
-<li>On converti en binaire comme d&rsquo;habitude,</li>
-<li>On change le signe.</li>
+<li>Échanger tous les bits $0 \leftrightarrow 1$,</li>
+<li>Ajouter 1,</li>
+<li>Convertir en décimal normalement,</li>
+<li>Changer le signe.</li>
 </ol>
 <h2 id="exemple--0b-1111-0111">Exemple : <code>0b 1111 0111</code></h2>
 <p><strong>Exemple :</strong> <code>0b 1111 0111</code></p>
@@ -9455,7 +9512,25 @@ On a maintenant deux objectifs :</p>
     0b 1001 = 1 * 1 + 1 * 8 = 9
 4. On change le signe.
     0b 1111 0111 = -9
-</code></pre></div><h2 id="exercice-4">Exercice 4</h2>
+</code></pre></div><h2 id="du-complément-à-2-vers-le-décimal-méthode-rapide">Du complément à 2 vers le décimal, méthode rapide.</h2>
+<ol>
+<li>Conserver tous les bits à 0 droite jusqu&rsquo;au premier 1 inclus,</li>
+<li>Échanger tous les bits à gauche de ce 1,</li>
+<li>Convertir en décimal normalement,</li>
+<li>Changer le signe,</li>
+</ol>
+<h2 id="du-complément-à-2-vers-le-décimal-méthode-rapide--exemple">Du complément à 2 vers le décimal, méthode rapide : exemple</h2>
+<p>On part de $n =$ <code>0b 1010 1000</code>, en complément à 2 sur 8 bits,</p>
+<ol>
+<li>Conserver tous les bits à 0 droite jusqu&rsquo;au premier 1 inclus,</li>
+<li>Échanger tous les bits à gauche de ce 1,<br>
+<code>0b 0101 1000</code></li>
+<li>Convertir en décimal normalement,<br>
+<code>0b 0101 1000</code> = $8 + 16 + 64 = 88$</li>
+<li>Changer le signe :<br>
+en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
+</ol>
+<h2 id="exercice-4">Exercice 4</h2>
 <p>Donner les notations décimales des compléments à deux sur un octet suivants :</p>
 <ol>
 <li><code>0b1111 1111</code></li>
@@ -9463,8 +9538,6 @@ On a maintenant deux objectifs :</p>
 <li><code>0b0111 1111</code></li>
 <li><code>0b1010 0011</code></li>
 </ol>
-<p><strong>Remarque :</strong> Si mon entier négatif A à 4 chiffres décimaux, il est PLUS PETIT qu&rsquo;un entier négatif à 3 chiffres décimaux : $-1234 &lt; -999$</p>
-<p>Cette propriété est-elle préservée dans le complément à deux ?</p>
 <h2 id="table-de-valeurs">Table de valeurs</h2>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> bit
  de
@@ -9482,27 +9555,33 @@ signe
 </code></pre></div><h2 id="combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</h2>
 <h3 id="règle">Règle</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-</code></pre></div><ul>
-<li>Sur un octet on peut encoder de 0 (<code>0b00000000</code>) à 127 (<code>0b01111111</code>)</li>
-<li>Sur un octet on peut encoder de -1 (<code>0b11111111</code>) à -128 (<code>0b10000000</code>)</li>
-</ul>
+</code></pre></div><p>Sur 8 bits en complément à deux, on peut encoder de $-128$ à $127$,</p>
 <h2 id="combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</h2>
 <h3 id="règle-1">Règle</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-</code></pre></div><ul>
-<li>Sur un octet on peut encoder de $0$ à $2^{n-1}$.</li>
-<li>Sur un octet on peut encoder de $-1$ à $-2^n$.</li>
-</ul>
+</code></pre></div><p>Sur un octet on peut encoder de $-2^{n-1}$ à $2^{n-1} - 1$.</p>
 <h2 id="complément-à-2--résumé">Complément à 2 : résumé</h2>
-<p>On a trouvé une méthode permettant d&rsquo;ajouter des entiers (et donc de faire les opérations habituelles&hellip;) qui fonctionne aussi avec les entiers <em>négatifs</em>.</p>
-<h2 id="et-python-là-dedans-">et Python là dedans ?</h2>
-<p>Aie, c&rsquo;est compliqué. Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong></p>
-<p>Dans Python les entiers ont une <em>taille arbitraire</em>, il ne peut afficher nativement le complément à deux.</p>
+<ul>
+<li>On dispose d&rsquo;une méthode permettant d&rsquo;ajouter des entiers (et donc de faire les opérations habituelles&hellip;) qui fonctionne aussi avec les entiers <em>négatifs</em>.</li>
+<li>Cette méthode permet d&rsquo;encoder les entiers de $-2^{n-1}$ à $2^{n-1} - 1$</li>
+<li>La méthode rapide pour encoder un entier en complément à 2 sur un octet :
+<ul>
+<li>s&rsquo;il est positif, on l&rsquo;écrit en binaire et on complète l&rsquo;octet avec des 0 à gauche,</li>
+<li>s&rsquo;il est négatif, on écrit sa valeur absolue en binaire qu&rsquo;on complète à gauche,</li>
+<li>on conserve tous les 0 à droite jusqu&rsquo;au premier 1 inclus,</li>
+<li>on inverse tous les bits à gauche de ce premier 1.</li>
+</ul>
+</li>
+</ul>
+<h2 id="python-et-le-complément-à-2">Python et le complément à 2.</h2>
+<p>Les opérations précédentes imposent de choisir une taille maximale pour les entiers : <strong>codés sur un octet</strong></p>
+<p>Dans Python les entiers ont une <strong>taille arbitraire</strong>, il ne peut afficher nativement le complément à deux.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">12</span>)
 <span style="color:#c30">&#39;0b1100&#39;</span>
 <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#555">-</span><span style="color:#f60">12</span>)
 <span style="color:#c30">&#39;-0b1100&#39;</span>
-</code></pre></div><p>Pour ceux que ça intéresse j&rsquo;ai un TP Colab qui montre différentes manières d&rsquo;afficher le complément à deux dans Python.</p>
+</code></pre></div><p>Pour obtenir le complément à 2, il faut le programmer.</p>
+<p>Pour ceux que ça intéresse j&rsquo;ai un TP Colab qui montre différentes manières d&rsquo;afficher le complément à deux dans Python.</p>
 </article>
 
       <div class="backtotop">
@@ -9538,7 +9617,11 @@ signe
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgcomplement_a_2_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgcomplement_a_2_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_slides.pdf">diaporama</a></a></li>
+    <li>
+      <ul>
+        <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgcomplement_a_2_elevespdf-diaporamauploadsdocsnsidonnees_qkzk_imgcomplement_a_2_beamerpdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_eleves.pdf">pour impression</a>, <a href="/uploads/docsnsi/donnees_qkzk_img/complement_a_2_beamer.pdf">diaporama</a></a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
@@ -9590,16 +9673,21 @@ signe
       </ul>
     </li>
     <li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
-    <li><a href="#exemples--27">Exemples : 27</a>
+    <li><a href="#exemple-1--27">Exemple 1 : 27</a>
       <ul>
         <li><a href="#27-1">27</a></li>
       </ul>
     </li>
-    <li><a href="#exemples---9">Exemples : -9</a>
+    <li><a href="#exemple-2---9">Exemple 2 : -9</a>
       <ul>
         <li><a href="#-9-1">-9</a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#méthode-rapide">Méthode rapide</a></li>
+    <li><a href="#méthode-rapide--exemple">Méthode rapide : exemple</a></li>
     <li><a href="#exercice-2">Exercice 2</a></li>
     <li><a href="#vérifions--27---9">Vérifions : $27 + (-9)$</a></li>
     <li><a href="#exercice-3">Exercice 3</a></li>
@@ -9608,12 +9696,14 @@ signe
         <li><a href="#si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)&hellip;</a></li>
       </ul>
     </li>
-    <li><a href="#complément-à-deux-vers-décimal-1">Complément à deux vers décimal</a>
+    <li><a href="#du-complément-à-deux-vers-le-décimal">Du complément à deux vers le décimal</a>
       <ul>
         <li><a href="#si-lentier-est-négatif-si-premier-bit-est-1">Si l&rsquo;entier est négatif (si premier bit est 1)</a></li>
       </ul>
     </li>
     <li><a href="#exemple--0b-1111-0111">Exemple : <code>0b 1111 0111</code></a></li>
+    <li><a href="#du-complément-à-2-vers-le-décimal-méthode-rapide">Du complément à 2 vers le décimal, méthode rapide.</a></li>
+    <li><a href="#du-complément-à-2-vers-le-décimal-méthode-rapide--exemple">Du complément à 2 vers le décimal, méthode rapide : exemple</a></li>
     <li><a href="#exercice-4">Exercice 4</a></li>
     <li><a href="#table-de-valeurs">Table de valeurs</a></li>
     <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a>
@@ -9627,7 +9717,7 @@ signe
       </ul>
     </li>
     <li><a href="#complément-à-2--résumé">Complément à 2 : résumé</a></li>
-    <li><a href="#et-python-là-dedans-">et Python là dedans ?</a></li>
+    <li><a href="#python-et-le-complément-à-2">Python et le complément à 2.</a></li>
   </ul>
 </nav>
   </aside>
