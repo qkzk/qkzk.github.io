@@ -33,10 +33,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1606,12 +1594,45 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/td/" >
+      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/1_cours/" >
         
   
     
     
-    T D
+    Dichotomie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/2_td/" >
+        
+  
+    
+    
+    Travaux dirigés : Dichotomie
   
 
       </a>
@@ -9754,302 +9775,10 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h3 id="pdf-présentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemplepdf">pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple.pdf">slides</a></h3>
-<h1 id="recherche-dichotomique-dans-un-tableau">Recherche dichotomique dans un tableau</h1>
-<h2 id="contexte">Contexte</h2>
-<ul>
-<li>
-<p>Un tableau trié : <code>T = [0, 1, 2, ... ,9]</code></p>
-</li>
-<li>
-<p>L&rsquo;élément 3 est-il dans le tableau ?</p>
-</li>
-<li>
-<p>L&rsquo;objectif : répondre Oui ou Non en réalisant <strong>le moins d&rsquo;opérations</strong> possibles.</p>
-</li>
-</ul>
-<h2 id="dichotomie">Dichotomie</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-</ul>
-<h2 id="dichotomie-1">Dichotomie</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-<li><strong>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec</strong>
-<strong>la partie gauche</strong></li>
-</ul>
-<h2 id="dichotomie-2">Dichotomie</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-<li>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec
-la partie gauche</li>
-<li><strong>Sinon on recommence avec la partie droite.</strong></li>
-</ul>
-<h2 id="dichotomie-3">Dichotomie</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-<li>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec
-la partie gauche</li>
-<li>Sinon on recommence avec la partie droite.</li>
-<li><strong>Si la partie gauche ou la partie droite est vide, l&rsquo;élément n&rsquo;est pas dans le</strong>
-<strong>tableau et la réponse est : Non.</strong></li>
-</ul>
-<h2 id="déroulé-sur-lexemple-à-la-main">Déroulé sur l&rsquo;exemple, à la main.</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
-<ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc <em>on recommence avec la partie <strong>avant 4 : <code>T1 = [0,1,2,3]</code></strong></em></p>
-</li>
+<article class="markdown"><ol>
+<li><a href="1_cours">Cours</a></li>
+<li><a href="2_td">Travaux dirigés</a></li>
 </ol>
-<h2 id="déroulé-sur-lexemple-à-la-main-1">Déroulé sur l&rsquo;exemple, à la main.</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
-<ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc on recommence avec la partie avant 4 : <code>T1 = [0,1,2,3]</code></p>
-</li>
-<li>
-<p>On propose : 2</p>
-<p>2 &lt; 3 donc <em>on recommence avec la partie <strong>après 2 : <code>T2 = [3]</code></strong></em></p>
-</li>
-</ol>
-<h2 id="déroulé-sur-lexemple-à-la-main-2">Déroulé sur l&rsquo;exemple, à la main.</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
-<ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc on recommence avec la partie avant 4 : <code>T1 = [0,1,2,3]</code></p>
-</li>
-<li>
-<p>On propose : 2</p>
-<p>2 &lt; 3 donc on recommence avec la partie après 2 : <code>T2 = [3]</code></p>
-</li>
-<li>
-<p>On propose : 3</p>
-<p>3 = 3 donc <strong>on a trouvé l&rsquo;élément et la réponse est : Oui, 3 est dans T.</strong></p>
-</li>
-</ol>
-<h2 id="lalgorithme">L&rsquo;algorithme</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rechercheDicho(liste, clé)
-  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  haut <span style="color:#555">=</span> longueur(liste) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  Tant que (bas <span style="color:#555">&lt;</span> haut) :
-    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">//</span> <span style="color:#f60">2</span>
-    si clé <span style="color:#555">==</span> liste[med]:
-      bas <span style="color:#555">=</span> med ;
-      haut <span style="color:#555">=</span> med
-    Sinon :
-      si clé <span style="color:#555">&gt;</span> liste[med] {bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>}
-      sinon: haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  si cle <span style="color:#555">==</span> liste[bas]: renvoyer Vrai
-  sinon: renvoyer Faux
-</code></pre></div><h2 id="même-exemple-avec-les-variables">Même exemple, avec les variables</h2>
-<p>Voici un déroulé de l&rsquo;algorithme à la main.</p>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<p>On dispose des variables :</p>
-<ul>
-<li><code>début</code>, <code>milieu</code>, <code>fin</code> qui sont des éléments du tableau</li>
-<li><code>trouvé</code> qui est un booléen (vrai / faux)</li>
-<li>et <code>val &gt; milieu</code> (booléen, qui va nous aider à choisir)</li>
-</ul>
-<p>On présent les éléments dans une table :</p>
-<h2 id="même-exemple-avec-les-variables-1">Même exemple, avec les variables</h2>
-<p>Voici un déroulé de l&rsquo;algorithme à la main.</p>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ul>
-<li><strong>Avant la boucle.</strong> début, fin et trouvé sont initialisées (0, 9, faux). La variable milieu et le booléen <code>val &gt; milieu</code> n&rsquo;existent pas encore.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Tour</th>
-<th>début</th>
-<th>milieu</th>
-<th>fin</th>
-<th>trouvé</th>
-<th><code>val &gt; milieu</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avant la boucle</td>
-<td>0</td>
-<td>/</td>
-<td>9</td>
-<td>faux</td>
-<td>/</td>
-</tr>
-</tbody>
-</table>
-<h2 id="même-exemple-avec-les-variables-2">Même exemple, avec les variables</h2>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ol>
-<li>
-<p><strong>Premier tour.</strong> On descend début et fin.</p>
-<p>On calcule milieu (0+9)/2 = 4.5 dont la partie entière est 4. Donc milieu = 4.</p>
-<p>Est-ce que 3==4 ? Faux.</p>
-<p>Est-ce-que &ldquo;3&gt;4&rdquo; ? Faux. Dans ce cas, c&rsquo;est <code>fin</code> qui prend la valeur de <code>milieu</code></p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Tour</th>
-<th>début</th>
-<th>milieu</th>
-<th>fin</th>
-<th>trouvé</th>
-<th><code>val &gt; milieu</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avant la boucle</td>
-<td>0</td>
-<td>/</td>
-<td>9</td>
-<td>faux</td>
-<td>/</td>
-</tr>
-<tr>
-<td>1er tour</td>
-<td>0</td>
-<td>4</td>
-<td>9</td>
-<td>faux</td>
-<td>3 &gt; 4 : faux</td>
-</tr>
-</tbody>
-</table>
-<h2 id="même-exemple-avec-les-variables-3">Même exemple, avec les variables</h2>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ol start="2">
-<li><strong>Second tour.</strong> On a descendu début, on donne à fin la valeur précédente de milieu (4). Et on calcule les nouveaux éléments. milieu = (0+4)/2 = 2 (entier).</li>
-</ol>
-<p>Est-ce-que 3==2 ? Faux.</p>
-<p>Est-ce-que 3&gt;2 ? Vrai. Dans ce cas, c&rsquo;est début qui change et prend la valeur de milieu + 1.</p>
-<table>
-<thead>
-<tr>
-<th>Tour</th>
-<th>début</th>
-<th>milieu</th>
-<th>fin</th>
-<th>trouvé</th>
-<th><code>val &gt; milieu</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avant la boucle</td>
-<td>0</td>
-<td>/</td>
-<td>9</td>
-<td>faux</td>
-<td>/</td>
-</tr>
-<tr>
-<td>1er tour</td>
-<td>0</td>
-<td>4</td>
-<td>9</td>
-<td>faux</td>
-<td>3 &gt; 4 : faux</td>
-</tr>
-<tr>
-<td>2ème tour</td>
-<td>0</td>
-<td>2</td>
-<td>4</td>
-<td>faux</td>
-<td>3 &gt; 2 : vrai</td>
-</tr>
-</tbody>
-</table>
-<h2 id="même-exemple-avec-les-variables-4">Même exemple, avec les variables</h2>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ol start="3">
-<li>
-<p><strong>Troisième tour</strong>. On a descendu la valeur de fin et donné à début l&rsquo;ancienne valeur de milieu + 1 (3). Et on recommence.</p>
-<p>Milieu = (3 + 4)/2 = 3.5 dont la partie entière est 3. Est-ce-que 3==3 ? VRAI !!!</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Tour</th>
-<th>début</th>
-<th>milieu</th>
-<th>fin</th>
-<th>trouvé</th>
-<th><code>val &gt; milieu</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Avant la boucle</td>
-<td>0</td>
-<td>/</td>
-<td>9</td>
-<td>faux</td>
-<td>/</td>
-</tr>
-<tr>
-<td>1er tour</td>
-<td>0</td>
-<td>4</td>
-<td>9</td>
-<td>faux</td>
-<td>3 &gt; 4 : faux</td>
-</tr>
-<tr>
-<td>2ème tour</td>
-<td>0</td>
-<td>2</td>
-<td>4</td>
-<td>faux</td>
-<td>3 &gt; 2 : vrai</td>
-</tr>
-<tr>
-<td>3ème tour</td>
-<td>3</td>
-<td>3</td>
-<td>4</td>
-<td><strong>vrai</strong></td>
-<td>/</td>
-</tr>
-</tbody>
-</table>
-<p>L&rsquo;algorithme est terminé et la sortie est &ldquo;VRAI&rdquo;. Le nombre 3 est bien un élément du tableau [0, 1, <strong>3</strong>, 4, 5, &hellip;, 9].</p>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li>
-<p>La recherche dichotomique permet de gagner beaucoup d&rsquo;étape par rapport au parcours
-séquentiel du tableau.</p>
-</li>
-<li>
-<p>Elle nécessite d&rsquo;avoir un tableau <strong>trié</strong> sans quoi on ne peut l&rsquo;appliquer.</p>
-</li>
-</ul>
-<h2 id="remarques-sur-la-complexité">Remarques sur la complexité</h2>
-<ul>
-<li>Si on ne souhaite l&rsquo;appliquer qu&rsquo;une seule fois, il n&rsquo;est pas toujours intéressant
-de trier de le tableau pour chercher. C&rsquo;est généralement trop long&hellip;</li>
-<li>Mais si on doit souvent effectuer des recherches dans le tableau, alors c&rsquo;est indispensable.</li>
-</ul>
-<h2 id="nombre-détapes">Nombre d&rsquo;étapes</h2>
-<ul>
-<li><strong>parcours séquentiel</strong> : autant que d&rsquo;éléments dans le tableau dans le pire des cas.
-Le parcours séquentiel prend (dans le pire des cas) $n$ étapes.</li>
-<li><strong>recherche dichotomique</strong> (après le tri) : $\log_2 n$ étapes.
-$\log_2 n$ est (grosso modo) le nombre de divisions entières de $n$ par 2 qu&rsquo;on peut effectuer
-avant de trouver un quotient nul.</li>
-</ul>
 </article>
 
       <div class="backtotop">
@@ -10083,35 +9812,7 @@ avant de trouver un quotient nul.</li>
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-présentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemplepdf">pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple.pdf">slides</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#contexte">Contexte</a></li>
-    <li><a href="#dichotomie">Dichotomie</a></li>
-    <li><a href="#dichotomie-1">Dichotomie</a></li>
-    <li><a href="#dichotomie-2">Dichotomie</a></li>
-    <li><a href="#dichotomie-3">Dichotomie</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-1">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-2">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#lalgorithme">L&rsquo;algorithme</a></li>
-    <li><a href="#même-exemple-avec-les-variables">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-1">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-2">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-3">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-4">Même exemple, avec les variables</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#remarques-sur-la-complexité">Remarques sur la complexité</a></li>
-    <li><a href="#nombre-détapes">Nombre d&rsquo;étapes</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
