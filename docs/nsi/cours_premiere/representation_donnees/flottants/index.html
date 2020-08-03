@@ -33,10 +33,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -2489,6 +2477,72 @@ MathJax.Hub.Config({
       
   
     <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/representation_donnees/flottants/1_cours/" >
+        
+  
+    
+    
+    1 Cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/representation_donnees/flottants/2_td/" >
+        
+  
+    
+    
+    Première NSI - types et valeurs de base : flottants - td
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
         
     </ul>
 
@@ -9523,153 +9577,10 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h2 id="pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgflottants_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgflottants_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/flottants_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/flottants_slides.pdf">diaporama</a></h2>
-<h1 id="nombre-à-virgule-flottantes">Nombre à virgule flottantes</h1>
-<h2 id="heading"></h2>
-<p>Comment représenter un nombre à virgule en machine ?</p>
-<h3 id="brisons-le-mythe-">Brisons le mythe :</h3>
-<ul>
-<li>Machine : base 2,</li>
-<li>Humains : base 10</li>
-</ul>
-<p>Les <em>décimaux</em> sont exprimés en <em>base 10</em> ($2 \times 5$).<br>
-ils n&rsquo;ont généralement pas de représentation <strong>exacte</strong> en machine.</p>
-<h2 id="030000000000000004">0.30000000000000004</h2>
-<p>Les ordinateurs savent manipuler les &ldquo;nombres à virgules&rdquo;</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1.255465</span> <span style="color:#555">*</span> <span style="color:#f60">753156.45</span>
-<span style="color:#f60">945561.5624992499</span>
-</code></pre></div><p>mais les résultats sont parfois surprenants :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0.1</span> <span style="color:#555">+</span> <span style="color:#f60">0.2</span>
-<span style="color:#f60">0.30000000000000004</span>
-</code></pre></div><h2 id="nombres-à-virgule-flottante">Nombres à virgule flottante</h2>
-<p>Dans les machines, on utilise les <strong>les nombres à virgule flottante</strong></p>
-<p>Les nombres sont alors appelés des <em>flottants</em> (<em>floats</em> en anglais)</p>
-<h3 id="légalité-de-deux-flottants-na-aucun-sens">L&rsquo;égalité de deux flottants n&rsquo;a aucun sens</h3>
-<h2 id="décimaux">Décimaux</h2>
-<p>Nos machines travaillent en base 2 et les nombres à virgules flottantes sont représentés de la même manière.</p>
-<p>Dans le système décimal on utilise les puissances de 10 avant et après la virgule :<br>
-Par exemple 325,47 s&rsquo;écrit</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Position    100    10   1  virgule    1/10    1/100...
-chiffres    3      2    5  .          4       7
-</code></pre></div><h2 id="nombres-_dyadiques_">Nombres <em>dyadiques</em></h2>
-<p>Dans la machine on utilise le même principe mais avec des puissances de 2.</p>
-<p>On parle de nombres <em>dyadiques</em></p>
-<p>Par exemple : $4 + 2 + 1 + 1/2 + 1/8$ et s&rsquo;écrit en dyadique :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Position      4     2     1   virgule   1/2   1/4   1/8
-chiffres      1     1     0   .         1     0     1
-</code></pre></div><p>4 + 2 + 1 + 1/2 + 1/8 = 7.625</p>
-<h2 id="revenons-sur-01--02">Revenons sur 0,1 + 0,2</h2>
-<p>0,1 et 0,2 ont des notations décimales <em>finies</em> (ce sont des <em>décimaux</em>)</p>
-<p>Leur notiation <em>dyadique</em> n&rsquo;est pas finie !</p>
-<p>$$0,1 = (0,00011001100110011001100110011001100110011\cdots)_2$$</p>
-<p>En machine elle est tronquée (mais sera très proche de 0,1)</p>
-<p>Ce n&rsquo;est <em>généralement</em> pas génant : a-t-on souvent besoin d&rsquo;une telle précision ?</p>
-<h2 id="une-approche-naïve">Une approche naïve</h2>
-<p>Cette approche est intéressante et naïvement, on pourrait penser que la machine stocke ainsi ses nombres.</p>
-<p><strong>Problème :</strong></p>
-<h3 id="comment-manipuler-des-nombres-très-grands-et-des-nombres-très-petits-en-même-temps-">comment manipuler des nombres très grands et des nombres très petits en même temps ?</h3>
-<p>La taille de l&rsquo;unvivers d&rsquo;un côté, la taille d&rsquo;un atome de l&rsquo;autre !</p>
-<ul>
-<li>Il faudrait des milliers de chiffres&hellip;</li>
-<li>Les calculs sont compliqués&hellip;</li>
-</ul>
-<h2 id="contourner-la-difficulté--la-notation-scientifique">Contourner la difficulté : la notation scientifique</h2>
-<p>Pour s&rsquo;en convaincre :</p>
-<h3 id="heading-1"></h3>
-<p>$A = 300 000 000 \times 0.000 000 15$</p>
-<h3 id="heading-2"></h3>
-<p>Clairement la notation décimale <em>n&rsquo;est pas adaptée</em></p>
-<h2 id="heading-3"></h2>
-<p>On préfère la <em>notation scientifique</em> :</p>
-<p>$A = 300 000 000 \times 0.000 000 15$</p>
-<p>$A = (3 \times 10^8) \times (1.5 \times 10^{-7}$)</p>
-<p>Souvenons nous</p>
-<ul>
-<li>on <em>multiplie 3 et 1,5</em></li>
-<li>on <em>ajoute les exposants 8 et -7</em></li>
-</ul>
-<p>$A = (3 \times 1.5) \times 10^{8 - 7}$</p>
-<p>$A = 4.5 \times 10 ^ 1$</p>
-<p>$A = 45$</p>
-<p>La machine fait la même chose&hellip; mais en base 2.</p>
-<h2 id="nombre-à-virgules-flottante">Nombre à virgules flottante</h2>
-<p>Un <strong>nombre dyadique</strong> est représenté par :
-$$\pm(; 1,b1 \cdots bk;)_2 \times 2^e$$</p>
-<p>où $b1,\ldots,bk$ sont des bits et $e$ est un entier relatif.</p>
-<p>La suite de bits $b1\ldots bk$ est la <em>mantisse</em> du nombre,<br>
-La puissance de 2 est <em>l’exposant</em> du nombre.</p>
-<h2 id="exemple">Exemple</h2>
-<p>$6,25 = (110,01)_2 = (1,1001)_2  \times 2^2$</p>
-<ul>
-<li>La mantisse est la suite <code>1 0 0 1</code></li>
-<li>L&rsquo;exposant est <code>2</code></li>
-</ul>
-<h2 id="stockage-en-mémoire">Stockage en mémoire</h2>
-<p>Dans cette norme, les nombres dyadiques sont codés sur 64 bits en réservant :</p>
-<ul>
-<li>1 bit pour le signe ;</li>
-<li>11 bits pour l’exposant ;</li>
-<li>52 bits pour la mantisse.</li>
-</ul>
-<p>\fbox{$s$}\fbox{ \qquad $e$ \qquad }\fbox{ \qquad\qquad\qquad $m$ \qquad\qquad\qquad  }</p>
-<h2 id="amplitude">Amplitude</h2>
-<p>Sans entrer dans les détails, en codant sur 64 bits on peut représenter des nombres entre :</p>
-<ul>
-<li>
-<p>$2^{-1022} \approx 2,23 \times 10^{-308}$ pour le plus petit et</p>
-</li>
-<li>
-<p>$2^{1024} - 2^{971} \approx 1,80 \times 10^{308}$ pour le plus grand</p>
-</li>
-</ul>
-<p>Des améliorations sont faites pour les nombres très proches de 0.</p>
-<p>Quand un flottant dépasse le plus grand nombre possible il est considéré comme <em>infini</em></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">2.0</span> <span style="color:#555">*</span> <span style="color:#f60">10</span><span style="color:#555">**</span><span style="color:#f60">308</span> <span style="color:#09f;font-style:italic"># dépasse le plus grand</span>
-inf
-</code></pre></div><h2 id="quelques-surprises-avec-inf">Quelques surprises avec <code>inf</code></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#c30">&#39;inf&#39;</span>)    <span style="color:#09f;font-style:italic"># pour définir inf</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a
-inf
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#555">-</span>a
-<span style="color:#555">-</span>inf                    <span style="color:#09f;font-style:italic"># - inifini</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+</span> a
-inf
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">-</span> a               <span style="color:#09f;font-style:italic"># opération interdite</span>
-nan                     <span style="color:#09f;font-style:italic"># not a number</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+</span> a <span style="color:#555">==</span> a
-True
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">2.0</span> <span style="color:#555">*</span> <span style="color:#f60">10</span> <span style="color:#555">**</span> <span style="color:#f60">309</span>  <span style="color:#09f;font-style:italic"># b = inf</span>
-<span style="color:#555">&gt;&gt;&gt;</span> c <span style="color:#555">=</span> <span style="color:#f60">2</span>   <span style="color:#555">*</span> <span style="color:#f60">10</span> <span style="color:#555">**</span> <span style="color:#f60">1000</span> <span style="color:#09f;font-style:italic"># un integer</span>
-<span style="color:#555">&gt;&gt;&gt;</span> c <span style="color:#555">&gt;</span> b                <span style="color:#09f;font-style:italic"># inf est plus grand que tous les nombres</span>
-False
-</code></pre></div><h2 id="deux-problèmes-dans-les-calculs-avec-les-flottants">Deux problèmes dans les calculs avec les flottants</h2>
-<h3 id="absorption">Absorption</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> (<span style="color:#f60">1.</span> <span style="color:#555">+</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span>) <span style="color:#555">-</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span>  <span style="color:#09f;font-style:italic"># = 1</span>
-<span style="color:#f60">0.0</span>                         <span style="color:#09f;font-style:italic"># 1 a été absorbé par les gros</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span> <span style="color:#555">-</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>     <span style="color:#09f;font-style:italic"># on change l&#39;ordre...</span>
-<span style="color:#f60">1</span>                           <span style="color:#09f;font-style:italic"># et ça fonctionne</span>
-</code></pre></div><h3 id="annulation">Annulation</h3>
-<p>Soustraire deux nombres proches fait perdre de la précision</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">2.</span><span style="color:#555">**</span><span style="color:#f60">53</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">-</span> b
-<span style="color:#f60">0.0</span>
-</code></pre></div><h2 id="il-peut-y-avoir-des-conséquences">Il peut y avoir des conséquences</h2>
-<ul>
-<li>
-<p>Le 25 février 1991, à Dharan en Arabie Saoudite, un missile Patriot américain a raté l’interception d’un missile Scud irakien, ce dernier provoquant la mort de 28 personnes. L’enquête a mis en évidence le défaut suivant :</p>
-</li>
-<li>
-<p>L&rsquo;horloge interne du missile mesure le temps en 1/10s. Ce nombre <em>n&rsquo;est pas dyadique</em> et est converti avec une erreur d&rsquo;environ 0,000000095s</p>
-</li>
-<li>
-<p>Le missile a été mis en route 100h avant son lancement, ce qui entraine un décalage de
-$$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
-</li>
-<li>
-<p>C&rsquo;est assez pour qu&rsquo;il rate sa cible. <a href="http://ta.twi.tudelft.nl/nw/users/vuik/wi211/disasters.html">Source</a></p>
-</li>
-</ul>
+<article class="markdown"><ol>
+<li><a href="1_cours">Cours</a></li>
+<li><a href="2_td">Cours</a></li>
+</ol>
 </article>
 
       <div class="backtotop">
@@ -9703,52 +9614,7 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgflottants_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgflottants_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/flottants_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/flottants_slides.pdf">diaporama</a></a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#heading"></a>
-      <ul>
-        <li><a href="#brisons-le-mythe-">Brisons le mythe :</a></li>
-      </ul>
-    </li>
-    <li><a href="#030000000000000004">0.30000000000000004</a></li>
-    <li><a href="#nombres-à-virgule-flottante">Nombres à virgule flottante</a>
-      <ul>
-        <li><a href="#légalité-de-deux-flottants-na-aucun-sens">L&rsquo;égalité de deux flottants n&rsquo;a aucun sens</a></li>
-      </ul>
-    </li>
-    <li><a href="#décimaux">Décimaux</a></li>
-    <li><a href="#nombres-_dyadiques_">Nombres <em>dyadiques</em></a></li>
-    <li><a href="#revenons-sur-01--02">Revenons sur 0,1 + 0,2</a></li>
-    <li><a href="#une-approche-naïve">Une approche naïve</a>
-      <ul>
-        <li><a href="#comment-manipuler-des-nombres-très-grands-et-des-nombres-très-petits-en-même-temps-">comment manipuler des nombres très grands et des nombres très petits en même temps ?</a></li>
-      </ul>
-    </li>
-    <li><a href="#contourner-la-difficulté--la-notation-scientifique">Contourner la difficulté : la notation scientifique</a>
-      <ul>
-        <li><a href="#heading-1"></a></li>
-        <li><a href="#heading-2"></a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-3"></a></li>
-    <li><a href="#nombre-à-virgules-flottante">Nombre à virgules flottante</a></li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#stockage-en-mémoire">Stockage en mémoire</a></li>
-    <li><a href="#amplitude">Amplitude</a></li>
-    <li><a href="#quelques-surprises-avec-inf">Quelques surprises avec <code>inf</code></a></li>
-    <li><a href="#deux-problèmes-dans-les-calculs-avec-les-flottants">Deux problèmes dans les calculs avec les flottants</a>
-      <ul>
-        <li><a href="#absorption">Absorption</a></li>
-        <li><a href="#annulation">Annulation</a></li>
-      </ul>
-    </li>
-    <li><a href="#il-peut-y-avoir-des-conséquences">Il peut y avoir des conséquences</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
