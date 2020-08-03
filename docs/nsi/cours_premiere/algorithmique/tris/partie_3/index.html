@@ -13,7 +13,7 @@
   
     
     
-    Python et invariants
+    Partie 3
   
  | qkzk</title>
 
@@ -33,6 +33,10 @@ https://github.com/alex-shpak/hugo-book
 
   
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1401,7 +1413,7 @@ MathJax.Hub.Config({
   
     
     
-    Trier introduction
+    Partie 1
   
 
       </a>
@@ -1434,7 +1446,7 @@ MathJax.Hub.Config({
   
     
     
-    Langage naturel, déroulé
+    Partie 2
   
 
       </a>
@@ -1467,7 +1479,7 @@ MathJax.Hub.Config({
   
     
     
-    Python et invariants
+    Partie 3
   
 
       </a>
@@ -1500,7 +1512,7 @@ MathJax.Hub.Config({
   
     
     
-    Complexité
+    Partie 4
   
 
       </a>
@@ -3423,6 +3435,39 @@ MathJax.Hub.Config({
     
     
     Mini projet CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/js_td/" >
+        
+  
+    
+    
+    TD : JavaScript
   
 
       </a>
@@ -9406,80 +9451,142 @@ MathJax.Hub.Config({
   
     
     
-    Python et invariants
+    Partie 3
   
 </strong>
 </header>
 
       
-<article class="markdown"><p><a href="/uploads/docsnsi/algo/tris/tris_3-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_3-Beamer.pdf">diapos</a></p>
-<h1 id="troisième-partie--preuves-de-la-correction">troisième partie : preuves de la correction</h1>
-<h2 id="prouver-un-algorithme">Prouver un algorithme</h2>
+<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocsnsialgotristris_3pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_3.pdf">impression</a></h3>
+<h1 id="tri-par-insertion">Tri par insertion</h1>
+<h2 id="exercice">Exercice</h2>
+<ol>
+<li>
+<p>Reprendre l&rsquo;algorithme du tri par insertion avec l&rsquo;exemple <code>[1, 3, 4, 2]</code><br>
+Décrire l&rsquo;état du tableau :</p>
+<ul>
+<li>avant le tri,</li>
+<li>après chaque tour de la boucle principale,</li>
+<li>après le tri.</li>
+</ul>
+</li>
+<li>
+<p>Décrire l&rsquo;algorithme avec les indices.</p>
+</li>
+<li>
+<p>Écrire le code Python de l&rsquo;algorithme.</p>
+</li>
+<li>
+<p>Terminaison : prouver qu&rsquo;à chaque tour de la boucle externe, la taille
+de la partie non triée diminue. Prouver que l&rsquo;algorithme se termine.</p>
+</li>
+<li>
+<p>Proposer un invariant de boucle pour le tri par insertion.</p>
+</li>
+<li>
+<p>Complexité : le nombre total d&rsquo;échanges est inférieur à $n^2$.</p>
+</li>
+</ol>
+<hr>
+<h1 id="le-tri-par-insertion--correction-de-lexercice">Le tri par insertion : correction de l&rsquo;exercice.</h1>
+<p>On commence avec une liste déjà triée vide.
+On itère sur la liste et, à chaque tour on insère le premier élément non trié
+à sa place dans la liste triée</p>
+<h2 id="propriétés-">Propriétés :</h2>
+<ul>
+<li>Tri <em>stable</em> : il ne change pas l&rsquo;ordre de deux éléments &ldquo;égaux&rdquo;</li>
+<li>Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</li>
+<li>Complexité : la complexité en temps du tri par insertion est quadratique ( $O(n^2)$ )</li>
+</ul>
+<h1 id="1-exemples">1. Exemples</h1>
+<h2 id="exemple-1">Exemple 1</h2>
+<p>Triés                   Non Triés            Élément le plus à gauche</p>
+<hr>
+<p>()                      (1, 3, 4, 2)            (1)
+(1)                     (3, 4, 2)               (3)
+(1, 3)                  (4, 2)                  (4)
+(1, 3, 4)               (2)                     (4)
+(1, 2, 3, 4)</p>
+<h2 id="exemple-2">Exemple 2</h2>
+<p><img src="insertionsort.png" alt="Tri par insertion">{ width=250px }</p>
+<h1 id="2-pseudo-code">2. Pseudo code</h1>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Tri Insertion(tableau t, entier n)
+i = 0
+Tant que i &lt; n
+    j = i
+    Tant que j &gt; 0 et t[j-1] &gt; t[j]
+        echanger t[j] et t[j-1]
+        j = j - 1
+    fin tant que
+    i = i + 1
+fin tant que
+</code></pre></div><h1 id="3-programme-python">3. Programme python</h1>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(tableau: <span style="color:#366">list</span>) <span style="color:#555">-&gt;</span> None:
+    i <span style="color:#555">=</span> <span style="color:#f60">0</span>
+    <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> <span style="color:#366">len</span>(tableau):
+        j <span style="color:#555">=</span> i
+        <span style="color:#069;font-weight:bold">while</span> j <span style="color:#555">&gt;</span> <span style="color:#f60">0</span> <span style="color:#000;font-weight:bold">and</span> tableau[j<span style="color:#555">-</span><span style="color:#f60">1</span>] <span style="color:#555">&gt;</span> tableau[j]:
+            echanger(tableau, j, j <span style="color:#555">-</span> <span style="color:#f60">1</span>)
+            j <span style="color:#555">=</span> j <span style="color:#555">-</span> <span style="color:#f60">1</span>
+        i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
+
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">echanger</span>(tableau: <span style="color:#366">list</span>, i: <span style="color:#366">int</span>, j: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> None:
+    temp <span style="color:#555">=</span> tableau[i]
+    tableau[i] <span style="color:#555">=</span> tableau[j]
+    tableau[j] <span style="color:#555">=</span> temp
+</code></pre></div><h1 id="4-terminaison-du-tri-par-insertion">4. Terminaison du tri par insertion</h1>
+<p>Est-on certain que notre algorithme va se termine bien ?</p>
+<ol>
+<li>À chaque tour de la boucle extérieure, la taille de la liste restante (les non triés) diminue.</li>
+<li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s&rsquo;arrête bien.</li>
+</ol>
+<h1 id="5-correction--prouver-que-lalgorithme-est-correct">5. Correction : prouver que l&rsquo;algorithme est correct</h1>
 <p>Comment s&rsquo;assurer que l&rsquo;algorithme fait ce qu&rsquo;il annonce ?</p>
 <ul>
 <li>Est-on certain d&rsquo;obtenir une tableau triée à la fin ?</li>
-<li>Comment le prouver ?</li>
+<li>Est-on certain que l&rsquo;algorithme s&rsquo;arrête ?</li>
 </ul>
 <h2 id="invariant-de-boucle">Invariant de boucle</h2>
 <p>Un invariant de boucle est une propriété qui est vraie AVANT et APRÈS
 l&rsquo;exécution d&rsquo;un tour de la boucle.</p>
-<h1 id="tri-par-sélection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</h1>
-<h2 id="tri-par-sélection--rappel">Tri par sélection : rappel</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tri_selection(tableau t, entier n)
-    pour i de 1 à n - 1
-        min = i
-        pour j de i + 1 à n
-            si t[j] &lt; t[min], alors min = j
-        fin pour
-        si min = i, alors échanger t[i] et t[min]
-    fin pour
-</code></pre></div><h2 id="tri-par-sélection--invariant-de-boucle">Tri par sélection : invariant de boucle</h2>
+<h2 id="tri-par-insertion--invariant-de-boucle">Tri par insertion : invariant de boucle</h2>
 <p><strong>Les <code>i</code> premiers éléments sont triés.</strong></p>
 <ol>
-<li>C&rsquo;est vrai <strong>dès le départ</strong> car on commence à <code>i = 1</code></li>
-<li>Cela <strong>reste vrai</strong> car on ajoute à droite un élément plus grand que les autres.</li>
+<li>C&rsquo;est vrai <strong>dès le départ</strong> car on commence avec <code>i=0</code> et un tableau vide
+est trié.</li>
+<li>Cela <strong>reste vrai</strong> à chaque étape. En effet, chaque étape de la boucle
+déplace un nouvel élément à sa position.</li>
+<li>Lorsque l&rsquo;algorithme s&rsquo;arrête, le tableau complet est trié.</li>
 </ol>
-<h2 id="terminaison-du-tri-par-sélection">Terminaison du tri par sélection</h2>
-<p>Est-on certain que notre algorithme va se termine bien ?</p>
+<h1 id="6-complexité">6. Complexité</h1>
+<p>Nous allons compter le nombre d&rsquo;échanges.</p>
+<ul>
+<li>La boucle extérieure comporte $n$ tours ($n$ désigne la taille du tableau)</li>
+<li>La boucle intérieure comporte au pire $i$ tours (lorsque le tableau de départ
+est trié par ordre décroissant).</li>
+</ul>
+<p>Il y a donc au pire $C_n = \sum_{i=0}^{n} i$ échanges.</p>
+<p>D&rsquo;après le chapitre suites arithmétiques de première $C_n = \dfrac{n(n-1)}{2}$.</p>
+<p>En effet :</p>
+<p>$$C_n = 0 + 1 + \cdots + (n-1) + n$$</p>
+<p>Écrivons cette somme à l&rsquo;envers :</p>
+<p>$$C_n = n + (n-1) + \cdots + 1 + 0$$</p>
+<p>Ajoutons en colonne :</p>
+<p>$$2C_n = n + n + \cdots + n + n$$</p>
+<p>$$2C_n = n \times (n+1)$$</p>
+<p>$$C_n = \dfrac{n(n+1)}{2}$$</p>
+<p>Le nombre d&rsquo;échanges est, au pire, inférieur à un polynôme en $n^2$.</p>
+<p>On dit que le tri par insertion est <em>quadratique</em>.</p>
+<p>La compliqué en temps du tri par insertion est $O(n^2)$</p>
+<p><strong>Remarque</strong> ce calcul de complexité suppose que :</p>
 <ol>
-<li>À chaque tour de la boucle extérieure, la liste restante (les non triés) diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s&rsquo;arrête bien.</li>
+<li>Tous les échanges prennent sensiblement le même temps,</li>
+<li>Les autres opérations (affectation, décrément, incrément) prennent toutes le
+même temps.</li>
 </ol>
-<h1 id="quatrième-partie--programmer-les-tris-en-python">Quatrième partie : programmer les tris en Python</h1>
-<h2 id="convertir-les-algorithmes-du-pseudo-code-vers-python">Convertir les algorithmes du pseudo code vers Python</h2>
-<h2 id="programmes-python">Programmes Python</h2>
-<h3 id="tri-par-insertion">Tri par insertion</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(A):
-    i <span style="color:#555">=</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> <span style="color:#366">len</span>(A):
-        j <span style="color:#555">=</span> i
-        <span style="color:#069;font-weight:bold">while</span> j <span style="color:#555">&gt;</span> <span style="color:#f60">0</span> <span style="color:#000;font-weight:bold">and</span> A[j<span style="color:#555">-</span><span style="color:#f60">1</span>] <span style="color:#555">&gt;</span> A[j]:
-            A[j<span style="color:#555">-</span><span style="color:#f60">1</span>], A[j] <span style="color:#555">=</span> A[j], A[j<span style="color:#555">-</span><span style="color:#f60">1</span>]
-            j <span style="color:#555">=</span> j <span style="color:#555">-</span> <span style="color:#f60">1</span>
-        i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
-</code></pre></div><h3 id="tri-par-sélection">Tri par sélection</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(a):
-	n <span style="color:#555">=</span> <span style="color:#366">len</span>(a)
-	<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
-		m <span style="color:#555">=</span> i  <span style="color:#09f;font-style:italic"># on cherche l&#39;indice du min</span>
-		<span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(i<span style="color:#555">+</span><span style="color:#f60">1</span>, n):
-			<span style="color:#069;font-weight:bold">if</span> a[m] <span style="color:#555">&gt;</span> a[j]:
-        m <span style="color:#555">=</span> j
-    a[m],a[i] <span style="color:#555">=</span> a[i],a[m] <span style="color:#09f;font-style:italic"># on echange</span>
-</code></pre></div><h2 id="tri-par-insertion--invariant">Tri par insertion : invariant</h2>
-<h3 id="invariant">Invariant</h3>
-<p>Les <code>i</code> premiers éléments sont triés.</p>
-<ol>
-<li>C&rsquo;est vrai dès le départ car on commence à <code>i = 1</code></li>
-<li>Cela reste vrai car on ajoute le nouvel élément à sa place.</li>
-</ol>
-<p><strong>L&rsquo;algorithme est correct : le résultat est une liste triée</strong></p>
-<h3 id="terminaison">Terminaison</h3>
-<ol>
-<li>À chaque tour de la boucle extérieure, la liste restante diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> diminue. Elle s&rsquo;arrête bien.</li>
-</ol>
-<p><strong>L&rsquo;algorithme se termine bien.</strong></p>
+<p>C&rsquo;est vrai en Python.</p>
 </article>
 
       <div class="backtotop">
@@ -9515,30 +9622,29 @@ l&rsquo;exécution d&rsquo;un tour de la boucle.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#prouver-un-algorithme">Prouver un algorithme</a></li>
+    <li>
+      <ul>
+        <li><a href="#pdf--pour-impressionuploadsdocsnsialgotristris_3pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_3.pdf">impression</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#exercice">Exercice</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#propriétés-">Propriétés :</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#exemple-1">Exemple 1</a></li>
+    <li><a href="#exemple-2">Exemple 2</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#invariant-de-boucle">Invariant de boucle</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#tri-par-sélection--rappel">Tri par sélection : rappel</a></li>
-    <li><a href="#tri-par-sélection--invariant-de-boucle">Tri par sélection : invariant de boucle</a></li>
-    <li><a href="#terminaison-du-tri-par-sélection">Terminaison du tri par sélection</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#convertir-les-algorithmes-du-pseudo-code-vers-python">Convertir les algorithmes du pseudo code vers Python</a></li>
-    <li><a href="#programmes-python">Programmes Python</a>
-      <ul>
-        <li><a href="#tri-par-insertion">Tri par insertion</a></li>
-        <li><a href="#tri-par-sélection">Tri par sélection</a></li>
-      </ul>
-    </li>
-    <li><a href="#tri-par-insertion--invariant">Tri par insertion : invariant</a>
-      <ul>
-        <li><a href="#invariant">Invariant</a></li>
-        <li><a href="#terminaison">Terminaison</a></li>
-      </ul>
-    </li>
+    <li><a href="#tri-par-insertion--invariant-de-boucle">Tri par insertion : invariant de boucle</a></li>
   </ul>
 </nav>
   </aside>

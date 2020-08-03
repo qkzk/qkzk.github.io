@@ -13,7 +13,7 @@
   
     
     
-    Complexité
+    Partie 4
   
  | qkzk</title>
 
@@ -1413,7 +1413,7 @@ MathJax.Hub.Config({
   
     
     
-    Trier introduction
+    Partie 1
   
 
       </a>
@@ -1446,7 +1446,7 @@ MathJax.Hub.Config({
   
     
     
-    Langage naturel, déroulé
+    Partie 2
   
 
       </a>
@@ -1479,7 +1479,7 @@ MathJax.Hub.Config({
   
     
     
-    Python et invariants
+    Partie 3
   
 
       </a>
@@ -1512,7 +1512,7 @@ MathJax.Hub.Config({
   
     
     
-    Complexité
+    Partie 4
   
 
       </a>
@@ -3435,6 +3435,39 @@ MathJax.Hub.Config({
     
     
     Mini projet CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/js_td/" >
+        
+  
+    
+    
+    TD : JavaScript
   
 
       </a>
@@ -9418,92 +9451,71 @@ MathJax.Hub.Config({
   
     
     
-    Complexité
+    Partie 4
   
 </strong>
 </header>
 
       
-<article class="markdown"><p><a href="/uploads/docsnsi/algo/tris/tris_4-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_4-Beamer.pdf">diapos</a></p>
-<h1 id="quatrième-partie--complexité">Quatrième partie : complexité</h1>
-<h2 id="rappel--tri-par-insertion">Rappel : tri par insertion</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">i = 1
-Tant que i &lt; longueur(A)
+<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocsnsialgotristris_4pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_4.pdf">impression</a></h3>
+<h3 id="plan">Plan</h3>
+<p>TD programmer tri par insertion</p>
+<ol>
+<li>reprendre l&rsquo;algorithme, le programmer en python</li>
+<li>programmer version qui compte les échanges</li>
+<li>mesure pratique des durées, comparaison avec tri rapide (à taper) et timsort</li>
+<li>si le temps faire prog tri à bulle</li>
+<li>montrer que tri rapide et timsort $O(n \log n)$</li>
+</ol>
+<h1 id="tri-par-insertion-travaux-dirigés">Tri par insertion, travaux dirigés.</h1>
+<h2 id="1-programmer-le-tri-par-insertion">1. Programmer le tri par insertion</h2>
+<p>En partant de l&rsquo;algorithme ci-dessous, écrire le programme Python
+correspondant.</p>
+<p>On prendra soin de créer une fonction pour réaliser les échanges.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Tri Insertion(tableau t, entier n)
+i = 0
+Tant que i &lt; n
     j = i
-    Tant que j &gt; 0 et A[j-1] &gt; A[j]
-        echanger A[j] et A[j-1]
+    Tant que j &gt; 0 et t[j-1] &gt; t[j]
+        echanger t[j] et t[j-1]
         j = j - 1
     fin tant que
     i = i + 1
 fin tant que
-</code></pre></div><h2 id="tri-par-insertion--meilleur-cas-pire-cas">Tri par insertion : meilleur cas, pire cas</h2>
-<ul>
-<li><em>meilleur cas</em> : liste déjà triée</li>
-<li><em>pire des cas</em> : liste triée à l&rsquo;envers.</li>
-</ul>
-<h2 id="petit-tp--mesurer-la-complexité-du-tri-par-insertion">petit TP : Mesurer la complexité du tri par insertion.</h2>
-<ul>
-<li>Pour des listes de plus en plus grandes, on mesure les temps d&rsquo;exécution</li>
-<li>On trace une courbre présentant les résultats</li>
-<li>Conjecture sur la complexité du tri par sélection</li>
-</ul>
-<h2 id="correction-du-tp--tri-par-sélection">Correction du TP : tri par sélection</h2>
-<ul>
-<li>Le tri par insertion est en $O(n^2)$</li>
-<li>Pire des cas : la liste est triée par ordre contraire</li>
-</ul>
-<p>Quelques exemples de vitesses en fonction de la taille de la liste d&rsquo;entrée
-pour le tri par insertion</p>
-<h2 id="meilleur-cas">Meilleur cas</h2>
-<p><img src="/uploads/docsnsi/algo/tris/insertion_complexite_best_case.png" alt="meilleur cas"></p>
-<h2 id="cas-random">Cas random</h2>
-<p><img src="/uploads/docsnsi/algo/tris/insertion_complexite_random.png" alt="random"></p>
-<h2 id="pire-des-cas">Pire des cas</h2>
-<p><img src="/uploads/docsnsi/algo/tris/insertion_complexite_worst_case.png" alt="pire cas"></p>
-<h1 id="insertion--preuve-de-la-complexité">insertion : preuve de la complexité</h1>
-<h2 id="complexité--calcul-à-la-main">Complexité : calcul à la main</h2>
-<ul>
-<li>
-<p>Pour simpliflier, on ne compte que les échanges.</p>
-</li>
-<li>
-<p>Dans ce cas, à chaque itération de la boucle intérieure, on parcourt toute la liste triée et on échange tous les couples d&rsquo;éléments avant d&rsquo;insérer.</p>
-</li>
-<li>
-<p>Celle-ci contenant <code>i</code> éléments, le nombre d&rsquo;échanges est :</p>
-<p>$C = 1 + 2 + 3 + \cdots + n$</p>
-</li>
-<li>
-<p>&hellip;</p>
-</li>
-</ul>
-<h2 id="complexité--calcul-à-la-main-1">Complexité : calcul à la main</h2>
-<ul>
-<li>Remarquons qu&rsquo;on peut écrire $C$ à l&rsquo;envers :
-$$C \quad =\quad 1 \quad + \quad 2 \quad+ \cdots + (n-1) + \quad n $$
-$$C \quad =\quad n \quad + (n-1) + \cdots + \quad 2 \quad + \quad 1 $$</li>
-<li>On ajoute en colonne :
-$$2C \quad = (n+1) + (n+1) + \cdots + (n+1) + (n+1)$$
-$$2C = n(n+1)$$
-$$C = n(n+1)/2$$
-$C$ est toujours plus petit qu&rsquo;un polynôme en $n^2$.</li>
-</ul>
-<p>On note : $C = O(n^2)$</p>
-<p>Le tri par insertion est de complexité <strong>quadratique</strong></p>
-<h2 id="on2">$O(n^2)$</h2>
-<ul>
-<li>Comme le tri par insertion, le tri par sélection est quadratique.</li>
-<li>Le nombre &ldquo;d&rsquo;opérations&rdquo; réalisées dans un tri par sélection ou par
-insertion est de l&rsquo;ordre du carré de la taille.</li>
-<li>On dit que ce sont des algorithmes en $O(n^2)$</li>
-</ul>
-<h1 id="comparaison-à-un-autre-tri">Comparaison à un autre tri</h1>
-<h2 id="tri-par-insertion-vs-tri-natif-en-python">Tri par insertion vs Tri natif en Python</h2>
-<p>.<img src="/uploads/docsnsi/algo/tris/insertion_vs_timsort.png" alt="insertion vs timsort">{ width=400px }</p>
-<p>Le tri natif est-il à temps constant ????</p>
-<h2 id="tri-natif-en-python-seul">Tri natif en Python seul</h2>
-<p>.<img src="/uploads/docsnsi/algo/tris/timsort.png" alt="timsort">{ width=400px }</p>
-<p>non&hellip; le tri natif (TimSort) est en $O(n\times log(n))$</p>
+</code></pre></div><h2 id="2-seconde-version--décompte-des-échanges">2. Seconde version : décompte des échanges.</h2>
+<ol>
+<li>Quel est le pire des cas en terme de nombre d&rsquo;échanges pour le tri par
+insertion ?</li>
+<li>Créer une fonction qui génère un tableau trié par ordre décroissant.</li>
+<li>Créer une seconde version du tri qui renvoie un entier : le nombre d&rsquo;échanges
+réalisés par le tri.</li>
+<li>Construire deux listes Python, une liste de tailles croissantes et une
+liste du nombre d&rsquo;échanges pour le tri par insertion d&rsquo;un tableau trié
+de manière décroissante.</li>
+<li>À l&rsquo;aide de <code>pylab</code> représenter la courbe du nombre d&rsquo;échanges en fonction
+de la taille.</li>
+<li>Pour les tailles précédentes, construire la liste des durées écoulées.</li>
+<li>Toujours à l&rsquo;aide de <code>pylab</code> représenter la durée en fonction de la taille.</li>
+</ol>
+<h2 id="3-complément--dautres-tris">3. Complément : d&rsquo;autres tris.</h2>
+<h3 id="timsort">timsort.</h3>
+<p>timsort est le nom du tri utilisé par Python (méthode <code>sort</code> et fonction <code>sorted</code>)</p>
+<p>Lire la documentation du tri natif <code>help(list.sort)</code> et reprendre la figure
+précédente pour le tri natif.</p>
+<p>On construira deux courbes : le tri natif seul et les deux tris ensemble.</p>
+<h3 id="tri-à-bulle">Tri à bulle</h3>
+<ol>
+<li>En partant de l&rsquo;article wikipédia sur <a href="https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles#Principe_et_pseudo-code">le tri à bulle</a>
+programmer une fonction <code>tri_a_bulle</code> en python.</li>
+<li>Ajouter à vos courbes précédentes celle du tri à bulle.</li>
+</ol>
+<h1 id="projets-complémentaires">projets complémentaires</h1>
+<h3 id="illustrer-les-tris">Illustrer les tris.</h3>
+<p>Construire une animation en python illustrant les tris. On pourra,
+par exemple, utiliser des bâtons de taille croissante
+et montrer leur position à des moments définis de l&rsquo;algorithme.</p>
+<p>On peut utiliser des couleurs pour mettre en avant l&rsquo;élément couramment
+trié.</p>
 </article>
 
       <div class="backtotop">
@@ -9539,24 +9551,31 @@ insertion est de l&rsquo;ordre du carré de la taille.</li>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#rappel--tri-par-insertion">Rappel : tri par insertion</a></li>
-    <li><a href="#tri-par-insertion--meilleur-cas-pire-cas">Tri par insertion : meilleur cas, pire cas</a></li>
-    <li><a href="#petit-tp--mesurer-la-complexité-du-tri-par-insertion">petit TP : Mesurer la complexité du tri par insertion.</a></li>
-    <li><a href="#correction-du-tp--tri-par-sélection">Correction du TP : tri par sélection</a></li>
-    <li><a href="#meilleur-cas">Meilleur cas</a></li>
-    <li><a href="#cas-random">Cas random</a></li>
-    <li><a href="#pire-des-cas">Pire des cas</a></li>
+    <li>
+      <ul>
+        <li><a href="#pdf--pour-impressionuploadsdocsnsialgotristris_4pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_4.pdf">impression</a></a></li>
+        <li><a href="#plan">Plan</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
-    <li><a href="#complexité--calcul-à-la-main">Complexité : calcul à la main</a></li>
-    <li><a href="#complexité--calcul-à-la-main-1">Complexité : calcul à la main</a></li>
-    <li><a href="#on2">$O(n^2)$</a></li>
+    <li><a href="#1-programmer-le-tri-par-insertion">1. Programmer le tri par insertion</a></li>
+    <li><a href="#2-seconde-version--décompte-des-échanges">2. Seconde version : décompte des échanges.</a></li>
+    <li><a href="#3-complément--dautres-tris">3. Complément : d&rsquo;autres tris.</a>
+      <ul>
+        <li><a href="#timsort">timsort.</a></li>
+        <li><a href="#tri-à-bulle">Tri à bulle</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
-    <li><a href="#tri-par-insertion-vs-tri-natif-en-python">Tri par insertion vs Tri natif en Python</a></li>
-    <li><a href="#tri-natif-en-python-seul">Tri natif en Python seul</a></li>
+    <li>
+      <ul>
+        <li><a href="#illustrer-les-tris">Illustrer les tris.</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </aside>

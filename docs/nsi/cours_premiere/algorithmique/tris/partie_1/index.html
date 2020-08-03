@@ -13,7 +13,7 @@
   
     
     
-    Trier introduction
+    Partie 1
   
  | qkzk</title>
 
@@ -1413,7 +1413,7 @@ MathJax.Hub.Config({
   
     
     
-    Trier introduction
+    Partie 1
   
 
       </a>
@@ -1446,7 +1446,7 @@ MathJax.Hub.Config({
   
     
     
-    Langage naturel, déroulé
+    Partie 2
   
 
       </a>
@@ -1479,7 +1479,7 @@ MathJax.Hub.Config({
   
     
     
-    Python et invariants
+    Partie 3
   
 
       </a>
@@ -1512,7 +1512,7 @@ MathJax.Hub.Config({
   
     
     
-    Complexité
+    Partie 4
   
 
       </a>
@@ -3435,6 +3435,39 @@ MathJax.Hub.Config({
     
     
     Mini projet CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/js_td/" >
+        
+  
+    
+    
+    TD : JavaScript
   
 
       </a>
@@ -9418,35 +9451,35 @@ MathJax.Hub.Config({
   
     
     
-    Trier introduction
+    Partie 1
   
 </strong>
 </header>
 
       
-<article class="markdown"><p><a href="/uploads/docsnsi/algo/tris/tris_1-Article.pdf">article</a> et <a href="/uploads/docsnsi/algo/tris/tris_1-Beamer.pdf">diapos</a></p>
+<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocsnsialgotristris_1pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_1.pdf">impression</a></h3>
+<h3 id="plan">Plan</h3>
+<ol>
+<li>cours/td : activité boites,</li>
+<li>résumé des 2 algos,</li>
+<li>faire tourner sur des ex sans indice,</li>
+<li>animation pgzero</li>
+</ol>
 <h1 id="trier">Trier</h1>
 <h2 id="trier--définition">Trier : définition.</h2>
 <p>Algorithme de <strong>tri</strong></p>
 <p>Algorithme qui, partant d&rsquo;une liste, renvoie une version ordonnée de la liste.
 $$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$</p>
+<p>Certains algorithme &ldquo;ne renvoient rien&rdquo;&hellip; c&rsquo;est le <em>tableau de départ</em> qui est
+modifié.</p>
 <h2 id="objectifs-du-programme">Objectifs du programme</h2>
-<table>
-<thead>
-<tr>
-<th>Contenus</th>
-<th>Capacités attendues</th>
-<th>Commentaires</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tris par insertion, par sélection</td>
-<td>Écrire un algorithme de tri. <br>Décrire un invariant de boucle qui prouve la correction des tris par insertion, par sélection</td>
-<td>La terminaison de ces algorithmes est à justifier.<br>On montre que leur coût est quadratique</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Contenus</strong>
+Tris par insertion, par sélection</p>
+<p><strong>Capacités attendues</strong>
+Écrire un algorithme de tri. Décrire un invariant de boucle qui prouve
+la correction des tris par insertion, par sélection</p>
+<p><strong>Commentaires</strong></p>
+<p>On montre que leur coût est quadratique</p>
 <h2 id="trier--de-nombreux-algorithmes">Trier : de nombreux algorithmes</h2>
 <p>Il existe de nombreux algorithmes de tri.</p>
 <ul>
@@ -9454,44 +9487,46 @@ $$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$</p>
 <li><strong>Tri par sélection</strong> -&gt; 1ère</li>
 <li>Tri à bulle</li>
 <li>Tri rapide</li>
-<li><strong>Tri fusion</strong> -&gt; Tale (?)</li>
+<li><strong>Tri fusion</strong> -&gt; Terminale</li>
 <li>Tri par tas</li>
 <li>Tri par comparaison</li>
 <li>Smoothsort</li>
 <li><strong>Timsort</strong> -&gt; Python</li>
 </ul>
 <h1 id="que-va-t-on-faire-">Que va-t-on faire ?</h1>
-<h2 id="1ère-partie">1ère partie</h2>
-<h3 id="introduction">Introduction</h3>
 <ol>
-<li>Activité &ldquo;à la main&rdquo; : dégager les algorithmes les plus naturels</li>
-<li>Faire tourner les algorithmes en langage naturel, dans un tableau</li>
+<li>Dégager les algorithmes &ldquo;naturels&rdquo; du tri par insertion et par sélection</li>
+<li>Étudier ces algorithmes (preuve et complexité)</li>
+<li>Les programmer en Python</li>
+<li>Comparer leur efficacité avec d&rsquo;autres algorithmes de tris (timsort,
+tri rapide, tri à bulle)</li>
 </ol>
-<h2 id="seconde-partie">seconde partie</h2>
-<ol>
-<li>Les algorithmes formalisés</li>
-<li>Les faire tourner sur des tableaux de nombres</li>
-</ol>
-<h2 id="troisième-partie">troisième partie</h2>
-<ul>
-<li>prouver qu&rsquo;ils sont corrects et se terminent (invariant, terminaison)</li>
-<li>Étudier la complexité (~vitesse d&rsquo;exécution en fonction de la taille)</li>
-</ul>
-<h2 id="quatrième-partie">quatrième partie</h2>
-<ul>
-<li>les programmer en Python</li>
-<li>Comparer l&rsquo;efficacité de différents tris</li>
-<li>Compléments éventuels</li>
-</ul>
+<h2 id="pourquoi-étudier-les-algorithmes-de-tri-">Pourquoi étudier les algorithmes de tri ?</h2>
+<p>Trier est une opération fréquente, certains algorithmes (dichotomie par
+exemple) partent d&rsquo;un tableau déjà trié.</p>
+<p>Tous les langages &ldquo;haut niveau&rdquo; proposent une fonction native pour trier
+les tableaux.
+En terminale on utilisera apprendra à faire des sélections sur des bases
+de données du type &ldquo;quels sont les 5 films les plus vus au cinéma ?&rdquo;
+ou bien &ldquo;déterminer les 100 derniers inscrits à un jeu en ligne&rdquo;.</p>
+<p>Ces sélections nécessitent un tri (des films par nombre de spectateurs, des
+joueurs par date d&rsquo;inscription).</p>
+<p>Notre objectif n&rsquo;est pas <em>d&rsquo;utiliser</em> en pratique nos algorithmes
+mais de comprendre leur fonctionnement.</p>
+<p>Non seulement ils sont d&rsquo;excellents candidats pour des questions à l&rsquo;examen
+mais les principes mis en oeuvres sont utilisés dans nombreux algorithmes.</p>
+<p>Tous les algorithmes de tri ne se valent pas. Au prix de transformations
+un peu plus élaborées on parvient à les rendre beaucoup plus rapides.</p>
+<p>Nous allons les étudier de plus en plus précisemment.</p>
 <h1 id="première-partie">Première partie</h1>
 <h2 id="activité-à-la-main">Activité à la main</h2>
 <h3 id="trier-des-boites">Trier des boites</h3>
 <p>\medskip</p>
+<p>On dispose de boites de poids différent,</p>
 <p>L&rsquo;objectif est de décrire un algorithme &ldquo;naturel&rdquo; qui réponde au problème :</p>
 <ul>
-<li>on dispose de boites de poids différent,</li>
 <li><strong>comment les ranger par masse croissante ?</strong></li>
-<li>Contrainte : <strong>on ne peut les comparer qu&rsquo;une à une.</strong></li>
+<li>Contrainte : <strong>on ne peut qu&rsquo;effectuer des comparaisons par paire.</strong></li>
 </ul>
 <h2 id="activité-à-la-main-1">Activité à la main</h2>
 <h3 id="trier-des-boites-1">Trier des boites</h3>
@@ -9508,9 +9543,11 @@ $$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$</p>
 <ol>
 <li>Deux algorithmes &ldquo;naturels&rdquo; se dégagent</li>
 <li>Pas évident quand on ne dispose que d&rsquo;une comparaison</li>
-<li>généralisable à tout ce qui peut se &ldquo;comparer&rdquo; (ex : mots par longueur, fichiers par taille etc.)</li>
+<li>généralisable à tout ce qui peut se &ldquo;comparer&rdquo; (ex : mots par longueur,
+fichiers par taille etc.)</li>
 </ol>
 <h1 id="tri-par-sélection">Tri par sélection</h1>
+<p>Le tri par sélection est l&rsquo;un des deux algorithmes de tris étudiés cette année.</p>
 <h2 id="tri-par-sélection-1">Tri par sélection</h2>
 <h3 id="en-français">En français</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Je débute avec un alignement vide de boîtes triées
@@ -9533,18 +9570,18 @@ Pour chacune des autres (main droite) :
 Fin Pour
 </code></pre></div><h1 id="tri-par-insertion">Tri par insertion</h1>
 <h2 id="le-tri-par-insertion">Le tri par insertion</h2>
+<p>Le tri par insertion est le tri du joueur de cartes, il est très proche
+du tri par sélection, et dispose d&rsquo;ailleurs de propriétés similaires.</p>
 <h3 id="en-français-1">En français</h3>
 <h4 id="version-1">Version 1</h4>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    Je débute avec un alignement vide de boîtes triées
-    Tant qu&#39;il y a des boîtes non triées :
-       Je choisis une boite
-	   Je l&#39;insère dans l&#39;alignement de telle sorte
-     qu&#39;il reste trié
-    fin Tant
-</code></pre></div><h2 id="le-tri-par-insertion-1">Le tri par insertion</h2>
-<h3 id="il-est-important-ici-de-présenter-un-algorithme-dinsertion-dans-un-alignement-trié">Il est important ici de présenter un algorithme d&rsquo;insertion dans un alignement trié.</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Entree : Un alignement de boîtes trié, une boîte b
-Sortie : rien
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Je débute avec un alignement vide de boîtes triées
+Tant qu&#39;il y a des boîtes non triées :
+   Je choisis une boite
+   Je l&#39;insère dans l&#39;alignement de telle sorte qu&#39;il reste trié
+fin Tant
+</code></pre></div><h3 id="fonction--insérer-un-élément-dans-un-alignement-trié">Fonction : insérer un élément dans un alignement trié.</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Entrees : Un alignement de boîtes trié, une boîte b
+Sortie : aucune
 Effet de bord: l&#39;alignement reste trié
 
 Prends la boîte la plus à droite (la plus lourde)
@@ -9565,6 +9602,15 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
 (1, 2)                  (3, 4)                  (3)
 (1, 2, 3)               (4)                     (4)
 (1, 2, 3, 4)</p>
+<h1 id="le-tri-par-insertion-1">Le tri par insertion</h1>
+<h2 id="exercice-">Exercice :</h2>
+<p>Reprendre le tableau de nombres <code>[1, 3, 4, 2]</code> et donner les étapes :</p>
+<ul>
+<li>au départ,</li>
+<li>après chaque échange,</li>
+<li>à la fin.</li>
+</ul>
+<h1 id="présentation-dune-animation-réalisée-avec-pygame-zero">Présentation d&rsquo;une animation réalisée avec Pygame zero.</h1>
 </article>
 
       <div class="backtotop">
@@ -9600,20 +9646,22 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#pdf--pour-impressionuploadsdocsnsialgotristris_1pdf">pdf : pour <a href="/uploads/docsnsi/algo/tris/tris_1.pdf">impression</a></a></li>
+        <li><a href="#plan">Plan</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li><a href="#trier--définition">Trier : définition.</a></li>
     <li><a href="#objectifs-du-programme">Objectifs du programme</a></li>
     <li><a href="#trier--de-nombreux-algorithmes">Trier : de nombreux algorithmes</a></li>
   </ul>
 
   <ul>
-    <li><a href="#1ère-partie">1ère partie</a>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-      </ul>
-    </li>
-    <li><a href="#seconde-partie">seconde partie</a></li>
-    <li><a href="#troisième-partie">troisième partie</a></li>
-    <li><a href="#quatrième-partie">quatrième partie</a></li>
+    <li><a href="#pourquoi-étudier-les-algorithmes-de-tri-">Pourquoi étudier les algorithmes de tri ?</a></li>
   </ul>
 
   <ul>
@@ -9648,11 +9696,7 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
     <li><a href="#le-tri-par-insertion">Le tri par insertion</a>
       <ul>
         <li><a href="#en-français-1">En français</a></li>
-      </ul>
-    </li>
-    <li><a href="#le-tri-par-insertion-1">Le tri par insertion</a>
-      <ul>
-        <li><a href="#il-est-important-ici-de-présenter-un-algorithme-dinsertion-dans-un-alignement-trié">Il est important ici de présenter un algorithme d&rsquo;insertion dans un alignement trié.</a></li>
+        <li><a href="#fonction--insérer-un-élément-dans-un-alignement-trié">Fonction : insérer un élément dans un alignement trié.</a></li>
       </ul>
     </li>
   </ul>
@@ -9660,6 +9704,10 @@ Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
   <ul>
     <li><a href="#tri-par-sélection-2">Tri par sélection</a></li>
     <li><a href="#exemple">Exemple</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#exercice-">Exercice :</a></li>
   </ul>
 </nav>
   </aside>
