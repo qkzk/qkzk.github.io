@@ -13,7 +13,7 @@
   
     
     
-    résumé
+    résumé - partie 1
   
  | qkzk</title>
 
@@ -6194,7 +6194,7 @@ MathJax.Hub.Config({
   
     
     
-    résumé
+    résumé - partie 1
   
 
       </a>
@@ -9901,13 +9901,214 @@ MathJax.Hub.Config({
   
     
     
-    résumé
+    résumé - partie 1
   
 </strong>
 </header>
 
       
-<article class="markdown"><h3 id="pdf--résumé-des-commandesuploadsdocnsitalebddsqlite_sheet_frpdf">pdf : <a href="/uploads/docnsitale/bdd/sqlite_sheet_fr.pdf">Résumé des commandes</a></h3>
+<article class="markdown"><h3 id="pdf--résumé-des-commandesuploadsdocnsitalebddsqlite_sheet_frpdf-pour-impressionuploadsdocnsitalebddbdd_resumepdf">pdf : <a href="/uploads/docnsitale/bdd/sqlite_sheet_fr.pdf">Résumé des commandes</a>, <a href="/uploads/docnsitale/bdd/bdd_resume.pdf">pour impression</a></h3>
+<h1 id="bases-de-données-relationnelles">Bases de données relationnelles</h1>
+<h2 id="définitions">Définitions</h2>
+<p><strong>Base de donnée (définition large)</strong> : tout ensemble de données stockées numériquement
+et pouvant servir à un (ou plusieurs) programmes.</p>
+<p><strong>Base de donnée (définition restreinte)</strong> : on appellera base de données un
+ensemble de données numériques qui possède une structure ; c&rsquo;est à dire dont
+l&rsquo;organisation répond à une logique systématique.</p>
+<ul>
+<li><strong>BDD</strong> : ensemble des tables.</li>
+<li><strong>Table</strong> (parfois <strong>relation</strong>) : c&rsquo;est l&rsquo;ensemble des <strong>enregistrements</strong> qui existent sur les données</li>
+<li><strong>Colonne</strong> (parfois <strong>Champs</strong> ou <strong>attributs</strong>) : &ldquo;departement&rdquo;, &ldquo;code&rdquo; etc. : les différents champs à rempir</li>
+<li><strong>Ligne</strong>  (parfois <strong>Enregistrement</strong> ou <strong>relations</strong>) : &ldquo;1&rdquo;, &ldquo;2&rdquo; etc. les données elles-mêmes.</li>
+<li><strong>Cellules</strong> (parfois <strong>cases</strong>) : la valeur elle même.</li>
+</ul>
+<h2 id="bdd-relationnelle">BDD relationnelle</h2>
+<p>Dans une même base de donnée, on rencontre souvent plusieurs tables.</p>
+<p>Par exemple, pour un compte bancaire :</p>
+<ol>
+<li>
+<p>table des transactions du compte courant avec comme champs :</p>
+<p>date, numero_transaction, montant, libelle</p>
+</li>
+<li>
+<p>table des différents comptes avec comme champs :</p>
+<p>numero_compte, nom_compte, date_ouverture</p>
+</li>
+<li>
+<p>table des différents soldes avec comme champs :</p>
+<p>numero_compte, date, solde</p>
+</li>
+</ol>
+<h2 id="identifier-les-enregistrements">Identifier les enregistrements</h2>
+<p>Pour chaque enregistrement il faut s&rsquo;assurer que la donnée n&rsquo;est pas <em>déjà</em> présente.</p>
+<p>On résout ce problème avec la notion de &ldquo;clé&rdquo;</p>
+<h3 id="clé-primaire--primary-key-pk">Clé primaire = Primary Key (PK)</h3>
+<ul>
+<li>Identifie de manière unique une ligne</li>
+<li>Ne doit pas être <code>NULL</code> (vide)</li>
+<li>Peut être composée d&rsquo;une ou plusieurs colonnes</li>
+<li>Ajout d&rsquo;une colonne dédiée si besoin</li>
+</ul>
+<h3 id="clé-étrangère--foreign-key-fk">Clé étrangère = Foreign Key (FK)</h3>
+<ul>
+<li>Référence une ou plusieurs colonnes d&rsquo;une autre table (représentant
+une clé primaire)</li>
+<li>Les colonnes référencées doivent pré-exister dans la table référencée</li>
+</ul>
+<h1 id="sql--structured-query-language">SQL : Structured Query Language</h1>
+<h2 id="description-de-sql">Description de SQL</h2>
+<h3 id="langage-informatique-servant-à-exploiter-des-bases-de-données-relationnelles">Langage informatique servant à exploiter des bases de données relationnelles</h3>
+<ul>
+<li>Manipulation des données
+<ul>
+<li>Recherche de données : <code>SELECT</code></li>
+<li>Ajout de données : <code>INSERT</code></li>
+<li>Modification de données : <code>UPDATE</code></li>
+<li>Suppression de données : <code>DELETE</code></li>
+</ul>
+</li>
+<li>Définition des données
+<ul>
+<li>Manipule les structures de données de la base</li>
+<li>Création de tables et autres structures : <code>CREATE</code></li>
+</ul>
+</li>
+<li>Contrôle des données et des transactions
+<ul>
+<li>
+<p>Gestion des autorisations d&rsquo;accès aux données par les différents utilisateurs</p>
+</li>
+<li>
+<p>Gestion de l&rsquo;exécution de transactions :</p>
+<p>Transaction = suite d&rsquo;opérations de modification de la base de données</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sgbdr--système-de-gestion-de-bases-de-données-relationnelle">SGBDR = Système de Gestion de Bases de Données Relationnelle</h3>
+<ul>
+<li>Logiciel permettant de manipuler le contenu des bases de données relationnelles</li>
+<li>Garantit la qualité, la pérennité et la confidentialité des informations</li>
+<li>Exemple : <a href="https://sqlite.org/">SQLite</a> est un SGBDR dont le code
+source est dans le domaine public</li>
+</ul>
+<h3 id="cest-un-langage-déclaratif">C&rsquo;est un langage déclaratif</h3>
+<ul>
+<li>Décrit le résultat voulu sans décrire la manière de l&rsquo;obtenir</li>
+<li>Les SGBDR déterminent automatiquement la manière optimale d&rsquo;effectuer
+les opérations nécessaires à l&rsquo;obtention du résultat</li>
+</ul>
+<h2 id="extraction-des-données-dune-table">Extraction des données d&rsquo;une table</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> noms_colonnes_séparés_par_virgules
+    <span style="color:#069;font-weight:bold">FROM</span> nom_table;
+</code></pre></div><p>Sélectionne toutes les lignes d&rsquo;une table</p>
+<ul>
+<li>
+<p><code>*</code> pour toutes les colonnes</p>
+</li>
+<li>
+<p><code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question</p>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> <span style="color:#069;font-weight:bold">DISTINCT</span> categorie, genre
+    <span style="color:#069;font-weight:bold">FROM</span> evolution;
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> noms_colonnes_séparés_par_virgules
+    <span style="color:#069;font-weight:bold">FROM</span> nom_table
+    <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
+</code></pre></div><p>Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></p>
+<h3 id="la-clause-porte-sur-les-valeurs-des-colonnes">La clause porte sur les valeurs des colonnes</h3>
+<ul>
+<li>Utilisation d&rsquo;opérateurs de comparaison (op_comp) : <code>=</code>, <code>&lt;&gt;</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code></li>
+<li>Utilisation d&rsquo;opérateurs booléens (op_bool) : <code>AND</code>, <code>OR</code></li>
+</ul>
+<p>Exemple :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> code, effectif
+	<span style="color:#069;font-weight:bold">FROM</span> evolution
+	<span style="color:#069;font-weight:bold">WHERE</span> categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Agriculteurs Exploitants&#34;</span> <span style="color:#069;font-weight:bold">AND</span> genre<span style="color:#555">=</span><span style="color:#c30">&#34;Femmes&#34;</span>;
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> abrev.nom_colonne <span style="color:#069;font-weight:bold">AS</span> nom_affiché
+    <span style="color:#069;font-weight:bold">FROM</span> nom_table <span style="color:#069;font-weight:bold">AS</span> abrev
+    <span style="color:#069;font-weight:bold">ORDER</span> <span style="color:#069;font-weight:bold">BY</span> nom_colonne [<span style="color:#069;font-weight:bold">DESC</span>];
+</code></pre></div><p>Change l&rsquo;affichage et le nommage des données</p>
+<h3 id="as"><code>AS</code></h3>
+<ul>
+<li>
+<p>Associé à un nom de colonne : change le nom affiché de la colonne
+dans le résultat.</p>
+</li>
+<li>
+<p>Associé à un nom de table : permet d&rsquo;abrévier le nom de la table pour
+préciser de quelle table provient une colonne dont le nom est utilisé
+par plusieurs tables. Cette abréviation <strong>doit</strong> être utilisée dans le
+reste de la requête.</p>
+</li>
+</ul>
+<h2 id="fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</h2>
+<p>Applique une fonction sur les valeurs d&rsquo;une colonne</p>
+<ul>
+<li>
+<p><code>COUNT</code> : compte le nombre de lignes sélectionnées.</p>
+</li>
+<li>
+<p><code>MIN</code>, <code>MAX</code> : renvoie la valeur minimum ou maximum de la colonne,
+parmi les lignes sélectionnées</p>
+</li>
+<li>
+<p><code>SUM</code>, <code>AVG</code> : calcule la somme ou la moyenne des valeurs
+<strong>numériques</strong> de la colonne, parmi les lignes sélectionnées</p>
+</li>
+</ul>
+<p>Exemple :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> <span style="color:#069;font-weight:bold">AVG</span>(effectif) <span style="color:#069;font-weight:bold">AS</span> Moy_employes
+	<span style="color:#069;font-weight:bold">FROM</span> evolution
+	<span style="color:#069;font-weight:bold">WHERE</span> categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Employés&#34;</span>;
+</code></pre></div><h2 id="extraction-des-données-de-deux-tables">Extraction des données de deux tables</h2>
+<h3 id="produit-cartésien">Produit cartésien</h3>
+<ul>
+<li>Comme son nom l&rsquo;indique, génère de façon exhaustive toutes les
+associations possibles entre les lignes des deux tables
+<ul>
+<li>Nb_total_lignes = Nb_lignes_ville * Nb_lignes_evolution = 650 * 10400</li>
+</ul>
+</li>
+<li>Non pertinent</li>
+</ul>
+<h3 id="join-on"><code>JOIN ON</code></h3>
+<ul>
+<li>Génère uniquement les associations entre les lignes qui sont liées
+par des clés primaires et étrangères identiques.
+<ul>
+<li>Nb_total_lignes = Nb_lignes_table_clé_étrangère = NB_lignes_evolution</li>
+</ul>
+</li>
+<li>À utiliser pour associer deux tables</li>
+</ul>
+<h2 id="modification-des-données">Modification des données</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">INSERT</span> <span style="color:#069;font-weight:bold">INTO</span> nom_table (liste_nom_colonnes_à_remplir)
+    <span style="color:#069;font-weight:bold">VALUES</span> (liste_des_valeurs_à_insérer_dans_ordre_liste_colonnes);
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">UPDATE</span> nom_table <span style="color:#069;font-weight:bold">SET</span> nom_colonne1<span style="color:#555">=</span>valeur1, nom_colonne2<span style="color:#555">=</span>valeur2
+    <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">DELETE</span> <span style="color:#069;font-weight:bold">FROM</span> nom_table <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
+</code></pre></div><h2 id="modification-des-données-1">Modification des données</h2>
+<h3 id="respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</h3>
+<ul>
+<li>Une clé primaire doit être unique et non NULL
+<ul>
+<li>On ne peut pas insérer une ligne avec une clé primaire qui existe déjà.</li>
+<li>On ne peut pas modifier la valeur d&rsquo;une clé primaire en une autre valeur
+qui existe déjà.</li>
+</ul>
+</li>
+<li>Une clé étrangère doit référencer une clé primaire existante
+<ul>
+<li>Il faut créer la ligne contenant la clé primaire avant une ligne
+contenant une clé étrangère la référençant.</li>
+<li>On ne peut pas modifier une clé primaire si elle est déjà référencée.</li>
+<li>On ne peut pas effacer une ligne contenant une clé primaire déjà référencée.</li>
+</ul>
+</li>
+<li>Il est possible de mettre des contraintes sur les clés pour gérer
+les cascades de modifications (interdiction ou gestion automatique)</li>
+</ul>
 </article>
 
       <div class="backtotop">
@@ -9945,7 +10146,47 @@ MathJax.Hub.Config({
   <ul>
     <li>
       <ul>
-        <li><a href="#pdf--résumé-des-commandesuploadsdocnsitalebddsqlite_sheet_frpdf">pdf : <a href="/uploads/docnsitale/bdd/sqlite_sheet_fr.pdf">Résumé des commandes</a></a></li>
+        <li><a href="#pdf--résumé-des-commandesuploadsdocnsitalebddsqlite_sheet_frpdf-pour-impressionuploadsdocnsitalebddbdd_resumepdf">pdf : <a href="/uploads/docnsitale/bdd/sqlite_sheet_fr.pdf">Résumé des commandes</a>, <a href="/uploads/docnsitale/bdd/bdd_resume.pdf">pour impression</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#définitions">Définitions</a></li>
+    <li><a href="#bdd-relationnelle">BDD relationnelle</a></li>
+    <li><a href="#identifier-les-enregistrements">Identifier les enregistrements</a>
+      <ul>
+        <li><a href="#clé-primaire--primary-key-pk">Clé primaire = Primary Key (PK)</a></li>
+        <li><a href="#clé-étrangère--foreign-key-fk">Clé étrangère = Foreign Key (FK)</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#description-de-sql">Description de SQL</a>
+      <ul>
+        <li><a href="#langage-informatique-servant-à-exploiter-des-bases-de-données-relationnelles">Langage informatique servant à exploiter des bases de données relationnelles</a></li>
+        <li><a href="#sgbdr--système-de-gestion-de-bases-de-données-relationnelle">SGBDR = Système de Gestion de Bases de Données Relationnelle</a></li>
+        <li><a href="#cest-un-langage-déclaratif">C&rsquo;est un langage déclaratif</a></li>
+      </ul>
+    </li>
+    <li><a href="#extraction-des-données-dune-table">Extraction des données d&rsquo;une table</a>
+      <ul>
+        <li><a href="#la-clause-porte-sur-les-valeurs-des-colonnes">La clause porte sur les valeurs des colonnes</a></li>
+        <li><a href="#as"><code>AS</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</a></li>
+    <li><a href="#extraction-des-données-de-deux-tables">Extraction des données de deux tables</a>
+      <ul>
+        <li><a href="#produit-cartésien">Produit cartésien</a></li>
+        <li><a href="#join-on"><code>JOIN ON</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#modification-des-données">Modification des données</a></li>
+    <li><a href="#modification-des-données-1">Modification des données</a>
+      <ul>
+        <li><a href="#respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</a></li>
       </ul>
     </li>
   </ul>
