@@ -1,0 +1,12 @@
+# redirect to https
+RewriteEngine on
+
+RewriteCond %{HTTPS} off
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ignoring .git folder
+RewriteRule ^(?:.git)\b.* - [R=404]
+
+# prevent from listing directories
+Options -Indexes
+IndexIgnore *
