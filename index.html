@@ -12,7 +12,7 @@
 <title>
   
     
-    NSI Terminale - Données
+    Résumé
   
  | qkzk</title>
 
@@ -10306,182 +10306,222 @@ MathJax.Hub.Config({
   <strong>
   
     
-    NSI Terminale - Données
+    Résumé
   
 </strong>
 </header>
 
       
-<article class="markdown"><h1 id="introduction-à-la-programmation-objet">Introduction à la programmation objet</h1>
-<p>Jusqu&rsquo;ici les programmes que nous avons écrits utilisaient une approche
-procédurale :</p>
+<article class="markdown"><h3 id="pdfpour-impressionuploadsdocnsitalerecursivitepdfresume_recursionpdf">pdf:<a href="/uploads/docnsitale/recursivite/pdf/resume_recursion.pdf">pour impression</a></h3>
+<h1 id="récursivité">Récursivité</h1>
+<h2 id="définition">Définition</h2>
+<p><em>La récursivité est une démarche qui fait référence à l&rsquo;objet même de la démarche à un moment du processus. En d&rsquo;autres termes, c&rsquo;est une démarche dont la description mène à la répétition d&rsquo;une même règle. Par exemple :</em></p>
 <ul>
-<li>On définit les variables qui représentent ce qu&rsquo;on souhaite modéliser</li>
-<li>On crée les fonctions qui vont changer l&rsquo;état de ces variables</li>
-<li>L&rsquo;exécution coordonnée de ces fonctions fait passer nos variables d&rsquo;un état
-à l&rsquo;autre.</li>
+<li><em>écrire un algorithme qui s&rsquo;invoque lui-même ;</em></li>
+<li><em>définir une structure à partir de l&rsquo;une au moins de ses sous-structures.</em></li>
 </ul>
-<p>Cette approche permet de résoudre tous les problèmes informatiques. On peut
-tout programmer de cette manière.</p>
-<p>Néanmoins elle présente un défaut majeur : il est difficile de dégager une
-structure à notre code.</p>
-<p>Cela le rend peu lisible et difficile à entretenir.</p>
-<p>Autre inconvénient, nos programmes ne sont pas réexploitables facilement.</p>
-<p>Pour réutiliser une fonction déjà écrite, la seule approche efficace
-est, pour l&rsquo;instant, d&rsquo;en faire un copier-coller.</p>
-<h2 id="programmation-objet--définir-des-_types_">Programmation objet : définir des <em>types</em>.</h2>
-<p>Les principes de la programmation objet vous sont familiers, vous les avez
-déjà rencontrés à chaque fois que vous avez crée une liste, un dictionnaire
-ou une fonction en Python.</p>
-<p>Ils sont moins visibles lorsqu&rsquo;on manipule des nombres directement mais,
-pourtant, les nombres en Python sont aussi des <em>objets</em>.</p>
-<h3 id="quest-ce-quun-objet-">Qu&rsquo;est-ce qu&rsquo;un objet ?</h3>
-<p>Un objet, c&rsquo;est simplement &ldquo;quelque chose&rdquo; qui respecte des règles préétablies.</p>
-<p>Par exemple : un nombre est un objet sur lequel je peux faire des comparaisons :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">&lt;</span> b
-True
-</code></pre></div><p>Des opérations :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+</span> b
-<span style="color:#f60">5</span>
-</code></pre></div><p>Une liste est un objet qui a une longueur, qui contient un nombre fini
-d&rsquo;éléments auxquels je peux accéder, que je peux trier ou retourner :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">len</span>(ma_liste)
-<span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>append(<span style="color:#f60">4</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
-[<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>sort()
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
-[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>reverse()
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
-[<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
-</code></pre></div><h3 id="type-dun-objet">Type d&rsquo;un objet</h3>
-<p>Python propose d&rsquo;accéder au type d&rsquo;un objet de deux manière :</p>
+<h2 id="algorithmes-récursifs">Algorithmes récursifs</h2>
+<h3 id="exemple-">Exemple \</h3>
+<p>Ne faisons pas dans l&rsquo;originalité :</p>
+<p>$$n! = n \times (n-1)! \text{ si } n \geq 1 \text{ et } 0! = 1$$</p>
+<p>Principe :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  5! = 5 * 4!
+     = 5 * 4 * 3!
+     = 5 * 4 * 3 * 2!
+     = 5 * 4 * 3 * 2 * 1!
+     = 5 * 4 * 3 * 2 * 1 * 0!
+     = 5 * 4 * 3 * 2 * 1 * 1
+     = 120
+</code></pre></div><h3 id="programmation">Programmation\</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fact</span>(n):
+    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+
+<span style="color:#555">&gt;&gt;&gt;</span> fact(<span style="color:#f60">5</span>)
+<span style="color:#f60">120</span>
+</code></pre></div><h2 id="déroulé-dun-programme-récursif">Déroulé d&rsquo;un programme récursif</h2>
+<p>Chaque appel récursif s&rsquo;ajoute à la pile des appels successifs de la fonction.
+Chaque appel possède son propre environnement, donc ses propres variables.
+La pile est nécessaire pour mémoriser les valeurs propre à chaque appel.</p>
+<p><strong>Attention :</strong> En Python la taille de la pile des appels récursifs est limitée. Si la récursivité est trop profonde et que l&rsquo;on atteint cette limite, on déclenche une <code>RecursionError</code>.</p>
+<h2 id="eléments-caractéristiques">Eléments Caractéristiques</h2>
 <ol>
-<li>En le consultant avec la fonction <code>type</code></li>
-<li>En le vérifiant avec <code>isinstance</code></li>
+<li><strong>il faut au moins une situation qui ne consiste pas en un appel récursif</strong></li>
 </ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(ma_liste)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">list</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(ma_liste, <span style="color:#366">list</span>)
-True
-</code></pre></div><p>Cependant, quand nous créons un objet supposé représenter quelque chose
-du monde extérieur (réel : une voiture, un participant de la course au chicon)
-ou imaginaire (un Pokémon etc.), leur type n&rsquo;est pas défini clairement</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> competiteur <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">42</span>}
-<span style="color:#555">&gt;&gt;&gt;</span> pikachu <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Pikachu&#34;</span>, <span style="color:#c30">&#34;cri&#34;</span>: <span style="color:#c30">&#34;Pika ! Pika !&#34;</span>, <span style="color:#c30">&#34;type1&#34;</span>: <span style="color:#c30">&#34;Electrique&#34;</span>,
-               <span style="color:#c30">&#34;type2&#34;</span>: None, <span style="color:#555">...</span>}
-</code></pre></div><p>Certes, le programmeur pense ces objets là comme des compétiteurs ou des
-Pokémons, il peut même les dessiner à l&rsquo;écran ou leur envoyer un email
-automatiquement&hellip; mais en pratique :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(competiteur)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(pikachu)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
-</code></pre></div><p>En pratique, ce sont toujours des dictionnaires.</p>
-<p>On pourrait par exemple, créer des objets qui n&rsquo;ont aucun sens :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> pikachu[<span style="color:#c30">&#34;telephone&#34;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;0678901234&#34;</span>
-</code></pre></div><p>Aussi, rien n&rsquo;est fait pour aider à la collaboration sur ce projet &ldquo;pokémon&rdquo;.</p>
-<p>Un nouveau développeur doit comprendre l&rsquo;intégralité du code s&rsquo;il veut utiliser
-certaines fonctions du programme.</p>
-<p>Il serait bon qu&rsquo;on ait une <em>interface</em> pour ces Pokémons.</p>
-<p>Elle nous permettrait :</p>
-<ul>
-<li>d&rsquo;accéder à leurs données (nom, points de vie, attaque etc.)</li>
-<li>de modifier ce qui peut l&rsquo;être (perdre de la vie, gagner de l&rsquo;expérience)</li>
-<li>d&rsquo;exécuter leurs actions (attaquer, lancer une technique spéciale etc.)</li>
-</ul>
-<p>Elle nous empêcherait aussi de faire n&rsquo;importe quoi avec ces objets !</p>
-<p>De la même manière qu&rsquo;avec les <code>list</code> on a accès à certaines méthodes sans
-avoir à comprendre exactement ce qui est fait dans la machine.</p>
-<h2 id="créer-un-nouveau-type-avec-class">Créer un nouveau type avec <code>class</code></h2>
-<p>De la même manière que le mot clé <code>def</code> permet de créer une fonction et de
-l&rsquo;affecter à une variable, le mot clé <code>class</code> permet de créer un type
-(une classe) et de l&rsquo;affecter à une variable.</p>
-<p>Une classe est un modèle qui permet de créer des objets de ce type.</p>
-<ul>
-<li>Les objets de cette classe sont appelés <em>instances</em>.</li>
-<li>Les variables propres à chaque éléments de cette classe sont appelés
-<em>attributs</em>.</li>
-<li>Les fonctions propres à chaque élément de cette classe sont appelées
-<em>méthodes</em>.</li>
-</ul>
-<p>L&rsquo;ensemble des méthodes accessibles à un utilisateur définit <em>l&rsquo;interface</em>
-de la classe.</p>
-<h2 id="exemple-de-classe--combattant">Exemple de classe : <code>Combattant</code></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Combattant:
-
-    def __init__(self, vie, attaque):
-        self.vie = vie
-        self.attaque = attaque
-        self.vivant = True
-
-    def perdre_vie(self, points):
-        self.vie = self.vie - points
-        if self.vie &lt;= 0:
-            self.vivant = False
-            self.vie = 0
-
-    def attaquer(self, autre):
-        autre.perdre_vie(self.attaque)
-</code></pre></div><h3 id="commentaires-sur-le-code-de-la-classe">Commentaires sur le code de la classe.</h3>
-<ul>
-<li>Ligne 1. On utilise une majuscule pour un nom de classe.</li>
-<li>Lignes 2 à 15. La définition de la classe se termine quand on revient à
-l&rsquo;indentation de départ.</li>
-<li>Ligne 3, ligne 8, ligne 15. définition d&rsquo;une <em>méthode</em></li>
-<li>La variable <code>self</code> est toujours le premier paramètre d&rsquo;une méthode.
-Il désigne l&rsquo;objet lui même.</li>
-<li>Ligne 4, 5, 6 : des <em>attributs</em>.</li>
-<li>Ligne 4 à 6, ligne 9 : <em>dans</em> la classe on utilise <code>self.qqchose</code>
-pour accéder à un attribut ou une méthode.</li>
-<li>La méthode <code>__init__</code> est appelée &ldquo;constructeur&rdquo;, c&rsquo;est elle qui est exécutée
-quand vous exécutez l&rsquo;instruction <code>Combattant(10, 2)</code>.
-Elle crée un objet du type <code>Combattant</code></li>
-</ul>
-<p><strong>Attention !</strong> Python n&rsquo;impose pas le nom <code>self</code>&hellip; ce n&rsquo;est qu&rsquo;un <em>usage</em>.<br>
-Cependant, <em>je vous l&rsquo;impose.</em> Si vous écrivez autre chose que <code>self</code> :</p>
-<ol>
-<li>personne ne comprendra,</li>
-<li>vous aurez 0 à l&rsquo;exo.</li>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">   <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
+      <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+</code></pre></div><p>Cette situation est appelée <strong>situation de terminaison</strong> ou <strong>situation d&rsquo;arrêt</strong> ou <strong>cas d&rsquo;arrêt</strong> ou <strong>cas de base</strong>.</p>
+<ol start="2">
+<li><strong>chaque appel récursif doit se faire avec des données qui permettent de se rapprocher d&rsquo;une situation de terminaison</strong></li>
 </ol>
-<h2 id="utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier <span style="color:#555">=</span> Combattant(<span style="color:#f60">10</span>, <span style="color:#f60">2</span>)    <span style="color:#09f;font-style:italic"># on crée une instance. Utilise &#39;__init__&#39; </span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(guerrier)                  <span style="color:#09f;font-style:italic"># type d&#39;une instance = nom de la classe</span>
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">Combattant</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> magicien <span style="color:#555">=</span> Combattant(<span style="color:#f60">5</span>, <span style="color:#f60">4</span>)     <span style="color:#09f;font-style:italic"># une autre instance</span>
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># chaque instance a ses valeurs d&#39;attributs</span>
-<span style="color:#f60">10</span>
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
-True
-<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># != guerrier.vie</span>
-<span style="color:#f60">5</span>
-<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)     <span style="color:#09f;font-style:italic"># utilisation d&#39;une méthode</span>
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
-<span style="color:#f60">6</span>
-<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
-<span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
-<span style="color:#f60">0</span>
-</code></pre></div><p>Dans la suite, nous introduirons peu à peu les bonnes pratiques.
-Par exemple, rien n&rsquo;empêche de faire ceci :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
-False
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant <span style="color:#555">=</span> True
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque <span style="color:#555">=</span> <span style="color:#f60">1000000000000000000000000</span>
-<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque(magicien)
-</code></pre></div><p>Ce qui ne semble pas très cohérent. On pourrait même écrire des choses
-absurdes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#c30">&#34;BONJOUR !&#34;</span>
-</code></pre></div><p>ce qui va générer des erreurs par la suite.</p>
-<h2 id="grand-principe-de-la-poo--le-passage-de-_messages_">Grand principe de la POO : le passage de <em>messages</em></h2>
-<p>Revenons sur le code de la méthode combattant, en particulier sur attaquer :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+</code></pre></div><p>Il faut s&rsquo;assurer que la situation de terminaison est atteinte après un nombre fini d&rsquo;appels récursifs.</p>
+<p>La preuve de terminaison d&rsquo;un algorithme récursif se fait en identifiant la construction d&rsquo;une suite strictement décroissante d&rsquo;entiers positifs ou nuls.</p>
+<p>Dans le cas de factorielle, il s&rsquo;agit simplement de la suite des valeurs du paramètre.</p>
+<h2 id="récursivité-terminale">Récursivité terminale</h2>
+<p>Un algorithme récursif simple est terminal lorsque l&rsquo;appel récursif est le dernier calcul effectué pour obtenir le résultat. Il n&rsquo;y a pas de &ldquo;calcul en attente&rdquo;. L&rsquo;avantage est qu&rsquo;il n&rsquo;y a rien à mémoriser dans la pile.</p>
+<h3 id="exemple-dalgorithme-récursif-terminal">Exemple d&rsquo;algorithme récursif terminal</h3>
+<p>Prédicat de présence d&rsquo;un caractère dans une chaîne :</p>
+<p>Un caractère <em>c</em> <strong>est présent</strong> dans une chaîne <em>s</em> non vide, s&rsquo;il est le premier caractère de <em>s</em> ou s&rsquo;il <strong>est présent</strong> dans les autres caractères de <em>s</em>. Il n&rsquo;est pas présent dans la chaîne vide.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_present</span>(c, s):
+    <span style="color:#069;font-weight:bold">if</span> s <span style="color:#555">==</span> <span style="color:#c30">&#39;&#39;</span>:
+        <span style="color:#069;font-weight:bold">return</span> False
+    <span style="color:#069;font-weight:bold">elif</span> c <span style="color:#555">==</span> s[<span style="color:#f60">0</span>]:
+        <span style="color:#069;font-weight:bold">return</span> True
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">return</span> est_present(c, s[<span style="color:#f60">1</span>:])
+</code></pre></div><h3 id="rendre-terminal-un-algorithme-récursif">Rendre terminal un algorithme récursif</h3>
+<p>On utilise un <strong>accumulateur</strong>, passé en paramètre, pour calculer le résultat au fur et à mesure des appels récursifs.</p>
+<p>La valeur de retour du cas de base devient la valeur initiale de l&rsquo;accumulateur et lors d&rsquo;un appel récursif, le &ldquo;calcul en attente&rdquo; sert à calculer la valeur suivante de l&rsquo;accumulateur.</p>
+<p>Ainsi on obtient :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fact_term</span>(n, acc <span style="color:#555">=</span> <span style="color:#f60">1</span>):
+    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
+        <span style="color:#069;font-weight:bold">return</span> acc
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">return</span> fact_term(n<span style="color:#555">-</span><span style="color:#f60">1</span>, acc <span style="color:#555">*</span> n)
+</code></pre></div><p>et</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">occurrences_term</span>(c,s, acc <span style="color:#555">=</span> <span style="color:#f60">0</span>):
+    <span style="color:#069;font-weight:bold">if</span> s <span style="color:#555">==</span> <span style="color:#c30">&#34;&#34;</span>:
+       <span style="color:#069;font-weight:bold">return</span> acc
+    <span style="color:#069;font-weight:bold">elif</span> c <span style="color:#555">==</span> s[<span style="color:#f60">0</span>]:
+         <span style="color:#069;font-weight:bold">return</span> occurrences_term(c, s[<span style="color:#f60">1</span>:], acc <span style="color:#555">+</span> <span style="color:#f60">1</span>)
+    <span style="color:#069;font-weight:bold">else</span>:
+         <span style="color:#069;font-weight:bold">return</span> occurrences_term(c, s[<span style="color:#f60">1</span>:], acc)
+</code></pre></div><h2 id="récursivité-multiple">Récursivité multiple</h2>
+<p>Un algorithme récursif est multiple si l’un des cas qu’il distingue se résout avec plusieurs appels récursifs.</p>
+<p>C&rsquo;était le cas de l&rsquo;algorithme de dérivation.</p>
+<p>Autre exemple avec le <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/blob/master/bloc2/tri-sans-ordi-correction/readme.md#en-python-1">tri rapide</a></p>
+<h2 id="retour-sur-les-coefficients-binomiaux">Retour sur les coefficients binomiaux</h2>
+<p>Vous connaissez aussi la relation de récurrence (Triangle de Pascal) :</p>
+<ul>
+<li>$C(n, p) = 1$ si $n=p$ ou $p=0$</li>
+<li>$C(n, p) = C(n-1, p) + C(n-1, p-1)$ pour $n &gt; p &gt; 0$</li>
+</ul>
+<p>Ce qui donnerait en Python</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">C</span>(n, p):
+    <span style="color:#069;font-weight:bold">if</span> p <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">elif</span> n <span style="color:#555">==</span> p:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">return</span> C(n<span style="color:#555">-</span><span style="color:#f60">1</span>, p<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">+</span> C(n<span style="color:#555">-</span><span style="color:#f60">1</span>, p)
+</code></pre></div><p>On peut observer l&rsquo;explosion combinatoire du nombre d&rsquo;appels récursifs et les redondances des calculs.</p>
+<h2 id="structures-récursives">Structures récursives</h2>
+<p>Les listes de Python sont des <strong>tableaux dynamiques</strong>,
+c&rsquo;est-à-dire des tableaux dont <em>la taille peut varier.</em></p>
+<p>De manière plus formelle, les listes sont des structures de données dynamiques
+et intrinsèquement récursives.</p>
+<p>Elles se définissent ainsi :</p>
+<p>Une liste d&rsquo;éléments de type <strong>T</strong> est</p>
+<ul>
+<li>soit la liste vide</li>
+<li>soit un couple <em>(t,R)</em> où <em>t</em> est de type <strong>T</strong> et <em>R</em> est une liste d&rsquo;éléments de type <strong>T</strong></li>
+</ul>
+<p>Dans le cas d&rsquo;une liste non vide <em>(t,R)</em> :</p>
+<ul>
+<li><em>t</em> est le premier élément de la liste aussi appelée <strong>tête</strong> de la liste</li>
+<li><em>R</em> est la liste des éléments qui suivent <em>t</em>, également appelée <strong>reste</strong> de la liste</li>
+</ul>
+<p>On parle pour de telles structures de <strong>listes chaînées</strong>, qui se distingue
+donc des listes par tableaux.</p>
+<p>Listes chainées : plus efficaces que les tableaux pour supprimer un élément de la liste, ou en insérer un.</p>
+<p>Avec cette définition des listes, la définition d&rsquo;une constante pour la liste vide (<code>[]</code>) et de primitives permettant</p>
+<ul>
+<li>de construire un couple <em>(x, R)</em> (<code>[x]+R</code>)</li>
+<li>d&rsquo;accéder à la tête d&rsquo;une liste non vide (<code>l[0]</code>)</li>
+<li>d&rsquo;accéder au reste d&rsquo;une liste non vide (<code>l[1:]</code>)</li>
+</ul>
+<p>suffit pour définir tous les traitements sur les listes.</p>
+<p>L&rsquo;écriture de ces traitements se fait alors à l&rsquo;aide de fonctions récursives.</p>
+<h3 id="exemple-dalgorithme-récursif-sur-les-listes">Exemple d&rsquo;algorithme récursif sur les listes</h3>
+<p>Longueur d&rsquo;une liste :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">length</span>(liste):
+    <span style="color:#069;font-weight:bold">if</span> liste <span style="color:#555">==</span> [] :
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span>
+    <span style="color:#069;font-weight:bold">else</span>:
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> length(liste[<span style="color:#f60">1</span>:])
+</code></pre></div></article>
+
+      <div class="backtotop">
+
+        <a href="#" class="left" title="Previous" accesskey="p" rel="previous" id="link_previous">← </a>
+        <a href="#" class="center" title="top" accesskey="t" id="link_top">↑</a>
+        <a href="#" class="right" title="Next" accesskey="n" rel="next" id="link_next">→ </a>
+      </div>
+      
+
+      <div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI & ISN AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    Tutoriels et activités des enseignements de NSI et d'ISN du Lycée des Flandres.
+    <br>
+    Retrouvez ici les projets proposés et les textes relatifs à l'examen
+    <br>
+    RGPD. Aucune donnée n'est conservée. Il n'y a pas de base de donnée. Github impose deux cookies et je ne peux rien y faire. Si ça vous dérange, partez.
+  </p>
+
+</div>
+
+<script src="/updatestyle.js" charset="utf-8"></script>
+
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pdfpour-impressionuploadsdocnsitalerecursivitepdfresume_recursionpdf">pdf:<a href="/uploads/docnsitale/recursivite/pdf/resume_recursion.pdf">pour impression</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#définition">Définition</a></li>
+    <li><a href="#algorithmes-récursifs">Algorithmes récursifs</a>
+      <ul>
+        <li><a href="#exemple-">Exemple \</a></li>
+        <li><a href="#programmation">Programmation\</a></li>
+      </ul>
+    </li>
+    <li><a href="#déroulé-dun-programme-récursif">Déroulé d&rsquo;un programme récursif</a></li>
+    <li><a href="#eléments-caractéristiques">Eléments Caractéristiques</a></li>
+    <li><a href="#récursivité-terminale">Récursivité terminale</a>
+      <ul>
+        <li><a href="#exemple-dalgorithme-récursif-terminal">Exemple d&rsquo;algorithme récursif terminal</a></li>
+        <li><a href="#rendre-terminal-un-algorithme-récursif">Rendre terminal un algorithme récursif</a></li>
+      </ul>
+    </li>
+    <li><a href="#récursivité-multiple">Récursivité multiple</a></li>
+    <li><a href="#retour-sur-les-coefficients-binomiaux">Retour sur les coefficients binomiaux</a></li>
+    <li><a href="#structures-récursives">Structures récursives</a>
+      <ul>
+        <li><a href="#exemple-dalgorithme-récursif-sur-les-listes">Exemple d&rsquo;algorithme récursif sur les listes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+
+  
+</body>
+
+</html>
+ sur attaquer :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Combattant</span>:
     <span style="color:#09f;font-style:italic"># debut du code...</span>
 
