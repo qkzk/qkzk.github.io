@@ -12,7 +12,7 @@
 <title>
   
     
-    Résumé
+    NSI Terminale - Données
   
  | qkzk</title>
 
@@ -10603,143 +10603,600 @@ MathJax.Hub.Config({
   <strong>
   
     
-    Résumé
+    NSI Terminale - Données
   
 </strong>
 </header>
 
       
-<article class="markdown"><h3 id="pdfpour-impressionuploadsdocnsitalerecursivitepdfresume_recursionpdf">pdf:<a href="/uploads/docnsitale/recursivite/pdf/resume_recursion.pdf">pour impression</a></h3>
-<h1 id="récursivité">Récursivité</h1>
-<h2 id="définition">Définition</h2>
-<p><em>La récursivité est une démarche qui fait référence à l&rsquo;objet même de la démarche à un moment du processus. En d&rsquo;autres termes, c&rsquo;est une démarche dont la description mène à la répétition d&rsquo;une même règle. Par exemple :</em></p>
+<article class="markdown"><h1 id="introduction-à-la-programmation-objet">Introduction à la programmation objet</h1>
+<p>Jusqu&rsquo;ici les programmes que nous avons écrits utilisaient une approche
+procédurale :</p>
 <ul>
-<li><em>écrire un algorithme qui s&rsquo;invoque lui-même ;</em></li>
-<li><em>définir une structure à partir de l&rsquo;une au moins de ses sous-structures.</em></li>
+<li>On définit les variables qui représentent ce qu&rsquo;on souhaite modéliser</li>
+<li>On crée les fonctions qui vont changer l&rsquo;état de ces variables</li>
+<li>L&rsquo;exécution coordonnée de ces fonctions fait passer nos variables d&rsquo;un état
+à l&rsquo;autre.</li>
 </ul>
-<h2 id="algorithmes-récursifs">Algorithmes récursifs</h2>
-<h3 id="exemple-">Exemple \</h3>
-<p>Ne faisons pas dans l&rsquo;originalité :</p>
-<p>$$n! = n \times (n-1)! \text{ si } n \geq 1 \text{ et } 0! = 1$$</p>
-<p>Principe :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  5! = 5 * 4!
-     = 5 * 4 * 3!
-     = 5 * 4 * 3 * 2!
-     = 5 * 4 * 3 * 2 * 1!
-     = 5 * 4 * 3 * 2 * 1 * 0!
-     = 5 * 4 * 3 * 2 * 1 * 1
-     = 120
-</code></pre></div><h3 id="programmation">Programmation\</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fact</span>(n):
-    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
-
-<span style="color:#555">&gt;&gt;&gt;</span> fact(<span style="color:#f60">5</span>)
-<span style="color:#f60">120</span>
-</code></pre></div><h2 id="déroulé-dun-programme-récursif">Déroulé d&rsquo;un programme récursif</h2>
-<p>Chaque appel récursif s&rsquo;ajoute à la pile des appels successifs de la fonction.
-Chaque appel possède son propre environnement, donc ses propres variables.
-La pile est nécessaire pour mémoriser les valeurs propre à chaque appel.</p>
-<p><strong>Attention :</strong> En Python la taille de la pile des appels récursifs est limitée. Si la récursivité est trop profonde et que l&rsquo;on atteint cette limite, on déclenche une <code>RecursionError</code>.</p>
-<h2 id="eléments-caractéristiques">Eléments Caractéristiques</h2>
+<p>Cette approche permet de résoudre tous les problèmes informatiques. On peut
+tout programmer de cette manière.</p>
+<p>Néanmoins elle présente un défaut majeur : il est difficile de dégager une
+structure à notre code.</p>
+<p>Cela le rend peu lisible et difficile à entretenir.</p>
+<p>Autre inconvénient, nos programmes ne sont pas réexploitables facilement.</p>
+<p>Pour réutiliser une fonction déjà écrite, la seule approche efficace
+est, pour l&rsquo;instant, d&rsquo;en faire un copier-coller.</p>
+<h2 id="programmation-objet--définir-des-_types_">Programmation objet : définir des <em>types</em>.</h2>
+<p>Les principes de la programmation objet vous sont familiers, vous les avez
+déjà rencontrés à chaque fois que vous avez crée une liste, un dictionnaire
+ou une fonction en Python.</p>
+<p>Ils sont moins visibles lorsqu&rsquo;on manipule des nombres directement mais,
+pourtant, les nombres en Python sont aussi des <em>objets</em>.</p>
+<h3 id="quest-ce-quun-objet-">Qu&rsquo;est-ce qu&rsquo;un objet ?</h3>
+<p>Un objet, c&rsquo;est simplement &ldquo;quelque chose&rdquo; qui respecte des règles préétablies.</p>
+<p>Par exemple : un nombre est un objet sur lequel je peux faire des comparaisons :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">3</span>
+<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">&lt;</span> b
+True
+</code></pre></div><p>Des opérations :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+</span> b
+<span style="color:#f60">5</span>
+</code></pre></div><p>Une liste est un objet qui a une longueur, qui contient un nombre fini
+d&rsquo;éléments auxquels je peux accéder, que je peux trier ou retourner :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">len</span>(ma_liste)
+<span style="color:#f60">3</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>append(<span style="color:#f60">4</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>sort()
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>reverse()
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
+[<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
+</code></pre></div><h3 id="type-dun-objet">Type d&rsquo;un objet</h3>
+<p>Python propose d&rsquo;accéder au type d&rsquo;un objet de deux manière :</p>
 <ol>
-<li><strong>il faut au moins une situation qui ne consiste pas en un appel récursif</strong></li>
+<li>En le consultant avec la fonction <code>type</code></li>
+<li>En le vérifiant avec <code>isinstance</code></li>
 </ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">   <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
-      <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-</code></pre></div><p>Cette situation est appelée <strong>situation de terminaison</strong> ou <strong>situation d&rsquo;arrêt</strong> ou <strong>cas d&rsquo;arrêt</strong> ou <strong>cas de base</strong>.</p>
-<ol start="2">
-<li><strong>chaque appel récursif doit se faire avec des données qui permettent de se rapprocher d&rsquo;une situation de terminaison</strong></li>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(ma_liste)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">list</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(ma_liste, <span style="color:#366">list</span>)
+True
+</code></pre></div><p>Cependant, quand nous créons un objet supposé représenter quelque chose
+du monde extérieur (réel : une voiture, un participant de la course au chicon)
+ou imaginaire (un Pokémon etc.), leur type n&rsquo;est pas défini clairement</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> competiteur <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">42</span>}
+<span style="color:#555">&gt;&gt;&gt;</span> pikachu <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Pikachu&#34;</span>, <span style="color:#c30">&#34;cri&#34;</span>: <span style="color:#c30">&#34;Pika ! Pika !&#34;</span>, <span style="color:#c30">&#34;type1&#34;</span>: <span style="color:#c30">&#34;Electrique&#34;</span>,
+               <span style="color:#c30">&#34;type2&#34;</span>: None, <span style="color:#555">...</span>}
+</code></pre></div><p>Certes, le programmeur pense ces objets là comme des compétiteurs ou des
+Pokémons, il peut même les dessiner à l&rsquo;écran ou leur envoyer un email
+automatiquement&hellip; mais en pratique :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(competiteur)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(pikachu)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">dict</span><span style="color:#c30">&#39;&gt;</span>
+</code></pre></div><p>En pratique, ce sont toujours des dictionnaires.</p>
+<p>On pourrait par exemple, créer des objets qui n&rsquo;ont aucun sens :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> pikachu[<span style="color:#c30">&#34;telephone&#34;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;0678901234&#34;</span>
+</code></pre></div><p>Aussi, rien n&rsquo;est fait pour aider à la collaboration sur ce projet &ldquo;pokémon&rdquo;.</p>
+<p>Un nouveau développeur doit comprendre l&rsquo;intégralité du code s&rsquo;il veut utiliser
+certaines fonctions du programme.</p>
+<p>Il serait bon qu&rsquo;on ait une <em>interface</em> pour ces Pokémons.</p>
+<p>Elle nous permettrait :</p>
+<ul>
+<li>d&rsquo;accéder à leurs données (nom, points de vie, attaque etc.)</li>
+<li>de modifier ce qui peut l&rsquo;être (perdre de la vie, gagner de l&rsquo;expérience)</li>
+<li>d&rsquo;exécuter leurs actions (attaquer, lancer une technique spéciale etc.)</li>
+</ul>
+<p>Elle nous empêcherait aussi de faire n&rsquo;importe quoi avec ces objets !</p>
+<p>De la même manière qu&rsquo;avec les <code>list</code> on a accès à certaines méthodes sans
+avoir à comprendre exactement ce qui est fait dans la machine.</p>
+<h2 id="créer-un-nouveau-type-avec-class">Créer un nouveau type avec <code>class</code></h2>
+<p>De la même manière que le mot clé <code>def</code> permet de créer une fonction et de
+l&rsquo;affecter à une variable, le mot clé <code>class</code> permet de créer un type
+(une classe) et de l&rsquo;affecter à une variable.</p>
+<p>Une classe est un modèle qui permet de créer des objets de ce type.</p>
+<ul>
+<li>Les objets de cette classe sont appelés <em>instances</em>.</li>
+<li>Les variables propres à chaque éléments de cette classe sont appelés
+<em>attributs</em>.</li>
+<li>Les fonctions propres à chaque élément de cette classe sont appelées
+<em>méthodes</em>.</li>
+</ul>
+<p>L&rsquo;ensemble des méthodes accessibles à un utilisateur définit <em>l&rsquo;interface</em>
+de la classe.</p>
+<h2 id="exemple-de-classe--combattant">Exemple de classe : <code>Combattant</code></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Combattant:
+
+    def __init__(self, vie, attaque):
+        self.vie = vie
+        self.attaque = attaque
+        self.vivant = True
+
+    def perdre_vie(self, points):
+        self.vie = self.vie - points
+        if self.vie &lt;= 0:
+            self.vivant = False
+            self.vie = 0
+
+    def attaquer(self, autre):
+        autre.perdre_vie(self.attaque)
+</code></pre></div><h3 id="commentaires-sur-le-code-de-la-classe">Commentaires sur le code de la classe.</h3>
+<ul>
+<li>Ligne 1. On utilise une majuscule pour un nom de classe.</li>
+<li>Lignes 2 à 15. La définition de la classe se termine quand on revient à
+l&rsquo;indentation de départ.</li>
+<li>Ligne 3, ligne 8, ligne 15. définition d&rsquo;une <em>méthode</em></li>
+<li>La variable <code>self</code> est toujours le premier paramètre d&rsquo;une méthode.
+Il désigne l&rsquo;objet lui même.</li>
+<li>Ligne 4, 5, 6 : des <em>attributs</em>.</li>
+<li>Ligne 4 à 6, ligne 9 : <em>dans</em> la classe on utilise <code>self.qqchose</code>
+pour accéder à un attribut ou une méthode.</li>
+<li>La méthode <code>__init__</code> est appelée &ldquo;constructeur&rdquo;, c&rsquo;est elle qui est exécutée
+quand vous exécutez l&rsquo;instruction <code>Combattant(10, 2)</code>.
+Elle crée un objet du type <code>Combattant</code></li>
+</ul>
+<p><strong>Attention !</strong> Python n&rsquo;impose pas le nom <code>self</code>&hellip; ce n&rsquo;est qu&rsquo;un <em>usage</em>.<br>
+Cependant, <em>je vous l&rsquo;impose.</em> Si vous écrivez autre chose que <code>self</code> :</p>
+<ol>
+<li>personne ne comprendra,</li>
+<li>vous aurez 0 à l&rsquo;exo.</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
-</code></pre></div><p>Il faut s&rsquo;assurer que la situation de terminaison est atteinte après un nombre fini d&rsquo;appels récursifs.</p>
-<p>La preuve de terminaison d&rsquo;un algorithme récursif se fait en identifiant la construction d&rsquo;une suite strictement décroissante d&rsquo;entiers positifs ou nuls.</p>
-<p>Dans le cas de factorielle, il s&rsquo;agit simplement de la suite des valeurs du paramètre.</p>
-<h2 id="récursivité-terminale">Récursivité terminale</h2>
-<p>Un algorithme récursif simple est terminal lorsque l&rsquo;appel récursif est le dernier calcul effectué pour obtenir le résultat. Il n&rsquo;y a pas de &ldquo;calcul en attente&rdquo;. L&rsquo;avantage est qu&rsquo;il n&rsquo;y a rien à mémoriser dans la pile.</p>
-<h3 id="exemple-dalgorithme-récursif-terminal">Exemple d&rsquo;algorithme récursif terminal</h3>
-<p>Prédicat de présence d&rsquo;un caractère dans une chaîne :</p>
-<p>Un caractère <em>c</em> <strong>est présent</strong> dans une chaîne <em>s</em> non vide, s&rsquo;il est le premier caractère de <em>s</em> ou s&rsquo;il <strong>est présent</strong> dans les autres caractères de <em>s</em>. Il n&rsquo;est pas présent dans la chaîne vide.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_present</span>(c, s):
-    <span style="color:#069;font-weight:bold">if</span> s <span style="color:#555">==</span> <span style="color:#c30">&#39;&#39;</span>:
-        <span style="color:#069;font-weight:bold">return</span> False
-    <span style="color:#069;font-weight:bold">elif</span> c <span style="color:#555">==</span> s[<span style="color:#f60">0</span>]:
-        <span style="color:#069;font-weight:bold">return</span> True
-    <span style="color:#069;font-weight:bold">else</span>:
-        <span style="color:#069;font-weight:bold">return</span> est_present(c, s[<span style="color:#f60">1</span>:])
-</code></pre></div><h3 id="rendre-terminal-un-algorithme-récursif">Rendre terminal un algorithme récursif</h3>
-<p>On utilise un <strong>accumulateur</strong>, passé en paramètre, pour calculer le résultat au fur et à mesure des appels récursifs.</p>
-<p>La valeur de retour du cas de base devient la valeur initiale de l&rsquo;accumulateur et lors d&rsquo;un appel récursif, le &ldquo;calcul en attente&rdquo; sert à calculer la valeur suivante de l&rsquo;accumulateur.</p>
-<p>Ainsi on obtient :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fact_term</span>(n, acc <span style="color:#555">=</span> <span style="color:#f60">1</span>):
-    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
-        <span style="color:#069;font-weight:bold">return</span> acc
-    <span style="color:#069;font-weight:bold">else</span>:
-        <span style="color:#069;font-weight:bold">return</span> fact_term(n<span style="color:#555">-</span><span style="color:#f60">1</span>, acc <span style="color:#555">*</span> n)
-</code></pre></div><p>et</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">occurrences_term</span>(c,s, acc <span style="color:#555">=</span> <span style="color:#f60">0</span>):
-    <span style="color:#069;font-weight:bold">if</span> s <span style="color:#555">==</span> <span style="color:#c30">&#34;&#34;</span>:
-       <span style="color:#069;font-weight:bold">return</span> acc
-    <span style="color:#069;font-weight:bold">elif</span> c <span style="color:#555">==</span> s[<span style="color:#f60">0</span>]:
-         <span style="color:#069;font-weight:bold">return</span> occurrences_term(c, s[<span style="color:#f60">1</span>:], acc <span style="color:#555">+</span> <span style="color:#f60">1</span>)
-    <span style="color:#069;font-weight:bold">else</span>:
-         <span style="color:#069;font-weight:bold">return</span> occurrences_term(c, s[<span style="color:#f60">1</span>:], acc)
-</code></pre></div><h2 id="récursivité-multiple">Récursivité multiple</h2>
-<p>Un algorithme récursif est multiple si l’un des cas qu’il distingue se résout avec plusieurs appels récursifs.</p>
-<p>C&rsquo;était le cas de l&rsquo;algorithme de dérivation.</p>
-<p>Autre exemple avec le <a href="https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/blob/master/bloc2/tri-sans-ordi-correction/readme.md#en-python-1">tri rapide</a></p>
-<h2 id="retour-sur-les-coefficients-binomiaux">Retour sur les coefficients binomiaux</h2>
-<p>Vous connaissez aussi la relation de récurrence (Triangle de Pascal) :</p>
+<h2 id="utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier <span style="color:#555">=</span> Combattant(<span style="color:#f60">10</span>, <span style="color:#f60">2</span>)    <span style="color:#09f;font-style:italic"># on crée une instance. Utilise &#39;__init__&#39; </span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(guerrier)                  <span style="color:#09f;font-style:italic"># type d&#39;une instance = nom de la classe</span>
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">Combattant</span><span style="color:#c30">&#39;&gt;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien <span style="color:#555">=</span> Combattant(<span style="color:#f60">5</span>, <span style="color:#f60">4</span>)     <span style="color:#09f;font-style:italic"># une autre instance</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># chaque instance a ses valeurs d&#39;attributs</span>
+<span style="color:#f60">10</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
+True
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>vie                    <span style="color:#09f;font-style:italic"># != guerrier.vie</span>
+<span style="color:#f60">5</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)     <span style="color:#09f;font-style:italic"># utilisation d&#39;une méthode</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">6</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> magicien<span style="color:#555">.</span>attaquer(guerrier)
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">0</span>
+</code></pre></div><p>Dans la suite, nous introduirons peu à peu les bonnes pratiques.
+Par exemple, rien n&rsquo;empêche de faire ceci :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant
+False
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vivant <span style="color:#555">=</span> True
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque <span style="color:#555">=</span> <span style="color:#f60">1000000000000000000000000</span>
+<span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>attaque(magicien)
+</code></pre></div><p>Ce qui ne semble pas très cohérent. On pourrait même écrire des choses
+absurdes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#c30">&#34;BONJOUR !&#34;</span>
+</code></pre></div><p>ce qui va générer des erreurs par la suite.</p>
+<h2 id="grand-principe-de-la-poo--le-passage-de-_messages_">Grand principe de la POO : le passage de <em>messages</em></h2>
+<p>Revenons sur le code de la méthode combattant, en particulier sur attaquer :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Combattant</span>:
+    <span style="color:#09f;font-style:italic"># debut du code...</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perdre_vie</span>(self, points):
+        self<span style="color:#555">.</span>vie <span style="color:#555">=</span> self<span style="color:#555">.</span>vie <span style="color:#555">-</span> points
+        <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>vie <span style="color:#555">&lt;=</span> <span style="color:#f60">0</span>:
+            self<span style="color:#555">.</span>vivant <span style="color:#555">=</span> False
+            self<span style="color:#555">.</span>vie <span style="color:#555">=</span> <span style="color:#f60">0</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">attaquer</span>(self, autre):
+        autre<span style="color:#555">.</span>perdre_vie(self<span style="color:#555">.</span>attaque)
+</code></pre></div><p>La méthode <code>attaquer</code> prend en paramètre un objet <code>autre</code> qui est lui même
+un objet du type <code>Combattant</code>.</p>
+<p>Elle exécute une méthode de cet objet (<code>autre.perdre_vie(...)</code>) ,
+c&rsquo;est un <em>message</em> !</p>
+<p>Ce n&rsquo;est pas le seul usage envisageable de la méthode <code>perdre_vie</code>,
+plus tard dans le développement du jeu, on peut imaginer qu&rsquo;un Combattant
+perde de la vie en marchant dans la lave ou sur un piège&hellip;</p>
+<h2 id="interface">Interface</h2>
 <ul>
-<li>$C(n, p) = 1$ si $n=p$ ou $p=0$</li>
-<li>$C(n, p) = C(n-1, p) + C(n-1, p-1)$ pour $n &gt; p &gt; 0$</li>
+<li>Certaines méthodes sont internes à la classe, comme <code>__init__</code> : on n&rsquo;exécute
+pas <code>__init__</code> directement. On parle généralement de méthodes <em>privées</em>.</li>
+<li>D&rsquo;autres sont <em>publiques</em> comme <code>list.reverse()</code> ou <code>Combattant.attaquer(...)</code></li>
 </ul>
-<p>Ce qui donnerait en Python</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">C</span>(n, p):
-    <span style="color:#069;font-weight:bold">if</span> p <span style="color:#555">==</span> <span style="color:#f60">0</span>:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">elif</span> n <span style="color:#555">==</span> p:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-        <span style="color:#069;font-weight:bold">return</span> C(n<span style="color:#555">-</span><span style="color:#f60">1</span>, p<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">+</span> C(n<span style="color:#555">-</span><span style="color:#f60">1</span>, p)
-</code></pre></div><p>On peut observer l&rsquo;explosion combinatoire du nombre d&rsquo;appels récursifs et les redondances des calculs.</p>
-<h2 id="structures-récursives">Structures récursives</h2>
-<p>Les listes de Python sont des <strong>tableaux dynamiques</strong>,
-c&rsquo;est-à-dire des tableaux dont <em>la taille peut varier.</em></p>
-<p>De manière plus formelle, les listes sont des structures de données dynamiques
-et intrinsèquement récursives.</p>
-<p>Elles se définissent ainsi :</p>
-<p>Une liste d&rsquo;éléments de type <strong>T</strong> est</p>
+<p>L&rsquo;interface d&rsquo;un objet est définie par les méthodes qu&rsquo;il expose, celles
+qui sont publiques.</p>
+<p>Les attributs devraient tous être <em>privés</em> et ne servir qu&rsquo;aux méthodes.</p>
+<p>Aussi, lorsque nous faisons :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> guerrier<span style="color:#555">.</span>vie
+<span style="color:#f60">5</span>
+</code></pre></div><p>On consulte un attribut directement et c&rsquo;est une mauvaise pratique.</p>
+<h2 id="encapsulation">Encapsulation</h2>
+<p>Le principe de l&rsquo;encapsulation est de protéger les attributs et de n&rsquo;exposer
+que l&rsquo;interface de la classe.</p>
+<p>Python permet (plus ou moins) de protéger les attributs en leur donnant
+un nom qui commence par <code>__</code>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Voiture</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
+</code></pre></div><p>Lorsqu&rsquo;on crée un attribut (ou une méthode) dont le nom commence par <code>__</code> il
+n&rsquo;est plus accessible directement.</p>
+<h3 id="setter-et-getter">setter et getter</h3>
+<p>Si on veut consulter ou modifier la couleur de la voiture, il faut créer
+des méthodes qui le permettent :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Voiture</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_couleur</span>(self):
+        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__couleur
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">set_couleur</span>(self, couleur):
+        self<span style="color:#555">.</span>__couleur <span style="color:#555">=</span> couleur
+</code></pre></div><p>Ici, cela peut sembler inutile mais on pourrait, dans la méthode
+<code>set_couleur</code> restreindre les choix de couleurs à ceux qui la marque propose.</p>
+<p>Ou vérifier que la nouvelle valeur d&rsquo;un numéro de téléphone est valide, qu&rsquo;un
+age est positif, qu&rsquo;un compte bancaire bloqué n&rsquo;est pas à découvert etc.</p>
+<p>\hrulefill coeur de la POO en NSI</p>
+<h3 id="encapsulation-1">encapsulation\</h3>
+<p>Les données (attributs) sont regroupées avec les traitements qui les manipulent
+(méthodes)</p>
 <ul>
-<li>soit la liste vide</li>
-<li>soit un couple <em>(t,R)</em> où <em>t</em> est de type <strong>T</strong> et <em>R</em> est une liste d&rsquo;éléments de type <strong>T</strong></li>
-</ul>
-<p>Dans le cas d&rsquo;une liste non vide <em>(t,R)</em> :</p>
+<li>l&rsquo;encapsulation implique le <strong>masquage des données</strong>
 <ul>
-<li><em>t</em> est le premier élément de la liste aussi appelée <strong>tête</strong> de la liste</li>
-<li><em>R</em> est la liste des éléments qui suivent <em>t</em>, également appelée <strong>reste</strong> de la liste</li>
+<li>l&rsquo;objet a la maîtrise de ses attributs <em>via ses méthodes</em></li>
+<li>seules les méthodes sont accessibles</li>
 </ul>
-<p>On parle pour de telles structures de <strong>listes chaînées</strong>, qui se distingue
-donc des listes par tableaux.</p>
-<p>Listes chainées : plus efficaces que les tableaux pour supprimer un élément de la liste, ou en insérer un.</p>
-<p>Avec cette définition des listes, la définition d&rsquo;une constante pour la liste vide (<code>[]</code>) et de primitives permettant</p>
+</li>
+</ul>
+<h3 id="règle-dor">règle d&rsquo;or\</h3>
+<p><strong>les attributs sont déclarés privés</strong> = accessibles uniquement au sein de la
+classe</p>
+<p>en Python, identifiant préfixé de <code>__</code><br>
+on peut aussi définir des méthodes privées.</p>
+<h3 id="séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</h3>
 <ul>
-<li>de construire un couple <em>(x, R)</em> (<code>[x]+R</code>)</li>
-<li>d&rsquo;accéder à la tête d&rsquo;une liste non vide (<code>l[0]</code>)</li>
-<li>d&rsquo;accéder au reste d&rsquo;une liste non vide (<code>l[1:]</code>)</li>
+<li>
+<p><strong>interface publique d&rsquo;une classe</strong><br>
+= ensemble des méthodes <em>publiques</em> définies par la classe<br>
+= ensemble des services que peuvent rendre les objets</p>
+</li>
+<li>
+<p>la représentation des données utilisée n&rsquo;a pas besoin d&rsquo;être connue, elle
+pourra donc <strong>évoluer</strong> sans perturber l&rsquo;existant &ldquo;code client&rdquo;</p>
+</li>
+<li>
+<p>ce qui compte c&rsquo;est ce que l&rsquo;on peut faire, pas comment on le fait<br>
+<em>en partant du principe que c&rsquo;est bien fait.</em></p>
+</li>
+<li>
+<p>possibilité d&rsquo;ajouter du contrôle</p>
+<ul>
+<li>
+<p>accès en lecture seulement d&rsquo;un attribut<br>
+<code>get_hours()</code> mais pas <code>set_hours()</code></p>
+</li>
+<li>
+<p>contrôle des valeurs
+classe <code>Person</code> avec attribut <code>__age</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">set_age</span>(self, new_age):
+  <span style="color:#069;font-weight:bold">if</span> new_age <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>:
+    new_age <span style="color:#555">=</span> <span style="color:#f60">0</span>
+  self<span style="color:#555">.</span>__age <span style="color:#555">=</span> new_age
+</code></pre></div><p>classe <code>BankAccount</code>, accès au solde <code>get_balance()</code> contrôlé par code</p>
+</li>
 </ul>
-<p>suffit pour définir tous les traitements sur les listes.</p>
-<p>L&rsquo;écriture de ces traitements se fait alors à l&rsquo;aide de fonctions récursives.</p>
-<h3 id="exemple-dalgorithme-récursif-sur-les-listes">Exemple d&rsquo;algorithme récursif sur les listes</h3>
-<p>Longueur d&rsquo;une liste :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">length</span>(liste):
-    <span style="color:#069;font-weight:bold">if</span> liste <span style="color:#555">==</span> [] :
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> length(liste[<span style="color:#f60">1</span>:])
-</code></pre></div></article>
+</li>
+<li>
+<p>lorsque l&rsquo;on fait l&rsquo;analyse objet d&rsquo;un problème, on cherche à déterminer les <strong>services</strong> que doivent rendre les objets<br>
+= les <strong>méthodes</strong></p>
+</li>
+<li>
+<p>les attributs n&rsquo;apparaissent que lorsque l&rsquo;on se pose la question de la mise en oeuvre des méthodes, càd. de leur <strong>implémentation</strong>.</p>
+<p>un attribut existe parce qu&rsquo;il permet l&rsquo;implémentation d&rsquo;une méthode</p>
+</li>
+</ul>
+<h2 id="exemple--les-disques">exemple : les disques</h2>
+<p>On doit représenter des <strong>disques</strong>.
+On a besoin de connaître le rayon, diamètre, aire, périmètre.</p>
+<ul>
+<li>
+<p>classe <code>Disc</code> + méthodes</p>
+<p><code>get_rayon(), get_diametre(), get_perimetre()</code></p>
+</li>
+<li>
+<p>attributs ?<br>
+dépendent de choix d&rsquo;implémentation&hellip;</p>
+</li>
+</ul>
+<hr>
+<h3 id="implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, rayon):
+    self<span style="color:#555">.</span>__rayon <span style="color:#555">=</span> rayon
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__rayon
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimetre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__rayon
+</code></pre></div><h3 id="implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Disque</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, diametre):
+    self<span style="color:#555">.</span>__diametre <span style="color:#555">=</span> diametre
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rayon</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__diametre <span style="color:#555">/</span> <span style="color:#f60">2</span>
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">diametre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">perimetre</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> math<span style="color:#555">.</span>pi <span style="color:#555">*</span> self<span style="color:#555">.</span>__diametre
+</code></pre></div><h2 id="quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</h2>
+<ul>
+<li>
+<p>Pour le <strong>développeur</strong>, s&rsquo;il défini ses disques avec le diamètre,
+le constructeur et les méthodes changent.</p>
+</li>
+<li>
+<p>Pour <strong>l&rsquo;utilisateur</strong>, rien ne change. Qu&rsquo;il utilise l&rsquo;un ou l&rsquo;autre,
+il obtient le même résultat.</p>
+<p>Inutile pour lui de savoir quelle formule on a employé.</p>
+</li>
+</ul>
+<h2 id="méthode-dobjet-_vs_-méthode-de-classes">méthode d&rsquo;objet <em>vs</em> méthode de classes</h2>
+<p>Attention cependant, il est toujours possibles de créer des attributs
+et des méthodes <em>pour la classe entière</em> plutôt que pour un objet particulier.</p>
+<ul>
+<li>
+<p><strong>méthodes d&rsquo;objets</strong> : invoquée par l&rsquo;objet<br>
+= envoi de messages possibles</p>
+<ul>
+<li>premier paramètre = <code>self</code> (cf <code>__init__, rouler</code>)</li>
+<li><code>self</code> est lié à l&rsquo;objet utilisé pour invoquer la méthode<br>
+notation pointée : <code>ferrari.rouler()</code> -&gt; <code>self</code> lié à <code>ferrari</code></li>
+<li>permet d&rsquo;accéder aux attributs de l&rsquo;objet ou d&rsquo;invoquer une méthode sur cet
+objet. cf <code>rouler</code></li>
+</ul>
+</li>
+<li>
+<p><strong>méthode de classe</strong> : méthode ne dépendant pas d&rsquo;un objet mais <strong>statique</strong>
+appelée via la classe :</p>
+<p>On utilise alors un décorateur : <code>@classmethod</code> qui permet de retourner
+une instance.</p>
+<p>les attributs de classe sont également possibles.</p>
+</li>
+</ul>
+<p>C&rsquo;est une nuance importante, vous devez savoir que ça existe, je ne pense pas
+qu&rsquo;on puisse exiger que vous sachiez créer ce genre de méthode en Python.</p>
+<h3 id="exemple-de-méthode-de-classe">Exemple de méthode de classe</h3>
+<p>Nous allons créer une classe dont les instances peuvent être définies de deux
+manières différentes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Contact</span>:
+    <span style="color:#069;font-weight:bold">def</span> __init__(self, nom, prenom, telephone):
+        self<span style="color:#555">.</span>__nom <span style="color:#555">=</span> nom
+        self<span style="color:#555">.</span>__prenom <span style="color:#555">=</span> prenom
+        self<span style="color:#555">.</span>__telephone <span style="color:#555">=</span> telephone
+
+    <span style="color:#09f;font-style:italic"># ici les méthodes publiques</span>
+
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_prenom</span>(self):
+        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__prenom
+
+    <span style="color:#99f">@classmethod</span>
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">depuis_dictionnaire</span>(cls, dictionnaire):
+        nom <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;nom&#34;</span>]
+        prenom <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;prenom&#34;</span>]
+        telephone <span style="color:#555">=</span> dictionnaire[<span style="color:#c30">&#34;telephone&#34;</span>]
+        <span style="color:#069;font-weight:bold">return</span> cls(nom, prenom, telephone)
+</code></pre></div><p>La méthode <code>depuis_dictionnaire</code> définit un second constructeur (ce n&rsquo;est pas
+le seul usage mais le plus courant. Le premier paramètre est un nom de classe,
+identifié par <code>cls</code> il fait référence à la classe dans laquelle il est appelé.
+Comme pour <code>self</code> ce n&rsquo;est qu&rsquo;un usage.)</p>
+<p>On peut maintenant créer des contacts :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Contact(<span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;0678901234&#34;</span>)   <span style="color:#09f;font-style:italic"># directement</span>
+<span style="color:#555">&gt;&gt;&gt;</span> dict_martin <span style="color:#555">=</span> {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Patrick&#34;</span>, <span style="color:#c30">&#34;telephone&#34;</span>: <span style="color:#c30">&#34;0789012345&#34;</span>} 
+<span style="color:#555">&gt;&gt;&gt;</span> martin <span style="color:#555">=</span> Contact<span style="color:#555">.</span>depuis_dictionnaire(dict_martin)     <span style="color:#09f;font-style:italic"># avec la méthode de classe</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(martin)
+<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">Contact</span><span style="color:#555">&gt;</span><span style="color:#c30">&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> martin<span style="color:#555">.</span>get_prenom()
+<span style="color:#c30">&#34;Patrick&#34;</span>
+</code></pre></div><h2 id="lister-les-méthodes-et-attributs">Lister les méthodes et attributs</h2>
+<p>Python propose la fonction <code>dir</code> qui permet de lister les méthodes et attributs
+définis pour un objet :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dir</span>(ma_liste)
+[<span style="color:#c30">&#39;__add__&#39;</span>, <span style="color:#c30">&#39;__class__&#39;</span>, <span style="color:#c30">&#39;__contains__&#39;</span>, <span style="color:#c30">&#39;__delattr__&#39;</span>, <span style="color:#c30">&#39;__delitem__&#39;</span>,
+<span style="color:#c30">&#39;__dir__&#39;</span>, <span style="color:#c30">&#39;__doc__&#39;</span>, <span style="color:#c30">&#39;__eq__&#39;</span>, <span style="color:#c30">&#39;__format__&#39;</span>, <span style="color:#c30">&#39;__ge__&#39;</span>, <span style="color:#c30">&#39;__getattribute__&#39;</span>,
+<span style="color:#c30">&#39;__getitem__&#39;</span>, <span style="color:#c30">&#39;__gt__&#39;</span>, <span style="color:#c30">&#39;__hash__&#39;</span>, <span style="color:#c30">&#39;__iadd__&#39;</span>, <span style="color:#c30">&#39;__imul__&#39;</span>, <span style="color:#c30">&#39;__init__&#39;</span>,
+<span style="color:#c30">&#39;__init_subclass__&#39;</span>, <span style="color:#c30">&#39;__iter__&#39;</span>, <span style="color:#c30">&#39;__le__&#39;</span>, <span style="color:#c30">&#39;__len__&#39;</span>, <span style="color:#c30">&#39;__lt__&#39;</span>, <span style="color:#c30">&#39;__mul__&#39;</span>,
+<span style="color:#c30">&#39;__ne__&#39;</span>, <span style="color:#c30">&#39;__new__&#39;</span>, <span style="color:#c30">&#39;__reduce__&#39;</span>, <span style="color:#c30">&#39;__reduce_ex__&#39;</span>, <span style="color:#c30">&#39;__repr__&#39;</span>, <span style="color:#c30">&#39;__reversed__&#39;</span>,
+<span style="color:#c30">&#39;__rmul__&#39;</span>, <span style="color:#c30">&#39;__setattr__&#39;</span>, <span style="color:#c30">&#39;__setitem__&#39;</span>, <span style="color:#c30">&#39;__sizeof__&#39;</span>, <span style="color:#c30">&#39;__str__&#39;</span>,
+<span style="color:#c30">&#39;__subclasshook__&#39;</span>, <span style="color:#c30">&#39;append&#39;</span>, <span style="color:#c30">&#39;clear&#39;</span>, <span style="color:#c30">&#39;copy&#39;</span>, <span style="color:#c30">&#39;count&#39;</span>, <span style="color:#c30">&#39;extend&#39;</span>, <span style="color:#c30">&#39;index&#39;</span>,
+<span style="color:#c30">&#39;insert&#39;</span>, <span style="color:#c30">&#39;pop&#39;</span>, <span style="color:#c30">&#39;remove&#39;</span>, <span style="color:#c30">&#39;reverse&#39;</span>, <span style="color:#c30">&#39;sort&#39;</span>]
+</code></pre></div><p>Cela fonctionne aussi pour les objets que nous créons nous mêmes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> robert <span style="color:#555">=</span> Contact(<span style="color:#c30">&#34;Duchmol&#34;</span>, <span style="color:#c30">&#34;Robert&#34;</span>, <span style="color:#c30">&#34;0678901234&#34;</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dir</span>(robert)
+[<span style="color:#c30">&#39;_Contact__nom&#39;</span>, <span style="color:#c30">&#39;_Contact__prenom&#39;</span>, <span style="color:#c30">&#39;_Contact__telephone&#39;</span>, <span style="color:#c30">&#39;__class__&#39;</span>,
+<span style="color:#c30">&#39;__delattr__&#39;</span>, <span style="color:#c30">&#39;__dict__&#39;</span>, <span style="color:#c30">&#39;__dir__&#39;</span>, <span style="color:#c30">&#39;__doc__&#39;</span>, <span style="color:#c30">&#39;__eq__&#39;</span>, <span style="color:#c30">&#39;__format__&#39;</span>,
+<span style="color:#c30">&#39;__ge__&#39;</span>, <span style="color:#c30">&#39;__getattribute__&#39;</span>, <span style="color:#c30">&#39;__gt__&#39;</span>, <span style="color:#c30">&#39;__hash__&#39;</span>, <span style="color:#c30">&#39;__init__&#39;</span>,
+<span style="color:#c30">&#39;__init_subclass__&#39;</span>, <span style="color:#c30">&#39;__le__&#39;</span>, <span style="color:#c30">&#39;__lt__&#39;</span>, <span style="color:#c30">&#39;__module__&#39;</span>, <span style="color:#c30">&#39;__ne__&#39;</span>, <span style="color:#c30">&#39;__new__&#39;</span>,
+<span style="color:#c30">&#39;__reduce__&#39;</span>, <span style="color:#c30">&#39;__reduce_ex__&#39;</span>, <span style="color:#c30">&#39;__repr__&#39;</span>, <span style="color:#c30">&#39;__setattr__&#39;</span>, <span style="color:#c30">&#39;__sizeof__&#39;</span>,
+<span style="color:#c30">&#39;__str__&#39;</span>, <span style="color:#c30">&#39;__subclasshook__&#39;</span>, <span style="color:#c30">&#39;__weakref__&#39;</span>, <span style="color:#c30">&#39;depuis_dictionnaire&#39;</span>,
+<span style="color:#c30">&#39;get_prenom&#39;</span>, <span style="color:#c30">&#39;get_nom&#39;</span>, <span style="color:#c30">&#39;get_telephone&#39;</span>]
+</code></pre></div><p>Remarquons que :</p>
+<ul>
+<li>certaines méthodes ont un nom &ldquo;normal&rdquo; comme <code>append</code> ou <code>get_telephone</code><br>
+Ce sont les méthodes <em>publiques</em>.</li>
+<li>d&rsquo;autres ont un nom qui commence par <code>__</code> et se termine par <code>__</code><br>
+Ce sont les méthodes <em>spéciales</em>.</li>
+<li>certains attributs ont un nom de la forme <code>_Contact__telephone</code><br>
+Ce sont les attributs et méthodes <em>privés</em>. Python a changé leur nom.</li>
+</ul>
+<h2 id="méthodes-spéciales">méthodes spéciales</h2>
+<p>Lorsqu&rsquo;on utilise une fonction courante de Python sur un objet, il appelle
+une méthode spéciale de cet objet :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>                   <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__add__&#39; des &#39;int&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]    <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__init__&#39; des &#39;list&#39;</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste[<span style="color:#f60">1</span>]             <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__getitem__&#39; des &#39;list&#39;</span>
+<span style="color:#f60">2</span>
+<span style="color:#555">&gt;&gt;&gt;</span> ma_liste                <span style="color:#09f;font-style:italic"># appelle la méthode spéciale &#39;__repr__&#39; des &#39;list&#39;</span>
+[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
+</code></pre></div><p>On peut implémenter nous mêmes ces méthodes spéciales.</p>
+<h3 id="quelques-méthodes-spéciales-courantes-">Quelques méthodes spéciales courantes :</h3>
+<p>Elles permettent de définir des &ldquo;opérateurs&rdquo; et de donner des propriétés aux
+objets :</p>
+<table>
+<thead>
+<tr>
+<th>Méthode spéciale</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__add__</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><code>__mul__</code></td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td><code>__sub__</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><code>__eq__</code></td>
+<td><code>==</code></td>
+</tr>
+<tr>
+<td><code>__ne__</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr>
+<td><code>__lt__</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr>
+<td><code>__ge__</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+<tr>
+<td><code>__gt__</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr>
+<td><code>__ge__</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr>
+<td><code>__repr__</code></td>
+<td>dans l&rsquo;interpréteur <code>&gt;&gt;&gt; obj</code></td>
+</tr>
+<tr>
+<td><code>__str__</code></td>
+<td><code>str(obj), print(obj)</code></td>
+</tr>
+<tr>
+<td><code>__getitem__</code></td>
+<td><code>obj[i]</code></td>
+</tr>
+<tr>
+<td><code>__iter__</code></td>
+<td><code>for v in obj</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exemple-dimplémentation-dune-méthode-__repr__-">Exemple d&rsquo;implémentation d&rsquo;une méthode <code>__repr__</code> :</h3>
+<p>Pour l&rsquo;instant lorsqu&rsquo;on exécute :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#555">&gt;&gt;&gt;</span> martin
+<span style="color:#555">&lt;</span>__main__<span style="color:#555">.</span>Contact <span style="color:#366">object</span> at <span style="color:#f60">0x7fc027ddd040</span><span style="color:#555">&gt;</span>
+</code></pre></div><p>Pas génial &hellip; On implémente maintenant une méthode <code>__repr__</code> :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Contact</span>():
+
+    <span style="color:#09f;font-style:italic"># le début du code de la classe</span>
+    <span style="color:#09f;font-style:italic"># ...</span>
+    <span style="color:#09f;font-style:italic"># ...</span>
+
+    <span style="color:#069;font-weight:bold">def</span> __repr__(self):
+        <span style="color:#069;font-weight:bold">return</span> f<span style="color:#c30">&#39;Contact(&#34;{self.get_nom()}&#34;, &#34;{self.get_prenom()}&#34;, &#34;{self.get_telephone()}&#34;)&#39;</span>
+</code></pre></div><p>Et maintenant :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> martin
+Contact(<span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;Patrick&#34;</span>, <span style="color:#c30">&#34;0789012345&#34;</span>)
+</code></pre></div><p>C&rsquo;est beaucoup plus pratique !</p>
+<h3 id="exemple-dimplémentation-dune-méthode-spéciale---__add__">Exemple d&rsquo;implémentation d&rsquo;une méthode spéciale :  <code>__add__</code></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Vecteur</span>:
+  <span style="color:#069;font-weight:bold">def</span> __init__(self, x, y):
+    self<span style="color:#555">.</span>__x <span style="color:#555">=</span> x
+    self<span style="color:#555">.</span>__y <span style="color:#555">=</span> y
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">x</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__x
+
+  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">y</span>(self):
+    <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__y
+
+  <span style="color:#069;font-weight:bold">def</span> __add__(self, autre):
+    <span style="color:#069;font-weight:bold">return</span> Vecteur(self<span style="color:#555">.</span>x() <span style="color:#555">+</span> autre<span style="color:#555">.</span>x(),
+                   self<span style="color:#555">.</span>y() <span style="color:#555">+</span> autre<span style="color:#555">.</span>y())
+</code></pre></div><h3 id="exemple-dutilisation-de-cette-méthode-spéciale">Exemple d&rsquo;utilisation de cette méthode spéciale</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> u <span style="color:#555">=</span> Vecteur(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>)       <span style="color:#09f;font-style:italic"># instance de la classe Vecteur</span>
+<span style="color:#555">&gt;&gt;&gt;</span> v <span style="color:#555">=</span> Vecteur(<span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
+<span style="color:#555">&gt;&gt;&gt;</span> w <span style="color:#555">=</span> u <span style="color:#555">+</span> v               <span style="color:#09f;font-style:italic"># utilise la méthode __add__ !!!!</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>x()                   <span style="color:#09f;font-style:italic"># méthode</span>
+<span style="color:#f60">4</span>                           <span style="color:#09f;font-style:italic"># 1 + 3 = 4</span>
+<span style="color:#555">&gt;&gt;&gt;</span> w<span style="color:#555">.</span>y()
+<span style="color:#f60">7</span>                           <span style="color:#09f;font-style:italic"># 2 + 5 = 7</span>
+</code></pre></div><h1 id="polymorphisme--héritage">Polymorphisme / héritage</h1>
+<h2 id="polymorphisme--héritage-1">Polymorphisme / héritage</h2>
+<ul>
+<li><strong>hors programme</strong>, donc pas abordé ici</li>
+<li>idée générale : un objet fils hérite des propriétés d&rsquo;un objet parent :
+<ul>
+<li><em>parent</em> : rectangle : défini avec (<code>x, y, l, h</code>).
+<ul>
+<li>méthodes : aire, périmètre, contient un point ? etc.</li>
+</ul>
+</li>
+<li><em>enfant</em> : carré : défini avec (<code>x, y, c</code>)<br>
+l&rsquo;enfant hérite aussi des méthodes du parent !</li>
+</ul>
+</li>
+<li>permet de créer des objets répondant à des contraintes
+succeptibles <em>d&rsquo;évoluer</em>&hellip;<br>
+donc de <em>maintenir</em> du code.</li>
+<li>J&rsquo;ai des sources si ça vous intéresse.</li>
+</ul>
+<p>En pratique&hellip; en Python, toutes les classes héritent de <code>object</code> qui
+est un format général de classe.</p>
+<h1 id="bref-historique-de-la-poo">Bref historique de la POO</h1>
+<ul>
+<li>Introduite dans Simula en 1962</li>
+<li>Vraiment passée dans l&rsquo;usage courant en 1972 avec SmallTalk, grâce à Alan Kay
+(prix Turing en 2003)</li>
+<li>Généralisée à de nombreux langages dans les années 1970 et 1980 : C++ ajoute
+la programmation objet au langage le plus populaire de l&rsquo;époque : C.</li>
+<li>Depuis les années 90, tous les langages &ldquo;impératifs&rdquo; proposent de la POO :<br>
+python, java, javascript, ruby, C# (se prononce <em>C SHARP</em>), OCaml etc.</li>
+</ul>
+<p>La programmation objet est enseignée dans tous les parcours informatique.
+La grande majorité du code est écrit en POO&hellip;</p>
+<p>avec quelques exceptions notable de :</p>
+<ul>
+<li>C : le langage C permet de définir des &ldquo;structures&rdquo; mais pas de méthodes
+(d&rsquo;où C++). C est toujours employé pour écrire des logiciels
+&ldquo;proches du métal&rdquo; (pilotes matériels) ou qu&rsquo;on souhaite très rapides
+(fonctions de base d&rsquo;un OS).</li>
+<li>les langages fonctionnels purs comme Haskell,</li>
+<li>Golang : (le langage en vogue pour écrire des services dans le cloud). Un peu
+de POO mais pas tout le pataquès.</li>
+</ul>
+</article>
 
       <div class="backtotop">
 
@@ -10774,36 +11231,54 @@ donc des listes par tableaux.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#programmation-objet--définir-des-_types_">Programmation objet : définir des <em>types</em>.</a>
       <ul>
-        <li><a href="#pdfpour-impressionuploadsdocnsitalerecursivitepdfresume_recursionpdf">pdf:<a href="/uploads/docnsitale/recursivite/pdf/resume_recursion.pdf">pour impression</a></a></li>
+        <li><a href="#quest-ce-quun-objet-">Qu&rsquo;est-ce qu&rsquo;un objet ?</a></li>
+        <li><a href="#type-dun-objet">Type d&rsquo;un objet</a></li>
+      </ul>
+    </li>
+    <li><a href="#créer-un-nouveau-type-avec-class">Créer un nouveau type avec <code>class</code></a></li>
+    <li><a href="#exemple-de-classe--combattant">Exemple de classe : <code>Combattant</code></a>
+      <ul>
+        <li><a href="#commentaires-sur-le-code-de-la-classe">Commentaires sur le code de la classe.</a></li>
+      </ul>
+    </li>
+    <li><a href="#utilisation-de-la-classe-combattant">Utilisation de la classe <code>Combattant</code></a></li>
+    <li><a href="#grand-principe-de-la-poo--le-passage-de-_messages_">Grand principe de la POO : le passage de <em>messages</em></a></li>
+    <li><a href="#interface">Interface</a></li>
+    <li><a href="#encapsulation">Encapsulation</a>
+      <ul>
+        <li><a href="#setter-et-getter">setter et getter</a></li>
+        <li><a href="#encapsulation-1">encapsulation\</a></li>
+        <li><a href="#règle-dor">règle d&rsquo;or\</a></li>
+        <li><a href="#séparation-de-linterface-et-de-limplémentation">séparation de l&rsquo;interface et de l&rsquo;implémentation</a></li>
+      </ul>
+    </li>
+    <li><a href="#exemple--les-disques">exemple : les disques</a>
+      <ul>
+        <li><a href="#implémentation-avec-rayon">implémentation avec &ldquo;rayon&rdquo;</a></li>
+        <li><a href="#implémentation-avec-diamètre">implémentation avec &ldquo;diamètre&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#quest-ce-qui-change-">Qu&rsquo;est ce qui change ?</a></li>
+    <li><a href="#méthode-dobjet-_vs_-méthode-de-classes">méthode d&rsquo;objet <em>vs</em> méthode de classes</a>
+      <ul>
+        <li><a href="#exemple-de-méthode-de-classe">Exemple de méthode de classe</a></li>
+      </ul>
+    </li>
+    <li><a href="#lister-les-méthodes-et-attributs">Lister les méthodes et attributs</a></li>
+    <li><a href="#méthodes-spéciales">méthodes spéciales</a>
+      <ul>
+        <li><a href="#quelques-méthodes-spéciales-courantes-">Quelques méthodes spéciales courantes :</a></li>
+        <li><a href="#exemple-dimplémentation-dune-méthode-__repr__-">Exemple d&rsquo;implémentation d&rsquo;une méthode <code>__repr__</code> :</a></li>
+        <li><a href="#exemple-dimplémentation-dune-méthode-spéciale---__add__">Exemple d&rsquo;implémentation d&rsquo;une méthode spéciale :  <code>__add__</code></a></li>
+        <li><a href="#exemple-dutilisation-de-cette-méthode-spéciale">Exemple d&rsquo;utilisation de cette méthode spéciale</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#définition">Définition</a></li>
-    <li><a href="#algorithmes-récursifs">Algorithmes récursifs</a>
-      <ul>
-        <li><a href="#exemple-">Exemple \</a></li>
-        <li><a href="#programmation">Programmation\</a></li>
-      </ul>
-    </li>
-    <li><a href="#déroulé-dun-programme-récursif">Déroulé d&rsquo;un programme récursif</a></li>
-    <li><a href="#eléments-caractéristiques">Eléments Caractéristiques</a></li>
-    <li><a href="#récursivité-terminale">Récursivité terminale</a>
-      <ul>
-        <li><a href="#exemple-dalgorithme-récursif-terminal">Exemple d&rsquo;algorithme récursif terminal</a></li>
-        <li><a href="#rendre-terminal-un-algorithme-récursif">Rendre terminal un algorithme récursif</a></li>
-      </ul>
-    </li>
-    <li><a href="#récursivité-multiple">Récursivité multiple</a></li>
-    <li><a href="#retour-sur-les-coefficients-binomiaux">Retour sur les coefficients binomiaux</a></li>
-    <li><a href="#structures-récursives">Structures récursives</a>
-      <ul>
-        <li><a href="#exemple-dalgorithme-récursif-sur-les-listes">Exemple d&rsquo;algorithme récursif sur les listes</a></li>
-      </ul>
-    </li>
+    <li><a href="#polymorphisme--héritage-1">Polymorphisme / héritage</a></li>
   </ul>
 </nav>
   </aside>
