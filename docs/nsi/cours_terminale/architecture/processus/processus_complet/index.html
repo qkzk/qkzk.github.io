@@ -13,7 +13,7 @@
   
     
     
-    Travaux dirigés : introduction à Python
+    Processus Complet
   
  | qkzk</title>
 
@@ -25,17 +25,13 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.xyz/docs/nsi/cours_premiere/programmation/travaux_diriges/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/processus_complet/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1119,7 +1107,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/programmation/travaux_diriges/"  class="active">
+      <a href="/docs/nsi/cours_premiere/programmation/travaux_diriges/" >
         
   
     
@@ -5368,7 +5356,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/architecture/processus/processus_complet/" >
+      <a href="/docs/nsi/cours_terminale/architecture/processus/processus_complet/"  class="active">
         
   
     
@@ -10672,810 +10660,185 @@ MathJax.Hub.Config({
   
     
     
-    Travaux dirigés : introduction à Python
+    Processus Complet
   
 </strong>
 </header>
 
       
-<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsiprogrammationtravaux_dirigespython_elementaire_tdpdf">pdf <a href="/uploads/docsnsi/programmation/travaux_diriges/python_elementaire_td.pdf">pour impression</a></h3>
-<p><em>Pour chaque exercice vous proposerez une expression Python écrite à la main</em>.
-<em>Si vous disposez d&rsquo;un poste lors de votre préparation il est utile de
-vérifier ce que vous avez écrit. Néanmoins, il est préférable de d&rsquo;abord
-essayer sur feuille avant de programmer</em>.</p>
-<h2 id="exercice-0--lire-les-extraits-de-code">Exercice 0 : Lire les extraits de code</h2>
-<p>Vous en rencontrerez de deux sortes :</p>
-<ol>
-<li>
-<p>Du code python extrait d&rsquo;un code source :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">3</span>
-b <span style="color:#555">=</span> <span style="color:#f60">5</span>
-c <span style="color:#555">=</span> a <span style="color:#555">*</span> b
-</code></pre></div></li>
-<li>
-<p>Du code python extrait de l&rsquo;interpréteur :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">5</span>
-<span style="color:#555">&gt;&gt;&gt;</span> c <span style="color:#555">=</span> a <span style="color:#555">*</span> b
-<span style="color:#555">&gt;&gt;&gt;</span> c
-<span style="color:#f60">15</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">2</span> <span style="color:#555">/</span> <span style="color:#f60">0</span>
-Traceback (most recent call last):
-  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
-<span style="color:#c00;font-weight:bold">ZeroDivisionError</span>: division by zero
-</code></pre></div></li>
-</ol>
-<p>Les chevrons <code>&gt;&gt;&gt;</code> indiquent une commande tapée et exécutée dans l&rsquo;interpréteur.
-Une ligne qui n&rsquo;en contient pas indique une réponse de l&rsquo;interpréteur.</p>
-<p>La dernière instruction est fausse, elle génère une erreur
-(on dit aussi qu&rsquo;elle lève une exception).</p>
-<p>Les erreurs Python :</p>
-<ul>
-<li>commencent toujours par <code>Traceback ...</code></li>
-<li>indiquent le fichier et le numéro de ligne où l&rsquo;erreur est survenue (<code>&lt;stdin&gt;</code> pour l&rsquo;interpréteur),</li>
-<li>sont indiquées par un type d&rsquo;exception (ici <code>ZeroDivisionError</code>)</li>
-</ul>
-<p><strong>Questions</strong></p>
-<ol>
-<li>
-<p>On a effacé les lignes de sortie de l&rsquo;interpréteur. Compléter les lignes vides.
-S&rsquo;il n&rsquo;y a rien à écrire, tirez un trait sur la ligne.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">=</span> <span style="color:#f60">8</span>
-
-<span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">+</span> <span style="color:#f60">2</span>
-
-<span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">**</span> <span style="color:#f60">2</span>
-
-<span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">*</span> x
-
-<span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">=</span> x <span style="color:#555">+</span> <span style="color:#f60">1</span>
-
-<span style="color:#555">&gt;&gt;&gt;</span> x
-</code></pre></div></li>
-</ol>
-<h2 id="exercice-1---opérations">Exercice 1 - Opérations</h2>
-<p>On donne :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A<span style="color:#555">=</span><span style="color:#f60">10</span>, B<span style="color:#555">=</span><span style="color:#f60">5</span>, C<span style="color:#555">=</span><span style="color:#f60">2</span>, D<span style="color:#555">=</span><span style="color:#f60">4</span>
-</code></pre></div><ol>
-<li>
-<p>Évaluer les expressions <em>valides</em>, rectifier celles qui sont fausses :</p>
-<p><em>Évaluer = donner la valeur</em></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f60">3</span> <span style="color:#555">*</span> A <span style="color:#555">+</span> <span style="color:#f60">5</span> <span style="color:#555">*</span> B
-<span style="color:#f60">3</span> A <span style="color:#555">-</span> <span style="color:#f60">2</span> B
-A <span style="color:#555">/</span> D
-A <span style="color:#555">//</span> D
-A <span style="color:#555">+=</span> <span style="color:#f60">2</span>
-A <span style="color:#555">=</span> <span style="color:#f60">10</span>
-A <span style="color:#555">==</span> <span style="color:#f60">12</span>
-B <span style="color:#555">==</span> A <span style="color:#555">/</span> <span style="color:#f60">2</span>
-B <span style="color:#555">==</span> A <span style="color:#555">//</span> <span style="color:#f60">2</span>
-C <span style="color:#555">**</span> B
-C <span style="color:#555">**</span> <span style="color:#555">-</span>B
-</code></pre></div></li>
-</ol>
-<h1 id="les-types-de-base--int-float-bool">Les types de base : <code>int</code>, <code>float</code>, <code>bool</code></h1>
-<p>Chaque objet python a un <strong>type</strong>. Les types de base que nous rencontrerons
-souvent sont : <code>int</code>, <code>float</code>, <code>bool</code>.</p>
-<p>On accède au type d&rsquo;un objet avec la fonction <code>type</code> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">2</span>)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">int</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">2.0</span>)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">float</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">2.0</span>)
-<span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">bool</span><span style="color:#c30">&#39;&gt;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">2</span>) <span style="color:#555">==</span> <span style="color:#366">int</span>
-True
-</code></pre></div><p>La fonction <code>type</code> est à réserver aux situations extrèmes où on n&rsquo;a aucune idée
-du type d&rsquo;une variable.</p>
-<p>On préfère <code>isinstance</code> (est une instance de&hellip;) qui permet de vérifier un type
-précis :</p>
-<p><code>isinstance(obj, type) -&gt; bool</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(<span style="color:#f60">2</span>, <span style="color:#366">int</span>)
-True
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(<span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">3</span>, <span style="color:#366">bool</span>)
-True
-</code></pre></div><h2 id="exercice-2--opérations-sur-les-entiers-et-les-flottants">Exercice 2 : opérations sur les entiers et les flottants</h2>
-<ul>
-<li><code>int</code> : <em>integer</em>, les entiers, sans valeur maximale. Exemple : <code>-223</code>, <code>2**123</code></li>
-</ul>
-<p>Il existe 6 opérations de base sur les entiers en python :</p>
-<table>
-<thead>
-<tr>
-<th>operateur</th>
-<th>signification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>+</code></td>
-<td>addition</td>
-</tr>
-<tr>
-<td><code>-</code></td>
-<td>soustration</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>produit</td>
-</tr>
-<tr>
-<td><code>//</code></td>
-<td>division entière</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>reste de la division</td>
-</tr>
-<tr>
-<td><code>**</code></td>
-<td>exposant</td>
-</tr>
-</tbody>
-</table>
-<p>Ainsi :</p>
-<ul>
-<li><code>7 // 2</code> vaut <code>3</code> et <code>7/2</code> vaut <code>3.5</code>.</li>
-<li><code>7 % 2</code> vaut 1 (car $7 = 3 \times 2 + 1$).</li>
-</ul>
-<ol>
-<li>
-<p>Proposer une expression donnant le nombre de secondes écoulées entre le
-premier janvier de cette année à minuit et ce matin, à minuit.</p>
-</li>
-<li>
-<p>Pierre, Paul et Jacques ont acheté par erreur <code>2 ** 11</code> gâteaux à la
-boulangerie. Ils les répartissent équitablement.</p>
-<p>Combien chacun en aura-t-il ?
-Combien en reste-t-il ?</p>
-</li>
-<li>
-<p>Opération et affectation</p>
-<p>Il est possible d&rsquo;effectuer à la fois une affectation et une opération en
-une seule instruction :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a
-<span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">+=</span> <span style="color:#f60">1</span> <span style="color:#09f;font-style:italic"># augmente a de 1, ne renvoie rien</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a
-<span style="color:#f60">4</span>
-</code></pre></div><p>On peut utiliser cette notation pour toutes les opérations.</p>
-<p>**Question : **  Evaluer les variables <code>a, b, c</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#555">-</span><span style="color:#f60">5</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">*=</span> <span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> a
-
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">11</span>
-<span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">//=</span> <span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> b
-
-<span style="color:#555">&gt;&gt;&gt;</span> c <span style="color:#555">=</span> <span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> c <span style="color:#555">-=</span> <span style="color:#f60">1</span>
-<span style="color:#555">&gt;&gt;&gt;</span> c
-
-</code></pre></div></li>
-</ol>
-<ul>
-<li>
-<p><code>float</code>: <em>float</em>, les nombres à virgule flottante. Exemple : <code>1.234</code>, <code>2.3e4</code></p>
-<p>Grosso modo les réels. Retenez pour l&rsquo;instant qu&rsquo;il n&rsquo;y aucun moyen de
-tester une égalité parfaite avec des flottants.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0.1</span> <span style="color:#555">+</span> <span style="color:#f60">0.2</span> <span style="color:#555">==</span> <span style="color:#f60">0.3</span>
-False
-</code></pre></div><p>Opérations : les mêmes que pour les entiers, la division réelle <code>/</code> en plus.</p>
-<p>Attention : lors d&rsquo;une opération entre un entier et un flottant on obtient
-toujours un flottant.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">3</span> <span style="color:#555">+</span> <span style="color:#f60">1.0</span>
-<span style="color:#f60">4.0</span>
-</code></pre></div><p><strong>Question :</strong> Évaluer le type de sortie des opérations suivantes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f60">2</span> <span style="color:#555">+</span> <span style="color:#f60">5</span>
-<span style="color:#f60">2.0</span> <span style="color:#555">+</span> <span style="color:#f60">5</span>
-<span style="color:#f60">3</span> <span style="color:#555">//</span> <span style="color:#f60">2</span>
-<span style="color:#f60">3</span> <span style="color:#555">/</span> <span style="color:#f60">2</span>
-<span style="color:#f60">4</span> <span style="color:#555">**</span> <span style="color:#f60">0.5</span>     <span style="color:#09f;font-style:italic"># a ** 0.5 = racine carrée de a</span>
-</code></pre></div></li>
-</ul>
-<h2 id="exercice-3---opérations-sur-les-booléens">Exercice 3 - Opérations sur les booléens</h2>
-<p>Il existe trois opérateurs sur les booléens :</p>
-<ul>
-<li>
-<p><code>not</code> qui retourne le contraire :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">not</span> True
-False
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">not</span> False
-True
-</code></pre></div></li>
-<li>
-<p><code>and</code> : le &ldquo;et&rdquo; logique : <code>bool_1 and bool_2</code> est vrai si, et seulement si
-<code>bool_1</code> est vrai ET <code>bool_2</code> est vrai.</p>
-</li>
-<li>
-<p><code>or</code> : le &ldquo;ou&rdquo; logique : <code>bool_1 or bool_2</code> est faux si, et seulement si
-<code>bool_1</code> est faux ET <code>bool_2</code> est faux.</p>
-</li>
-</ul>
-<ol>
-<li>Evaluer les expressions booléennes suivantes :</li>
-</ol>
-<ul>
-<li><code>not (1 == 2)</code></li>
-<li><code>(1 == 2) or (2 ** 2 == 4)</code></li>
-<li><code>(4 &lt;= 3) or (5 &gt; 2)</code></li>
-</ul>
-<ol start="2">
-<li><code>x</code> est un variable de type <code>float</code>. Proposer une expression booléenne
-permettant de vérifier que :
-<ol>
-<li>$x \in [1;9]$</li>
-<li>$x \in ]-\infty;0[ \cup ]2; 3]$</li>
-</ol>
-</li>
-<li>On veut savoir si l&rsquo;entier $n$ est divisible par trois sans qu&rsquo;il ne
-vaille 0. Proposer une expression booléenne qui réponde à la question.</li>
-</ol>
-<h2 id="exercice-4---affectation">Exercice 4 - affectation</h2>
-<p>On rappelle le principe de l&rsquo;affectation</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#555">=</span> <span style="color:#f60">2</span>
-</code></pre></div><p>Une fois cette instruction réalisée, <code>x</code> est un identifieur qui pointe
-vers une case mémoire. Celle-ci contient l&rsquo;entier 2.</p>
-<p>Il ne faut pas confondre l&rsquo;affectation (<code>=</code>) et la comparaison &ldquo;égalité&rdquo; (<code>==</code>)</p>
-<ul>
-<li>Une <em>comparaison</em> retourne toujours un <em>booléen</em> <code>True</code> ou <code>False</code>.</li>
-<li>Une <em>affectation</em> ne retourne rien.</li>
-</ul>
-<p>Vous rencontrerez aussi les affectations multiples :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a, b <span style="color:#555">=</span> <span style="color:#f60">2</span>, <span style="color:#f60">3</span>
-ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-x, y, z <span style="color:#555">=</span> ma_liste
-</code></pre></div><ol>
-<li>
-<p>À l&rsquo;issue de ces affectations que contiennent les variables <code>a, b, x, y</code>
-et <code>z</code> ?</p>
-</li>
-<li>
-<p>En deux lignes : affecter à <code>ma_liste</code> la liste des entiers pairs entre 2 et
-12 inclus et affecter ces entiers aux lettres de l&rsquo;alphabet.</p>
-</li>
-<li>
-<p>Selon-vous que donnerait la série d&rsquo;instruction suivante ?</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
-x, y, z <span style="color:#555">=</span> ma_liste
-</code></pre></div></li>
-<li>
-<p><strong>Affectations impossibles</strong>. Parmi les affectations suivantes, lesquelles
-vont générer une erreur ? Lorsque l&rsquo;affectation est possible, quel est
-le type de la variable ?</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#c30">&#34;22&#34;</span>
-b <span style="color:#555">=</span> <span style="color:#f60">22</span>
-c <span style="color:#555">=</span> a <span style="color:#555">+</span> b
-<span style="color:#c30">&#34;d&#34;</span> <span style="color:#555">=</span> <span style="color:#f60">22</span>
-<span style="color:#c30">&#34;d&#34;</span> <span style="color:#555">=</span> <span style="color:#c30">&#34;22&#34;</span>
-ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#c30">&#34;2&#34;</span>, trois]
-ma_liste <span style="color:#555">=</span> [<span style="color:#c30">&#34;1&#34;</span>, <span style="color:#f60">2</span>, <span style="color:#c30">&#34;trois&#34;</span>]
-ma_liste[<span style="color:#f60">2</span>] <span style="color:#555">=</span> <span style="color:#f60">9</span>
-ma_liste[<span style="color:#f60">3</span>] <span style="color:#555">=</span> <span style="color:#f60">5</span>
-e <span style="color:#555">=</span> (<span style="color:#c30">&#34;b&#34;</span> <span style="color:#555">==</span> <span style="color:#f60">22</span>)
-f <span style="color:#555">=</span> True
-</code></pre></div></li>
-</ol>
-<h2 id="exercice-5--bloc-dinstruction">Exercice 5 : bloc d&rsquo;instruction</h2>
-<p>En Python un <strong>bloc d&rsquo;instruction :</strong></p>
-<ol>
-<li>Commence par une ligne qui se termine par le symbole <code>:</code></li>
-<li>Est contenu dans un niveau d'<em>indentation</em> (2 ou 4 espaces)</li>
-<li>Se termine quand le niveau d&rsquo;indentation décroît.</li>
-</ol>
-<h3 id="conditions--if-elif-else">Conditions : <code>if elif else</code></h3>
-<p>Une <strong>instruction conditionnelle</strong>  :</p>
+<article class="markdown"><h1 id="les-processus">Les processus</h1>
+<p><strong>Objectifs</strong></p>
+<p>Pour permettre le fonctionnement d&rsquo;un ordinateur, de nombreuses tâches ou
+applications doivent être exécutées simultanément, par le système
+d&rsquo;exploitation et les différents utilisateurs.</p>
+<p>Notons aussi qu&rsquo;une même application (programme) doit pouvoir s&rsquo;exécuter
+plusieurs fois simultanément (par plusieurs utilisateurs par exemple), ou que
+plusieurs applications doivent pouvoir accéder à un même périphérique sans
+conflit.</p>
+<p>Pour permettre cela, le système d&rsquo;exploitation génère de nombreux processus,
+puis gère leur exécution.</p>
+<p><strong>Concept :</strong></p>
 <blockquote>
-<p>commence par <code>if condition:</code><br>
-se poursuit par une série d&rsquo;instructions précédées d&rsquo;une indentation<br>
-se poursuit éventuellement par d&rsquo;autres instructions condtionnelles
-(<code>elif condition:</code>)<br>
-se termine éventuellement par sinon&hellip; (<code>else:</code>)</p>
+<p>Un processus est un programme en cours d&rsquo;exécution.</p>
+<p>Les notions de programme et de processus sont différentes : le même programme
+exécuté plusieurs fois (dans le temps ou par plusieurs utilisateurs
+simultanément) générera plusieurs processus.</p>
 </blockquote>
-<p><strong>Ne pas oublier le :</strong></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">age <span style="color:#555">=</span> <span style="color:#f60">23</span>
-<span style="color:#069;font-weight:bold">if</span> age <span style="color:#555">&gt;</span> <span style="color:#f60">18</span>:
-    majeur <span style="color:#555">=</span> True
-<span style="color:#069;font-weight:bold">else</span>:
-    majeur <span style="color:#555">=</span> False
-<span style="color:#069;font-weight:bold">print</span>(majeur)
-</code></pre></div><p>Le programme ci-dessus comporte une instruction conditionnelle : <code>if ... else</code></p>
+<p>Chaque processus possède en mémoire les instructions à exécuter et ses données.</p>
+<h2 id="lordonnancement">L&rsquo;ordonnancement</h2>
+<p>Le système d&rsquo;exploitation doit permettre à toutes les applications et tous
+les utilisateurs de travailler en même temps, c&rsquo;est-à-dire donner l&rsquo;impression
+à chacun qu&rsquo;il est seul à utiliser l&rsquo;ordinateur et ses ressources physiques.
+Cette gestion complexe des processus est réalisée par une partie spécifique
+du noyau : <strong>l&rsquo;ordonnanceur.</strong></p>
+<p><strong>Concept :</strong></p>
+<blockquote>
+<p>Comme une ressource (le processeur ou un périphérique) ne peut pas être
+partagée, c&rsquo;est son temps d&rsquo;utilisation qui va l&rsquo;être ; le temps d&rsquo;utilisation
+d&rsquo;une ressource est partagé en intervalles très courts, pendant lesquels
+l&rsquo;ordonnanceur l&rsquo;alloue à un seul utilisateur.</p>
+</blockquote>
+<p>L&rsquo;ordonnanceur permet :</p>
 <ul>
-<li>L&rsquo;instruction <code>majeur = True</code> est <em>indentée</em> par 4 espaces. Elle n&rsquo;est
-exécutée que si la condition <code>age &gt; 18</code> est vraie.</li>
-<li>L&rsquo;instruction <code>majeur = False</code> est après <code>else:</code>. Elle n&rsquo;est exécutée que si <code>age &gt; 18</code> est faux.</li>
-<li>L&rsquo;instruction <code>print(majeur)</code> n&rsquo;est pas indentée. Elle est <em>toujours</em>
-exécutée.</li>
-<li>Si d&rsquo;autres conditions doivent être réalisées, on peut ajouter des
-instructions <code>elif condition:</code></li>
+<li>de minimiser le temps de traitement du processus d&rsquo;un utilisateur</li>
+<li>de garantir l&rsquo;équité entre les différents utilisateurs</li>
+<li>d&rsquo;optimiser l&rsquo;utilisation de la ressource</li>
+<li>d&rsquo;éviter les blocages.</li>
 </ul>
-<ol>
-<li>
-<p>Que verra-t-on à l&rsquo;écran après avoir exécuté les lignes précédentes ?</p>
-</li>
-<li>
-<p>Écrire un programme Python qui affecte à <code>nb_pommes</code> un entier. Ensuite, si le
-nombre de pommes est pair, vous affichez &ldquo;divisible par 2&rdquo;.
-Si ce n&rsquo;est pas le cas, vous affichez &ldquo;non divisible par 2&rdquo;.</p>
-</li>
-<li>
-<p>Écrire un programme Python qui affiche la mention obtenue au bac.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">moyenne <span style="color:#555">=</span> <span style="color:#555">...</span> <span style="color:#09f;font-style:italic"># obtenue plus tôt</span>
-<span style="color:#069;font-weight:bold">if</span> <span style="color:#555">...</span>                           :
-
-
-
-
-
-
-
-</code></pre></div><p>On <em>affiche</em> du texte avec <code>print(&quot;bonjour&quot;)</code></p>
-<p>Attention, <code>&quot;bonjour&quot;</code> n&rsquo;est pas une <em>variable</em> mais une chaîne de caractères.</p>
-</li>
-<li>
-<p>Rectifier les erreurs d&rsquo;indentation dans les instructions suivantes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">if</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">2</span>:
-a <span style="color:#555">=</span> True
-<span style="color:#069;font-weight:bold">else</span>:
-    c <span style="color:#555">=</span> <span style="color:#f60">2</span>
-        d <span style="color:#555">=</span> <span style="color:#f60">4</span>
-            e <span style="color:#555">=</span> <span style="color:#f60">6</span>
-    f <span style="color:#555">=</span> <span style="color:#f60">8</span>
-</code></pre></div></li>
-<li>
-<p>Proposez deux programmes différents qui répondent au problème suivant :
-Martin peut inviter ses copains s&rsquo;il a fini ses devoirs et rangé sa chambre.</p>
-<p>On utilisera les variables booléennes <code>devoir_faits</code> et <code>chambre_rangee</code></p>
-</li>
-</ol>
-<h2 id="exercice-6-boucles-non-bornées--while">Exercice 6. Boucles non bornées : <code>while</code></h2>
-<p>Python propose deux boucles : <code>while</code> et <code>for</code>.</p>
-<p>La syntaxe d&rsquo;un <code>while</code> est simple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">while</span> condition:
-    instruction
-</code></pre></div><p>Tant que <code>condition</code> est vraie, on exécute <code>instruction</code></p>
-<p>Somme des entiers de 1 à 10 :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-entier <span style="color:#555">=</span> <span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">while</span> entier <span style="color:#555">&lt;=</span> <span style="color:#f60">10</span>:
-    somme <span style="color:#555">+=</span> entier
-    entier <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-</code></pre></div><p>Afficher son nom toutes les secondes :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">time</span> <span style="color:#069;font-weight:bold">import</span> sleep
-<span style="color:#069;font-weight:bold">while</span> True:
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Robert&#34;</span>)
-    sleep(<span style="color:#f60">1</span>)
-</code></pre></div><ol>
-<li>
-<p>Robert ajoute 50 € à sa cagnotte tous les mois jusqu&rsquo;à atteindre 1200 €.<br>
-Écrire une boucle <code>while</code> Python qui calcule le nombre de mois nécessaires
-pour qu&rsquo;il obtienne assez d&rsquo;argent.</p>
-</li>
-<li>
-<p>Le haricot magique de Jack double de hauteur tous les jours. Il mesure 1 cm
-le premier jour.<br>
-Écrire une boucle while qui calcule le nombre de jours nécessaires pour
-qu&rsquo;il atteigne 1 km de hauteur.</p>
-</li>
-<li>
-<p>Le programme suivant est supposé afficher un point <code>.</code> toutes les secondes
-et s&rsquo;arrêter après 10 secondes. Malheureusement il entre dans une boucle
-infinie. Rectifiez le.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">time</span> <span style="color:#069;font-weight:bold">import</span> sleep
-nb_points <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">while</span> nb_points <span style="color:#555">&lt;</span> <span style="color:#f60">10</span>:
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;.&#39;</span>)
-    sleep(<span style="color:#f60">1</span>)        <span style="color:#09f;font-style:italic"># attend une seconde</span>
-</code></pre></div></li>
-</ol>
-<h2 id="exercice-7-boucles-bornées--for">Exercice 7. Boucles bornées : <code>for</code></h2>
-<p>Une boucle <code>for</code> itère sur une <em>collection</em> la syntaxe est :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> element <span style="color:#000;font-weight:bold">in</span> collection:
-    instruction
-</code></pre></div><p>La variable <code>element</code> prend pour valeurs successives chaque objet de
-<code>collection</code></p>
-<p><strong>Exemple :</strong> produit des entiers de 3 à 9 :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">produit <span style="color:#555">=</span> <span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">for</span> entier <span style="color:#000;font-weight:bold">in</span> [<span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>]:
-    produit <span style="color:#555">=</span> entier <span style="color:#555">*</span> produit
-</code></pre></div><p>Le même résultat sans devoir décrire toute la liste des entiers :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">produit <span style="color:#555">=</span> <span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">for</span> entier <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>, <span style="color:#f60">10</span>):
-    produit <span style="color:#555">=</span> entier <span style="color:#555">*</span> produit
-</code></pre></div><p>Attention à <code>range</code> qui prend 1, 2 ou 3 paramètres :</p>
+<p>Plusieurs algorithmes d&rsquo;ordonnancement sont possibles, parmi les plus répandus
+nous pouvons citer :</p>
 <ul>
-<li><code>range(10)</code> : 0, 1, 2, 3, &hellip;, <strong>9</strong></li>
-<li><code>range(4, 12)</code> : <strong>4</strong>, 5, 6, &hellip;, <strong>11</strong></li>
-<li><code>range(1, 10, 2)</code> : 1, <strong>3</strong>, <strong>5</strong>, 7, 9. Le dernier paramètre est le pas</li>
+<li>
+<p>le <strong>tourniquet</strong> : la ressource est affectée à chaque processus à tour
+de rôle. Pour l&rsquo;exécuation simultanée des processus, c&rsquo;est la rapidité
+de ce tour qui va donner l&rsquo;impression à chaque utilisateur que son processus
+est seul à utiliser le processeur. Cette méthode ancienne a les avantages
+de sa simplicité, de sa rapidité de gestion et de sa robustesse.</p>
+<ul>
+<li>
+<p>Processus 1 : <code>z</code> instructions à réaliser</p>
+</li>
+<li>
+<p>Processus 2 : <code>y</code> instructions à réaliser</p>
+</li>
+<li>
+<p>Processus 3 : <code>t</code> instructions à réaliser</p>
+<p>Imaginons que <code>z &lt; y &lt; t</code></p>
+</li>
 </ul>
-<ol>
-<li>
-<p>Écrire une boucle <code>for</code> qui calcule la somme des entiers pairs plus petits
-que 100</p>
-</li>
-<li>
-<p>Écrire une boucle <code>for</code> qui calcule le produit des entiers dont le reste
-est 2 dans la division par 3 et qui sont inférieurs à 200.</p>
-</li>
-<li>
-<p>Le programme suivant affiche la table de multiplication par 5.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>):
-<span style="color:#555">...</span>    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#39;5 *&#39;</span>, x, <span style="color:#c30">&#39;=&#39;</span>, <span style="color:#f60">5</span> <span style="color:#555">*</span> x)
-<span style="color:#555">...</span>
-<span style="color:#f60">5</span> <span style="color:#555">*</span> <span style="color:#f60">0</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#f60">5</span> <span style="color:#555">*</span> <span style="color:#f60">1</span> <span style="color:#555">=</span> <span style="color:#f60">5</span>
-<span style="color:#f60">5</span> <span style="color:#555">*</span> <span style="color:#f60">2</span> <span style="color:#555">=</span> <span style="color:#f60">10</span>
-</code></pre></div><ol>
-<li>Modifier le pour qu&rsquo;il affiche la table complète (de <code>5 * 0</code> à <code>5 * 10</code>).</li>
-<li>Modifier le pour qu&rsquo;on puisse changer le nombre dont on veut la table.</li>
-<li>Écrire un nouveau programme qui affiche TOUTES les tables.<br>
-Penser à ajouter une ligne de séparation entre les tables (<code>print()</code>)</li>
-</ol>
-</li>
-</ol>
-<p>On peut <em>itérer</em> (= faire une boucle qui parcourt quelque chose) dans n&rsquo;importe
-quelle collection en Python. Par exemple pour afficher une lettre par ligne :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">alphabet <span style="color:#555">=</span> <span style="color:#c30">&#34;ABCDEFGHIJKLMNOPQRSTUVXYZ&#34;</span>
-<span style="color:#069;font-weight:bold">for</span> lettre <span style="color:#000;font-weight:bold">in</span> alphabet:
-    <span style="color:#069;font-weight:bold">print</span>(lettre)
-</code></pre></div><ol start="4">
-<li>Affecter à <code>mes_enfants</code> les prénoms de vos 6 futurs enfants (j&rsquo;insiste).
-Écrire un prénom par ligne.</li>
-</ol>
-<p>Lorsqu&rsquo;on a besoin de connaître <em>l&rsquo;indice</em> d&rsquo;un élément, il existe deux
-approches :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mes_animaux <span style="color:#555">=</span> [<span style="color:#c30">&#34;Lulu&#34;</span>, <span style="color:#c30">&#34;Lili&#34;</span>, <span style="color:#c30">&#34;Minouche&#34;</span>]
-<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(mes_animaux)):
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Mon animal numero&#34;</span>, i <span style="color:#555">+</span> <span style="color:#f60">1</span>, <span style="color:#c30">&#34;est&#34;</span>, mes_animaux[i])
-</code></pre></div><p>Qui va afficher :</p>
-<p>Mon animal numero 1 est Lulu<br>
-Mon animal numero 2 est Lili<br>
-Mon animal numero 3 est Minouch\</p>
-<p>On a utilisé la fonction <code>len(collection) -&gt; int</code> qui retourne la longueur
-d&rsquo;une collection.</p>
-<p>Autre approche :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mes_animaux <span style="color:#555">=</span> [<span style="color:#c30">&#34;Lulu&#34;</span>, <span style="color:#c30">&#34;Lili&#34;</span>, <span style="color:#c30">&#34;Minouche&#34;</span>]
-<span style="color:#069;font-weight:bold">for</span> numero, animal <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">enumerate</span>(mes_animaux):
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Mon animal numero&#34;</span>, numero <span style="color:#555">+</span> <span style="color:#f60">1</span>, <span style="color:#c30">&#34;est&#34;</span>, animal)
-</code></pre></div><p>On a utilisé <code>enumerate</code> qui parcourt une collection et renvoie à chaque étape
-un couple avec l&rsquo;indice et l&rsquo;élément.</p>
-<ol start="5">
-<li>
-<p>Écrire de deux manière la comptine :</p>
-<p>Ma lettre numéro 1 est A<br>
-Ma lettre numéro 2 est B<br>
-Ma lettre numéro 3 est C<br>
-Ma lettre numéro 4 est D<br>
-Ma lettre numéro 5 est E<br>
-&hellip;</p>
-</li>
-</ol>
-<h2 id="exercice-8--un-premier-types-complexe--list">Exercice 8 : Un premier types complexe : <code>list</code></h2>
-<p>Un objet de type <code>list</code> Python est une collection d&rsquo;objets, regroupés dans des
-<code>[]</code>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ma_liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-ma_liste_vide <span style="color:#555">=</span> []
-mes_enfants <span style="color:#555">=</span> [<span style="color:#c30">&#39;Rambo 1&#39;</span>, <span style="color:#c30">&#39;Rambo 2&#39;</span>, <span style="color:#c30">&#39;Rambo 3&#39;</span>]
-</code></pre></div><p>On accède à un élément avec son indice : <code>ma_liste[indice]</code>. Attention :
-Python indexe les listes à partir de 0.</p>
-<p>Comment s&rsquo;appelle mon <em>second</em> fils, déjà ?</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> mes_enfants[<span style="color:#f60">1</span>]
-<span style="color:#c30">&#39;Rambo 2&#39;</span>
-</code></pre></div><p>Ces objets sont <em>mutables</em> == modifiables.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> mes_enfants<span style="color:#555">.</span>append(<span style="color:#c30">&#39;Rambo 4&#39;</span>) <span style="color:#09f;font-style:italic"># on ajoute à la fin</span>
-<span style="color:#555">&gt;&gt;&gt;</span> mes_enfants
-[<span style="color:#c30">&#39;Rambo 1&#39;</span>, <span style="color:#c30">&#39;Rambo 2&#39;</span>, <span style="color:#c30">&#39;Rambo 3&#39;</span>, <span style="color:#c30">&#39;Rambo 4&#39;</span>]
-</code></pre></div><p>On efface un élément avec <code>del ma_liste[indice]</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">del</span> mes_enfants[<span style="color:#f60">0</span>]     <span style="color:#09f;font-style:italic"># il ne savait pas tirer à l&#39;arc...</span>
-<span style="color:#555">&gt;&gt;&gt;</span> mes_enfants
-[<span style="color:#c30">&#39;Rambo 2&#39;</span>, <span style="color:#c30">&#39;Rambo 3&#39;</span>, <span style="color:#c30">&#39;Rambo 4&#39;</span>]
-</code></pre></div><p>On peut mesurer la longueur d&rsquo;une liste avec <code>len(ma_liste)</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">len</span>([<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>])
-<span style="color:#f60">3</span>
-</code></pre></div><ol>
-<li>
-<p>On exécute le programme suivant :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mes_carres <span style="color:#555">=</span> []
-<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">100</span>):
-    <span style="color:#069;font-weight:bold">if</span> i <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>:
-        mes_carres<span style="color:#555">.</span>append(i <span style="color:#555">**</span> <span style="color:#f60">2</span>)
-</code></pre></div><ol>
-<li>Quels sont les premiers et derniers éléments de <code>mes_carres</code> ?</li>
-<li>Comment accéder à la longueur de la liste <code>mes_carres</code> ?</li>
-<li>Modifier le code pour déterminer les carrés des entiers divisibles par 3.</li>
-<li>Créer la liste de l&rsquo;énoncé précédent sans utiliser <code>if</code></li>
-</ol>
-</li>
-<li>
-<p>Robert commence un régime. Le mardi et le vendredi, il ne se nourrit plus
-que de fruits.<br>
-Écrire un programme qui affiche chaque jour de la semaine et le type
-d&rsquo;alimentation de Robert :</p>
-<p>Le lundi tu peux manger ce que tu veux,<br>
-Le mardi tu dois manger des fruits,</p>
-<p>On utilisera une liste pour enregistrer les jours <code>[&quot;lundi&quot;,...]</code></p>
-</li>
-</ol>
-<h2 id="exercice-9--liste-et-boucle-for">Exercice 9 : Liste et boucle for</h2>
-<p><em>Dans cet exercice on répondra d&rsquo;abord simplement à la question avant de
-proposer une fonction qui le fasse. On prendra garde aux types des paramètres
-en entrée et en sortie.</em></p>
-<p>On itère sur une liste avec la syntaxe <code>for element in ma_liste:</code></p>
-<ol>
-<li>Nous avons prévu d&rsquo;avoir encore 13 enfants. Compléter la liste de mes enfants
-à l&rsquo;aide d&rsquo;une boucle for.</li>
-<li>On considère une liste d&rsquo;entiers <code>entiers = [1, 2, 3, 4, ... , 1000]</code>.
-A l&rsquo;aide d&rsquo;une boucle <code>for</code> créer la liste des carrés des entiers :
-<code>[1, 4, 9, ...]</code></li>
-</ol>
-<p>Il arrive qu&rsquo;on ait besoin de modifier un élément d&rsquo;une liste.</p>
-<p>Par exemple : remplacer tous les éléments d&rsquo;indice <em>pair</em> par 0 :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> indice <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(ma_liste)):
-    <span style="color:#069;font-weight:bold">if</span> indice <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>: <span style="color:#09f;font-style:italic"># si l&#39;indice est pair</span>
-        ma_liste[indice] <span style="color:#555">=</span> <span style="color:#f60">0</span> <span style="color:#09f;font-style:italic"># l&#39;élément est maintenant 0</span>
-</code></pre></div><ol start="3">
-<li>
-<p>Le cinéma n&rsquo;est plus mon art préféré depuis que j&rsquo;ai découvert la chaîne
-youtube de Squeezie (j&rsquo;ai dû ouvrir google pour taper son pseudo&hellip;)</p>
-<p>Modifier les noms de mes enfants pour qu&rsquo;ils s&rsquo;appellent <code>Squeezie 1</code>, <code>Squeezie 2</code> etc.</p>
-</li>
-</ol>
-<p>On peut tester si in élément est dans une liste avec <code>in</code></p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#000;font-weight:bold">in</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-True
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">4</span> <span style="color:#000;font-weight:bold">in</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-False
-</code></pre></div><ol start="3">
-<li>
-<p>On considère deux variables : <code>lettres = ['a', 'b', ..., 'z']</code>
-et <code>voyelles = ['a', 'e', 'i', 'o', 'u', 'y']</code></p>
-<p>Écrire un programme python qui affiche chaque lettre de l&rsquo;alphabet avec
-un commentaire à la manière de :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">a est une voyelle
-b n&#39;est pas une voyelle
-c n&#39;est pas une voyelle
-...
-</code></pre></div></li>
-<li>
-<p>Les albums des Beatles sortis au royaume uni sont :</p>
 <table>
 <thead>
 <tr>
-<th>Année</th>
-<th>Nom</th>
+<th>Exécution par le microprocesseur</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1963</td>
-<td>Please Please Me</td>
+<td>P1. instruction 1</td>
 </tr>
 <tr>
-<td>1963</td>
-<td>With the Beatles</td>
+<td>P2. instruction 1</td>
 </tr>
 <tr>
-<td>1964</td>
-<td>A Hard Day&rsquo;s Night</td>
+<td>P3. instruction 1</td>
 </tr>
 <tr>
-<td>1964</td>
-<td>Beatles for Sale</td>
+<td>P1. instruction 2</td>
 </tr>
 <tr>
-<td>1965</td>
-<td>Help!</td>
+<td>P2. instruction 2</td>
 </tr>
 <tr>
-<td>1965</td>
-<td>Rubber Soul</td>
+<td>P3. instruction 2</td>
 </tr>
 <tr>
-<td>1966</td>
-<td>Revolver</td>
+<td>&hellip;</td>
 </tr>
 <tr>
-<td>1967</td>
-<td>Sgt. Pepper&rsquo;s Lonely Hearts Club Band</td>
+<td>P1. instruction <code>z</code></td>
 </tr>
 <tr>
-<td>1968</td>
-<td>The Beatles</td>
+<td>P2. instruction <code>z</code></td>
 </tr>
 <tr>
-<td>1969</td>
-<td>Yellow Submarine</td>
+<td>P3. instruction <code>z</code></td>
 </tr>
 <tr>
-<td>1969</td>
-<td>Abbey Road</td>
+<td>&hellip;     (P1 a fini, P2 et P3 continuent&hellip;)</td>
 </tr>
 <tr>
-<td>1970</td>
-<td>Let It Be</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>Écrire un programme affichant les titres des albums sortis une année paire.<br>
-On créera deux listes : celle des années et celle des titres.</li>
-</ol>
-<p><strong>Remarque :</strong> Il est possible d&rsquo;itérer dans deux listes à la fois avec
-<code>zip</code> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#555">=</span> [<span style="color:#c30">&#34;banane&#34;</span>, <span style="color:#c30">&#34;fraise&#34;</span>, <span style="color:#c30">&#34;pastèque&#34;</span>]
-couleurs <span style="color:#555">=</span> [<span style="color:#c30">&#34;jaune&#34;</span>, <span style="color:#c30">&#34;rouge&#34;</span>, <span style="color:#c30">&#34;verte&#34;</span>]
-<span style="color:#069;font-weight:bold">for</span> fruit, couleur <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">zip</span>(fruits, couleurs):
-    <span style="color:#069;font-weight:bold">print</span>(fruit, couleur)
-</code></pre></div><p>Dont l&rsquo;exécution affiche :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">banane jaune
-fraise rouge
-pastèque verte
-</code></pre></div><ol start="2">
-<li>
-<p>Écrire le programme précédent à l&rsquo;aide de la fonction <code>zip</code></p>
-</li>
-<li>
-<p>Retour sur les albums des Beatles.<br>
-On décide d&rsquo;enregistrer les albums dans une liste de couples :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">albums <span style="color:#555">=</span> [(<span style="color:#f60">1963</span>, <span style="color:#c30">&#34;Please Please me&#34;</span>), (<span style="color:#f60">1963</span>, <span style="color:#c30">&#34;With the Beatles&#34;</span>), <span style="color:#555">...</span>]
-</code></pre></div><p>Écrire une boucle qui affiche les années et titres des albums dont le
-titre contient la lettre &ldquo;a&rdquo;.</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="exercice-10---dictionnaires">Exercice 10 - Dictionnaires</h2>
-<p>On considère le script suivant :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-dict_eleve <span style="color:#555">=</span> {
-    <span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Figny&#39;</span>,
-    <span style="color:#c30">&#39;prénom&#39;</span>: <span style="color:#c30">&#39;Jean&#39;</span>,
-    <span style="color:#c30">&#39;age&#39;</span>: <span style="color:#f60">16</span>,
-    }
-</code></pre></div><ol>
-<li>Comment accéder au nom de l&rsquo;élève ? À son prénom ?</li>
-<li>Comment obtenir le nombre d&rsquo;éléments de ce dictionnaire ?</li>
-<li>Ajouter la moyenne de Jean, qui s&rsquo;élève à 12.34.</li>
-<li>On vient de célébrer l&rsquo;anniversaire de Jean qui a maintenant 17 ans. Changer
-son age.</li>
-<li>Jean vient de quitter l&rsquo;établissement (renvoyé parce qu&rsquo;il écoute du JuL).
-Supprimer sa moyenne du dictionnaire.</li>
-</ol>
-<h2 id="exercice-11---depuis-un-dictionnaire-vide">Exercice 11 - Depuis un dictionnaire vide.</h2>
-<ol>
-<li>
-<p>Comment créer un dictionnaire vide ? Proposer deux syntaxes différentes.</p>
-</li>
-<li>
-<p>Comment s&rsquo;assurer qu&rsquo;un objet enregistré dans une variable <code>d</code> est du type
-dictionnaire ? Proposer deux réponses différentes. Laquelle privilégier ?</p>
-</li>
-<li>
-<p>Créer le dictionnaire <code>utilisateur</code> avec les couples  clés, valeurs suivants :</p>
-<table>
-<thead>
-<tr>
-<th>clé</th>
-<th>valeur</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nom</td>
-<td>Josephe</td>
+<td>P2. instruction <code>y</code></td>
 </tr>
 <tr>
-<td>prenom</td>
-<td>Apolline</td>
+<td>P3. instruction <code>y</code></td>
 </tr>
 <tr>
-<td>age</td>
-<td>22</td>
+<td>&hellip;     (P2 a fini, P3 continue&hellip;)</td>
 </tr>
 <tr>
-<td>password</td>
-<td>juygvfesw</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>P3. instruction <code>t</code></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>Écrire une fonction qui reçoit une liste de couples clés, valeurs et retourne
-le dictionnaire correspondant :</p>
-<p>En entrée on reçoit une liste comme ceci :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">entree <span style="color:#555">=</span> [(<span style="color:#c30">&#39;nom&#39;</span>, <span style="color:#c30">&#39;Josephe&#39;</span>), (<span style="color:#c30">&#39;prenom&#39;</span>, <span style="color:#c30">&#39;Apolline&#39;</span>), (<span style="color:#c30">&#39;age&#39;</span>, <span style="color:#f60">22</span>), 
-          (<span style="color:#c30">&#39;password&#39;</span>, <span style="color:#c30">&#39;juygvfesw&#39;</span>)]
-</code></pre></div><p>En sortie on veut :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sortie <span style="color:#555">=</span> {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Josephe&#39;</span>, 
-          <span style="color:#c30">&#39;prenom&#39;</span>: <span style="color:#c30">&#39;Apolline&#39;</span>,
-          <span style="color:#c30">&#39;age&#39;</span>: <span style="color:#f60">22</span>,
-          <span style="color:#c30">&#39;password&#39;</span>: <span style="color:#c30">&#39;juygvfesw&#39;</span>}
-</code></pre></div><p>Écrire toutes les étapes à la main (création, ajout avec une boucle etc.)</p>
-<p><strong>Remarque :</strong> La fonction <code>dict</code> transforme ce type de liste, contenant
-des couples, en un dictionnaire ayant exactement le format souhaité !</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">dict</span>( [(<span style="color:#f60">1</span>: <span style="color:#f60">2</span>), (<span style="color:#f60">3</span>: <span style="color:#f60">4</span>)] )
-{<span style="color:#f60">1</span>: <span style="color:#f60">2</span>, <span style="color:#f60">3</span>: <span style="color:#f60">4</span>}
-</code></pre></div></li>
-</ol>
-<h2 id="exercice-12---itérer-sur-un-dictionnaire">Exercice 12 - Itérer sur un dictionnaire.</h2>
-<ol>
-<li>
-<p>Quelles sont les trois manières d&rsquo;itérer sur un dictionnaire en Python ?</p>
+<p>La mise en place d&rsquo;un système de <strong>priorités</strong> : l&rsquo;ordre d&rsquo;affectation
+de la ressource sera alors fonction de la priorité de la tâche. Cette
+méthode est très équitable, mais définition du niveau de priorité de la
+tâche doit être objective.</p>
 </li>
 <li>
-<p>Un site de jeux vidéos enregistre les scores de ses joueurs au jeu Pacman
-dans un dictionnaire :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">scores_pacman <span style="color:#555">=</span> {<span style="color:#c30">&#39;paul&#39;</span>: <span style="color:#f60">34</span>,
-                 <span style="color:#c30">&#39;honorine&#39;</span>: <span style="color:#f60">456</span>,
-                 <span style="color:#c30">&#39;marcel&#39;</span>: <span style="color:#f60">89</span>,
-                 <span style="color:#c30">&#39;octave&#39;</span>: <span style="color:#f60">542</span>,
-                 <span style="color:#c30">&#39;marine&#39;</span>: <span style="color:#f60">12</span>,
-                 <span style="color:#c30">&#39;mélanie&#39;</span>: <span style="color:#f60">134</span>,
-                 <span style="color:#c30">&#39;patricia&#39;</span>: <span style="color:#f60">631</span>}
-</code></pre></div></li>
-<li>
-<p>Ajouter le score d&rsquo;Amandine qui a 542 points. Attention à respecter
-la convention : tous les prénoms sont en minuscule.</p>
+<p>La gestion du <strong>premier entré, premier sorti</strong> (FIFO : <em>First In, First Out</em>).
+L&rsquo;exemple le plus évident de cet algorithme est la file d&rsquo;impression des
+documents sur une imprimante.</p>
 </li>
 <li>
-<p>Créer une fonction qui prend un dictionnaire tel que le précédent et le
-nom d&rsquo;un joueur comme <code>'Amandine'</code> et retourne son score si le joueur
-est inscrit ou 0 sinon. À nouveau, attention à la convention d'
-enregistrement des noms.</p>
+<p>L&rsquo;algorithme du &ldquo;<strong>plus court d&rsquo;abord</strong>&rdquo; : très efficace pour satisfaire
+au mieux les utilisateurs, mais il n&rsquo;est pas toujours simple d&rsquo;évaluer
+le temps d&rsquo;exécution d&rsquo;une tâche avant son début.</p>
 </li>
-<li>
-<p>Créer une fonction permettant d&rsquo;inscrire un joueur.
-Elle respecte la signature ci-dessous.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">incrire_joueur(score_jeu: <span style="color:#366">dict</span>, joueur: <span style="color:#366">str</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>
-</code></pre></div><p>Elle retourne <code>True</code> si le joueur n&rsquo;est pas déjà inscrit, <code>False</code> s&rsquo;il
-est déjà inscrit. Un nouvel inscrit a un score de 0.</p>
-</li>
-<li>
-<p>Depuis le dictionnaire précédent, créer à la liste des noms de joueurs.
-Proposer une fonction qui le fasse.</p>
-</li>
-<li>
-<p>Depuis le dictionnaire précédent, calculer le score moyen des inscrits :
-a. En utilisant la fonction <code>sum</code>
-b. Sans utiliser la fonction <code>sum</code></p>
-</li>
-<li>
-<p>Créer une fonction qui prend le dictionnaire de joueurs en paramètre et
-retourne une chaîne de caractères contenant une série de phrases telles que
-celle ci-dessous, séparées par des retours à la ligne :<br>
-<code>Le score de Paul est 34</code></p>
-<p>À nouveau, prenez garde à la façon dont est noté le prénom.</p>
-<p>On pourra utiliser la méthode <code>upper</code> des chaînes de caractères :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;aBcD&#39;</span><span style="color:#555">.</span>upper()
-<span style="color:#c30">&#39;ABCD&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> help(<span style="color:#366">str</span><span style="color:#555">.</span>upper)
-Help on method_descriptor:
-
-upper(self, <span style="color:#555">/</span>)
-    Return a copy of the string converted to uppercase<span style="color:#555">.</span>
-</code></pre></div></li>
-<li>
-<p>La fonction précédente ne convient plus. On souhaite maintenant qu&rsquo;elle
-retourne <em>une liste</em> de phrases (toujours une phrase par joueur, similaire
-à la précédente). Adapter votre fonction précédente.</p>
-</li>
-<li>
-<p>Adapter la fonction précédente pour qu&rsquo;elle retourne la liste des phrases :
-a. Triées par ordre alphabétique du prénom,
-b. Triées par score croissant.</p>
-<p>Trier une liste peut se faire avec la fonction <code>sorted</code> ou la méthode <code>sort</code> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> ma_liste <span style="color:#555">=</span> [<span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">sorted</span>(ma_liste)        <span style="color:#09f;font-style:italic"># retourne une copie triée</span>
-[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
-[<span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste<span style="color:#555">.</span>sort()         <span style="color:#09f;font-style:italic"># tri en place, ne retourne rien.</span>
-<span style="color:#555">&gt;&gt;&gt;</span> ma_liste
-[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-</code></pre></div></li>
-</ol>
+</ul>
+<p>Parallélement à l&rsquo;évolution des performances des microprocesseurs,
+l&rsquo;ordonnancement est aussi un moyen d&rsquo;amélioration de la rapidité de traitement :
+des algorithmes récents, de plus en plus complexes ont est proposés.</p>
+<h1 id="les-interblocages">Les interblocages</h1>
+<p>Nous avons dits précédemment que des processus peuvent avoir besoin de la
+même ressource.</p>
+<p>Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter
+accéder à la même donnée sur le disque dur :</p>
+<ul>
+<li>Les deux processus ont uniquement besoin de lire la donnée : celle-ci est
+alors partagée, sans problème complexe.</li>
+<li>Les deux processus ont besoin de la donnée de manière exclusive, pour la
+modifier, par exemple.</li>
+<li>Les deux processus ont besoin de communiquer entre eux : l&rsquo;un doit attendre
+un résultat de l&rsquo;autre.</li>
+</ul>
+<p><strong>Exemple 1</strong></p>
+<p>Deux processus P1 et P2 ont tous les deux besoin de la même donnée D pour la
+modifier, c&rsquo;est-à-dire de manière exclusive. Le premier à y accéder est P1,
+D lui est alloué par le système d&rsquo;exploitation. Lorsque P2 souhaite accéder à
+D, la ressource n&rsquo;est pas disponible : P2 est alors bloqué jusqu&rsquo;à la fin de
+l&rsquo;utilisation de D par P1.</p>
+<p><strong>Exemple 2</strong></p>
+<p>Deux processus P1 et P2 ont tous les besoin de deux données, D1 et D2.<br>
+Chaque processus bloque une donnée et doit attendre d&rsquo;avoir accès à la seconde
+pour se terminer et les libérer.</p>
+<p>Si la chronologie est la suivante :</p>
+<ul>
+<li>P1 bloque D1</li>
+<li>P2 bloque D2</li>
+<li>P1 attend D2</li>
+<li>P2 attend D1</li>
+</ul>
+<p>Alors aucun des deux processus ne pourra avancer. C&rsquo;est <strong>l&rsquo;interblocage</strong>.
+Rien ne pourra avancer sans une intervention extérieure.</p>
+<p>Face à cette problématique la plupart des systèmes d&rsquo;exploitation ont choisir
+de ne pas essayer d&rsquo;éviter les interblocages mais de les détecter s&rsquo;ils
+surviennent et de les solutionner.</p>
 </article>
 
       <div class="backtotop">
@@ -11511,31 +10874,7 @@ b. Triées par score croissant.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocsnsiprogrammationtravaux_dirigespython_elementaire_tdpdf">pdf <a href="/uploads/docsnsi/programmation/travaux_diriges/python_elementaire_td.pdf">pour impression</a></a></li>
-      </ul>
-    </li>
-    <li><a href="#exercice-0--lire-les-extraits-de-code">Exercice 0 : Lire les extraits de code</a></li>
-    <li><a href="#exercice-1---opérations">Exercice 1 - Opérations</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exercice-2--opérations-sur-les-entiers-et-les-flottants">Exercice 2 : opérations sur les entiers et les flottants</a></li>
-    <li><a href="#exercice-3---opérations-sur-les-booléens">Exercice 3 - Opérations sur les booléens</a></li>
-    <li><a href="#exercice-4---affectation">Exercice 4 - affectation</a></li>
-    <li><a href="#exercice-5--bloc-dinstruction">Exercice 5 : bloc d&rsquo;instruction</a>
-      <ul>
-        <li><a href="#conditions--if-elif-else">Conditions : <code>if elif else</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#exercice-6-boucles-non-bornées--while">Exercice 6. Boucles non bornées : <code>while</code></a></li>
-    <li><a href="#exercice-7-boucles-bornées--for">Exercice 7. Boucles bornées : <code>for</code></a></li>
-    <li><a href="#exercice-8--un-premier-types-complexe--list">Exercice 8 : Un premier types complexe : <code>list</code></a></li>
-    <li><a href="#exercice-9--liste-et-boucle-for">Exercice 9 : Liste et boucle for</a></li>
-    <li><a href="#exercice-10---dictionnaires">Exercice 10 - Dictionnaires</a></li>
-    <li><a href="#exercice-11---depuis-un-dictionnaire-vide">Exercice 11 - Depuis un dictionnaire vide.</a></li>
-    <li><a href="#exercice-12---itérer-sur-un-dictionnaire">Exercice 12 - Itérer sur un dictionnaire.</a></li>
+    <li><a href="#lordonnancement">L&rsquo;ordonnancement</a></li>
   </ul>
 </nav>
   </aside>
