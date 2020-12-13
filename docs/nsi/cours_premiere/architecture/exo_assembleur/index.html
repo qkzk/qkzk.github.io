@@ -13,7 +13,7 @@
   
     
     
-    4.10 Structure conditionnelle
+    Exercice - modèle de Von Neumann, assembleur
   
  | qkzk</title>
 
@@ -25,13 +25,17 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://qkzk.xyz/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="http://qkzk.xyz/docs/nsi/cours_premiere/architecture/exo_assembleur/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
 
   
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -3813,7 +3825,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/architecture/exo_assembleur/" >
+      <a href="/docs/nsi/cours_premiere/architecture/exo_assembleur/"  class="active">
         
   
     
@@ -8169,7 +8181,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/"  class="active">
+      <a href="/docs/isn/isn-travaux-pratiques/4-programmation/4-10-structure-conditionnelle/" >
         
   
     
@@ -10726,383 +10738,175 @@ MathJax.Hub.Config({
   
     
     
-    4.10 Structure conditionnelle
+    Exercice - modèle de Von Neumann, assembleur
   
 </strong>
 </header>
 
       
-<article class="markdown"><p>Pré-requis On suppose qu&rsquo;ont été vues les notions de :</p>
-<ul>
-<li>le  calcul booléen et le type booléen (partie 3)</li>
-</ul>
-<p>Notions abordées dans cette page</p>
-<ul>
-<li>structure conditionnelle</li>
-<li>booléens</li>
-</ul>
-<h1 id="des-traitements-sous-condition">Des traitements sous condition</h1>
-<p>Nous avons précédemment rencontré la <strong>Manip'</strong> suivante :</p>
+<article class="markdown"><h2 id="cours-sur-le-modèle-de-von-neumann">Cours sur le modèle de Von Neumann</h2>
 <ol>
 <li>
-<p>Récupérez et étudiez ce <a href="/uploads/docs/doc04/exemples/temperature.html">document HTML</a> et sa <a href="/uploads/docs/doc04/exemples/styleTemperature.css">feuille de style</a>.</p>
+<p>Dessiner <em>de mémoire</em> le schéma du modèle de Von Neumann. Nommer correctement tous les éléments.</p>
 </li>
 <li>
-<p>Un événement <code>change</code> est déclenché à chaque fois que la valeur d&rsquo;un élément <code>input</code> est modifiée par l&rsquo;utilisateur (l&rsquo;événement est activé lorsque l&rsquo;on &ldquo;quitte&rdquo; l&rsquo;élément <code>input</code> - on dit qu&rsquo;il perd le focus). En partant du travail lors la <strong>Manip</strong> sur conversion de température, ajoutez à ce document le code Javascript qui permet lors d&rsquo;une saisie (numérique, <strong><em>on ne s&rsquo;occupera pas pour l&rsquo;instant de ce qui se passe dans un autre cas</em></strong>) dans un champ à la valeur correspondante pour l&rsquo;autre unité de mesure de afficher dans l&rsquo;autre champ.</p>
-</li>
-<li>
-<p>Testez évidemment&hellip;</p>
-</li>
-</ol>
-<p>Il avait alors été fait la remarque &ldquo;<em>on ne
-s&rsquo;occupera pas pour l&rsquo;instant de ce qui se passe dans un autre
-cas</em>&rdquo; n&rsquo;était pas très satisfaisante et qu&rsquo;il &ldquo;<em>faudra bien un
-jour que l&rsquo;on se penche sur ce problème et que l&rsquo;on étudie comment
-on peut le résoudre</em>&rdquo;. Et bien disons que ce jour est arrivé.</p>
-<p>Reprenez la solution que vous avez produite, ou utilisez <a href="/uploads/docs/doc04/exemples/temperatureComplet.html">celle-ci</a> et son <a href="/uploads/docs/doc04/exemples/temperature.js">code javascript</a>,  pour la Manip' précédente et testez ce qu&rsquo;il se passe avec une saisie non numérique.</p>
-<p>Pour éviter ce dysfonctionnement, on ne peut pas simplement se
-rabattre sur l&rsquo;utilisateur. Même si on peut (dans ce cas précis)
-s&rsquo;attendre à qu&rsquo;il fournisse a priori une valeur numérique, une
-faute de frappe est toujours possible et on peut rencontrer d&rsquo;autres
-situations similaires où la nature de la valeur à saisir est moins
-évidente.</p>
-<p>C&rsquo;est au programmeur de faire en sorte que son programme
-soit <strong>robuste</strong>, c&rsquo;est-à-dire qu&rsquo;il résiste à des conditions
-d&rsquo;utilisation &ldquo;anormales&rdquo; (pour lesquelles il n&rsquo;est pas a priori
-prévu). Dans notre cas, le cas &ldquo;normal&rdquo; est celui où l&rsquo;on cherche à
-convertir une valeur numérique en degrés Fahrenheit ou Celsius. Un
-cas &ldquo;anormal&rdquo; est celui où on essaie de le faire avec une valeur non
-numérique et le programme doit alors être capable de réaliser un
-traitement qui prend en compte cette situation.</p>
-<p>Dans notre cas on peut par exemple décider que si la saisie de
-l&rsquo;utilisateur ne correspond pas à un nombre, la valeur 100 sera
-prise par défaut. L&rsquo;énoncé de la question 2 devient alors :
-&ldquo;_ajoutez à ce document le code Javascript qui permet que lors
-d&rsquo;une saisie numérique dans un champ, la valeur correspondante pour
-l&rsquo;autre unité de mesure s&rsquo;affiche dans l&rsquo;autre champ. Une saisie non
-numérique sera remplacée par défaut par la valeur 100 et la
-conversion sera réalisée.  _&rdquo;</p>
-<p>Considérons le code de la
-fonction <code>fahrenheitVersCelsius</code> déclenchée par
-l&rsquo;événement <code>change</code> sur
-l&rsquo;élément <code>tFahrenheit</code> :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> fahrenheitVersCelsius <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
-    <span style="color:#069;font-weight:bold">var</span> tFahrenheit <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tFahrenheit&#34;</span>);
-    <span style="color:#069;font-weight:bold">var</span> tempF <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(tFahrenheit.value);
-    <span style="color:#069;font-weight:bold">var</span> tCelsius <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tCelsius&#34;</span>);
-    tCelsius.value <span style="color:#555">=</span> ((tempF <span style="color:#555">-</span> <span style="color:#f60">32</span>) <span style="color:#555">*</span>  <span style="color:#f60">5</span> <span style="color:#555">/</span> <span style="color:#f60">9</span>).toFixed(<span style="color:#f60">2</span>);
-}
-</code></pre></div><p>Que faudrait-il changer dans cette fonction pour pouvoir prendre en
-compte le nouveau cahier des charges et sa valeur par défaut en cas
-de saisie ? Une étude de ce code, que peut compléter un examen
-pas-à-pas de son exécution avec Firebug, permet de se rendre compte
-que si la saisie n&rsquo;est pas numérique <code>tempF</code> prend,
-logiquement, la valeur <code>NaN</code>. Le résultat
-de <code>((tempF - 32) *  5 / 9)</code> ne peut donc à partir de ce
-moment là qu&rsquo;être lui aussi <code>NaN</code>. Pour pouvoir obtenir le
-comportement souhaité, il faut donc remplacer la valeur
-de <code>tempF</code> par <code>100</code> lorsqu&rsquo;elle
-vaut <code>NaN</code> et la laisser inchangée dans le cas contraire.</p>
-<p>Nous sommes donc confrontés à la situation où la réalisation d&rsquo;un
-traitement, ici fixer la valeur de <code>tempF</code>
-à <code>100</code>, ne doit être réalisée
-qu&rsquo;à condition que sa valeur
-soit <code>NaN</code>.
-Une telle situation est très fréquente en programmation et
-Javascript, comme tous les langages de programmation, propose une
-structure de contrôle appelée structure
-conditionnelle qui permet de ne réaliser un traitement que si
-une certaine condition est vérifiée (on dit
-aussi <em>réalisée</em>). Sa syntaxe est la suivante :</p>
-<pre><code>if (condition) {
-  traitement à réaliser
-}
-</code></pre>
-<p>où <em>condition</em> est une expression à valeur
-booléenne. Attention les parenthèses autour de <em>condition</em>
-font partie de la syntaxe et sont donc obligatoires.</p>
-<p>Lors du traitement de cette expression, <em>condition</em> est
-évaluée. Si elle vaut <code>true</code> alors le code
-de <em>traitement à réaliser</em> est exécutée, sinon rien ne se
-passe.</p>
-<p>Dans notre cas il nous suffit donc de trouver une expression qui
-ait pour résultat la valeur <code>true</code>
-si <code>tempF</code> vaut <code>NaN</code> et <code>false</code>
-sinon. La fonction <code>isNaN</code> est toute désignée :</p>
-<p><strong>nom</strong> : isNaN</p>
-<p><strong>Paramètres</strong> : 1</p>
-<p><strong>val</strong> : une valeur</p>
-<p><strong>Résultat</strong> :</p>
-<p><strong>type</strong> : un booléen</p>
-<p><strong>description</strong> : true si et
-seulement val vaut la valeur NaN</p>
-<p>Le traitement à réaliser quand <code>tempF</code>
-vaut <code>NaN</code> est de fixer la valeur de <code>tempF</code> à
-100, sans oublier de changer le contenu du champ de saisie. On
-obtient alors le nouveau code :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> fahrenheitVersCelsius <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
-    <span style="color:#069;font-weight:bold">var</span> tFahrenheit <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tFahrenheit&#34;</span>);
-    <span style="color:#069;font-weight:bold">var</span> tempF <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(tFahrenheit.value);
-    <span style="color:#069;font-weight:bold">if</span> (<span style="color:#366">isNaN</span>(tempF)) {
-       tempF <span style="color:#555">=</span> <span style="color:#f60">100</span>;
-       tFahrenheit.value <span style="color:#555">=</span> <span style="color:#f60">100</span>;
-    }
-    <span style="color:#069;font-weight:bold">var</span> tCelsius <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;tCelsius&#34;</span>);
-    tCelsius.value <span style="color:#555">=</span> ((tempF <span style="color:#555">-</span> <span style="color:#f60">32</span>) <span style="color:#555">*</span>  <span style="color:#f60">5</span> <span style="color:#555">/</span> <span style="color:#f60">9</span>).toFixed(<span style="color:#f60">2</span>);
-}
-</code></pre></div><ol>
-<li>
-<p>Faites la modification similaire pour l&rsquo;autre fonction de
-conversion de températures.</p>
-</li>
-<li>
-<p>Testez.</p>
-</li>
-<li>
-<p>Combien de tests devez-vous faire au minimum pour vous assurer que votre programme fonctionne correctement (c&rsquo;est-à-dire comme vous l&rsquo;avez prévu) ?</p>
-</li>
-</ol>
-<p>Le choix qui a été fait de prendre la valeur 100 par défaut en cas de mauvaise saisie était arbitraire. On aurait pu en faire un autre, comme celui de ne pas faire de calcul dans ce cas mais effacer le contenu des deux zones de saisie des températures.</p>
-<ol>
-<li>
-<p>Modifiez le travail précédent pour obtenir ce comportement.</p>
-</li>
-<li>
-<p>Testez.</p>
-</li>
-</ol>
-<p>Observez la valeur de <code>image.width</code> pour
-comprendre la nécessité de l&rsquo;utilisation de la fonction <code>parseInt</code>.</p>
-<p>Si la variable <code>image</code> a pour valeur un élément d&rsquo;une page correspondant à une balise <code>img</code>, il est possible de connaître la largeur actuelle de cette image par l&rsquo;expression <code>parseInt(image.width)</code> et de modifier la largeur d&rsquo;affichage de cette même image par une expression telle que <code>image.style.width = &quot;250px&quot;</code>, par exemple.</p>
-<ol>
-<li>
-<p>Créez une page html et sa feuille de style qui contiendra un élément de balise <code>img</code>.</p>
-</li>
-<li>
-<p>Ajoutez à cette page deux zones &ldquo;bouton&rdquo; telles que :</p>
+<p>Attribuer à chaque élément les descriptions suivantes :</p>
 <ul>
-<li>un clic sur la première diminue la taille de l&rsquo;image de 20px si cette taille est supérieure à 100px, sinon rien ne se passe</li>
-<li>un clic sur la seconde augmente la taille de l&rsquo;image de 20px si cette taille est inférieure à 400px, sinon rien ne se passe</li>
+<li>Ensemble de cellules où sont conservées les données. Elles sont accessibles par des adresses.</li>
+<li>Liaisions physiques servant à la circulation des informations.</li>
+<li>Unité servant à choisir les instructions réalisées et réalisant les embranchements qui correspondent à ces instructions.</li>
+<li>Unité où sont réalisés les différents calculs mathématiques.</li>
 </ul>
 </li>
-</ol>
-<h1 id="expression-dalternatives">Expression d&rsquo;alternatives</h1>
-<p>Dans les situations rencontrées ci-dessus un traitement &ldquo;particulier&rdquo; est réalisé si une condition est vérifiée et dans le cas contraire on passe à loa suite sans aucun traitement   complémentaire. On rencontre cependant fréquemment la situation dans laquelle un autre traitement doit être réalisé lorsque la condition n&rsquo;est pas vérifiée (càd vaut <code>false</code>). Il est possible de programmer un tel comportement en complétant la structure conditionnelle <code>if</code> par un bloc exprimant l&rsquo;alternative et identifié par le mot-clé <code>else</code>. La syntaxe est alors :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition<span style="color:#555">&lt;</span>)
-  traitement_vrai (à réaliser si condition vaut <span style="color:#069;font-weight:bold">true</span>)
-}
-<span style="color:#069;font-weight:bold">else</span> {
-  traitement_faut (à réaliser si condition vaut <span style="color:#069;font-weight:bold">false</span>)
-}
-</code></pre></div><p>La sémantique d&rsquo;une expression est la suivante : lors du
-traitement de cette expression, <code>condition</code> est
-évaluée. Si elle vaut <code>true</code> alors le
-code <code>traitement_vrai</code> est exécutée, sinon, c&rsquo;est-à-dire
-si <code>condition</code> est évaluée à <code>false</code>, c&rsquo;est le
-code <code>traitement_faux</code> qui est exécutée.</p>
-<p>On retrouve la forme de phrases du langage courant telles que &ldquo;<em>Si
-c&rsquo;est pile je gagne sinon je perds</em>.&rdquo;</p>
-<p>La restriction d&rsquo;accès à l&rsquo;image est ici toute symbolique puisqu&rsquo;il
-suffit de consulter le code Javascript source pour connaître le mot
-secret et même le nom, et donc l&rsquo;URL, de l&rsquo;image &ldquo;cachée&rdquo;.</p>
-<p>Considérons l&rsquo;exemple fourni
-par <a href="/uploads/docs/doc04/exemples/sesame.html">cette page</a>. Une image est
-affichée <strong>si</strong> l&rsquo;utilisateur fourni le mot demandé <strong>sinon</strong> un message
-d&rsquo;alerte apparaît. Ce comportement est produit par la
-fonction <code>sesame</code> appelée au chargement de la page :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> sesame <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
-    <span style="color:#069;font-weight:bold">var</span> motDePasse <span style="color:#555">=</span> <span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Indiquez le mot secret pour voir l&#39;image&#34;</span>);
-    <span style="color:#069;font-weight:bold">if</span> (motDePasse <span style="color:#555">==</span> <span style="color:#c30">&#34;secret&#34;</span>) {
-	<span style="color:#069;font-weight:bold">var</span> imagePrivee <span style="color:#555">=</span>  <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;privee&#34;</span>);
-	imagePrivee.src <span style="color:#555">=</span> <span style="color:#c30">&#34;orionMessier.jpg&#34;</span>;
-    }
-    <span style="color:#069;font-weight:bold">else</span> {
-	<span style="color:#366">window</span>.alert(<span style="color:#c30">&#34;Vous n&#39;avez pas fourni le mot secret.&#34;</span>);
-    }
-}
-</code></pre></div><p>Vous pouvez &ldquo;habiller&rdquo; votre page en remplaçant les
-boutons <em>Pile</em> et <em>Face</em> par des images correspondant
-d&rsquo;une pièce de monnaie.</p>
-<p>Ecrivez une page html qui comporte :</p>
-<ol>
-<li>2 boutons <em>Pile</em> et <em>Face</em> tels que le clic sur l&rsquo;un
-de ces boutons affiche le texte &ldquo;<em>vous avez choisi pile/face</em>&rdquo;
-dans une zone prévue à cet effet</li>
-<li>1 bouton <em>Lancer</em> qui simule un lancer pièce en provoquant
-un tirage aléatoire (<code>Math.random</code>) qui correspond
-à <em>Pile</em> si la valeur inférieure à 0,5 et à <em>face</em> sinon,
-le texte &ldquo;<em>le résultat du lancer est pile/face</em>&rdquo; est affiché
-dans la page</li>
-<li>le texte &ldquo;<em>GAGNE/PERDU</em>&rdquo; est affiché dans une zone résultat
-selon que le résultat du tirage correspond ou non au choix de
-l&rsquo;utilisateur</li>
-</ol>
-<h1 id="attention">Attention</h1>
-<p>Il est important de noter et de prendre conscience que l&rsquo;expression</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
-   traitement_vrai
-}
-<span style="color:#069;font-weight:bold">else</span> {
-   traitement_faux
-}
-</code></pre></div><p>n&rsquo;est pas équivalente à la séquence</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (condition) {
-   traitement_vrai
-};
-<span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span> condition) {
-   traitement_faux
-}
-</code></pre></div><p>contrairement à ce que l&rsquo;on peut peut-être penser dans une première
-impulsion qui s&rsquo;avère fausse. On est éventuellement d&rsquo;autant plus
-susceptible de commettre cette erreur logique que dans certains cas
-le comportement de ces deux expressions sont identiques. Ainsi les résultats des deux codes
-suivants sont équivalents :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> alea <span style="color:#555">=</span> <span style="color:#366">Math</span>.random();                      <span style="color:#069;font-weight:bold">var</span> alea <span style="color:#555">=</span> <span style="color:#366">Math</span>.random();
-<span style="color:#069;font-weight:bold">var</span> resultat;                                  <span style="color:#069;font-weight:bold">var</span> resultat;
-<span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&lt;</span> <span style="color:#f60">0.5</span>) {                              <span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&lt;</span> <span style="color:#f60">0.5</span>) {
-  resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;pile&#34;</span>;                              resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;pile&#34;</span>;
-}                                              };
-<span style="color:#069;font-weight:bold">else</span> {				    	       <span style="color:#069;font-weight:bold">if</span> (alea <span style="color:#555">&gt;=</span> <span style="color:#f60">0.5</span>) {
-  resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;		    	          resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;face&#34;</span>;
-}	               		    	       }
-</code></pre></div><p>Ce n&rsquo;est cependant pas toujours le cas.</p>
-<p>La fonction de Collatz est à la base d&rsquo;une conjecture
-appelée <a href="http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse">conjecture de Collat ou de Syracuse</a> qui malgré sa simplicité d&rsquo;énoncé
-résiste aux mathématiciens depuis près d&rsquo;un siècle.</p>
-<p>La fonction de Collatz est une fonction qui prend pour paramère un
-entier <em>n</em> et dont le résultat dépend de la parité
-de <em>n</em>. Ce résultat est <em>3*n+1</em> si <em>n</em> est impair
-et <em>n/2</em> si <em>n</em> est pair.</p>
-<p>Ecrivez la spécification de la fonction de Collatz.</p>
-<p>On propose les deux codes suivants pour cette fonction :</p>
-<p>On rappelle que l&rsquo;opérateur modulo <code>%</code> fournit le reste de
-la division entière. On peut donc tester la parité d&rsquo;un
-entier <em>n</em> par l&rsquo;expression <code>n%2==0</code>
-ou <code>n%2==1</code>.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(<span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Fournissez un entier positif&#34;</span>));
-<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>) {
-  n <span style="color:#555">=</span> <span style="color:#f60">3</span><span style="color:#555">*</span>n <span style="color:#555">+</span><span style="color:#f60">1</span>;
-}
-<span style="color:#069;font-weight:bold">else</span> {
-  n <span style="color:#555">=</span> n<span style="color:#555">/</span><span style="color:#f60">2</span>;
-}
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span><span style="color:#555">+</span>n);
-</code></pre></div><p>et</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> n <span style="color:#555">=</span> <span style="color:#366">parseInt</span>(<span style="color:#366">window</span>.prompt(<span style="color:#c30">&#34;Fournissez un entier positif&#34;</span>));
-<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>) {
-  n <span style="color:#555">=</span> <span style="color:#f60">3</span><span style="color:#555">*</span>n <span style="color:#555">+</span><span style="color:#f60">1</span>;
-}
-<span style="color:#069;font-weight:bold">if</span> (n<span style="color:#555">%</span><span style="color:#f60">2</span> <span style="color:#555">==</span><span style="color:#f60">0</span>) {
-  n <span style="color:#555">=</span> n<span style="color:#555">/</span><span style="color:#f60">2</span>;
-}
-<span style="color:#366">document</span>.writeln(<span style="color:#c30">&#34;la valeur de Collatz pour l&#39;entier fourni est &#34;</span><span style="color:#555">+</span>n);
-</code></pre></div><ol>
-<li>Créez deux pages html qui contiennent ces portions de scripts et faites
-plusieurs tests avec les mêmes valeurs de <em>n</em> pour les deux
-pages.</li>
-<li>Que constatez-vous ?</li>
-<li>Expliquez.</li>
-</ol>
-<h1 id="des-conditions-en-cascade">Des conditions en cascade</h1>
-<p>Les expressions conditionnelles permettent donc de distinguer deux
-situations différentes et d&rsquo;exécuter alors deux traitements
-différents. La composition de plusieurs expressions conditionnelles
-permet alors de traiter les situations où il existe plus de deux cas
-qui diffèrent.</p>
-<p>Prenons l&rsquo;exemple de ce jeu dans lequel un joueur choisit
-secrètement un nombre
-que doit deviner un autre joueur. Pour cela ce dernier propose un
-nombre et le premier lui indiqué s&rsquo;il a trouvé le nombre secret ou
-si sa proposition lui est supérieur ou inférieur. On le constate
-trois cas de figure sont possibles. Si on
-appelle <code>nombreSecret</code> la variable dont la valeur est le nombre
-secret choisi et <code>proposition</code> la variable dont la valeur
-est le nombre proposé, la portion de code suivante permet alors de
-fixer la valeur d&rsquo;une variable <code>resultat</code> en fonction de
-chacune des trois situations :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">if</span> (proposition <span style="color:#555">==</span> nombreSecret) {
-   resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trouve&#34;</span>;
-}
-<span style="color:#069;font-weight:bold">else</span> {                      <span style="color:#09f;font-style:italic">// proposition n&#39;est pas égale à nombreSecret
-</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">if</span> (proposition <span style="color:#555">&lt;</span> nombreSecret) {
-     resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trop petit&#34;</span>;
-  }
-  <span style="color:#069;font-weight:bold">else</span> {
-     resultat <span style="color:#555">=</span> <span style="color:#c30">&#34;trop grand&#34;</span>;
-  }
-}
-</code></pre></div><p>La solution consiste à considérer plusieurs fois des alternatives
-entre deux situations. Ici, on teste d&rsquo;abord si la
-proposition est ou non égale au nombre secret, puis dans le second cas on
-teste si elle est ou non plus petite. Comme on sait déjà qu&rsquo;elle
-n&rsquo;est pas égale, le cas <code>false</code> correspond nécessairement à
-une valeur trop grande.</p>
-<p>Nous verrons plus tard comment faire pour que le jeu se répète tant
-que le nombre secret n&rsquo;a pas été trouvé.</p>
-<p>Ecrivez une page html qui :</p>
-<ol>
-<li>choisit aléatoirement un nombre secret  entre 0
-et 100,</li>
-<li>demande à l&rsquo;utilisateur de faire une proposition,</li>
-<li>affiche les deux nombres et le résultat de la comparaison.</li>
-</ol>
-<p>Il existe différents modèles de machines à sous, aussi appelées
-bandits manchots.  Un modèle simple consiste en 3 rouleaux
-comportant 5 symboles (représentés ici par les chiffres de 1 à 5) et
-des espaces entre 2 symboles (représentés ici par le chiffre
-0). Pour commencer, nous allons programmer une version simple de ce
-jeu avec une seule mise. Les combinaisons gagnantes et les gains
-correspondants sont indiqués ci-dessous.</p>
-<ul>
-<li>1 1 1 : 250</li>
-<li>2 2 2 : 150</li>
-<li>3 3 3 : 80</li>
-<li>4 4 4 : 50</li>
-<li>5 5 5 : 20</li>
-<li>deux 1 parmi les 3 rouleaux : 5</li>
-<li>un seul 1 parmi les 3 rouleaux : 2</li>
-</ul>
-<ol>
 <li>
-<p>Réalisez une fonction qui effectue trois tirages aléatoires de
-chiffres compris entre 0 et 5 inclus, affiche la combinaison
-correspondante et a pour résultat les gains selon la combinaison obtenue.</p>
+<p>Un processeur moderne travaille par cycles qui comportent trois étapes. Lesquelles ?</p>
 </li>
 <li>
-<p>Ecrivez une page html qui permet de jouer à ce jeu et d&rsquo;afficher les
-gains.</p>
+<p>On classe les mémoires d&rsquo;un ordinateur par vitesse croissante. Triez les exemples suivants :</p>
+<p>RAM, Disque dur, registre, mémoire cache.</p>
+</li>
+<li>
+<p>Parmi les exemples précédents, quelles sont les mémoires <em>volatiles</em> (dont le contenu est perdu une fois la machine éteinte) ?</p>
+</li>
+<li>
+<p>Citez en une phrase la loi de Moore. Est-elle toujours d&rsquo;actualité ?</p>
 </li>
 </ol>
-<p>Le type <code>Date</code> dispose de la fonction suivante :</p>
-<p><strong>type concerné :</strong> Date</p>
-<p><strong>nom</strong> : getDay</p>
-<p><strong>Paramètres</strong> : 0</p>
-<p><strong>Résultat</strong> :</p>
-<p><strong>type</strong> : un nombre</p>
-<p><strong>description</strong> : un entier qui correspond au jour de la semaine :</p>
-<p>0 pour dimanche,  1 pour lundi, etc.</p>
+<h2 id="assembleur-et-modèle-de-von-neumann">Assembleur et modèle de Von Neumann</h2>
+<p><strong>Attention !</strong> La machine présentée ci-dessous n&rsquo;est pas la machine AQA avec laquelle nous avons travaillé !!!</p>
+<p>Soit une machine basée sur une architecture de Von Neumann, disposant d&rsquo;un Accumulateur et du jeu d&rsquo;instructions suivant :</p>
+<p><em>Remarque</em> : <code>//</code> désigne un commentaire, tous les nombres sont écrits en décimaux.</p>
+<p>Dans cette machine il n&rsquo;y a qu&rsquo;un registre : l&rsquo;accumulateur.
+Tous les résultats des opérations arithmétiques (addition, soustraction) sont
+conservés dans l&rsquo;accumulateur.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">LDA xx  //LoaD address (xx) in Accumulator
+        //charge le contenu de la mémoire (xx) dans l&#39;accumulateur
+STA xx  //STore Accumulator value at address xx
+        //enregistre la valeur de l&#39;accumulateur en mémoire
+ADD xx  //ADD (xx) to accumulator value
+        //ajouter (xx) à la valeur de l&#39;accumulateur
+SUB xx  //SUBstract (xx) from accumulator value
+        //soustraie (xx) à la valeur de l&#39;accumulateur
+BRZ xx  //BRanch to the instruction at address xx if Accumulator value equal Zero
+        //Saute à l&#39;instruction à l&#39;adresse xx si l&#39;accumulateur vaut 0
+BRP xx  //BRanch to the instruction at address xx if Accumulator value is Positive (or zero)
+        //Saute à l&#39;instruction à l&#39;adresse xx si l&#39;accumulateur est positif ou nul
+BRA xx  //BRanch Always to the instruction at address xx
+        //Saute toujours à l&#39;instruction à l&#39;adresse xx
+END     //Stop program
+        //Arrête le programme
+</code></pre></div><p>où xx représente une adresse mémoire et (xx) son contenu.</p>
+<p><strong>Programme 1 : exemple</strong></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">01 LDA 07
+02 SUB 08
+03 LDA 08
+04 ADD 07
+05 SUB 09
+06 END
+07 1
+08 10
+09 2
+</code></pre></div><p>Le tableau ci-dessous présente les valeurs de l&rsquo;accumulateur à chaque étape.</p>
+<ol>
+<li>Suivre le déroulé de l&rsquo;exemple ci-dessous. Le refaire à partir d&rsquo;un tableau vide.</li>
+<li>Recommencer en remplaçant les valeurs respectives des lignes 07, 08 et 09 par 5, 2 et 9.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Ligne</th>
+<th style="text-align:center">Accumulateur</th>
+<th>Remarque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">1</td>
+<td>On charge le nombre 1 dans l&rsquo;Acc.</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">-9</td>
+<td>On soustraie le nombre 10 à la valeur de l&rsquo;Acc.</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">10</td>
+<td>On charge le nombre 10 (la précédente valeur est perdue)</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">11</td>
+<td>On ajoute le nombre 1 à l&rsquo;Acc.</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:center">9</td>
+<td>On soustraie le nombre 2 à l&rsquo;Acc.</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:center">9</td>
+<td>END : fin du programme, l&rsquo;accumulateur contient 9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Programme 2 : test de parité</strong></p>
+<ol>
+<li>Que contient l&rsquo;accumulateur une fois le programme ci-dessous exécuté ?</li>
+<li>Remplacer le contenu de la mémoire 11 par le nombre 6 et recommencer le programme.</li>
+<li>Expliquer en quoi ce programme est un test <em>de parité</em>.</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">01 LDA 11
+02 BRZ 09
+03 SUB 12
+04 BRP 02
+05 B 09
+06 END
+07 LDA 13
+08 END
+09 LDA 14
+10 END
+11 7
+12 2
+13 0
+14 1
+</code></pre></div><p>\newpage</p>
+<p><strong>Programme 2 : maximum</strong></p>
 <ol>
 <li>
-<p>Spécifiez puis codez une fonction <code>nomDuJour</code> qui prend
-pour pparamètre un nombre entre 0 et 6 et a pour
-résultat la chaîne de caractères du nom du jour correspondant.</p>
+<p>Compléter le programme ci-dessous pour qu&rsquo;il se termine en ayant dans
+l&rsquo;accumulateur le plus grand des
+deux nombres enregistrés aux lignes 08 et 09 de la mémoire.</p>
 </li>
 <li>
-<p>Sachant que le type <code>Date</code> dispose d&rsquo;une
-méthode <code>getMonth</code> similaire où 0 correspond à janvier, 1
-à férvier, etc., spécifiez puis codez sur le même principe une fonction <code>nomDuMois</code></p>
+<p>Faire tourner votre programme dans un tableau similaire à celui présenté pour le programme 1.</p>
 </li>
-<li></li>
 </ol>
-<p>Utilisez ces fonctions pour créer une
-fonction <code>aujourdHui</code> dont le résultat est une chaîne de
-caractères représentant la date d&rsquo;aujourd&rsquo;hui sous la forme
-&ldquo;<em>mardi 25 décembre 2012</em>&rdquo;.</p>
-<ol start="4">
-<li></li>
-</ol>
-<p>Testez vos fonctions dans une page html.</p>
-</article>
+<!--
+~~~
+01 LDA 08
+02 SUB 09
+03 BRP 06
+04 LDA 09
+05 END
+06 LDA 07
+07 END
+08 7
+09 5
+~~~
+-->
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">01
+02
+03
+04
+05
+06
+07
+08 7
+09 5
+</code></pre></div></article>
 
       <div class="backtotop">
 
@@ -11135,7 +10939,12 @@ caractères représentant la date d&rsquo;aujourd&rsquo;hui sous la forme
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cours-sur-le-modèle-de-von-neumann">Cours sur le modèle de Von Neumann</a></li>
+    <li><a href="#assembleur-et-modèle-de-von-neumann">Assembleur et modèle de Von Neumann</a></li>
+  </ul>
+</nav>
   </aside>
 
 
