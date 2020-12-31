@@ -13,7 +13,7 @@
   
     
     
-    Terminale NSI - Architecture
+    Cours
   
  | qkzk</title>
 
@@ -5830,12 +5830,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/architecture/composants/cache/" >
+      <a href="/docs/nsi/cours_terminale/architecture/composants/cours/"  class="active">
         
   
     
     
-    Mémoire cache
+    Cours
   
 
       </a>
@@ -5868,7 +5868,7 @@ MathJax.Hub.Config({
   
     
     
-    NSI - Terminale - Architecture
+    TD
   
 
       </a>
@@ -5896,12 +5896,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/architecture/composants/cours/"  class="active">
+      <a href="/docs/nsi/cours_terminale/architecture/composants/cache/" >
         
   
     
     
-    Terminale NSI - Architecture
+    complément : Mémoire cache
   
 
       </a>
@@ -10804,7 +10804,7 @@ MathJax.Hub.Config({
   
     
     
-    Terminale NSI - Architecture
+    Cours
   
 </strong>
 </header>
@@ -10942,7 +10942,9 @@ distances, l&rsquo;utilisation d&rsquo;éléments moins génériques améliore l
 la <strong>consommation énergique</strong> est réduite de manière significative,
 entraînant une baisse du coût d&rsquo;énergie et une amélioration de la gestion
 de l&rsquo;énergie (principalement pour l&rsquo;informatique mobile et les smartphones,
-pour lesquels la gestion des performances de la batterie est importante).</li>
+pour lesquels la gestion des performances de la batterie est importante).
+Comme conséquence immédiate, on peut généralement se passer d&rsquo;un système
+de refroidissement actif (un ventilateur&hellip;).</li>
 <li>Même si les coûts d&rsquo;ingénierie sont plus élevés sur la phase de conception,
 les <strong>coûts de matières premières et de fabrication</strong> sont eux aussi réduits
 par rapport à une architecture classique.</li>
@@ -10961,6 +10963,30 @@ soi-même. Généralement, une panne oblige à remplacer toute la carte mère,</
 une machine. Contrairement aux PC où les composants sont interchangeables
 et les améliorations possibles.</li>
 </ul>
+<h2 id="schéma-de-circuit-dun-soc">Schéma de circuit d&rsquo;un SoC</h2>
+<p>Physiquement, qu&rsquo;est-ce qu&rsquo;un SoC ?</p>
+<h3 id="quelques-images-des-composants-dun-rpi">Quelques images des composants d&rsquo;un RPI</h3>
+<p>Voici un raspberry Pi (vous l&rsquo;étudierez plus en détail en TD)</p>
+<p>$~$ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Raspberry-Pi-2-Bare-BR.jpg/1200px-Raspberry-Pi-2-Bare-BR.jpg" alt="raspberry pi"></p>
+<p>Et un agrandissement de son SoC</p>
+<p>$~$ <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/4/a/5/4a5a3a301f_73649_soc.jpg" alt="raspberry soc"></p>
+<p>Pour se faire une idée des dimensions :</p>
+<p>$~$ <img src="https://pixees.fr/informatiquelycee/n_site/img/nsi_term_soc_2.png" alt="SoC"></p>
+<p>Il n&rsquo;est pas simple de trouver un schéma de circuit compréhensible et utile
+d&rsquo;un raspberry pi.</p>
+<p>Voici ce qui s&rsquo;approche le plus du modèle de Von Neumann (cf <a href="/docs/nsi/cours_premiere/architecture/von_neumann/">première</a>).</p>
+<p>$~$ <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Raspberrypi_block_function_v01.svg" alt="schéma rpi"></p>
+<p>Comme on peut le voir, le CPU est regroupé en un seul bloc, comportant aussi un GPU.</p>
+<p>On y voit que les entrées / sorties sont séparées en deux parties, l&rsquo;I/O au sens
+large et le bus USB.</p>
+<p>Physiquement, ça se traduit comme ça :</p>
+<p>$~$ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RaspberryPi_Model_4B.svg/2000px-RaspberryPi_Model_4B.svg.png" alt="raspberry rôle"></p>
+<p>Et on remarque (entre autres) que le SoC utilisé ne comporte pas de RAM&hellip;</p>
+<h3 id="un-schéma-de-circuit-un-peu-plus-détaillé">Un schéma de circuit un peu plus détaillé</h3>
+<p>$~$ <img src="https://pixees.fr/informatiquelycee/n_site/img/nsi_term_soc_4.jpg" alt="circuit"></p>
+<p>Vous pouvez remarquer que l&rsquo;on retrouve bien sur ce schéma un CPU et de la
+mémoire (on a différents types de mémoires, mais ce sujet ne sera pas abordé
+ici).</p>
 </article>
 
       <div class="backtotop">
@@ -11016,6 +11042,12 @@ et les améliorations possibles.</li>
         <li><a href="#le-principce">Le principce</a></li>
         <li><a href="#exemples">Exemples</a></li>
         <li><a href="#des-avantages-nombreux">Des avantages nombreux</a></li>
+      </ul>
+    </li>
+    <li><a href="#schéma-de-circuit-dun-soc">Schéma de circuit d&rsquo;un SoC</a>
+      <ul>
+        <li><a href="#quelques-images-des-composants-dun-rpi">Quelques images des composants d&rsquo;un RPI</a></li>
+        <li><a href="#un-schéma-de-circuit-un-peu-plus-détaillé">Un schéma de circuit un peu plus détaillé</a></li>
       </ul>
     </li>
   </ul>
