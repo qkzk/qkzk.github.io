@@ -10889,7 +10889,14 @@ de la difficulté&hellip; seulement une action possible : se déplacer.</p>
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10900,6 +10907,7 @@ de la difficulté&hellip; seulement une action possible : se déplacer.</p>
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

@@ -11153,7 +11153,14 @@ R1<span style="color:#555">(</span>Zebra<span style="color:#555">)</span>&gt;
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11164,6 +11171,7 @@ R1<span style="color:#555">(</span>Zebra<span style="color:#555">)</span>&gt;
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

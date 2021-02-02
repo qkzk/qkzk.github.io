@@ -11013,7 +11013,14 @@ var dateReveillon = new Date(2012,11,31);
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11024,6 +11031,7 @@ var dateReveillon = new Date(2012,11,31);
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

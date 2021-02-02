@@ -10915,7 +10915,14 @@ Selon le langage employé on pourra rendre le jeu jouable sur mobile en gérant 
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10926,6 +10933,7 @@ Selon le langage employé on pourra rendre le jeu jouable sur mobile en gérant 
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

@@ -10973,7 +10973,14 @@ Le pire est que ça fonctionne bien.</p>
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10984,6 +10991,7 @@ Le pire est que ça fonctionne bien.</p>
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

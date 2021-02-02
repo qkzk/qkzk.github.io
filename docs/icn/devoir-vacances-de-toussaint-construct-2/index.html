@@ -10931,7 +10931,14 @@ Ensuite concevoir un jeu immense et disposant d&rsquo;un univers artistique coh√
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10942,6 +10949,7 @@ Ensuite concevoir un jeu immense et disposant d&rsquo;un univers artistique coh√
           toggle.textContent = "Th√®me sombre"
       }
       console.log(mode);
+
   }
 </script>
 

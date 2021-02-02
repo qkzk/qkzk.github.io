@@ -11039,7 +11039,14 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11050,6 +11057,7 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

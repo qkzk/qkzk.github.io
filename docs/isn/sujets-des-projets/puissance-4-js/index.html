@@ -10896,7 +10896,14 @@ Le jeu est alors jouable à condition que les joueurs détectent eux même la vi
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10907,6 +10914,7 @@ Le jeu est alors jouable à condition que les joueurs détectent eux même la vi
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

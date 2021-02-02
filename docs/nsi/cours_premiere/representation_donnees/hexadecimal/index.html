@@ -11087,7 +11087,14 @@ la machine interprète à l&rsquo;aide d&rsquo;un programme et affiche à l&rsqu
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11098,6 +11105,7 @@ la machine interprète à l&rsquo;aide d&rsquo;un programme et affiche à l&rsqu
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

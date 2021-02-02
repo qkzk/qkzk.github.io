@@ -11095,7 +11095,14 @@ Si Python ne trouve pas la lettre, il va simplement s’abstenir de répondre.</
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11106,6 +11113,7 @@ Si Python ne trouve pas la lettre, il va simplement s’abstenir de répondre.</
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

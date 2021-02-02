@@ -11742,7 +11742,14 @@ mémoisée.</p>
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11753,6 +11760,7 @@ mémoisée.</p>
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

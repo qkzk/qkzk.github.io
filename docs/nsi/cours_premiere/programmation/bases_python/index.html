@@ -11163,7 +11163,14 @@ lirez car c&rsquo;est un procédé courant en programmation aussi sachez le.</p>
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11174,6 +11181,7 @@ lirez car c&rsquo;est un procédé courant en programmation aussi sachez le.</p>
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

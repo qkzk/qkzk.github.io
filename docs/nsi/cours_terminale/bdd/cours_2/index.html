@@ -11227,7 +11227,14 @@ SELECT DISTINCT attribut_1, attribut_2 FROM table1 WHERE attribut_3 &gt; 4 ORDER
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11238,6 +11245,7 @@ SELECT DISTINCT attribut_1, attribut_2 FROM table1 WHERE attribut_3 &gt; 4 ORDER
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

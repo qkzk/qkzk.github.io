@@ -10898,7 +10898,14 @@ Bien étoffé ce point peut faire l&rsquo;objet d&rsquo;une partie en soi presqu
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -10909,6 +10916,7 @@ Bien étoffé ce point peut faire l&rsquo;objet d&rsquo;une partie en soi presqu
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

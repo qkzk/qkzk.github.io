@@ -11021,7 +11021,14 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11032,6 +11039,7 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

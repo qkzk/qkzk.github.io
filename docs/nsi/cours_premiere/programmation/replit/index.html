@@ -11001,7 +11001,14 @@ c <span style="color:#555">=</span> <span style="color:#366">int</span>(<span st
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11012,6 +11019,7 @@ c <span style="color:#555">=</span> <span style="color:#366">int</span>(<span st
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

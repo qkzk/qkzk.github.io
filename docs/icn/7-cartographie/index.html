@@ -11011,7 +11011,14 @@ Sinon j&rsquo;ai acheté <a href="https://www.google.com/maps/@35.8981776,-81.54
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11022,6 +11029,7 @@ Sinon j&rsquo;ai acheté <a href="https://www.google.com/maps/@35.8981776,-81.54
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

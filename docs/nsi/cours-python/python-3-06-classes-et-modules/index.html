@@ -11225,7 +11225,14 @@ Nouveau solde : +9000.00 euros
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11236,6 +11243,7 @@ Nouveau solde : +9000.00 euros
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

@@ -10995,7 +10995,14 @@ identity sandpile de taille 500 x 500 -  blue = 3, green = 2, red = 1, white = 
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11006,6 +11013,7 @@ identity sandpile de taille 500 x 500 -  blue = 3, green = 2, red = 1, white = 
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

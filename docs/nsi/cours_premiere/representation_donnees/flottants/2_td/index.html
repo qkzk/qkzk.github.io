@@ -11075,7 +11075,14 @@ qu&rsquo;on pourrait avoir en utilisant uniquement le codage des nombres normali
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11086,6 +11093,7 @@ qu&rsquo;on pourrait avoir en utilisant uniquement le codage des nombres normali
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 

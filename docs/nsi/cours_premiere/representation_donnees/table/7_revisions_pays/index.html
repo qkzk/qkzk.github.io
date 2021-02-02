@@ -10992,7 +10992,14 @@ b. Proposer une instruction renvoyant les pays triés par population décroissan
       }
   });
 
+
+  
+  var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+  setTheme(savedTheme);
+
   function setTheme(mode) {
+      localStorage.setItem("dark-mode-storage", mode);
+
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
@@ -11003,6 +11010,7 @@ b. Proposer une instruction renvoyant les pays triés par population décroissan
           toggle.textContent = "Thème sombre"
       }
       console.log(mode);
+
   }
 </script>
 
