@@ -11064,23 +11064,21 @@ appellation. Par exemple la seconde table peut aussi exister sous la forme :</p>
 </code></pre></div></li>
 </ul>
 <h1 id="4-exemple-de-fonction-effectuant-une-jointure">4. Exemple de fonction effectuant une jointure</h1>
-<ul>
-<li>
 <p>Voici une proposition de code</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from copy import deepcopy
-def jointure(table1, table2, cle1, cle2=None):
-    if cle2 is None:
-        cle2 = cle1
-    new_table = []
-    for line1 in table1:
-        for line2 in table2:
-            if line1[cle1] == line2[cle2]:
-                new_line = deepcopy(line1)
-                for cle in line2:
-                    if cle != cle2:
-                        new_line[cle] = line2[cle]
-                new_table.append(new_line)
-    return new_table
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">copy</span> <span style="color:#069;font-weight:bold">import</span> deepcopy
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">jointure</span>(table1, table2, cle1, cle2<span style="color:#555">=</span>None):
+    <span style="color:#069;font-weight:bold">if</span> cle2 <span style="color:#000;font-weight:bold">is</span> None:
+        cle2 <span style="color:#555">=</span> cle1
+    new_table <span style="color:#555">=</span> []
+    <span style="color:#069;font-weight:bold">for</span> line1 <span style="color:#000;font-weight:bold">in</span> table1:
+        <span style="color:#069;font-weight:bold">for</span> line2 <span style="color:#000;font-weight:bold">in</span> table2:
+            <span style="color:#069;font-weight:bold">if</span> line1[cle1] <span style="color:#555">==</span> line2[cle2]:
+                new_line <span style="color:#555">=</span> deepcopy(line1)
+                <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> line2:
+                    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">!=</span> cle2:
+                        new_line[cle] <span style="color:#555">=</span> line2[cle]
+                new_table<span style="color:#555">.</span>append(new_line)
+    <span style="color:#069;font-weight:bold">return</span> new_table
 </code></pre></div><ul>
 <li>Ligne 3 : par défaut, les clés de jointure portent le même nom</li>
 <li>Ligne 5 : la future table créée, vide au départ</li>
@@ -11096,9 +11094,7 @@ la jointure donnée en exemple s&rsquo;écrira :</em></p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> nom
 <span style="color:#069;font-weight:bold">FROM</span> Table1 <span style="color:#069;font-weight:bold">JOIN</span> Table2
 <span style="color:#069;font-weight:bold">ON</span> Table1.Nom <span style="color:#555">=</span> Table2.Nom
-</code></pre></div></li>
-</ul>
-<h1 id="5-domaine-de-valeur">5. Domaine de valeur</h1>
+</code></pre></div><h1 id="5-domaine-de-valeur">5. Domaine de valeur</h1>
 <p><em>Un problème subsiste : que faire si les données ont des formats différents ?</em></p>
 <p>On considère les deux tables <code>seconde</code> et <code>première</code> dont voici des extraits :</p>
 <p><strong>seconde</strong></p>
