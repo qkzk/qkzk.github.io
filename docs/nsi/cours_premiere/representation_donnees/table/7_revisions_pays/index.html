@@ -10878,40 +10878,39 @@ enregistrements pour lequel &lsquo;b&rsquo; vaut 4.</p>
 </ol>
 <h2 id="partie-ii--utiliser-un-fichier-csv-avec-un-script-python">Partie II : utiliser un fichier CSV avec un script Python</h2>
 <p>Voici un script Python permettant de travailler sur ce fichier :</p>
-<h1 id="données-en-tables--rappels">Données en tables : rappels</h1>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import csv
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">csv</span>
 
-def charger(fichier: str, delimiter=&#39;;&#39;) -&gt; list:
-   &#39;&#39;&#39;charge un fichier csv et renvoie une table&#39;&#39;&#39;
-   with open(fichier) as fichiercsv:
-       lecteur_csv = csv.DictReader(fichiercsv, delimiter=delimiter)
-       return [dict(enregistrement) for enregistrement in lecteur_csv]
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">charger</span>(fichier: <span style="color:#366">str</span>, delimiter<span style="color:#555">=</span><span style="color:#c30">&#39;;&#39;</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">list</span>:
+    <span style="color:#c30">&#39;&#39;&#39;charge un fichier csv et renvoie une table&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(fichier) <span style="color:#069;font-weight:bold">as</span> fichiercsv:
+        lecteur_csv <span style="color:#555">=</span> csv<span style="color:#555">.</span>DictReader(fichiercsv, delimiter<span style="color:#555">=</span>delimiter)
+        <span style="color:#069;font-weight:bold">return</span> [<span style="color:#366">dict</span>(enregistrement) <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> lecteur_csv]
 
-def caster_pays(table: list):
-   &#39;&#39;&#39;renvoie une copie de la table avec les bons types&#39;&#39;&#39;
-   return [{
-       &#39;ISO&#39;: pays[&#39;ISO&#39;],
-       &#39;Country&#39;: pays[&#39;Country&#39;],
-       &#39;Capital&#39;: pays[&#39;Capital&#39;],
-       &#39;Area&#39;: float(pays[&#39;Area(in sq km)&#39;]),
-       &#39;Population&#39;: int(pays[&#39;Population&#39;]),
-       &#39;CurrencyCode&#39;: pays[&#39;CurrencyCode&#39;],
-       &#39;CurrencyName&#39;: pays[&#39;CurrencyName&#39;],
-   } for pays in table]
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">caster_pays</span>(table: <span style="color:#366">list</span>):
+    <span style="color:#c30">&#39;&#39;&#39;renvoie une copie de la table avec les bons types&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">return</span> [{
+        <span style="color:#c30">&#39;ISO&#39;</span>: pays[<span style="color:#c30">&#39;ISO&#39;</span>],
+        <span style="color:#c30">&#39;Country&#39;</span>: pays[<span style="color:#c30">&#39;Country&#39;</span>],
+        <span style="color:#c30">&#39;Capital&#39;</span>: pays[<span style="color:#c30">&#39;Capital&#39;</span>],
+        <span style="color:#c30">&#39;Area&#39;</span>: <span style="color:#366">float</span>(pays[<span style="color:#c30">&#39;Area(in sq km)&#39;</span>]),
+        <span style="color:#c30">&#39;Population&#39;</span>: <span style="color:#366">int</span>(pays[<span style="color:#c30">&#39;Population&#39;</span>]),
+        <span style="color:#c30">&#39;CurrencyCode&#39;</span>: pays[<span style="color:#c30">&#39;CurrencyCode&#39;</span>],
+        <span style="color:#c30">&#39;CurrencyName&#39;</span>: pays[<span style="color:#c30">&#39;CurrencyName&#39;</span>],
+    } <span style="color:#069;font-weight:bold">for</span> pays <span style="color:#000;font-weight:bold">in</span> table]
 
-def recup_pays(table: list, iso: str) -&gt; dict:
-   &#39;&#39;&#39;renvoie l&#39;enregistrement d&#39;un pays de la table depuis son code iso&#39;&#39;&#39;
-   return [enregistrement for enregistrement in table
-           if enregistrement[&#39;ISO&#39;] == iso][0]
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">recup_pays</span>(table: <span style="color:#366">list</span>, iso: <span style="color:#366">str</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">dict</span>:
+    <span style="color:#c30">&#39;&#39;&#39;renvoie l&#39;enregistrement d&#39;un pays de la table depuis son code iso&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">return</span> [enregistrement <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> table
+            <span style="color:#069;font-weight:bold">if</span> enregistrement[<span style="color:#c30">&#39;ISO&#39;</span>] <span style="color:#555">==</span> iso][<span style="color:#f60">0</span>]
 
-def project(table: list, liste_champs: list):
-   &#39;&#39;&#39;projette la table et ne garde que les colonnes de liste_champs&#39;&#39;&#39;
-   return [{champ: enregistrement[champ] for champ in liste_champs}
-           for enregistrement in table]
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">project</span>(table: <span style="color:#366">list</span>, liste_champs: <span style="color:#366">list</span>):
+    <span style="color:#c30">&#39;&#39;&#39;projette la table et ne garde que les colonnes de liste_champs&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">return</span> [{champ: enregistrement[champ] <span style="color:#069;font-weight:bold">for</span> champ <span style="color:#000;font-weight:bold">in</span> liste_champs}
+            <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> table]
 
-def trier_critere(table: list, champ: str, reverse=False):
-   &#39;&#39;&#39;renvoie une copie triée de la table selon un critère&#39;&#39;&#39;
-   return sorted(table, key=lambda pays: pays[champ], reverse=reverse)
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">trier_critere</span>(table: <span style="color:#366">list</span>, champ: <span style="color:#366">str</span>, reverse<span style="color:#555">=</span>False):
+    <span style="color:#c30">&#39;&#39;&#39;renvoie une copie triée de la table selon un critère&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sorted</span>(table, key<span style="color:#555">=</span><span style="color:#069;font-weight:bold">lambda</span> pays: pays[champ], reverse<span style="color:#555">=</span>reverse)
 </code></pre></div><p>On exécute ce script en mode intéractif dans le dossier contenant le fichier
 <code>countries.csv</code>.</p>
 <ol>

@@ -10858,22 +10858,23 @@ Tout ce qu&rsquo;on peut faire c&rsquo;est :</p>
 <p>Python utilise <strong>TimSort</strong> qui est plus efficace et mieux implémenté que ce
 que nous ferons.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#555">=</span> [<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">sorted</span>(tableau) <span style="color:#09f;font-style:italic"># renvoyer une version triée</span>
+<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">sorted</span>(tableau) <span style="color:#09f;font-style:italic"># renvoie une copie triée</span>
 [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
 <span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#09f;font-style:italic"># l&#39;objet de départ N&#39;EST PAS MODIFIÉ</span>
 [<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> tableau<span style="color:#555">.</span>sort() <span style="color:#09f;font-style:italic"># trier DANS l&#39;objet, sans rien renvoyer</span>
+<span style="color:#555">&gt;&gt;&gt;</span> tableau<span style="color:#555">.</span>sort() <span style="color:#09f;font-style:italic"># trie DANS l&#39;objet, ne renvoie rien</span>
 <span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#09f;font-style:italic"># l&#39;objet de départ EST MODIFIE</span>
 [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
 </code></pre></div><h2 id="tri-par-sélection">Tri par sélection</h2>
 <h3 id="description">Description</h3>
 <p>On cherche à trier des boîtes. Tout ce qu&rsquo;on peut faire c&rsquo;est le comparer 1 à 1 et les échanger.</p>
+<h3 id="pseudo-code">Pseudo code</h3>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Je débute avec un alignement vide de boîtes triées
 Tant qu&#39;il y a des boîtes non triées :
    Je cherche la plus légère parmi les boîtes non triées
    Je la place à la suite des boîtes déjà triées.
 fin Tant que
-</code></pre></div><h3 id="pseudo-code">Pseudo code</h3>
+</code></pre></div><p>Et pour la fonction <code>trouver la boite la plus légère</code> :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Entrée : Des boîtes
 Sortie : La boite la plus légère
 Effet de Bord : Enlève une boite
@@ -11001,13 +11002,11 @@ insère b à la droite de la boite courante
 </span><span style="color:#c30">  @return: None
 </span><span style="color:#c30">  @Effet de bord: modifie le tableau
 </span><span style="color:#c30">  &#39;&#39;&#39;</span>
-  i <span style="color:#555">=</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> <span style="color:#366">len</span>(tableau):
+  <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">1</span>, <span style="color:#366">len</span>(tableau)):
     j <span style="color:#555">=</span> i
     <span style="color:#069;font-weight:bold">while</span> j <span style="color:#555">&gt;</span> <span style="color:#f60">0</span> <span style="color:#000;font-weight:bold">and</span> tableau[j<span style="color:#555">-</span><span style="color:#f60">1</span>] <span style="color:#555">&gt;</span> tableau[j]:
       tableau[j<span style="color:#555">-</span><span style="color:#f60">1</span>], tableau[j] <span style="color:#555">=</span> tableau[j], tableau[j<span style="color:#555">-</span><span style="color:#f60">1</span>]
       j <span style="color:#555">=</span> j <span style="color:#555">-</span> <span style="color:#f60">1</span>
-    i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
 </code></pre></div><h2 id="propriétés-communes-des-tris-par-insertion-et-sélection">Propriétés communes des tris par insertion et sélection</h2>
 <h3 id="caractéristiques-">Caractéristiques :</h3>
 <ul>
@@ -11018,7 +11017,7 @@ insère b à la droite de la boite courante
 <p>Un <em>invariant de boucle</em> est un propriété qui est vraie avant et après chaque tour d&rsquo;une boucle.</p>
 <p>Durant le tour n° <code>i</code> de la boucle extérieure :</p>
 <ul>
-<li>les <code>i</code> premiers éléments de la boucle</li>
+<li>les <code>i</code> premiers éléments du tableau sont triés.</li>
 <li>le nombre d&rsquo;élément à trier diminue de 1.</li>
 </ul>
 <p>Donc ces algorithmes <em>trient bien la liste</em> et <em>ils s&rsquo;arrêtent</em>.</p>
