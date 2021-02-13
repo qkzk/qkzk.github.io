@@ -13,7 +13,7 @@
   
     
     
-    Sécurisation
+    le module Turtle
   
  | qkzk</title>
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/securisation/index.xml" title="qkzk" />
+<link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/projets/turtle/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -4800,7 +4800,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/projets/turtle/" >
+      <a href="/docs/nsi/cours_premiere/projets/turtle/"  class="active">
         
   
     
@@ -5691,7 +5691,7 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_terminale/architecture/securisation/"  class="active">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/" >
         
   
     
@@ -10888,24 +10888,312 @@ MathJax.Hub.Config({
   
     
     
-    Sécurisation
+    le module Turtle
   
 </strong>
 </header>
 
       
-<article class="markdown"><h1 id="sécurisation">Sécurisation</h1>
-<h2 id="programme">Programme</h2>
-<p><strong>Contenus</strong> : Sécurisation des communications.</p>
-<p><strong>Capacités attendues</strong> : Décrire les principes de
-chiffrement symétrique (clef partagée) et asymétrique (avec
-clef privée/clef publique). Décrire l’échange d’une clef
-symétrique en utilisant un protocole asymétrique pour
-sécuriser une communication HTTPS.</p>
-<p><strong>Commentaires :</strong> Les protocoles symétriques et
-asymétriques peuvent être illustrés en mode débranché, éventuellement avec
-description d’un chiffrement particulier. La négociation de la méthode
-chiffrement du protocole SSL (Secure Sockets Layer) n’est pas abordée.</p>
+<article class="markdown"><p>Le module <code>Turtle</code> de <a href="https://docs.python.org/fr/3/library/turtle.html">Python</a> permet de dessiner très simplement des figures.</p>
+<p>Il est présent sur votre calculatrice Numworks, dans l&rsquo;installation par défaut
+de Python ainsi qu&rsquo;en ligne, par exemple <a href="https://trinket.io/turtle">ici</a>.</p>
+<p>Il est beaucoup plus difficile de le faire fonctionner dans Colab, aussi ce
+petit projet ne l&rsquo;utilisera pas.</p>
+<h1 id="méthodes-courantes">Méthodes courantes</h1>
+<p>Turtle permet de commander une tortue pour dessiner dans une figure.
+On peut employer des commandes telles que <code>turtle.forward(...)</code> ou <code>turtle.right()</code>
+qui déplacent la tortue. Les méthodes courantes sont:</p>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Paramètres</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Turtle</code></td>
+<td>aucun</td>
+<td>Crée et renvoie un objet <code>Turtle</code></td>
+</tr>
+<tr>
+<td><code>forward()</code></td>
+<td><code>distance</code></td>
+<td>Déplace la tortue vers l&rsquo;avant de <code>distance</code></td>
+</tr>
+<tr>
+<td><code>backward()</code></td>
+<td><code>distance</code></td>
+<td>Déplace la tortue vers l&rsquo;arrière de <code>distance</code></td>
+</tr>
+<tr>
+<td><code>right()</code></td>
+<td><code>angle</code></td>
+<td>Tourne la tortue dans le sens des aiguilles d&rsquo;une montre</td>
+</tr>
+<tr>
+<td><code>left()</code></td>
+<td><code>angle</code></td>
+<td>Tourne la tortue dans le sens contraire des aiguilles d&rsquo;une montre</td>
+</tr>
+<tr>
+<td><code>penup()</code></td>
+<td>aucun</td>
+<td>Lève le crayon de la tortue</td>
+</tr>
+<tr>
+<td><code>pendown()</code></td>
+<td>aucun</td>
+<td>Abaisse le crayon de la tortue</td>
+</tr>
+<tr>
+<td><code>up()</code></td>
+<td>aucun</td>
+<td>Lève le crayon de la tortue</td>
+</tr>
+<tr>
+<td><code>down()</code></td>
+<td>aucun</td>
+<td>Abaisse le crayon de la tortue</td>
+</tr>
+<tr>
+<td><code>color()</code></td>
+<td>nom de couleur</td>
+<td>Change la couleur de la tortue</td>
+</tr>
+<tr>
+<td><code>fillcolor()</code></td>
+<td>nom de couleur</td>
+<td>Change la couleur de remplissage d&rsquo;un polygone</td>
+</tr>
+<tr>
+<td><code>heading()</code></td>
+<td>aucun</td>
+<td>Renvoie la direction courante</td>
+</tr>
+<tr>
+<td><code>position()</code></td>
+<td>aucun</td>
+<td>Renvioe la position de la tortue</td>
+</tr>
+<tr>
+<td><code>goto()</code></td>
+<td><code>x, y</code></td>
+<td>Déplace la tortue vers la position <code>x, y</code></td>
+</tr>
+<tr>
+<td><code>begin_fill()</code></td>
+<td>aucun</td>
+<td>Enregistre le premier point d&rsquo;un polygone a remplir</td>
+</tr>
+<tr>
+<td><code>end_fill()</code></td>
+<td>aucun</td>
+<td>Ferme le polygone et le remplit de la couleur courante</td>
+</tr>
+<tr>
+<td><code>dot()</code></td>
+<td>aucun</td>
+<td>Dessine un point à la position courante</td>
+</tr>
+<tr>
+<td><code>stamp()</code></td>
+<td>aucun</td>
+<td>Dessine la forme de la tortue sur l&rsquo;écran (<em>stamp</em> = tampon)</td>
+</tr>
+<tr>
+<td><code>shape()</code></td>
+<td><code>shapename</code></td>
+<td>Change la forme de la tortue (<code>arrow</code>, <code>classic</code>, <code>turtle</code>, <code>circle</code>)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dessiner-avec-turtle">Dessiner avec <code>Turtle</code></h1>
+<p>Pour utiliser les méthodes de <code>turtle</code>, il faut importer <code>turtle</code>.</p>
+<ol>
+<li>Importer le module <code>turtle</code></li>
+<li>Créer et contrôler la tortue,</li>
+<li>Dessiner avec les méthodes de la tortue,</li>
+<li>Lancer <code>turtle.done()</code></li>
+</ol>
+<h2 id="quelques-exemples-">Quelques exemples :</h2>
+<h3 id="un-carré">Un carré</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span>
+skk <span style="color:#555">=</span> turtle<span style="color:#555">.</span>Turtle()
+
+<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>):
+    skk<span style="color:#555">.</span>forward(<span style="color:#f60">50</span>)
+    skk<span style="color:#555">.</span>right(<span style="color:#f60">90</span>)
+
+turtle<span style="color:#555">.</span>done()
+</code></pre></div><p>Résultat : <img src="https://media.geeksforgeeks.org/wp-content/uploads/20201007233918/out.png" alt="carré"></p>
+<p>On répète 4 fois la même séquence consistant à : avancer de 50 pixels, tourner
+de 90 dans le sens des aiguilles d&rsquo;une montre.</p>
+<h3 id="une-étoie">Une étoie</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span> 
+ 
+star <span style="color:#555">=</span> turtle<span style="color:#555">.</span>Turtle()
+ 
+<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">50</span>):
+    star<span style="color:#555">.</span>forward(<span style="color:#f60">50</span>)
+    star<span style="color:#555">.</span>right(<span style="color:#f60">144</span>)
+     
+turtle<span style="color:#555">.</span>done()
+</code></pre></div><p>Résultat : <img src="https://media.geeksforgeeks.org/wp-content/uploads/20201007234135/starrs.png" alt="Étoile"></p>
+<h3 id="hexagone">Hexagone</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span> 
+polygon <span style="color:#555">=</span> turtle<span style="color:#555">.</span>Turtle()
+ 
+num_sides <span style="color:#555">=</span> <span style="color:#f60">6</span>
+side_length <span style="color:#555">=</span> <span style="color:#f60">70</span>
+angle <span style="color:#555">=</span> <span style="color:#f60">360.0</span> <span style="color:#555">/</span> num_sides 
+ 
+<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(num_sides):
+    polygon<span style="color:#555">.</span>forward(side_length)
+    polygon<span style="color:#555">.</span>right(angle)
+     
+turtle<span style="color:#555">.</span>done()
+</code></pre></div><p>Résultat : <img src="https://media.geeksforgeeks.org/wp-content/uploads/20201007234311/polly.png" alt="hexagone"></p>
+<h2 id="quelques-figures-plus-spectaculaires">Quelques figures plus spectaculaires</h2>
+<h3 id="spirale">Spirale</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span>   <span style="color:#09f;font-style:italic">#Outside_In</span>
+wn <span style="color:#555">=</span> turtle<span style="color:#555">.</span>Screen()
+wn<span style="color:#555">.</span>bgcolor(<span style="color:#c30">&#34;light green&#34;</span>)
+skk <span style="color:#555">=</span> turtle<span style="color:#555">.</span>Turtle()
+skk<span style="color:#555">.</span>color(<span style="color:#c30">&#34;blue&#34;</span>)
+ 
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sqrfunc</span>(size):
+    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>):
+        skk<span style="color:#555">.</span>fd(size)
+        skk<span style="color:#555">.</span>left(<span style="color:#f60">90</span>)
+        size <span style="color:#555">=</span> size<span style="color:#555">-</span><span style="color:#f60">5</span>
+ 
+sqrfunc(<span style="color:#f60">146</span>)
+sqrfunc(<span style="color:#f60">126</span>)
+sqrfunc(<span style="color:#f60">106</span>)
+sqrfunc(<span style="color:#f60">86</span>)
+sqrfunc(<span style="color:#f60">66</span>)
+sqrfunc(<span style="color:#f60">46</span>)
+sqrfunc(<span style="color:#f60">26</span>)
+</code></pre></div><p>Voir <a href="https://trinket.io/turtle/4d11ecb3c2">ici</a></p>
+<h3 id="rosace">Rosace</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span>
+
+turtle<span style="color:#555">.</span>speed(<span style="color:#f60">0</span>)
+ 
+<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">80</span>):
+    turtle<span style="color:#555">.</span>circle(<span style="color:#f60">5</span><span style="color:#555">*</span>i)
+    turtle<span style="color:#555">.</span>circle(<span style="color:#555">-</span><span style="color:#f60">5</span><span style="color:#555">*</span>i)
+    turtle<span style="color:#555">.</span>left(i)
+</code></pre></div><h3 id="rainbow-benzene">Rainbow Benzene</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">turtle</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
+colors <span style="color:#555">=</span> [<span style="color:#c30">&#39;red&#39;</span>, <span style="color:#c30">&#39;purple&#39;</span>, <span style="color:#c30">&#39;blue&#39;</span>, <span style="color:#c30">&#39;green&#39;</span>, <span style="color:#c30">&#39;orange&#39;</span>, <span style="color:#c30">&#39;yellow&#39;</span>]
+t <span style="color:#555">=</span> Turtle()
+screen <span style="color:#555">=</span> Screen()
+screen<span style="color:#555">.</span>bgcolor(<span style="color:#c30">&#39;black&#39;</span>)
+<span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">360</span>):
+    t<span style="color:#555">.</span>pencolor(colors[x<span style="color:#555">%</span><span style="color:#f60">6</span>])
+    t<span style="color:#555">.</span>width(x<span style="color:#555">/</span><span style="color:#f60">100</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>)
+    t<span style="color:#555">.</span>forward(x)
+    t<span style="color:#555">.</span>left(<span style="color:#f60">59</span>)
+</code></pre></div><p>Voir <a href="https://trinket.io/turtle/0c31ae92f1">ici</a></p>
+<h2 id="figures-fractales">Figures fractales</h2>
+<p>Il est possible de construire assez simplement des fractales avec la tortue :</p>
+<p><em>Ces méthodes utilisent généralement des fonctions récursives qui ne seront
+abordées qu&rsquo;en terminale.</em></p>
+<h3 id="flocon-de-koch">Flocon de Koch</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">turtle</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
+speed(<span style="color:#f60">0</span>)
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">koch</span>(l,n):
+    <span style="color:#c30">&#39;&#39;&#39;Fractacle de Koch&#39;&#39;&#39;</span>
+    <span style="color:#069;font-weight:bold">if</span> n<span style="color:#555">&lt;=</span><span style="color:#f60">0</span>:
+        forward(l)
+    <span style="color:#069;font-weight:bold">else</span>:
+        koch(l<span style="color:#555">/</span><span style="color:#f60">3</span>,n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+        left(<span style="color:#f60">60</span>)
+        koch(l<span style="color:#555">/</span><span style="color:#f60">3</span>,n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+        right(<span style="color:#f60">120</span>)
+        koch(l<span style="color:#555">/</span><span style="color:#f60">3</span>,n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+        left(<span style="color:#f60">60</span>)
+        koch(l<span style="color:#555">/</span><span style="color:#f60">3</span>,n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">flocon</span>(l,n):
+    <span style="color:#c30">&#39;&#39;&#39;Flocon de Koch&#39;&#39;&#39;</span>
+    koch(l,n)
+    right(<span style="color:#f60">120</span>)
+    koch(l,n)
+    right(<span style="color:#f60">120</span>)
+    koch(l,n)
+    
+flocon(<span style="color:#f60">200</span>, <span style="color:#f60">3</span>)
+</code></pre></div><p>Voir <a href="https://trinket.io/turtle/504cb3fc09">ici</a></p>
+<h3 id="arbre-pythagoricien">Arbre Pythagoricien</h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">turtle</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
+angle <span style="color:#555">=</span> <span style="color:#f60">30</span>
+speed(<span style="color:#f60">0</span>)
+color(<span style="color:#c30">&#39;#3f1905&#39;</span>) <span style="color:#09f;font-style:italic"># couleur du tronc</span>
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">arbre</span>(n,longueur):
+    <span style="color:#069;font-weight:bold">if</span> n<span style="color:#555">==</span><span style="color:#f60">0</span>:
+        color(<span style="color:#c30">&#39;green&#39;</span>)
+        forward(longueur) <span style="color:#09f;font-style:italic"># avance</span>
+        backward(longueur) <span style="color:#09f;font-style:italic"># recule</span>
+        color(<span style="color:#c30">&#39;#3f1905&#39;</span>)
+    <span style="color:#069;font-weight:bold">else</span>:
+        width(n)
+        forward(longueur<span style="color:#555">/</span><span style="color:#f60">3</span>) <span style="color:#09f;font-style:italic">#avance</span>
+        left(angle) <span style="color:#09f;font-style:italic"># tourne vers la gauche de angle degrés</span>
+        arbre(n<span style="color:#555">-</span><span style="color:#f60">1</span>,longueur<span style="color:#555">*</span><span style="color:#f60">2</span><span style="color:#555">/</span><span style="color:#f60">3</span>)
+        right(<span style="color:#f60">2</span><span style="color:#555">*</span>angle) <span style="color:#09f;font-style:italic"># tourne vers la droite de angle degrés</span>
+        arbre(n<span style="color:#555">-</span><span style="color:#f60">1</span>,longueur<span style="color:#555">*</span><span style="color:#f60">2</span><span style="color:#555">/</span><span style="color:#f60">3</span>)
+        left(angle) <span style="color:#09f;font-style:italic"># tourne vers la gauche de angle degrés</span>
+        backward(longueur<span style="color:#555">/</span><span style="color:#f60">3</span>) <span style="color:#09f;font-style:italic"># recule</span>
+
+hideturtle() <span style="color:#09f;font-style:italic"># cache la tortue</span>
+up() <span style="color:#09f;font-style:italic"># lève le stylo</span>
+forward(<span style="color:#f60">100</span>) <span style="color:#09f;font-style:italic"># avance de 100</span>
+right(<span style="color:#f60">90</span>) <span style="color:#09f;font-style:italic"># tourne de 90 degrés vers la droite </span>
+forward(<span style="color:#f60">300</span>) <span style="color:#09f;font-style:italic"># avance de 300 pixels</span>
+left(<span style="color:#f60">180</span>) <span style="color:#09f;font-style:italic"># fait un demi-tour</span>
+down() <span style="color:#09f;font-style:italic"># pose le stylo</span>
+arbre(<span style="color:#f60">11</span>, <span style="color:#f60">400</span>) <span style="color:#09f;font-style:italic"># exécute la fonction</span>
+showturtle() <span style="color:#09f;font-style:italic"># affiche la tortue</span>
+mainloop()
+</code></pre></div><p>Voir <a href="https://trinket.io/turtle/fcd6a7a469">ici</a></p>
+<h3 id="courbe-du-dragon">Courbe du dragon</h3>
+<p>Là on est très très loin du programme de NSI, mais le résultat mérite le détour.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">turtle</span>
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">turn</span>(i):
+    left <span style="color:#555">=</span> (((i <span style="color:#555">&amp;</span> <span style="color:#555">-</span>i) <span style="color:#555">&lt;&lt;</span> <span style="color:#f60">1</span>) <span style="color:#555">&amp;</span> i) <span style="color:#555">!=</span> <span style="color:#f60">0</span>
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#39;L&#39;</span> <span style="color:#069;font-weight:bold">if</span> left <span style="color:#069;font-weight:bold">else</span> <span style="color:#c30">&#39;R&#39;</span>
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">curve</span>(iteration):
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#39;&#39;</span><span style="color:#555">.</span>join([turn(i <span style="color:#555">+</span> <span style="color:#f60">1</span>) <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span> <span style="color:#555">**</span> iteration <span style="color:#555">-</span> <span style="color:#f60">1</span>)])
+
+turtle<span style="color:#555">.</span>hideturtle()
+turtle<span style="color:#555">.</span>speed(<span style="color:#f60">0</span>)
+i <span style="color:#555">=</span> <span style="color:#f60">1</span>
+<span style="color:#069;font-weight:bold">while</span> True:
+    <span style="color:#069;font-weight:bold">if</span> turn(i) <span style="color:#555">==</span> <span style="color:#c30">&#39;L&#39;</span>:
+        turtle<span style="color:#555">.</span>circle(<span style="color:#555">-</span><span style="color:#f60">4</span>, <span style="color:#f60">90</span>, <span style="color:#f60">36</span>)
+    <span style="color:#069;font-weight:bold">else</span>:
+        turtle<span style="color:#555">.</span>circle(<span style="color:#f60">4</span>, <span style="color:#f60">90</span>, <span style="color:#f60">36</span>)
+    i <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</code></pre></div><p>Voici <a href="https://trinket.io/turtle/a6617f0826">ici</a></p>
+<h1 id="deux-projets-avec-la-tortue">Deux projets avec la tortue</h1>
+<p>Ces projets sont des tutoriels à suivre et qui peuvent vous inspirer.</p>
+<h2 id="suivre-la-station-spatiale-internationale">Suivre la station spatiale internationale</h2>
+<p>Pas à pas : suivre l&rsquo;ISS et dessiner sa position.</p>
+<p>Vous n&rsquo;avez qu&rsquo;à suivre les instructions <a href="https://projects.raspberrypi.org/fr-FR/projects/where-is-the-space-station">ici</a></p>
+<h2 id="la-course-à-la-tortue">La course à la tortue</h2>
+<p>L&rsquo;idée est simple : organiser une course aléatoire entre quelques tortues
+et compter les points.</p>
+<p>Le projet est entièrement détaillé, il suffit de suivre. Je n&rsquo;ai pas
+le courage de vous le traduire entièrement. Après, tout, vous êtes supposés
+étudier l&rsquo;anglais depuis la maternelle&hellip;</p>
+<p><a href="https://www.futurelearn.com/info/courses/object-oriented-principles/0/steps/31480">Turtle race</a></p>
 </article>
 
       <div class="backtotop">
@@ -10977,7 +11265,32 @@ chiffrement du protocole SSL (Secure Sockets Layer) n’est pas abordée.</p>
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#programme">Programme</a></li>
+    <li><a href="#quelques-exemples-">Quelques exemples :</a>
+      <ul>
+        <li><a href="#un-carré">Un carré</a></li>
+        <li><a href="#une-étoie">Une étoie</a></li>
+        <li><a href="#hexagone">Hexagone</a></li>
+      </ul>
+    </li>
+    <li><a href="#quelques-figures-plus-spectaculaires">Quelques figures plus spectaculaires</a>
+      <ul>
+        <li><a href="#spirale">Spirale</a></li>
+        <li><a href="#rosace">Rosace</a></li>
+        <li><a href="#rainbow-benzene">Rainbow Benzene</a></li>
+      </ul>
+    </li>
+    <li><a href="#figures-fractales">Figures fractales</a>
+      <ul>
+        <li><a href="#flocon-de-koch">Flocon de Koch</a></li>
+        <li><a href="#arbre-pythagoricien">Arbre Pythagoricien</a></li>
+        <li><a href="#courbe-du-dragon">Courbe du dragon</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#suivre-la-station-spatiale-internationale">Suivre la station spatiale internationale</a></li>
+    <li><a href="#la-course-à-la-tortue">La course à la tortue</a></li>
   </ul>
 </nav>
   </aside>
