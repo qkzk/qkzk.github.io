@@ -10930,6 +10930,10 @@ MathJax.Hub.Config({
       
 
       <link disabled id="dark-mode-theme" rel="stylesheet" href="https://qkzk.xyz/css/dark.css">
+<script 
+      src="https://kit.fontawesome.com/3fe16e504a.js" 
+      crossorigin="anonymous">
+    </script>
 <div class="footer-qkzk">
   <h3 class="footer-title">
     NSI AU LYCÉE DES FLANDRES
@@ -10938,7 +10942,9 @@ MathJax.Hub.Config({
     RGPD : Aucune donnée n'est conservée. Github impose deux cookies que je ne peux contrôler.
   </p>
   <p>
-  <a id="dark-mode-toggle" class="toggle_dark">Thème sombre</a>
+    <a id="dark-mode-toggle" class="toggle_dark btn">
+      <i class="fas fa-moon" id="toggle-switch"></i>
+    </a>
   </p>
 
 </div>
@@ -10968,11 +10974,11 @@ MathJax.Hub.Config({
       if (mode === "dark") {
           darkTheme.disabled = false;
           toggle.className = "toggle_light";
-          toggle.textContent = "Thème clair"
+          toggle.innerHTML = '<i class="fas fa-sun"></i>';
       } else if (mode === "light") {
           darkTheme.disabled = true;
           toggle.className = "toggle_dark";
-          toggle.textContent = "Thème sombre"
+          toggle.innerHTML = '<i class="fas fa-moon"></i>';
       }
       console.log(mode);
 
@@ -10982,15 +10988,15 @@ MathJax.Hub.Config({
 <script src="https://github.com/nodeca/pako/raw/master/dist/pako.min.js" charset="utf-8"></script>
 
 <script charset="utf-8">
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
-}
+  function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
+  }
 
-function formatCopyText(textContent,
-                        copybuttonPromptText,
-                        isRegexp = false,
-                        onlyCopyPromptLines = true,
-                        removePrompts = true) {
+  function formatCopyText(textContent,
+                          copybuttonPromptText,
+                          isRegexp = false,
+                          onlyCopyPromptLines = true,
+                          removePrompts = true) {
 
     var regexp;
     var match;
@@ -11030,9 +11036,9 @@ function formatCopyText(textContent,
         textContent = textContent.slice(0, -1)
     }
     return textContent
-}
+  }
 
-function codeToUrl(textcode) {
+  function codeToUrl(textcode) {
 
         
         textcode = textcode.replace(/\r\n|\r|\n/g, "\r\n");
@@ -11048,7 +11054,7 @@ function codeToUrl(textcode) {
         }
         url.searchParams.set('script', script);
         return url;
-};
+  };
 
 
   function createCopyButton(highlightDiv) {
@@ -11062,74 +11068,83 @@ function codeToUrl(textcode) {
     );
     addCopyButtonToDom(button, highlightDiv);
 
-  }
-}
-
-async function copyCodeToClipboard(button, highlightDiv) {
-  var codeToCopy = highlightDiv.querySelector(".highlight > pre > code")
-    .innerText;
-  try {
-    var codeToCopy = formatCopyText(codeToCopy, ">>> ")
-  } catch (_) {
-
-  }
-  try {
-    result = await navigator.permissions.query({ name: "clipboard-write" });
-    if (result.state == "granted" || result.state == "prompt") {
-      await navigator.clipboard.writeText(codeToCopy);
-    } else {
-      copyCodeBlockExecCommand(codeToCopy, highlightDiv);
     }
-  } catch (_) {
-    copyCodeBlockExecCommand(codeToCopy, highlightDiv);
-  } finally {
-    codeWasCopied(button);
   }
-  let basthon_url = codeToUrl(codeToCopy);
-  console.log(basthon_url);
-  console.log(basthon_url.href);
-  window.open(basthon_url);
-}
 
-function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
-  const textArea = document.createElement("textArea");
-  textArea.contentEditable = "true";
-  textArea.readOnly = "false";
-  textArea.className = "copyable-text-area";
-  textArea.value = codeToCopy;
-  highlightDiv.insertBefore(textArea, highlightDiv.firstChild);
-  const range = document.createRange();
-  range.selectNodeContents(textArea);
-  const sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-  textArea.setSelectionRange(0, 999999);
-  document.execCommand("copy");
-  highlightDiv.removeChild(textArea);
-}
+  async function copyCodeToClipboard(button, highlightDiv) {
+    var codeToCopy = highlightDiv.querySelector(".highlight > pre > code")
+      .innerText;
+    try {
+      var codeToCopy = formatCopyText(codeToCopy, ">>> ")
+    } catch (_) {
 
-function codeWasCopied(button) {
-  button.blur();
-  button.innerText = "Opening...";
-  setTimeout(function () {
-    button.innerText = "Python";
-  }, 2000);
-}
+    }
+    try {
+      result = await navigator.permissions.query({ name: "clipboard-write" });
+      if (result.state == "granted" || result.state == "prompt") {
+        await navigator.clipboard.writeText(codeToCopy);
+      } else {
+        copyCodeBlockExecCommand(codeToCopy, highlightDiv);
+      }
+    } catch (_) {
+      copyCodeBlockExecCommand(codeToCopy, highlightDiv);
+    } finally {
+      codeWasCopied(button);
+    }
+    let basthon_url = codeToUrl(codeToCopy);
+    console.log(basthon_url);
+    console.log(basthon_url.href);
+    window.open(basthon_url);
+  }
 
-function addCopyButtonToDom(button, highlightDiv) {
-  highlightDiv.insertBefore(button, highlightDiv.firstChild);
-  const wrapper = document.createElement("div");
-  wrapper.className = "highlight-wrapper";
-  highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
-  wrapper.appendChild(highlightDiv);
-}
+  function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
+    const textArea = document.createElement("textArea");
+    textArea.contentEditable = "true";
+    textArea.readOnly = "false";
+    textArea.className = "copyable-text-area";
+    textArea.value = codeToCopy;
+    highlightDiv.insertBefore(textArea, highlightDiv.firstChild);
+    const range = document.createRange();
+    range.selectNodeContents(textArea);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    textArea.setSelectionRange(0, 999999);
+    document.execCommand("copy");
+    highlightDiv.removeChild(textArea);
+  }
 
-document
-  .querySelectorAll(".highlight")
-  .forEach((highlightDiv) => createCopyButton(highlightDiv));
+  function codeWasCopied(button) {
+    button.blur();
+    button.innerText = "Opening...";
+    setTimeout(function () {
+      button.innerText = "Python";
+    }, 2000);
+  }
+
+  function addCopyButtonToDom(button, highlightDiv) {
+    highlightDiv.insertBefore(button, highlightDiv.firstChild);
+    const wrapper = document.createElement("div");
+    wrapper.className = "highlight-wrapper";
+    highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
+    wrapper.appendChild(highlightDiv);
+  }
+
+  document
+    .querySelectorAll(".highlight")
+    .forEach((highlightDiv) => createCopyButton(highlightDiv));
 </script>
 
 <style type="text/css" media="screen">
+[class^="fa-"], [class*=" fa-"] {
+    display: inline-block;
+    width: 100%;
+}
+
+a i {
+    text-align:center;
+    font-size: 20px;
+}
 
 .highlight-wrapper {
   display: block;
