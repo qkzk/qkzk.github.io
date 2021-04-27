@@ -1,0 +1,8369 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+ | qkzk</title>
+
+
+
+<link rel="stylesheet" href="/book.min.f1cb586919af6e5f4c8ac9fd75f5c48b79f142a803fc94305c4e42bb5fd28a5a.css">
+
+
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+<link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/icn/8-les-donnees-csv-json-et-geojson/index.xml" title="qkzk" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    // displayMath: [['$$','$$'], ['\[','\]']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    // displayMath: [['$$','$$'], ['\[','\]']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="white-back">
+
+  <div class="container flex ">
+      <div class="hr banner book-page" id="bannerTitle">
+        <a href="/"><h1 class="title-link">qkzk</h1></a>
+        <div class="menu-banner content-desktop">
+          
+            
+          <a class="nav-link" href="/docs/nsi"> nsi</a>
+        
+            
+          <a class="nav-link" href="/docs/maths"> maths</a>
+        
+            
+          <a class="nav-link" href="/docs/ressources"> ressources</a>
+        
+            
+          <a class="nav-link" href="/python"> rust-python</a>
+        
+      </div>
+        <div class="slogan content-desktop">Informatique au Lycée des Flandres</div>
+      </div>
+  </div>
+  <div class="container flex content-desktop">
+    <div class="hr banner book-page" id="bannerImg"> </div>
+
+  </div>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container" id="main-container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h1 class="book-brand">
+  
+  Contenus
+</h1>
+
+
+
+
+<div class="menu-nav">
+
+  
+      
+
+  
+  
+
+
+
+
+
+
+  
+    
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/" >
+        
+  
+    
+    
+    nsi
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/" >
+        
+  
+    
+    
+    Cours Première
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/" >
+        
+  
+    
+    
+    Programmation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/a_connaitre_par_coeur/" >
+        
+  
+    
+    
+    Python 3 - A connaitre
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/" >
+        
+  
+    
+    
+    Cours Python
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/00_preambule/" >
+        
+  
+    
+    
+    0 - préambule
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/01_expression/" >
+        
+  
+    
+    
+    1 - expressions
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/02_types_simples/" >
+        
+  
+    
+    
+    2 - Types simples
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/03_structure_controle/" >
+        
+  
+    
+    
+    3 - Structures de contrôle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/04_fonctions/" >
+        
+  
+    
+    
+    4 - Fonctions
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/05_list_tuple/" >
+        
+  
+    
+    
+    5 - listes et tuples
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/06_dict/" >
+        
+  
+    
+    
+    6 - Dictionnaires
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/07_comprehension/" >
+        
+  
+    
+    
+    7 - Compréhension
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/08_exception/" >
+        
+  
+    
+    
+    8 - Exceptions
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/cours_python/09_importer/" >
+        
+  
+    
+    
+    9 - Importer
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/python_presentation/" >
+        
+  
+    
+    
+    Présentation de Python
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/bases_python/" >
+        
+  
+    
+    
+     Les bases de Python
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/travaux_diriges/" >
+        
+  
+    
+    
+    Travaux dirigés : introduction à Python
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/specifier/" >
+        
+  
+    
+    
+    Spécifier programmes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/tester/" >
+        
+  
+    
+    
+    Tester ses programmes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/thonny/" >
+        
+  
+    
+    
+    Thonny
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/replit/" >
+        
+  
+    
+    
+    REPL.it
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/comparaison/" >
+        
+  
+    
+    
+    Diversité et unité des langages de programmation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/" >
+        
+  
+    
+    
+    Python 3 - Librairies faciles d&#39;emploi
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/gpio_zero/" >
+        
+  
+    
+    
+    GPIO Zero
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/pygame_zero/" >
+        
+  
+    
+    
+    Pygame Zero
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/gui_zero/" >
+        
+  
+    
+    
+    Gui Zero
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/network_zero/" >
+        
+  
+    
+    
+    Network Zero
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/mqtt/" >
+        
+  
+    
+    
+    Paho Mqtt
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/libraries_faciles/flask/" >
+        
+  
+    
+    
+    Flask
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/programmation/python-3-16-turle-et-iss/" >
+        
+  
+    
+    
+    Python 3 - 16 Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/" >
+        
+  
+    
+    
+    Algorithmique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/sequentiel/" >
+        
+  
+    
+    
+    Sequentiel
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/sequentiel/cours/" >
+        
+  
+    
+    
+    Cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/sequentiel/td/" >
+        
+  
+    
+    
+    Td
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/" >
+        
+  
+    
+    
+    Tri : insertion, sélection
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_1/" >
+        
+  
+    
+    
+    Partie 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_2/" >
+        
+  
+    
+    
+    Partie 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_3/" >
+        
+  
+    
+    
+    Partie 3
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_4/" >
+        
+  
+    
+    
+    Partie 4
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/" >
+        
+  
+    
+    
+    Dichotomie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/1_cours/" >
+        
+  
+    
+    
+    Dichotomie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/dichotomie/2_td/" >
+        
+  
+    
+    
+    Travaux dirigés : Dichotomie
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/" >
+        
+  
+    
+    
+    Les algorithmes glouton
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/2_td/" >
+        
+  
+    
+    
+    2 Td
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" >
+        
+  
+    
+    
+    Les algorithmes gloutons - 1. cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/3_tp/" >
+        
+  
+    
+    
+    3 Tp
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/4_cours/" >
+        
+  
+    
+    
+    Les algorithmes gloutons - 4. Cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/5_td/" >
+        
+  
+    
+    
+    Les algorithmes gloutons - 5. TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/glouton/6_tp/" >
+        
+  
+    
+    
+    Première NSI - Algorithmique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/knn/" >
+        
+  
+    
+    
+    algorithmes des k plus proches voisins
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/knn/cours/" >
+        
+  
+    
+    
+    k plus proches voisins - cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/knn/td/" >
+        
+  
+    
+    
+    k plus proches voisins - exercices
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/knn/tp/" >
+        
+  
+    
+    
+    TP Algorithme des k plus proches voisins
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/resumes/" >
+        
+  
+    
+    
+    Résumés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/resumes/intro/" >
+        
+  
+    
+    
+    Intro
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/resumes/tris/" >
+        
+  
+    
+    
+    Tris
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/" >
+        
+  
+    
+    
+    version antérieure
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie1/" >
+        
+  
+    
+    
+    1 - Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie2/" >
+        
+  
+    
+    
+    2 - Données
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie3/" >
+        
+  
+    
+    
+    3 - Langage
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie4/" >
+        
+  
+    
+    
+    4 - Tableaux
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie5/" >
+        
+  
+    
+    
+    5 - Tuples, dictionnaires
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/complet/partie6/" >
+        
+  
+    
+    
+    6 - Compléments
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/" >
+        
+  
+    
+    
+    Données simples
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/intro_historique/" >
+        
+  
+    
+    
+    Intro Historique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/booleen/" >
+        
+  
+    
+    
+    Booléens
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/booleen/1_cours/" >
+        
+  
+    
+    
+    Booléens : cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/booleen/2_td/" >
+        
+  
+    
+    
+    Booléens : TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/binaire/" >
+        
+  
+    
+    
+    Binaire
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/binaire/1_cours/" >
+        
+  
+    
+    
+    binaire - cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/binaire/2_td/" >
+        
+  
+    
+    
+    binaire - TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/hexadecimal/" >
+        
+  
+    
+    
+    Hexadecimal
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/chaines_caracteres/" >
+        
+  
+    
+    
+    Chaines Caracteres
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/flottants/" >
+        
+  
+    
+    
+    Flottants
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/flottants/1_cours/" >
+        
+  
+    
+    
+    1 Cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/flottants/2_td/" >
+        
+  
+    
+    
+    Première NSI - types et valeurs de base : flottants - td
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/complement_a_deux/" >
+        
+  
+    
+    
+    Complément à deux
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/complement_a_deux/1_cours/" >
+        
+  
+    
+    
+    Complément à deux - cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/complement_a_deux/2_td/" >
+        
+  
+    
+    
+    Complément à deux - Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_simples/resume_donnees_simples/" >
+        
+  
+    
+    
+    résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/" >
+        
+  
+    
+    
+    Données Structurées
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/" >
+        
+  
+    
+    
+    Structure imbriquées et compréhension
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/cours/" >
+        
+  
+    
+    
+    Cours : tableaux 2D et compréhension
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/td/" >
+        
+  
+    
+    
+    Td
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/types_construits/" >
+        
+  
+    
+    
+    Types construits
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/" >
+        
+  
+    
+    
+    Données en tables, fichiers csv
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/1_cours/" >
+        
+  
+    
+    
+    1. cours : introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/2_td/" >
+        
+  
+    
+    
+    2. TD : importer, exporter, trier
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/3_tp/" >
+        
+  
+    
+    
+    3. TP : importer, exporter, trier
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/4_cours/" >
+        
+  
+    
+    
+    4. Cours : trier, fusionner
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/5_td/" >
+        
+  
+    
+    
+    5. Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/6_tp/" >
+        
+  
+    
+    
+    6. TP : fusion et tris. Mini projet &#34;TP randonnée&#34;
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/table/7_revisions_pays/" >
+        
+  
+    
+    
+    7. Rappels - les pays
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/complet/" >
+        
+  
+    
+    
+    Données - version qkzk
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/donnees_structurees/univ/" >
+        
+  
+    
+    
+    Données - version univ
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/" >
+        
+  
+    
+    
+    Système d&#39;exploitation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/0_concepts_cles/" >
+        
+  
+    
+    
+    Architecture - OS : trois concepts clés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/1_presentation/" >
+        
+  
+    
+    
+    Première NSI - Système d&#39;exploitation Linux - intro
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/2_cours/" >
+        
+  
+    
+    
+    Première NSI - Système d&#39;exploitation Linux - cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/3_td/" >
+        
+  
+    
+    
+    Première NSI - Système d&#39;exploitation Linux - TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/4_tp_debian/" >
+        
+  
+    
+    
+    NSI première : Système d&#39;exploitation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/5_cle_linux/" >
+        
+  
+    
+    
+    Créer une clé Linux
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/os/6_bash_resume/" >
+        
+  
+    
+    
+    Résumé des commandes bash
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/" >
+        
+  
+    
+    
+    Architecture
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/von_neumann/" >
+        
+  
+    
+    
+    Modèle de Von Neumann
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/composants_processeur/" >
+        
+  
+    
+    
+    Composants d&#39;un processeur
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/initiation_assembleur/" >
+        
+  
+    
+    
+    Initiation assembleur
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/evolution_performance/" >
+        
+  
+    
+    
+    Evolution des performances
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_intro/" >
+        
+  
+    
+    
+    Simulation CPU assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/assembleur_aqa_td/" >
+        
+  
+    
+    
+    Assembleur AQA - Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/doc_aqa/" >
+        
+  
+    
+    
+    Documentation Assembleur AQA
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/exo_assembleur/" >
+        
+  
+    
+    
+    Exercice - modèle de Von Neumann, assembleur
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/m10/" >
+        
+  
+    
+    
+    M-10, la machine débranchée
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/architecture/resume/" >
+        
+  
+    
+    
+    Modèle de Von Neumann - Résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/" >
+        
+  
+    
+    
+    IHM sur le Web
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/web/" >
+        
+  
+    
+    
+    cours: Le web
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/url/" >
+        
+  
+    
+    
+    cours: Les URL
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/html_css_cours/" >
+        
+  
+    
+    
+    cours: HTML et CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/clsv/" >
+        
+  
+    
+    
+    cours : Modèle Client-Server
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/js_td/" >
+        
+  
+    
+    
+    TD : JavaScript
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/html_css/" >
+        
+  
+    
+    
+    TP : HTML et CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/js/" >
+        
+  
+    
+    
+    TP : JavaScript
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/http/" >
+        
+  
+    
+    
+    TP : Protocole HTTP
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/flask/" >
+        
+  
+    
+    
+    TP : Formulaire d&#39;une page web
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/projet_html_css/" >
+        
+  
+    
+    
+    Projet : CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/projet_serveur_meteo/" >
+        
+  
+    
+    
+    Projet : Serveur méteo
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/" >
+        
+  
+    
+    
+    Résumés IHM sur le Web
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_html_css/" >
+        
+  
+    
+    
+    Résumé HTML - CSS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_javascript/" >
+        
+  
+    
+    
+    Résumé JavaScript
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/" >
+        
+  
+    
+    
+    URL et HTTP
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/" >
+        
+  
+    
+    
+    Réseaux
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/intro_reseau/" >
+        
+  
+    
+    
+    Introduction au réseau
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/tcp_ip/" >
+        
+  
+    
+    
+    Protocoles TCP et IP
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/modele_tcp_ip/" >
+        
+  
+    
+    
+    Le modèle TCP/IP
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/bit_alterne/" >
+        
+  
+    
+    
+    Protocole du bit alterné
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/simul_1/" >
+        
+  
+    
+    
+    Simulation réseau
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/simul_2/" >
+        
+  
+    
+    
+    Simulation réseau 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/reseaux/resume_complet/" >
+        
+  
+    
+    
+    Résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/" >
+        
+  
+    
+    
+    Projets
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/turtle/" >
+        
+  
+    
+    
+    le module Turtle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/pgzero_snake/" >
+        
+  
+    
+    
+    pgzero snake
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/space_invaders/" >
+        
+  
+    
+    
+    pgzero invaders
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/bbc_microbit/" >
+        
+  
+    
+    
+    BBC Micro:bit
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/bbc_microbit/introduction/" >
+        
+  
+    
+    
+    introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/bbc_microbit/grove/" >
+        
+  
+    
+    
+    Module Grove
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/dodger/" >
+        
+  
+    
+    
+    pgzero Dodger
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/pygame_snake/" >
+        
+  
+    
+    
+    pygame snake
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/projets/timberman/" >
+        
+  
+    
+    
+    pygame Timberman
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/devoirs_premiere/" >
+        
+  
+    
+    
+    Devoirs de première
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/" >
+        
+  
+    
+    
+    Cours Terminale
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/" >
+        
+  
+    
+    
+    Algorithmique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/" >
+        
+  
+    
+    
+    Diviser pour régner.
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/tri_fusion/" >
+        
+  
+    
+    
+    Tri fusion
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/prog_dynamique/" >
+        
+  
+    
+    
+    Programmation dynamique.
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/prog_dynamique/cours/" >
+        
+  
+    
+    
+    Programmation Dynamique - cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/prog_dynamique/td/" >
+        
+  
+    
+    
+    Programmation Dynamique - Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/prog_dynamique/resume/" >
+        
+  
+    
+    
+    Resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/recherche_textuelle/" >
+        
+  
+    
+    
+    Recherche textuelle
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/algorithmique/recherche_textuelle/resume/" >
+        
+  
+    
+    
+    Resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/" >
+        
+  
+    
+    
+    Architecture
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/routage/" >
+        
+  
+    
+    
+    Routage
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/routage/cours/" >
+        
+  
+    
+    
+    Protocoles de routage
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/routage/td/" >
+        
+  
+    
+    
+    Routage TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/" >
+        
+  
+    
+    
+    Processus
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/processus_complet/" >
+        
+  
+    
+    
+    Processus Complet
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/processus/" >
+        
+  
+    
+    
+    processus, système de fichiers, shell
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/resume/" >
+        
+  
+    
+    
+    processus - résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/td/" >
+        
+  
+    
+    
+    Processus - TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/processus/race_condition/" >
+        
+  
+    
+    
+    race condition
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/" >
+        
+  
+    
+    
+    Sécurisation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/introduction/" >
+        
+  
+    
+    
+    Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/asymetrique/" >
+        
+  
+    
+    
+    Chiffrement asymétrique
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/diffie_hellman/" >
+        
+  
+    
+    
+    Diffie-Hellman
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/https/" >
+        
+  
+    
+    
+    HTTPS
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/securisation/resumes/" >
+        
+  
+    
+    
+    Sécurisation : résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/composants/" >
+        
+  
+    
+    
+    Composants
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/composants/cours/" >
+        
+  
+    
+    
+    Cours
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/composants/td/" >
+        
+  
+    
+    
+    TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/architecture/composants/cache/" >
+        
+  
+    
+    
+    complément : Mémoire cache
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/" >
+        
+  
+    
+    
+    Programmation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/recursivite/" >
+        
+  
+    
+    
+    Récursivité
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/recursivite/cours/" >
+        
+  
+    
+    
+    Récursivité
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/recursivite/td/" >
+        
+  
+    
+    
+    Travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/recursivite/resume/" >
+        
+  
+    
+    
+    NSI Terminale Récursivité - résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/paradigmes/" >
+        
+  
+    
+    
+    Paradigmes de programmation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/paradigmes/paradigmes/" >
+        
+  
+    
+    
+    Paradigmes de programmation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/paradigmes/fonctionnel/" >
+        
+  
+    
+    
+    Paradigmes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/prog/calculabilite/" >
+        
+  
+    
+    
+    Problème de l&#39;arrêt en Python
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/" >
+        
+  
+    
+    
+    Structures de données
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/dictionnaire/" >
+        
+  
+    
+    
+    Dictionnaire
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/poo/" >
+        
+  
+    
+    
+    Programmation Orientée Objet
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/poo/tp/" >
+        
+  
+    
+    
+    TP POO
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/poo/cours/" >
+        
+  
+    
+    
+    cours POO
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/poo/td/" >
+        
+  
+    
+    
+    POO - TD
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/poo/resume/" >
+        
+  
+    
+    
+    resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/" >
+        
+  
+    
+    
+    Arbres
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td/" >
+        
+  
+    
+    
+    Arbres - TD 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/td_2/" >
+        
+  
+    
+    
+    Arbres - TD 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/arbres/resume/" >
+        
+  
+    
+    
+    Arbres - résumé
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/" >
+        
+  
+    
+    
+    Listes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/intro/" >
+        
+  
+    
+    
+    introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/listes/resume/" >
+        
+  
+    
+    
+    Resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/pile_file/" >
+        
+  
+    
+    
+    Pile, File
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/pile_file/intro/" >
+        
+  
+    
+    
+    Les files et les piles
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/pile_file/tp_html_parser/" >
+        
+  
+    
+    
+    Parser HTML
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/pile_file/resume/" >
+        
+  
+    
+    
+    Resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/pile_file/td_structures_lineaires/" >
+        
+  
+    
+    
+    Structures de données linéaires : travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/" >
+        
+  
+    
+    
+    Graphes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/intro/" >
+        
+  
+    
+    
+    Introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/cours_sd/" >
+        
+  
+    
+    
+    Structure de données
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/td_1/" >
+        
+  
+    
+    
+    TD 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/td_2/" >
+        
+  
+    
+    
+    TD 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/td_3/" >
+        
+  
+    
+    
+    TD 3
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/cours_algo/" >
+        
+  
+    
+    
+    Algorithmes
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/td_4/" >
+        
+  
+    
+    
+    TD 4
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/structures_donnees/graphes/resume/" >
+        
+  
+    
+    
+    Resume
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/" >
+        
+  
+    
+    
+    Bases de données
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/resume/" >
+        
+  
+    
+    
+    résumé - partie 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/cours_1/" >
+        
+  
+    
+    
+    introduction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/td/" >
+        
+  
+    
+    
+    BDD : travaux dirigés
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/td/td_sql/" >
+        
+  
+    
+    
+    TD : langage SQL
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/td/td_bdd/" >
+        
+  
+    
+    
+    TD : modèle relationnel
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/bdd/cours_2/" >
+        
+  
+    
+    
+    Conception
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/" >
+        
+  
+    
+    
+    Projets
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/nn/" >
+        
+  
+    
+    
+    Réseau de Neurones
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/nn/partie_1/" >
+        
+  
+    
+    
+    NN - partie 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/nn/partie_2/" >
+        
+  
+    
+    
+    NN - partie 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/nn/partie_3/" >
+        
+  
+    
+    
+    NN - partie 3
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/projets/roguetuto/" >
+        
+  
+    
+    
+    Tutoriel RogueLike
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/organisation/" >
+        
+  
+    
+    
+    Organisation
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/organisation/presentation_rentree/" >
+        
+  
+    
+    
+    généralités
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_terminale/organisation/github/" >
+        
+  
+    
+    
+    Github
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/ressources/" >
+        
+  
+    
+    
+    ressources
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/" >
+        
+  
+    
+    
+    mathématiques
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/seconde/" >
+        
+  
+    
+    
+    seconde
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/bts_aero_1/" >
+        
+  
+    
+    
+    bts aéro 1
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/bts_aero_2/" >
+        
+  
+    
+    
+    bts aéro 2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/l2s4/" >
+        
+  
+    
+    
+    L2S4
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/maths/l1s2/" >
+        
+  
+    
+    
+    L1S2
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+    </ul>
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+</div>
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    
+    08. Les données CSV, JSON et GeoJSON
+  
+</strong>
+</header>
+
+      
+<article class="markdown"><h2 id="prérequis-">Prérequis :</h2>
+<p>il est souhaitable (mais non indispensable) d&rsquo;avoir quelques idées sur les notions de réseau et de client-serveur. Vous trouverez <a href="http://qkzk.xyz/?page_id=631">ici</a> toutes les informations dont vous aurez besoin pour suivre cette série d&rsquo;activités. Des connaissances en JavaScript sont aussi souhaitables.</p>
+<p>Sur internet, il est possible de trouver un grand nombre d&rsquo;informations. Ces informations sont, dans la plupart des cas, stockées sur des serveurs dans des bases de données.</p>
+<p>Quand un client interroge un serveur afin de récupérer des données, le serveur effectue une requête auprès de la base de données et renvoie ensuite les informations demandées vers le client.</p>
+<p>Sous quelle forme ces données transitent-elles entre le client et le serveur ?</p>
+<p>Nous n&rsquo;allons pas chercher à être exhaustifs et nous allons uniquement voir 3 exemples : le CSV, le JSON et le geoJSON.</p>
+<p>Vous devez savoir qu&rsquo;il existe d&rsquo;autres formats de données, par exemple le XML (pour en savoir plus sur le XML, vous pouvez consulter le cours proposé par l&rsquo;excellent site openclassrooms : <a href="https://openclassrooms.com/courses/structurez-vos-donnees-avec-xml">ici</a>), mais j&rsquo;ai choisi de me restreindre aux 3 formats évoqués ci-dessus.</p>
+<h2 id="le-format-csv">Le format CSV</h2>
+<p>Premier format que nous allons étudier, le CSV (Comma separated values). Sur de nombreux sites, il est possible de télécharger des fichiers au format csv (nom_du_fichier.csv).</p>
+<p>Voici ce que nous dit Wikipédia sur le format CSV :</p>
+<p><em>Comma-separated values, connu sous le sigle CSV, est un format informatique ouvert représentant des données tabulaires sous forme de valeurs séparées par des virgules.</em></p>
+<p><em>Un fichier CSV est un fichier texte, par opposition aux formats dits « binaires ». Chaque ligne du texte correspond à une ligne du tableau et les virgules correspondent aux séparations entre les colonnes. Les portions de texte séparées par une virgule correspondent ainsi aux contenus des cellules du tableau.</em></p>
+<p>Voici un exemple du contenu d&rsquo;un fichier CSV:</p>
+<pre><code>nom,prenom,date_naissance
+Durand,Jean-Pierre,23/05/1985
+Dupont,Christophe,15/12/1967
+Terta,Henry,12/06/1978
+</code></pre>
+<p>Je pense qu&rsquo;il est évident pour vous que nous avons ici 3 personnes :</p>
+<p>Jean-Pierre Durand qui est né le 23/05/1985
+Christophe Dupont qui est né le 15/12/1967
+Henry Terta qui est né le 12/06/1978</p>
+<p>ATTENTION :</p>
+<p>La virgule est un standard pour les données anglo-saxonnes, mais pas pour les données aux normes françaises. En effet, en français, la virgule est le séparateur des chiffres décimaux. Il serait impossible de différencier les virgules des décimaux et les virgules de séparation des informations. C’est pourquoi on utilise un autre séparateur : le point-virgule (;). Dans certains cas cela peut engendrer quelques problèmes, vous devrez donc rester vigilants sur le type de séparateur utilisé.</p>
+<p>Les tableurs, tels que &ldquo;Calc&rdquo; (Libre Office), sont normalement capables de lire les fichiers au format CSV. J&rsquo;ai précisé &ldquo;normalement&rdquo; car certains tableurs gèrent mal le séparateur CSV &ldquo;point-virgule&rdquo; et le séparateur des chiffres décimaux &ldquo;virgule&rdquo;.</p>
+<h4 id="à-faire-vous-même-11">À faire vous-même 1.1</h4>
+<p>Après avoir téléchargé le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ident_pointVirgule.csv</a>, ouvrez ce dernier à l&rsquo;aide d&rsquo;un tableur.</p>
+<p>Si par hasard votre tableur ne gère pas correctement le fichier avec le séparateur &ldquo;point-virgule&rdquo;, voici une version &ldquo;séparateur virgule&rdquo; du fichier : <a href="https://pixees.fr/informatiquelycee/asset/ident_virgule.csv">ident_virgule.csv</a></p>
+<p>Dans la suite, gardez toujours cet éventuel problème à l&rsquo;esprit (surtout avec des données &ldquo;made in France&rdquo;)</p>
+<hr>
+<p>Vous devriez obtenir ceci :</p>
+<p><img src="https://pixees.fr/informatiquelycee/img/procAnDo_a1_1.png" alt=""></p>
+<p>Vous pouvez constater que les données sont bien &ldquo;rangées&rdquo; dans un tableau avec des lignes et des colonnes (voilà pourquoi on parle de données tabulaires.</p>
+<p>Il est possible de trouver sur le web des données beaucoup plus intéressantes à traiter que celles contenues dans le fichier &ldquo;ident_pointVirgule.csv&rdquo; (ou &ldquo;ident_virgule.csv&rdquo;). Par exemple, le site <a href="http://sql.sh/736-base-donnees-villes-francaises">sql.sh</a>, propose un fichier csv contenant des informations sur l&rsquo;ensemble des communes françaises.</p>
+<h4 id="à-faire-vous-même-12">À faire vous-même 1.2</h4>
+<p>Ouvrez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident_pointVirgule.csv">ville_point_virgule.csv</a> à l&rsquo;aide d&rsquo;un tableur (c’est une version légèrement modifiée de celle disponible sur le site sql.sh, j’y ai notamment ajouté des entêtes). En cas de problème avec votre tableur, voici une version &ldquo;séparateur virgule&rdquo; : <a href="https://pixees.fr/informatiquelycee/asset/ident_virgule.csv">ville_virgule.csv</a> (attention le séparateur &ldquo;décimal&rdquo; est ici le point)</p>
+<hr>
+<p>Comme vous pouvez le constater, nous avons 12 colonnes (et 36700 lignes si on ne compte pas l&rsquo;entête !), voici la signification de ces colonnes :</p>
+<p>dep : numéro de département
+nom : nom de la commune
+cp : code postal
+nb_hab_2010 : nombre d&rsquo;habitants en 2010
+nb_hab_1999 : nombre d&rsquo;habitants en 1999
+nb_hab_2012 : nombre d&rsquo;habitants en 2012 (approximatif)
+dens : densité de la population (habitants par kilomètre carré)
+surf : superficie de la commune en kilomètre carré
+long : longitude
+lat : latitude
+alt_min : altitude minimale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)
+alt_max : altitude maximale de la commune (il manque des données pour certains territoires d&rsquo;outre-mer)</p>
+<p>Vous trouverez un grand nombre de données, diverses et variées, au format CSV sur le site gouvernemental <a href="https://www.data.gouv.fr/fr/datasets/?format=csv">data.gouv.fr</a>.</p>
+<p>Il existe aussi un format très voisin du CSV, le TSV (Tab-separated values) où le séparateur est une tabulation (touche avec le symbole ↹)</p>
+<hr>
+<h2 id="le-format-json">Le format JSON</h2>
+<p>Autre format de données très courant sur le &ldquo;web&rdquo;, le JSON (JavaScript Object Notation). Le JSON fonctionne avec un système de paire clé/valeur. Le format JSON, comme son nom l&rsquo;indique, est dérivé de la notation des objets du JavaScript.</p>
+<p>Un objet JavaScript est encadré par des accolades :</p>
+<pre><code>{cle_1 : val_1, cle_2 : val_2, cle_3 : val_3}
+</code></pre>
+<p>souvent, pour une question de lisibilité, on écriera :</p>
+<pre><code>{
+    cle_1 : val_1,
+    cle_2 : val_2,
+    cle_3 : val_3
+}
+</code></pre>
+<p>Un fichier au format JSON peut regrouper un grand nombre d&rsquo;objets :</p>
+<pre><code>[{
+    &quot;nom&quot; : &quot;Durand&quot;,
+    &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
+    &quot;date_naissance&quot; : &quot;23/05/1985&quot;
+},
+{
+    &quot;nom&quot; : &quot;Dupont&quot;,
+    &quot;prenom&quot; : &quot;Christophe&quot;,
+    &quot;date_naissance&quot; : &quot;15/12/1967&quot;
+},
+{
+    &quot;nom&quot; : &quot;Terta&quot;,
+    &quot;prenom&quot; : &quot;Henry&quot;,
+    &quot;date_naissance&quot; : &quot;12/06/1978&quot;
+}]
+</code></pre>
+<p>Ci-dessus, nous avons un tableau contenant des objets.</p>
+<p>La &ldquo;valeur&rdquo; d&rsquo;une paire &ldquo;clé/valeur&rdquo; peut être un tableau :</p>
+<pre><code>{
+    &quot;nom&quot; : &quot;Durand&quot;,
+    &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
+    &quot;date_naissance&quot; : &quot;23/05/1985&quot;
+    &quot;sport&quot; : [&quot;tennis&quot;, &quot;football&quot;, &quot;pétanque&quot;]
+}
+</code></pre>
+<p>ou même un autre objet :</p>
+<pre><code>{
+    &quot;nom&quot; : &quot;Durand&quot;,
+    &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
+    &quot;date_naissance&quot; : &quot;23/05/1985&quot;
+    &quot;adresse&quot; : {&quot;num&quot;:6, &quot;rue&quot;:&quot;impasse du rossignol&quot;, &quot;ville&quot;:&quot;Nogent-le-Rotrou&quot;, &quot;cp&quot;:&quot;28400&quot;}
+}
+</code></pre>
+<p>Comme vous pouvez le constater, il est possible d&rsquo;obtenir des structures de données très complexes avec le format JSON.</p>
+<p>Comment utiliser les données présentes dans le fichier JSON ?</p>
+<p>Si le fichier JSON contient un seul objet (pour simplifier l&rsquo;explication, nous &ldquo;rangerons&rdquo; cet objet dans une variable) :</p>
+<pre><code>var data = {
+    &quot;nom&quot; : &quot;Durand&quot;,
+    &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
+    &quot;date_naissance&quot; : &quot;23/05/1985&quot;
+    &quot;adresse&quot; : {&quot;num&quot;:6, &quot;rue&quot;:&quot;impasse du rossignol&quot;,
+    &quot;ville&quot;:&quot;Nogent-le-Rotrou&quot;, &quot;cp&quot;:&quot;28400&quot;}
+}
+</code></pre>
+<p>Il suffit d&rsquo;utiliser la &ldquo;notation pointée&rdquo; : &ldquo;data.nom&rdquo; permet de récupérer le nom (ici &ldquo;Durand&rdquo;), &ldquo;data.prenom&rdquo; permet de récupérer le prénom (ici &ldquo;Jean-Pierre&rdquo;) ou plus compliqué, &ldquo;data.adresse.rue&rdquo; sera égal à &ldquo;impasse du rossignol&rdquo; dans l&rsquo;exemple ci-dessus</p>
+<p>Si le fichier JSON contient un tableau d&rsquo;objet :</p>
+<pre><code>var tabData=[{
+    &quot;nom&quot; : &quot;Durand&quot;,
+    &quot;prenom&quot; : &quot;Jean-Pierre&quot;,
+    &quot;date_naissance&quot; : &quot;23/05/1985&quot;
+},
+{
+    &quot;nom&quot; : &quot;Dupont&quot;,
+    &quot;prenom&quot; : &quot;Christophe&quot;,
+    &quot;date_naissance&quot; : &quot;15/12/1967&quot;
+},
+{
+    &quot;nom&quot; : &quot;Terta&quot;,
+    &quot;prenom&quot; : &quot;Henry&quot;,
+    &quot;date_naissance&quot; : &quot;12/06/1978&quot;
+}]
+</code></pre>
+<p>Comme ici, nous avons un tableau contenant des objets, il faudra utiliser la notation habituelle pour les tableaux, suivit de la &ldquo;notation pointée&rdquo; :</p>
+<p>&ldquo;tabData[0].nom&rdquo; renverra &ldquo;Durand&rdquo;, &ldquo;tabData[1].prenom&rdquo; renverra &ldquo;Christophe&rdquo;&hellip;</p>
+<p>Pour en savoir plus sur le JSON, vous pouvez lire l&rsquo;article sur <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">Wikipédia</a>.</p>
+<h4 id="à-faire-vous-même-21">À faire vous-même 2.1</h4>
+<p>Téléchargez le fichier <a href="https://pixees.fr/informatiquelycee/asset/ident.json">ident.json</a> et ouvrez-le à l&rsquo;aide d&rsquo;un éditeur de texte.</p>
+<hr>
+<p>De nombreux sites web proposent des services basés sur des API (Application Programming Interface). Ces sites sont capables de fournir des données aux formats JSON sur &ldquo;simple demande&rdquo;. Souvent, ces &ldquo;demandes&rdquo; sont effectuées par l&rsquo;intermédiaire d&rsquo;une url (si vous avez besoin de vous rafraichir la mémoire à propos de la notion d&rsquo;url, n&rsquo;hésitez pas à consulter ce <a href="https://pixees.fr/informatiquelycee/reseau_a1.html">document</a>).</p>
+<p>Nous allons illustrer ce propos en utilisant l&rsquo;API d&rsquo;un site qui fournit des informations météo au format JSON. Vous trouverez ce site à l&rsquo;adresse suivante : <a href="http://openweathermap.org/api">openweathermap.org/api</a></p>
+<p>Pour profiter de ce service, il est nécessaire de s&rsquo;inscrire (<a href="http://home.openweathermap.org/users/sign_up">http://home.openweathermap.org/users/sign_up</a>) afin de pouvoir récupérer une clé (API key). Notez bien cette clé quelque part, elle vous servira dès que vous voulez accéder au service.</p>
+<h4 id="à-faire-vous-même-22">À faire vous-même 2.2</h4>
+<p>Ouvrez votre navigateur préféré et copier-coller l&rsquo;url suivante dans la barre d&rsquo;url du navigateur :</p>
+<pre><code>http://api.openweathermap.org/data/2.5/weather?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX
+</code></pre>
+<p>ATTENTION : il faut remplacer les &ldquo;X&rdquo; par la clé (API key) que vous aurez obtenue lors de votre inscription.</p>
+<hr>
+<p>Au lieu d&rsquo;obtenir, comme d&rsquo;habitude, une page web, vous devriez obtenir uniquement quelque chose qui ressemblera à ceci :</p>
+<pre><code>{&quot;coord&quot;:{&quot;lon&quot;:2.54,&quot;lat&quot;:50.72},
+&quot;weather&quot;:[{&quot;id&quot;:501,&quot;main&quot;:&quot;Rain&quot;,&quot;description&quot;:&quot;pluies modérées&quot;,&quot;icon&quot;:&quot;10d&quot;}],
+&quot;base&quot;:&quot;stations&quot;,
+&quot;main&quot;:{&quot;temp&quot;:17.46,&quot;pressure&quot;:1020,&quot;humidity&quot;:82,&quot;temp_min&quot;:16,&quot;temp_max&quot;:20.1},
+&quot;visibility&quot;:10000,
+&quot;wind&quot;:{&quot;speed&quot;:4.1,&quot;deg&quot;:240},
+&quot;rain&quot;:{&quot;1h&quot;:1.52},
+&quot;clouds&quot;:{&quot;all&quot;:75},
+&quot;dt&quot;:1468048824,
+&quot;sys&quot;:{&quot;type&quot;:1,&quot;id&quot;:5625,&quot;message&quot;:0.0338,&quot;country&quot;:&quot;FR&quot;,&quot;sunrise&quot;:1468036100,&quot;sunset&quot;:1468094487},
+&quot;id&quot;:3013619,
+&quot;name&quot;:&quot;Hazebrouck&quot;,
+&quot;cod&quot;:200}
+</code></pre>
+<p>Comme les données sont réactualisées relativement souvent, vous n&rsquo;obtiendrez pas la même chose que moi !</p>
+<p>Avec une simple url, le site open weather renvoie des informations météo sous forme de données JSON.</p>
+<p>Détaillons l&rsquo;url :</p>
+<pre><code>http://api.openweathermap.org/data/2.5/weather
+</code></pre>
+<p>Cette partie de l&rsquo;url ne changera pas (sauf si vous désirez autre chose que les conditions météo actuelles, à ce moment-là, il faudra remplacer &ldquo;weather&rdquo; par autre chose (consulter le site open weather pour plus d&rsquo;informations)).</p>
+<pre><code>?q=hazebrouck,fr&amp;lang=fr&amp;units=metric&amp;APPID=XXXXXXXXXXXXX
+</code></pre>
+<p>À partir du point d&rsquo;interrogation, vous devez renseigner les différents paramètres qui permettront à open weather de vous renvoyer les bonnes informations. Ces paramètres sont séparés par le caractère &ldquo;&amp;&rdquo;.</p>
+<p>&ldquo;q=hazebrouck,fr&rdquo; le paramètre &ldquo;q&rdquo; correspond au nom de la ville suivi du pays (fr dans notre cas)
+&ldquo;lang=fr&rdquo; la langue utilisée sera le français
+&ldquo;units=metric&rdquo; on désire avoir les longueurs en mètres (et les vitesses en mètre par seconde).
+&ldquo;APPID&rdquo; correspond à l&rsquo;API key</p>
+<p>Il est possible de construire des requêtes beaucoup plus complexes, encore une fois, veuillez consulter le site open weather pour plus d&rsquo;informations.</p>
+<p>Intéressons-nous maintenant aux données JSON renvoyées (nous n&rsquo;allons pas tout détailler) :</p>
+<p>&ldquo;coord&rdquo;:{&ldquo;lon&rdquo;:2.54,&ldquo;lat&rdquo;:50.72} latitude et longitude du lieu
+&ldquo;weather&rdquo;:[{&ldquo;id&rdquo;:501,&ldquo;main&rdquo;:&ldquo;Rain&rdquo;,&ldquo;description&rdquo;:&ldquo;pluies modérées&rdquo;,&ldquo;icon&rdquo;:&ldquo;10d&rdquo;}] &ldquo;weather&rdquo; correspond à un tableau qui contient un seul objet.
+&ldquo;main&rdquo;:{&ldquo;temp&rdquo;:17.46,&ldquo;pressure&rdquo;:1020,&ldquo;humidity&rdquo;:82,&ldquo;temp_min&rdquo;:16,&ldquo;temp_max&rdquo;:20.1} &ldquo;main&rdquo; correspond à un objet qui contient différents types d&rsquo;informations
+&ldquo;dt&rdquo;:1468048824 &ldquo;dt&rdquo; nous donne l&rsquo;heure et la date de diffusion du bulletin au format &ldquo;timestamp&rdquo; (voir <a href="http://www.timestamp.fr/">ici</a> pour plus d&rsquo;informations sur la notion de timestamp). Nous utiliserons &ldquo;dt&rdquo; dans le prochain &ldquo;À faire vous-même&rdquo;.
+&ldquo;sunrise&rdquo;:1468036100,&ldquo;sunset&rdquo;:1468094487 : respectivement heure de lever et de coucher du soleil au format timestamp</p>
+<hr>
+<h2 id="les-données-geojson">Les données GeoJSON</h2>
+<p>Le geoJSON est un format (<a href="http://geojson.org/">http://geojson.org/</a>) qui permet d&rsquo;encoder des données à &ldquo;caractère géographiques&rdquo;. Voici ce que dit Wikipédia à propos de ce format :</p>
+<blockquote>GeoJSON (de l'anglais Geographic JSON, signifiant littéralement JSON géographique) est un format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON (JavaScript Object Notation). Il permet de décrire des données de type point, ligne, chaîne de caractères, polygone, ainsi que des ensembles et sous-ensembles de ces types de données et d'y ajouter des attributs d'information qui ne sont pas spatiale. Le format GeoJSON, contrairement à la majorité des standards de systèmes d'informations géographiques, n'est pas écrit par l'Open Geospatial Consortium, mais par un groupe de travail de développeurs au travers d'internet.</blockquote>
+<p>Comme indiqué dans Wikipédia, le geoJSON est avant tout du JSON et nous le traiterons comme tel.</p>
+<h4 id="à-faire-vous-même-31">À faire vous-même 3.1</h4>
+<p>Dans la barre d&rsquo;adresse de votre navigateur, tapez l&rsquo;adresse suivante :</p>
+<pre><code>http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
+</code></pre>
+<p>Vous devriez obtenir quelque chose ressemblant à ceci :</p>
+<hr>
+<p>Le site &ldquo;earthquake.usgs.gov&rdquo;, comme le site &ldquo;<a href="http://openweathermap.org/%22,">http://openweathermap.org/&quot;,</a> propose une API qui renvoie des données à partir d&rsquo;une simple url. Le site &ldquo;earthquake.usgs.gov&rdquo; renvoie des données au format geoJSON (c&rsquo;est donc du JSON), ces données contiennent des informations sur les tremblements de terre détectés dans le monde sur une période de 30 jours. Le site vous propose différentes options pour la requête, vous trouverez une description complète de ces options <a href="http://earthquake.usgs.gov/fdsnws/event/1/">ici</a></p>
+<h4 id="à-faire-vous-même-32">À faire vous-même 3.2</h4>
+<p>En vous aidant de la documentation présente sur le site <a href="http://earthquake.usgs.gov/fdsnws/event/1/">http://earthquake.usgs.gov</a>, écrivez une requête sous forme d&rsquo;url qui permettra d&rsquo;obtenir des données (au format geoJSON) sur les tremblements de terre, d&rsquo;une magnitude supérieure à 5, ayant eu lieu ces 30 derniers jours partout dans le monde.</p>
+<p>Testez votre requête en la copiant dans la barre d&rsquo;adresse de votre navigateur. Une fois les données obtenues, étudiez-les afin de comprendre la structure de ces données.</p>
+<hr>
+<h4 id="approfondissement">Approfondissement</h4>
+<p>Ces données incluant des coordonnées GPS il est possible de les intégrer dans une carte&hellip; Celle-ci peut être statique (Le tremblements de terre des 30 derniers jours à la date à laquelle vous l&rsquo;aurez crée) ou dynamique (Les tremblements de terre des 30 derniers jours à la date du chargement de la page !)
+C&rsquo;est difficile cependant étant donné qu&rsquo;il faut formater beaucoup de données et les lier à un objet très différent, la carte.
+d3js est une librairie javascript permettant ce genre d&rsquo;opération complexe.</p>
+<p>_Sources : <a href="https://pixees.fr/informatiquelycee/_">https://pixees.fr/informatiquelycee/_</a></p>
+</article>
+
+      <div class="backtotop">
+
+        <a href="#" class="left" title="Previous" accesskey="p" rel="previous" id="link_previous">← </a>
+        <a href="#" class="center" title="top" accesskey="t" id="link_top">↑</a>
+        <a href="#" class="right" title="Next" accesskey="n" rel="next" id="link_next">→ </a>
+      </div>
+      
+
+      <link disabled id="dark-mode-theme" rel="stylesheet" href="https://qkzk.xyz/css/dark.css">
+<script src="https://kit.fontawesome.com/3fe16e504a.js" crossorigin="anonymous"></script>
+<div class="footer-qkzk">
+  <h3 class="footer-title">
+    NSI AU LYCÉE DES FLANDRES
+  </h3>
+  <p class="footer-text">
+    RGPD : Aucune donnée n'est conservée. Github impose deux cookies que je ne peux contrôler.
+  </p>
+  <p>
+    <a id="dark-mode-toggle" class="toggle_dark btn">
+      <i class="fas fa-moon" id="toggle-switch"></i>
+    </a>
+  </p>
+
+</div>
+
+<script src="https://qkzk.xyz/js/updatestyle.js" charset="utf-8"></script>
+<script src="https://qkzk.xyz/js/darktheme_switcher.js" charset="utf-8"></script>
+<script src="https://github.com/nodeca/pako/raw/master/dist/pako.min.js" charset="utf-8"></script>
+<script src="https://qkzk.xyz/js/basthon_script_export.js" charset="utf-8"></script>
+
+<link rel="stylesheet" href="https://qkzk.xyz/css/dark_theme_icons.css" type="text/css" media="screen"
+  title="no title" charset="utf-8">
+<link rel="stylesheet" href="https://qkzk.xyz/css/basthon_button.css" type="text/css" media="screen" title="no title"
+  charset="utf-8">
+
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-6 fixed">
+    <h1>Table des matières</h1>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prérequis-">Prérequis :</a></li>
+    <li><a href="#le-format-csv">Le format CSV</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#le-format-json">Le format JSON</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#les-données-geojson">Les données GeoJSON</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+
+  
+</body>
+
+</html>
