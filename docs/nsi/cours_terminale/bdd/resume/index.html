@@ -19,7 +19,7 @@
 
 
 
-<link rel="stylesheet" href="/book.min.f1cb586919af6e5f4c8ac9fd75f5c48b79f142a803fc94305c4e42bb5fd28a5a.css">
+<link rel="stylesheet" href="/book.min.70caf621f339267227a6286476f9085408c5489e9019fbc36d8e01eab9b402c8.css">
 
 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -8184,9 +8184,9 @@ source est dans le domaine public</li>
 les opérations nécessaires à l&rsquo;obtention du résultat</li>
 </ul>
 <h2 id="extraction-des-données-dune-table">Extraction des données d&rsquo;une table</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> noms_colonnes_séparés_par_virgules
-    <span style="color:#069;font-weight:bold">FROM</span> nom_table;
-</code></pre></div><p>Sélectionne toutes les lignes d&rsquo;une table</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>noms_colonnes_séparés_par_virgules<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table;<span style="color:#bbb">
+</span></code></pre></div><p>Sélectionne toutes les lignes d&rsquo;une table</p>
 <ul>
 <li>
 <p><code>*</code> pour toutes les colonnes</p>
@@ -8195,25 +8195,25 @@ les opérations nécessaires à l&rsquo;obtention du résultat</li>
 <p><code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question</p>
 </li>
 </ul>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> <span style="color:#069;font-weight:bold">DISTINCT</span> categorie, genre
-    <span style="color:#069;font-weight:bold">FROM</span> evolution;
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> noms_colonnes_séparés_par_virgules
-    <span style="color:#069;font-weight:bold">FROM</span> nom_table
-    <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
-</code></pre></div><p>Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">DISTINCT</span><span style="color:#bbb"> </span>categorie,<span style="color:#bbb"> </span>genre<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution;<span style="color:#bbb">
+</span></code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>noms_colonnes_séparés_par_virgules<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
+</span></code></pre></div><p>Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></p>
 <h3 id="la-clause-porte-sur-les-valeurs-des-colonnes">La clause porte sur les valeurs des colonnes</h3>
 <ul>
 <li>Utilisation d&rsquo;opérateurs de comparaison (op_comp) : <code>=</code>, <code>&lt;&gt;</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code></li>
 <li>Utilisation d&rsquo;opérateurs booléens (op_bool) : <code>AND</code>, <code>OR</code></li>
 </ul>
 <p>Exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> code, effectif
-	<span style="color:#069;font-weight:bold">FROM</span> evolution
-	<span style="color:#069;font-weight:bold">WHERE</span> categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Agriculteurs Exploitants&#34;</span> <span style="color:#069;font-weight:bold">AND</span> genre<span style="color:#555">=</span><span style="color:#c30">&#34;Femmes&#34;</span>;
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> abrev.nom_colonne <span style="color:#069;font-weight:bold">AS</span> nom_affiché
-    <span style="color:#069;font-weight:bold">FROM</span> nom_table <span style="color:#069;font-weight:bold">AS</span> abrev
-    <span style="color:#069;font-weight:bold">ORDER</span> <span style="color:#069;font-weight:bold">BY</span> nom_colonne [<span style="color:#069;font-weight:bold">DESC</span>];
-</code></pre></div><p>Change l&rsquo;affichage et le nommage des données</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>code,<span style="color:#bbb"> </span>effectif<span style="color:#bbb">
+</span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution<span style="color:#bbb">
+</span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Agriculteurs Exploitants&#34;</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AND</span><span style="color:#bbb"> </span>genre<span style="color:#555">=</span><span style="color:#c30">&#34;Femmes&#34;</span>;<span style="color:#bbb">
+</span></code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>abrev.nom_colonne<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>nom_affiché<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>abrev<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">BY</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>[<span style="color:#069;font-weight:bold">DESC</span>];<span style="color:#bbb">
+</span></code></pre></div><p>Change l&rsquo;affichage et le nommage des données</p>
 <h3 id="as"><code>AS</code></h3>
 <ul>
 <li>
@@ -8243,10 +8243,10 @@ parmi les lignes sélectionnées</p>
 </li>
 </ul>
 <p>Exemple :</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> <span style="color:#069;font-weight:bold">AVG</span>(effectif) <span style="color:#069;font-weight:bold">AS</span> Moy_employes
-	<span style="color:#069;font-weight:bold">FROM</span> evolution
-	<span style="color:#069;font-weight:bold">WHERE</span> categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Employés&#34;</span>;
-</code></pre></div><h2 id="extraction-des-données-de-deux-tables">Extraction des données de deux tables</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AVG</span>(effectif)<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>Moy_employes<span style="color:#bbb">
+</span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution<span style="color:#bbb">
+</span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Employés&#34;</span>;<span style="color:#bbb">
+</span></code></pre></div><h2 id="extraction-des-données-de-deux-tables">Extraction des données de deux tables</h2>
 <h3 id="produit-cartésien">Produit cartésien</h3>
 <ul>
 <li>Comme son nom l&rsquo;indique, génère de façon exhaustive toutes les
@@ -8268,12 +8268,12 @@ par des clés primaires et étrangères identiques.
 <li>À utiliser pour associer deux tables</li>
 </ul>
 <h2 id="modification-des-données">Modification des données</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">INSERT</span> <span style="color:#069;font-weight:bold">INTO</span> nom_table (liste_nom_colonnes_à_remplir)
-    <span style="color:#069;font-weight:bold">VALUES</span> (liste_des_valeurs_à_insérer_dans_ordre_liste_colonnes);
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">UPDATE</span> nom_table <span style="color:#069;font-weight:bold">SET</span> nom_colonne1<span style="color:#555">=</span>valeur1, nom_colonne2<span style="color:#555">=</span>valeur2
-    <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
-</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">DELETE</span> <span style="color:#069;font-weight:bold">FROM</span> nom_table <span style="color:#069;font-weight:bold">WHERE</span> nom_colonne op_comp valeur op_bool nom_colonne op_comp valeur;
-</code></pre></div><h2 id="modification-des-données-1">Modification des données</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span>(liste_nom_colonnes_à_remplir)<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(liste_des_valeurs_à_insérer_dans_ordre_liste_colonnes);<span style="color:#bbb">
+</span></code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">UPDATE</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">SET</span><span style="color:#bbb"> </span>nom_colonne1<span style="color:#555">=</span>valeur1,<span style="color:#bbb"> </span>nom_colonne2<span style="color:#555">=</span>valeur2<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
+</span></code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">DELETE</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
+</span></code></pre></div><h2 id="modification-des-données-1">Modification des données</h2>
 <h3 id="respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</h3>
 <ul>
 <li>Une clé primaire doit être unique et non NULL
