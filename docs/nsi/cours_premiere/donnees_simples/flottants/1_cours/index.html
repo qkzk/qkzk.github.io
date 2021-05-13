@@ -2634,7 +2634,7 @@ MathJax.Hub.Config({
   
     
     
-    Première NSI - types et valeurs de base : flottants - td
+    2 TD
   
 
       </a>
@@ -8144,6 +8144,111 @@ chiffres    3      2    5  .          4       7
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Position      4     2     1   virgule   1/2   1/4   1/8
 chiffres      1     1     1   .         1     0     1
 </code></pre></div><p>4 + 2 + 1 + 1/2 + 1/8 = 7.625</p>
+<h2 id="décimal-vers-binaire-pour-les-nombres-à-virgule">Décimal vers binaire pour les nombres à virgule</h2>
+<p>On cherche à convertir 2.3 en binaire.</p>
+<ol>
+<li>
+<p>On commence par la partie entière : <code>2 = 0b10</code></p>
+</li>
+<li>
+<p>On multiplie le nombre précédent, sans sa partie entière, par 2.
+Le premier chiffre sera 0 ou 1 et c&rsquo;est le bit correspondant à cette position :</p>
+<p>On répète jusqu&rsquo;à atteindre un entier ou jusqu&rsquo;à atteindre la précision souhaitée.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Résultat</th>
+<th>bit</th>
+<th>position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0.3$</td>
+<td>$0.3$</td>
+<td><code>0</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td>$0.3 \times 2$</td>
+<td>$0.6$</td>
+<td><code>0</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$0.6 \times 2$</td>
+<td>$1.2$</td>
+<td><code>1</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>$0.2 \times 2$</td>
+<td>$0.4$</td>
+<td><code>0</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>$0.4 \times 2$</td>
+<td>$0.8$</td>
+<td><code>0</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td>$0.8 \times 2$</td>
+<td>$1.6$</td>
+<td><code>1</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td>$0.6 \times 2$</td>
+<td>$1.2$</td>
+<td><code>1</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td>$0.2 \times 2$</td>
+<td>$0.4$</td>
+<td><code>0</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td>$0.4 \times 2$</td>
+<td>$0.8$</td>
+<td><code>0</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td>$0.8 \times 2$</td>
+<td>$1.6$</td>
+<td><code>1</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td>$0.6 \times 2$</td>
+<td>$1.2$</td>
+<td><code>1</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td>$0.2 \times 2$</td>
+<td>$0.4$</td>
+<td><code>0</code></td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p>On peut s&rsquo;arrêter ici, étant donné que la suite des bits va se répéter.</p>
+<p>$0.3 = 0.010011001100_2$ et $2.3 = 10.01001100110_2$</p>
+<p>Vérifions :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">2</span> <span style="color:#555">+</span> <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">4</span> <span style="color:#555">+</span> <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">32</span> <span style="color:#555">+</span> <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">64</span> <span style="color:#555">+</span> <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">512</span> <span style="color:#555">+</span> <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">1024</span>
+<span style="color:#f60">2.2998046875</span>
+</code></pre></div><h2 id="binaire-vers-décimal">Binaire vers décimal</h2>
+<p>Dans l&rsquo;autre sens c&rsquo;est beaucoup plus facile, on compte les positions des bits
+et on ajoute, lorsque le bit est 1, la puissance de $\frac{1}{2}$ correspondante :</p>
+<p>$$x = 0,001001001_2 = \frac{1}{2^3} + \frac{1}{2^6} + \frac{1}{2^9} = 0.142578125$$</p>
 <h2 id="revenons-sur-01--02">Revenons sur 0,1 + 0,2</h2>
 <p>0,1 et 0,2 ont des notations décimales <em>finies</em> (ce sont des <em>décimaux</em>)</p>
 <p>Leur notiation <em>dyadique</em> n&rsquo;est pas finie !</p>
@@ -8353,6 +8458,8 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
     </li>
     <li><a href="#notation-positionnelle-des-décimaux">Notation positionnelle des décimaux</a></li>
     <li><a href="#nombres-_dyadiques_">Nombres <em>dyadiques</em></a></li>
+    <li><a href="#décimal-vers-binaire-pour-les-nombres-à-virgule">Décimal vers binaire pour les nombres à virgule</a></li>
+    <li><a href="#binaire-vers-décimal">Binaire vers décimal</a></li>
     <li><a href="#revenons-sur-01--02">Revenons sur 0,1 + 0,2</a>
       <ul>
         <li><a href="#comment-manipuler-des-nombres-très-grands-et-des-nombres-très-petits-en-même-temps-">comment manipuler des nombres très grands et des nombres très petits en même temps ?</a></li>
