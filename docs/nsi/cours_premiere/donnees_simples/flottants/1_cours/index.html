@@ -8396,6 +8396,24 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
 </li>
 </ul>
 <p><a href="./img/http://ta.twi.tudelft.nl/nw/users/vuik/wi211/disasters.html">Source</a></p>
+<h2 id="outils">Outils</h2>
+<ol>
+<li>Obtenir la représentation interne d&rsquo;un nombre à virgule flottante en Python :</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">struct</span>
+
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">float_rep</span>(num: <span style="color:#366">float</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">str</span>:
+    <span style="color:#c30">&#34;&#34;&#34;
+</span><span style="color:#c30">    Renvoie les 64 bits de la représentation interne en précision double
+</span><span style="color:#c30">    s : signe     : 1 bit
+</span><span style="color:#c30">    e : exposant  : 11 bits
+</span><span style="color:#c30">    m : mantisse  : 52 bits
+</span><span style="color:#c30">    num = (-1)**s * 1,m * 2 ** (e - 1023)
+</span><span style="color:#c30">    &#34;&#34;&#34;</span>
+    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#39;&#39;</span><span style="color:#555">.</span>join(<span style="color:#c30">&#34;{:08b}&#34;</span><span style="color:#555">.</span>format(elem) <span style="color:#069;font-weight:bold">for</span> elem <span style="color:#000;font-weight:bold">in</span> struct<span style="color:#555">.</span>pack(<span style="color:#c30">&#39;!d&#39;</span>, num))
+</code></pre></div><ol start="2">
+<li><a href="https://www.exploringbinary.com/floating-point-converter/">floating point converter</a>, un outil en ligne.</li>
+</ol>
 </article>
 
       <div class="backtotop">
@@ -8478,6 +8496,7 @@ $$0,000000095 \times 100 \times 3600 \times 10 \approx 0,34s.$$</p>
       </ul>
     </li>
     <li><a href="#il-peut-y-avoir-des-conséquences">Il peut y avoir des conséquences</a></li>
+    <li><a href="#outils">Outils</a></li>
   </ul>
 </nav>
   </aside>
