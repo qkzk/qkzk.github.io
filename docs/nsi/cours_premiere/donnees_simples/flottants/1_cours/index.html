@@ -8111,7 +8111,7 @@ MathJax.Hub.Config({
 comme<br>
 <code>0,00000000000000000000000000000000000000000000000000000123</code> ou
 extrèmement grands comme<br>
-<code>8768678678687216381263816238612386,138716387168716871687138761278613</code> ?</p>
+<code>87686786786872163812638162386123861387163871687168,78613</code> ?</p>
 <p>La réponse à ce premier problème est la notation scientifique : $2.3772 \times 10^{32}$</p>
 <p>Une autre difficulté apparaît : les machines fonctionnent en base 2 tandis
 que nous utilisons quotidiennement la base 10.</p>
@@ -8132,7 +8132,7 @@ False
 <p>Les nombres sont alors appelés des <em>flottants</em> (<em>floats</em> en anglais)</p>
 <h3 id="légalité-de-deux-flottants-na-aucun-sens">L&rsquo;égalité de deux flottants n&rsquo;a aucun sens</h3>
 <h2 id="notation-positionnelle-des-décimaux">Notation positionnelle des décimaux</h2>
-<p>Dans le système décimal on utilise les puissances de 10 avant et position des
+<p>Dans le système décimal on utilise les puissances de 10 et la position des
 chiffres par rapport à la virgule indique la puissance correspondante :<br>
 Par exemple le nombre décimal 325,47 s&rsquo;écrit</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Position    100    10   1  virgule    1/10    1/100...
@@ -8142,7 +8142,7 @@ chiffres    3      2    5  .          4       7
 <p>On parle de nombres <em>dyadiques</em></p>
 <p>Par exemple : $4 + 2 + 1 + 1/2 + 1/8$ et s&rsquo;écrit en dyadique :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Position      4     2     1   virgule   1/2   1/4   1/8
-chiffres      1     1     0   .         1     0     1
+chiffres      1     1     1   .         1     0     1
 </code></pre></div><p>4 + 2 + 1 + 1/2 + 1/8 = 7.625</p>
 <h2 id="revenons-sur-01--02">Revenons sur 0,1 + 0,2</h2>
 <p>0,1 et 0,2 ont des notations décimales <em>finies</em> (ce sont des <em>décimaux</em>)</p>
@@ -8173,7 +8173,7 @@ des milliers de chiffres.</p>
 <p>La machine procède de la même manière en base 2.</p>
 <h2 id="nombre-dyadique">Nombre dyadique</h2>
 <p>Un <strong>nombre dyadique</strong> est s&rsquo;écrit :
-$$\pm(; 1,b1 \cdots bk;)_2 \times 2^e$$</p>
+$$\pm( 1,b1 \cdots bk)_2 \times 2^e$$</p>
 <p>où $b1,\ldots,bk$ sont des bits et $e$ est un entier relatif.</p>
 <p>La suite de bits $b1\ldots bk$ est la <em>mantisse</em> du nombre,<br>
 La puissance de 2 est <em>l’exposant</em> du nombre.</p>
@@ -8184,14 +8184,42 @@ La puissance de 2 est <em>l’exposant</em> du nombre.</p>
 <li>L&rsquo;exposant est <code>2</code></li>
 </ul>
 <h2 id="nombres-à-virgule-flottante-1">Nombres à virgule flottante</h2>
-<p>Dans cette norme, les nombres dyadiques sont codés sur 64 bits en réservant :</p>
+<p>La <em>norme IEE 754</em> de 1985 est adoptée par la majorité des langages informatiques modernes.</p>
+<p>Dans cette norme (IEE 754, double précision), les nombres dyadiques sont codés sur 64 bits en réservant :</p>
 <ul>
-<li>1 bit pour le signe ;</li>
-<li>11 bits pour l’exposant ;</li>
-<li>52 bits pour la mantisse.</li>
+<li>1 bit pour le signe $S$,</li>
+<li>11 bits pour l’exposant $E$,</li>
+<li>52 bits pour la mantisse $M$.</li>
 </ul>
-<p>\fbox{$s$}\fbox{ \qquad $e$ \qquad }\fbox{ \qquad\qquad\qquad $m$ \qquad\qquad\qquad  }</p>
-<p>Ce sont <em>les nombres à virgule flottante</em>.</p>
+<p>La valeur du nombre est alors :</p>
+<p>$$(-1)^S \times M \times 2^{E - 1033}$$</p>
+<p>Ce qu&rsquo;on peut résumer ainsi :</p>
+<table>
+<thead>
+<tr>
+<th>Norme</th>
+<th>Encodage</th>
+<th>Signe</th>
+<th>Exposant</th>
+<th>Mantisse</th>
+<th>Valeur</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Double précision</strong></td>
+<td>64 bits</td>
+<td>1 bit</td>
+<td>11 bits</td>
+<td>52 bits</td>
+<td>$$(-1)^S \times M \times 2^{E - 1033}$$</td>
+<td>53 bits</td>
+</tr>
+</tbody>
+</table>
+<p>Pour des questions techniques il est nécessaire d&rsquo;y inclure d&rsquo;autres objets comme <code>NaN</code> (<em>not a number</em>)
+et des infinis positifs et négatifs.</p>
 <h2 id="amplitude">Amplitude</h2>
 <p>Sans entrer dans les détails, en codant sur 64 bits on peut représenter des
 nombres entre :</p>
