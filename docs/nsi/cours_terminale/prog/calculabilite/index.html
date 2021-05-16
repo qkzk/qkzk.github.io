@@ -8093,26 +8093,77 @@ MathJax.Hub.Config({
 
       
 <article class="markdown"><h1 id="calculabilité---problème-de-larrêt-en-python">Calculabilité - Problème de l&rsquo;arrêt en Python</h1>
-<p>On dit qu&rsquo;une fonction termine si elle renvoie une valeur ou si elle lève une exception (par exemple <code>ZeroDivisionError</code> si une division par zéro est tentée). Une fonction peut terminer ou continuer à calculer à l&rsquo;infini. Ainsi, la fonction <code>ma_fonction</code> (voir ci-dessous), pour un entier <code>n</code>, termine pour <code>n</code> inférieur ou égal à 10 (elle renvoie None) et ne termine pas pour <code>n</code> strictement plus grand que 10. En outre, cette fonction termine pour une chaîne de caractères <code>n</code> (en levant l&rsquo;exception <code>TypeError</code> à cause de l&rsquo;opération <code>+</code>).</p>
+<h2 id="terminaison">Terminaison</h2>
+<p>On dit qu&rsquo;une fonction <strong>termine</strong> si elle renvoie une valeur ou si elle lève une exception (par exemple <code>ZeroDivisionError</code> si une division par zéro est tentée).</p>
+<p>Avec cette définition, seulement deux situations peuvent se présenter lorsqu&rsquo;on appelle une fonction :</p>
+<ul>
+<li>Elle <em>termine</em>,</li>
+</ul>
+<p>ou</p>
+<ul>
+<li>Elle <em>continue à calculer à l&rsquo;infini</em></li>
+</ul>
+<p>Ainsi, la fonction <code>ma_fonction</code> (voir ci-dessous), termine pour un entier <code>n</code> inférieur ou égal à 10 (elle renvoie <code>None</code>) et ne termine pas pour <code>n</code> strictement plus grand que 10.</p>
+<p>En outre, cette fonction termine pour une chaîne de caractères <code>n</code> (en levant l&rsquo;exception <code>TypeError</code> à cause de l&rsquo;opération <code>+</code>).</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ma_fonction</span> (n):
   <span style="color:#069;font-weight:bold">while</span> n <span style="color:#555">!=</span> <span style="color:#f60">10</span> :
     n <span style="color:#555">=</span> n <span style="color:#555">+</span> <span style="color:#f60">1</span>
-</code></pre></div><p>On pourrait penser qu&rsquo;il serait utile d&rsquo;avoir en Python une fonction arrêt, qui termine sur toutes les entrées possibles, et telle que <code>arret(f, x)</code> renvoie <code>True</code> si le calcul de <code>f(x)</code> termine et <code>False</code> sinon. Une telle fonction, si elle était ajoutée au langage, permettrait d&rsquo;éviter les boucles infinies en faisant un simple test.</p>
-<p>Si on voulait programmer une telle fonction, il serait naturel que la fonction <code>arret</code> accède au code de la fonction <code>f</code> (ce qui est possible grâce au module dis), et analyse ce code, par quelque moyen compliqué, pour en déduire si oui ou non le calcul de <code>f(x)</code> va un jour terminer.</p>
-<p>La question &quot; Est-il possible de programmer une telle fonction &quot; est connue sous le nom de &quot; problème de l&rsquo;arrêt &ldquo;. Nous allons montrer qu&rsquo;une telle fonction ne peut pas exister par un raisonnement par l&rsquo;absurde. Supposons que quelqu&rsquo;un ait réussi à programmer cette fonction arrêt. Nous pouvons alors l&rsquo;utiliser pour programmer la fonction <code>strange</code> suivante :</p>
+</code></pre></div><h2 id="de-lutilité-dune-fonction-arret">De l&rsquo;utilité d&rsquo;une fonction <code>arret</code></h2>
+<p>On pourrait penser qu&rsquo;il serait utile d&rsquo;avoir en Python une fonction arrêt :</p>
+<ul>
+<li>qui termine sur toutes les entrées possibles,</li>
+<li>telle que <code>arret(f, x)</code> renvoie <code>True</code> si le calcul de <code>f(x)</code> termine</li>
+<li>et <code>False</code> sinon.</li>
+</ul>
+<p>Une telle fonction, si elle était ajoutée au langage, permettrait d&rsquo;éviter les boucles infinies en faisant un simple test.</p>
+<p>Si on voulait programmer une telle fonction, il serait naturel que la fonction <code>arret</code> accède au code de la fonction <code>f</code> (ce qui est possible grâce au module  <code>dis</code>), et analyse ce code, par quelque moyen compliqué, pour en déduire si oui ou non le calcul de <code>f(x)</code> va un jour terminer.</p>
+<h2 id="le-problème-de-larrêt">Le Problème de l&rsquo;arrêt&hellip;</h2>
+<p>La question <em>Est-il possible de programmer une telle fonction ?</em> est connue sous le nom de <strong>problème de l&rsquo;arrêt</strong>.</p>
+<h2 id="est-impossible">est impossible.</h2>
+<p>Nous allons montrer qu&rsquo;une telle fonction ne peut pas exister.</p>
+<p>Pour cela, nous allons employer un raisonnement par l&rsquo;absurde.</p>
+<h3 id="hypothèse">Hypothèse</h3>
+<p>Supposons que quelqu&rsquo;un ait réussi à programmer cette fonction <code>arret</code>.</p>
+<h3 id="la-fonction-strange">La fonction <code>strange</code></h3>
+<p>Nous pouvons alors l&rsquo;utiliser pour programmer la fonction <code>strange</code> suivante :</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">strange</span>(f, x):
   <span style="color:#069;font-weight:bold">if</span> arret(f, x):
     <span style="color:#069;font-weight:bold">while</span> True:
       <span style="color:#069;font-weight:bold">pass</span>
-</code></pre></div><p>Cette fonction teste si le calcul de <code>f(x)</code> termine, si c&rsquo;est le cas, elle rentre dans une boucle infinie dans laquelle elle ne fait rien. Si ce n&rsquo;est pas le cas, elle ne fait rien et termine. Autrement dit, <code>strange(f, x)</code> termine si et seulement si <code>f(x)</code> ne termine pas.</p>
+</code></pre></div><p>Cette fonction teste si le calcul de <code>f(x)</code> termine.</p>
+<ul>
+<li>
+<p>si c&rsquo;est le cas, elle rentre dans une boucle infinie dans laquelle elle ne fait rien.</p>
+</li>
+<li>
+<p>Si ce n&rsquo;est pas le cas, elle ne fait rien et termine.</p>
+</li>
+</ul>
+<p><strong>Autrement dit, <code>strange(f, x)</code> termine si et seulement si <code>f(x)</code> ne termine pas.</strong></p>
+<h3 id="la-fonction-paradox">La fonction <code>paradox</code></h3>
 <p>La précédente fonction nous permet d&rsquo;en définir une nouvelle, la fonction <code>paradox</code>.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">paradox</span>(f):
   strange(f, f)
 </code></pre></div><p>Par construction, le calcul de <code>paradox(f)</code> termine si et seulement si le calcul de <code>f(f)</code> ne termine pas. Appelons (1) cette propriété.</p>
-<p>Maintenant, demandons-nous si le calcul de <code>paradox(paradox)</code> termine. Pour cela, dans la propriété (1), remplaçons <code>f</code> par <code>paradox</code>. La propriété devient : &quot; le calcul de paradox(paradox) termine si et seulement si le calcul de paradox(paradox) ne termine pas &ldquo;.</p>
-<p>Cette dernière propriété est évidemment contradictoire, fausse.</p>
-<p>Nous pouvons donc conclure notre raisonnement par l&rsquo;absurde et affirmer qu&rsquo;il est impossible de programmer la fonction arrêt.</p>
-<p>Remarque. Cela reste impossible même si on se limite à ce que les arguments de arrêt soient une fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>. Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représenté en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
+<h3 id="paradoxparadox-"><code>paradox(paradox)</code> ?</h3>
+<p>Maintenant, demandons-nous si le calcul de <code>paradox(paradox)</code> termine.</p>
+<p>Pour cela, dans la propriété (1), remplaçons <code>f</code> par <code>paradox</code>.</p>
+<p>La propriété devient : &quot; le calcul de paradox(paradox) termine si et seulement si le calcul de paradox(paradox) ne termine pas &ldquo;.</p>
+<p>Cette dernière propriété est évidemment absurde (elle se contredit elle même).</p>
+<p>Nous pouvons donc conclure notre raisonnement par l&rsquo;absurde et affirmer qu&rsquo;il est impossible de programmer la fonction <code>arret</code>.</p>
+<h3 id="remarque">Remarque</h3>
+<p>Cela reste impossible même si on se limite à ce que les arguments de arrêt soient une fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>. Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représenté en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
+<h2 id="complément">Complément</h2>
+<p>La résolution du problème de l&rsquo;arrêt par Alan Turing, en 1936 a eu de nombreuses conséquences
+en informatique et en mathématiques.</p>
+<p>En particulier, il n&rsquo;est pas possible d&rsquo;écrire un assistant de programmation qui repère
+tous les problèmes qu&rsquo;un code présente avant de l&rsquo;avoir exécuté.</p>
+<p>Il n&rsquo;est pas non plus possible d&rsquo;écrire un ramasse miette (<em>garbage collector</em>) qui soit parfait.
+Un ramasse miette cherche à libérer des zones de la mémoire après leur dernière utilisation
+dans un programme.
+Ces outils existent dans beaucoup de langages modernes (python, java, Golang etc.) mais
+ne sont jamais parfaits, en effet, l&rsquo;existance d&rsquo;un ramasse miette parfait est équivalente
+au problème de l&rsquo;arrêt.</p>
 </article>
 
       <div class="backtotop">
@@ -8157,7 +8208,23 @@ MathJax.Hub.Config({
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminaison">Terminaison</a></li>
+    <li><a href="#de-lutilité-dune-fonction-arret">De l&rsquo;utilité d&rsquo;une fonction <code>arret</code></a></li>
+    <li><a href="#le-problème-de-larrêt">Le Problème de l&rsquo;arrêt&hellip;</a></li>
+    <li><a href="#est-impossible">est impossible.</a>
+      <ul>
+        <li><a href="#hypothèse">Hypothèse</a></li>
+        <li><a href="#la-fonction-strange">La fonction <code>strange</code></a></li>
+        <li><a href="#la-fonction-paradox">La fonction <code>paradox</code></a></li>
+        <li><a href="#paradoxparadox-"><code>paradox(paradox)</code> ?</a></li>
+        <li><a href="#remarque">Remarque</a></li>
+      </ul>
+    </li>
+    <li><a href="#complément">Complément</a></li>
+  </ul>
+</nav>
   </aside>
 
 
