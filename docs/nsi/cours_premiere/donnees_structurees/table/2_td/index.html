@@ -33,6 +33,10 @@ https://github.com/alex-shpak/hugo-book
 
   
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +54,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -8225,7 +8237,129 @@ MathJax.Hub.Config({
 
       
 <article class="markdown"><h3 id="pdf--pour-impressionuploadsdocsnsitable_csv2_tdpdf">pdf : <a href="/uploads/docsnsi/table_csv/2_td.pdf">pour impression</a></h3>
-<h1 id="1-importer-une-table">1. Importer une table</h1>
+<h1 id="1-reconnaître-un-fichier-csv">1. Reconnaître un fichier csv</h1>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nom       prenom      date_naissance
+Dupont    Pierre      17/05/1987
+Dupond    Catherine   18/07/1981
+Haddock   Archibald   23/04/1998
+</code></pre></div><ol>
+<li>Quels sont les descripteurs de ce tableau ?</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Nom,Pays,Temps
+Camille Muffat,France,241.45
+FranckyVincent,France,222,30
+Geronomo,Apache, France,212.12
+</code></pre></div><ol start="2">
+<li>Rectifiez les erreurs dans le fichier csv ci-dessus.</li>
+</ol>
+<h3 id="qcm">QCM</h3>
+<ol>
+<li>
+<p>Qu&rsquo;est-ce que le format de fichier CSV ?</p>
+<p>A. un format de fichier mis au point par Microsoft pour Excel</p>
+<p>B. un format de fichier pour décrire une base de données</p>
+<p>C. un format de fichier où les données sont séparées par un caractère tel qu&rsquo;une virgule</p>
+<p>D. un format de fichier décrivant une page Web</p>
+</li>
+<li>
+<p>Laquelle de ces affirmations est vraie ?</p>
+<p>A. on ne peut accéder au contenu d&rsquo;un fichier CSV que par l&rsquo;intermédiaire d&rsquo;un programme Python</p>
+<p>B. CSV est un format de chiffrement des données</p>
+<p>C. le format CSV a été conçu pour asssurer la confidentialité d&rsquo;une partie du code d&rsquo;un programme</p>
+<p>D. les fichiers CSV sont composés de données séparées par des caractères comme des virgules</p>
+</li>
+<li>
+<p>Dans la plupart des fichiers CSV, que contient la première ligne ?</p>
+<p>A. des notes concernant la table de données</p>
+<p>B. les sources des données</p>
+<p>C. les descripteurs des champs de la table de données</p>
+<p>D. l&rsquo;auteur de la table de données</p>
+</li>
+</ol>
+<h1 id="1-sélection-et-projections-depuis-une-table-donnée">1. Sélection et projections depuis une table donnée</h1>
+<p>On considère la table suivante :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">repertoire <span style="color:#555">=</span> [
+    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Ducobu&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raoul&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612345678&#34;</span>},
+    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Dreoul&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raymond&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0734567812&#34;</span>},
+    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Jacqueline&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612341234&#34;</span>},
+    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Mersin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Tania&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0788990011&#34;</span>},
+]
+</code></pre></div><ol>
+<li>Donner la valeur de la liste construite dans chacune des sélections suivantes :</li>
+</ol>
+<p>a. $,$</p>
+<pre><code>  ```python
+  liste = []
+  for enregistrement in repertoire:
+      if enregistrement[&quot;nom&quot;] == &quot;Ducobu&quot;:
+          liste.append(enregistrement)
+  ```
+</code></pre>
+<p>b. $;$</p>
+<pre><code>  ```python
+  liste = [enre for enre in repertoire if &quot;12&quot; in enre[&quot;tel&quot;]]
+  ```
+</code></pre>
+<ol start="2">
+<li>
+<p>Construire l&rsquo;enregistrement des personnes dont le nom comporte un &ldquo;r&rdquo;.</p>
+</li>
+<li>
+<p>Donner le résultat de la projection suivante :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">proj <span style="color:#555">=</span> [enregistrement[<span style="color:#c30">&#34;prenom&#34;</span>] <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> repertoire]
+</code></pre></div></li>
+<li>
+<p>Constuire la projection des téléphones du répertoire.</p>
+</li>
+</ol>
+<h1 id="2-importer-et-manipuler-une-table">2. Importer et manipuler une table</h1>
+<p>On dispose du fichier « info.csv » donné ci-dessous :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nom, prenom, naissance, deces
+lovelace, ada, 1815, 1852
+von neumann, john, 1903, 1957
+turing, alan, 1912, 1954
+mccarthy, john, 1927, 2011
+floyd, robert, 1935, 2001
+</code></pre></div><p>Le programme ci-dessous nous permet de créer un tableau à partir de ce fichier.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#366">file</span> <span style="color:#555">=</span> <span style="color:#366">open</span>(<span style="color:#c30">&#34;info.csv&#34;</span>, <span style="color:#c30">&#34;r&#34;</span>)
+firstLine <span style="color:#555">=</span> <span style="color:#366">file</span><span style="color:#555">.</span>readline()	    <span style="color:#09f;font-style:italic"># chargement de la ligne d’entête</span>
+tableau <span style="color:#555">=</span> [line<span style="color:#555">.</span>split(<span style="color:#c30">&#39;,&#39;</span>) <span style="color:#069;font-weight:bold">for</span> line <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">file</span>]  <span style="color:#09f;font-style:italic"># chargement des données</span>
+</code></pre></div><p>Détaillons ce programme :</p>
+<ol>
+<li>On charge le fichier dans la variable <code>file</code></li>
+<li>on lit la première ligne, et on avance ainsi d&rsquo;une ligne dans le fichier.</li>
+<li>On crée un tableau à deux dimensions. Chaque ligne du tableau correspond
+à une ligne de valeurs du fichier. La première ligne est
+<code>[&quot;lovelace&quot;, &quot;ada&quot;, &quot;1815&quot;, &quot;1852&quot;]</code>.</li>
+</ol>
+<p>Techniquement : <code>line</code> est un <code>str</code> et la méthode <code>.split(',')</code> va séparer
+cette chaîne en une liste de <code>str</code> autour de chaque virgule.</p>
+<p>Remarquons que tous les éléments des enregistrements sont des <code>str</code> !</p>
+<h2 id="questions">Questions</h2>
+<ol>
+<li>
+<p>Combien d&rsquo;éléments comporte la liste <code>tableau</code> ?</p>
+</li>
+<li>
+<p>Évaluez <code>tableau[2]</code>.</p>
+</li>
+<li>
+<p>Évaluez <code>tableau[1][3]</code></p>
+</li>
+<li>
+<p>Comment accéder à l&rsquo;année de décès de John McCarthy ?</p>
+</li>
+<li>
+<p>Modifier l&rsquo;année de naissance de Robert Floyd qui est né en 1936.</p>
+</li>
+<li>
+<p>Réaliser la sélection des informaticiens décédés avant 1952 :</p>
+<p>a. Directement en repérant les lignes intéressantes,
+b. À l&rsquo;aide d&rsquo;une boucle et d&rsquo;un test adaptable à un fichier beaucoup
+plus rempli. On prendra garde au <em>type</em> des données dans <code>tableau</code> !</p>
+</li>
+</ol>
+<h1 id="3-importer-une-table">3. Importer une table</h1>
 <p>On considère le fichier csv <code>films.csv</code> dont voici un extrait.</p>
 <p><img src="/uploads/docsnsi/table_csv/data-visualization-movies_csv-1024x686.png" alt="films">{height=300px}</p>
 <p>Pour chaque question on donnera une syntaxe Python permettant d&rsquo;obenir la
@@ -8236,7 +8370,7 @@ réponse ainsi que la valeur de celle-ci lorsque l&rsquo;information est connue.
 <li>Combien de champs différents comporte cette table ?</li>
 <li>Quelles sont les différents champs ?</li>
 </ol>
-<h1 id="2-exporter-une-table-sélections-projections">2. Exporter une table, sélections, projections</h1>
+<h1 id="4-exporter-une-table-sélections-projections">4. Exporter une table, sélections, projections</h1>
 <p>Les joueurs d&rsquo;échecs sont classés selon les résultats de leurs parties.
 Chaque partie permet de gagner ou perdre des points élo et les joueurs
 sont classés selon leur score.</p>
@@ -8332,6 +8466,18 @@ Si <code>nombre</code> est trop grand on se limitera à la taille du tableau.</l
         <li><a href="#pdf--pour-impressionuploadsdocsnsitable_csv2_tdpdf">pdf : <a href="/uploads/docsnsi/table_csv/2_td.pdf">pour impression</a></a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#qcm">QCM</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#questions">Questions</a></li>
   </ul>
 
   <ul>
