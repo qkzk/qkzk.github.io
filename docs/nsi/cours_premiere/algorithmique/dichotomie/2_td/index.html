@@ -13,7 +13,7 @@
   
     
     
-    Travaux dirigés : Dichotomie
+    TD : dichotomie
   
  | qkzk</title>
 
@@ -1479,7 +1479,7 @@ MathJax.Hub.Config({
   
     
     
-    Dichotomie
+    Cours : dichotomie
   
 
       </a>
@@ -1512,7 +1512,7 @@ MathJax.Hub.Config({
   
     
     
-    Travaux dirigés : Dichotomie
+    TD : dichotomie
   
 
       </a>
@@ -8263,7 +8263,7 @@ MathJax.Hub.Config({
   
     
     
-    Travaux dirigés : Dichotomie
+    TD : dichotomie
   
 </strong>
 </header>
@@ -8271,7 +8271,18 @@ MathJax.Hub.Config({
       
 <article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsialgodichodichotomie_tdpdf">pdf <a href="/uploads/docsnsi/algo/dicho/dichotomie_td.pdf">pour impression</a></h3>
 <h1 id="recherche-dichotomique-dans-un-tableau-trié">Recherche dichotomique dans un tableau trié.</h1>
-<h2 id="1-faire-tourner-à-la-main">1. Faire tourner à la main</h2>
+<h2 id="1-recherche-dichotomique">1. Recherche dichotomique</h2>
+<ol>
+<li>Peut-on appliquer la recherche dichotomique au tableau <code>[-4, 1, 3, 0, 5, 8]</code>
+pour rechercher le nombre 2 ? Justifier.</li>
+<li>Combien d&rsquo;itérations vont être nécessaires à la recherche dichotomique vue
+en cours pour trouver <code>15</code> dans le tableau <code>[1, 2, 15, 17, 30]</code> ?</li>
+</ol>
+<p>Même question pour trouver l&rsquo;élément <code>2</code>.
+2. Même question pour <code>[-4, -2, 0, 2, 10, 15, 18]</code> et les éléments <code>15</code> puis <code>2</code>.
+3. Quand on multiplie par 2 la taille du tableau, de combien augmente le nombre
+d&rsquo;itération d&rsquo;une recherche dichotomique ?</p>
+<h2 id="2-faire-tourner-à-la-main">2. Faire tourner à la main</h2>
 <p>On rappelle l&rsquo;algorithme de recherche dichotomique dans un tableau trié.</p>
 <p>On dispose d&rsquo;un tableau d&rsquo;éléments triés par ordre croissant.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction appartient(tableau, element)
@@ -8380,7 +8391,7 @@ précédents.
 c. Expliquer le problème.</p>
 </li>
 </ol>
-<h2 id="2-programmer">2. Programmer</h2>
+<h2 id="3-programmer">3. Programmer</h2>
 <ol>
 <li>
 <p>Traduire en Python l&rsquo;algorithme proposé dans l&rsquo;exercice 1. On n&rsquo;oubliera
@@ -8403,7 +8414,35 @@ suivante :</p>
        indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">3</span>) <span style="color:#555">==</span> <span style="color:#f60">4</span>
 </code></pre></div></li>
 </ol>
-<h2 id="3-résoudre-numériquement-une-équation">3. Résoudre numériquement une équation</h2>
+<h2 id="4-dichotomie-et-présence-dex-aequo">4. Dichotomie et présence d&rsquo;ex aequo</h2>
+<p>La fonction <code>bisect_left(t, v)</code> de Python (<code>from bisect import bisect_left</code>) est
+une variante de la recherche dichotomique vue en cours qui renvoie systématiquement
+le premier indice <code>i</code> de <code>t</code> tel que <code>t[i] &gt;= v</code> (alors que la recherche dichotomique
+renvoie un indice quelconque <code>i</code> tel que <code>t[i] == v</code> et -1 s&rsquo;il n&rsquo;en existe pas).
+La complexité de <code>bisect_left</code> est logarithmique.</p>
+<p>Soit <code>t</code> le tableau <code>[1, 3, 7, 9]</code></p>
+<ol>
+<li>
+<p>Quel sera le résultat de <code>bisect_left(t, 5)</code> ?</p>
+</li>
+<li>
+<p>Même question avec le tableau <code>t = [1, 1, 3, 3, 3, 7, 9]</code> et l&rsquo;instruction <code>bisect_left(t, 3)</code>.</p>
+</li>
+<li>
+<p>On enregistre dans la variable <code>indice</code> le résultat de l&rsquo;instruction précédente.
+Quel sera la valeur de <code>t</code> après l&rsquo;instruction : <code>t.insert(indice, 5)</code> ?</p>
+</li>
+<li>
+<p>De manière générale, on considère un tableau <code>t</code> et les deux instructions suivantes :</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">indice <span style="color:#555">=</span> bisect_left(t, valeur)
+t<span style="color:#555">.</span>insert(indice, valeur)
+</code></pre></div><p>Que peut-on dire de l&rsquo;état de <code>t</code> après ces instructions ?</p>
+</li>
+<li>
+<p>Quel-est le rôle de la fonction <code>bisect_left</code> ?</p>
+</li>
+</ol>
+<h2 id="4-résoudre-numériquement-une-équation">4. Résoudre numériquement une équation</h2>
 <p><em>Les méthodes numériques permettent de calculer de manière effective des
 solutions numériques à divers problèmes, souvent liés à la physique. Nous
 abordons ici la méthode dichotomique utilisée pour résoudre des équations.</em></p>
@@ -8415,7 +8454,7 @@ variable réelle.</p>
 <p>Cette méthode peut être utilisée dans les cas où une solution analytique n&rsquo;est
 pas connue.</p>
 <p>Dans toute la suite, on supposera que $f$ est une fonction continue.<br>
-On admet que s&rsquo;il existe $a &lt; b$ tels que $f(a) \times f(b) &lt; 0$ alors, il
+On admet que s&rsquo;il existe $a \textless b$ tels que $f(a) \times f(b) \textless 0$ alors, il
 existe $c \in [a;b]$ tel que $f(c) = 0$.</p>
 <ol>
 <li>
@@ -8565,9 +8604,11 @@ boucle.</p>
   </ul>
 
   <ul>
-    <li><a href="#1-faire-tourner-à-la-main">1. Faire tourner à la main</a></li>
-    <li><a href="#2-programmer">2. Programmer</a></li>
-    <li><a href="#3-résoudre-numériquement-une-équation">3. Résoudre numériquement une équation</a>
+    <li><a href="#1-recherche-dichotomique">1. Recherche dichotomique</a></li>
+    <li><a href="#2-faire-tourner-à-la-main">2. Faire tourner à la main</a></li>
+    <li><a href="#3-programmer">3. Programmer</a></li>
+    <li><a href="#4-dichotomie-et-présence-dex-aequo">4. Dichotomie et présence d&rsquo;ex aequo</a></li>
+    <li><a href="#4-résoudre-numériquement-une-équation">4. Résoudre numériquement une équation</a>
       <ul>
         <li><a href="#énoncé">Énoncé</a></li>
         <li><a href="#feuille-de-route">Feuille de route</a></li>
