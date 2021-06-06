@@ -33,10 +33,6 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-<script src="//yihui.name/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -54,14 +50,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <script type="text/x-mathjax-config">
@@ -1309,12 +1297,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_1/" >
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/1_select/" >
         
   
     
     
-    Partie 1
+    Introduction : selection
   
 
       </a>
@@ -1342,12 +1330,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_2/" >
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/2_td_select/" >
         
   
     
     
-    Partie 2
+    TD - tri sélection
   
 
       </a>
@@ -1375,12 +1363,12 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_3/" >
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/3_insert/" >
         
   
     
     
-    Partie 3
+    Insertion et sorted
   
 
       </a>
@@ -1408,12 +1396,78 @@ MathJax.Hub.Config({
         
   
     <span class="caret">
-      <a href="/docs/nsi/cours_premiere/algorithmique/tris/partie_4/" >
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/4_td_insert_sorted/" >
         
   
     
     
-    Partie 4
+    TD - tri insertion
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/5_cout/" >
+        
+  
+    
+    
+    Complexité et correction
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/nsi/cours_premiere/algorithmique/tris/6_td_cout/" >
+        
+  
+    
+    
+    TD : Complexité
   
 
       </a>
@@ -8203,407 +8257,8 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><p>Cette version du cours est &ldquo;complète&rdquo; mais indigeste. Vous pouvez l&rsquo;utiliser
-<strong>après</strong> avoir vu la version détaillée et étalée.</p>
-<h1 id="trier">Trier</h1>
-<h2 id="trier--définition">Trier : définition.</h2>
-<dl>
-<dt>Algorithme de <strong>tri</strong></dt>
-<dd>
-<p>Algorithme qui, partant d&rsquo;une liste, renvoie une version <strong>ordonnée</strong> de la liste.</p>
-</dd>
-</dl>
-<p>$$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$</p>
-<h2 id="variété">Variété</h2>
-<p>Il existe de nombreux algorithmes de tri. On peut citer, parmi les plus courants :</p>
-<ul>
-<li>Tri par insertion</li>
-<li>Tri par selection</li>
-<li>Tri à bulle</li>
-<li>Tri rapide</li>
-<li>Tri fusion</li>
-<li>Tri par tas</li>
-<li>Tri par comparaison</li>
-<li>Smoothsort</li>
-<li>Timsort</li>
-</ul>
-<h2 id="pourquoi-en-faire-autant-">Pourquoi en faire autant ?</h2>
-<p>Deux raisons essentielles :</p>
-<ol>
-<li>Les applications sont fréquentes</li>
-<li>Les applications sont variées</li>
-</ol>
-<h2 id="pourquoi-trier-">Pourquoi trier ?</h2>
-<p>Et bien, remarquons qu&rsquo;on peut trier à peu près n&rsquo;importe quoi. Le tout est de définir une <em>comparaison</em></p>
-<ul>
-<li>Fichiers par taille,</li>
-<li>Livres par ordre alphabétique</li>
-<li>Dossier par profondeur dans une arborescence,</li>
-<li>Joueurs par score,</li>
-<li>Fichiers par date d&rsquo;édition etc.</li>
-</ul>
-<h2 id="mais-pourquoi-aurait-on-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</h2>
-<p>À nouveau car les applications varient.</p>
-<ul>
-<li>Si les données sont très nombreuses on va limiter la <strong>complexité calculatoire</strong></li>
-<li>Si les données occupent beaucoup d&rsquo;espace, on est tenté de limiter la <strong>complexité spatiale</strong></li>
-</ul>
-<h2 id="doit-on-programmer-nous-même-pour-trier-">Doit-on programmer nous même pour trier ?</h2>
-<p>Tout dépend des langages ! Python (mais beaucoup d&rsquo;autres aussi) dispose de son propre tri qui est le plus efficace à ma connaissance.</p>
-<p>Python emploie <a href="https://fr.wikipedia.org/wiki/Timsort">Timsort</a> (<em>Tim Peters</em>, 2002) qui résout à la fois presque tous les problèmes :</p>
-<ol>
-<li>Meilleure complexité calculatoire dans la majorité des cas</li>
-<li>Complexité spatiale parmi les meilleures</li>
-<li>Très rapide en pratique ($\neq$ 1.)</li>
-</ol>
-<h2 id="python">Python</h2>
-<p>2 méthodes différentes :</p>
-<ol>
-<li><code>liste.sort()</code> : <strong>seulement les listes</strong></li>
-</ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> liste <span style="color:#555">=</span> [<span style="color:#f60">4</span>,<span style="color:#f60">3</span>,<span style="color:#f60">2</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> liste<span style="color:#555">.</span>sort() <span style="color:#09f;font-style:italic"># change la liste !</span>
-<span style="color:#555">&gt;&gt;&gt;</span> liste
-[<span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
-</code></pre></div><ol start="2">
-<li><code>sorted(objet)</code> : tous les objets <strong>itérables</strong></li>
-</ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> strs <span style="color:#555">=</span> [<span style="color:#c30">&#39;ccc&#39;</span>, <span style="color:#c30">&#39;aaaa&#39;</span>, <span style="color:#c30">&#39;d&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">sorted</span>(strs, key<span style="color:#555">=</span><span style="color:#366">len</span>) <span style="color:#09f;font-style:italic"># ne change pas l&#39;objet</span>
-[<span style="color:#c30">&#39;d&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>, <span style="color:#c30">&#39;ccc&#39;</span>, <span style="color:#c30">&#39;aaaa&#39;</span>]
-</code></pre></div><!-- ne pas entrer dans les détails -->
-<h1 id="algorithmes-de-tri">Algorithmes de tri</h1>
-<h2 id="on-ne-fera-pas-mieux-que-python-">On ne fera pas mieux que Python !</h2>
-<p>Ah non, c&rsquo;est sûr. Si vous inventez un algorithme aussi efficace cette année, mon devoir est de vous signaler auprès des gens compétents pour qu&rsquo;ils vous proposent l&rsquo;avenir que vous méritez.</p>
-<p>En clair, c&rsquo;est très compliqué. On va se contenter d’effleurer le problème.</p>
-<h2 id="quallons-nous-étudier-alors-">Qu&rsquo;allons nous étudier alors ?</h2>
-<p>Le programme demande d&rsquo;étudier en détail le <strong>tri par insertion</strong> et le <strong>tri par sélection</strong>.</p>
-<p>J&rsquo;ajouterai <strong>Le tri à bulle</strong>, <strong>le tri fusion</strong> et <strong>le tri rapide</strong></p>
-<h2 id="comparons-ces-exemples-">Comparons ces exemples :</h2>
-<table>
-<thead>
-<tr>
-<th>Nom</th>
-<th>Cas moyen</th>
-<th>Pire des cas</th>
-<th>Espace</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fusion</td>
-<td>$n \log n$</td>
-<td>$n \log n$</td>
-<td>$n$</td>
-</tr>
-<tr>
-<td>Rapide</td>
-<td>$n \log n$</td>
-<td>$n^2$</td>
-<td>$n$</td>
-</tr>
-<tr>
-<td>Insertion</td>
-<td>$n^2$</td>
-<td>$n^2$</td>
-<td>$1$</td>
-</tr>
-<tr>
-<td>Selection</td>
-<td>$n^2$</td>
-<td>$n^2$</td>
-<td>$1$</td>
-</tr>
-<tr>
-<td>Bulle</td>
-<td>$n^2$</td>
-<td>$n^2$</td>
-<td>$1$</td>
-</tr>
-</tbody>
-</table>
-<p>$\log n$ croît moins vite que $n$ vers l'$\infty$</p>
-<p>$n \log n$ : mieux que $n^2$</p>
-<h2 id="limites-contraintes-en-théorie">Limites, contraintes (en théorie)</h2>
-<ul>
-<li>En terme de complexité calculatoire, $n \log n$ est mieux que $n^2$
-Un tri <em>par comparaison</em> ne peut pas faire mieux que ça.</li>
-<li>En terme de complexité spatiale, $1$ c&rsquo;est le mieux. L&rsquo;algorithme n&rsquo;utilise que l&rsquo;espace de départ.</li>
-<li>Les deux en même temps ? C&rsquo;est impossible&hellip; sans info supplémentaire.</li>
-</ul>
-<h2 id="les-usages-sont-nombreux-et-différents">Les usages sont nombreux et différents</h2>
-<ul>
-<li>Peu de données ? un algorithme simple est parfois le meilleur (insertion / selection)</li>
-<li>Beaucoup de données ? Timsort (Fusion + insertion), introsort (rapide + par tas)</li>
-<li>Enormément de données ? Il faut sortir l&rsquo;artillerie lourde&hellip;</li>
-</ul>
-<h1 id="tri-par-insertion">Tri par insertion</h1>
-<h2 id="présentation">Présentation</h2>
-<p>C&rsquo;est le tri du joueur de carte.</p>
-<ul>
-<li>On itère sur la liste.
-<ul>
-<li>Chaque nouvel élément est inséré à sa place parmi les éléments déjà triés .</li>
-<li>On recommence jusqu&rsquo;à épuisement.</li>
-</ul>
-</li>
-</ul>
-<p>Tri <em>stable</em> : il ne change pas l&rsquo;ordre de deux éléments &ldquo;égaux&rdquo;
-Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
-<h2 id="exemple">Exemple</h2>
-<p><img src="/uploads/docsnsi/algo/insertionsort.png" alt="Exemple"></p>
-<h2 id="pseudo-code">Pseudo code</h2>
-<pre><code>i = 1
-Tant que i &lt; longueur(A)
-    j = i
-    Tant que j &gt; 0 et A[j-1] &gt; A[j]
-        echanger A[j] et A[j-1]
-        j = j - 1
-    fin tant que
-    i = i + 1
-fin tant que
-</code></pre>
-<h2 id="python--tri-par-insertion">Python : tri par insertion</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(A):
-    i <span style="color:#555">=</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">while</span> i <span style="color:#555">&lt;</span> <span style="color:#366">len</span>(A):
-        j <span style="color:#555">=</span> i
-        <span style="color:#069;font-weight:bold">while</span> j <span style="color:#555">&gt;</span> <span style="color:#f60">0</span> <span style="color:#000;font-weight:bold">and</span> A[j<span style="color:#555">-</span><span style="color:#f60">1</span>] <span style="color:#555">&gt;</span> A[j]:
-            A[j<span style="color:#555">-</span><span style="color:#f60">1</span>], A[j] <span style="color:#555">=</span> A[j], A[j<span style="color:#555">-</span><span style="color:#f60">1</span>]
-            j <span style="color:#555">=</span> j <span style="color:#555">-</span> <span style="color:#f60">1</span>
-        i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">1</span>
-</code></pre></div><p><a href="http://interactivepython.org/courselib/static/pythonds/SortSearch/TheInsertionSort.html">InteractivePython.org</a></p>
-<h1 id="tri-par-selection">Tri par selection</h1>
-<h2 id="présentation-1">Présentation</h2>
-<p>Amélioration du tri à bulle.</p>
-<p>On sépare la liste en 2 parties :</p>
-<ul>
-<li>déjà triés (construite gauche à droite)</li>
-<li>pas encore triés.</li>
-</ul>
-<p>On commence avec une liste déjà triée vide.
-On itère sur la liste et, à chaque tour on range le plus petit élément de la liste non triée à droite de la liste triée.</p>
-<p>Tri <em>stable</em> : il ne change pas l&rsquo;ordre de deux éléments &ldquo;égaux&rdquo;
-Tri en <em>place</em> : il n&rsquo;utilise pas plus de mémoire</p>
-<h2 id="exemple-1">Exemple</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Triés</th>
-<th style="text-align:center">Non Triés</th>
-<th style="text-align:center">Plus petit restant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">()</td>
-<td style="text-align:center">(1, 3, 4, 2)</td>
-<td style="text-align:center">(1)</td>
-</tr>
-<tr>
-<td style="text-align:center">(1)</td>
-<td style="text-align:center">(3, 4, 2)</td>
-<td style="text-align:center">(2)</td>
-</tr>
-<tr>
-<td style="text-align:center">(1, 2)</td>
-<td style="text-align:center">(3, 4)</td>
-<td style="text-align:center">(3)</td>
-</tr>
-<tr>
-<td style="text-align:center">(1, 2, 3)</td>
-<td style="text-align:center">(4)</td>
-<td style="text-align:center">(4)</td>
-</tr>
-<tr>
-<td style="text-align:center">(1, 2, 3, 4)</td>
-<td style="text-align:center">()</td>
-<td style="text-align:center">()</td>
-</tr>
-</tbody>
-</table>
-<h2 id="pseudo-code-1">Pseudo code</h2>
-<pre><code>tri_selection(tableau t, entier n)
-    pour i de 1 à n - 1
-        min = i
-        pour j de i + 1 à n
-            si t[j] &lt; t[min], alors min = j
-        fin pour
-        si min = i, alors échanger t[i] et t[min]
-    fin pour
-</code></pre>
-<h2 id="python-1">Python</h2>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(a):
-  n <span style="color:#555">=</span> <span style="color:#366">len</span>(a)
-  <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
-    m <span style="color:#555">=</span> i  <span style="color:#09f;font-style:italic"># on cherche l&#39;indice du min</span>
-    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(i<span style="color:#555">+</span><span style="color:#f60">1</span>, n):
-      <span style="color:#069;font-weight:bold">if</span> a[m] <span style="color:#555">&gt;</span> a[j]:
-        m <span style="color:#555">=</span> j
-    a[m],a[i] <span style="color:#555">=</span> a[i],a[m] <span style="color:#09f;font-style:italic"># on echange</span>
-</code></pre></div><p><a href="http://interactivepython.org/courselib/static/pythonds/SortSearch/TheSelectionSort.html">InteractivePython</a></p>
-<h1 id="invariants-de-boucle">Invariants de boucle</h1>
-<h2 id="comment-sait-on-que-ça-fonctionne-">Comment sait-on que ça fonctionne ?</h2>
-<p>Question pertinente !</p>
-<p>On s&rsquo;en assure</p>
-<ol>
-<li>en cherchant une propriété vérifiée à chaque itération de la boucle : <strong>un invariant de boucle</strong>,</li>
-<li>en prouvant que l&rsquo;itération <strong>se termine bien</strong>.</li>
-</ol>
-<p>## Invariants de boucle</p>
-<p>C&rsquo;est une propriété qui est <strong>vraie à chaque étape d&rsquo;une boucle</strong></p>
-<h2 id="tri-par-insertion--invariant-et-terminaison">Tri par insertion : invariant et terminaison</h2>
-<h3 id="tri-par-insertion-1">Tri par insertion</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">i = 1
-Tant que i &lt; longueur(A)
-    j = i
-    Tant que j &gt; 0 et A[j-1] &gt; A[j]
-        echanger A[j] et A[j-1]
-        j = j - 1
-    fin tant que
-    i = i + 1
-fin tant que
-</code></pre></div><h2 id="tri-par-insertion--invariant-et-terminaison-1">Tri par insertion : invariant et terminaison</h2>
-<h3 id="invariant">Invariant</h3>
-<p>Les <code>i</code> premiers éléments sont triés.</p>
-<ol>
-<li>C&rsquo;est vrai dès le départ car on commence à <code>i = 1</code></li>
-<li>Cela reste vrai car on ajoute le nouvel élément à sa place.</li>
-</ol>
-<h3 id="terminaison">Terminaison</h3>
-<ol>
-<li>À chaque tour de la boucle extérieure, la liste restante diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> diminue. Elle s&rsquo;arrête bien.</li>
-</ol>
-<h2 id="tri-par-selection--invariant-et-terminaison">Tri par selection : invariant et terminaison</h2>
-<h3 id="tri-par-selection-1">Tri par selection</h3>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tri_selection(tableau t, entier n)
-    pour i de 1 à n - 1
-        min = i
-        pour j de i + 1 à n
-            si t[j] &lt; t[min], alors min = j
-        fin pour
-        si min = i, alors échanger t[i] et t[min]
-    fin pour
-</code></pre></div><h2 id="tri-par-sélection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</h2>
-<h3 id="invariant-1">Invariant</h3>
-<p>Les <code>i</code> premiers éléments sont triés.</p>
-<ol>
-<li>C&rsquo;est vrai dès le départ car on commence à <code>i = 1</code></li>
-<li>Cela reste vrai car on ajoute à droite un élément plus grand que les autres.</li>
-</ol>
-<h3 id="terminaison-1">Terminaison</h3>
-<ol>
-<li>À chaque tour de la boucle extérieure, la liste restante diminue.</li>
-<li>À chaque tour de la boucle intérieure, <code>j</code> augmente. Elle s&rsquo;arrête bien.</li>
-</ol>
-<h1 id="complexité-du-tri-par-insertion">Complexité du tri par insertion</h1>
-<h2 id="complexité-calculatoire-complexité-en-espace">Complexité calculatoire, complexité en espace</h2>
-<dl>
-<dt><strong>Complexité calculatoire</strong></dt>
-<dd>
-<p><strong>Majoration</strong> du <strong>nombre de calculs</strong> réalisés par un algorithme</p>
-</dd>
-<dt><strong>Complexité en espace</strong></dt>
-<dd>
-<p><strong>Majoration</strong> de <strong>l&rsquo;espace en mémoire</strong> nécessaire à un algorithme</p>
-</dd>
-</dl>
-<h2 id="étude-expérimentale">Étude expérimentale</h2>
-<ul>
-<li>On trie des tableaux de taille croissante de 1000 à 10000 par pas de 100
-<ul>
-<li>Déjà triés</li>
-<li>Aléatoires</li>
-<li>Triés par ordre inverse</li>
-</ul>
-</li>
-</ul>
-<h2 id="déjà-triés">Déjà triés</h2>
-<p><img src="/uploads/docsnsi/algo/insertion_complexite_best_case.png" alt="Déjà triés"></p>
-<p>Complexité ?</p>
-<h2 id="aléatoires">Aléatoires</h2>
-<p><img src="/uploads/docsnsi/algo/insertion_complexite_random.png" alt="Aléatoire"></p>
-<p>Complexité ?</p>
-<h2 id="triés-par-ordre-inverse">Triés par ordre inverse</h2>
-<p><img src="/uploads/docsnsi/algo/insertion_complexite_worst_case.png" alt="Triés par ordre inverse"></p>
-<p>Complexité ?</p>
-<h2 id="complexité--calcul-à-la-main">Complexité : calcul à la main</h2>
-<ul>
-<li><em>pire des cas</em> : liste triée à l&rsquo;envers.</li>
-<li>Pour simpliflier, on ne compte que les échanges.</li>
-<li>Dans ce cas, à chaque itération de la boucle intérieure, on parcourt toute la liste triée et on échange tous les couples d&rsquo;éléments avant d&rsquo;insérer.</li>
-<li>Celle-ci contenant <code>i</code> éléments, le nombre d&rsquo;échanges est :
-$$C = 1 + 2 + 3 + \cdots + n $$</li>
-</ul>
-<p>## Insertion : $O(n^2)$</p>
-<ul>
-<li>Remarquons qu&rsquo;on peut écrire $C$ à l&rsquo;envers :
-$$C \quad =\quad 1 \quad + \quad 2 \quad+ \cdots + (n-1) + \quad n $$
-$$C \quad =\quad n \quad + (n-1) + \cdots + \quad 2 \quad + \quad 1 $$</li>
-<li>On ajoute en colonne :
-$$2C \quad = (n+1) + (n+1) + \cdots + (n+1) + (n+1)$$
-$$2C = n(n+1)$$
-$$C = n(n+1)/2$$
-$C$ est toujours plus petit qu&rsquo;un polynôme en $n^2$.</li>
-</ul>
-<p>On note : $C = O(n^2)$</p>
-<p>Le tri par insertion est de complexité <strong>quadratique</strong></p>
-<h2 id="complexité-du-tri-par-selection">Complexité du tri par selection</h2>
-<ol>
-<li>Déterminer le pire des cas</li>
-<li>Construire les figures similaires à l&rsquo;étude expérimentale de l&rsquo;insertion
-<ul>
-<li>On trie des tableaux de taille croissante de 1000 à 10000 par pas de 100
-<ul>
-<li>Déjà triés</li>
-<li>Aléatoires</li>
-<li>Triés par ordre inverse</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Reprendre l&rsquo;algorithme, compter les échanges (et seulement les échanges) dans le pire des cas.</li>
-<li>Conclure</li>
-</ol>
-<h1 id="compléments">Compléments</h1>
-<h2 id="tri-à-bulles">Tri à bulles</h2>
-<p>Le plus facile à comprendre et implémenter</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tri_à_bulles(Tableau T)
-    pour i allant de taille de T - 1 à 1
-        tableau_trié = vrai
-        pour j allant de 0 à i - 1
-            si T[j+1] &lt; T[j]
-                échanger(T[j+1], T[j])
-                tableau_trié = faux
-        si tableau_trié
-            fin tri_à_bulles
-</code></pre></div><h2 id="tri-à-bulles-1">Tri à bulles</h2>
-<ul>
-<li>Complexite : $O(n^2)$</li>
-<li>Complexité en espace : constante (en place)</li>
-<li>Stable</li>
-<li>Meilleur cas : liste triée</li>
-<li>Pire des cas : liste triée à l&rsquo;envers</li>
-<li>Utilisation pratique : aucune, juste pédagogique.</li>
-<li>Des améliorations sont possibles : combsort (tri à peignes)</li>
-</ul>
-<p>## Tri à bulles en Python</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">bubble_sort</span>(l):
-    <span style="color:#069;font-weight:bold">while</span> True:
-        changement <span style="color:#555">=</span> False
-        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(l) <span style="color:#555">-</span> <span style="color:#f60">1</span>):
-            <span style="color:#069;font-weight:bold">if</span> l[i] <span style="color:#555">&gt;</span> l[i<span style="color:#555">+</span><span style="color:#f60">1</span>]:
-                l[i], l[i<span style="color:#555">+</span><span style="color:#f60">1</span>] <span style="color:#555">=</span> l[i<span style="color:#555">+</span><span style="color:#f60">1</span>], l[i]
-                changement <span style="color:#555">=</span> True
-        <span style="color:#069;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> changement:
-            <span style="color:#069;font-weight:bold">return</span> l
-</code></pre></div><h2 id="tri-fusion">Tri Fusion</h2>
-<p><img src="/uploads/docsnsi/algo//uploads/docsnsi/algo/mergesort.png" alt="Tri Fusion"></p>
-<p>Diviser pour régner : fusionner</p>
-<h2 id="tri-rapide">Tri rapide</h2>
-<p><img src="/uploads/docsnsi/algo/quicksort.png" alt="Tri rapide"></p>
-<p>Diviser pour régner : partitionner</p>
+<article class="markdown"><p>Les algorithmes de tri.</p>
+<p>Utilisez les menu pour naviguer.</p>
 </article>
 
       <div class="backtotop">
@@ -8648,82 +8303,7 @@ $C$ est toujours plus petit qu&rsquo;un polynôme en $n^2$.</li>
 
   <aside class="book-toc level-6 fixed">
     <h1>Table des matières</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#trier--définition">Trier : définition.</a></li>
-    <li><a href="#variété">Variété</a></li>
-    <li><a href="#pourquoi-en-faire-autant-">Pourquoi en faire autant ?</a></li>
-    <li><a href="#pourquoi-trier-">Pourquoi trier ?</a></li>
-    <li><a href="#mais-pourquoi-aurait-on-besoin-de-plusieurs-algorithmes-">Mais pourquoi aurait-on besoin de PLUSIEURS algorithmes ?</a></li>
-    <li><a href="#doit-on-programmer-nous-même-pour-trier-">Doit-on programmer nous même pour trier ?</a></li>
-    <li><a href="#python">Python</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#on-ne-fera-pas-mieux-que-python-">On ne fera pas mieux que Python !</a></li>
-    <li><a href="#quallons-nous-étudier-alors-">Qu&rsquo;allons nous étudier alors ?</a></li>
-    <li><a href="#comparons-ces-exemples-">Comparons ces exemples :</a></li>
-    <li><a href="#limites-contraintes-en-théorie">Limites, contraintes (en théorie)</a></li>
-    <li><a href="#les-usages-sont-nombreux-et-différents">Les usages sont nombreux et différents</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#présentation">Présentation</a></li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#pseudo-code">Pseudo code</a></li>
-    <li><a href="#python--tri-par-insertion">Python : tri par insertion</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#présentation-1">Présentation</a></li>
-    <li><a href="#exemple-1">Exemple</a></li>
-    <li><a href="#pseudo-code-1">Pseudo code</a></li>
-    <li><a href="#python-1">Python</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#comment-sait-on-que-ça-fonctionne-">Comment sait-on que ça fonctionne ?</a></li>
-    <li><a href="#tri-par-insertion--invariant-et-terminaison">Tri par insertion : invariant et terminaison</a>
-      <ul>
-        <li><a href="#tri-par-insertion-1">Tri par insertion</a></li>
-      </ul>
-    </li>
-    <li><a href="#tri-par-insertion--invariant-et-terminaison-1">Tri par insertion : invariant et terminaison</a>
-      <ul>
-        <li><a href="#invariant">Invariant</a></li>
-        <li><a href="#terminaison">Terminaison</a></li>
-      </ul>
-    </li>
-    <li><a href="#tri-par-selection--invariant-et-terminaison">Tri par selection : invariant et terminaison</a>
-      <ul>
-        <li><a href="#tri-par-selection-1">Tri par selection</a></li>
-      </ul>
-    </li>
-    <li><a href="#tri-par-sélection--invariant-et-terminaison">Tri par sélection : invariant et terminaison</a>
-      <ul>
-        <li><a href="#invariant-1">Invariant</a></li>
-        <li><a href="#terminaison-1">Terminaison</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#complexité-calculatoire-complexité-en-espace">Complexité calculatoire, complexité en espace</a></li>
-    <li><a href="#étude-expérimentale">Étude expérimentale</a></li>
-    <li><a href="#déjà-triés">Déjà triés</a></li>
-    <li><a href="#aléatoires">Aléatoires</a></li>
-    <li><a href="#triés-par-ordre-inverse">Triés par ordre inverse</a></li>
-    <li><a href="#complexité--calcul-à-la-main">Complexité : calcul à la main</a></li>
-    <li><a href="#complexité-du-tri-par-selection">Complexité du tri par selection</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#tri-à-bulles">Tri à bulles</a></li>
-    <li><a href="#tri-à-bulles-1">Tri à bulles</a></li>
-    <li><a href="#tri-fusion">Tri Fusion</a></li>
-    <li><a href="#tri-rapide">Tri rapide</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 
