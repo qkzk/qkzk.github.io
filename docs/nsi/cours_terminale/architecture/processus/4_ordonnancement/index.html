@@ -8178,6 +8178,39 @@ MathJax.Hub.Config({
   
     <ul  class="nested">
         
+          
+  
+    <li class="bookkkk">
+      
+        
+  
+    <span class="caret">
+      <a href="/docs/ressources/hugo/" >
+        
+  
+    
+    
+    Hugo
+  
+
+      </a>
+    </span>
+  
+
+      
+
+      
+  
+    <ul  class="nested">
+        
+    </ul>
+
+  
+
+    </li>
+  
+
+        
     </ul>
 
   
@@ -8442,6 +8475,25 @@ exécuté plusieurs fois (dans le temps ou par plusieurs utilisateurs
 simultanément) générera plusieurs processus.</p>
 </blockquote>
 <p>Chaque processus possède en mémoire les instructions à exécuter et ses données.</p>
+<h2 id="commutation-de-contexte">Commutation de contexte</h2>
+<p>La commutation de contexte consite à remplacer un processus P1 travaillant
+sur le processeur par un autre processus P2. Le système d&rsquo;exploitation
+doit alors :</p>
+<ol>
+<li>Sauvegarder l&rsquo;état d&rsquo;un processus P1 (registres CPU) quelque part en mémoire,
+par exemple sur sa pile d&rsquo;exécution,</li>
+<li>retrouver le contexte de P2 (par exemple depuis sa pile),</li>
+<li>restaurer le contexte de P2 sur le processeur,</li>
+<li>reprendre l&rsquo;exécution de P2 juste après sa dernière instruction.</li>
+</ol>
+<h2 id="coopératif-vs-préemptif">Coopératif vs préemptif</h2>
+<p>L&rsquo;ordonnanceur peut fonctionner selon deux modes :</p>
+<ul>
+<li><strong>collaboratif</strong> : les programmes doivent alors prévoir de passer eux-mêmes
+la main aux autres,</li>
+<li><strong>préemptif</strong> : l&rsquo;ordonnanceur peut à tout moment couper un processus
+dans son travail et le remplacer par un autre (avec la commutation de contexte).</li>
+</ul>
 <h2 id="lordonnancement">L&rsquo;ordonnancement</h2>
 <p>Le système d&rsquo;exploitation doit permettre à toutes les applications et tous
 les utilisateurs de travailler en même temps, c&rsquo;est-à-dire donner l&rsquo;impression
@@ -8470,7 +8522,7 @@ l&rsquo;ordonnanceur l&rsquo;alloue à un seul utilisateur.</p>
 nous pouvons citer :</p>
 <ul>
 <li>
-<p>le <strong>tourniquet</strong> : la ressource est affectée à chaque processus à tour
+<p>le <strong>tourniquet</strong> (<em>round robin</em>) : la ressource est affectée à chaque processus à tour
 de rôle. Pour l&rsquo;exécuation simultanée des processus, c&rsquo;est la rapidité
 de ce tour qui va donner l&rsquo;impression à chaque utilisateur que son processus
 est seul à utiliser le processeur. Cette méthode ancienne a les avantages
@@ -8549,7 +8601,8 @@ de sa simplicité, de sa rapidité de gestion et de sa robustesse.</p>
 <p>La mise en place d&rsquo;un système de <strong>priorités</strong> : l&rsquo;ordre d&rsquo;affectation
 de la ressource sera alors fonction de la priorité de la tâche. Cette
 méthode est très équitable, mais définition du niveau de priorité de la
-tâche doit être objective.</p>
+tâche doit être objective. Sous UNIX cette notion porte le nom de
+<em>niceness</em>.</p>
 </li>
 <li>
 <p>La gestion du <strong>premier entré, premier sorti</strong> (FIFO : <em>First In, First Out</em>).
@@ -8594,9 +8647,9 @@ documents sur une imprimante.</p>
 </table>
 </li>
 <li>
-<p>L&rsquo;algorithme du &ldquo;<strong>plus court d&rsquo;abord</strong>&rdquo; : très efficace pour satisfaire
-au mieux les utilisateurs, mais il n&rsquo;est pas toujours simple d&rsquo;évaluer
-le temps d&rsquo;exécution d&rsquo;une tâche avant son début.</p>
+<p>L&rsquo;algorithme du &ldquo;<strong>plus court d&rsquo;abord</strong>&rdquo; (<em>shorted job first</em>): très efficace
+pour satisfaire au mieux les utilisateurs, mais il n&rsquo;est pas toujours simple
+d&rsquo;évaluer le temps d&rsquo;exécution d&rsquo;une tâche avant son début.</p>
 <p>Plutôt que de mesurer les temps d&rsquo;exécution, on peut se limiter au <em>nombre</em>
 d&rsquo;instructions à réaliser :</p>
 <p>Si P1 a 4 instructions, P2 2 instructions et P3 3 instructions cela donnera :</p>
@@ -8661,6 +8714,18 @@ des délais imposés.</p>
 <li>l&rsquo;aéronautique au travers des systèmes de pilotage embarqués (avions, satellites) ;</li>
 <li>l’automobile avec le contrôle de plus en plus complet des paramètres moteur, de la trajectoire, du freinage, etc.</li>
 </ul>
+<h1 id="interruption">Interruption</h1>
+<p>En plus de la gestion des tâches, l&rsquo;ordonnanceur doit souvent prendre en compte les
+interruptions qui peuvent être de trois types :</p>
+<ul>
+<li><strong>logicielle</strong> : un événement extérieur au programme se produit (timer, signal envoyé
+par l&rsquo;OS) ou le programme souhaite faire un appel système (<em>syscall</em>).</li>
+<li><strong>interne</strong> processeur : gestion d&rsquo;erreurs (division par zéro, faute de mémoire) aussi
+appelée &ldquo;exception&rdquo; ou &ldquo;trap&rdquo; en anglais.</li>
+<li><strong>matérielle</strong> : communication avec le matériel via des IRQ (Interrupt ReQuest) pour
+gérer les entrées/sorties de manière plus efficace que la scrutation active (<em>polling</em>).</li>
+</ul>
+<p><img src="./img/irq.png" alt="irq"></p>
 </article>
 
       <div class="backtotop">
@@ -8708,6 +8773,8 @@ des délais imposés.</p>
     <nav id="TableOfContents">
   <ul>
     <li><a href="#les-processus-rappels">Les processus (rappels)</a></li>
+    <li><a href="#commutation-de-contexte">Commutation de contexte</a></li>
+    <li><a href="#coopératif-vs-préemptif">Coopératif vs préemptif</a></li>
     <li><a href="#lordonnancement">L&rsquo;ordonnancement</a></li>
   </ul>
 </nav>
