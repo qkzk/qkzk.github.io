@@ -8764,7 +8764,7 @@ MathJax.Hub.Config({
 </header>
 
       
-<article class="markdown"><h2 id="pdf-chainespdf">pdf [./chaines.pdf]</h2>
+<article class="markdown"><h2 id="pdfchainespdf"><a href="./chaines.pdf">pdf</a></h2>
 <h1 id="représentation-dun-texte-en-machine">Représentation d’un texte en machine</h1>
 <h2 id="un-caractère-">Un caractère ?</h2>
 <p>Comment enregistrer, de manière optimale, du texte en mémoire ?</p>
@@ -8778,12 +8778,12 @@ MathJax.Hub.Config({
 <p>On dépasse $2^6 = 64$ mais en se contentant du minimum, on reste en dessous de $2^7 = 128$. On peut encoder une table assez vaste avec 7 bits.</p>
 <p>Idée d&rsquo;ASCII (1961) : uniformiser les nombreux encodages incompatibles entre eux.</p>
 <h2 id="la-table-ascii-complète">La table ASCII complète</h2>
-<p><img src="./img/ascii_table.png" alt="La table ASCII"></p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/ascii_table.png" alt="La table ASCII"></p>
 <h2 id="remarques-sur-la-table-précédente">Remarques sur la table précédente</h2>
 <ul>
 <li>Tout élément de la table est codé sur 7 bits, 1 octet par caractère suffit ($2^8 = 256$)</li>
 <li>Les chiffres commencent à $30_{16}$, les majuscules à $41_{16}$ et les minuscules à $61_{16}$</li>
-<li>Pour obtenir la notation binaire, on part de l&rsquo;hexa.\newline
+<li>Pour obtenir la notation binaire, on part de l&rsquo;hexa.<br>
 Premier chiffre : 3 bits, second chiffre 4 bits
 $$A \rightarrow 41_{16} \rightarrow 4\times 16 + 1 \rightarrow 0100~0001$$
 $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
@@ -8792,7 +8792,9 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">          !&#34;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?
           @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
           `abcdefghijklmnopqrstuvwxyz{|}~
-</code></pre></div><h2 id="python-et-la-table-ascii">Python et la table ascii</h2>
+</code></pre></div><p><strong>Question :</strong> Expliquer la phrase suivante : &ldquo;<em>Pour changer la casse d&rsquo;un caractère,
+il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
+<h2 id="python-et-la-table-ascii">Python et la table ascii</h2>
 <p>Les fonctions <code>chr</code> et <code>ord</code> permettent d&rsquo;accéder à la table</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">chr</span>(<span style="color:#f60">65</span>) <span style="color:#09f;font-style:italic"># caractère 65 (décimal)</span>
 <span style="color:#c30">&#39;A&#39;</span>
@@ -8803,11 +8805,17 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <p>L&rsquo;encodage iso-8859-1, dit iso-Latin-1 est apparu en 1986 et correspond à l&rsquo;Europe de l&rsquo;ouest.
 D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&rsquo;est etc.</p>
 <ul>
-<li>Reprend la table ascii et ajoute les accents au coût d&rsquo;un octet supplémentaire.</li>
-<li>Encore incomplet : œ et Œ n&rsquo;y sont pas !\newline
-<em>Ce qui a contribué à leur disparition de nombreux documents écrits dans les années 90&hellip;</em></li>
-<li>Windows (Windows-1252) et Mac (MacRoman) ont leurs versions\newline
-Échange de documents et développement de logiciels <strong>plus que pénibles.</strong></li>
+<li>
+<p>Reprend la table ascii et ajoute les accents au coût d&rsquo;un octet supplémentaire.</p>
+</li>
+<li>
+<p>Encore incomplet : œ et Œ n&rsquo;y sont pas !
+<em>Ce qui a contribué à leur disparition de nombreux documents écrits dans les années 90&hellip;</em></p>
+</li>
+<li>
+<p>Windows (Windows-1252) et Mac (MacRoman) ont leurs versions\newline
+Échange de documents et développement de logiciels <strong>plus que pénibles.</strong></p>
+</li>
 </ul>
 <p>Bref, c&rsquo;est <del>de la merde</del> imparfait.</p>
 <h2 id="unicode">Unicode</h2>
@@ -8821,7 +8829,7 @@ D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&
 <p>UTF-8 est utilisé par 90,5% des sites web en 2017 et dans la majorité des systèmes UNIX (comprenez les serveurs)</p>
 <h2 id="motivation-dunicode---et-">Motivation d&rsquo;unicode : $ et £</h2>
 <p>Les machines des années 1980 étant fournies avec leur propre encodage, une somme d&rsquo;argent en dollars se voyait attribuer le symbole monétaire $ aux USA et le symbole £ au royaume uni (symbole monétaire de la livre sterling).</p>
-<p>Mais 1$ $\neq$ 1£ et les confusions étaient fréquentes.</p>
+<p>Mais entre dollars ($) et livres (£) et les confusions étaient fréquentes.</p>
 <p>On a ensuite, peu à peu, étendu ce projet à tous les symboles existant.</p>
 <h2 id="principe-simplifié-dutf8">Principe simplifié d&rsquo;UTF8</h2>
 <ul>
@@ -8877,15 +8885,14 @@ $\rightarrow$ problèmes de sécurité informatique : certaines opérations inte
 <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">ord</span>(<span style="color:#c30">&#39;é&#39;</span>)
 <span style="color:#f60">233</span>
 </code></pre></div><h2 id="martine-écrit-en-utf-8">Martine écrit en UTF-8</h2>
-<h3 id="martineimgmartinejpgheight50"><img src="./img/martine.jpg" alt="martine">{height=50%}</h3>
+<h3 id="martineuploadsdocsnsidonnees_qkzk_imgmartinejpg"><img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine"></h3>
 <p><strong>WHAT ?</strong></p>
 <ul>
 <li>La lettre <strong>é</strong> a été <em>encodée</em> en <strong>UTF-8</strong> (parce que 2 caractères sont affichés)<br>
 En mémoire elle occupe 2 octets (elle n&rsquo;est pas dans la table ascii)</li>
 <li>Ces deux octets ont été <em>décodés</em> en <strong>iso-latin1</strong> (1 octet par caractère).</li>
 </ul>
-<!-- cours LLG
-https://www.youtube.com/watch?v=PZRI1IfStY0 -->
+<hr>
 <h1 id="complément--base64">Complément : base64</h1>
 <p>Base64 est l&rsquo;encodage utilisé pour transmettre des pièces jointes par email.
 C&rsquo;est un groupe de schéma pour encoder des données binaires sous forme
@@ -9021,7 +9028,7 @@ U      2      F      s      d      X      Q      =
     <h1>Table des matières</h1>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-chainespdf">pdf [./chaines.pdf]</a></li>
+    <li><a href="#pdfchainespdf"><a href="./chaines.pdf">pdf</a></a></li>
   </ul>
 
   <ul>
@@ -9041,7 +9048,7 @@ U      2      F      s      d      X      Q      =
     </li>
     <li><a href="#martine-écrit-en-utf-8">Martine écrit en UTF-8</a>
       <ul>
-        <li><a href="#martineimgmartinejpgheight50"><img src="./img/martine.jpg" alt="martine">{height=50%}</a></li>
+        <li><a href="#martineuploadsdocsnsidonnees_qkzk_imgmartinejpg"><img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine"></a></li>
       </ul>
     </li>
   </ul>
