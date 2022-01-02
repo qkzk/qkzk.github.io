@@ -18,7 +18,7 @@ La réponse est oui, 20 est le dernier élément du tableau.">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ffc7e6d7c51799ef055d5a20970ac5d848723eeabab9343eb162fb3f0c6b9cfe.js" integrity="sha256-/8fm18UXme8FXVoglwrF2EhyPuq6uTQ&#43;sWL7PwxrnP4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.5b42fdb9016f7ba8bf11dc23c62682d03bfdd1ab94126392e4c91d9491f96df3.js" integrity="sha256-W0L9uQFve6i/EdwjxiaC0Dv90auUEmOS5MkdlJH5bfM=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -891,6 +891,24 @@ MathJax.Hub.Config({
 
   
     <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/td/" class="">Td</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/revisions/" class="">Révisions</a>
   
 
           
@@ -5740,6 +5758,17 @@ MathJax.Hub.Config({
     <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
     <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
   </ul>
+
+  <ul>
+    <li><a href="#exemples">Exemples</a>
+      <ul>
+        <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
+        <li><a href="#somme-des-entiers">Somme des entiers</a></li>
+        <li><a href="#division-euclidienne-par-soustraction">Division euclidienne par soustraction</a></li>
+        <li><a href="#exemples-en-python">Exemples en python</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 
 
@@ -6497,6 +6526,83 @@ display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</s
   <a class="anchor" href="#d%c3%a9grad%c3%a9-obtenu">#</a>
 </h2>
 <p><img src="degrade.jpg" alt="Degradé rouge -&amp;gt; noir" /></p>
+<h1 id="variants-et-invariants">
+  Variants et invariants
+  <a class="anchor" href="#variants-et-invariants">#</a>
+</h1>
+<ul>
+<li>
+<p>Un <em>invariant de boucle</em> est un propriété qui est vraie avant et après chaque tour d’une boucle.</p>
+</li>
+<li>
+<p>On appelle <em>variant de boucle &ldquo;tant que&rdquo;</em> toute quantité qui décroit strictement à chaque tour de la boucle.
+Dans une boucle non bornée (<code>tant que</code>), un variant permet de prouver que la boucle se termine.</p>
+<p>Dans une boucle bornée (<code>for</code>), il n&rsquo;est pas nécessaire de donner un variant, la boucle se termine toujours.</p>
+</li>
+</ul>
+<h2 id="exemples">
+  Exemples
+  <a class="anchor" href="#exemples">#</a>
+</h2>
+<h3 id="exponentiation-rapide">
+  Exponentiation rapide
+  <a class="anchor" href="#exponentiation-rapide">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">puissance</span>(a: <span style="color:#366">int</span>, n: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
+    <span style="color:#c30">&#34;&#34;&#34;Renvoie le nombre a exposant n. &#34;&#34;&#34;</span>
+
+    p <span style="color:#555">=</span> <span style="color:#f60">1</span>
+
+    <span style="color:#069;font-weight:bold">while</span> n <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>:
+        <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+            a <span style="color:#555">=</span> a <span style="color:#555">*</span> a
+            n <span style="color:#555">=</span> n <span style="color:#555">//</span> <span style="color:#f60">2</span>
+        <span style="color:#069;font-weight:bold">else</span>:
+            p <span style="color:#555">=</span> p <span style="color:#555">*</span> a
+            n <span style="color:#555">=</span> n <span style="color:#555">-</span> <span style="color:#f60">1</span>
+    <span style="color:#069;font-weight:bold">return</span> p
+</code></pre></div><ol>
+<li>Appliquer la fonction pour calculer <code>puissance(3, i)</code> pour <code>i</code> entre 0 et 4 inclus.</li>
+<li>Démontrer que cette fonction termine toujours en explicitant un <em>variant</em>.</li>
+</ol>
+<h3 id="somme-des-entiers">
+  Somme des entiers
+  <a class="anchor" href="#somme-des-entiers">#</a>
+</h3>
+<p>On considère l&rsquo;algorithme suivant :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">somme( tableau )
+
+    s = 0
+    pour chaque element x de tableau, faire
+        s = s + x
+
+    renvoyer s
+</code></pre></div><p>Proposer un invariant de boucle</p>
+<h3 id="division-euclidienne-par-soustraction">
+  Division euclidienne par soustraction
+  <a class="anchor" href="#division-euclidienne-par-soustraction">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">diviser(a, b)
+    r = a
+    q = 0
+
+    Tant que r &gt;= b, faire
+        r = r - b
+        q = q + 1
+
+renvoyer q, r
+</code></pre></div><ol>
+<li>Faire tourner l&rsquo;algorithme à la main pour <code>a = 7, b = 2</code></li>
+<li>Quelle relation vérifient <code>a, b, q, r</code> dans nos exemples ?</li>
+<li>Pourquoi ne peut-on pas toujours s&rsquo;arrêter après le premier tour ?</li>
+<li>Quelle propriété supplémentaire doit vérifier <code>r</code> ?</li>
+<li>Proposer un variant et un invariant de boucle.</li>
+</ol>
+<h3 id="exemples-en-python">
+  Exemples en python
+  <a class="anchor" href="#exemples-en-python">#</a>
+</h3>
+<p><a href="./variant_invariant.py">variant_invariant.py</a></p>
 </article>
  
 
@@ -6650,6 +6756,17 @@ display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</s
     <li><a href="#dautres-représentations-des-matrices">D&rsquo;autres représentations des matrices</a></li>
     <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
     <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#exemples">Exemples</a>
+      <ul>
+        <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
+        <li><a href="#somme-des-entiers">Somme des entiers</a></li>
+        <li><a href="#division-euclidienne-par-soustraction">Division euclidienne par soustraction</a></li>
+        <li><a href="#exemples-en-python">Exemples en python</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
