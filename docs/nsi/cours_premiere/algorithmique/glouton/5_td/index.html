@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.01f9c9fc85298c268a8a3f726050214447a4075e3f5083506869d81752ead4e6.js" integrity="sha256-AfnJ/IUpjCaKij9yYFAhREekB14/UINQaGnYF1Lq1OY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.462407c69420e576b9a12f55abff5a603325c294342c243273861d9991c0a878.js" integrity="sha256-RiQHxpQg5Xa5oS9Vq/9aYDMlwpQ0LCQyc4YdmZHAqHg=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/5_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -2655,7 +2655,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-e0ef658bdd39f98f4080407d38d90115" class="toggle"  />
     <label for="section-e0ef658bdd39f98f4080407d38d90115" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/9_resume/" class="">Modèle de Von Neumann - Résumé</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/9_resume/" class="">Résumé Von Neumann</a>
     </label>
   
 
@@ -5666,6 +5666,16 @@ MathJax.Hub.Config({
       </ul>
     </li>
   </ul>
+
+  <ul>
+    <li><a href="#compléments-de-gilles-lassus">Compléments de Gilles Lassus</a></li>
+    <li><a href="#remplir-un-rectangle-avec-des-carrés">Remplir un rectangle avec des carrés</a>
+      <ul>
+        <li><a href="#conclusion-">Conclusion :</a></li>
+      </ul>
+    </li>
+    <li><a href="#consigne">Consigne</a></li>
+  </ul>
 </nav>
 
 
@@ -5817,6 +5827,37 @@ optimale.</p>
 au moins un test. On ne demande pas la documentation dans cette question.</p>
 </li>
 </ol>
+<h2 id="compléments-de-gilles-lassus">
+  Compléments de Gilles Lassus
+  <a class="anchor" href="#compl%c3%a9ments-de-gilles-lassus">#</a>
+</h2>
+<p><a href="https://github.com/glassus/nsi/blob/master/Premiere/Theme05_Algorithmique/06_Algorithmes_gloutons.ipynb">Notebook sur Github</a></p>
+<h2 id="remplir-un-rectangle-avec-des-carrés">
+  Remplir un rectangle avec des carrés
+  <a class="anchor" href="#remplir-un-rectangle-avec-des-carr%c3%a9s">#</a>
+</h2>
+<p>(d&rsquo;après S.Tummarello et E.Buonocore)</p>
+<p>On considère un rectangle de dimension 11 sur 13 (figure 0). On veut remplir ce rectangle avec le minimum de carrés.</p>
+<p><img src="https://raw.githubusercontent.com/glassus/nsi/52b8e9a235795d39cf28b8644bcad47b9c7d290b/Premiere/Theme05_Algorithmique/data/remplissage_carres2.png" alt="Exemple 1" /></p>
+<p>Un algorithme glouton va chercher à positionner d&rsquo;abord le plus grand carré possible (figure 1).</p>
+<p>C&rsquo;est une stratégie efficace (8 carrés nécessaires), mais qui n&rsquo;est pas optimale : la figure 2 présente un pavage avec seulement 6 carrés.</p>
+<p>Est-ce qu&rsquo;un algorithme glouton va toujours passer à côté de la solution optimale ? Non ! Il arrive aussi qu&rsquo;il donne la solution optimale. Changeons le rectangle initial en un rectangle de 10 sur 15 :</p>
+<p><img src="https://raw.githubusercontent.com/glassus/nsi/52b8e9a235795d39cf28b8644bcad47b9c7d290b/Premiere/Theme05_Algorithmique/data/remplissage_carres3.png" alt="Exemple 2" /></p>
+<p>Dans cette situation, l&rsquo;algorithme glouton nous amène à la solution optimale.</p>
+<h3 id="conclusion-">
+  Conclusion :
+  <a class="anchor" href="#conclusion-">#</a>
+</h3>
+<p>Un algorithme glouton est une méthode rapide et souvent efficace, mais qui ne garantit pas l&rsquo;optimalité de la solution trouvée.</p>
+<p>La succession de meilleurs choix LOCAUX va nous amener à une bonne solution GLOBALE, mais ne nous garantit pas d&rsquo;arriver à la solution optimale.</p>
+<h2 id="consigne">
+  Consigne
+  <a class="anchor" href="#consigne">#</a>
+</h2>
+<p>Proposer un algorithme glouton permettant de remplir un rectangle.</p>
+<p>L&rsquo;objectif est de créer une fonction <code>remplir_glouton</code> qui prend deux paramètres entiers <code>largeur</code> et <code>hauteur</code>
+et renvoie une liste de tuples : <code>[(abs_1, ord_1, largeur_1), (abs_2, ord_2, largeur_2), ...]</code>
+donnant les positions de chaque rectangle.</p>
 </article>
  
 
@@ -5896,6 +5937,16 @@ au moins un test. On ne demande pas la documentation dans cette question.</p>
         <li><a href="#pdf-pour-impressionuploadsdocsnsialgoglouton5_tdpdf">pdf <a href="/uploads/docsnsi/algo/glouton/5_td.pdf">pour impression</a></a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
+    <li><a href="#compléments-de-gilles-lassus">Compléments de Gilles Lassus</a></li>
+    <li><a href="#remplir-un-rectangle-avec-des-carrés">Remplir un rectangle avec des carrés</a>
+      <ul>
+        <li><a href="#conclusion-">Conclusion :</a></li>
+      </ul>
+    </li>
+    <li><a href="#consigne">Consigne</a></li>
   </ul>
 </nav>
 
