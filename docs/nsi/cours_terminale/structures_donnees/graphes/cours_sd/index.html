@@ -19,7 +19,7 @@ Une arrête est simplement un couple de sommets ou un ensemble de deux sommets.
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.fc57847039614debe2ee6e924cc9622c887a85b698cfce9c83a25115eb87987c.js" integrity="sha256-/FeEcDlhTevi7m6STMliLIh6hbaYz86cg6JRFeuHmHw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.09f67e2c43137f99dbf48bee4d96dbdbe0c6a648a42ffa44da929f62dc58121a.js" integrity="sha256-CfZ&#43;LEMTf5nb9IvuTZbb2&#43;DGpkikL/pE2pKfYtxYEho=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/graphes/cours_sd/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5834,6 +5834,13 @@ MathJax.Hub.Config({
         <li><a href="#application-de-la-matrice-dadjacence">Application de la matrice d&rsquo;adjacence</a></li>
       </ul>
     </li>
+    <li><a href="#apparté--opérations-matricielles">Apparté : opérations matricielles</a>
+      <ul>
+        <li><a href="#la-somme">La somme</a></li>
+        <li><a href="#le-produit-de-deux-matrices">Le produit de deux matrices</a></li>
+        <li><a href="#structures-mathématiques">Structures mathématiques</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
@@ -5886,8 +5893,8 @@ sommet : <em>vertice</em> et arête : <em>edge</em>. D&rsquo;où les noms des en
 </h3>
 <p>Dans le graphe ci-dessus</p>
 <ul>
-<li>Les sommets sont : $V = {1, 2, 3, 4, 5, 6}$</li>
-<li>Les arrêtes sont : $E = { {1, 2}, {1, 5}, {2, 3}, {2, 5}, {3, 4}, {3, 5}, {4, 5}, {5, 6}}$</li>
+<li>Les sommets sont : $V = \lbrace 1, 2, 3, 4, 5, 6\rbrace $</li>
+<li>Les arrêtes sont : $E = \lbrace  \lbrace 1, 2\rbrace , \lbrace 1, 5\rbrace , \lbrace 2, 3\rbrace , \lbrace 2, 5\rbrace , \lbrace 3, 4\rbrace , \lbrace 3, 5\rbrace , \lbrace 4, 5\rbrace , \lbrace 5, 6\rbrace $</li>
 </ul>
 <h2 id="définition--graphe-orienté">
   Définition : Graphe orienté
@@ -5906,10 +5913,10 @@ l&rsquo;autre sens.</p>
   <a class="anchor" href="#d%c3%a9finition--graphe-pond%c3%a9r%c3%a9">#</a>
 </h2>
 <p>Dans certains cas, toutes les arêtes ne se valent pas.
-(Un trajet Lille-Paris ne &ldquo;coûte&rdquo; pas autant qu&rsquo;un &ldquo;Paris-Lyon&rdquo;.)</p>
+(Un trajet &ldquo;Lille-Paris&rdquo; ne <em>coûte</em> pas autant qu&rsquo;un &ldquo;Paris-Lyon&rdquo;.)</p>
 <p>Dans ce cas on attribue aux arrêtes un <em>poids</em>, souvent noté <em>w</em> (pour <em>weight</em>).</p>
-<p><img src="../intro/img/graphe_oriente.png" alt="graphe pondéré" />{width=40%}\</p>
-<p>Ici l'<em>arête</em> $(E, b)$ a un <em>poids</em> de 10.</p>
+<p><img src="../intro/img/graphe_oriente.png" alt="graphe pondéré" /></p>
+<p>Ici l'<em>arête</em> $(E, b)$ a un <em>poids</em> de $10$.</p>
 <p>Et le <em>trajet</em> $(E, b, d, S)$ pèse $10+2+6 = 18$</p>
 <h1 id="structure-de-donnée-graphe">
   Structure de donnée graphe
@@ -5951,8 +5958,8 @@ Nous devons apprendre à passer de l&rsquo;une à l&rsquo;autre.</p>
 <p>La méthode la plus simple et la plus courante pour décrire les arêtes est d&rsquo;en
 donner une <em>collection</em>. En mathématiques un ensemble, en informatique,
 n&rsquo;importe quelle structure sur laquelle itérer.</p>
-<p>Par exemple : $G = (V, E)$ avec $V = {1, 2, 3, 4}$
-et $E = {(1, 2), (2, 3), (3, 4), (2, 4)}$</p>
+<p>Par exemple : $G = (V, E)$ avec $V = \lbrace 1, 2, 3, 4\rbrace $
+et $E = \lbrace (1, 2), (2, 3), (3, 4), (2, 4)\rbrace $</p>
 <p><img src="graph_001.svg" alt="graph_001.svg" /></p>
 <p><strong>Remarque :</strong> Guido Von Rossum (créateur de Python) préconise d&rsquo;utiliser un
 dictionnaire.</p>
@@ -5977,14 +5984,12 @@ si les sommets $i$ et $j$ sont reliés par une arrête et 0 sinon.</p>
 <p><em>Cette définition, simplifiée, ne s&rsquo;applique qu&rsquo;aux graphes simples</em></p>
 <p><strong>Exemple :</strong></p>
 <p>Dans l&rsquo;exemple du graphe ci-dessus, cela donne :</p>
-<p>$$
-\begin{pmatrix}
-0 &amp; 1 &amp; 0 &amp; 0\
-1 &amp; 0 &amp; 1 &amp; 1\
-0 &amp; 1 &amp; 0 &amp; 1\
+<p>$$\begin{pmatrix}
+0 &amp; 1 &amp; 0 &amp; 0\\
+1 &amp; 0 &amp; 1 &amp; 1\\
+0 &amp; 1 &amp; 0 &amp; 1\\
 0 &amp; 1 &amp; 1 &amp; 0
-\end{pmatrix}
-$$</p>
+\end{pmatrix}$$</p>
 <p>Comment remplir la première ligne ?</p>
 <ul>
 <li>1 n&rsquo;est pas relié à 1 donc le premier nombre est 0.</li>
@@ -5992,7 +5997,7 @@ $$</p>
 <li>1 n&rsquo;est pas relié à 3, le troisième nombre est 0.</li>
 <li>1 n&rsquo;est pas relié à 4, le quatrième nombre est 0.</li>
 </ul>
-<p>On obtient bien la première ligne : $0\quad 1\quad 0\quad 0$.</p>
+<p>On obtient bien la première ligne : $(0\quad 1\quad 0\quad 0)$.</p>
 <p>Lorsque les sommets sont numérotés, il est naturel de choisir l&rsquo;ordre
 correspondant, mais lorsque les sommets portent des noms (&ldquo;Lille&rdquo;, &ldquo;Paris&rdquo;,
 &ldquo;Marseille&rdquo;), l&rsquo;ordre peut varier. On obtient alors une autre matrice
@@ -6001,16 +6006,16 @@ d&rsquo;adjacence qui lui est équivalente.</p>
 <p>Partant d&rsquo;une matrice d&rsquo;adjacence comme</p>
 <p>$$
 \begin{pmatrix}
-0 &amp; 1 &amp; 1 &amp; 1 &amp; 0\
-1 &amp; 0 &amp; 1 &amp; 1 &amp; 1\
-1 &amp; 1 &amp; 0 &amp; 1 &amp; 0\
-1 &amp; 1 &amp; 1 &amp; 0 &amp; 1\
-0 &amp; 1 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; 1 &amp; 0 &amp; 1 &amp; 0\\
+1 &amp; 1 &amp; 1 &amp; 0 &amp; 1\\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 0\\
 \end{pmatrix}
 $$</p>
 <p>Il existe un <em>unique</em> graphe qu&rsquo;elle représente :</p>
 <p><img src="graph_002.svg" alt="graph_002.svg" /></p>
-<p><em>Remarque</em> : attention cependant, si on change l&rsquo;ordre des sommets on obtient
+<p><em>Remarque</em> : si on change l&rsquo;ordre des sommets on obtient
 une autre matrice d&rsquo;adjacence ! La matrice d&rsquo;adjacence est unique
 <em>à l&rsquo;ordre près des sommets.</em></p>
 <h3 id="cas-des-graphes-orientés">
@@ -6037,9 +6042,9 @@ matrice d&rsquo;adjacence contient 1 pour chaque arête qui <strong>arrive</stro
 <p><img src="graph_003.svg" alt="graph_003.svg" /></p>
 <p>$$
 \begin{pmatrix}
-0 &amp; 1 &amp; 1 &amp; 0\
-0 &amp; 0 &amp; 0 &amp; 1\
-1 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 1 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 1 &amp; 0
 \end{pmatrix}
 $$</p>
@@ -6061,16 +6066,16 @@ coefficient en position $(i, j)$ de la matrice $A^k$.</p>
 <p>Exemple :</p>
 <p>Pour le graphe précédent dont la matrice $A$ est :</p>
 <p>$$A = \begin{pmatrix}
-0 &amp; 1 &amp; 1 &amp; 0\
-0 &amp; 0 &amp; 0 &amp; 1\
-1 &amp; 0 &amp; 1 &amp; 0\
+0 &amp; 1 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 1 &amp; 0
 \end{pmatrix}
 $$</p>
 <p>On a $A^3 = \begin{pmatrix}
-1 &amp; 1 &amp; 3 &amp; 0 \
-0 &amp; 0 &amp; 1 &amp; 0 \
-2 &amp; 1 &amp; 3 &amp; 1 \
+1 &amp; 1 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+2 &amp; 1 &amp; 3 &amp; 1 \\
 1 &amp; 1 &amp; 2 &amp; 0
 \end{pmatrix}$ aussi :</p>
 <ul>
@@ -6080,6 +6085,71 @@ $$</p>
 <p>etc.</p>
 <p>Malheureusement, les opérations sur les matrices ne sont pas au programme de NSI
 et nous n&rsquo;aurons pas l&rsquo;occasion d&rsquo;approfondir le sujet.</p>
+<h2 id="apparté--opérations-matricielles">
+  Apparté : opérations matricielles
+  <a class="anchor" href="#appart%c3%a9--op%c3%a9rations-matricielles">#</a>
+</h2>
+<h3 id="la-somme">
+  La somme
+  <a class="anchor" href="#la-somme">#</a>
+</h3>
+<blockquote>
+<p>La <strong>somme</strong> de deux matrices de mêmes dimension est effectuée coefficient par coefficient.</p>
+</blockquote>
+<p>Exemple : si $A =
+\begin{pmatrix}
+1 &amp; 2\\
+2 &amp; -3
+\end{pmatrix},
+B = \begin{pmatrix}
+3 &amp; 1\\
+-2 &amp; -4
+\end{pmatrix}
+$
+alors $A + B =
+\begin{pmatrix}
+4 &amp; 3\\
+0 &amp; -7
+\end{pmatrix}
+$</p>
+<blockquote>
+<p>Le <strong>produit par un scalaire</strong> est aussi défini coefficient par coefficient, comme pour les vecteurs.</p>
+</blockquote>
+<h3 id="le-produit-de-deux-matrices">
+  Le produit de deux matrices
+  <a class="anchor" href="#le-produit-de-deux-matrices">#</a>
+</h3>
+<blockquote>
+<p>Le produit de deux matrices $A_{n, p}$ et $B_{q, r}$ est défini si $p = q$. Autrement dit,
+le nombre de colonnes de la première doit correspondre au nombre de lignes de la seconde.</p>
+</blockquote>
+<blockquote>
+<p>Il est obtenu en faisant le produit scalaire de la ligne de gauche par la colonne de droite.</p>
+</blockquote>
+<p>Si $C = A \times B$ alors, $\forall (i, j) \in  \lbrace 1, n\rbrace \times \lbrace 1, r\rbrace$
+$$C_{i, j} = \sum_{k = 1}^{p} A_{i, k} \times B_{k, j}$$</p>
+<p>Par exemple, pour les matrices données plus haut :</p>
+<p>$C =
+\begin{pmatrix}
+-1 &amp; -7\\
+12 &amp; 14
+\end{pmatrix}$</p>
+<p>Par exemple, $C_{1, 2} = 1\times 1 + 2 \times -4 = -7$</p>
+<h3 id="structures-mathématiques">
+  Structures mathématiques
+  <a class="anchor" href="#structures-math%c3%a9matiques">#</a>
+</h3>
+<ul>
+<li>
+<p>L&rsquo;addition des matrices admet un <strong>élément neutre</strong>, la matrice nulle, noté $O_{n, p}$, une matrice remplie de 0.</p>
+</li>
+<li>
+<p>Le produit des matrices <strong>carrées</strong> admét un <strong>élément neutre</strong>, la matrice identité, notée $I_n$ une matrice dont la diagonale est remplie de 1 et le reste de 0.</p>
+</li>
+<li>
+<p>Le produit matriciel est <strong>contre-intuitif</strong> : il n&rsquo;est pas commutatif (généralement $AB \neq BA$), le théorème du produit nul est faux (il existe $A\neq O, B\neq O$ tels que $AB = O$)</p>
+</li>
+</ul>
 <h1 id="structure-de-donnée-graphe-1">
   Structure de donnée graphe
   <a class="anchor" href="#structure-de-donn%c3%a9e-graphe-1">#</a>
@@ -6256,6 +6326,13 @@ on peut illustrer :</p>
       <ul>
         <li><a href="#cas-des-graphes-orientés">Cas des graphes orientés</a></li>
         <li><a href="#application-de-la-matrice-dadjacence">Application de la matrice d&rsquo;adjacence</a></li>
+      </ul>
+    </li>
+    <li><a href="#apparté--opérations-matricielles">Apparté : opérations matricielles</a>
+      <ul>
+        <li><a href="#la-somme">La somme</a></li>
+        <li><a href="#le-produit-de-deux-matrices">Le produit de deux matrices</a></li>
+        <li><a href="#structures-mathématiques">Structures mathématiques</a></li>
       </ul>
     </li>
   </ul>
