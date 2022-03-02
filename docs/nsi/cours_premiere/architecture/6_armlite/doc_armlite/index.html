@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ARMLite: Manuel de référence de programmation #   Le simulateur ARMLite documentation complète  Fenêtre #  Code #  Grande fenêtre de gauche.
- On l&#39;edit, puis submit. on peut l&rsquo;exporter (save) vers myprog.txt ou le charger (load) depuis un fichier texte.  Une fois soumis, on peut ajouter un breakpoint (point d&rsquo;arrêt) en cliquant sur une ligne. Si la soumission engendre une erreur, elle est affichée en rose.">
+<meta name="description" content="Introduction simplifiée #  pdf : cette fiche imprimable
+ARMLite est machine disposant d&rsquo;une architecture de Von Neumann qui exécute du code saisi en mnémoniques.
+ Elle dispose de 13 registres généraux : R0 à R12. On les notera Rx, Ry etc. Les nombres littéraux sont notés #val, par exemple #20 désigne le nombre 20, vingt. Sa mémoire est initialisée avec le code du programme. Les autres registres sont utilisés pour le fonctionnement interne, quelques bits indiquent l&rsquo;état de la dernière opération  Instructions #  Les instructions les plus couramment employées sont les suivantes :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Documentation" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -16,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bcb2ddbe62aa823ae87217c9aecaab9566ba2fd7d0092422f85130c0cb34abe0.js" integrity="sha256-vLLdvmKqgjrochfJrsqrlWa6L9fQCSQi&#43;FEwwMs0q&#43;A=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.dab8c1e36a695c00322d4fbde0999c3da4a3088f909df42d6141e5b47dbb3054.js" integrity="sha256-2rjB42ppXAAyLU&#43;94JmcPaSjCI&#43;QnfQtYUHltH27MFQ=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/doc_armlite/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5784,6 +5785,12 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#introduction-simplifiée">Introduction simplifiée</a></li>
+    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#exemple-de-programme">Exemple de programme</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#fenêtre">Fenêtre</a>
       <ul>
         <li><a href="#code">Code</a></li>
@@ -5854,7 +5861,90 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown"><h1 id="armlite-manuel-de-référence-de-programmation">
+  <article class="markdown"><h2 id="introduction-simplifiée">
+  Introduction simplifiée
+  <a class="anchor" href="#introduction-simplifi%c3%a9e">#</a>
+</h2>
+<p>pdf : <a href="./1NSI_4_fiche_assembleur.pdf">cette fiche imprimable</a></p>
+<p>ARMLite est <em>machine</em> disposant d&rsquo;une architecture de Von Neumann qui exécute du code saisi en mnémoniques.</p>
+<ul>
+<li>Elle dispose de 13 registres généraux : <code>R0 à R12</code>. On les notera <code>Rx, Ry</code> etc.</li>
+<li>Les nombres <em>littéraux</em> sont notés <code>#val</code>, par exemple <code>#20</code> désigne le nombre 20, <em>vingt</em>.</li>
+<li>Sa mémoire est initialisée avec le code du programme.</li>
+<li>Les autres registres sont utilisés pour le fonctionnement interne, quelques bits indiquent l&rsquo;état de la dernière opération</li>
+</ul>
+<h2 id="instructions">
+  Instructions
+  <a class="anchor" href="#instructions">#</a>
+</h2>
+<p>Les instructions les plus couramment employées sont les suivantes :</p>
+<ol>
+<li>
+<p>Déplacement de contenu</p>
+<ul>
+<li><code>MOV Rx, val</code> : déplace <code>val</code> dans le registre <code>Rx</code>. <code>val</code> peut-être un registre
+ou un littéral.</li>
+<li><code>LDR Rx, adresse</code> : charge dans le registre <code>Rx</code> le contenu de l&rsquo;adresse mémoire indiquée,</li>
+<li><code>STR Rx, adresse</code> : écrit le contenu du registre <code>Rx</code> à l&rsquo;adresse mémoire indiquée,</li>
+</ul>
+<p>Attention, seules les adresses multiples de 4 sont valides. En effet, ARMLite fonctionne avec des <em>mots</em> de 4 octets et chaque octet dispose d&rsquo;une adresse.</p>
+<p>Donc <code>LDR R0, 40</code> est valide mais <code>LDR R0, 41</code> est invalide, car 41 n&rsquo;est pas multiple de 4.</p>
+</li>
+<li>
+<p>Opérations arithmétiques et logiques</p>
+<ul>
+<li><code>ADD Rx, Ry, val</code> : effectue l&rsquo;addition <code>Ry + val</code> et écrit le résultat dans <code>Rx</code>. <code>val</code> peut être un registre ou un littéral.</li>
+<li>Les instructions <code>SUB</code>, <code>AND</code>, <code>ORR</code>, <code>EOR</code> (respectivement soustraire, ET logique, OU logique, OU EXCLUSIF) ont un fonctionnement similaire.</li>
+</ul>
+</li>
+<li>
+<p>Rupture de séquence</p>
+<ul>
+<li>
+<p><code>CMP Rx, Ry</code> : effectue la comparaison entre <code>Rx</code> et <code>Ry</code></p>
+</li>
+<li>
+<p><code>BGT label</code> : saute vers l&rsquo;instruction précédée du nom <code>label</code> SEULEMENT si
+la précédente comparaison était &ldquo;plus grand que.&quot;<br>
+Par exemple :</p>
+<ul>
+<li>si on a comparé 4 et 2, alors <code>BGT label</code> va sauter en <code>label</code>,</li>
+<li>si on a comparé 4 et 10, alors <code>BGT label</code> va passer à l&rsquo;instruction suivante.</li>
+</ul>
+</li>
+<li>
+<p><code>BEQ label</code> : saute vers l&rsquo;instruction précédée du nom <code>label</code> SEULEMENT si
+les valeurs comparées étaient égales,</p>
+</li>
+<li>
+<p><code>BLT label</code> : saute seulement si la dernière comparaison était &ldquo;plus petit que&rdquo;,</p>
+</li>
+<li>
+<p><code>B label</code> : saute, <em>sans condition</em> vers <code>label</code>,</p>
+</li>
+<li>
+<p><code>HALT</code> : arrête la machine.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="exemple-de-programme">
+  Exemple de programme
+  <a class="anchor" href="#exemple-de-programme">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> 1<span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>10            <span style="color:#09f;font-style:italic">//         R1 contient 10
+</span><span style="color:#09f;font-style:italic"></span> 2<span style="color:#555">|</span>      MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5             <span style="color:#09f;font-style:italic">//         R2 contient 5
+</span><span style="color:#09f;font-style:italic"></span> 3<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2         <span style="color:#09f;font-style:italic">//         R3 contient 5 + 10 = 15
+</span><span style="color:#09f;font-style:italic"></span> 4<span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R1             <span style="color:#09f;font-style:italic">//         Comparaison de 15 et 5
+</span><span style="color:#09f;font-style:italic"></span> 5<span style="color:#555">|</span>      BGT more               <span style="color:#09f;font-style:italic">//         15 &gt; 5 donc on va en &#34;more&#34;, ligne 08.
+</span><span style="color:#09f;font-style:italic"></span> 6<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme (ne sera pas exécuté dans l&#39;exemple)
+</span><span style="color:#09f;font-style:italic"></span> 7<span style="color:#555">|</span>                             <span style="color:#09f;font-style:italic">//         Rien, on va à la ligne
+</span><span style="color:#09f;font-style:italic"></span> 8<span style="color:#555">|</span>    more<span style="color:#555">:</span>                    <span style="color:#09f;font-style:italic">//         pas de code après l&#39;étiquette, on ne fait rien
+</span><span style="color:#09f;font-style:italic"></span> 9<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R3         <span style="color:#09f;font-style:italic">//         R3 contient 15 + 10 = 25
+</span><span style="color:#09f;font-style:italic"></span>10<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme
+</span></code></pre></div><hr>
+<p><em>Ci-dessous une documentation plus complète</em></p>
+<h1 id="armlite-manuel-de-référence-de-programmation">
   ARMLite: Manuel de référence de programmation
   <a class="anchor" href="#armlite-manuel-de-r%c3%a9f%c3%a9rence-de-programmation">#</a>
 </h1>
@@ -6465,6 +6555,12 @@ r <span style="color:#555">=</span> a
   
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-simplifiée">Introduction simplifiée</a></li>
+    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#exemple-de-programme">Exemple de programme</a></li>
+  </ul>
+
   <ul>
     <li><a href="#fenêtre">Fenêtre</a>
       <ul>
