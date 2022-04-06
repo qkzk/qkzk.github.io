@@ -19,7 +19,7 @@ Algorithmes sur les graphes #  Nous allons présenter différents algorithmes su
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/graphes/cours_algo/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5755,7 +5755,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5913,52 +5913,52 @@ et à mesure.</p>
 </h3>
 <p><em>Les versions du parcours présentées ci-dessous utilisent des <strong>drapeaux</strong> qui n&rsquo;ont rien d&rsquo;indispensables.
 Les drapeaux sont faciles à généraliser à la recherche de la présence d&rsquo;un cycle.</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">source                              (un noeud du graphe)
-file     : [Source]                 (une file)
-drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
-                                    sommet)
-</code></pre></div><p>Dans le tableau <code>drapeaux</code>, si un sommet est d&rsquo;indice 2,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>source                              (un noeud du graphe)
+</span></span><span style="display:flex;"><span>file     : [Source]                 (une file)
+</span></span><span style="display:flex;"><span>drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
+</span></span><span style="display:flex;"><span>                                    sommet)
+</span></span></code></pre></div><p>Dans le tableau <code>drapeaux</code>, si un sommet est d&rsquo;indice 2,</p>
 <p><code>drapeaux[2] = -1</code> signifie qu&rsquo;on ne l&rsquo;a <strong>pas encore ajouté</strong> à la file.<br>
 <code>drapeaux[2] = 0</code>  signifie qu&rsquo;on l&rsquo;a <strong>déjà ajouté</strong> à la file.</p>
 <p><strong>Parcours en largeur :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Changer le drapeau de la source à 0.
-
-Tant que la file n&#39;est pas vide faire :
-    courant = défiler()
-    Pour chaque voisin de courant,
-        Si son drapeau est -1,
-            l&#39;ajouter à la file.
-            Changer son drapeau à 0.
-    visiter courant. # c&#39;est ici qu&#39;on fera généralement un travail.
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Changer le drapeau de la source à 0.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tant que la file n&#39;est pas vide faire :
+</span></span><span style="display:flex;"><span>    courant = défiler()
+</span></span><span style="display:flex;"><span>    Pour chaque voisin de courant,
+</span></span><span style="display:flex;"><span>        Si son drapeau est -1,
+</span></span><span style="display:flex;"><span>            l&#39;ajouter à la file.
+</span></span><span style="display:flex;"><span>            Changer son drapeau à 0.
+</span></span><span style="display:flex;"><span>    visiter courant. # c&#39;est ici qu&#39;on fera généralement un travail.
+</span></span></code></pre></div><hr>
 <h3 id="exemple">
   Exemple
   <a class="anchor" href="#exemple">#</a>
 </h3>
 <p>Disons que notre action &ldquo;visiter&rdquo; est d&rsquo;afficher le numéro du sommet courant.</p>
 <p>Sur le graphe précédent :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">0. File = [0], drapeaux = [0, -1, -1, -1]
-Début de la boucle.
-1. On défile : courant = 0, File = []
-    Voisins de 0 : 1 et 2 qu&#39;on ajoute à la file. File = [1, 2]
-      On change leurs drapeaux : drapeaux = [0, 0, 0, 1]
-    On affiche 0
-2. On défile, courant = 1. File = [2]
-    voisins de 1 : 0, 2, 3. On ajoute 3 à la file (son drapeau vaut -1)
-      File = [2, 3]
-      On change le drapeau de 3 : drapeaux = [0, 0, 0, 0]
-    On affiche 1
-3. On défile, courant = 2, File = [3]
-    voisins de 2 : 0, 1. Tous les drapaux valent 0, on n&#39;ajoute aucun sommet.
-    On affiche 2
-4. On défile, courant = 3. File = []
-    Tous les voisins de courant ont un drapeau valant 0.
-    On affiche 3
-
-La file est vide et la boucle est terminée.
-
-L&#39;affichage dans la console aura donné : 0, 1, 2, 3
-</code></pre></div><p>C&rsquo;est bien un parcours en largeur d&rsquo;abord.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0. File = [0], drapeaux = [0, -1, -1, -1]
+</span></span><span style="display:flex;"><span>Début de la boucle.
+</span></span><span style="display:flex;"><span>1. On défile : courant = 0, File = []
+</span></span><span style="display:flex;"><span>    Voisins de 0 : 1 et 2 qu&#39;on ajoute à la file. File = [1, 2]
+</span></span><span style="display:flex;"><span>      On change leurs drapeaux : drapeaux = [0, 0, 0, 1]
+</span></span><span style="display:flex;"><span>    On affiche 0
+</span></span><span style="display:flex;"><span>2. On défile, courant = 1. File = [2]
+</span></span><span style="display:flex;"><span>    voisins de 1 : 0, 2, 3. On ajoute 3 à la file (son drapeau vaut -1)
+</span></span><span style="display:flex;"><span>      File = [2, 3]
+</span></span><span style="display:flex;"><span>      On change le drapeau de 3 : drapeaux = [0, 0, 0, 0]
+</span></span><span style="display:flex;"><span>    On affiche 1
+</span></span><span style="display:flex;"><span>3. On défile, courant = 2, File = [3]
+</span></span><span style="display:flex;"><span>    voisins de 2 : 0, 1. Tous les drapaux valent 0, on n&#39;ajoute aucun sommet.
+</span></span><span style="display:flex;"><span>    On affiche 2
+</span></span><span style="display:flex;"><span>4. On défile, courant = 3. File = []
+</span></span><span style="display:flex;"><span>    Tous les voisins de courant ont un drapeau valant 0.
+</span></span><span style="display:flex;"><span>    On affiche 3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La file est vide et la boucle est terminée.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>L&#39;affichage dans la console aura donné : 0, 1, 2, 3
+</span></span></code></pre></div><p>C&rsquo;est bien un parcours en largeur d&rsquo;abord.</p>
 <p><strong>On explore tous les voisins avant d&rsquo;avancer d&rsquo;un niveau.</strong></p>
 <hr>
 <h3 id="algorithme--parcours-en-profondeur-dans-un-graphe-simple">
@@ -5966,53 +5966,53 @@ L&#39;affichage dans la console aura donné : 0, 1, 2, 3
   <a class="anchor" href="#algorithme--parcours-en-profondeur-dans-un-graphe-simple">#</a>
 </h3>
 <p>La seule différence est qu&rsquo;on utilise une <em>pile</em>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">source                              (un noeud du graphe)
-pile     : [Source]                 (une pile)
-drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
-                                    sommet)
-</code></pre></div><p><code>drapeau = -1</code> : pas encore ajouté à la pile<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>source                              (un noeud du graphe)
+</span></span><span style="display:flex;"><span>pile     : [Source]                 (une pile)
+</span></span><span style="display:flex;"><span>drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
+</span></span><span style="display:flex;"><span>                                    sommet)
+</span></span></code></pre></div><p><code>drapeau = -1</code> : pas encore ajouté à la pile<br>
 <code>drapeau = 0</code> : déjà ajouté à la pile</p>
 <p><strong>Parcours en profondeur :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Changer le drapeau de la source à 0.
-
-Tant que la pile n&#39;est pas vide faire :
-    courant = dépiler()
-    Pour chaque voisin de courant
-        si son drapeau est -1,
-            l&#39;ajouter à la pile.
-            Changer son drapeau à 0.
-    visiter courant. # c&#39;est ici qu&#39;on fera généralement un travail.
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Changer le drapeau de la source à 0.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tant que la pile n&#39;est pas vide faire :
+</span></span><span style="display:flex;"><span>    courant = dépiler()
+</span></span><span style="display:flex;"><span>    Pour chaque voisin de courant
+</span></span><span style="display:flex;"><span>        si son drapeau est -1,
+</span></span><span style="display:flex;"><span>            l&#39;ajouter à la pile.
+</span></span><span style="display:flex;"><span>            Changer son drapeau à 0.
+</span></span><span style="display:flex;"><span>    visiter courant. # c&#39;est ici qu&#39;on fera généralement un travail.
+</span></span></code></pre></div><hr>
 <h3 id="exemple-1">
   Exemple
   <a class="anchor" href="#exemple-1">#</a>
 </h3>
 <p>Sur le graphe précédent :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">0. Pile = [0], drapeaux = [0, -1, -1, -1]
-Début de la boucle.
-1. On dépile : courant = 0, Pile = []
-    Voisins de 0 : 1 et 2 qu&#39;on ajoute à la pile. Pile = [1, 2]
-      On change leurs drapeaux : drapeaux = [0, 0, 0, 1]
-    On affiche 0
-2. On dépile, courant = 1. Pile = [2]
-    voisins de 1 : 0, 2, 3. On ajoute 3 à la pile (son drapeau vaut -1)
-      Pile = [2, 3]
-      On change le drapeau de 3 : drapeaux = [0, 0, 0, 0]
-    On affiche 1
-
-ATTENTION C&#39;EST ICI QUE ÇA CHANGE : DÉPILER = SORTIR LE DERNIER
-
-3. On dépile, courant = 3, Pile = [2]
-    voisins de 3 : Tous les drapaux valent 0, on n&#39;ajoute aucun sommet.
-    On affiche 3
-4. On dépile, courant = 2. Pile = []
-    Tous les voisins de courant ont un drapeau valant 0.
-    On affiche 2
-
-La pile est vide et la boucle est terminée.
-
-L&#39;affichage dans la console aura donné : 0, 1, 3, 2
-</code></pre></div><p>C&rsquo;est bien un parcours en profondeur d&rsquo;abord.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0. Pile = [0], drapeaux = [0, -1, -1, -1]
+</span></span><span style="display:flex;"><span>Début de la boucle.
+</span></span><span style="display:flex;"><span>1. On dépile : courant = 0, Pile = []
+</span></span><span style="display:flex;"><span>    Voisins de 0 : 1 et 2 qu&#39;on ajoute à la pile. Pile = [1, 2]
+</span></span><span style="display:flex;"><span>      On change leurs drapeaux : drapeaux = [0, 0, 0, 1]
+</span></span><span style="display:flex;"><span>    On affiche 0
+</span></span><span style="display:flex;"><span>2. On dépile, courant = 1. Pile = [2]
+</span></span><span style="display:flex;"><span>    voisins de 1 : 0, 2, 3. On ajoute 3 à la pile (son drapeau vaut -1)
+</span></span><span style="display:flex;"><span>      Pile = [2, 3]
+</span></span><span style="display:flex;"><span>      On change le drapeau de 3 : drapeaux = [0, 0, 0, 0]
+</span></span><span style="display:flex;"><span>    On affiche 1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ATTENTION C&#39;EST ICI QUE ÇA CHANGE : DÉPILER = SORTIR LE DERNIER
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3. On dépile, courant = 3, Pile = [2]
+</span></span><span style="display:flex;"><span>    voisins de 3 : Tous les drapaux valent 0, on n&#39;ajoute aucun sommet.
+</span></span><span style="display:flex;"><span>    On affiche 3
+</span></span><span style="display:flex;"><span>4. On dépile, courant = 2. Pile = []
+</span></span><span style="display:flex;"><span>    Tous les voisins de courant ont un drapeau valant 0.
+</span></span><span style="display:flex;"><span>    On affiche 2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La pile est vide et la boucle est terminée.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>L&#39;affichage dans la console aura donné : 0, 1, 3, 2
+</span></span></code></pre></div><p>C&rsquo;est bien un parcours en profondeur d&rsquo;abord.</p>
 <p><strong>On explore un chemin le plus profondément possible avant d&rsquo;avancer.</strong></p>
 <h3 id="cas-des-graphes-orientés">
   Cas des graphes orientés
@@ -6049,45 +6049,45 @@ aident à s&rsquo;orienter ou à choisir le prochain sommet à visiter.</p>
   <a class="anchor" href="#premi%c3%a8re-%c3%a9tape--parcourir">#</a>
 </h3>
 <p>On entretien un dictionnaire des visites, qui permettra de construire un chemin</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Fonction Parcours en profondeur(source, destination)
-
-  prochains     = [source]              (une pile)
-  prédécesseurs = {source: Vide}        (un dictionnaire)
-
-  tant que la pile n&#39;est pas vide :
-    On dépile courant.
-    pour chaque voisin de courant
-      Si voisin n&#39;est pas déjà dans le dictionnaire des prédécesseurs
-          On l&#39;ajoute au dictionnaire avec comme valeur &#34;courant&#34;
-          prédécesseurs[voisin] = courant
-          On empile &#34;voisin&#34; dans la pile des prochains
-
-          Si courant == destination, on arrête la boucle.
-
-  On retourne à la fin le dictionnaire des prédécesseurs
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Fonction Parcours en profondeur(source, destination)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  prochains     = [source]              (une pile)
+</span></span><span style="display:flex;"><span>  prédécesseurs = {source: Vide}        (un dictionnaire)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  tant que la pile n&#39;est pas vide :
+</span></span><span style="display:flex;"><span>    On dépile courant.
+</span></span><span style="display:flex;"><span>    pour chaque voisin de courant
+</span></span><span style="display:flex;"><span>      Si voisin n&#39;est pas déjà dans le dictionnaire des prédécesseurs
+</span></span><span style="display:flex;"><span>          On l&#39;ajoute au dictionnaire avec comme valeur &#34;courant&#34;
+</span></span><span style="display:flex;"><span>          prédécesseurs[voisin] = courant
+</span></span><span style="display:flex;"><span>          On empile &#34;voisin&#34; dans la pile des prochains
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          Si courant == destination, on arrête la boucle.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  On retourne à la fin le dictionnaire des prédécesseurs
+</span></span></code></pre></div><hr>
 <h3 id="deuxième-étape-créer-le-chemin-depuis-le-dictionnaire-des-visites">
   Deuxième étape, créer le chemin depuis le dictionnaire des visites.
   <a class="anchor" href="#deuxi%c3%a8me-%c3%a9tape-cr%c3%a9er-le-chemin-depuis-le-dictionnaire-des-visites">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Fonction créer un chemin (prédécesseurs, source, destination)
-  Si destination n&#39;est pas dans le dictionnaire prédécesseurs :
-      il n&#39;est pas possible d&#39;atteindre la destination et on retourne None
-
-  Sinon:
-    on initialise le chemin DEPUIS LA FIN
-    chemin = [destination]
-
-    pred = destination
-    Tant que pred != source :
-      On attribue à predecesseur sa valeur dans le dictionnaire :
-        pred = prédécesseurs[pred]
-
-      on l&#39;ajoute au DEBUT du chemin
-      chemin = [pred] + chemin
-
-  On retourne chemin
-</code></pre></div><p><em>Remarques</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Fonction créer un chemin (prédécesseurs, source, destination)
+</span></span><span style="display:flex;"><span>  Si destination n&#39;est pas dans le dictionnaire prédécesseurs :
+</span></span><span style="display:flex;"><span>      il n&#39;est pas possible d&#39;atteindre la destination et on retourne None
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Sinon:
+</span></span><span style="display:flex;"><span>    on initialise le chemin DEPUIS LA FIN
+</span></span><span style="display:flex;"><span>    chemin = [destination]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pred = destination
+</span></span><span style="display:flex;"><span>    Tant que pred != source :
+</span></span><span style="display:flex;"><span>      On attribue à predecesseur sa valeur dans le dictionnaire :
+</span></span><span style="display:flex;"><span>        pred = prédécesseurs[pred]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      on l&#39;ajoute au DEBUT du chemin
+</span></span><span style="display:flex;"><span>      chemin = [pred] + chemin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  On retourne chemin
+</span></span></code></pre></div><p><em>Remarques</em></p>
 <ul>
 <li>La source est forcement dans le dictionnaire des prédécesseurs,
 donc la boucle s&rsquo;arrête toujours.</li>
@@ -6102,13 +6102,13 @@ donc la boucle s&rsquo;arrête toujours.</li>
 <p>Le parcours en profondeur visite les sommets dans l&rsquo;ordre suivant :</p>
 <p>0, 1, 5, 2, 3, 4</p>
 <p>Les prédécesseurs sont alors :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{<span style="color:#f60">0</span>:<span style="color:#069;font-weight:bold">None</span>, <span style="color:#f60">1</span>:<span style="color:#f60">0</span>, <span style="color:#f60">2</span>:<span style="color:#f60">0</span>, <span style="color:#f60">5</span>:<span style="color:#f60">1</span>, <span style="color:#f60">3</span>:<span style="color:#f60">2</span>, <span style="color:#f60">4</span>:<span style="color:#f60">3</span>}
-</code></pre></div><p>La fonction créer un chemin remplit alors le chemin comme ceci :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">chemin = [4], prédécesseur de 4 : 3
-chemin = [3, 4], prédécesseur de 3 : 2
-chemin = [2, 3, 4], prédécesseur de 2 : 0
-chemin = [0, 2, 3, 4], 0 est la source, on a terminé.
-</code></pre></div><p>Elle retourne alors : <code>[0, 2, 3, 4]</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#f60">0</span>:<span style="color:#069;font-weight:bold">None</span>, <span style="color:#f60">1</span>:<span style="color:#f60">0</span>, <span style="color:#f60">2</span>:<span style="color:#f60">0</span>, <span style="color:#f60">5</span>:<span style="color:#f60">1</span>, <span style="color:#f60">3</span>:<span style="color:#f60">2</span>, <span style="color:#f60">4</span>:<span style="color:#f60">3</span>}
+</span></span></code></pre></div><p>La fonction créer un chemin remplit alors le chemin comme ceci :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chemin = [4], prédécesseur de 4 : 3
+</span></span><span style="display:flex;"><span>chemin = [3, 4], prédécesseur de 3 : 2
+</span></span><span style="display:flex;"><span>chemin = [2, 3, 4], prédécesseur de 2 : 0
+</span></span><span style="display:flex;"><span>chemin = [0, 2, 3, 4], 0 est la source, on a terminé.
+</span></span></code></pre></div><p>Elle retourne alors : <code>[0, 2, 3, 4]</code></p>
 <h1 id="recherche-de-la-présence-de-cycle-dans-un-graphe-simple">
   Recherche de la présence de cycle dans un graphe simple
   <a class="anchor" href="#recherche-de-la-pr%c3%a9sence-de-cycle-dans-un-graphe-simple">#</a>
@@ -6141,60 +6141,60 @@ a un cycle) et &ldquo;Faux&rdquo; pour le second: il n&rsquo;en a pas.</p>
   Algorithme complet
   <a class="anchor" href="#algorithme-complet">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">source                              (un noeud du graphe)
-file     : [Source]                 (une file)
-drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
-                                    sommet)
-</code></pre></div><p>Dans le tableau <code>drapeaux</code>, si un sommet est d&rsquo;indice 2,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>source                              (un noeud du graphe)
+</span></span><span style="display:flex;"><span>file     : [Source]                 (une file)
+</span></span><span style="display:flex;"><span>drapeaux : [-1, -1, etc., -1]       (un tableau avec -1 pour chaque indice de
+</span></span><span style="display:flex;"><span>                                    sommet)
+</span></span></code></pre></div><p>Dans le tableau <code>drapeaux</code>, si un sommet est d&rsquo;indice 2,</p>
 <p><code>drapeaux[2] = -1</code> signifie qu&rsquo;on ne l&rsquo;a <strong>pas encore ajouté</strong> à la file.<br>
 <code>drapeaux[2] = 0</code>  signifie qu&rsquo;on l&rsquo;a <strong>déjà ajouté</strong> à la file mais pas encore <strong>visité</strong>.<br>
 <code>drapeaux[2] = 1</code>  signifie qu&rsquo;on l&rsquo;a <strong>déjà visité</strong> le sommet.</p>
 <p><strong>Parcours en largeur :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Fonction Contient un cycle (graphe)
-
-Choisir un sommet (n&#39;importe lequel) et l&#39;ajouter à la file.
-
-Tant que la file n&#39;est pas vide faire :
-    courant = défiler()
-    passer le drapeau de courant à 1.
-
-    Pour chaque voisin de courant :
-      Si son drapeau vaut 0:
-        On a déjà rencontré ce sommet ! Il y a un cycle.
-        Cycle_present = Vrai
-      Si son drapeau vaut -1 :
-        l&#39;ajouter à la file.
-        Changer son drapeaux en 0.
-
-Retourner Cycle_present
-</code></pre></div><p><em>Remarque</em> : si le drapeau du voisin vaut 1, inutile de repasser par là.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Fonction Contient un cycle (graphe)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Choisir un sommet (n&#39;importe lequel) et l&#39;ajouter à la file.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tant que la file n&#39;est pas vide faire :
+</span></span><span style="display:flex;"><span>    courant = défiler()
+</span></span><span style="display:flex;"><span>    passer le drapeau de courant à 1.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Pour chaque voisin de courant :
+</span></span><span style="display:flex;"><span>      Si son drapeau vaut 0:
+</span></span><span style="display:flex;"><span>        On a déjà rencontré ce sommet ! Il y a un cycle.
+</span></span><span style="display:flex;"><span>        Cycle_present = Vrai
+</span></span><span style="display:flex;"><span>      Si son drapeau vaut -1 :
+</span></span><span style="display:flex;"><span>        l&#39;ajouter à la file.
+</span></span><span style="display:flex;"><span>        Changer son drapeaux en 0.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Retourner Cycle_present
+</span></span></code></pre></div><p><em>Remarque</em> : si le drapeau du voisin vaut 1, inutile de repasser par là.</p>
 <hr>
 <h3 id="exemples-détaillés">
   Exemples détaillés
   <a class="anchor" href="#exemples-d%c3%a9taill%c3%a9s">#</a>
 </h3>
 <p><strong>Graphe n°1</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">file = [0], drapeaux = [-1, -1, -1, -1, -1, -1], Cycle_present = faux
-
-1. courant = 0. Voisins = 1, 2. drapeaux = [1, 0, 0, -1, -1, -1]. File = [1, 2]
-2. courant = 1. Voisins = 2, 5.
-    Le drapeau de 2 vaut 0 !!! Il y a un cycle.
-    Cycle_present = Vrai
-    ... le parcours se continue ...
-
-On retourne Vrai
-</code></pre></div><p><strong>Graphe n° 2</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">file = [0], drapeaux = [-1, -1, -1, -1, -1, -1], Cycle_present = Faux
-
-1. courant = 0. Voisins = 1, 2.    drapeaux = [1, 0, 0, -1, -1, -1]. File = [1, 2]
-2. courant = 1. Voisins = 0, 5.    drapeaux = [1, 1, 0, -1, -1, 0].  File = [2, 5]
-3. courant = 2. Voisins = 0, 3, 4. drapeaux = [1, 1, 1, 0, 0, 0].    File = [5, 3, 4]
-4. courant = 5. Voisins = 1.       drapeaux = [1, 1, 1, 0, 0, 1].    File = [3, 4]
-5. courant = 3. Voisins = 2.       drapeaux = [1, 1, 1, 1, 0, 1].    File = [4]
-6. courant = 4. Voisins = 2.       drapeaux = [1, 1, 1, 1, 1, 1].    File = []
-
-On retourne Faux
-</code></pre></div><p>À aucun moment la variable <code>Cycle_present</code> n&rsquo;a changé d&rsquo;état.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>file = [0], drapeaux = [-1, -1, -1, -1, -1, -1], Cycle_present = faux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. courant = 0. Voisins = 1, 2. drapeaux = [1, 0, 0, -1, -1, -1]. File = [1, 2]
+</span></span><span style="display:flex;"><span>2. courant = 1. Voisins = 2, 5.
+</span></span><span style="display:flex;"><span>    Le drapeau de 2 vaut 0 !!! Il y a un cycle.
+</span></span><span style="display:flex;"><span>    Cycle_present = Vrai
+</span></span><span style="display:flex;"><span>    ... le parcours se continue ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On retourne Vrai
+</span></span></code></pre></div><p><strong>Graphe n° 2</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>file = [0], drapeaux = [-1, -1, -1, -1, -1, -1], Cycle_present = Faux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. courant = 0. Voisins = 1, 2.    drapeaux = [1, 0, 0, -1, -1, -1]. File = [1, 2]
+</span></span><span style="display:flex;"><span>2. courant = 1. Voisins = 0, 5.    drapeaux = [1, 1, 0, -1, -1, 0].  File = [2, 5]
+</span></span><span style="display:flex;"><span>3. courant = 2. Voisins = 0, 3, 4. drapeaux = [1, 1, 1, 0, 0, 0].    File = [5, 3, 4]
+</span></span><span style="display:flex;"><span>4. courant = 5. Voisins = 1.       drapeaux = [1, 1, 1, 0, 0, 1].    File = [3, 4]
+</span></span><span style="display:flex;"><span>5. courant = 3. Voisins = 2.       drapeaux = [1, 1, 1, 1, 0, 1].    File = [4]
+</span></span><span style="display:flex;"><span>6. courant = 4. Voisins = 2.       drapeaux = [1, 1, 1, 1, 1, 1].    File = []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On retourne Faux
+</span></span></code></pre></div><p>À aucun moment la variable <code>Cycle_present</code> n&rsquo;a changé d&rsquo;état.</p>
 <h1 id="compléments">
   Compléments
   <a class="anchor" href="#compl%c3%a9ments">#</a>
@@ -6256,7 +6256,7 @@ et $|K|$ désigne le nombre d&rsquo;éléments d&rsquo;un ensemble $K$.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

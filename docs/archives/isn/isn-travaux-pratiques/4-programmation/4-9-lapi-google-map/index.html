@@ -17,7 +17,7 @@ Notions abordées dans cette page
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5741,7 +5741,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5858,13 +5858,13 @@ vous voulez aller plus loin.</p>
 utilisée. Dans notre cas cela se fait en ajoutant la ligne suivante
 dans la partie <code>head</code> de la page HTML, avant la
 déclaration de nos propres scripts :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;http://maps.google.com/maps/api/js?sensor=false&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;</span>
-</code></pre></div><p>Il faudra également que notre page HTML contienne un élément
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;http://maps.google.com/maps/api/js?sensor=false&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;</span>
+</span></span></code></pre></div><p>Il faudra également que notre page HTML contienne un élément
 identifié qui accueillera l&rsquo;image de la carte désirée. Donc quelque
 chose comme :</p>
 <p>On peut bien sûr ajouter des informations CSS telle <code>class=&quot;...&quot;</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;maCarte&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
-</code></pre></div><p>Le chargement de cette API nous permet d&rsquo;en utiliser les
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;maCarte&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
+</span></span></code></pre></div><p>Le chargement de cette API nous permet d&rsquo;en utiliser les
 définitions. En particulier nous avons maintenant accès à un nouveau
 type de données représentant les
 cartes : <code>google.maps.Map</code>.</p>
@@ -5887,16 +5887,16 @@ type <code>google.maps.MapTypeId</code></li>
 </ul>
 <p>Pour créer une carte, il faut donc définir ces données ce qui donne
 quelque chose comme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> lElement  <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;maCarte&#34;</span>);
-<span style="color:#069;font-weight:bold">var</span> leCentre <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.LatLng(<span style="color:#f60">50.609731</span>,<span style="color:#f60">3.137511</span>);
-<span style="color:#069;font-weight:bold">var</span> lesOptions <span style="color:#555">=</span> {
-	center<span style="color:#555">:</span> leCentre,
-	zoom<span style="color:#555">:</span> <span style="color:#f60">17</span>,
-	mapTypeId<span style="color:#555">:</span> google.maps.MapTypeId.ROADMAP
-};
-
-<span style="color:#069;font-weight:bold">var</span> laCarte <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.Map(lElement, lesOptions);
-</code></pre></div><p>Les scripts Google Map et les informations sur les images sont
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lElement  <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;maCarte&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> leCentre <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.LatLng(<span style="color:#f60">50.609731</span>,<span style="color:#f60">3.137511</span>);
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lesOptions <span style="color:#555">=</span> {
+</span></span><span style="display:flex;"><span>	center<span style="color:#555">:</span> leCentre,
+</span></span><span style="display:flex;"><span>	zoom<span style="color:#555">:</span> <span style="color:#f60">17</span>,
+</span></span><span style="display:flex;"><span>	mapTypeId<span style="color:#555">:</span> google.maps.MapTypeId.ROADMAP
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> laCarte <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.Map(lElement, lesOptions);
+</span></span></code></pre></div><p>Les scripts Google Map et les informations sur les images sont
 obtenus à partir d&rsquo;information récupérer par le réseau. Pour éviter
 des problèmes d&rsquo;affichage de la page, il est donc préférable des
 déclencher la création de la carte après le chargement complet de la
@@ -5971,7 +5971,7 @@ var punaise = new google.maps.Marker(marqueurOption);
 	      });
 </code></pre>
 <ol>
-<li>Ajoutez ce code à la page créée lors de la <strong>Manip' 1</strong> pour en
+<li>Ajoutez ce code à la page créée lors de la <strong>Manip&rsquo; 1</strong> pour en
 constater le résultat.</li>
 <li>Ajoutez deux nouveaux champs de saisie, un pour la
 latitude, un pour la longitude, plus un &ldquo;bouton&rdquo; <strong>Ajouter</strong>. Un
@@ -5998,12 +5998,12 @@ une fenêtre d&rsquo;information qui reprend le nom de votre lycée et une
 photo de celui-ci (pas trop grande !)</p>
 </li>
 <li>
-<p>Reprenez la <strong>Manip'</strong> sur les monuments et affichez dans une
+<p>Reprenez la <strong>Manip&rsquo;</strong> sur les monuments et affichez dans une
 page la carte de France (cherchez le bon zoom initial) avec
 une <em>info window</em> par monument.</p>
 </li>
 <li>
-<p>Reprenez le travail produit à la <strong>Manip' 1</strong> et ajoutez le
+<p>Reprenez le travail produit à la <strong>Manip&rsquo; 1</strong> et ajoutez le
 code suivant à la fin de la fonction de création de la carte :</p>
 <pre><code> laCarte.setZoom(16);
  laCarte.setCenter(50.610716,3.140007);
@@ -6058,7 +6058,7 @@ pour vous rendre au lycée (adaptez le facteur de zoom si nécessaire).</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

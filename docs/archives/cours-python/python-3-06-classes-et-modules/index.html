@@ -17,7 +17,7 @@ Le module Tkinter (que nous aborderons dans le chapitre 7) sert à créer des in
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/cours-python/python-3-06-classes-et-modules/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5753,7 +5753,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5822,71 +5822,71 @@ Il est donc important d&rsquo;étudier les classes notamment pour bien comprendr
 Démarrer → Programmes → Python → IDLE (Python GUI)</p>
 <p>File → New Window
 Copier puis coller le code source ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># CompteBancaire.py</span>
-
-<span style="color:#09f;font-style:italic"># définition de la classe Compte</span>
-<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Compte</span>:
-   <span style="color:#c30">&#34;&#34;&#34;Un exemple de classe :
-</span><span style="color:#c30">   gestion d&#39;un compte bancaire&#34;&#34;&#34;</span>
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __init__ (constructeur)</span>
-   <span style="color:#069;font-weight:bold">def</span> __init__(self,soldeInitial):
-      <span style="color:#c30">&#34;&#34;&#34;Initialisation du compte avec la valeur soldeInitial.&#34;&#34;&#34;</span>
-      <span style="color:#09f;font-style:italic"># assignation de l&#39;attribut d&#39;instance solde</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#366">float</span>(soldeInitial)
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode NouveauSolde()</span>
-   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">NouveauSolde</span>(self,somme):
-      <span style="color:#c30">&#34;&#34;&#34;Nouveau solde de compte avec la valeur somme.&#34;&#34;&#34;</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#366">float</span>(somme)
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode Solde()</span>
-   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Solde</span>(self):
-      <span style="color:#c30">&#34;&#34;&#34;Retourne le solde.&#34;&#34;&#34;</span>
-      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode Credit()</span>
-   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Credit</span>(self,somme):
-      <span style="color:#c30">&#34;&#34;&#34;Crédite le compte de la valeur somme. Retourne le solde.&#34;&#34;&#34;</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">+=</span> somme
-      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode Debit()</span>
-   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Debit</span>(self,somme):
-      <span style="color:#c30">&#34;&#34;&#34;Débite le compte de la valeur somme. Retourne le solde.&#34;&#34;&#34;</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">-=</span> somme
-      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
-
-   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __add__ (surcharge de l&#39;opérateur +)</span>
-   <span style="color:#069;font-weight:bold">def</span> __add__(self,somme):
-      <span style="color:#c30">&#34;&#34;&#34;x.__add__(somme) &lt;=&gt; x+somme
-</span><span style="color:#c30">      Crédite le compte de la valeur somme.
-</span><span style="color:#c30">      Affiche &#39;Nouveau solde : somme&#39;&#34;&#34;&#34;</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">+=</span> somme
-      <span style="color:#366">print</span>(<span style="color:#c30">&#34;Nouveau solde : </span><span style="color:#a00">{:+.2f}</span><span style="color:#c30"> euros&#34;</span><span style="color:#555">.</span>format(self<span style="color:#555">.</span>solde))
-   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __sub__ (surcharge de l&#39;opérateur -)</span>
-   <span style="color:#069;font-weight:bold">def</span> __sub__(self,somme):
-      <span style="color:#c30">&#34;&#34;&#34;x.__sub_(somme) &lt;=&gt; x-somme
-</span><span style="color:#c30">      Débite le compte de la valeur somme.
-</span><span style="color:#c30">      Affiche &#39;Nouveau solde : somme&#39;&#34;&#34;&#34;</span>
-      self<span style="color:#555">.</span>solde <span style="color:#555">-=</span> somme
-      <span style="color:#366">print</span>(<span style="color:#c30">&#34;Nouveau solde : </span><span style="color:#a00">{:+.2f}</span><span style="color:#c30"> euros&#34;</span><span style="color:#555">.</span>format(self<span style="color:#555">.</span>solde))
-
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
-<span style="color:#09f;font-style:italic"># Ce bloc d&#39;instructions est exécuté si le module est lancé en tant que programme autonome</span>
-   <span style="color:#09f;font-style:italic"># Instanciation de l&#39;objet cb1 de la classe Compte</span>
-   cb1 <span style="color:#555">=</span> Compte(<span style="color:#f60">1000</span>)
-   <span style="color:#09f;font-style:italic"># formatage des données pour afficher deux chiffres après la virgule et le signe</span>
-   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
-   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Credit(<span style="color:#f60">200</span>)))
-   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Debit(<span style="color:#f60">50.23</span>)))
-   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
-   cb1<span style="color:#555">.</span>NouveauSolde(<span style="color:#f60">5100</span>)
-   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
-   cb1<span style="color:#555">+</span><span style="color:#f60">253.2</span>
-   cb1<span style="color:#555">-</span><span style="color:#f60">1000</span>
-   cb1<span style="color:#555">-</span>cb1<span style="color:#555">.</span>Solde()
-</code></pre></div><p>File → Save As</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># CompteBancaire.py</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># définition de la classe Compte</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Compte</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#c30">&#34;&#34;&#34;Un exemple de classe :
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">   gestion d&#39;un compte bancaire&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __init__ (constructeur)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> __init__(self,soldeInitial):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;Initialisation du compte avec la valeur soldeInitial.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#09f;font-style:italic"># assignation de l&#39;attribut d&#39;instance solde</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#366">float</span>(soldeInitial)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode NouveauSolde()</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">NouveauSolde</span>(self,somme):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;Nouveau solde de compte avec la valeur somme.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#366">float</span>(somme)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode Solde()</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Solde</span>(self):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;Retourne le solde.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode Credit()</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Credit</span>(self,somme):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;Crédite le compte de la valeur somme. Retourne le solde.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">+=</span> somme
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode Debit()</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Debit</span>(self,somme):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;Débite le compte de la valeur somme. Retourne le solde.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">-=</span> somme
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>solde
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __add__ (surcharge de l&#39;opérateur +)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> __add__(self,somme):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;x.__add__(somme) &lt;=&gt; x+somme
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Crédite le compte de la valeur somme.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Affiche &#39;Nouveau solde : somme&#39;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">+=</span> somme
+</span></span><span style="display:flex;"><span>      <span style="color:#366">print</span>(<span style="color:#c30">&#34;Nouveau solde : </span><span style="color:#a00">{:+.2f}</span><span style="color:#c30"> euros&#34;</span><span style="color:#555">.</span>format(self<span style="color:#555">.</span>solde))
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># définition de la méthode spéciale __sub__ (surcharge de l&#39;opérateur -)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">def</span> __sub__(self,somme):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#34;&#34;&#34;x.__sub_(somme) &lt;=&gt; x-somme
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Débite le compte de la valeur somme.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Affiche &#39;Nouveau solde : somme&#39;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>solde <span style="color:#555">-=</span> somme
+</span></span><span style="display:flex;"><span>      <span style="color:#366">print</span>(<span style="color:#c30">&#34;Nouveau solde : </span><span style="color:#a00">{:+.2f}</span><span style="color:#c30"> euros&#34;</span><span style="color:#555">.</span>format(self<span style="color:#555">.</span>solde))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Ce bloc d&#39;instructions est exécuté si le module est lancé en tant que programme autonome</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># Instanciation de l&#39;objet cb1 de la classe Compte</span>
+</span></span><span style="display:flex;"><span>   cb1 <span style="color:#555">=</span> Compte(<span style="color:#f60">1000</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#09f;font-style:italic"># formatage des données pour afficher deux chiffres après la virgule et le signe</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
+</span></span><span style="display:flex;"><span>   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Credit(<span style="color:#f60">200</span>)))
+</span></span><span style="display:flex;"><span>   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Debit(<span style="color:#f60">50.23</span>)))
+</span></span><span style="display:flex;"><span>   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
+</span></span><span style="display:flex;"><span>   cb1<span style="color:#555">.</span>NouveauSolde(<span style="color:#f60">5100</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#a00">{:+.2f}</span><span style="color:#c30">&#34;</span><span style="color:#555">.</span>format(cb1<span style="color:#555">.</span>Solde()))
+</span></span><span style="display:flex;"><span>   cb1<span style="color:#555">+</span><span style="color:#f60">253.2</span>
+</span></span><span style="display:flex;"><span>   cb1<span style="color:#555">-</span><span style="color:#f60">1000</span>
+</span></span><span style="display:flex;"><span>   cb1<span style="color:#555">-</span>cb1<span style="color:#555">.</span>Solde()
+</span></span></code></pre></div><p>File → Save As</p>
 <p><strong>Chez vous :</strong></p>
 <p>Répertoire : C:\PythonXX
 Nom du fichier : CompteBancaire.py</p>
@@ -5997,23 +5997,23 @@ class Compte
   <a class="anchor" href="#remarques">#</a>
 </h4>
 <p>On peut instancier plusieurs objets d&rsquo;une même classe :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> cb2 <span style="color:#555">=</span> Compte(<span style="color:#f60">10000</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>Credit(<span style="color:#f60">500</span>))
-<span style="color:#f60">10500.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span> cb3 <span style="color:#555">=</span> Compte(<span style="color:#f60">6000</span>)	<span style="color:#09f;font-style:italic"># et encore un !</span>
-<span style="color:#555">&gt;&gt;&gt;</span> cb3<span style="color:#555">-</span><span style="color:#f60">500</span>
-Nouveau solde : <span style="color:#555">+</span><span style="color:#f60">5500.00</span> euros
-<span style="color:#555">&gt;&gt;&gt;</span>
-</code></pre></div><p>Même si cela n&rsquo;est pas recommandable, vous pouvez accéder directement aux attributs d&rsquo;instance :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>solde)
-<span style="color:#f60">10500.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span> cb2<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#f60">5000.0</span>	<span style="color:#09f;font-style:italic"># assignation de l&#39;attribut d&#39;instance solde</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>solde)
-<span style="color:#f60">5000.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>Solde())
-<span style="color:#f60">5000.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span>
-</code></pre></div><p>Notez que des méthodes spéciales sont prévues pour personnaliser le mode d&rsquo;accès aux attributs : <code>__setattr__(), __getattr__()</code>&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb2 <span style="color:#555">=</span> Compte(<span style="color:#f60">10000</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>Credit(<span style="color:#f60">500</span>))
+</span></span><span style="display:flex;"><span><span style="color:#f60">10500.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb3 <span style="color:#555">=</span> Compte(<span style="color:#f60">6000</span>)	<span style="color:#09f;font-style:italic"># et encore un !</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb3<span style="color:#555">-</span><span style="color:#f60">500</span>
+</span></span><span style="display:flex;"><span>Nouveau solde : <span style="color:#555">+</span><span style="color:#f60">5500.00</span> euros
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span>
+</span></span></code></pre></div><p>Même si cela n&rsquo;est pas recommandable, vous pouvez accéder directement aux attributs d&rsquo;instance :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>solde)
+</span></span><span style="display:flex;"><span><span style="color:#f60">10500.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb2<span style="color:#555">.</span>solde <span style="color:#555">=</span> <span style="color:#f60">5000.0</span>	<span style="color:#09f;font-style:italic"># assignation de l&#39;attribut d&#39;instance solde</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>solde)
+</span></span><span style="display:flex;"><span><span style="color:#f60">5000.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb2<span style="color:#555">.</span>Solde())
+</span></span><span style="display:flex;"><span><span style="color:#f60">5000.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span>
+</span></span></code></pre></div><p>Notez que des méthodes spéciales sont prévues pour personnaliser le mode d&rsquo;accès aux attributs : <code>__setattr__(), __getattr__()</code>&hellip;</p>
 <h3 id="importation-dun-module-défini-par-lutilisateur">
   Importation d&rsquo;un module défini par l&rsquo;utilisateur
   <a class="anchor" href="#importation-dun-module-d%c3%a9fini-par-lutilisateur">#</a>
@@ -6021,16 +6021,16 @@ Nouveau solde : <span style="color:#555">+</span><span style="color:#f60">5500.0
 <p>L&rsquo;importation de notre module personnel <code>CompteBancaire</code> se fait de la même façon que pour les modules de base (<code>math, random, time</code>&hellip;).</p>
 <p>Redémarrer l&rsquo;interpréteur intéractif (Python Shell) :
 Shell → Restart Shell</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">CompteBancaire</span>
-<span style="color:#555">&gt;&gt;&gt;</span> cb <span style="color:#555">=</span> CompteBancaire<span style="color:#555">.</span>Compte(<span style="color:#f60">1500</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb<span style="color:#555">.</span>Debit(<span style="color:#f60">200</span>))
-<span style="color:#f60">1300.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb<span style="color:#555">.</span>solde)
-<span style="color:#f60">1300.0</span>
-<span style="color:#555">&gt;&gt;&gt;</span> cb<span style="color:#555">+</span><span style="color:#f60">2000</span>
-Nouveau solde : <span style="color:#555">+</span><span style="color:#f60">3300.00</span> euros
-<span style="color:#555">&gt;&gt;&gt;</span>
-</code></pre></div><p>Le module <code>CompteBancaire</code> est importé par le programme principal (ici l&rsquo;interpréteur intéractif).
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">CompteBancaire</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb <span style="color:#555">=</span> CompteBancaire<span style="color:#555">.</span>Compte(<span style="color:#f60">1500</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb<span style="color:#555">.</span>Debit(<span style="color:#f60">200</span>))
+</span></span><span style="display:flex;"><span><span style="color:#f60">1300.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">print</span>(cb<span style="color:#555">.</span>solde)
+</span></span><span style="display:flex;"><span><span style="color:#f60">1300.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> cb<span style="color:#555">+</span><span style="color:#f60">2000</span>
+</span></span><span style="display:flex;"><span>Nouveau solde : <span style="color:#555">+</span><span style="color:#f60">3300.00</span> euros
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span>
+</span></span></code></pre></div><p>Le module <code>CompteBancaire</code> est importé par le programme principal (ici l&rsquo;interpréteur intéractif).
 La partie du code qui suit l&rsquo;instruction <code>if __name__ == '__main__':</code> est ignorée (il n&rsquo;y a donc pas d&rsquo;affichage après l&rsquo;instruction <code>import CompteBancaire</code>).</p>
 <h3 id="modules-de-classes-modules-de-fonctions">
   Modules de classes, modules de fonctions
@@ -6102,57 +6102,57 @@ DATA
 </h5>
 <p>Si vous êtes familiarisé avec le module <code>Tkinter</code>, voici un exemple qui montre toute la puissance des classes et de la notion d&rsquo;héritage :</p>
 <p><img src="/uploads/uploads/2017/04/class_tkinter_frame.png" alt="class_tkinter_frame" /></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># -*- coding: utf-8 -*-</span>
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">tkinter</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
-
-<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">EnterMessage</span>(Frame):
-    <span style="color:#c30">&#34;&#34;&#34; Classe EnterMessage (Frame de saisie du message)
-</span><span style="color:#c30">    Cette classe dérive de la classe Tkinter.Frame&#34;&#34;&#34;</span>
-    <span style="color:#069;font-weight:bold">def</span> __init__(self,master<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
-        <span style="color:#c30">&#34;&#34;&#34;Initialisation : création d&#39;un widget Frame&#34;&#34;&#34;</span>
-        Frame<span style="color:#555">.</span>__init__(self,master,bg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>)
-        self<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-        self<span style="color:#555">.</span>CreateWidgets()
-
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">CreateWidgets</span>(self):
-        <span style="color:#c30">&#34;&#34;&#34; Création des widgets Entry et Button dans le widget Frame&#34;&#34;&#34;</span>
-        self<span style="color:#555">.</span>NouveauMessage <span style="color:#555">=</span> StringVar()
-        Entry(master<span style="color:#555">=</span>self,textvariable<span style="color:#555">=</span> self<span style="color:#555">.</span>NouveauMessage)<span style="color:#555">.</span>pack(side<span style="color:#555">=</span>LEFT,padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-        Button(master<span style="color:#555">=</span>self,text<span style="color:#555">=</span><span style="color:#c30">&#34;Nouveau&#34;</span>,fg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>,command<span style="color:#555">=</span>self<span style="color:#555">.</span>Nouveau)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Nouveau</span>(self):
-        <span style="color:#c30">&#34;&#34;&#34; Création d&#39;une instance de la classe NewPostIt &#34;&#34;&#34;</span>
-        <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>get() <span style="color:#555">!=</span> <span style="color:#c30">&#34;&#34;</span>:
-            NewPostIt(master<span style="color:#555">=</span>self<span style="color:#555">.</span>master,message<span style="color:#555">=</span>self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>get())
-            self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>set(<span style="color:#c30">&#34;&#34;</span>)
-
-
-<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NewPostIt</span>(Frame):
-    <span style="color:#c30">&#34;&#34;&#34; Classe post-it (Frame Post-It)
-</span><span style="color:#c30">    Cette classe dérive de la classe Tkinter.Frame&#34;&#34;&#34;</span>
-    <span style="color:#069;font-weight:bold">def</span> __init__(self,master<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>,message<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
-        <span style="color:#c30">&#34;&#34;&#34;Initialisation : création d&#39;un widget Frame&#34;&#34;&#34;</span>
-        Frame<span style="color:#555">.</span>__init__(self,master,bg<span style="color:#555">=</span><span style="color:#c30">&#34;maroon&#34;</span>)
-        self<span style="color:#555">.</span>pack(side<span style="color:#555">=</span>LEFT,padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-        self<span style="color:#555">.</span>CreateWidgets(message)
-
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">CreateWidgets</span>(self,message):
-        <span style="color:#c30">&#34;&#34;&#34; Création des widgets Label et Button dans le widget Frame&#34;&#34;&#34;</span>
-        Label(master<span style="color:#555">=</span>self, text <span style="color:#555">=</span> message,fg <span style="color:#555">=</span><span style="color:#c30">&#39;maroon&#39;</span>,bg <span style="color:#555">=</span><span style="color:#c30">&#39;white&#39;</span>)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-        Button(master<span style="color:#555">=</span>self, text <span style="color:#555">=</span> <span style="color:#c30">&#34;Effacer&#34;</span>,fg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>,command<span style="color:#555">=</span>self<span style="color:#555">.</span>destroy)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
-
-
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
-    <span style="color:#09f;font-style:italic"># création de la fenêtre principale</span>
-    Mafenetre <span style="color:#555">=</span> Tk()
-    Mafenetre<span style="color:#555">.</span>title(<span style="color:#c30">&#39;Post-it&#39;</span>)
-    Mafenetre[<span style="color:#c30">&#39;bg&#39;</span>]<span style="color:#555">=</span><span style="color:#c30">&#39;bisque&#39;</span>
-
-    <span style="color:#09f;font-style:italic"># Création d&#39;une instance de la classe EnterMessage</span>
-    EnterMessage(master<span style="color:#555">=</span>Mafenetre)
-
-    Mafenetre<span style="color:#555">.</span>mainloop()
-</code></pre></div><h3 id="exercices">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">tkinter</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#555">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">EnterMessage</span>(Frame):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34; Classe EnterMessage (Frame de saisie du message)
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Cette classe dérive de la classe Tkinter.Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __init__(self,master<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;Initialisation : création d&#39;un widget Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        Frame<span style="color:#555">.</span>__init__(self,master,bg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>CreateWidgets()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">CreateWidgets</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34; Création des widgets Entry et Button dans le widget Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>NouveauMessage <span style="color:#555">=</span> StringVar()
+</span></span><span style="display:flex;"><span>        Entry(master<span style="color:#555">=</span>self,textvariable<span style="color:#555">=</span> self<span style="color:#555">.</span>NouveauMessage)<span style="color:#555">.</span>pack(side<span style="color:#555">=</span>LEFT,padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>        Button(master<span style="color:#555">=</span>self,text<span style="color:#555">=</span><span style="color:#c30">&#34;Nouveau&#34;</span>,fg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>,command<span style="color:#555">=</span>self<span style="color:#555">.</span>Nouveau)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">Nouveau</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34; Création d&#39;une instance de la classe NewPostIt &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>get() <span style="color:#555">!=</span> <span style="color:#c30">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>            NewPostIt(master<span style="color:#555">=</span>self<span style="color:#555">.</span>master,message<span style="color:#555">=</span>self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>get())
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>NouveauMessage<span style="color:#555">.</span>set(<span style="color:#c30">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NewPostIt</span>(Frame):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34; Classe post-it (Frame Post-It)
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Cette classe dérive de la classe Tkinter.Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __init__(self,master<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>,message<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;Initialisation : création d&#39;un widget Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        Frame<span style="color:#555">.</span>__init__(self,master,bg<span style="color:#555">=</span><span style="color:#c30">&#34;maroon&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>pack(side<span style="color:#555">=</span>LEFT,padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>CreateWidgets(message)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">CreateWidgets</span>(self,message):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34; Création des widgets Label et Button dans le widget Frame&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        Label(master<span style="color:#555">=</span>self, text <span style="color:#555">=</span> message,fg <span style="color:#555">=</span><span style="color:#c30">&#39;maroon&#39;</span>,bg <span style="color:#555">=</span><span style="color:#c30">&#39;white&#39;</span>)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>        Button(master<span style="color:#555">=</span>self, text <span style="color:#555">=</span> <span style="color:#c30">&#34;Effacer&#34;</span>,fg<span style="color:#555">=</span><span style="color:#c30">&#39;navy&#39;</span>,command<span style="color:#555">=</span>self<span style="color:#555">.</span>destroy)<span style="color:#555">.</span>pack(padx<span style="color:#555">=</span><span style="color:#f60">10</span>,pady<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># création de la fenêtre principale</span>
+</span></span><span style="display:flex;"><span>    Mafenetre <span style="color:#555">=</span> Tk()
+</span></span><span style="display:flex;"><span>    Mafenetre<span style="color:#555">.</span>title(<span style="color:#c30">&#39;Post-it&#39;</span>)
+</span></span><span style="display:flex;"><span>    Mafenetre[<span style="color:#c30">&#39;bg&#39;</span>]<span style="color:#555">=</span><span style="color:#c30">&#39;bisque&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Création d&#39;une instance de la classe EnterMessage</span>
+</span></span><span style="display:flex;"><span>    EnterMessage(master<span style="color:#555">=</span>Mafenetre)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Mafenetre<span style="color:#555">.</span>mainloop()
+</span></span></code></pre></div><h3 id="exercices">
   Exercices
   <a class="anchor" href="#exercices">#</a>
 </h3>
@@ -6211,7 +6211,7 @@ Nouveau solde : +9000.00 euros
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

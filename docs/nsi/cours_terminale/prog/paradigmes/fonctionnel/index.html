@@ -16,7 +16,7 @@ La conception de ces briques correspond à un ensemble de techniques rassemblée
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/paradigmes/fonctionnel/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5740,7 +5740,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5811,8 +5811,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf <h3 id="pdf-format-imprimableuploadsdocnsitaleparadigmesfonctionnelpdf">
-  <a href="/uploads/docnsitale/paradigmes/fonctionnel.pdf">format imprimable</a>
+  <article class="markdown"><h3 id="pdf-format-imprimableuploadsdocnsitaleparadigmesfonctionnelpdf">
+  pdf <a href="/uploads/docnsitale/paradigmes/fonctionnel.pdf">format imprimable</a>
   <a class="anchor" href="#pdf-format-imprimableuploadsdocnsitaleparadigmesfonctionnelpdf">#</a>
 </h3>
 <h1 id="le-paradigme-fonctionnel">
@@ -5860,10 +5860,10 @@ est <strong>fonctionnel</strong>.</p>
 quelle fonction sur tous les éléments d&rsquo;un tableau. Pour cet exemple,
 nous souhaitons mettre au carré tous les nombres d&rsquo;un tableau d&rsquo;entier.
 De façon classique, la fonction ressemblerait à ça :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction tableauAuCarré(t: tableau d&#39;entiers)
-    pour i de 0 à taille(t)
-        t[i] = t[i] * t[i]
-</code></pre></div><p>Le problème, c&rsquo;est que si on veut maintenant mettre au cube les nombres
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction tableauAuCarré(t: tableau d&#39;entiers)
+</span></span><span style="display:flex;"><span>    pour i de 0 à taille(t)
+</span></span><span style="display:flex;"><span>        t[i] = t[i] * t[i]
+</span></span></code></pre></div><p>Le problème, c&rsquo;est que si on veut maintenant mettre au cube les nombres
 du tableau, on est obligé de créer une nouvelle fonction. Et on sera
 obligé de créer une nouvelle fonction pour chaque nouveau traitement que
 l&rsquo;on veut faire sur le tableau.</p>
@@ -5873,16 +5873,16 @@ fonction sur tous les éléments du tableau. Cette technique consistant à
 amener un traitement en paramètre pour pouvoir être changé s&rsquo;appelle
 la <strong>généralisation</strong>.</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction appliquerFonctionSurTableau(t : tableau d&#39;entiers, fn : fonction(entier))
-    pour i de 0 à taille(t)
-        t[i] = fn(t[i])
-
-fonction miseAuCarré(n : entier)
-    retourner n * n
-
-appliquerFonctionSurTableau([0, 1, 2, 3], miseAuCarré)
-=&gt; [0, 1, 4, 9]
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction appliquerFonctionSurTableau(t : tableau d&#39;entiers, fn : fonction(entier))
+</span></span><span style="display:flex;"><span>    pour i de 0 à taille(t)
+</span></span><span style="display:flex;"><span>        t[i] = fn(t[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fonction miseAuCarré(n : entier)
+</span></span><span style="display:flex;"><span>    retourner n * n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>appliquerFonctionSurTableau([0, 1, 2, 3], miseAuCarré)
+</span></span><span style="display:flex;"><span>=&gt; [0, 1, 4, 9]
+</span></span></code></pre></div><p> </p>
 <h2 id="plus-de-productivité-moins-de-lignes-à-coder">
   Plus de productivité, moins de lignes à coder
   <a class="anchor" href="#plus-de-productivit%c3%a9-moins-de-lignes-%c3%a0-coder">#</a>
@@ -5907,17 +5907,17 @@ nous parlons ici. Il s&rsquo;agit d&rsquo;une des opérations de base sur un tab
 permettant de créer un nouveau tableau, auquel on applique une fonction
 passée en paramètre. Avec l&rsquo;exemple de tout à l&rsquo;heure :</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction map(t : tableau d&#39;entiers, fn : fonction(entier))
-    res : tableau d&#39;entier de taille=taille(t)
-
-    pour i de 0 à taille(t)
-        res[i] = fn(t[i])
-
-    retourner res
-
-map([0, 1, 2, 3], miseAuCarré)
-=&gt; [0, 1, 4, 9]
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction map(t : tableau d&#39;entiers, fn : fonction(entier))
+</span></span><span style="display:flex;"><span>    res : tableau d&#39;entier de taille=taille(t)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pour i de 0 à taille(t)
+</span></span><span style="display:flex;"><span>        res[i] = fn(t[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    retourner res
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>map([0, 1, 2, 3], miseAuCarré)
+</span></span><span style="display:flex;"><span>=&gt; [0, 1, 4, 9]
+</span></span></code></pre></div><p> </p>
 <p>Oui, c&rsquo;est la même chose (comme par hasard), à <strong>une différence
 près</strong> : <em>map</em> crée un nouveau tableau, ne modifiant donc pas l&rsquo;ancien.</p>
 <p> </p>
@@ -5930,20 +5930,20 @@ maintenant du second. <em>reduce</em> est une fonction formidable qui permet
 de <strong>réduire</strong> un tableau à une donnée. Voici un exemple avant d&rsquo;aller
 plus loin :</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction reduce(t : tableau d&#39;entiers, fn : fonction(?, entier))
-    resultat : ?
-
-    pour i de 0 à taille(t)
-        resultat = fn(resultat, t[i])
-
-    retourner res
-
-fonction somme(précédentRésultat : entier, élémentActuel : entier)
-    retourner précédentRésultat + élémentActuel
-
-reduce([0, 1, 2, 3], somme)
-=&gt; 6
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction reduce(t : tableau d&#39;entiers, fn : fonction(?, entier))
+</span></span><span style="display:flex;"><span>    resultat : ?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pour i de 0 à taille(t)
+</span></span><span style="display:flex;"><span>        resultat = fn(resultat, t[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    retourner res
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fonction somme(précédentRésultat : entier, élémentActuel : entier)
+</span></span><span style="display:flex;"><span>    retourner précédentRésultat + élémentActuel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reduce([0, 1, 2, 3], somme)
+</span></span><span style="display:flex;"><span>=&gt; 6
+</span></span></code></pre></div><p> </p>
 <p>La fonction <em>reduce</em> va appliquer une fonction à tous les éléments du
 tableau, avec comme paramètre le résultat calculé jusqu&rsquo;à l&rsquo;élément
 actuel (<strong>l&rsquo;accumulateur</strong>) et l&rsquo;élément actuel. Le but de la fonction
@@ -5960,7 +5960,7 @@ suivante :</p>
 <p>Ce comportement est le même que celui de <em>reduce</em> : nous retenons
 quelque chose, nous effectuons un traitement entre le résultat retenu et
 le nouvel élément, puis nous le retenons, et ainsi de suite.</p>
-<p>[Note]{.underline}[ :]{style=&ldquo;text-decoration: underline;&quot;} j&rsquo;ai
+<p>[Note]{.underline}[ :]{style=&ldquo;text-decoration: underline;&rdquo;} j&rsquo;ai
 volontairement mis <strong>?</strong> à la place du type de l&rsquo;accumulateur, car il
 est normalement du type que l&rsquo;on souhaite.</p>
 <p> </p>
@@ -5975,21 +5975,21 @@ conserver uniquement ceux répondant à une condition, que l&rsquo;on nomme
 le <strong>postulat</strong>. Au final, cette fonction nous permet de récupérer un
 nouveau tableau avec uniquement les éléments voulus.</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction filter(t : tableau d&#39;entiers, fn : fonction(entier))
-    resultat : tableau de taille dynamique
-
-    pour i de 0 à taille(t)
-        si (fn(t[i]) est vrai)
-            alors resultat.ajouter(t[i])
-
-    retourner resultat
-
-fonction positif(n: entier)
-    retourner n &gt;= 0
-
-filter([0, -4, 6, -2, 1], positif)
-=&gt; [0, 4, 1]
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction filter(t : tableau d&#39;entiers, fn : fonction(entier))
+</span></span><span style="display:flex;"><span>    resultat : tableau de taille dynamique
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pour i de 0 à taille(t)
+</span></span><span style="display:flex;"><span>        si (fn(t[i]) est vrai)
+</span></span><span style="display:flex;"><span>            alors resultat.ajouter(t[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    retourner resultat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fonction positif(n: entier)
+</span></span><span style="display:flex;"><span>    retourner n &gt;= 0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>filter([0, -4, 6, -2, 1], positif)
+</span></span><span style="display:flex;"><span>=&gt; [0, 4, 1]
+</span></span></code></pre></div><p> </p>
 <h3 id="-et-ce-ne-sont-pas-les-seules">
   &hellip; et ce ne sont pas les seules.
   <a class="anchor" href="#-et-ce-ne-sont-pas-les-seules">#</a>
@@ -6021,9 +6021,9 @@ Cette fonctionnalité va nous permettre d&rsquo;écrire des fonctions très
 rapidement, le plus souvent avec <strong>une syntaxe spécifique et
 minimaliste</strong> (mais cependant propre à chaque langage).</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">map([0, 1, 2, 3], (n: entier) =&gt; n * n)
-=&gt; [0, 1, 4, 9]
-</code></pre></div><p>Très souvent, dans les notations proposées par les langages,
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>map([0, 1, 2, 3], (n: entier) =&gt; n * n)
+</span></span><span style="display:flex;"><span>=&gt; [0, 1, 4, 9]
+</span></span></code></pre></div><p>Très souvent, dans les notations proposées par les langages,
 le <em>return</em> est implicite, pour justement simplifier au maximum les
 fonctions.</p>
 <p>Autre concept intéressant : dans les langages objets où les tableaux
@@ -6033,12 +6033,12 @@ tableau, nous pouvons enchaîner les appels fonctionnels pour obtenir des
 algorithmes très puissants en peu de lignes.</p>
 <p>Par exemple : &ldquo;ajouter tous les nombres qui suivent la chaîne <code>&quot;X:&quot;</code> dans le tableau
  </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1  let array: tableau de chaînes de caractères = [&#34;X:32&#34;, &#34;X:41&#34;, &#34;Y:28&#34;, &#34;Y:24&#34;, &#34;X:22&#34;];
-2
-3  array.filter((element: chaîne de caractères) =&gt; element.exists(&#34;X:&#34;))
-4       .map((element: chaîne de caractères) =&gt; element.substring(taille(&#34;X:&#34;)).versEntier())
-5       .reduce((accumulator: entier, element: entier) =&gt; accumulator + element)
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1  let array: tableau de chaînes de caractères = [&#34;X:32&#34;, &#34;X:41&#34;, &#34;Y:28&#34;, &#34;Y:24&#34;, &#34;X:22&#34;];
+</span></span><span style="display:flex;"><span>2
+</span></span><span style="display:flex;"><span>3  array.filter((element: chaîne de caractères) =&gt; element.exists(&#34;X:&#34;))
+</span></span><span style="display:flex;"><span>4       .map((element: chaîne de caractères) =&gt; element.substring(taille(&#34;X:&#34;)).versEntier())
+</span></span><span style="display:flex;"><span>5       .reduce((accumulator: entier, element: entier) =&gt; accumulator + element)
+</span></span></code></pre></div><ul>
 <li>Ligne 1: <code>array = [&quot;X:32&quot;, &quot;X:41&quot;, &quot;Y:28&quot;, &quot;Y:24&quot;, &quot;X:22&quot;]</code></li>
 <li>Ligne 3: ne garde que ceux qui contiennent &ldquo;<code>&quot;X:</code>&rdquo;. On a donc <code>[&quot;X:32&quot;, &quot;X:41&quot;, &quot;X:22&quot;]</code></li>
 <li>Ligne 4: ne garde que ce qui est après <code>&quot;X:&quot;</code> et le transforme en entier : <code>[32, 41, 22]</code></li>
@@ -6076,7 +6076,7 @@ programmation fonctionnelle et de conserver un code propre.</p>
 <p>L&rsquo;un des principaux avantages de la programmation fonctionnelle est bien
 évidemment la lisibilité. Elle nécessite un prérequis (la connaissance
 des <em>fonctions de base</em>), mais une fois cette connaissance acquise de
-toute l&rsquo;équipe, elle permet d'<strong>avoir un code plus simple et plus
+toute l&rsquo;équipe, elle permet d&rsquo;<strong>avoir un code plus simple et plus
 court</strong>. On va notamment réduire considérablement le nombre de boucles
 dans le programme (remplacées par des appels de fonctions), ainsi
 qu&rsquo;ajouter la possibilité de traiter les éléments d&rsquo;un tableau
@@ -6138,24 +6138,24 @@ donnant les températures maximales dans plusieurs villes dans le monde
 but va être <strong>d&rsquo;extraire la température maximale parmi les villes</strong>
 <strong>françaises.</strong> Le fichier de données est le suivant :</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{
-    <span style="color:#c30">&#34;date&#34;</span>: <span style="color:#c30">&#34;26-07-2017&#34;</span>,
-    <span style="color:#c30">&#34;data&#34;</span>: [
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Lyon&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;25.3C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Chicago&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;36.8C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;DE&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Berlin&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;21.4C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Paris&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;27.6C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;IT&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Rome&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;31.7C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;ES&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Madrid&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;35.9C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;DE&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Munich&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;26.1C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Bordeaux&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;27.4C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;EN&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Londres&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;25.1C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Los Angeles&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;22C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;EN&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Oxford&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;24.1C&#34;</span>},
-       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;New York&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;31.2C&#34;</span>}
-    ]
-}
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;date&#34;</span>: <span style="color:#c30">&#34;26-07-2017&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Lyon&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;25.3C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Chicago&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;36.8C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;DE&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Berlin&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;21.4C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Paris&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;27.6C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;IT&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Rome&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;31.7C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;ES&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Madrid&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;35.9C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;DE&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Munich&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;26.1C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;FR&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Bordeaux&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;27.4C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;EN&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Londres&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;25.1C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Los Angeles&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;22C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;EN&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;Oxford&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;24.1C&#34;</span>},
+</span></span><span style="display:flex;"><span>       {<span style="color:#c30">&#34;country&#34;</span>: <span style="color:#c30">&#34;USA&#34;</span>, <span style="color:#c30">&#34;city&#34;</span>: <span style="color:#c30">&#34;New York&#34;</span>, <span style="color:#c30">&#34;temperature&#34;</span>: <span style="color:#c30">&#34;31.2C&#34;</span>}
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p> </p>
 <p>J&rsquo;écrirai en Python (<em>l&rsquo;article d&rsquo;origine présente aussi d&rsquo;autres langages</em>)
 la fonction en paradigme
 impératif et la fonction en paradigme fonctionnel pour pouvoir voir la
@@ -6164,8 +6164,8 @@ différence entre les deux.</p>
 implémentant le mot-clé <strong>lambda</strong>, il est possible de définir des
 fonctions anonymes de la façon suivante :</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">lambda</span> a, b: a <span style="color:#555">&gt;</span> b
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">lambda</span> a, b: a <span style="color:#555">&gt;</span> b
+</span></span></code></pre></div><p> </p>
 <p>Les fonctions de base des tableaux <strong>n&rsquo;étant pas chaînables</strong>, il est
 possible d&rsquo;émuler ce comportement <strong>en utilisant le résultat d&rsquo;une
 fonction comme paramètre de la suivante</strong>. Le résultat est que <strong>le sens
@@ -6175,38 +6175,38 @@ troublant lors des premières rencontres avec cette syntaxe.</p>
 <p>Néanmoins, cette syntaxe reste beaucoup plus courte que la précédente,
 et ce tout en conservant une lecture correcte de l&rsquo;algorithme.</p>
 <p> </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">json</span>
-
-<span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(<span style="color:#c30">&#39;./data.json&#39;</span>) <span style="color:#069;font-weight:bold">as</span> dataFile:
-    data <span style="color:#555">=</span> json<span style="color:#555">.</span>load(dataFile)[<span style="color:#c30">&#34;data&#34;</span>]
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parseTemperature</span>(temperatureStr):
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">float</span>(temperatureStr[:temperatureStr<span style="color:#555">.</span>index(<span style="color:#c30">&#34;C&#34;</span>)])
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">getMaximum</span>(a, b):
-    <span style="color:#069;font-weight:bold">return</span> a <span style="color:#069;font-weight:bold">if</span> a <span style="color:#555">&gt;</span> b <span style="color:#069;font-weight:bold">else</span> b
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">computeFranceMaxImp</span>():
-    <span style="color:#366">max</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>
-
-    <span style="color:#069;font-weight:bold">for</span> entry <span style="color:#000;font-weight:bold">in</span> data:
-        <span style="color:#069;font-weight:bold">if</span> entry[<span style="color:#c30">&#34;country&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;FR&#34;</span>:
-            temperature <span style="color:#555">=</span> parseTemperature(entry[<span style="color:#c30">&#34;temperature&#34;</span>])
-
-            <span style="color:#069;font-weight:bold">if</span> temperature <span style="color:#555">&gt;</span> <span style="color:#366">max</span>:
-                <span style="color:#366">max</span> <span style="color:#555">=</span> temperature
-
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">max</span>
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">computeFranceMaxFn</span>():
-    <span style="color:#069;font-weight:bold">return</span> reduce(getMaximum,
-    <span style="color:#366">map</span>(<span style="color:#069;font-weight:bold">lambda</span> e: parseTemperature(e[<span style="color:#c30">&#34;temperature&#34;</span>]),
-    <span style="color:#366">filter</span>(<span style="color:#069;font-weight:bold">lambda</span> e: e[<span style="color:#c30">&#34;country&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;FR&#34;</span>, data)))
-
-
-<span style="color:#366">print</span> computeFranceMaxImp()
-<span style="color:#366">print</span> computeFranceMaxFn()
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">json</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(<span style="color:#c30">&#39;./data.json&#39;</span>) <span style="color:#069;font-weight:bold">as</span> dataFile:
+</span></span><span style="display:flex;"><span>    data <span style="color:#555">=</span> json<span style="color:#555">.</span>load(dataFile)[<span style="color:#c30">&#34;data&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parseTemperature</span>(temperatureStr):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">float</span>(temperatureStr[:temperatureStr<span style="color:#555">.</span>index(<span style="color:#c30">&#34;C&#34;</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">getMaximum</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> a <span style="color:#069;font-weight:bold">if</span> a <span style="color:#555">&gt;</span> b <span style="color:#069;font-weight:bold">else</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">computeFranceMaxImp</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#366">max</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> entry <span style="color:#000;font-weight:bold">in</span> data:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> entry[<span style="color:#c30">&#34;country&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;FR&#34;</span>:
+</span></span><span style="display:flex;"><span>            temperature <span style="color:#555">=</span> parseTemperature(entry[<span style="color:#c30">&#34;temperature&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">if</span> temperature <span style="color:#555">&gt;</span> <span style="color:#366">max</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#366">max</span> <span style="color:#555">=</span> temperature
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">max</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">computeFranceMaxFn</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> reduce(getMaximum,
+</span></span><span style="display:flex;"><span>    <span style="color:#366">map</span>(<span style="color:#069;font-weight:bold">lambda</span> e: parseTemperature(e[<span style="color:#c30">&#34;temperature&#34;</span>]),
+</span></span><span style="display:flex;"><span>    <span style="color:#366">filter</span>(<span style="color:#069;font-weight:bold">lambda</span> e: e[<span style="color:#c30">&#34;country&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;FR&#34;</span>, data)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span> computeFranceMaxImp()
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span> computeFranceMaxFn()
+</span></span></code></pre></div><p> </p>
 <p>Si un engouement se crée actuellement autour de la programmation
 fonctionnelle, il se justifie par ses différents avantages que l&rsquo;on peut
 en tirer, <strong>et ce très rapidement</strong>. Ce paradigme sort de plus en plus
@@ -6245,7 +6245,7 @@ accomplir des travaux sur les données considérables qu&rsquo;ils génèrent.</
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

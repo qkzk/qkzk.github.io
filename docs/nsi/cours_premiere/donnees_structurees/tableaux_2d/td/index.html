@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PDF pour impression #  Tableaux à deux dimensions #  1. Coordonnées dans une grille #  On considère une grille rectangulaire représentée en mémoire par un tableau à deux dimension :
-grille = [[1, 2, 1, 5], [2, 1, 4, 3], [1, 4, 5, 1]] Chaque élément de la grille est un entier.
-L&rsquo;algorithme, incomplet, qui suit permet de cumuler les éléments de la grille :
-somme = 0 pour chaque ligne de la grille faire : pour chaque cellule d&#39;une ligne faire : COMPLÉTER fin du pour fin du pour  Compléter l&rsquo;algorithme Combien d&rsquo;additions sont réalisées lorsqu&rsquo;on applique l&rsquo;algorithme à la grille donnée en exemple ?">
+grille = [[1, 2, 1, 5],  [2, 1, 4, 3],  [1, 4, 5, 1]] Chaque élément de la grille est un entier.
+L&rsquo;algorithme, incomplet, qui suit permet de cumuler les éléments de la grille :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="TD : tableaux 2D" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +17,7 @@ somme = 0 pour chaque ligne de la grille faire : pour chaque cellule d&#39;une l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5754,7 +5753,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5821,8 +5820,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">PDF <h3 id="pdf-pour-impressiontd_2d_comprehensionpdf">
-  <a href="./td_2d_comprehension.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf-pour-impressiontd_2d_comprehensionpdf">
+  PDF <a href="./td_2d_comprehension.pdf">pour impression</a>
   <a class="anchor" href="#pdf-pour-impressiontd_2d_comprehensionpdf">#</a>
 </h3>
 <h1 id="tableaux-à-deux-dimensions">
@@ -5835,18 +5834,18 @@ MathJax.Hub.Config({
 </h2>
 <p>On considère une grille rectangulaire représentée en mémoire par un tableau
 à deux dimension :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">grille <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">5</span>],
-          [<span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>, <span style="color:#f60">3</span>],
-          [<span style="color:#f60">1</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">1</span>]]
-</code></pre></div><p>Chaque élément de la grille est un entier.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>grille <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">5</span>],
+</span></span><span style="display:flex;"><span>          [<span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>, <span style="color:#f60">3</span>],
+</span></span><span style="display:flex;"><span>          [<span style="color:#f60">1</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">1</span>]]
+</span></span></code></pre></div><p>Chaque élément de la grille est un entier.</p>
 <p>L&rsquo;algorithme, incomplet, qui suit permet de cumuler les éléments de la grille :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">somme = 0
-pour chaque ligne de la grille faire :
-    pour chaque cellule d&#39;une ligne faire :
-        COMPLÉTER
-    fin du pour
-fin du pour
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>somme = 0
+</span></span><span style="display:flex;"><span>pour chaque ligne de la grille faire :
+</span></span><span style="display:flex;"><span>    pour chaque cellule d&#39;une ligne faire :
+</span></span><span style="display:flex;"><span>        COMPLÉTER
+</span></span><span style="display:flex;"><span>    fin du pour
+</span></span><span style="display:flex;"><span>fin du pour
+</span></span></code></pre></div><ol>
 <li>Compléter l&rsquo;algorithme</li>
 <li>Combien d&rsquo;additions sont réalisées lorsqu&rsquo;on applique l&rsquo;algorithme à la
 grille donnée en exemple ? Pour une grille contenant $L$ lignes et $C$
@@ -5862,22 +5861,22 @@ de chaque jour de la semaine.</p>
 <p>Exemple : <code>temperatures = [12, 10, 14, 11, 13, 16, 12]</code></p>
 <p>Ces relevés hebdomadaires ont ensuite été regroupés dans un tableau <code>releves</code></p>
 <p>Exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> releves <span style="color:#555">=</span> [[<span style="color:#f60">12</span>, <span style="color:#f60">10</span>, <span style="color:#f60">14</span>, <span style="color:#f60">11</span>, <span style="color:#f60">13</span>, <span style="color:#f60">16</span>, <span style="color:#f60">12</span>],
-            [<span style="color:#f60">10</span>, <span style="color:#f60">13</span>, <span style="color:#f60">15</span>, <span style="color:#f60">10</span>, <span style="color:#f60">11</span>, <span style="color:#f60">11</span>, <span style="color:#f60">15</span>],
-            <span style="color:#555">...</span>
-            [<span style="color:#f60">11</span>, <span style="color:#f60">12</span>, <span style="color:#f60">13</span>, <span style="color:#f60">12</span>, <span style="color:#f60">14</span>, <span style="color:#f60">11</span>, <span style="color:#f60">14</span>]]
-</code></pre></div><p>On souhaite connaître le numéro de la semaine et le jour de la semaine durant
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> releves <span style="color:#555">=</span> [[<span style="color:#f60">12</span>, <span style="color:#f60">10</span>, <span style="color:#f60">14</span>, <span style="color:#f60">11</span>, <span style="color:#f60">13</span>, <span style="color:#f60">16</span>, <span style="color:#f60">12</span>],
+</span></span><span style="display:flex;"><span>            [<span style="color:#f60">10</span>, <span style="color:#f60">13</span>, <span style="color:#f60">15</span>, <span style="color:#f60">10</span>, <span style="color:#f60">11</span>, <span style="color:#f60">11</span>, <span style="color:#f60">15</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>            [<span style="color:#f60">11</span>, <span style="color:#f60">12</span>, <span style="color:#f60">13</span>, <span style="color:#f60">12</span>, <span style="color:#f60">14</span>, <span style="color:#f60">11</span>, <span style="color:#f60">14</span>]]
+</span></span></code></pre></div><p>On souhaite connaître le numéro de la semaine et le jour de la semaine durant
 lequel la température a été maximale, minimale.</p>
 <p>Voici la proposition de Jérôme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">temp_max <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">for</span> semaine <span style="color:#000;font-weight:bold">in</span> releves:
-    <span style="color:#069;font-weight:bold">for</span> temperature <span style="color:#000;font-weight:bold">in</span> semaine:
-        <span style="color:#069;font-weight:bold">if</span> temperature <span style="color:#555">&gt;</span> temp_max:
-            temp_max <span style="color:#555">=</span> temperature
-<span style="color:#069;font-weight:bold">return</span> temperature
-</code></pre></div><p>Lorsqu&rsquo;il exécute son script, Jérôme obtient une erreur :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">syntax error: <span style="color:#c30">&#39;return&#39;</span> outside a function
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>temp_max <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> semaine <span style="color:#000;font-weight:bold">in</span> releves:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> temperature <span style="color:#000;font-weight:bold">in</span> semaine:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> temperature <span style="color:#555">&gt;</span> temp_max:
+</span></span><span style="display:flex;"><span>            temp_max <span style="color:#555">=</span> temperature
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">return</span> temperature
+</span></span></code></pre></div><p>Lorsqu&rsquo;il exécute son script, Jérôme obtient une erreur :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>syntax error: <span style="color:#c30">&#39;return&#39;</span> outside a function
+</span></span></code></pre></div><ol>
 <li>D&rsquo;après le message d&rsquo;erreur, quel est le problème ?
 Rectifiez le code afin qu&rsquo;il ne lève plus cette erreur.</li>
 <li>L&rsquo;algorithme de Jérôme répond il au problème ? Quelle sera l&rsquo;information
@@ -5891,22 +5890,22 @@ obtenue ?</li>
 <p>Le programme suivant génère une image rectangulaire comportant un dégradé
 du blanc au noir :</p>
 <p>$;$<img src="./degrade_bn.png" alt="degradé" /></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL</span> <span style="color:#069;font-weight:bold">import</span> Image
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">degrade_blanc_noir</span>():
-    <span style="color:#09f;font-style:italic"># nouvelle image, 255 de large, 128 de haut</span>
-    img <span style="color:#555">=</span> Image<span style="color:#555">.</span>new(<span style="color:#c30">&#39;RGB&#39;</span>, (<span style="color:#f60">255</span>, <span style="color:#f60">128</span>))
-    <span style="color:#09f;font-style:italic"># on charge la matrice des pixels</span>
-    pixels <span style="color:#555">=</span> img<span style="color:#555">.</span>load()
-
-    <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">255</span>):
-        <span style="color:#069;font-weight:bold">for</span> y <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">128</span>):
-            <span style="color:#09f;font-style:italic"># attention à la notation [x, y] !!!</span>
-            pixels[x, y] <span style="color:#555">=</span> (<span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">255</span> <span style="color:#555">-</span> x)
-
-    img<span style="color:#555">.</span>show()  <span style="color:#09f;font-style:italic"># afficher dans la console</span>
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL</span> <span style="color:#069;font-weight:bold">import</span> Image
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">degrade_blanc_noir</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># nouvelle image, 255 de large, 128 de haut</span>
+</span></span><span style="display:flex;"><span>    img <span style="color:#555">=</span> Image<span style="color:#555">.</span>new(<span style="color:#c30">&#39;RGB&#39;</span>, (<span style="color:#f60">255</span>, <span style="color:#f60">128</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># on charge la matrice des pixels</span>
+</span></span><span style="display:flex;"><span>    pixels <span style="color:#555">=</span> img<span style="color:#555">.</span>load()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">255</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> y <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">128</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># attention à la notation [x, y] !!!</span>
+</span></span><span style="display:flex;"><span>            pixels[x, y] <span style="color:#555">=</span> (<span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">255</span> <span style="color:#555">-</span> x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    img<span style="color:#555">.</span>show()  <span style="color:#09f;font-style:italic"># afficher dans la console</span>
+</span></span></code></pre></div><ol>
 <li>
 <p>Adaptez le code de cette fonction pour générer un dégradé du noir au blanc.</p>
 </li>
@@ -5959,14 +5958,14 @@ enregistré dans une longue liste Python :</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">naissances <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">2</span>, <span style="color:#f60">6</span>, <span style="color:#f60">4</span>, <span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>]
-</code></pre></div><p>Lorsqu&rsquo;on manipule de telles données, il est courant d&rsquo;utiliser 2 indices :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>):
-    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
-        jour <span style="color:#555">=</span> <span style="color:#f60">5</span> <span style="color:#555">*</span> i <span style="color:#555">+</span> j
-        nb_naissance <span style="color:#555">=</span> naissances[jour]
-        <span style="color:#366">print</span>(i, j, nb_naissance)
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>naissances <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">2</span>, <span style="color:#f60">6</span>, <span style="color:#f60">4</span>, <span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>]
+</span></span></code></pre></div><p>Lorsqu&rsquo;on manipule de telles données, il est courant d&rsquo;utiliser 2 indices :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
+</span></span><span style="display:flex;"><span>        jour <span style="color:#555">=</span> <span style="color:#f60">5</span> <span style="color:#555">*</span> i <span style="color:#555">+</span> j
+</span></span><span style="display:flex;"><span>        nb_naissance <span style="color:#555">=</span> naissances[jour]
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(i, j, nb_naissance)
+</span></span></code></pre></div><ol>
 <li>
 <p>Faire tourner le programme précédent à la main et écrire les affichages
 qu&rsquo;il produit.</p>
@@ -6002,11 +6001,11 @@ c. affiche les éléments par bloc ainsi :</p>
 <p>Écrire un programme Python <code>transforme_liste(liste, n, p)</code> qui transforme
 une telle liste de taille $n \times p$
 en un tableau à deux dimensions de $n$ lignes et $p$ colonnes :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> transforme_liste(naissances, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
-[[<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>],
- [<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">2</span>, <span style="color:#f60">6</span>, <span style="color:#f60">4</span>],
- [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>]]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> transforme_liste(naissances, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
+</span></span><span style="display:flex;"><span>[[<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">2</span>, <span style="color:#f60">6</span>, <span style="color:#f60">4</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>]]
+</span></span></code></pre></div></li>
 </ol>
 <h1 id="listes-par-compréhension">
   Listes par compréhension
@@ -6026,11 +6025,11 @@ en un tableau à deux dimensions de $n$ lignes et $p$ colonnes :</p>
 </li>
 <li>
 <p>On considère les mots :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mots <span style="color:#555">=</span> [<span style="color:#c30">&#34;bonjour&#34;</span>, <span style="color:#c30">&#34;manipuler&#34;</span>, <span style="color:#c30">&#34;avant&#34;</span>, <span style="color:#c30">&#34;mercredi&#34;</span>, <span style="color:#c30">&#34;parcours&#34;</span>]
-
-mot_avec_a  <span style="color:#555">=</span> [mot <span style="color:#069;font-weight:bold">for</span> mot <span style="color:#000;font-weight:bold">in</span> mots <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30">&#39;a&#39;</span> <span style="color:#000;font-weight:bold">in</span> mot]
-longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>(mot) <span style="color:#069;font-weight:bold">for</span> mot <span style="color:#000;font-weight:bold">in</span> mots]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mots <span style="color:#555">=</span> [<span style="color:#c30">&#34;bonjour&#34;</span>, <span style="color:#c30">&#34;manipuler&#34;</span>, <span style="color:#c30">&#34;avant&#34;</span>, <span style="color:#c30">&#34;mercredi&#34;</span>, <span style="color:#c30">&#34;parcours&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mot_avec_a  <span style="color:#555">=</span> [mot <span style="color:#069;font-weight:bold">for</span> mot <span style="color:#000;font-weight:bold">in</span> mots <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30">&#39;a&#39;</span> <span style="color:#000;font-weight:bold">in</span> mot]
+</span></span><span style="display:flex;"><span>longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>(mot) <span style="color:#069;font-weight:bold">for</span> mot <span style="color:#000;font-weight:bold">in</span> mots]
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="6-construire-une-liste-par-compréhension">
   6. Construire une liste par compréhension
@@ -6042,9 +6041,9 @@ longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>
 </li>
 <li>
 <p>Les joueurs de l&rsquo;équipe sont enregistrés dans un tableau :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">equipe <span style="color:#555">=</span> [(<span style="color:#c30">&#39;Marcel&#39;</span>, <span style="color:#c30">&#39;attaquant&#39;</span>), (<span style="color:#c30">&#39;Pierre&#39;</span>, <span style="color:#c30">&#39;défenseur&#39;</span>), (<span style="color:#c30">&#39;Joseph&#39;</span>, <span style="color:#c30">&#39;Milieu&#39;</span>),
-          (<span style="color:#c30">&#39;Guy&#39;</span>, <span style="color:#c30">&#39;attaquant&#39;</span>), (<span style="color:#c30">&#39;Raoul&#39;</span>, <span style="color:#c30">&#39;défenseur&#39;</span>), (<span style="color:#c30">&#39;Gérard&#39;</span>, <span style="color:#c30">&#39;Milieu&#39;</span>)]
-</code></pre></div><p>Construire par compréhension la liste des attaquants de l&rsquo;équipe.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>equipe <span style="color:#555">=</span> [(<span style="color:#c30">&#39;Marcel&#39;</span>, <span style="color:#c30">&#39;attaquant&#39;</span>), (<span style="color:#c30">&#39;Pierre&#39;</span>, <span style="color:#c30">&#39;défenseur&#39;</span>), (<span style="color:#c30">&#39;Joseph&#39;</span>, <span style="color:#c30">&#39;Milieu&#39;</span>),
+</span></span><span style="display:flex;"><span>          (<span style="color:#c30">&#39;Guy&#39;</span>, <span style="color:#c30">&#39;attaquant&#39;</span>), (<span style="color:#c30">&#39;Raoul&#39;</span>, <span style="color:#c30">&#39;défenseur&#39;</span>), (<span style="color:#c30">&#39;Gérard&#39;</span>, <span style="color:#c30">&#39;Milieu&#39;</span>)]
+</span></span></code></pre></div><p>Construire par compréhension la liste des attaquants de l&rsquo;équipe.</p>
 </li>
 <li>
 <p>Dans la variable <code>nombres</code> on a enregistré une liste d&rsquo;entiers naturels.</p>
@@ -6057,9 +6056,9 @@ longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>
   <a class="anchor" href="#7-structure-impriqu%c3%a9e-et-compr%c3%a9hension">#</a>
 </h2>
 <p>On peut construire des structures par compréhension :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">*</span> i <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>)]
-[<span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;aa&#39;</span>, <span style="color:#c30">&#39;aaa&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>, <span style="color:#c30">&#39;bbb&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;cc&#39;</span>, <span style="color:#c30">&#39;ccc&#39;</span>]
-</code></pre></div><p>Remarquons l&rsquo;ordre des boucles :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">*</span> i <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>)]
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;aa&#39;</span>, <span style="color:#c30">&#39;aaa&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>, <span style="color:#c30">&#39;bbb&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;cc&#39;</span>, <span style="color:#c30">&#39;ccc&#39;</span>]
+</span></span></code></pre></div><p>Remarquons l&rsquo;ordre des boucles :</p>
 <ol>
 <li>La première boucle écrite est <code>for s in [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code></li>
 <li>La seconde boucle écrite est <code>for i in range(4)</code></li>
@@ -6070,37 +6069,37 @@ longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>
 <li>Les tailles respectives des chaînes sont 0, 1, 2, 3, 4, 0, 1, 2, 3, 4 etc.</li>
 </ol>
 <p>Un autre exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">+</span> t <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;x&#34;</span>, <span style="color:#c30">&#34;y&#34;</span>, <span style="color:#c30">&#34;z&#34;</span>]]
-[<span style="color:#c30">&#39;ax&#39;</span>, <span style="color:#c30">&#39;ay&#39;</span>, <span style="color:#c30">&#39;az&#39;</span>, <span style="color:#c30">&#39;bx&#39;</span>, <span style="color:#c30">&#39;by&#39;</span>, <span style="color:#c30">&#39;bz&#39;</span>, <span style="color:#c30">&#39;cx&#39;</span>, <span style="color:#c30">&#39;cy&#39;</span>, <span style="color:#c30">&#39;cz&#39;</span>]
-</code></pre></div><p><em>Questions :</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">+</span> t <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;x&#34;</span>, <span style="color:#c30">&#34;y&#34;</span>, <span style="color:#c30">&#34;z&#34;</span>]]
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;ax&#39;</span>, <span style="color:#c30">&#39;ay&#39;</span>, <span style="color:#c30">&#39;az&#39;</span>, <span style="color:#c30">&#39;bx&#39;</span>, <span style="color:#c30">&#39;by&#39;</span>, <span style="color:#c30">&#39;bz&#39;</span>, <span style="color:#c30">&#39;cx&#39;</span>, <span style="color:#c30">&#39;cy&#39;</span>, <span style="color:#c30">&#39;cz&#39;</span>]
+</span></span></code></pre></div><p><em>Questions :</em></p>
 <ol>
 <li>
 <p>Évaluez l&rsquo;instruction suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">*</span> i <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>)]
-[<span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;aa&#39;</span>, <span style="color:#c30">&#39;aaa&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>, <span style="color:#c30">&#39;bbb&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;cc&#39;</span>, <span style="color:#c30">&#39;ccc&#39;</span>]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [s <span style="color:#555">*</span> i <span style="color:#069;font-weight:bold">for</span> s <span style="color:#000;font-weight:bold">in</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>] <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>)]
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;aa&#39;</span>, <span style="color:#c30">&#39;aaa&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;bb&#39;</span>, <span style="color:#c30">&#39;bbb&#39;</span>, <span style="color:#c30">&#39;&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;cc&#39;</span>, <span style="color:#c30">&#39;ccc&#39;</span>]
+</span></span></code></pre></div></li>
 <li>
 <p>Évaluez l&rsquo;instruction suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[(i <span style="color:#555">+</span> j) <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>) <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">5</span>)]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[(i <span style="color:#555">+</span> j) <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>) <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">5</span>)]
+</span></span></code></pre></div></li>
 <li>
 <p>Construire par compréhension la liste suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#c30">&#39;ya&#39;</span>, <span style="color:#c30">&#39;yb&#39;</span>, <span style="color:#c30">&#39;yc&#39;</span>, <span style="color:#c30">&#39;yya&#39;</span>, <span style="color:#c30">&#39;yyb&#39;</span>, <span style="color:#c30">&#39;yyc&#39;</span>, <span style="color:#c30">&#39;yyya&#39;</span>, <span style="color:#c30">&#39;yyyb&#39;</span>, <span style="color:#c30">&#39;yyyc&#39;</span>]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[<span style="color:#c30">&#39;ya&#39;</span>, <span style="color:#c30">&#39;yb&#39;</span>, <span style="color:#c30">&#39;yc&#39;</span>, <span style="color:#c30">&#39;yya&#39;</span>, <span style="color:#c30">&#39;yyb&#39;</span>, <span style="color:#c30">&#39;yyc&#39;</span>, <span style="color:#c30">&#39;yyya&#39;</span>, <span style="color:#c30">&#39;yyyb&#39;</span>, <span style="color:#c30">&#39;yyyc&#39;</span>]
+</span></span></code></pre></div></li>
 </ol>
 <p>On peut aussi créer des structures imbriquées par ce procédé :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> [[i <span style="color:#555">+</span> j <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)] <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>, <span style="color:#f60">7</span>)]
-[[<span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>], [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
-</code></pre></div><p><em>Questions</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [[i <span style="color:#555">+</span> j <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)] <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>, <span style="color:#f60">7</span>)]
+</span></span><span style="display:flex;"><span>[[<span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>], [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
+</span></span></code></pre></div><p><em>Questions</em></p>
 <ol start="4">
 <li>
 <p>Évaluer l&rsquo;instruction suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[[i <span style="color:#555">*</span> j <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)] <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>, <span style="color:#f60">7</span>)]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[[i <span style="color:#555">*</span> j <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)] <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">4</span>, <span style="color:#f60">7</span>)]
+</span></span></code></pre></div></li>
 <li>
 <p>Construire par compréhension la liste suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[[<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[[<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]]
+</span></span></code></pre></div></li>
 </ol>
 <h1 id="itérer-sur-un-dictionnaire">
   Itérer sur un Dictionnaire
@@ -6111,13 +6110,13 @@ longueurs <span style="color:#555">=</span> [<span style="color:#366">len</span>
   <a class="anchor" href="#7-les-d%c3%a9veloppeurs">#</a>
 </h2>
 <p>On considère le statut des membres d&rsquo;une équipe de développeurs :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">developpeurs <span style="color:#555">=</span> {
-        <span style="color:#c30">&#39;Marcel&#39;</span>: <span style="color:#c30">&#39;technicien&#39;</span>,
-        <span style="color:#c30">&#39;Fanny&#39;</span>: <span style="color:#c30">&#39;ingénieur&#39;</span>,
-        <span style="color:#c30">&#39;Paul&#39;</span>: <span style="color:#c30">&#39;ingénieur&#39;</span>,
-        <span style="color:#c30">&#39;Frank&#39;</span>: <span style="color:#c30">&#39;technicien&#39;</span>,
-        <span style="color:#555">...</span>}
-</code></pre></div><p>La fonction <code>alerter(nom, message)</code> envoie un message à un individu donné
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>developpeurs <span style="color:#555">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;Marcel&#39;</span>: <span style="color:#c30">&#39;technicien&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;Fanny&#39;</span>: <span style="color:#c30">&#39;ingénieur&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;Paul&#39;</span>: <span style="color:#c30">&#39;ingénieur&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;Frank&#39;</span>: <span style="color:#c30">&#39;technicien&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#555">...</span>}
+</span></span></code></pre></div><p>La fonction <code>alerter(nom, message)</code> envoie un message à un individu donné
 par son nom. Ses paramètres d&rsquo;entrée sont des chaînes de caractères.</p>
 <ol>
 <li>Écrire une boucle qui parcourt le dictionnaire et alerte tous les ingénieurs</li>
@@ -6130,14 +6129,14 @@ par son nom. Ses paramètres d&rsquo;entrée sont des chaînes de caractères.</
 </h2>
 <p>On a enregistré dans un dictionnaires les caractéristiques des monstres qui
 figurent dans un jeu :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">monstres <span style="color:#555">=</span> {
-    <span style="color:#c30">&#39;Grogneur&#39;</span>: [<span style="color:#c30">&#39;Tempête&#39;</span>, <span style="color:#f60">12</span>, <span style="color:#f60">14</span>],
-    <span style="color:#c30">&#39;Frappé&#39;</span>:   [<span style="color:#c30">&#39;Tempête&#39;</span>, <span style="color:#f60">8</span>, <span style="color:#f60">16</span>],
-    <span style="color:#c30">&#39;Brûleur&#39;</span>:  [<span style="color:#c30">&#39;Feu&#39;</span> <span style="color:#f60">20</span>, <span style="color:#f60">6</span>],
-    <span style="color:#c30">&#39;Givré&#39;</span>:    [<span style="color:#c30">&#39;Glace&#39;</span>, <span style="color:#f60">17</span>, <span style="color:#f60">13</span>],
-    <span style="color:#c30">&#39;Charbon&#39;</span>:  [<span style="color:#c30">&#39;Feu&#39;</span>, <span style="color:#f60">10</span>, <span style="color:#f60">18</span>]
-    <span style="color:#555">...</span>}
-</code></pre></div><p>Le premier élément de chaque liste est le type du monstre, ensuite sont
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>monstres <span style="color:#555">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Grogneur&#39;</span>: [<span style="color:#c30">&#39;Tempête&#39;</span>, <span style="color:#f60">12</span>, <span style="color:#f60">14</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Frappé&#39;</span>:   [<span style="color:#c30">&#39;Tempête&#39;</span>, <span style="color:#f60">8</span>, <span style="color:#f60">16</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Brûleur&#39;</span>:  [<span style="color:#c30">&#39;Feu&#39;</span> <span style="color:#f60">20</span>, <span style="color:#f60">6</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Givré&#39;</span>:    [<span style="color:#c30">&#39;Glace&#39;</span>, <span style="color:#f60">17</span>, <span style="color:#f60">13</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Charbon&#39;</span>:  [<span style="color:#c30">&#39;Feu&#39;</span>, <span style="color:#f60">10</span>, <span style="color:#f60">18</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>}
+</span></span></code></pre></div><p>Le premier élément de chaque liste est le type du monstre, ensuite sont
 indiqués sa force et sa vie.</p>
 <ol>
 <li>
@@ -6146,21 +6145,21 @@ indiqués sa force et sa vie.</p>
 <li>
 <p>Proposer une boucle Python qui affiche successivement tous les types des
 monstres :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Tempête
-Tempête
-Feu
-Glace
-Feu
-...
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Tempête
+</span></span><span style="display:flex;"><span>Tempête
+</span></span><span style="display:flex;"><span>Feu
+</span></span><span style="display:flex;"><span>Glace
+</span></span><span style="display:flex;"><span>Feu
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
 <li>
 <p>Comment déterminer le monstre qui a le plus de vie ? Le moins de force ?</p>
 <p>Englober dans une fonction :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> le_moins_fort(monstres)
-Frappé
-<span style="color:#555">&gt;&gt;&gt;</span> le_plus_de_vie(monstres)
-Charbon
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> le_moins_fort(monstres)
+</span></span><span style="display:flex;"><span>Frappé
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> le_plus_de_vie(monstres)
+</span></span><span style="display:flex;"><span>Charbon
+</span></span></code></pre></div></li>
 </ol>
 </article>
  
@@ -6183,7 +6182,7 @@ Charbon
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

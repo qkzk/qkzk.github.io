@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/old/resume/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5755,7 +5755,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5820,8 +5820,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf : <h3 id="pdf--pour-impressionuploadsdocnsitaleprocessusresume_processuspdf">
-  <a href="/uploads/docnsitale/processus/resume_processus.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitaleprocessusresume_processuspdf">
+  pdf : <a href="/uploads/docnsitale/processus/resume_processus.pdf">pour impression</a>
   <a class="anchor" href="#pdf--pour-impressionuploadsdocnsitaleprocessusresume_processuspdf">#</a>
 </h3>
 <h1 id="programme-vs-processus">
@@ -5853,12 +5853,12 @@ progresser le processus.</p>
 <p>C&rsquo;est une ressource utilisée par le processus. À un instant donné, un seul
 processus est exécuté.</p>
 <p>Le système d&rsquo;exploitation décide de <strong>l&rsquo;ordonnancement</strong> des processus.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">séquentielle :          1 1 1 1 2 2 2 2
-entrelacée   :          1 2 1 2 1 2 1 2
-parallèle    : 
-processeur 1 :          1 1 1 1
-processeur 2 :          2 2 2 2
-</code></pre></div><p>L&rsquo;exécution peut-être séquentielle ou entrelacée.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>séquentielle :          1 1 1 1 2 2 2 2
+</span></span><span style="display:flex;"><span>entrelacée   :          1 2 1 2 1 2 1 2
+</span></span><span style="display:flex;"><span>parallèle    : 
+</span></span><span style="display:flex;"><span>processeur 1 :          1 1 1 1
+</span></span><span style="display:flex;"><span>processeur 2 :          2 2 2 2
+</span></span></code></pre></div><p>L&rsquo;exécution peut-être séquentielle ou entrelacée.
 Si plusieurs processeurs sont disponibles, un exécution parallèle est possible.</p>
 <p>L&rsquo;avancement du processus dépend de la disponibilité du processeur.</p>
 <h2 id="ressources-du-processus">
@@ -5883,23 +5883,23 @@ plusieurs accès concurrents.</p>
   <a class="anchor" href="#consulter-les-processus-sous-unix">#</a>
 </h2>
 <p>Les processus en cours d&rsquo;exécution : <code>ps</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ps aux
-
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           <span style="color:#f60">1</span>  0.0  0.0 <span style="color:#f60">178824</span>  <span style="color:#f60">7692</span> ?        Ss   mai20   4:50 /usr/lib/systemd/systemd
-root           <span style="color:#f60">2</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        S    mai20   0:00 <span style="color:#555">[</span>kthreadd<span style="color:#555">]</span>
-root           <span style="color:#f60">3</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>rcu_gp<span style="color:#555">]</span>
-root           <span style="color:#f60">4</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>rcu_par_gp<span style="color:#555">]</span>
-root           <span style="color:#f60">6</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>kworker/0:0H-kblockd<span style="color:#555">]</span>
-...
-</code></pre></div><p><code>PID</code> : Processus Identification : numéro unique.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ps aux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span style="display:flex;"><span>root           <span style="color:#f60">1</span>  0.0  0.0 <span style="color:#f60">178824</span>  <span style="color:#f60">7692</span> ?        Ss   mai20   4:50 /usr/lib/systemd/systemd
+</span></span><span style="display:flex;"><span>root           <span style="color:#f60">2</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        S    mai20   0:00 <span style="color:#555">[</span>kthreadd<span style="color:#555">]</span>
+</span></span><span style="display:flex;"><span>root           <span style="color:#f60">3</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>rcu_gp<span style="color:#555">]</span>
+</span></span><span style="display:flex;"><span>root           <span style="color:#f60">4</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>rcu_par_gp<span style="color:#555">]</span>
+</span></span><span style="display:flex;"><span>root           <span style="color:#f60">6</span>  0.0  0.0      <span style="color:#f60">0</span>     <span style="color:#f60">0</span> ?        I&lt;   mai20   0:00 <span style="color:#555">[</span>kworker/0:0H-kblockd<span style="color:#555">]</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><code>PID</code> : Processus Identification : numéro unique.</p>
 <p>Filtrer avec <code>grep</code> : <strong>tous les processus python</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ps aux | grep python
-quentin      <span style="color:#f60">892</span>  0.0  0.0 <span style="color:#f60">454308</span> <span style="color:#f60">14848</span> tty1     Ss+  mai20  19:35 /usr/bin/python /home/quentin/prog1.py
-quentin     <span style="color:#f60">1201</span>  0.0  0.0  <span style="color:#f60">16604</span>  <span style="color:#f60">5452</span> ?        S    mai20   8:32 /usr/bin/python /home/quentin/prog2.py
-</code></pre></div><p>Tuer un processus avec <code>kill</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ <span style="color:#366">kill</span> <span style="color:#f60">892</span>
-</code></pre></div><h2 id="états-dun-processus">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ps aux | grep python
+</span></span><span style="display:flex;"><span>quentin      <span style="color:#f60">892</span>  0.0  0.0 <span style="color:#f60">454308</span> <span style="color:#f60">14848</span> tty1     Ss+  mai20  19:35 /usr/bin/python /home/quentin/prog1.py
+</span></span><span style="display:flex;"><span>quentin     <span style="color:#f60">1201</span>  0.0  0.0  <span style="color:#f60">16604</span>  <span style="color:#f60">5452</span> ?        S    mai20   8:32 /usr/bin/python /home/quentin/prog2.py
+</span></span></code></pre></div><p>Tuer un processus avec <code>kill</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ <span style="color:#366">kill</span> <span style="color:#f60">892</span>
+</span></span></code></pre></div><h2 id="états-dun-processus">
   États d&rsquo;un processus
   <a class="anchor" href="#%c3%a9tats-dun-processus">#</a>
 </h2>
@@ -5995,7 +5995,7 @@ Bref, la situation est totalement bloquée !</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

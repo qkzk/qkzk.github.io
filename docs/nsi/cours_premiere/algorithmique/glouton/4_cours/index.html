@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf pour impression #  Principe général d&rsquo;un algorithme glouton #  Généralités #  Les algorithmes dits gloutons (en anglais greedy algorithm) servent à résoudre certains problèmes d&#39;optimisation.
+<meta name="description" content="pdf pour impression #  Principe général d&rsquo;un algorithme glouton #  Généralités #  Les algorithmes dits gloutons (en anglais greedy algorithm) servent à résoudre certains problèmes d&rsquo;optimisation.
 Un problème d&rsquo;optimisation : on cherche à construire une solution à un problème qui optimise une fonction objectif. Un problème d&rsquo;optimisation se définit comme :
  un ensemble fini d’éléments, $E$, une solution au problème est construite à partir des éléments de $E$ : c’est par exemple une partie de $E$ ou un multi-ensemble d’éléments de $E$ ou une suite (finie) d’éléments de $E$ ou une permutation de $E$ qui satisfait une certaine contrainte.">
 <meta name="theme-color" content="#FFFFFF">
@@ -17,7 +17,7 @@ Un problème d&rsquo;optimisation : on cherche à construire une solution à un 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/4_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5753,7 +5753,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5808,8 +5808,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf <h3 id="pdf-pour-impressionuploadsdocsnsialgoglouton4_courspdf">
-  <a href="/uploads/docsnsi/algo/glouton/4_cours.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsialgoglouton4_courspdf">
+  pdf <a href="/uploads/docsnsi/algo/glouton/4_cours.pdf">pour impression</a>
   <a class="anchor" href="#pdf-pour-impressionuploadsdocsnsialgoglouton4_courspdf">#</a>
 </h3>
 <h1 id="principe-général-dun-algorithme-glouton">
@@ -5821,7 +5821,7 @@ MathJax.Hub.Config({
   <a class="anchor" href="#g%c3%a9n%c3%a9ralit%c3%a9s">#</a>
 </h2>
 <p>Les algorithmes dits <em>gloutons</em> (en anglais <strong>greedy algorithm</strong>)
-servent à résoudre certains problèmes d'<strong>optimisation</strong>.</p>
+servent à résoudre certains problèmes d&rsquo;<strong>optimisation</strong>.</p>
 <p>Un problème d&rsquo;optimisation : on cherche à construire une solution à un
 problème qui optimise une <strong>fonction objectif</strong>.  Un problème
 d&rsquo;optimisation se définit comme :</p>
@@ -5881,42 +5881,42 @@ c’est toujours vrai !</li>
   Schémas d’algo glouton
   <a class="anchor" href="#sch%c3%a9mas-dalgo-glouton">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// on initialise l’ensemble des &#34;briques&#34;
-// élémentaires des solutions.
-Ens.init() ;
-// on initialise la solution :
-// ensemble (ou suite) &#34;vide&#34; ou..
-Sol.Init() ;
-while (Non Sol.complete ?() et Ens.NonVide ?()) do
-    //on choisit x selon critère glouton
-    x ← Ens.select();
-    if Sol.ajoutPossible(x) then
-        Sol.ajout(x) ; fsi ;
-    //dans certains problèmes, toujours le cas
-    if CertainesConditions then
-        Ens.retirer(x) ;
-    // selon les cas, x considéré une fois ou plus
-end
-// la Solution partielle est a priori complète
-return Sol ;
-</code></pre></div><p>Autre schéma :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Algorithme vorace
-Début
-S &lt;- EnsembleVide
-C &lt;- ensemble des candidats à la solution
-Tant que S n’est pas une solution et C &lt;&gt; EnsembleVide Faire
-	x &lt;- choisir un élément de C le plus prometteur
-	C &lt;- C - x
-	Si realisable(solution,x) Alors
-		solution &lt;- union(solution, x)
-	Finsi
-FinTantQue
-Si S est une solution Alors
-	Retourner S
-Sinon
-	Retourner pas de solution
-FinSi
-</code></pre></div><p>Pour sélectionner, on trie souvent tout simplement la liste des
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// on initialise l’ensemble des &#34;briques&#34;
+</span></span><span style="display:flex;"><span>// élémentaires des solutions.
+</span></span><span style="display:flex;"><span>Ens.init() ;
+</span></span><span style="display:flex;"><span>// on initialise la solution :
+</span></span><span style="display:flex;"><span>// ensemble (ou suite) &#34;vide&#34; ou..
+</span></span><span style="display:flex;"><span>Sol.Init() ;
+</span></span><span style="display:flex;"><span>while (Non Sol.complete ?() et Ens.NonVide ?()) do
+</span></span><span style="display:flex;"><span>    //on choisit x selon critère glouton
+</span></span><span style="display:flex;"><span>    x ← Ens.select();
+</span></span><span style="display:flex;"><span>    if Sol.ajoutPossible(x) then
+</span></span><span style="display:flex;"><span>        Sol.ajout(x) ; fsi ;
+</span></span><span style="display:flex;"><span>    //dans certains problèmes, toujours le cas
+</span></span><span style="display:flex;"><span>    if CertainesConditions then
+</span></span><span style="display:flex;"><span>        Ens.retirer(x) ;
+</span></span><span style="display:flex;"><span>    // selon les cas, x considéré une fois ou plus
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>// la Solution partielle est a priori complète
+</span></span><span style="display:flex;"><span>return Sol ;
+</span></span></code></pre></div><p>Autre schéma :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Algorithme vorace
+</span></span><span style="display:flex;"><span>Début
+</span></span><span style="display:flex;"><span>S &lt;- EnsembleVide
+</span></span><span style="display:flex;"><span>C &lt;- ensemble des candidats à la solution
+</span></span><span style="display:flex;"><span>Tant que S n’est pas une solution et C &lt;&gt; EnsembleVide Faire
+</span></span><span style="display:flex;"><span>	x &lt;- choisir un élément de C le plus prometteur
+</span></span><span style="display:flex;"><span>	C &lt;- C - x
+</span></span><span style="display:flex;"><span>	Si realisable(solution,x) Alors
+</span></span><span style="display:flex;"><span>		solution &lt;- union(solution, x)
+</span></span><span style="display:flex;"><span>	Finsi
+</span></span><span style="display:flex;"><span>FinTantQue
+</span></span><span style="display:flex;"><span>Si S est une solution Alors
+</span></span><span style="display:flex;"><span>	Retourner S
+</span></span><span style="display:flex;"><span>Sinon
+</span></span><span style="display:flex;"><span>	Retourner pas de solution
+</span></span><span style="display:flex;"><span>FinSi
+</span></span></code></pre></div><p>Pour sélectionner, on trie souvent tout simplement la liste des
 éléments selon le critère glouton au départ ; on balaye ensuite cette
 liste dans l’ordre.</p>
 <p>Ceci est un schéma général qui a l’avantage et les inconvénients d’un
@@ -5946,7 +5946,7 @@ schéma un peu plus sophistiqué.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

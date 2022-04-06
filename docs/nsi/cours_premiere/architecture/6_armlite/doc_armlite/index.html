@@ -17,7 +17,7 @@ ARMLite est machine disposant d&rsquo;une architecture de Von Neumann qui exécu
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/doc_armlite/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5753,7 +5753,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5905,7 +5905,7 @@ ou un littéral.</li>
 </li>
 <li>
 <p><code>BGT label</code> : saute vers l&rsquo;instruction précédée du nom <code>label</code> SEULEMENT si
-la précédente comparaison était &ldquo;plus grand que.&quot;<br>
+la précédente comparaison était &ldquo;plus grand que.&rdquo;<br>
 Par exemple :</p>
 <ul>
 <li>si on a comparé 4 et 2, alors <code>BGT label</code> va sauter en <code>label</code>,</li>
@@ -5932,17 +5932,17 @@ les valeurs comparées étaient égales,</p>
   Exemple de programme
   <a class="anchor" href="#exemple-de-programme">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> 1<span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>10            <span style="color:#09f;font-style:italic">//         R1 contient 10
-</span><span style="color:#09f;font-style:italic"></span> 2<span style="color:#555">|</span>      MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5             <span style="color:#09f;font-style:italic">//         R2 contient 5
-</span><span style="color:#09f;font-style:italic"></span> 3<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2         <span style="color:#09f;font-style:italic">//         R3 contient 5 + 10 = 15
-</span><span style="color:#09f;font-style:italic"></span> 4<span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R1             <span style="color:#09f;font-style:italic">//         Comparaison de 15 et 5
-</span><span style="color:#09f;font-style:italic"></span> 5<span style="color:#555">|</span>      BGT more               <span style="color:#09f;font-style:italic">//         15 &gt; 5 donc on va en &#34;more&#34;, ligne 08.
-</span><span style="color:#09f;font-style:italic"></span> 6<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme (ne sera pas exécuté dans l&#39;exemple)
-</span><span style="color:#09f;font-style:italic"></span> 7<span style="color:#555">|</span>                             <span style="color:#09f;font-style:italic">//         Rien, on va à la ligne
-</span><span style="color:#09f;font-style:italic"></span> 8<span style="color:#555">|</span>    more<span style="color:#555">:</span>                    <span style="color:#09f;font-style:italic">//         pas de code après l&#39;étiquette, on ne fait rien
-</span><span style="color:#09f;font-style:italic"></span> 9<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R3         <span style="color:#09f;font-style:italic">//         R3 contient 15 + 10 = 25
-</span><span style="color:#09f;font-style:italic"></span>10<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme
-</span></code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 1<span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>10            <span style="color:#09f;font-style:italic">//         R1 contient 10
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 2<span style="color:#555">|</span>      MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5             <span style="color:#09f;font-style:italic">//         R2 contient 5
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 3<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2         <span style="color:#09f;font-style:italic">//         R3 contient 5 + 10 = 15
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 4<span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R1             <span style="color:#09f;font-style:italic">//         Comparaison de 15 et 5
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 5<span style="color:#555">|</span>      BGT more               <span style="color:#09f;font-style:italic">//         15 &gt; 5 donc on va en &#34;more&#34;, ligne 08.
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 6<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme (ne sera pas exécuté dans l&#39;exemple)
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 7<span style="color:#555">|</span>                             <span style="color:#09f;font-style:italic">//         Rien, on va à la ligne
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 8<span style="color:#555">|</span>    more<span style="color:#555">:</span>                    <span style="color:#09f;font-style:italic">//         pas de code après l&#39;étiquette, on ne fait rien
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 9<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R3         <span style="color:#09f;font-style:italic">//         R3 contient 15 + 10 = 25
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>10<span style="color:#555">|</span>      HALT                   <span style="color:#09f;font-style:italic">//         Fin du programme
+</span></span></span></code></pre></div><hr>
 <p><em>Ci-dessous une documentation plus complète</em></p>
 <h1 id="armlite-manuel-de-référence-de-programmation">
   ARMLite: Manuel de référence de programmation
@@ -5963,7 +5963,7 @@ les valeurs comparées étaient égales,</p>
 </h3>
 <p>Grande fenêtre de gauche.</p>
 <ul>
-<li>On l'<em>edit</em>, puis <em>submit</em>.</li>
+<li>On l&rsquo;<em>edit</em>, puis <em>submit</em>.</li>
 <li>on peut l&rsquo;exporter (<em>save</em>) vers <code>myprog.txt</code> ou le charger (<em>load</em>) depuis un fichier texte.</li>
 </ul>
 <p>Une fois soumis, on peut ajouter un <em>breakpoint</em> (point d&rsquo;arrêt) en cliquant sur une ligne.
@@ -6059,7 +6059,7 @@ de l&rsquo;ordre des lignes. ARMLite va les recalculer.</p>
 octets  dans  la  plage  <code>0x00000</code>  à  <code>0xfffff</code>. Un mot mémoire est composé de
 quatre octets successifs soit 32 bits.</p>
 <p>Toutes les adresses spécifiées dans le code ARMlite sont des adresses
-d'<em>octets</em>. Lorsqu&rsquo;un mot mémoire doit être chargé ou enregistré (<code>LDR</code> ou
+d&rsquo;<em>octets</em>. Lorsqu&rsquo;un mot mémoire doit être chargé ou enregistré (<code>LDR</code> ou
 <code>STR</code>), l&rsquo;adresse doit correspondre à une limite de mot, c&rsquo;est-à-dire qu&rsquo;elle
 doit être divisible par 4 - sinon vous obtiendrez une erreur &ldquo;accès non
 aligné&hellip;&rdquo;.</p>
@@ -6080,16 +6080,16 @@ mémoire passer à l&rsquo;instruction suivante.</p>
   <a class="anchor" href="#instructions--et--directives">#</a>
 </h2>
 <p>ARMlite  implémente  ces  instructions  (classées  par  ordre  alphabétique  ici):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ADD<span style="color:#555">,</span> ADDS<span style="color:#555">,</span> AND<span style="color:#555">,</span> B<span style="color:#555">,</span> BCS<span style="color:#555">,</span> BEQ<span style="color:#555">,</span> BGT<span style="color:#555">,</span> BL<span style="color:#555">,</span> BLT<span style="color:#555">,</span> BMI<span style="color:#555">,</span> BNE<span style="color:#555">,</span> BVS<span style="color:#555">,</span> CMP<span style="color:#555">,</span> EOR<span style="color:#555">,</span> HALT<span style="color:#555">,</span> LDR<span style="color:#555">,</span> 
-LDRB<span style="color:#555">,</span> LSL<span style="color:#555">,</span> LSR<span style="color:#555">,</span> MOV<span style="color:#555">,</span> MVN<span style="color:#555">,</span> ORR<span style="color:#555">,</span> POP<span style="color:#555">,</span> PUSH<span style="color:#555">,</span> RET<span style="color:#555">,</span> RFE<span style="color:#555">,</span> STR<span style="color:#555">,</span> STRB<span style="color:#555">,</span> SUB<span style="color:#555">,</span> SUBS<span style="color:#555">,</span> SVC 
-</code></pre></div><p>Les  mots-clés  suivants  ne  sont  pas  des  &lsquo;instructions&rsquo; (ils  ne  sont
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ADD<span style="color:#555">,</span> ADDS<span style="color:#555">,</span> AND<span style="color:#555">,</span> B<span style="color:#555">,</span> BCS<span style="color:#555">,</span> BEQ<span style="color:#555">,</span> BGT<span style="color:#555">,</span> BL<span style="color:#555">,</span> BLT<span style="color:#555">,</span> BMI<span style="color:#555">,</span> BNE<span style="color:#555">,</span> BVS<span style="color:#555">,</span> CMP<span style="color:#555">,</span> EOR<span style="color:#555">,</span> HALT<span style="color:#555">,</span> LDR<span style="color:#555">,</span> 
+</span></span><span style="display:flex;"><span>LDRB<span style="color:#555">,</span> LSL<span style="color:#555">,</span> LSR<span style="color:#555">,</span> MOV<span style="color:#555">,</span> MVN<span style="color:#555">,</span> ORR<span style="color:#555">,</span> POP<span style="color:#555">,</span> PUSH<span style="color:#555">,</span> RET<span style="color:#555">,</span> RFE<span style="color:#555">,</span> STR<span style="color:#555">,</span> STRB<span style="color:#555">,</span> SUB<span style="color:#555">,</span> SUBS<span style="color:#555">,</span> SVC 
+</span></span></code></pre></div><p>Les  mots-clés  suivants  ne  sont  pas  des  &lsquo;instructions&rsquo; (ils  ne  sont
 pas  traduits  en  opérations  de  processeur)  mais  sont  des  &lsquo;directives&rsquo;
 à  l&rsquo;assembleur  (par  ordre  alphabétique) :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">.ALIGN, .ASCII, .ASCIZ, .BLOCK, .BYTE, .DATA, .WORD
-</code></pre></div><p>Pour  faciliter  la  programmation  et  pour  s&rsquo;aligner  sur  les  mnémoniques
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>.ALIGN, .ASCII, .ASCIZ, .BLOCK, .BYTE, .DATA, .WORD
+</span></span></code></pre></div><p>Pour  faciliter  la  programmation  et  pour  s&rsquo;aligner  sur  les  mnémoniques
 largement  utilisés  ailleurs,  les  synonymes  suivants  sont  acceptés :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">BIS  (=ORR),  XOR  (=EOR),  OR  (=ORR),  JMS  (=BL),  HLT  (=HALT)
-</code></pre></div><h3 id="halt">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>BIS  (=ORR),  XOR  (=EOR),  OR  (=ORR),  JMS  (=BL),  HLT  (=HALT)
+</span></span></code></pre></div><h3 id="halt">
   <code>HALT</code>
   <a class="anchor" href="#halt">#</a>
 </h3>
@@ -6102,8 +6102,8 @@ largement  utilisés  ailleurs,  les  synonymes  suivants  sont  acceptés :</p>
 </h3>
 <p><code>MOV</code>  (&lsquo;Move&rsquo;)  est  utilisé  pour  placer  une  valeur  spécifique  (une  &lsquo;valeur  immédiate&rsquo;)  dans  un  registre  spécifié,  ou  pour<br>
 copier  une  valeur  d&rsquo;un  registre  à  un  autre.  <code>MOV</code>  ne  peut  pas  référencer  les  adresses  mémoire.  Le  format  est :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">MOV  Rd,  &lt;opérande2&gt;
-</code></pre></div><p>Où  Rd  spécifie  le  registre  de  destination,  et  <code>&lt;opérande2&gt;</code>  peut  être  un  registre  source  ou  une  valeur  immédiate</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>MOV  Rd,  &lt;opérande2&gt;
+</span></span></code></pre></div><p>Où  Rd  spécifie  le  registre  de  destination,  et  <code>&lt;opérande2&gt;</code>  peut  être  un  registre  source  ou  une  valeur  immédiate</p>
 <ul>
 <li><code>MOV  R0, #25</code> déplace  la  valeur  décimale  &ldquo;immédiate&rdquo;  25  dans  R0</li>
 <li><code>MOV  R5, R3</code> copie  la  valeur  de  R3  dans  R5</li>
@@ -6164,11 +6164,11 @@ pas  divisible  par  quatre).</p>
 <li><code>LSL</code> et <code>LSR</code> : décalages à gauche / à droite</li>
 </ul>
 <p>Il existe aussi <code>MVN</code> pour <code>Move Not</code>, déplace et inverse tous les bits.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">MOV R0 <span style="color:#a00;background-color:#faa">#</span>0b11111000
-MOV R1 <span style="color:#a00;background-color:#faa">#</span>0b10001100
-AND R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-<span style="color:#09f;font-style:italic">// R2  0b10001000 
-</span></code></pre></div><h2 id="comparaisons-et-branchements">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0 <span style="color:#a00;background-color:#faa">#</span>0b11111000
+</span></span><span style="display:flex;"><span>MOV R1 <span style="color:#a00;background-color:#faa">#</span>0b10001100
+</span></span><span style="display:flex;"><span>AND R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R2  0b10001000 
+</span></span></span></code></pre></div><h2 id="comparaisons-et-branchements">
   Comparaisons et branchements
   <a class="anchor" href="#comparaisons-et-branchements">#</a>
 </h2>
@@ -6177,14 +6177,14 @@ AND R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
   <a class="anchor" href="#branchement-inconditionnel">#</a>
 </h3>
 <p>L&rsquo;instruction <code>B</code>, suivie d&rsquo;une adresse, généralement donnée sous la forme d&rsquo;un label, saute à cette ligne.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>42
-    B la_bas
-    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>14
-    HALT
-<span style="color:#99f">la_bas:</span>
-    HALT
-<span style="color:#09f;font-style:italic">// R0 contient #42, pas 14.
-</span></code></pre></div><h3 id="comparaison">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>42
+</span></span><span style="display:flex;"><span>    B la_bas
+</span></span><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>14
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">la_bas:</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R0 contient #42, pas 14.
+</span></span></span></code></pre></div><h3 id="comparaison">
   Comparaison
   <a class="anchor" href="#comparaison">#</a>
 </h3>
@@ -6220,24 +6220,24 @@ AND R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
 </ul>
 <p>Il en existe d&rsquo;autres, en particulier permettant de travailler avec des &ldquo;subroutines&rdquo;, l&rsquo;équivalent
 de fonctions, que nous n&rsquo;utiliserons pas.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>25
-    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>33
-    CMP R0<span style="color:#555">,</span> R1
-    BEQ equal
-    BLT plus_petit
-    BGT plus_grand
-<span style="color:#99f">equal:</span>
-    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>10
-    HALT
-<span style="color:#99f">plus_petit:</span>
-    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>20
-    HALT
-<span style="color:#99f">plus_grand:</span>
-    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>30
-    HALT
-
-<span style="color:#09f;font-style:italic">// 25 &lt; 33 donc R0 contient 20
-</span></code></pre></div><h2 id="entrées--sorties--io">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>25
+</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>33
+</span></span><span style="display:flex;"><span>    CMP R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>    BEQ equal
+</span></span><span style="display:flex;"><span>    BLT plus_petit
+</span></span><span style="display:flex;"><span>    BGT plus_grand
+</span></span><span style="display:flex;"><span><span style="color:#99f">equal:</span>
+</span></span><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>10
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">plus_petit:</span>
+</span></span><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>20
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">plus_grand:</span>
+</span></span><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>30
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// 25 &lt; 33 donc R0 contient 20
+</span></span></span></code></pre></div><h2 id="entrées--sorties--io">
   Entrées / Sorties : I/O
   <a class="anchor" href="#entr%c3%a9es--sorties--io">#</a>
 </h2>
@@ -6262,18 +6262,18 @@ Nous ne dessinerons pas sur dans la fenêtre graphique.</p>
   Écrire un nombre
   <a class="anchor" href="#%c3%a9crire-un-nombre">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">   MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>42
-   STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-</code></pre></div><p>Va charger le nombre 42 (quarante deux) dans <code>R0</code> et l&rsquo;écrire dans la console, comme un nombre décimal positif. On verra <code>42</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>42
+</span></span><span style="display:flex;"><span>   STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
+</span></span></code></pre></div><p>Va charger le nombre 42 (quarante deux) dans <code>R0</code> et l&rsquo;écrire dans la console, comme un nombre décimal positif. On verra <code>42</code>.</p>
 <p>On peut utiliser <code>.WriteSignedNum</code> pour écrire des nombres négatifs.</p>
 <h3 id="écrire-une-chaîne-de-caractères">
   Écrire une chaîne de caractères
   <a class="anchor" href="#%c3%a9crire-une-cha%c3%aene-de-caract%c3%a8res">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-<span style="color:#99f">msg1:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Hello World\n&#34;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
+</span></span><span style="display:flex;"><span>    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">msg1:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Hello World\n&#34;</span>
+</span></span></code></pre></div><ul>
 <li><code>msg1</code> contient une chaîne ASCIZ (Ascii terminée par l&rsquo;octet <code>0</code>) avec le texte <code>Hello World</code> suivi d&rsquo;un retour à la ligne (<code>\n</code>)</li>
 <li>on charge dans le registre <code>R1</code> cette chaîne,</li>
 <li>on l&rsquo;écrit comme du texte en précisant <em>l&rsquo;adresse</em> <code>.WriteString</code></li>
@@ -6285,10 +6285,10 @@ Nous ne dessinerons pas sur dans la fenêtre graphique.</p>
 <p><em>Ceci n&rsquo;a pas d&rsquo;analogue en Python. Python n&rsquo;a pas de type particulier pour les caractères ASCII</em>.</p>
 <p>On peut afficher un seul caractère ASCII avec l&rsquo;adresse <code>WriteChar</code></p>
 <p>Par exemple le <code>A</code> est encodé par le nombre 65 dans la table ASCII et donc :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>65
-    STRB R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteChar</span>
-    HALT
-</code></pre></div><p>va :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>65
+</span></span><span style="display:flex;"><span>    STRB R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteChar</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><p>va :</p>
 <ul>
 <li>stocker dans R0 la valeur 65,</li>
 <li>l&rsquo;afficher comme un caractère ASCII (attention, l&rsquo;instruction est <code>STRB</code>)</li>
@@ -6297,30 +6297,30 @@ Nous ne dessinerons pas sur dans la fenêtre graphique.</p>
   Lire un nombre
   <a class="anchor" href="#lire-un-nombre">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
-</code></pre></div><p>Va demander à l&rsquo;utilisateur de saisir un nombre décimal et le charger dans <code>R2</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
+</span></span></code></pre></div><p>Va demander à l&rsquo;utilisateur de saisir un nombre décimal et le charger dans <code>R2</code>.</p>
 <h3 id="lire-une-chaîne-ascii">
   Lire une chaîne ASCII
   <a class="anchor" href="#lire-une-cha%c3%aene-ascii">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    LDR R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myString
-    STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">ReadString</span>
-    HALT
-<span style="color:#99f">myString:</span> 
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    LDR R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myString
+</span></span><span style="display:flex;"><span>    STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">ReadString</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">myString:</span> 
+</span></span></code></pre></div><ol>
 <li><code>myString:</code> réserve un emplacement mémoire pour la chaîne à venir,</li>
 <li><code>LDR R0, #myString</code>: on prépare un registre pour la chaîne à venir,</li>
 <li><code>STR R0, .InputNum</code>: on lit une chaîne ASCII et on l&rsquo;enregistre dans l&rsquo;emplacement réservé.</li>
 </ol>
 <p>Autre exemple :</p>
 <p>lire et afficher une chaîne tapée par l&rsquo;utilisateur :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">      MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myWord
-      STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">ReadString</span>
-      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myWord
-      STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-      HALT
-<span style="color:#99f">myWord:</span>
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>      MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myWord
+</span></span><span style="display:flex;"><span>      STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">ReadString</span>
+</span></span><span style="display:flex;"><span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>myWord
+</span></span><span style="display:flex;"><span>      STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
+</span></span><span style="display:flex;"><span>      HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">myWord:</span>
+</span></span></code></pre></div><ol>
 <li><code>myWord:</code> réserve un emplacement mémoire avec l&rsquo;étiquette <code>myWord</code></li>
 <li><code>MOV R0, #myWord</code> est indispensable&hellip; cela prépare simplement le registre.</li>
 <li><code>STR R0, .ReadString</code>, lit le contenu à l&rsquo;adresse <code>.ReadString</code>, cette adresse correspond à du texte tapé dans la fenêtre de saisie, et <code>myWord</code> va contenir ce mot.</li>
@@ -6335,97 +6335,97 @@ Nous ne dessinerons pas sur dans la fenêtre graphique.</p>
   Opérations basiques
   <a class="anchor" href="#op%c3%a9rations-basiques">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">14</span>
-b <span style="color:#555">=</span> <span style="color:#f60">3</span>
-c <span style="color:#555">=</span> a <span style="color:#555">-</span> b
-d <span style="color:#555">=</span> a <span style="color:#555">+</span> b
-e <span style="color:#555">=</span> a <span style="color:#555">&amp;</span> b <span style="color:#09f;font-style:italic"># ET  bit à bit entre a et b</span>
-f <span style="color:#555">=</span> a <span style="color:#555">|</span> b <span style="color:#09f;font-style:italic"># OU  bit à bit entre a et b</span>
-g <span style="color:#555">=</span> a <span style="color:#555">^</span> b <span style="color:#09f;font-style:italic"># XOR bit à bit entre a et b</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>14
-MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>3
-ADD R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-SUB R3<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-AND R4<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-ORR R5<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-XOR R6<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-HALT
-</code></pre></div><h3 id="if-else">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">14</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#555">=</span> <span style="color:#f60">3</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#555">=</span> a <span style="color:#555">-</span> b
+</span></span><span style="display:flex;"><span>d <span style="color:#555">=</span> a <span style="color:#555">+</span> b
+</span></span><span style="display:flex;"><span>e <span style="color:#555">=</span> a <span style="color:#555">&amp;</span> b <span style="color:#09f;font-style:italic"># ET  bit à bit entre a et b</span>
+</span></span><span style="display:flex;"><span>f <span style="color:#555">=</span> a <span style="color:#555">|</span> b <span style="color:#09f;font-style:italic"># OU  bit à bit entre a et b</span>
+</span></span><span style="display:flex;"><span>g <span style="color:#555">=</span> a <span style="color:#555">^</span> b <span style="color:#09f;font-style:italic"># XOR bit à bit entre a et b</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>14
+</span></span><span style="display:flex;"><span>MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>3
+</span></span><span style="display:flex;"><span>ADD R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>SUB R3<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>AND R4<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>ORR R5<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>XOR R6<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>HALT
+</span></span></code></pre></div><h3 id="if-else">
   <code>if else</code>
   <a class="anchor" href="#if-else">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">5</span>
-b <span style="color:#555">=</span> <span style="color:#f60">7</span>
-<span style="color:#069;font-weight:bold">if</span> a <span style="color:#555">==</span> b:
-    c <span style="color:#555">=</span> <span style="color:#f60">4</span>
-<span style="color:#069;font-weight:bold">else</span>:
-    c <span style="color:#555">=</span> <span style="color:#f60">5</span>
-
-<span style="color:#09f;font-style:italic"># donc c = 5</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5
-    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>7
-    CMP R0<span style="color:#555">,</span> R1
-    BEQ equal
-    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5
-    HALT
-<span style="color:#99f">equal:</span>
-    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4
-    HALT
-</code></pre></div><h3 id="boucle">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#555">=</span> <span style="color:#f60">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> a <span style="color:#555">==</span> b:
+</span></span><span style="display:flex;"><span>    c <span style="color:#555">=</span> <span style="color:#f60">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>    c <span style="color:#555">=</span> <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># donc c = 5</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5
+</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>7
+</span></span><span style="display:flex;"><span>    CMP R0<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>    BEQ equal
+</span></span><span style="display:flex;"><span>    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>5
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">equal:</span>
+</span></span><span style="display:flex;"><span>    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><h3 id="boucle">
   Boucle
   <a class="anchor" href="#boucle">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">while</span> a <span style="color:#555">&lt;</span> <span style="color:#f60">8</span>:
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
-    a <span style="color:#555">=</span> a <span style="color:#555">+</span> <span style="color:#f60">1</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
-<span style="color:#99f">loop:</span>
-    CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>8
-    BGT end
-    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg
-    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-    ADD R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
-    B loop
-<span style="color:#99f">end:</span>
-    HALT
-<span style="color:#99f">msg:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;bonjour\n&#34;</span>
-</code></pre></div><h3 id="multiplier">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> a <span style="color:#555">&lt;</span> <span style="color:#f60">8</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
+</span></span><span style="display:flex;"><span>    a <span style="color:#555">=</span> a <span style="color:#555">+</span> <span style="color:#f60">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
+</span></span><span style="display:flex;"><span><span style="color:#99f">loop:</span>
+</span></span><span style="display:flex;"><span>    CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>8
+</span></span><span style="display:flex;"><span>    BGT end
+</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg
+</span></span><span style="display:flex;"><span>    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
+</span></span><span style="display:flex;"><span>    ADD R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
+</span></span><span style="display:flex;"><span>    B loop
+</span></span><span style="display:flex;"><span><span style="color:#99f">end:</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span><span style="display:flex;"><span><span style="color:#99f">msg:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;bonjour\n&#34;</span>
+</span></span></code></pre></div><h3 id="multiplier">
   Multiplier
   <a class="anchor" href="#multiplier">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">3</span>
-b <span style="color:#555">=</span> <span style="color:#f60">6</span>
-c <span style="color:#555">=</span> a <span style="color:#555">*</span> b
-
-<span style="color:#09f;font-style:italic"># à la main sans le produit</span>
-<span style="color:#09f;font-style:italic"># a * b = a + a + a + ... + a</span>
-p <span style="color:#555">=</span> <span style="color:#f60">0</span>
-c <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">while</span> c <span style="color:#555">&lt;</span> b:
-    p <span style="color:#555">=</span> p <span style="color:#555">+</span> a
-    c <span style="color:#555">=</span> c <span style="color:#555">+</span> <span style="color:#f60">1</span>
-
-<span style="color:#09f;font-style:italic"># p = 18</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#09f;font-style:italic">// R0: a
-</span><span style="color:#09f;font-style:italic">// R1: b
-</span><span style="color:#09f;font-style:italic">// R2: a * b
-</span><span style="color:#09f;font-style:italic">// R3: compteur de boucle
-</span><span style="color:#09f;font-style:italic"></span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>3
-    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>6
-    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
-    MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
-<span style="color:#99f">
-</span><span style="color:#99f">loop:</span>
-    CMP R3<span style="color:#555">,</span> R1
-    BEQ end
-    ADD R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> R0
-    ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
-    B loop
-<span style="color:#99f">
-</span><span style="color:#99f">end:</span>
-    HALT
-</code></pre></div><h3 id="division-entière">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">3</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#555">=</span> <span style="color:#f60">6</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#555">=</span> a <span style="color:#555">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># à la main sans le produit</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># a * b = a + a + a + ... + a</span>
+</span></span><span style="display:flex;"><span>p <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> c <span style="color:#555">&lt;</span> b:
+</span></span><span style="display:flex;"><span>    p <span style="color:#555">=</span> p <span style="color:#555">+</span> a
+</span></span><span style="display:flex;"><span>    c <span style="color:#555">=</span> c <span style="color:#555">+</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># p = 18</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R0: a
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R1: b
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R2: a * b
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R3: compteur de boucle
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>3
+</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>6
+</span></span><span style="display:flex;"><span>    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
+</span></span><span style="display:flex;"><span>    MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
+</span></span><span style="display:flex;"><span><span style="color:#99f">
+</span></span></span><span style="display:flex;"><span><span style="color:#99f">loop:</span>
+</span></span><span style="display:flex;"><span>    CMP R3<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>    BEQ end
+</span></span><span style="display:flex;"><span>    ADD R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> R0
+</span></span><span style="display:flex;"><span>    ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
+</span></span><span style="display:flex;"><span>    B loop
+</span></span><span style="display:flex;"><span><span style="color:#99f">
+</span></span></span><span style="display:flex;"><span><span style="color:#99f">end:</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><h3 id="division-entière">
   Division entière
   <a class="anchor" href="#division-enti%c3%a8re">#</a>
 </h3>
@@ -6440,47 +6440,46 @@ utiliser les soustractions successives :</p>
 <li>$q = 4, r = 5 - 4 = 1$. $1 &lt; 4$ donc on a fini.</li>
 <li>$21 = 4 \times 5 + 1$</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">21</span>
-b <span style="color:#555">=</span> <span style="color:#f60">4</span>
-
-<span style="color:#09f;font-style:italic"># a = 5 * b + 1</span>
-c <span style="color:#555">=</span> a <span style="color:#555">//</span> b <span style="color:#09f;font-style:italic"># 5</span>
-d <span style="color:#555">=</span> a <span style="color:#555">%</span>  b <span style="color:#09f;font-style:italic"># 1</span>
-
-<span style="color:#09f;font-style:italic"># soustractions successives</span>
-q <span style="color:#555">=</span> <span style="color:#f60">0</span>
-r <span style="color:#555">=</span> a
-<span style="color:#069;font-weight:bold">while</span> r <span style="color:#555">&gt;=</span> b:
-    q <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-    r <span style="color:#555">=</span> r <span style="color:#555">-</span> b
-
-<span style="color:#366">print</span>(q)
-<span style="color:#366">print</span>(r)
-<span style="color:#09f;font-style:italic"># q = 5</span>
-<span style="color:#09f;font-style:italic"># r = 1</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#09f;font-style:italic">// R0: a
-</span><span style="color:#09f;font-style:italic">// R1: b
-</span><span style="color:#09f;font-style:italic">// R2: a // b
-</span><span style="color:#09f;font-style:italic">// R3: a % b
-</span><span style="color:#09f;font-style:italic"></span>
-    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>21
-    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4
-    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
-    MOV R3<span style="color:#555">,</span> R0
-<span style="color:#99f">
-</span><span style="color:#99f">loop:</span>
-    CMP R3<span style="color:#555">,</span> R1
-    BLT end
-    ADD R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
-    SUB R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> R1
-    B loop
-<span style="color:#99f">
-</span><span style="color:#99f">end:</span>
-    STR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-    STR R3<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-    HALT
-
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">21</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#555">=</span> <span style="color:#f60">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># a = 5 * b + 1</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#555">=</span> a <span style="color:#555">//</span> b <span style="color:#09f;font-style:italic"># 5</span>
+</span></span><span style="display:flex;"><span>d <span style="color:#555">=</span> a <span style="color:#555">%</span>  b <span style="color:#09f;font-style:italic"># 1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># soustractions successives</span>
+</span></span><span style="display:flex;"><span>q <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#555">=</span> a
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> r <span style="color:#555">&gt;=</span> b:
+</span></span><span style="display:flex;"><span>    q <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    r <span style="color:#555">=</span> r <span style="color:#555">-</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(q)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(r)
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># q = 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># r = 1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R0: a
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R1: b
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R2: a // b
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// R3: a % b
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>21
+</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4
+</span></span><span style="display:flex;"><span>    MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0
+</span></span><span style="display:flex;"><span>    MOV R3<span style="color:#555">,</span> R0
+</span></span><span style="display:flex;"><span><span style="color:#99f">
+</span></span></span><span style="display:flex;"><span><span style="color:#99f">loop:</span>
+</span></span><span style="display:flex;"><span>    CMP R3<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>    BLT end
+</span></span><span style="display:flex;"><span>    ADD R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>1
+</span></span><span style="display:flex;"><span>    SUB R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>    B loop
+</span></span><span style="display:flex;"><span><span style="color:#99f">
+</span></span></span><span style="display:flex;"><span><span style="color:#99f">end:</span>
+</span></span><span style="display:flex;"><span>    STR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
+</span></span><span style="display:flex;"><span>    STR R3<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><hr>
 <p>Il existe de nombreuses autres instructions présentées dans la documentation (lien tout en haut).</p>
 </article>
  
@@ -6503,7 +6502,7 @@ r <span style="color:#555">=</span> a
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

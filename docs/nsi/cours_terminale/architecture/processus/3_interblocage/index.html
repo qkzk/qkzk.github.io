@@ -18,7 +18,7 @@ Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter a
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/3_interblocage/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5754,7 +5754,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5869,94 +5869,94 @@ dépend de <em>l&rsquo;ordre</em> dans lequel celles-ci sont effectuées&hellip;
 <p>Lorsque un processus principal crée plusieurs processus fils, il ne contrôle
 pas l&rsquo;ordre dans lequel ils sont exécutés. S&rsquo;il a besoin des résultats de ceux
 ci, il ne pourra pas prédire le résultat final.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">multiprocessing</span> <span style="color:#069;font-weight:bold">import</span> Process
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">random</span> <span style="color:#069;font-weight:bold">import</span> random
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">time</span> <span style="color:#069;font-weight:bold">import</span> sleep
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">hello</span>():
-    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
-        <span style="color:#366">print</span>(<span style="color:#c30">&#34;hello&#34;</span>)
-        sleep(random())
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">bonjour</span>():
-    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
-        <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
-        sleep(random())
-
-
-p1 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>hello)
-p2 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>bonjour)
-
-p1<span style="color:#555">.</span>start()
-p2<span style="color:#555">.</span>start()
-
-p1<span style="color:#555">.</span>join()
-p2<span style="color:#555">.</span>join()
-</code></pre></div><p>Première exécution :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hello
-bonjour
-hello
-bonjour
-hello
-hello
-bonjour
-bonjour
-bonjour
-hello
-</code></pre></div><p>Seconde exécution :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hello
-bonjour
-bonjour
-bonjour
-hello
-hello
-hello
-hello
-bonjour
-bonjour
-</code></pre></div><p>On peut arguer que ces programmes ne font rien d&rsquo;essentiel, mais s&rsquo;ils doivent
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">multiprocessing</span> <span style="color:#069;font-weight:bold">import</span> Process
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">random</span> <span style="color:#069;font-weight:bold">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">time</span> <span style="color:#069;font-weight:bold">import</span> sleep
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">hello</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(<span style="color:#c30">&#34;hello&#34;</span>)
+</span></span><span style="display:flex;"><span>        sleep(random())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">bonjour</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
+</span></span><span style="display:flex;"><span>        sleep(random())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p1 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>hello)
+</span></span><span style="display:flex;"><span>p2 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>bonjour)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>start()
+</span></span><span style="display:flex;"><span>p2<span style="color:#555">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>join()
+</span></span><span style="display:flex;"><span>p2<span style="color:#555">.</span>join()
+</span></span></code></pre></div><p>Première exécution :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>hello
+</span></span></code></pre></div><p>Seconde exécution :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>hello
+</span></span><span style="display:flex;"><span>bonjour
+</span></span><span style="display:flex;"><span>bonjour
+</span></span></code></pre></div><p>On peut arguer que ces programmes ne font rien d&rsquo;essentiel, mais s&rsquo;ils doivent
 écrire dans le même fichier, c&rsquo;est plus génant.</p>
 <p>Il est délicat d&rsquo;illustrer simplement les bugs engendrés par les situations
 de compétition.</p>
 <p>En voilà une avec une notion hors programme, les <code>threads</code> (<em>processus légers</em>) :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">threading</span>
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">increment_global</span>():
-    <span style="color:#069;font-weight:bold">global</span> x
-    x <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">task</span>():
-    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">500000</span>):
-        increment_global()
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">race</span>(nb: <span style="color:#366">int</span>):
-    <span style="color:#069;font-weight:bold">global</span> x
-    x <span style="color:#555">=</span> <span style="color:#f60">0</span>
-    t1 <span style="color:#555">=</span> threading<span style="color:#555">.</span>Thread(target<span style="color:#555">=</span>task)
-    t2 <span style="color:#555">=</span> threading<span style="color:#555">.</span>Thread(target<span style="color:#555">=</span>task)
-
-    t1<span style="color:#555">.</span>start()
-    t2<span style="color:#555">.</span>start()
-
-    t1<span style="color:#555">.</span>join()
-    t2<span style="color:#555">.</span>join()
-
-    <span style="color:#366">print</span>(<span style="color:#c30">f</span><span style="color:#c30">&#34;after race number </span><span style="color:#a00">{</span>nb<span style="color:#a00">}</span><span style="color:#c30">, x = </span><span style="color:#a00">{</span>x<span style="color:#a00">}</span><span style="color:#c30">&#34;</span>)
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">main</span>():
-    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
-        race(i)
-
-
-<span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
-    main()
-</code></pre></div><p>Ce programme est supposé compter jusqu&rsquo;à 1 million.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">threading</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">increment_global</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">global</span> x
+</span></span><span style="display:flex;"><span>    x <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">task</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">500000</span>):
+</span></span><span style="display:flex;"><span>        increment_global()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">race</span>(nb: <span style="color:#366">int</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">global</span> x
+</span></span><span style="display:flex;"><span>    x <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#555">=</span> threading<span style="color:#555">.</span>Thread(target<span style="color:#555">=</span>task)
+</span></span><span style="display:flex;"><span>    t2 <span style="color:#555">=</span> threading<span style="color:#555">.</span>Thread(target<span style="color:#555">=</span>task)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t1<span style="color:#555">.</span>start()
+</span></span><span style="display:flex;"><span>    t2<span style="color:#555">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t1<span style="color:#555">.</span>join()
+</span></span><span style="display:flex;"><span>    t2<span style="color:#555">.</span>join()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">f</span><span style="color:#c30">&#34;after race number </span><span style="color:#a00">{</span>nb<span style="color:#a00">}</span><span style="color:#c30">, x = </span><span style="color:#a00">{</span>x<span style="color:#a00">}</span><span style="color:#c30">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
+</span></span><span style="display:flex;"><span>        race(i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>Ce programme est supposé compter jusqu&rsquo;à 1 million.</p>
 <p>Que fait-il ?</p>
 <ul>
 <li>
@@ -5968,14 +5968,13 @@ de compétition.</p>
 </li>
 </ul>
 <p>Mais en fait :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python competition.py
-after race number 0, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">712104</span>
-after race number 1, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">850346</span>
-after race number 2, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">893592</span>
-after race number 3, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">813423</span>
-after race number 4, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">761881</span>
-
-</code></pre></div><p>D&rsquo;où vient le problème ? <code>x += 1</code> réalise plusieurs opérations :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python competition.py
+</span></span><span style="display:flex;"><span>after race number 0, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">712104</span>
+</span></span><span style="display:flex;"><span>after race number 1, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">850346</span>
+</span></span><span style="display:flex;"><span>after race number 2, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">893592</span>
+</span></span><span style="display:flex;"><span>after race number 3, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">813423</span>
+</span></span><span style="display:flex;"><span>after race number 4, <span style="color:#033">x</span> <span style="color:#555">=</span> <span style="color:#f60">761881</span>
+</span></span></code></pre></div><p>D&rsquo;où vient le problème ? <code>x += 1</code> réalise plusieurs opérations :</p>
 <ul>
 <li>lire la valeur de <code>x</code></li>
 <li>lui ajouter 1</li>
@@ -6031,7 +6030,7 @@ qui l&rsquo;a crée.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

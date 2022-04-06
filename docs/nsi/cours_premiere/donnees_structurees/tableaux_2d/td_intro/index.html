@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf pour impression
 Comment représenter plusieurs dimensions dans un tableau ? #  Imaginons qu&rsquo;on dispose de cases dans une grille à deux dimensions. Chaque case possède deux coordonnées : un numéro de ligne et un numéro de colonne.
-0 1 2 3 4 0 | 1 | 2 -----X 3 4   Quelles sont les coordonnées (ligne, colonne) de X ?
-  Quel objet pourrait-on utiliser pour représenter ce tableau ?">
+  0 1 2 3 4  0 |  1 |  2 -----X  3  4   Quelles sont les coordonnées (ligne, colonne) de X ?">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Intro : tableaux 2D" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +17,7 @@ Comment représenter plusieurs dimensions dans un tableau ? #  Imaginons qu&rsqu
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/td_intro/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5742,7 +5741,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5790,15 +5789,14 @@ MathJax.Hub.Config({
 </h1>
 <p>Imaginons qu&rsquo;on dispose de cases dans une grille à deux dimensions.
 Chaque case possède deux coordonnées : un numéro de ligne et un numéro de colonne.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-                                    <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> 
-                                <span style="color:#f60">0</span>       <span style="color:#555">|</span>
-                                <span style="color:#f60">1</span>       <span style="color:#555">|</span>
-                                <span style="color:#f60">2</span>  <span style="color:#555">-----</span>X 
-                                <span style="color:#f60">3</span>
-                                <span style="color:#f60">4</span>
-
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> 
+</span></span><span style="display:flex;"><span>                                <span style="color:#f60">0</span>       <span style="color:#555">|</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#f60">1</span>       <span style="color:#555">|</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#f60">2</span>  <span style="color:#555">-----</span>X 
+</span></span><span style="display:flex;"><span>                                <span style="color:#f60">3</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#f60">4</span>
+</span></span></code></pre></div><ol>
 <li>
 <p>Quelles sont les coordonnées <code>(ligne, colonne)</code> de <code>X</code> ?</p>
 </li>
@@ -5811,16 +5809,15 @@ choisir ? Et lorsqu&rsquo;on souhaite pouvoir faire évoluer cette structure ?</
 </li>
 <li>
 <p>Proposer une instruction Python pour créér une grille comme ceci :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-                            <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> 
-
-                        <span style="color:#f60">0</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
-                        <span style="color:#f60">1</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
-                        <span style="color:#f60">2</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
-                        <span style="color:#f60">3</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
-                        <span style="color:#f60">4</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
-
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f60">0</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f60">1</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f60">2</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f60">3</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f60">4</span>   <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span> <span style="color:#f60">0</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Proposer une fonction Python qui prend deux paramètres <code>n_lignes</code> et <code>n_col</code> (nombre de lignes
 et de colonnes) et renvoie un tableau à 2 dimensions, mutable, rempli de zéros.</p>
@@ -5844,19 +5841,19 @@ le contenu du tableau en insérant <code>elem</code> à cette position.</p>
 <p>Il est possible aussi d&rsquo;utiliser un seul tableau, de taille <code>ligne * colonne</code> pour représenter
 une grille.</p>
 <p>Plutôt que d&rsquo;avoir un tableau comme ça :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tableau_2d <span style="color:#555">=</span> [
-        [a, b, c],
-        [d, e, f],
-        [g, h, i],
-            ]
-</code></pre></div><p>On a un tableau comme ça : <code>tableau_1d = [a, b, c, d, e, f, g, h, i]</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tableau_2d <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>        [a, b, c],
+</span></span><span style="display:flex;"><span>        [d, e, f],
+</span></span><span style="display:flex;"><span>        [g, h, i],
+</span></span><span style="display:flex;"><span>            ]
+</span></span></code></pre></div><p>On a un tableau comme ça : <code>tableau_1d = [a, b, c, d, e, f, g, h, i]</code>.</p>
 <p>Mais on souhaite qu&rsquo;il modélise un univers comme ça :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tableau_1d <span style="color:#555">=</span> [
-        a, b, c,
-        d, e, f,
-        g, h, i,
-          ]
-</code></pre></div><p>Notez bien la différence, on souhaite représenter un plan&hellip; sur une ligne.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tableau_1d <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>        a, b, c,
+</span></span><span style="display:flex;"><span>        d, e, f,
+</span></span><span style="display:flex;"><span>        g, h, i,
+</span></span><span style="display:flex;"><span>          ]
+</span></span></code></pre></div><p>Notez bien la différence, on souhaite représenter un plan&hellip; sur une ligne.</p>
 <p>Ainsi pour accéder à <code>f</code> on faisait : <code>tableau_2d[1][2]</code></p>
 <p>On fera maintenant : <code>tableau_1d[5]</code></p>
 <p><strong>Admettons que les dimensions soient 10x7 : 10 lignes, 7 colonnes et 70 cases en ligne.</strong></p>
@@ -5873,28 +5870,26 @@ et renvoie son numéro de ligne.</p>
 <li>
 <p>Proposer une fonction qui affiche le tableau tel qu&rsquo;on l&rsquo;imagine, avec deux
 dimensions :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> print_table([a, b, c, d, e, f, g, h, i, j, k, l, m, n<span style="color:#555">...</span>])
-
-    a b c d e f g h
-    i j k l m n o p
-    <span style="color:#555">...</span>
-    <span style="color:#555">...</span>
-
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> print_table([a, b, c, d, e, f, g, h, i, j, k, l, m, n<span style="color:#555">...</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    a b c d e f g h
+</span></span><span style="display:flex;"><span>    i j k l m n o p
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Améliorer votre fonction pour qu&rsquo;elle affiche aussi les numéros de ligne
 et de colonne :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> print_table([a, b, c, d, e, f, g, h, i, j, k, l, m, n<span style="color:#555">...</span>])
-
-        <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> <span style="color:#f60">5</span> <span style="color:#f60">6</span> <span style="color:#f60">7</span>
-
-    <span style="color:#f60">0</span>   a b c d e f g h
-    <span style="color:#f60">1</span>   i j k l m n o p
-    <span style="color:#f60">2</span>   <span style="color:#555">...</span>
-    <span style="color:#f60">3</span>   <span style="color:#555">...</span>
-    <span style="color:#555">...</span>
-
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> print_table([a, b, c, d, e, f, g, h, i, j, k, l, m, n<span style="color:#555">...</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f60">0</span> <span style="color:#f60">1</span> <span style="color:#f60">2</span> <span style="color:#f60">3</span> <span style="color:#f60">4</span> <span style="color:#f60">5</span> <span style="color:#f60">6</span> <span style="color:#f60">7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f60">0</span>   a b c d e f g h
+</span></span><span style="display:flex;"><span>    <span style="color:#f60">1</span>   i j k l m n o p
+</span></span><span style="display:flex;"><span>    <span style="color:#f60">2</span>   <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f60">3</span>   <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Accéder et modifier une valeur. Proposer une fonction qui renvoie
 la valeur d&rsquo;un tableau 2D <em>en ligne</em> pour une ligne et une colonne
@@ -5927,7 +5922,7 @@ similaires pour accéder à la valeur de chaque pixel.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

@@ -19,7 +19,7 @@ Programmation dynamique :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/algorithmique/prog_dynamique/cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5755,7 +5755,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5821,8 +5821,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf: <h3 id="pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique1_cours_prog_dynamique_printpdf">
-  <a href="/uploads/docnsitale/algo/prog_dynamique/1_cours_prog_dynamique_print.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique1_cours_prog_dynamique_printpdf">
+  pdf: <a href="/uploads/docnsitale/algo/prog_dynamique/1_cours_prog_dynamique_print.pdf">pour impression</a>
   <a class="anchor" href="#pdf-pour-impressionuploadsdocnsitalealgoprog_dynamique1_cours_prog_dynamique_printpdf">#</a>
 </h3>
 <h1 id="programmation-dynamique">
@@ -6000,24 +6000,24 @@ de départ plutôt que de reculer jusqu&rsquo;à atteindre des valeurs connues.<
   <a class="anchor" href="#du-haut-vers-le-bas">#</a>
 </h3>
 <p>On utilise un tableau <code>F[.]</code> pour stocker les valeurs intermédiaires.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction fibonacci(n)
-   si F[n] n&#39;est pas défini
-      si n = 0 ou n = 1
-         F[n] := n
-      sinon
-         F[n] := fibonacci(n-1) + fibonacci(n-2)
-   retourner F[n]
-</code></pre></div><h3 id="du-bas-vers-le-haut">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction fibonacci(n)
+</span></span><span style="display:flex;"><span>   si F[n] n&#39;est pas défini
+</span></span><span style="display:flex;"><span>      si n = 0 ou n = 1
+</span></span><span style="display:flex;"><span>         F[n] := n
+</span></span><span style="display:flex;"><span>      sinon
+</span></span><span style="display:flex;"><span>         F[n] := fibonacci(n-1) + fibonacci(n-2)
+</span></span><span style="display:flex;"><span>   retourner F[n]
+</span></span></code></pre></div><h3 id="du-bas-vers-le-haut">
   Du bas vers le haut
   <a class="anchor" href="#du-bas-vers-le-haut">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction fibonacci(n)
-   F[0] = 0
-   F[1] = 1
-   pour tout i de 2 à n
-        F[i] := F[i-1] + F[i-2]
-   retourner F[n]
-</code></pre></div><p>Les deux approches sont bien de la programmation dynamique :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction fibonacci(n)
+</span></span><span style="display:flex;"><span>   F[0] = 0
+</span></span><span style="display:flex;"><span>   F[1] = 1
+</span></span><span style="display:flex;"><span>   pour tout i de 2 à n
+</span></span><span style="display:flex;"><span>        F[i] := F[i-1] + F[i-2]
+</span></span><span style="display:flex;"><span>   retourner F[n]
+</span></span></code></pre></div><p>Les deux approches sont bien de la programmation dynamique :</p>
 <ol>
 <li>On utilise les sous problèmes (ici les valeurs déjà rencontrées),</li>
 <li>Les sous problèmes se chevauchent,</li>
@@ -6026,16 +6026,16 @@ de départ plutôt que de reculer jusqu&rsquo;à atteindre des valeurs connues.<
 <p>La seconde approche peut-être rendue plus efficace en ne gardant en mémoire
 que les valeurs dont on a besoin.</p>
 <p>On peut utiliser des variables plutôt qu&rsquo;un tableau !</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction fibonacci(n):
-    x := 0
-    y := 1
-    Si n &gt; 1:
-    Pour tout k de 0 à n-1
-      z := y
-      y := x + y
-      x := z
-    retourner x
-</code></pre></div><p>Cette nouvelle approche ne conserve que les derniers termes en mémoire,
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction fibonacci(n):
+</span></span><span style="display:flex;"><span>    x := 0
+</span></span><span style="display:flex;"><span>    y := 1
+</span></span><span style="display:flex;"><span>    Si n &gt; 1:
+</span></span><span style="display:flex;"><span>    Pour tout k de 0 à n-1
+</span></span><span style="display:flex;"><span>      z := y
+</span></span><span style="display:flex;"><span>      y := x + y
+</span></span><span style="display:flex;"><span>      x := z
+</span></span><span style="display:flex;"><span>    retourner x
+</span></span></code></pre></div><p>Cette nouvelle approche ne conserve que les derniers termes en mémoire,
 ceux dont on a réellement besoin.</p>
 <h2 id="concevoir-un-algorithme">
   Concevoir un algorithme
@@ -6089,7 +6089,7 @@ deux points :</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

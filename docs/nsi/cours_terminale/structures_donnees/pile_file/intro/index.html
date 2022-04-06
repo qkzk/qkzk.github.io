@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/intro/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5752,7 +5752,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5811,8 +5811,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf : au <h3 id="pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">
-  <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a>
+  <article class="markdown"><h3 id="pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">
+  pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a>
   <a class="anchor" href="#pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">#</a>
 </h3>
 <h1 id="les-files-et-les-piles">
@@ -5833,20 +5833,20 @@ mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élém
 <p>Le sac est une structure impérative : un sac se modifie au cours du temps.</p>
 <p>En Python, il est logique de représenter un sac (d’éléments <em>E</em>) par un objet
 (d’une classe <em>Sac</em>) qui possède trois méthodes :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Sac</span>:
-  <span style="color:#069;font-weight:bold">def</span> __init__(self):
-    self<span style="color:#555">.</span>contenu <span style="color:#555">=</span> [ ]
-
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(self):
-    <span style="color:#555">...</span>
-
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ajouter</span>(self):
-    <span style="color:#555">...</span>
-
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">retirer</span>(self):
-    x <span style="color:#555">=</span> <span style="color:#555">...</span>
-    <span style="color:#069;font-weight:bold">return</span> x
-</code></pre></div><p>Remarquons le constructeur : <code>self.contenu = [ ]</code> : le contenu du sac est
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Sac</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    self<span style="color:#555">.</span>contenu <span style="color:#555">=</span> [ ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ajouter</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">retirer</span>(self):
+</span></span><span style="display:flex;"><span>    x <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> x
+</span></span></code></pre></div><p>Remarquons le constructeur : <code>self.contenu = [ ]</code> : le contenu du sac est
 référencé dans une liste python. C&rsquo;est un choix qui sera commode.</p>
 <p>Ainsi on ajoute par exemple un élément <code>e</code> dans le sac <code>b</code> par <code>b.ajouter(e)</code>,
 ce qui modifie l’état interne du sac.</p>
@@ -5875,64 +5875,64 @@ d’implémentations pour les piles et les files.</p>
 <p><strong>Question</strong></p>
 <p>Soit la fonction <code>build</code> suivante qui ajoute tous les éléments d’une liste dans
 un sac puis construit une liste en vidant le sac.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">build</span>(tableau):
-  sachet <span style="color:#555">=</span> Sac()
-
-  <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> tableau:
-    sachet<span style="color:#555">.</span>ajouter(k)
-
-  tableau_sortie <span style="color:#555">=</span> []
-  <span style="color:#069;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">not</span> sachet<span style="color:#555">.</span>est_vide():
-    tableau_sortie<span style="color:#555">.</span>append( sachet<span style="color:#555">.</span>retirer() )
-
-  <span style="color:#069;font-weight:bold">return</span> tableau_sortie
-</code></pre></div><p>Quelle est la liste renvoyée dans le cas où le sac est <em>une pile</em>, puis <em>une file</em> ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">build</span>(tableau):
+</span></span><span style="display:flex;"><span>  sachet <span style="color:#555">=</span> Sac()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> tableau:
+</span></span><span style="display:flex;"><span>    sachet<span style="color:#555">.</span>ajouter(k)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  tableau_sortie <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">not</span> sachet<span style="color:#555">.</span>est_vide():
+</span></span><span style="display:flex;"><span>    tableau_sortie<span style="color:#555">.</span>append( sachet<span style="color:#555">.</span>retirer() )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> tableau_sortie
+</span></span></code></pre></div><p>Quelle est la liste renvoyée dans le cas où le sac est <em>une pile</em>, puis <em>une file</em> ?</p>
 <p>Traitons un exemple pour mieux comprendre :</p>
 <ol>
 <li>
 <p>Si le sac est <em>une pile</em>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [1, 2, 3]
-
-On exécute l&#39;instruction :
-
-for k in tableau:
-  sachet.ajouter(k)
-
-sachet contient alors les éléments [1, 2, 3]
-
-On exécute alors l&#39;instruction :
-
-while not sachet.est_vide():
-  tableau_sortie.append( sachet.retirer() )
-
-Comme la liste est une pile, on retire successivement 3, 2, 1.
-
-Qu&#39;on ajoute à la fin de tableau_sortie :
-
-Donc tableau sortie contient [3, 2, 1]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [1, 2, 3]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On exécute l&#39;instruction :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for k in tableau:
+</span></span><span style="display:flex;"><span>  sachet.ajouter(k)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sachet contient alors les éléments [1, 2, 3]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On exécute alors l&#39;instruction :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>while not sachet.est_vide():
+</span></span><span style="display:flex;"><span>  tableau_sortie.append( sachet.retirer() )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Comme la liste est une pile, on retire successivement 3, 2, 1.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Qu&#39;on ajoute à la fin de tableau_sortie :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Donc tableau sortie contient [3, 2, 1]
+</span></span></code></pre></div></li>
 <li>
 <p>Si le sac est <em>une file</em>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [1, 2, 3]
-
-On exécute l&#39;instruction :
-
-for k in tableau:
-  sachet.ajouter(k)
-
-sachet contient alors les éléments [1, 2, 3]
-
-On exécute alors l&#39;instruction :
-
-while not sachet.est_vide():
-  tableau_sortie.append( sachet.retirer() )
-
-Comme le sac est une file, on retire successivement 1, 2, 3
-
-Qu&#39;on ajoute à la fin de tableau_sortie :
-
-Donc tableau sortie contient [1, 2, 3]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [1, 2, 3]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On exécute l&#39;instruction :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for k in tableau:
+</span></span><span style="display:flex;"><span>  sachet.ajouter(k)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sachet contient alors les éléments [1, 2, 3]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>On exécute alors l&#39;instruction :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>while not sachet.est_vide():
+</span></span><span style="display:flex;"><span>  tableau_sortie.append( sachet.retirer() )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Comme le sac est une file, on retire successivement 1, 2, 3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Qu&#39;on ajoute à la fin de tableau_sortie :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Donc tableau sortie contient [1, 2, 3]
+</span></span></code></pre></div></li>
 </ol>
 <p><strong>Solution.</strong> Si le sac est une pile, alors <code>build</code> renvoie une copie de la
 liste <code>p</code>. Si le sac est une file, alors build renvoie une copie en ordre
@@ -5951,33 +5951,33 @@ un objet <code>list</code> et les méthodes <code>append</code> et <code>pop</co
   Modéliser une pile avec un objet <code>list</code>
   <a class="anchor" href="#mod%c3%a9liser-une-pile-avec-un-objet-list">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#555">&gt;&gt;&gt;</span> pile <span style="color:#555">=</span> [ ]
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">2</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">3</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
-<span style="color:#f60">3</span>
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
-<span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
-<span style="color:#f60">1</span>
-</code></pre></div><h2 id="modéliser-une-file-avec-un-objet-list">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile <span style="color:#555">=</span> [ ]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
+</span></span></code></pre></div><h2 id="modéliser-une-file-avec-un-objet-list">
   Modéliser une file avec un objet <code>list</code>
   <a class="anchor" href="#mod%c3%a9liser-une-file-avec-un-objet-list">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#555">&gt;&gt;&gt;</span> file <span style="color:#555">=</span> [ ]
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">2</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">3</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
-<span style="color:#f60">1</span>
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
-<span style="color:#f60">2</span>
-<span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
-<span style="color:#f60">3</span>
-</code></pre></div><p>Bien sûr il est parfaitement possible de créer une classe et d&rsquo;implémenter
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file <span style="color:#555">=</span> [ ]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>pop(<span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># sort le premier élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
+</span></span></code></pre></div><p>Bien sûr il est parfaitement possible de créer une classe et d&rsquo;implémenter
 les notations traditionnelles (push, pop, enqueue, dequeue).</p>
 <h1 id="utilisation-des-piles-et-files-en-informatique">
   Utilisation des piles et files en informatique
@@ -6021,7 +6021,7 @@ retourne au précédent etc.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

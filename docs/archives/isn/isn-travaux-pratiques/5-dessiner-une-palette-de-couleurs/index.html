@@ -19,7 +19,7 @@ Codage des couleurs #  Rappels #  Vous avez déjà discuté de la manière dont 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/5-dessiner-une-palette-de-couleurs/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5743,7 +5743,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5844,79 +5844,79 @@ couleur de fond est <code>background-color</code>. On se rappelle aussi qu&rsquo
   <a class="anchor" href="#changer-la-couleur-de-mani%c3%a8re-al%c3%a9atoire">#</a>
 </h2>
 <p>On souhaite maintenant créer un carré de couleur qui, lorsqu&rsquo;on clique dessus, voit sa couleur modifiée. On donne ci-dessous le code d&rsquo;une page HTML permettant de créer un carré qui au départ est rouge.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#309;font-weight:bold">html</span>&gt;
-
-      &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-
-        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#309;font-weight:bold">meta</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">style</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span>&gt;
-
-          .<span style="color:#0a8;font-weight:bold">carre</span> {
-          <span style="color:#069;font-weight:bold">display</span>: <span style="color:#069;font-weight:bold">inline-block</span>; <span style="color:#09f;font-style:italic">/* sert à ne pas avoir de retour à la ligne apres un div */</span>
-          <span style="color:#069;font-weight:bold">margin</span> : <span style="color:#f60">5</span>;
-          <span style="color:#069;font-weight:bold">width</span>  : <span style="color:#f60">20</span>;
-          <span style="color:#069;font-weight:bold">height</span> : <span style="color:#f60">20</span>;
-          <span style="color:#069;font-weight:bold">border</span> : <span style="color:#069;font-weight:bold">thin</span> <span style="color:#069;font-weight:bold">solid</span> <span style="color:#069;font-weight:bold">black</span>;
-          <span style="color:#069;font-weight:bold">background-color</span> : <span style="color:#f60">#FF0000</span>;
-          }
-
-        &lt;/<span style="color:#309;font-weight:bold">style</span>&gt;
-
-      &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-
-      &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-
-        &lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;carre&#34;</span> <span style="color:#309">id</span><span style="color:#555">=</span><span style="color:#c30">&#34;monCarre&#34;</span>&gt;
-        &lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-~~~html
-
-
-
-
-
-
-Ce carré est nommé `monCarre`, nous pourrons donc modifier
-sa propriété CSS de couleur de fond et réaliser cela dynamiquement en
-utilisant la programmation événementielle. Le code pour modifier la
-propriété CSS est le suivant.
-
-
-
-
-
-~~~javascript
-    document.getElementById(&#34;monCarre&#34;).style.background = &#34;#00FF00&#34;;
-</code></pre></div><p>Reprendre le code de la page HTML donné plus haut et ajouter le code
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#309;font-weight:bold">meta</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">style</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          .<span style="color:#0a8;font-weight:bold">carre</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">display</span>: <span style="color:#069;font-weight:bold">inline-block</span>; <span style="color:#09f;font-style:italic">/* sert à ne pas avoir de retour à la ligne apres un div */</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">margin</span> : <span style="color:#f60">5</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">width</span>  : <span style="color:#f60">20</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">height</span> : <span style="color:#f60">20</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">border</span> : <span style="color:#069;font-weight:bold">thin</span> <span style="color:#069;font-weight:bold">solid</span> <span style="color:#069;font-weight:bold">black</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#069;font-weight:bold">background-color</span> : <span style="color:#f60">#FF0000</span>;
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#309;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;carre&#34;</span> <span style="color:#309">id</span><span style="color:#555">=</span><span style="color:#c30">&#34;monCarre&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span><span style="display:flex;"><span>~~~html
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ce carré est nommé `monCarre`, nous pourrons donc modifier
+</span></span><span style="display:flex;"><span>sa propriété CSS de couleur de fond et réaliser cela dynamiquement en
+</span></span><span style="display:flex;"><span>utilisant la programmation événementielle. Le code pour modifier la
+</span></span><span style="display:flex;"><span>propriété CSS est le suivant.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~~~javascript
+</span></span><span style="display:flex;"><span>    document.getElementById(&#34;monCarre&#34;).style.background = &#34;#00FF00&#34;;
+</span></span></code></pre></div><p>Reprendre le code de la page HTML donné plus haut et ajouter le code
 JavaScript permettant de modifier le couleur.</p>
 <p>La propriété de couleur doit être donnée sous la forme d&rsquo;une chaîne de
 caratères débutant par <code>#</code> représentant un nombre
 hexadécimal sur 6 digits. On fournit la fonction JavaScript suivante
 qui permet de transformer un nombre décimal en un nombre bien formatté
 pour les propriétés de couleur CSS.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">// transforme le nombre d exprimé en décimal
-</span><span style="color:#09f;font-style:italic">// en une chaîne de caratères représentant le nombre
-</span><span style="color:#09f;font-style:italic">// en hexadécimal sur 6 digits
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> decimalToHex (d) {
-  <span style="color:#069;font-weight:bold">var</span> hex <span style="color:#555">=</span> <span style="color:#366">Number</span>(d).toString(<span style="color:#f60">16</span>);
-  <span style="color:#069;font-weight:bold">var</span> padding <span style="color:#555">=</span> <span style="color:#f60">6</span> <span style="color:#555">-</span> hex.length;
-  <span style="color:#09f;font-style:italic">// ajoute des 0 en tête de la chaîne pour obtenir 6 digits
-</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> padding; i<span style="color:#555">++</span>) {
-    hex <span style="color:#555">=</span> <span style="color:#c30">&#34;0&#34;</span> <span style="color:#555">+</span> hex;
-  }
-  <span style="color:#09f;font-style:italic">// enfin, ajoute # devant la chaîne de caractères
-</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;#&#34;</span><span style="color:#555">+</span>hex;
-}
-</code></pre></div><p>Ajouter dans votre page ce code JavaScript puis créer une
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// transforme le nombre d exprimé en décimal
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// en une chaîne de caratères représentant le nombre
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// en hexadécimal sur 6 digits
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> decimalToHex (d) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">var</span> hex <span style="color:#555">=</span> <span style="color:#366">Number</span>(d).toString(<span style="color:#f60">16</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">var</span> padding <span style="color:#555">=</span> <span style="color:#f60">6</span> <span style="color:#555">-</span> hex.length;
+</span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic">// ajoute des 0 en tête de la chaîne pour obtenir 6 digits
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> padding; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>    hex <span style="color:#555">=</span> <span style="color:#c30">&#34;0&#34;</span> <span style="color:#555">+</span> hex;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic">// enfin, ajoute # devant la chaîne de caractères
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;#&#34;</span><span style="color:#555">+</span>hex;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Ajouter dans votre page ce code JavaScript puis créer une
 fonction <code>couleurAleatoire</code> qui retourne une couleur
 aléatoire sous forme d&rsquo;une chaîne de caratère formattée pour les
 propriétés de couleur CSS.</p>
 <p>On est prêt maintenant pour ajouter une action de changement de
 couleur sur l&rsquo;élément <code>monCarre</code>.</p>
 <p>On rappelle que le code suivant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#39;monCarre&#39;</span>).addEventListener(<span style="color:#c30">&#34;click&#34;</span>,changeCouleurMonCarre);
-</code></pre></div><p>a pour effet d&rsquo;abonner la fonction <code>changeCouleurMonCarre</code> à un
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#39;monCarre&#39;</span>).addEventListener(<span style="color:#c30">&#34;click&#34;</span>,changeCouleurMonCarre);
+</span></span></code></pre></div><p>a pour effet d&rsquo;abonner la fonction <code>changeCouleurMonCarre</code> à un
 l&rsquo;évènement <code>click</code> sur l&rsquo;objet <code>monCarre</code>.</p>
 <p>Ajouter au code JavaScript de votre page une
 fonction <code>changeCouleurAleatoire</code> qui prend en paramètre
@@ -5935,19 +5935,19 @@ modifier la couleur du carré en cliquant dessus.</p>
 <p>Dans les programmes que nous avons écrits dans les activités
 précédentes, les instructions étaient le plus souvent executés une
 seule fois, comme par exemple dans le code ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
-<span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
-</code></pre></div><p>où les instructions 1 et 2 sont exéutées une seule fois. Si nous
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+</span></span><span style="display:flex;"><span>y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
+</span></span><span style="display:flex;"><span><span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
+</span></span></code></pre></div><p>où les instructions 1 et 2 sont exéutées une seule fois. Si nous
 voulons calculer le carré de 1 et le carré de 2 on sera alors obligé
 d&rsquo;écrire :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
-<span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
-x <span style="color:#555">=</span> <span style="color:#f60">2</span>;
-y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
-<span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
-</code></pre></div><p>Notez l&rsquo;opérateur <code>+</code> sur les chaînes de caractères qui permet de concaténer des chaînes entre-elles, c&rsquo;est-à-dire de coller des chaînes de caractères les unes derrière les autres. Lorsqu&rsquo;on concatène un entier à une chaîne, celui-ci est automatiquement transformé en une chaîne.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+</span></span><span style="display:flex;"><span>y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
+</span></span><span style="display:flex;"><span><span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
+</span></span><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">2</span>;
+</span></span><span style="display:flex;"><span>y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
+</span></span><span style="display:flex;"><span><span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
+</span></span></code></pre></div><p>Notez l&rsquo;opérateur <code>+</code> sur les chaînes de caractères qui permet de concaténer des chaînes entre-elles, c&rsquo;est-à-dire de coller des chaînes de caractères les unes derrière les autres. Lorsqu&rsquo;on concatène un entier à une chaîne, celui-ci est automatiquement transformé en une chaîne.</p>
 <p>Nous avons vu que pour éviter la recopie du code et faciliter sa
 réutilisabilité (et sa maintenance), nous pouvions utiliser des
 fonctions. On peut donc imaginer une fonction <code>carre</code>, qui
@@ -5955,31 +5955,30 @@ réalise le calcul du carré, et une
 fonction <code>imprimer_carre</code>, qui utilise la
 fonction <code>carre</code> et réalise l&rsquo;affichage. Cela permettra
 une meilleure écriture du code ci-dessus.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> carre (x) {
-  <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">*</span> x;
-}
-
-<span style="color:#069;font-weight:bold">function</span> imprimer_carre (x) {
-  <span style="color:#069;font-weight:bold">var</span> y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
-  <span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
-}
-
-x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
-imprimer_carre (x);
-x <span style="color:#555">=</span> <span style="color:#f60">2</span>;
-imprimer_carre (x);
-
-</code></pre></div><p>Les instructions des fonctions sont exécutées plusieurs fois. Mais
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> carre (x) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">*</span> x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> imprimer_carre (x) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">var</span> y <span style="color:#555">=</span> x <span style="color:#555">*</span> x;
+</span></span><span style="display:flex;"><span>  <span style="color:#366">document</span>.write(x <span style="color:#555">+</span> <span style="color:#c30">&#34; * &#34;</span> <span style="color:#555">+</span> x <span style="color:#555">+</span> <span style="color:#c30">&#34; = &#34;</span> <span style="color:#555">+</span> y);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">1</span>;
+</span></span><span style="display:flex;"><span>imprimer_carre (x);
+</span></span><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">2</span>;
+</span></span><span style="display:flex;"><span>imprimer_carre (x);
+</span></span></code></pre></div><p>Les instructions des fonctions sont exécutées plusieurs fois. Mais
 celles-ci ne produisent pas le même résultat qui dépend des
 paramètres de la fonction.</p>
 <p>Mais nous n&rsquo;avons fait que repousser le problème. Imaginons maintenant
 vouloir imprimer tous les carrés de 1 à 10, cela nécessitera de
 répéter les instructions ci-dessus 10 fois.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">10</span>; i<span style="color:#555">++</span>) {
-  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;x = &#34;</span> <span style="color:#555">+</span> i <span style="color:#555">+</span> <span style="color:#c30">&#34;;&lt;/br&gt;&#34;</span>);
-  <span style="color:#366">document</span>.write(imprime_carre(x)<span style="color:#555">+</span><span style="color:#c30">&#34;&lt;/br&gt;&#34;</span>);
-}
-</code></pre></div><h2 id="la-boucle-pour">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">10</span>; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;x = &#34;</span> <span style="color:#555">+</span> i <span style="color:#555">+</span> <span style="color:#c30">&#34;;&lt;/br&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#366">document</span>.write(imprime_carre(x)<span style="color:#555">+</span><span style="color:#c30">&#34;&lt;/br&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="la-boucle-pour">
   La boucle pour
   <a class="anchor" href="#la-boucle-pour">#</a>
 </h2>
@@ -5998,10 +5997,10 @@ boucle qui s&rsquo;appelle la boucle pour. La
 boucle pour a pour particularité de permettre la répétion d&rsquo;un
 ensemble d&rsquo;instructions un nombre fini de fois, connu à l&rsquo;avance.</p>
 <p>En Javascrit, répéter 52 fois l&rsquo;affichage du mot semaine s&rsquo;écrira :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">52</span>; i<span style="color:#555">++</span>) {
-  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;semaine&#34;</span>);
-}
-</code></pre></div><p>ce qui se lit : <em>pour i allant de 1 à 52 exécuter
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">52</span>; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;semaine&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>ce qui se lit : <em>pour i allant de 1 à 52 exécuter
 l&rsquo;instruction <code>document.write(&quot;semaine&quot;)</code></em>.</p>
 <p>La variable <code>i</code> est appelée
 la variable de boucle.</p>
@@ -6030,10 +6029,10 @@ variable <code>i</code>.</p>
 modifiée dans le bloc d&rsquo;instructions de la boucle, mais elle
 peut bien sûr être utilisée, comme c&rsquo;est fait dans l&rsquo;exemple
 ci-dessous.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">52</span>; i<span style="color:#555">++</span>) {
-  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;semaine &#34;</span> <span style="color:#555">+</span> i);
-}
-</code></pre></div><p>Recopiez le code Javascript ci-dessus dans une page et observez son exécution.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">1</span>; i <span style="color:#555">&lt;=</span> <span style="color:#f60">52</span>; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;semaine &#34;</span> <span style="color:#555">+</span> i);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Recopiez le code Javascript ci-dessus dans une page et observez son exécution.</p>
 <p>Modifiez maintenant le code pour que chaque semaine soit écrite sur une ligne.</p>
 <p>Ecrire maintenant une page et le code Javascript permettant d&rsquo;afficher
 la table de multiplication de 8.</p>
@@ -6047,31 +6046,31 @@ le reste de la division entière de p par q vaut 0. Par exemple, le
 reste de la division entière de 17 par 5 est 2 (17 = 3*5+2) et donc 17
 n&rsquo;est pas divisible par 5. L&rsquo;opérateur <code>%</code> fournit le reste
 de la division entière.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-<span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> <span style="color:#f60">100</span>; i<span style="color:#555">++</span>) {
-  <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
-    <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
-  }
-}
-</code></pre></div><p>mais il serait préférable d&rsquo;écrire :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-<span style="color:#069;font-weight:bold">var</span> max <span style="color:#555">=</span> <span style="color:#f60">100</span>;
-<span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> max; i<span style="color:#555">++</span>) {
-  <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
-    <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
-  }
-}
-</code></pre></div><p>Il faut faire attention en écrivant la condition. En effet, celle-ci est évaluée à chaque tour de boucle, et donc si la variable <code>max</code> de notre exemple était modifiée dans le bloc d&rsquo;instructions de la boucle, le nombre d&rsquo;itérations de cette dernière serait modifié. Pire, si <code>max</code> était incrémenté de 1 à chaque tour, on aboutirait à une boucle infinie. C&rsquo;est pourquoi on s&rsquo;interdit de modifier les variables sur lesquels le test est réalisé dans le bloc d&rsquo;instructions de la boucle : il faut toujours pouvoir prédire à l&rsquo;avance combien d&rsquo;itérations sont effectuées.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> <span style="color:#f60">100</span>; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>mais il serait préférable d&rsquo;écrire :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> max <span style="color:#555">=</span> <span style="color:#f60">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> max; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Il faut faire attention en écrivant la condition. En effet, celle-ci est évaluée à chaque tour de boucle, et donc si la variable <code>max</code> de notre exemple était modifiée dans le bloc d&rsquo;instructions de la boucle, le nombre d&rsquo;itérations de cette dernière serait modifié. Pire, si <code>max</code> était incrémenté de 1 à chaque tour, on aboutirait à une boucle infinie. C&rsquo;est pourquoi on s&rsquo;interdit de modifier les variables sur lesquels le test est réalisé dans le bloc d&rsquo;instructions de la boucle : il faut toujours pouvoir prédire à l&rsquo;avance combien d&rsquo;itérations sont effectuées.</p>
 <p>et on pourrait même en faire une fonction :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">function</span> imprimer_multiples_de_2_et_3 (max) {
-  <span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-  <span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> max; i<span style="color:#555">++</span>) {
-    <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
-      <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
-    }
-  }
-}
-</code></pre></div><h2 id="retour-aux-couleurs">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> imprimer_multiples_de_2_et_3 (max) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> max; i<span style="color:#555">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> ((i <span style="color:#555">%</span> <span style="color:#f60">3</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>) <span style="color:#555">&amp;&amp;</span> (i <span style="color:#555">%</span> <span style="color:#f60">5</span> <span style="color:#555">==</span> <span style="color:#f60">0</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#366">document</span>.write(i <span style="color:#555">+</span> <span style="color:#c30">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="retour-aux-couleurs">
   Retour aux couleurs
   <a class="anchor" href="#retour-aux-couleurs">#</a>
 </h2>
@@ -6129,15 +6128,15 @@ fois, c&rsquo;est-à-dire 4 variations de rouge, 4 variations de vert, 4
 variations de bleu (4 * 4 * 4 = 64). Il faut donc s&rsquo;y prendre autrement.</p>
 <p>On propose la solution suivante, qui permettra d&rsquo;obtenir une palette
 de 4*4 = 16 couleurs. Cette solution utilise deux boucles pour imbriquées.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>, j <span style="color:#555">=</span> <span style="color:#f60">0</span>;
-<span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> <span style="color:#f60">256</span>; i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">85</span>) {
-  <span style="color:#069;font-weight:bold">for</span> (j <span style="color:#555">=</span> <span style="color:#f60">0</span>; j <span style="color:#555">&lt;</span> <span style="color:#f60">256</span>; j <span style="color:#555">=</span> j <span style="color:#555">+</span> <span style="color:#f60">85</span>) {
-    <span style="color:#069;font-weight:bold">var</span> couleur <span style="color:#555">=</span> <span style="color:#f60">256</span> <span style="color:#555">*</span> i <span style="color:#555">+</span> j;
-    <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;&lt;div class=&#34;</span>carre<span style="color:#c30">&#34; id=&#34;</span>carre<span style="color:#c30">&#34; + couleur + &#34;&#34;&gt;&lt;/div&gt;&#34;</span>);
-    changeCouleur(<span style="color:#c30">&#34;carre&#34;</span><span style="color:#555">+</span>couleur,couleur);
-  }
-}
-</code></pre></div><p>Créer une nouvelle page HTML avec le code JavaScript ci-dessous (dans
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>, j <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> <span style="color:#f60">256</span>; i <span style="color:#555">=</span> i <span style="color:#555">+</span> <span style="color:#f60">85</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> (j <span style="color:#555">=</span> <span style="color:#f60">0</span>; j <span style="color:#555">&lt;</span> <span style="color:#f60">256</span>; j <span style="color:#555">=</span> j <span style="color:#555">+</span> <span style="color:#f60">85</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">var</span> couleur <span style="color:#555">=</span> <span style="color:#f60">256</span> <span style="color:#555">*</span> i <span style="color:#555">+</span> j;
+</span></span><span style="display:flex;"><span>    <span style="color:#366">document</span>.write(<span style="color:#c30">&#34;&lt;div class=&#34;</span>carre<span style="color:#c30">&#34; id=&#34;</span>carre<span style="color:#c30">&#34; + couleur + &#34;&#34;&gt;&lt;/div&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>    changeCouleur(<span style="color:#c30">&#34;carre&#34;</span><span style="color:#555">+</span>couleur,couleur);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Créer une nouvelle page HTML avec le code JavaScript ci-dessous (dans
 oublier la fonction <code>decimalToHex</code>) et observer si le
 résultat est conforme à celui attendu.</p>
 <p>Déterminer combien de fois la seconde boucle est réalisée.</p>
@@ -6177,7 +6176,7 @@ l&rsquo;incrément nécessaire par composante, et afficher la palette.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

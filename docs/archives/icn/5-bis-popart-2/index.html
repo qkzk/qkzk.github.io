@@ -19,7 +19,7 @@ Ce petit projet nécessite d&rsquo;avoir suivi la partie précédente et d&rsquo
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/icn/5-bis-popart-2/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5743,7 +5743,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5795,11 +5795,11 @@ Portraits de Mao réalisé par Andy Wahrol en 1972[/caption]</p>
 <p>Voici les deux portraits dont nous allons partir. La beauté de ces actrices n&rsquo;est pas le seul critère de choix. Le contraste marqué, les fonds de couleur unie sont importants. Aussi, ces images sont carrées.</p>
 <p>Voici un descriptif assez sommaire des consignes.</p>
 <p>On dispose de plusieurs images de départ dans un dossier source et d&rsquo;un dictionnaire de palette au format suivant. Il peut contenir autant de palettes que l&rsquo;on veut. Chaque palette contient trois couleurs (ou plus - l&rsquo;important est qu&rsquo;elles aient toutes le même nombre de couleurs).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">palettes <span style="color:#555">=</span> [
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;romuald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#9944FF&#34;</span>, <span style="color:#c30">&#34;#3300AA&#34;</span>, <span style="color:#c30">&#34;#00AAFF&#34;</span>]},
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;roland&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#00AAA6&#34;</span>, <span style="color:#c30">&#34;#00E3A2&#34;</span>]}
-]
-</code></pre></div><p>Pour chaque palette, on ouvre l&rsquo;image qu&rsquo;on converti avec PIL en niveaux de gris (grayscale).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>palettes <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;romuald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#9944FF&#34;</span>, <span style="color:#c30">&#34;#3300AA&#34;</span>, <span style="color:#c30">&#34;#00AAFF&#34;</span>]},
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;roland&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#00AAA6&#34;</span>, <span style="color:#c30">&#34;#00E3A2&#34;</span>]}
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>Pour chaque palette, on ouvre l&rsquo;image qu&rsquo;on converti avec PIL en niveaux de gris (grayscale).</p>
 <p>On crée une nouvelle image vide : un tableau vide.
 Pour chaque pixel de l&rsquo;image de départ, on détermine la couleur de la palette à l&rsquo;aide de seuils prédéfinis sur tous les pixels. On colle cette couleur dans le tableau de la nouvelle image.</p>
 <p>On enregistre ce résultat en précisant dans le nom de fichier le titre de la palette employée.</p>
@@ -5807,88 +5807,88 @@ Pour chaque pixel de l&rsquo;image de départ, on détermine la couleur de la p
 <p><img src="/uploads/uploads/2018/03/gal_gadot.png" alt="gal_gadot" />
 <img src="/uploads/uploads/2018/03/sarah_gadon.png" alt="sarah_gadon" /></p>
 <p>Si vous n&rsquo;arrivez à rien, voici un tutoriel à compléter. Je n&rsquo;ai enlevé qu&rsquo;une dizaine de lignes.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic">#!/usr/bin/env python</span>
-<span style="color:#09f;font-style:italic"># coding=utf-8</span>
-
-<span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">Voici le fichier de départ de votre projet.
-</span><span style="color:#c30">Les étapes sont entièrement détaillées, il n&#39;y a plus qu&#39;à écrire le code
-</span><span style="color:#c30">Inutile d&#39;essayer de le faire tourner, il ne fonctionne pas encore
-</span><span style="color:#c30">
-</span><span style="color:#c30">Tout ce qui doit être complété est présenté par trois points : ...
-</span><span style="color:#c30">&#39;&#39;&#39;</span>
-
-<span style="color:#09f;font-style:italic"># Librairies dont on aura besoin</span>
-<span style="color:#09f;font-style:italic"># manipuler des fichiers dans PIL</span>
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.Image</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#366">open</span>, new
-<span style="color:#09f;font-style:italic"># manipuler récuperer une couleur au format rgb</span>
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.ImageColor</span> <span style="color:#069;font-weight:bold">import</span> getrgb
-<span style="color:#09f;font-style:italic"># convertir en niveaux de gris</span>
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.ImageOps</span> <span style="color:#069;font-weight:bold">import</span> grayscale
-<span style="color:#09f;font-style:italic"># manipuler des fichiers</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">os</span>
-
-
-<span style="color:#09f;font-style:italic"># VARIABLES</span>
-<span style="color:#09f;font-style:italic"># le dossier de départ</span>
-inputdir <span style="color:#555">=</span> <span style="color:#c30">&#39;...&#39;</span>
-
-<span style="color:#09f;font-style:italic"># le dossier d&#39;arrivée</span>
-outputdir<span style="color:#555">=</span> <span style="color:#c30">&#39;...&#39;</span>
-
-<span style="color:#09f;font-style:italic"># les palettes de couleurs</span>
-<span style="color:#09f;font-style:italic"># vous pouvez les modifier pour des résultats plus ou moins réussis</span>
-<span style="color:#09f;font-style:italic"># Préférez des images très contrastées</span>
-<span style="color:#09f;font-style:italic"># Il est possible d&#39;ajouter autant de palettes que l&#39;on veut</span>
-palettes <span style="color:#555">=</span> [
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;romuald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#9944FF&#34;</span>, <span style="color:#c30">&#34;#3300AA&#34;</span>, <span style="color:#c30">&#34;#00AAFF&#34;</span>]},
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;raymond&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#690042&#34;</span>, <span style="color:#c30">&#34;#BD9700&#34;</span>,<span style="color:#c30">&#34;#BDB491&#34;</span> ]},
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;roland&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#00AAA6&#34;</span>, <span style="color:#c30">&#34;#00E3A2&#34;</span>]},
-{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;reynald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#57C0B9&#34;</span>, <span style="color:#c30">&#34;#57C0B9&#34;</span> ]} <span style="color:#09f;font-style:italic"># il n&#39;y a que 2 couleurs</span>
-]
-
-<span style="color:#09f;font-style:italic"># FONCTIONS</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">colorfun</span>(pixels, colors):
-    <span style="color:#09f;font-style:italic"># realise la conversion depuis une image grayscale vers le popart</span>
-    new_pixels <span style="color:#555">=</span> [] <span style="color:#09f;font-style:italic"># tableau des nouveaux pixels</span>
-    <span style="color:#069;font-weight:bold">for</span> pixel <span style="color:#000;font-weight:bold">in</span> pixels: <span style="color:#09f;font-style:italic"># on itere dans les pixels du tableau</span>
-        <span style="color:#09f;font-style:italic"># pixel est un nombre entre 0 = noir et 255 = blanc</span>
-        <span style="color:#069;font-weight:bold">if</span> pixel <span style="color:#555">&lt;</span> <span style="color:#f60">85</span>: <span style="color:#09f;font-style:italic"># premier seuil, sombre</span>
-            color <span style="color:#555">=</span> getrgb(colors[<span style="color:#f60">0</span>])
-        <span style="color:#069;font-weight:bold">elif</span> <span style="color:#555">...</span>: <span style="color:#09f;font-style:italic"># second seuil, intermédiaire</span>
-            color <span style="color:#555">=</span> <span style="color:#555">...</span>
-        <span style="color:#069;font-weight:bold">else</span>: <span style="color:#09f;font-style:italic"># troisième seuil, clair</span>
-            <span style="color:#555">...</span>
-
-
-        new_pixels<span style="color:#555">.</span>append(<span style="color:#555">...</span>) <span style="color:#09f;font-style:italic"># on cole le pixel dans le tableau</span>
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">...</span> <span style="color:#09f;font-style:italic"># on renvoie le nouveau tableau des pixels</span>
-
-
-<span style="color:#09f;font-style:italic"># si le dossier de sortie n&#39;existe pas, on le crée</span>
-<span style="color:#069;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> os<span style="color:#555">.</span>path<span style="color:#555">.</span>exists(outputdir):
-    os<span style="color:#555">.</span>mkdir(outputdir)
-
-
-<span style="color:#09f;font-style:italic"># LA BOUCLE</span>
-<span style="color:#069;font-weight:bold">for</span> palette <span style="color:#000;font-weight:bold">in</span> palettes: <span style="color:#09f;font-style:italic"># on itère dans les palettes</span>
-
-    <span style="color:#069;font-weight:bold">for</span> file <span style="color:#000;font-weight:bold">in</span> os<span style="color:#555">.</span>listdir(inputdir): <span style="color:#09f;font-style:italic"># pour chaque fichier de la source</span>
-        (file_basename, file_extension)<span style="color:#555">=</span>os<span style="color:#555">.</span>path<span style="color:#555">.</span>splitext(file) <span style="color:#09f;font-style:italic"># on separe le nom du fichier de son extension</span>
-
-        <span style="color:#366">print</span> <span style="color:#c30">&#39;processing </span><span style="color:#a00">%s</span><span style="color:#c30">&#39;</span> <span style="color:#555">%</span> file_basename <span style="color:#09f;font-style:italic"># affichage console</span>
-        output_name <span style="color:#555">=</span> file_basename <span style="color:#555">+</span> <span style="color:#c30">&#39;_&#39;</span> <span style="color:#555">+</span> palette[<span style="color:#c30">&#39;title&#39;</span>]  <span style="color:#555">+</span> file_extension <span style="color:#09f;font-style:italic"># on crée le nom du futur fichier contenant le titre de la palette</span>
-
-        colors <span style="color:#555">=</span> <span style="color:#555">...</span> <span style="color:#09f;font-style:italic"># on récupère la palette des couleurs</span>
-        img <span style="color:#555">=</span> <span style="color:#366">open</span>(os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(inputdir, file)) <span style="color:#09f;font-style:italic"># on ouvre le fichier source</span>
-        pixels <span style="color:#555">=</span> grayscale(img)<span style="color:#555">.</span>getdata() <span style="color:#09f;font-style:italic"># qu&#39;on converti en grayscale avec PIL pour en récupérer les données</span>
-        img2 <span style="color:#555">=</span> new(img<span style="color:#555">.</span>mode, img<span style="color:#555">.</span>size,) <span style="color:#09f;font-style:italic"># on crée une nouvelle image vide</span>
-        img2<span style="color:#555">.</span>putdata( <span style="color:#555">...</span> ) <span style="color:#09f;font-style:italic"># où on colle les nouveaux pixels renvoyés par colorfun</span>
-        img2<span style="color:#555">.</span>save(os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(outputdir, output_name)) <span style="color:#09f;font-style:italic"># on sauvegarde</span>
-
-        <span style="color:#09f;font-style:italic"># # idem en couleurs inversées</span>
-        <span style="color:#09f;font-style:italic"># colors.reverse()</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># coding=utf-8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Voici le fichier de départ de votre projet.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Les étapes sont entièrement détaillées, il n&#39;y a plus qu&#39;à écrire le code
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Inutile d&#39;essayer de le faire tourner, il ne fonctionne pas encore
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Tout ce qui doit être complété est présenté par trois points : ...
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Librairies dont on aura besoin</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># manipuler des fichiers dans PIL</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.Image</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#366">open</span>, new
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># manipuler récuperer une couleur au format rgb</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.ImageColor</span> <span style="color:#069;font-weight:bold">import</span> getrgb
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># convertir en niveaux de gris</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL.ImageOps</span> <span style="color:#069;font-weight:bold">import</span> grayscale
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># manipuler des fichiers</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">os</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># VARIABLES</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># le dossier de départ</span>
+</span></span><span style="display:flex;"><span>inputdir <span style="color:#555">=</span> <span style="color:#c30">&#39;...&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># le dossier d&#39;arrivée</span>
+</span></span><span style="display:flex;"><span>outputdir<span style="color:#555">=</span> <span style="color:#c30">&#39;...&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># les palettes de couleurs</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># vous pouvez les modifier pour des résultats plus ou moins réussis</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Préférez des images très contrastées</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Il est possible d&#39;ajouter autant de palettes que l&#39;on veut</span>
+</span></span><span style="display:flex;"><span>palettes <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;romuald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#9944FF&#34;</span>, <span style="color:#c30">&#34;#3300AA&#34;</span>, <span style="color:#c30">&#34;#00AAFF&#34;</span>]},
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;raymond&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#690042&#34;</span>, <span style="color:#c30">&#34;#BD9700&#34;</span>,<span style="color:#c30">&#34;#BDB491&#34;</span> ]},
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;roland&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#00AAA6&#34;</span>, <span style="color:#c30">&#34;#00E3A2&#34;</span>]},
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#34;title&#34;</span>:<span style="color:#c30">&#34;reynald&#34;</span>, <span style="color:#c30">&#34;colors&#34;</span>: [<span style="color:#c30">&#34;#000000&#34;</span>, <span style="color:#c30">&#34;#57C0B9&#34;</span>, <span style="color:#c30">&#34;#57C0B9&#34;</span> ]} <span style="color:#09f;font-style:italic"># il n&#39;y a que 2 couleurs</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># FONCTIONS</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">colorfun</span>(pixels, colors):
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># realise la conversion depuis une image grayscale vers le popart</span>
+</span></span><span style="display:flex;"><span>    new_pixels <span style="color:#555">=</span> [] <span style="color:#09f;font-style:italic"># tableau des nouveaux pixels</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> pixel <span style="color:#000;font-weight:bold">in</span> pixels: <span style="color:#09f;font-style:italic"># on itere dans les pixels du tableau</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># pixel est un nombre entre 0 = noir et 255 = blanc</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> pixel <span style="color:#555">&lt;</span> <span style="color:#f60">85</span>: <span style="color:#09f;font-style:italic"># premier seuil, sombre</span>
+</span></span><span style="display:flex;"><span>            color <span style="color:#555">=</span> getrgb(colors[<span style="color:#f60">0</span>])
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">elif</span> <span style="color:#555">...</span>: <span style="color:#09f;font-style:italic"># second seuil, intermédiaire</span>
+</span></span><span style="display:flex;"><span>            color <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">else</span>: <span style="color:#09f;font-style:italic"># troisième seuil, clair</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        new_pixels<span style="color:#555">.</span>append(<span style="color:#555">...</span>) <span style="color:#09f;font-style:italic"># on cole le pixel dans le tableau</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">...</span> <span style="color:#09f;font-style:italic"># on renvoie le nouveau tableau des pixels</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># si le dossier de sortie n&#39;existe pas, on le crée</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> os<span style="color:#555">.</span>path<span style="color:#555">.</span>exists(outputdir):
+</span></span><span style="display:flex;"><span>    os<span style="color:#555">.</span>mkdir(outputdir)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># LA BOUCLE</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> palette <span style="color:#000;font-weight:bold">in</span> palettes: <span style="color:#09f;font-style:italic"># on itère dans les palettes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> file <span style="color:#000;font-weight:bold">in</span> os<span style="color:#555">.</span>listdir(inputdir): <span style="color:#09f;font-style:italic"># pour chaque fichier de la source</span>
+</span></span><span style="display:flex;"><span>        (file_basename, file_extension)<span style="color:#555">=</span>os<span style="color:#555">.</span>path<span style="color:#555">.</span>splitext(file) <span style="color:#09f;font-style:italic"># on separe le nom du fichier de son extension</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span> <span style="color:#c30">&#39;processing </span><span style="color:#a00">%s</span><span style="color:#c30">&#39;</span> <span style="color:#555">%</span> file_basename <span style="color:#09f;font-style:italic"># affichage console</span>
+</span></span><span style="display:flex;"><span>        output_name <span style="color:#555">=</span> file_basename <span style="color:#555">+</span> <span style="color:#c30">&#39;_&#39;</span> <span style="color:#555">+</span> palette[<span style="color:#c30">&#39;title&#39;</span>]  <span style="color:#555">+</span> file_extension <span style="color:#09f;font-style:italic"># on crée le nom du futur fichier contenant le titre de la palette</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        colors <span style="color:#555">=</span> <span style="color:#555">...</span> <span style="color:#09f;font-style:italic"># on récupère la palette des couleurs</span>
+</span></span><span style="display:flex;"><span>        img <span style="color:#555">=</span> <span style="color:#366">open</span>(os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(inputdir, file)) <span style="color:#09f;font-style:italic"># on ouvre le fichier source</span>
+</span></span><span style="display:flex;"><span>        pixels <span style="color:#555">=</span> grayscale(img)<span style="color:#555">.</span>getdata() <span style="color:#09f;font-style:italic"># qu&#39;on converti en grayscale avec PIL pour en récupérer les données</span>
+</span></span><span style="display:flex;"><span>        img2 <span style="color:#555">=</span> new(img<span style="color:#555">.</span>mode, img<span style="color:#555">.</span>size,) <span style="color:#09f;font-style:italic"># on crée une nouvelle image vide</span>
+</span></span><span style="display:flex;"><span>        img2<span style="color:#555">.</span>putdata( <span style="color:#555">...</span> ) <span style="color:#09f;font-style:italic"># où on colle les nouveaux pixels renvoyés par colorfun</span>
+</span></span><span style="display:flex;"><span>        img2<span style="color:#555">.</span>save(os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(outputdir, output_name)) <span style="color:#09f;font-style:italic"># on sauvegarde</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># # idem en couleurs inversées</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># colors.reverse()</span>
+</span></span></code></pre></div></article>
  
 
                 <div class="backtotop">
@@ -5909,7 +5909,7 @@ palettes <span style="color:#555">=</span> [
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

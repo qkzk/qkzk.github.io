@@ -16,7 +16,7 @@ A. un format de fichier mis au point par Microsoft pour Excel">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/table/2_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5740,7 +5740,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5808,26 +5808,26 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf : <h3 id="pdf--pour-impression2_tdpdf">
-  <a href="./2_td.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf--pour-impression2_tdpdf">
+  pdf : <a href="./2_td.pdf">pour impression</a>
   <a class="anchor" href="#pdf--pour-impression2_tdpdf">#</a>
 </h3>
 <h1 id="1-reconnaître-un-fichier-csv">
   1. Reconnaître un fichier csv
   <a class="anchor" href="#1-reconna%c3%aetre-un-fichier-csv">#</a>
 </h1>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nom       prenom      date_naissance
-Dupont    Pierre      17/05/1987
-Dupond    Catherine   18/07/1981
-Haddock   Archibald   23/04/1998
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>nom       prenom      date_naissance
+</span></span><span style="display:flex;"><span>Dupont    Pierre      17/05/1987
+</span></span><span style="display:flex;"><span>Dupond    Catherine   18/07/1981
+</span></span><span style="display:flex;"><span>Haddock   Archibald   23/04/1998
+</span></span></code></pre></div><ol>
 <li>Quels sont les descripteurs de ce tableau ?</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Nom,Pays,Temps
-Camille Muffat,France,241.45
-FranckyVincent,France,222,30
-Geronomo,Apache, France,212.12
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Nom,Pays,Temps
+</span></span><span style="display:flex;"><span>Camille Muffat,France,241.45
+</span></span><span style="display:flex;"><span>FranckyVincent,France,222,30
+</span></span><span style="display:flex;"><span>Geronomo,Apache, France,212.12
+</span></span></code></pre></div><ol start="2">
 <li>Rectifiez les erreurs dans le fichier csv ci-dessus.</li>
 </ol>
 <h3 id="qcm">
@@ -5862,30 +5862,30 @@ Geronomo,Apache, France,212.12
   <a class="anchor" href="#1-s%c3%a9lection-et-projections-depuis-une-table-donn%c3%a9e">#</a>
 </h1>
 <p>On considère la table suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">repertoire <span style="color:#555">=</span> [
-    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Ducobu&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raoul&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612345678&#34;</span>},
-    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Dreoul&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raymond&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0734567812&#34;</span>},
-    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Jacqueline&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612341234&#34;</span>},
-    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Mersin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Tania&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0788990011&#34;</span>},
-]
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>repertoire <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Ducobu&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raoul&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612345678&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Dreoul&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Raymond&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0734567812&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Martin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Jacqueline&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0612341234&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Mersin&#34;</span>, <span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Tania&#34;</span>, <span style="color:#c30">&#34;tel&#34;</span>: <span style="color:#c30">&#34;0788990011&#34;</span>},
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><ol>
 <li>
 <p>Donner la valeur de la liste construite dans chacune des sélections suivantes :</p>
 <p>a. Première sélection :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">liste <span style="color:#555">=</span> []
-<span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> repertoire:
-  <span style="color:#069;font-weight:bold">if</span> enregistrement[<span style="color:#c30">&#34;nom&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;Ducobu&#34;</span>:
-      liste<span style="color:#555">.</span>append(enregistrement)
-</code></pre></div><p>b. Seconde sélection :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">liste <span style="color:#555">=</span> [enre <span style="color:#069;font-weight:bold">for</span> enre <span style="color:#000;font-weight:bold">in</span> repertoire <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30">&#34;12&#34;</span> <span style="color:#000;font-weight:bold">in</span> enre[<span style="color:#c30">&#34;tel&#34;</span>]]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>liste <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> repertoire:
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">if</span> enregistrement[<span style="color:#c30">&#34;nom&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;Ducobu&#34;</span>:
+</span></span><span style="display:flex;"><span>      liste<span style="color:#555">.</span>append(enregistrement)
+</span></span></code></pre></div><p>b. Seconde sélection :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>liste <span style="color:#555">=</span> [enre <span style="color:#069;font-weight:bold">for</span> enre <span style="color:#000;font-weight:bold">in</span> repertoire <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30">&#34;12&#34;</span> <span style="color:#000;font-weight:bold">in</span> enre[<span style="color:#c30">&#34;tel&#34;</span>]]
+</span></span></code></pre></div></li>
 <li>
 <p>Construire l&rsquo;enregistrement des personnes dont le nom comporte un &ldquo;r&rdquo;.</p>
 </li>
 <li>
 <p>Donner le résultat de la projection suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">proj <span style="color:#555">=</span> [enregistrement[<span style="color:#c30">&#34;prenom&#34;</span>] <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> repertoire]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>proj <span style="color:#555">=</span> [enregistrement[<span style="color:#c30">&#34;prenom&#34;</span>] <span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> repertoire]
+</span></span></code></pre></div></li>
 <li>
 <p>Constuire la projection des téléphones du répertoire.</p>
 </li>
@@ -5895,17 +5895,17 @@ Geronomo,Apache, France,212.12
   <a class="anchor" href="#2-importer-et-manipuler-une-table">#</a>
 </h1>
 <p>On dispose du fichier « info.csv » donné ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nom, prenom, naissance, deces
-lovelace, ada, 1815, 1852
-von neumann, john, 1903, 1957
-turing, alan, 1912, 1954
-mccarthy, john, 1927, 2011
-floyd, robert, 1935, 2001
-</code></pre></div><p>Le programme ci-dessous nous permet de créer un tableau à partir de ce fichier.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">file <span style="color:#555">=</span> <span style="color:#366">open</span>(<span style="color:#c30">&#34;info.csv&#34;</span>, <span style="color:#c30">&#34;r&#34;</span>)
-firstLine <span style="color:#555">=</span> file<span style="color:#555">.</span>readline()	    <span style="color:#09f;font-style:italic"># chargement de la ligne d’entête</span>
-tableau <span style="color:#555">=</span> [line<span style="color:#555">.</span>split(<span style="color:#c30">&#39;,&#39;</span>) <span style="color:#069;font-weight:bold">for</span> line <span style="color:#000;font-weight:bold">in</span> file]  <span style="color:#09f;font-style:italic"># chargement des données</span>
-</code></pre></div><p>Détaillons ce programme :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>nom, prenom, naissance, deces
+</span></span><span style="display:flex;"><span>lovelace, ada, 1815, 1852
+</span></span><span style="display:flex;"><span>von neumann, john, 1903, 1957
+</span></span><span style="display:flex;"><span>turing, alan, 1912, 1954
+</span></span><span style="display:flex;"><span>mccarthy, john, 1927, 2011
+</span></span><span style="display:flex;"><span>floyd, robert, 1935, 2001
+</span></span></code></pre></div><p>Le programme ci-dessous nous permet de créer un tableau à partir de ce fichier.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>file <span style="color:#555">=</span> <span style="color:#366">open</span>(<span style="color:#c30">&#34;info.csv&#34;</span>, <span style="color:#c30">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>firstLine <span style="color:#555">=</span> file<span style="color:#555">.</span>readline()	    <span style="color:#09f;font-style:italic"># chargement de la ligne d’entête</span>
+</span></span><span style="display:flex;"><span>tableau <span style="color:#555">=</span> [line<span style="color:#555">.</span>split(<span style="color:#c30">&#39;,&#39;</span>) <span style="color:#069;font-weight:bold">for</span> line <span style="color:#000;font-weight:bold">in</span> file]  <span style="color:#09f;font-style:italic"># chargement des données</span>
+</span></span></code></pre></div><p>Détaillons ce programme :</p>
 <ol>
 <li>On charge le fichier dans la variable <code>file</code></li>
 <li>on lit la première ligne, et on avance ainsi d&rsquo;une ligne dans le fichier.</li>
@@ -5966,20 +5966,20 @@ Chaque partie permet de gagner ou perdre des points élo et les joueurs
 sont classés selon leur score.</p>
 <p>On a crée en Python une table dans une variable appelée <code>joueur</code> dont voici
 un extrait :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">joueurs <span style="color:#555">=</span> [
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Carlsen, Magnus&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;nor&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2863</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Caruana, Fabiano&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;usa&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2835</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Ding, Liren&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;chi&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2791</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Nepomniachtchi, Ian&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;rus&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2784</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Vachier-Lagrave, Maxime&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;fra&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2778</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Grischuk, Alexander&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;rus&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2777</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Aronian, Levon&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;arm&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2773</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;So, Wesley&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;usa&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2770</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Radjabov, Teimour&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;aze&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2765</span>},
-    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Giri, Anish&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;nl&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2764</span>},
-    <span style="color:#555">...</span>
-]
-</code></pre></div><h2 id="enregistrer">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>joueurs <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Carlsen, Magnus&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;nor&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2863</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Caruana, Fabiano&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;usa&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2835</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Ding, Liren&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;chi&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2791</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Nepomniachtchi, Ian&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;rus&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2784</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Vachier-Lagrave, Maxime&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;fra&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2778</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Grischuk, Alexander&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;rus&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2777</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Aronian, Levon&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;arm&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2773</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;So, Wesley&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;usa&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2770</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Radjabov, Teimour&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;aze&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2765</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;nom&#39;</span>: <span style="color:#c30">&#39;Giri, Anish&#39;</span>, <span style="color:#c30">&#39;pays&#39;</span>:<span style="color:#c30">&#39;nl&#39;</span>, <span style="color:#c30">&#39;elo&#39;</span>: <span style="color:#f60">2764</span>},
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h2 id="enregistrer">
   Enregistrer
   <a class="anchor" href="#enregistrer">#</a>
 </h2>
@@ -6038,7 +6038,7 @@ Si <code>nombre</code> est trop grand on se limitera à la taille du tableau.</l
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

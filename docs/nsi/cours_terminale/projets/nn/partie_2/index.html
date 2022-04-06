@@ -17,7 +17,7 @@ Les classes #  Nous n&rsquo;allons pas utiliser énormément de notions liées a
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/projets/nn/partie_2/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5741,7 +5741,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5814,47 +5814,46 @@ notions ne seront pas rappelées au fur et à mesure.</p>
   Définition et initialisation de la classe.
   <a class="anchor" href="#d%c3%a9finition-et-initialisation-de-la-classe">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">numpy</span> <span style="color:#069;font-weight:bold">as</span> <span style="color:#0cf;font-weight:bold">np</span>
-
-
-<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NeuralNetwork</span>():
-
-    <span style="color:#069;font-weight:bold">def</span> __init__(self):
-        <span style="color:#09f;font-style:italic"># Racine du générateur de nombre</span>
-        np<span style="color:#555">.</span>random<span style="color:#555">.</span>seed(<span style="color:#f60">1</span>)
-
-        <span style="color:#09f;font-style:italic"># On défini les poids synaptiques initiaux entre -1 et 1,</span>
-        <span style="color:#09f;font-style:italic"># centrés sur 0, dans une matrice 3x1</span>
-        self<span style="color:#555">.</span>synaptic_weights <span style="color:#555">=</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> np<span style="color:#555">.</span>random<span style="color:#555">.</span>random((<span style="color:#f60">3</span>, <span style="color:#f60">1</span>)) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-
-</code></pre></div><h2 id="simoid-et-sa-dérivée">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">numpy</span> <span style="color:#069;font-weight:bold">as</span> <span style="color:#0cf;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NeuralNetwork</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># Racine du générateur de nombre</span>
+</span></span><span style="display:flex;"><span>        np<span style="color:#555">.</span>random<span style="color:#555">.</span>seed(<span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># On défini les poids synaptiques initiaux entre -1 et 1,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># centrés sur 0, dans une matrice 3x1</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>synaptic_weights <span style="color:#555">=</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> np<span style="color:#555">.</span>random<span style="color:#555">.</span>random((<span style="color:#f60">3</span>, <span style="color:#f60">1</span>)) <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span></code></pre></div><h2 id="simoid-et-sa-dérivée">
   Simoid et sa dérivée
   <a class="anchor" href="#simoid-et-sa-d%c3%a9riv%c3%a9e">#</a>
 </h2>
 <p>Nous allons les intégrer comme deux méthodes à la classe.
 Ce n&rsquo;est pas indispensable mais l&rsquo;idée est d&rsquo;englober les outils dans la classe
 aussi&hellip; Ajoutez ces deux méthodes après <code>__init__</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NeuralNetwork</span>():
-
-  <span style="color:#555">...</span>
-
-
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sigmoid</span>(self, x):
-      <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">      Sigmoid :  normalise les entrées
-</span><span style="color:#c30">      @param x: (float)
-</span><span style="color:#c30">      @return: float
-</span><span style="color:#c30">      &#39;&#39;&#39;</span>
-      <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">/</span> (<span style="color:#f60">1</span> <span style="color:#555">+</span> np<span style="color:#555">.</span>exp(<span style="color:#555">-</span>x))
-
-  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sigmoid_derivative</span>(self, x):
-      <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">      Calcule la dérivée de sigmoid
-</span><span style="color:#c30">      @param x: (float) l&#39;entrée est déjà une image par sigmoid
-</span><span style="color:#c30">      @return: (float) la dérivée
-</span><span style="color:#c30">      &#39;&#39;&#39;</span>
-      <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">*</span> (<span style="color:#f60">1</span> <span style="color:#555">-</span> x)
-</code></pre></div><p>La seule différence avec les fonctions de la version 1 est qu&rsquo;elle prenne aussi
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">NeuralNetwork</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sigmoid</span>(self, x):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Sigmoid :  normalise les entrées
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      @param x: (float)
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      @return: float
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">/</span> (<span style="color:#f60">1</span> <span style="color:#555">+</span> np<span style="color:#555">.</span>exp(<span style="color:#555">-</span>x))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sigmoid_derivative</span>(self, x):
+</span></span><span style="display:flex;"><span>      <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      Calcule la dérivée de sigmoid
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      @param x: (float) l&#39;entrée est déjà une image par sigmoid
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      @return: (float) la dérivée
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">      &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">*</span> (<span style="color:#f60">1</span> <span style="color:#555">-</span> x)
+</span></span></code></pre></div><p>La seule différence avec les fonctions de la version 1 est qu&rsquo;elle prenne aussi
 <code>self</code> en paramètre.</p>
 <h2 id="la-méthode-think">
   La méthode <code>think</code>
@@ -5864,102 +5863,102 @@ aussi&hellip; Ajoutez ces deux méthodes après <code>__init__</code>.</p>
 des poids synaptiques.</p>
 <p>Je ne reviens pas sur la démarche, largement abordée dans la partie précédente.</p>
 <p>Ajoutez la méthode suivante après les fonctions sigmoid.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">think</span>(self, inputs):
-    <span style="color:#c30">&#34;&#34;&#34;
-</span><span style="color:#c30">    Renvoie las sorties du neurone pour les entrées fournies.
-</span><span style="color:#c30">    @param inputs: (np.array) matrice des entrées
-</span><span style="color:#c30">    @return: (np.array) vecteur de sortie
-</span><span style="color:#c30">    &#34;&#34;&#34;</span>
-
-    inputs <span style="color:#555">=</span> inputs<span style="color:#555">.</span>astype(<span style="color:#366">float</span>)
-    output <span style="color:#555">=</span> self<span style="color:#555">.</span>sigmoid(np<span style="color:#555">.</span>dot(inputs, self<span style="color:#555">.</span>synaptic_weights))
-    <span style="color:#069;font-weight:bold">return</span> output
-</code></pre></div><h2 id="lentraînement">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">think</span>(self, inputs):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Renvoie las sorties du neurone pour les entrées fournies.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @param inputs: (np.array) matrice des entrées
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @return: (np.array) vecteur de sortie
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    inputs <span style="color:#555">=</span> inputs<span style="color:#555">.</span>astype(<span style="color:#366">float</span>)
+</span></span><span style="display:flex;"><span>    output <span style="color:#555">=</span> self<span style="color:#555">.</span>sigmoid(np<span style="color:#555">.</span>dot(inputs, self<span style="color:#555">.</span>synaptic_weights))
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> output
+</span></span></code></pre></div><h2 id="lentraînement">
   L&rsquo;entraînement
   <a class="anchor" href="#lentra%c3%aenement">#</a>
 </h2>
 <p>À nouveau une seule méthode va suffire, qui va simplement contenir notre
 boucle de la première partie.</p>
 <p>Ajoutez cette dernière méthode à la classe :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">train</span>(self, training_inputs, training_outputs, training_iterations):
-        <span style="color:#c30">&#34;&#34;&#34;
-</span><span style="color:#c30">        We train the model through trial and error, adjusting the
-</span><span style="color:#c30">        synaptic weights each time to get a better result
-</span><span style="color:#c30">
-</span><span style="color:#c30">        Entraine le modèle et ajuste les poids synaptiques au fur et à mesure
-</span><span style="color:#c30">        des opérations.
-</span><span style="color:#c30">        Modifie les valeurs des poids synaptiques.
-</span><span style="color:#c30">
-</span><span style="color:#c30">        @param training_inputs: (np.array) matrice des entrées
-</span><span style="color:#c30">        @param training_outputs: (np.array) matrice des sorties réelles
-</span><span style="color:#c30">        @param training_iterations: (int) le nombre d&#39;itérations à réaliser
-</span><span style="color:#c30">        @return: (None)
-</span><span style="color:#c30">        SE: modifie l&#39;attribut self.synaptic_weights en place
-</span><span style="color:#c30">        &#34;&#34;&#34;</span>
-        <span style="color:#069;font-weight:bold">for</span> iteration <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(training_iterations):
-            <span style="color:#09f;font-style:italic"># On passe les données d&#39;entrainement en paramètre au réseau</span>
-            output <span style="color:#555">=</span> self<span style="color:#555">.</span>think(training_inputs)
-
-            <span style="color:#09f;font-style:italic"># On calcule l&#39;erreur</span>
-            error <span style="color:#555">=</span> training_outputs <span style="color:#555">-</span> output
-
-            <span style="color:#09f;font-style:italic"># L&#39;erreur est multipliée aux entrées et à la dérivée de la fonction</span>
-            <span style="color:#09f;font-style:italic"># sigmoid. Les poids les moins &#34;confiants&#34; sont ainsi les plus</span>
-            <span style="color:#09f;font-style:italic"># ajustés</span>
-            adjustments <span style="color:#555">=</span> np<span style="color:#555">.</span>dot(training_inputs<span style="color:#555">.</span>T, error <span style="color:#555">*</span> self<span style="color:#555">.</span>sigmoid_derivative(output))
-
-            <span style="color:#09f;font-style:italic"># On ajuste les poids synaptiques</span>
-            self<span style="color:#555">.</span>synaptic_weights <span style="color:#555">+=</span> adjustments
-</code></pre></div><p>La classe est maintenant terminée.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">train</span>(self, training_inputs, training_outputs, training_iterations):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        We train the model through trial and error, adjusting the
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        synaptic weights each time to get a better result
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Entraine le modèle et ajuste les poids synaptiques au fur et à mesure
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        des opérations.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Modifie les valeurs des poids synaptiques.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        @param training_inputs: (np.array) matrice des entrées
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        @param training_outputs: (np.array) matrice des sorties réelles
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        @param training_iterations: (int) le nombre d&#39;itérations à réaliser
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        @return: (None)
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        SE: modifie l&#39;attribut self.synaptic_weights en place
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> iteration <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(training_iterations):
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># On passe les données d&#39;entrainement en paramètre au réseau</span>
+</span></span><span style="display:flex;"><span>            output <span style="color:#555">=</span> self<span style="color:#555">.</span>think(training_inputs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># On calcule l&#39;erreur</span>
+</span></span><span style="display:flex;"><span>            error <span style="color:#555">=</span> training_outputs <span style="color:#555">-</span> output
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># L&#39;erreur est multipliée aux entrées et à la dérivée de la fonction</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># sigmoid. Les poids les moins &#34;confiants&#34; sont ainsi les plus</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># ajustés</span>
+</span></span><span style="display:flex;"><span>            adjustments <span style="color:#555">=</span> np<span style="color:#555">.</span>dot(training_inputs<span style="color:#555">.</span>T, error <span style="color:#555">*</span> self<span style="color:#555">.</span>sigmoid_derivative(output))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#09f;font-style:italic"># On ajuste les poids synaptiques</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>synaptic_weights <span style="color:#555">+=</span> adjustments
+</span></span></code></pre></div><p>La classe est maintenant terminée.</p>
 <h2 id="la-fonction-main">
   La fonction <code>main</code>
   <a class="anchor" href="#la-fonction-main">#</a>
 </h2>
 <p>Il reste à écrire une fonction qui crée les objets, réalise l&rsquo;entrainement
 et teste le résultat.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">main</span>():
-    <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">    Fonction principale qui initialise le réseau de neurone, réalise
-</span><span style="color:#c30">    l&#39;entrainement et vérifie la qualité des prédictions sur les données
-</span><span style="color:#c30">    d&#39;essais.
-</span><span style="color:#c30">    @return: (None)
-</span><span style="color:#c30">    SE. Affiche dans les valeurs dans la console.
-</span><span style="color:#c30">    &#39;&#39;&#39;</span>
-    <span style="color:#09f;font-style:italic"># Initialise le réseau de neurone.</span>
-    neural_network <span style="color:#555">=</span> NeuralNetwork()
-
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Random starting synaptic weights: &#34;</span>)
-    <span style="color:#366">print</span>(neural_network<span style="color:#555">.</span>synaptic_weights)
-
-    <span style="color:#09f;font-style:italic"># Les données d&#39;entraînement avec 4 exemples de 3 entrées et une sortie</span>
-    training_inputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">1</span>],
-                                [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">1</span>],
-                                [<span style="color:#f60">1</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>],
-                                [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>]])
-
-    training_outputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>]])<span style="color:#555">.</span>T
-
-    <span style="color:#09f;font-style:italic"># Entraîne le réseau</span>
-    neural_network<span style="color:#555">.</span>train(training_inputs, training_outputs, <span style="color:#f60">10000</span>)
-
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Synaptic weights after training: &#34;</span>)
-    <span style="color:#366">print</span>(neural_network<span style="color:#555">.</span>synaptic_weights)
-
-    test_inputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>],
-                            [<span style="color:#f60">1</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]])
-
-    actual_outputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>]])<span style="color:#555">.</span>T
-
-    test_outputs <span style="color:#555">=</span> neural_network<span style="color:#555">.</span>think(test_inputs)
-
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;New situation: input data :&#34;</span>)
-    <span style="color:#366">print</span>(test_inputs)
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Output data: &#34;</span>)
-    <span style="color:#366">print</span>(actual_outputs)
-    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Our network thinks :&#34;</span>)
-    <span style="color:#366">print</span>(test_outputs)
-</code></pre></div><p>On réalise les mêmes calculs que dans la partie précédente.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Fonction principale qui initialise le réseau de neurone, réalise
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    l&#39;entrainement et vérifie la qualité des prédictions sur les données
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    d&#39;essais.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @return: (None)
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    SE. Affiche dans les valeurs dans la console.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Initialise le réseau de neurone.</span>
+</span></span><span style="display:flex;"><span>    neural_network <span style="color:#555">=</span> NeuralNetwork()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Random starting synaptic weights: &#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(neural_network<span style="color:#555">.</span>synaptic_weights)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Les données d&#39;entraînement avec 4 exemples de 3 entrées et une sortie</span>
+</span></span><span style="display:flex;"><span>    training_inputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">1</span>],
+</span></span><span style="display:flex;"><span>                                [<span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">1</span>],
+</span></span><span style="display:flex;"><span>                                [<span style="color:#f60">1</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>],
+</span></span><span style="display:flex;"><span>                                [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>]])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    training_outputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>]])<span style="color:#555">.</span>T
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Entraîne le réseau</span>
+</span></span><span style="display:flex;"><span>    neural_network<span style="color:#555">.</span>train(training_inputs, training_outputs, <span style="color:#f60">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Synaptic weights after training: &#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(neural_network<span style="color:#555">.</span>synaptic_weights)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    test_inputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>],
+</span></span><span style="display:flex;"><span>                            [<span style="color:#f60">1</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    actual_outputs <span style="color:#555">=</span> np<span style="color:#555">.</span>array([[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>]])<span style="color:#555">.</span>T
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    test_outputs <span style="color:#555">=</span> neural_network<span style="color:#555">.</span>think(test_inputs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;New situation: input data :&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(test_inputs)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Output data: &#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(actual_outputs)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;Our network thinks :&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(test_outputs)
+</span></span></code></pre></div><p>On réalise les mêmes calculs que dans la partie précédente.</p>
 <p>D&rsquo;abord on initialise la classe avec <code>neural_network = NeuralNetwork()</code>.
 Cette variable est un objet de la classe <code>NeuralNetwork</code>.</p>
 <p>À cette étape, seule la fonction <code>__init__</code> a été exécutée.
@@ -6011,7 +6010,7 @@ nombres.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

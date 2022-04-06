@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/resumes/intro/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5751,7 +5751,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5924,11 +5924,11 @@ mémoire.</p>
 </h2>
 <p>En Python, pour illustrer les tableaux, on utilise les objets <code>list</code>.</p>
 <p>Pour le tableau <code>T=[0, 1, 2, ..., 10]</code>, on peut :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># le définir à la main :</span>
-T <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]
-<span style="color:#09f;font-style:italic"># utiliser un range :</span>
-T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">11</span>))
-</code></pre></div><h2 id="recherche-dun-élément-dans-un-tableau">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># le définir à la main :</span>
+</span></span><span style="display:flex;"><span>T <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># utiliser un range :</span>
+</span></span><span style="display:flex;"><span>T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">11</span>))
+</span></span></code></pre></div><h2 id="recherche-dun-élément-dans-un-tableau">
   Recherche d&rsquo;un élément dans un tableau
   <a class="anchor" href="#recherche-dun-%c3%a9l%c3%a9ment-dans-un-tableau">#</a>
 </h2>
@@ -5938,17 +5938,17 @@ T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span s
   Algorithme :
   <a class="anchor" href="#algorithme-">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction (tableau T, objet x) ---&gt; booléen:
-  Pour chaque élément e de T,
-    Si e = x, alors on renvoit Vrai
-  Si la boucle se termine, on renvoit Faux.
-</code></pre></div><p>En Python :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parcours_sequentiel</span>(tableau, x):
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    <span style="color:#069;font-weight:bold">if</span> x <span style="color:#555">==</span> e:
-      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span> <span style="color:#09f;font-style:italic"># on n&#39;arrive ici que si l&#39;élément n&#39;est pas dans le tableau</span>
-</code></pre></div><h2 id="recherche-dextremum">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction (tableau T, objet x) ---&gt; booléen:
+</span></span><span style="display:flex;"><span>  Pour chaque élément e de T,
+</span></span><span style="display:flex;"><span>    Si e = x, alors on renvoit Vrai
+</span></span><span style="display:flex;"><span>  Si la boucle se termine, on renvoit Faux.
+</span></span></code></pre></div><p>En Python :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parcours_sequentiel</span>(tableau, x):
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> x <span style="color:#555">==</span> e:
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span> <span style="color:#09f;font-style:italic"># on n&#39;arrive ici que si l&#39;élément n&#39;est pas dans le tableau</span>
+</span></span></code></pre></div><h2 id="recherche-dextremum">
   Recherche d&rsquo;extremum
   <a class="anchor" href="#recherche-dextremum">#</a>
 </h2>
@@ -5957,20 +5957,20 @@ T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span s
   Algorithme
   <a class="anchor" href="#algorithme">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction maximum(tableau T, nombre x) ---&gt; nombre:
-  On affecte à max la valeur de l&#39;élément d&#39;indice 0 du tableau.
-  Pour chaque élément e du tableau:
-    si e &gt; max:
-      max = e
-  renvoyer max
-</code></pre></div><p>En Python :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">maximum</span>(tableau):
-  m <span style="color:#555">=</span> tableau[<span style="color:#f60">0</span>]
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#555">&gt;</span> m:
-      m <span style="color:#555">=</span> elt
-  <span style="color:#069;font-weight:bold">return</span> m
-</code></pre></div><h2 id="moyenne-des-éléments-dun-tableau">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction maximum(tableau T, nombre x) ---&gt; nombre:
+</span></span><span style="display:flex;"><span>  On affecte à max la valeur de l&#39;élément d&#39;indice 0 du tableau.
+</span></span><span style="display:flex;"><span>  Pour chaque élément e du tableau:
+</span></span><span style="display:flex;"><span>    si e &gt; max:
+</span></span><span style="display:flex;"><span>      max = e
+</span></span><span style="display:flex;"><span>  renvoyer max
+</span></span></code></pre></div><p>En Python :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">maximum</span>(tableau):
+</span></span><span style="display:flex;"><span>  m <span style="color:#555">=</span> tableau[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#555">&gt;</span> m:
+</span></span><span style="display:flex;"><span>      m <span style="color:#555">=</span> elt
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> m
+</span></span></code></pre></div><h2 id="moyenne-des-éléments-dun-tableau">
   Moyenne des éléments d&rsquo;un tableau
   <a class="anchor" href="#moyenne-des-%c3%a9l%c3%a9ments-dun-tableau">#</a>
 </h2>
@@ -5979,25 +5979,25 @@ T <span style="color:#555">=</span> <span style="color:#366">list</span>(<span s
   Algorithme
   <a class="anchor" href="#algorithme-1">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction moyenne(tableau T, nombre x) ---&gt; nombre:
-  On affecte à Somme la valeur 0
-  On affecte à Effectif la valeur 0
-  Pour chaque élément e du tableau:
-    Somme = Somme + e
-    Effectif = Effectif + 1
-  renvoyer Somme / Effectif
-</code></pre></div><p>En Python :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(tableau):
-  somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  effectif <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
-    somme <span style="color:#555">+=</span> elt
-    effectif <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">return</span> somme <span style="color:#555">/</span> effectif
-</code></pre></div><p>Version courte qui n&rsquo;illustre pas le programme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne2</span>(tableau):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(tableau) <span style="color:#555">/</span> <span style="color:#366">len</span>(tableau)
-</code></pre></div><p>Difficile de comprendre ce qui se passe réellement avec cette version !</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction moyenne(tableau T, nombre x) ---&gt; nombre:
+</span></span><span style="display:flex;"><span>  On affecte à Somme la valeur 0
+</span></span><span style="display:flex;"><span>  On affecte à Effectif la valeur 0
+</span></span><span style="display:flex;"><span>  Pour chaque élément e du tableau:
+</span></span><span style="display:flex;"><span>    Somme = Somme + e
+</span></span><span style="display:flex;"><span>    Effectif = Effectif + 1
+</span></span><span style="display:flex;"><span>  renvoyer Somme / Effectif
+</span></span></code></pre></div><p>En Python :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(tableau):
+</span></span><span style="display:flex;"><span>  somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>  effectif <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
+</span></span><span style="display:flex;"><span>    somme <span style="color:#555">+=</span> elt
+</span></span><span style="display:flex;"><span>    effectif <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> somme <span style="color:#555">/</span> effectif
+</span></span></code></pre></div><p>Version courte qui n&rsquo;illustre pas le programme :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne2</span>(tableau):
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(tableau) <span style="color:#555">/</span> <span style="color:#366">len</span>(tableau)
+</span></span></code></pre></div><p>Difficile de comprendre ce qui se passe réellement avec cette version !</p>
 <h1 id="recherche-dichotomique-dans-un-tableau-trié">
   Recherche dichotomique dans un tableau trié
   <a class="anchor" href="#recherche-dichotomique-dans-un-tableau-tri%c3%a9">#</a>
@@ -6019,14 +6019,14 @@ d&rsquo;exécution.</p>
 <p>Nous allons compter les opérations nécessaires au calcul de la moyenne.
 Parce qu&rsquo;on travaille avec un tableau, on peut supposer que ces opérations prennent toutes
 le même temps d&rsquo;exécution.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction moyenne(tableau T, nombre x) ---&gt; nombre:
-  On affecte à Somme la valeur 0
-  On affecte à Effectif la valeur 0
-  Pour chaque élément e du tableau:
-    Somme = Somme + e
-    Effectif = Effectif + 1
-  renvoyer Somme / Effectif
-</code></pre></div><p>On note $nombre$ le nombre d&rsquo;opérations.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction moyenne(tableau T, nombre x) ---&gt; nombre:
+</span></span><span style="display:flex;"><span>  On affecte à Somme la valeur 0
+</span></span><span style="display:flex;"><span>  On affecte à Effectif la valeur 0
+</span></span><span style="display:flex;"><span>  Pour chaque élément e du tableau:
+</span></span><span style="display:flex;"><span>    Somme = Somme + e
+</span></span><span style="display:flex;"><span>    Effectif = Effectif + 1
+</span></span><span style="display:flex;"><span>  renvoyer Somme / Effectif
+</span></span></code></pre></div><p>On note $nombre$ le nombre d&rsquo;opérations.</p>
 <ul>
 <li>début de l&rsquo;algorithme : $nombre=0$</li>
 <li><code>On affecte à Somme</code>, <code>on affecte à Effectif</code>&hellip; : $nombre=2$</li>
@@ -6109,10 +6109,10 @@ pour un tableau de taille 1000.</p>
 </table>
 <p>$1.000.000$ secondes = $11$ jours.</p>
 <p>Pour information, l&rsquo;age de l&rsquo;univers est de 13.7 milliards d&rsquo;années soit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> age <span style="color:#555">=</span> <span style="color:#f60">13.7</span> <span style="color:#555">*</span> <span style="color:#f60">10</span> <span style="color:#555">**</span> <span style="color:#f60">9</span> <span style="color:#555">*</span> <span style="color:#f60">365</span> <span style="color:#555">*</span> <span style="color:#f60">24</span> <span style="color:#555">*</span> <span style="color:#f60">3600</span>
-<span style="color:#555">&gt;&gt;&gt;</span> age
-<span style="color:#f60">4.320432e+17</span>
-</code></pre></div><p>La partie suivante s&rsquo;intéresse à une autre manière de chercher les éléments d&rsquo;un tableau : la dichotomie.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> age <span style="color:#555">=</span> <span style="color:#f60">13.7</span> <span style="color:#555">*</span> <span style="color:#f60">10</span> <span style="color:#555">**</span> <span style="color:#f60">9</span> <span style="color:#555">*</span> <span style="color:#f60">365</span> <span style="color:#555">*</span> <span style="color:#f60">24</span> <span style="color:#555">*</span> <span style="color:#f60">3600</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> age
+</span></span><span style="display:flex;"><span><span style="color:#f60">4.320432e+17</span>
+</span></span></code></pre></div><p>La partie suivante s&rsquo;intéresse à une autre manière de chercher les éléments d&rsquo;un tableau : la dichotomie.</p>
 <p>Cette fois le complexité est bien meilleure.</p>
 <hr>
 <h1 id="recherche-dichotomique-dans-un-tableau-trié-1">
@@ -6181,24 +6181,24 @@ se termine bien.</p>
   L&rsquo;algorithme complet
   <a class="anchor" href="#lalgorithme-complet">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rechercheDicho(liste, clé)
-  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  haut <span style="color:#555">=</span> longueur(liste) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  Tant que (bas <span style="color:#555">&lt;</span> haut) :
-    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">//</span> <span style="color:#f60">2</span>
-    si clé <span style="color:#555">==</span> liste[med]:
-      haut <span style="color:#555">=</span> med
-      bas <span style="color:#555">=</span> med
-    Sinon :
-      si clé <span style="color:#555">&gt;</span> liste[med]:
-        bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
-      sinon:
-        haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  si cle <span style="color:#555">==</span> liste[bas]:
-    renvoyer Vrai
-  sinon:
-    renvoyer Faux
-</code></pre></div><h2 id="tableau-pour-présenter-les-étapes">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rechercheDicho(liste, clé)
+</span></span><span style="display:flex;"><span>  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>  haut <span style="color:#555">=</span> longueur(liste) <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>  Tant que (bas <span style="color:#555">&lt;</span> haut) :
+</span></span><span style="display:flex;"><span>    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">//</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    si clé <span style="color:#555">==</span> liste[med]:
+</span></span><span style="display:flex;"><span>      haut <span style="color:#555">=</span> med
+</span></span><span style="display:flex;"><span>      bas <span style="color:#555">=</span> med
+</span></span><span style="display:flex;"><span>    Sinon :
+</span></span><span style="display:flex;"><span>      si clé <span style="color:#555">&gt;</span> liste[med]:
+</span></span><span style="display:flex;"><span>        bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>      sinon:
+</span></span><span style="display:flex;"><span>        haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>  si cle <span style="color:#555">==</span> liste[bas]:
+</span></span><span style="display:flex;"><span>    renvoyer Vrai
+</span></span><span style="display:flex;"><span>  sinon:
+</span></span><span style="display:flex;"><span>    renvoyer Faux
+</span></span></code></pre></div><h2 id="tableau-pour-présenter-les-étapes">
   Tableau pour présenter les étapes
   <a class="anchor" href="#tableau-pour-pr%c3%a9senter-les-%c3%a9tapes">#</a>
 </h2>
@@ -6253,73 +6253,73 @@ se termine bien.</p>
   En Python
   <a class="anchor" href="#en-python">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">dicho</span>(tableau, cle):
-  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
-  haut <span style="color:#555">=</span> <span style="color:#366">len</span>(tableau) <span style="color:#555">-</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">while</span> bas <span style="color:#555">&lt;</span> haut:
-    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">//</span> <span style="color:#f60">2</span>
-    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">==</span> tableau[med]:
-      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
-    <span style="color:#069;font-weight:bold">elif</span> cle <span style="color:#555">&lt;</span> tableau[med]:
-      haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
-    <span style="color:#069;font-weight:bold">else</span>:
-      bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
-  <span style="color:#069;font-weight:bold">return</span> cle <span style="color:#555">==</span> tableau[bas]
-</code></pre></div><p>Attention, il faut aussi tester si la clé n&rsquo;est pas égale à la dernière valeur !</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">dicho</span>(tableau, cle):
+</span></span><span style="display:flex;"><span>  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>  haut <span style="color:#555">=</span> <span style="color:#366">len</span>(tableau) <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">while</span> bas <span style="color:#555">&lt;</span> haut:
+</span></span><span style="display:flex;"><span>    med <span style="color:#555">=</span> (bas <span style="color:#555">+</span> haut) <span style="color:#555">//</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">==</span> tableau[med]:
+</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">elif</span> cle <span style="color:#555">&lt;</span> tableau[med]:
+</span></span><span style="display:flex;"><span>      haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>      bas <span style="color:#555">=</span> med <span style="color:#555">+</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> cle <span style="color:#555">==</span> tableau[bas]
+</span></span></code></pre></div><p>Attention, il faut aussi tester si la clé n&rsquo;est pas égale à la dernière valeur !</p>
 <h2 id="verifications">
   Verifications
   <a class="anchor" href="#verifications">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">10</span>))
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> tableau:
-<span style="color:#555">...</span>    <span style="color:#069;font-weight:bold">assert</span> dicho(tableau, cle) <span style="color:#09f;font-style:italic"># on trouve bien les 10 clés</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#09f;font-style:italic"># -1 n&#39;est pas dans le tableau</span>
-<span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#f60">11</span>) <span style="color:#09f;font-style:italic"># 11 n&#39;est pas dans le tableau</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#555">=</span> <span style="color:#366">list</span>(<span style="color:#366">range</span>(<span style="color:#f60">10</span>))
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> tableau:
+</span></span><span style="display:flex;"><span><span style="color:#555">...</span>    <span style="color:#069;font-weight:bold">assert</span> dicho(tableau, cle) <span style="color:#09f;font-style:italic"># on trouve bien les 10 clés</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#09f;font-style:italic"># -1 n&#39;est pas dans le tableau</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> dicho(tableau, <span style="color:#f60">11</span>) <span style="color:#09f;font-style:italic"># 11 n&#39;est pas dans le tableau</span>
+</span></span></code></pre></div><hr>
 <h1 id="tableaux-à-deux-dimensions">
   Tableaux à deux dimensions
   <a class="anchor" href="#tableaux-%c3%a0-deux-dimensions">#</a>
 </h1>
 <p>On rencontre souvent des données qui sont présentées sous la forme d&rsquo;un tableau
 à deux dimensions :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1234
-5678
-</code></pre></div><p>Ces tableaux sont appelés des matrices. Celle-ci a 2 lignes et 4 colonnes</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1234
+</span></span><span style="display:flex;"><span>5678
+</span></span></code></pre></div><p>Ces tableaux sont appelés des matrices. Celle-ci a 2 lignes et 4 colonnes</p>
 <h3 id="affecter-une-matrice-à-une-variable">
   Affecter une matrice à une variable
   <a class="anchor" href="#affecter-une-matrice-%c3%a0-une-variable">#</a>
 </h3>
 <p>Chaque ligne de la matrice est dans un tableau.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mat <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>],
-       [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
-</code></pre></div><h3 id="atteindre-un-élément">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mat <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>],
+</span></span><span style="display:flex;"><span>       [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
+</span></span></code></pre></div><h3 id="atteindre-un-élément">
   Atteindre un élément.
   <a class="anchor" href="#atteindre-un-%c3%a9l%c3%a9ment">#</a>
 </h3>
 <p>Disons qu&rsquo;on veut atteindre le nombre 3. Il est dans la première ligne, 3ème
 colonne :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> mat[<span style="color:#f60">0</span>][<span style="color:#f60">2</span>]
-<span style="color:#f60">3</span>
-</code></pre></div><p>On utilise deux série de [] pour les lignes puis pour les colonnes.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> mat[<span style="color:#f60">0</span>][<span style="color:#f60">2</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
+</span></span></code></pre></div><p>On utilise deux série de [] pour les lignes puis pour les colonnes.</p>
 <h3 id="parcourir-une-matrice-pour-afficher-ses-éléments">
   Parcourir une matrice pour afficher ses éléments
   <a class="anchor" href="#parcourir-une-matrice-pour-afficher-ses-%c3%a9l%c3%a9ments">#</a>
 </h3>
 <p>On utilise toujours deux boucles <strong>imbriquées</strong> pour parcourir une matrice</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
-  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
-    <span style="color:#366">print</span>(cellule, end<span style="color:#555">=</span><span style="color:#c30">&#39;, &#39;</span>)
-</code></pre></div><p>Va nous afficher :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1, 2, 3, 4, 5, 6, 7, 8,
-</code></pre></div><h4 id="application--calculer-la-somme-des-éléments-à-la-main">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(cellule, end<span style="color:#555">=</span><span style="color:#c30">&#39;, &#39;</span>)
+</span></span></code></pre></div><p>Va nous afficher :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1, 2, 3, 4, 5, 6, 7, 8,
+</span></span></code></pre></div><h4 id="application--calculer-la-somme-des-éléments-à-la-main">
   Application : calculer la somme des éléments &ldquo;à la main&rdquo;
   <a class="anchor" href="#application--calculer-la-somme-des-%c3%a9l%c3%a9ments-%c3%a0-la-main">#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
-  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
-    somme <span style="color:#555">+=</span> cellule
-</code></pre></div><p>va nous renvoyer <code>36</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> cellule <span style="color:#000;font-weight:bold">in</span> ligne:
+</span></span><span style="display:flex;"><span>    somme <span style="color:#555">+=</span> cellule
+</span></span></code></pre></div><p>va nous renvoyer <code>36</code></p>
 <h3 id="dautres-représentations-des-matrices">
   D&rsquo;autres représentations des matrices
   <a class="anchor" href="#dautres-repr%c3%a9sentations-des-matrices">#</a>
@@ -6329,19 +6329,19 @@ de connaître la position d&rsquo;une cellule dans la matrice, par exemple, pour
 construire un dégradé de pixels.</p>
 <p>Dans l&rsquo;exemple suivant, non seulement nous parcourons le tableau à l&rsquo;aide
 d&rsquo;indices, mais en plus les éléments de la matrice sont atteints autrement.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL</span> <span style="color:#069;font-weight:bold">import</span> image
-<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">IPython.display</span> <span style="color:#069;font-weight:bold">import</span> display <span style="color:#09f;font-style:italic"># si on travaille dans Colab</span>
-img <span style="color:#555">=</span> Image<span style="color:#555">.</span>new(<span style="color:#c30">&#39;RGB&#39;</span>, (<span style="color:#f60">255</span>, <span style="color:#f60">128</span>)) <span style="color:#09f;font-style:italic"># nouvelle image, 255 de large, 128 de haut</span>
-pixels <span style="color:#555">=</span> img<span style="color:#555">.</span>load() <span style="color:#09f;font-style:italic"># on charge la matrice des pixels</span>
-
-<span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">255</span>):
-  <span style="color:#069;font-weight:bold">for</span> y <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">128</span>):
-    <span style="color:#09f;font-style:italic"># attention à la notation [x, y] !!!</span>
-    pixels[x, y] <span style="color:#555">=</span> (<span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>)
-
-display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</span>
-<span style="color:#09f;font-style:italic"># img.show() # afficher dans la console</span>
-</code></pre></div><p><img src="/uploads/docsnsi/algo/degrade.jpg" alt="Degradé rouge -&amp;gt; noir" /></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">PIL</span> <span style="color:#069;font-weight:bold">import</span> image
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">IPython.display</span> <span style="color:#069;font-weight:bold">import</span> display <span style="color:#09f;font-style:italic"># si on travaille dans Colab</span>
+</span></span><span style="display:flex;"><span>img <span style="color:#555">=</span> Image<span style="color:#555">.</span>new(<span style="color:#c30">&#39;RGB&#39;</span>, (<span style="color:#f60">255</span>, <span style="color:#f60">128</span>)) <span style="color:#09f;font-style:italic"># nouvelle image, 255 de large, 128 de haut</span>
+</span></span><span style="display:flex;"><span>pixels <span style="color:#555">=</span> img<span style="color:#555">.</span>load() <span style="color:#09f;font-style:italic"># on charge la matrice des pixels</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">255</span>):
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> y <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">128</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># attention à la notation [x, y] !!!</span>
+</span></span><span style="display:flex;"><span>    pixels[x, y] <span style="color:#555">=</span> (<span style="color:#f60">255</span> <span style="color:#555">-</span> x, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># img.show() # afficher dans la console</span>
+</span></span></code></pre></div><p><img src="/uploads/docsnsi/algo/degrade.jpg" alt="Degradé rouge -&amp;gt; noir" /></p>
 </article>
  
 
@@ -6363,7 +6363,7 @@ display(img) <span style="color:#09f;font-style:italic"># afficher dans colab</s
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

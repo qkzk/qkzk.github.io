@@ -18,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/complet/partie4/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5754,7 +5754,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5910,10 +5910,10 @@ MathJax.Hub.Config({
   On peut itérer dans une chaîne de caractères donc facilement la découper
   <a class="anchor" href="#on-peut-it%c3%a9rer-dans-une-cha%c3%aene-de-caract%c3%a8res-donc-facilement-la-d%c3%a9couper">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> lettres <span style="color:#555">=</span> <span style="color:#c30">&#34;abcdefg&#34;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> [ i <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> lettres ]
-[<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;d&#39;</span>, <span style="color:#c30">&#39;e&#39;</span>, <span style="color:#c30">&#39;f&#39;</span>, <span style="color:#c30">&#39;g&#39;</span>]
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> lettres <span style="color:#555">=</span> <span style="color:#c30">&#34;abcdefg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [ i <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> lettres ]
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>, <span style="color:#c30">&#39;d&#39;</span>, <span style="color:#c30">&#39;e&#39;</span>, <span style="color:#c30">&#39;f&#39;</span>, <span style="color:#c30">&#39;g&#39;</span>]
+</span></span></code></pre></div><ul>
 <li>Il y a bien d&rsquo;autres façons de faire.</li>
 </ul>
 <h2 id="la-grande-différence-entre-les-tableaux-et-les-listes-">
@@ -5921,19 +5921,19 @@ MathJax.Hub.Config({
   <a class="anchor" href="#la-grande-diff%c3%a9rence-entre-les-tableaux-et-les-listes-">#</a>
 </h2>
 <p>Les listes sont <strong>mutables</strong> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>]
-<span style="color:#c30">&#39;def&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#39;xyz&#39;</span> <span style="color:#09f;font-style:italic"># modifier un élément</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>insert(<span style="color:#f60">2</span>, <span style="color:#c30">&#34;mno&#34;</span>) <span style="color:#09f;font-style:italic"># insérer</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>remove(<span style="color:#c30">&#39;abc&#39;</span>) <span style="color:#09f;font-style:italic"># supprimer l&#39;élément &#39;abc&#39;</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l
-[<span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-</code></pre></div><h2 id="affecter--le-même-objet-">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;def&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#39;xyz&#39;</span> <span style="color:#09f;font-style:italic"># modifier un élément</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>insert(<span style="color:#f60">2</span>, <span style="color:#c30">&#34;mno&#34;</span>) <span style="color:#09f;font-style:italic"># insérer</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>remove(<span style="color:#c30">&#39;abc&#39;</span>) <span style="color:#09f;font-style:italic"># supprimer l&#39;élément &#39;abc&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;mno&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span></code></pre></div><h2 id="affecter--le-même-objet-">
   Affecter : le même objet !
   <a class="anchor" href="#affecter--le-m%c3%aame-objet-">#</a>
 </h2>
@@ -5941,12 +5941,12 @@ MathJax.Hub.Config({
   Dans Python quand on affecte un objet à un autre, ils sont identiques !
   <a class="anchor" href="#dans-python-quand-on-affecte-un-objet-%c3%a0-un-autre-ils-sont-identiques-">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> m <span style="color:#555">=</span> l <span style="color:#09f;font-style:italic"># m et l : les mêmes objets</span>
-<span style="color:#555">&gt;&gt;&gt;</span> m[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;xyz&#34;</span> ; l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l et m modifiés</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l, m
-([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])
-</code></pre></div><h2 id="copier--une-copie-de-lobjet">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> m <span style="color:#555">=</span> l <span style="color:#09f;font-style:italic"># m et l : les mêmes objets</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> m[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;xyz&#34;</span> ; l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l et m modifiés</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l, m
+</span></span><span style="display:flex;"><span>([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])
+</span></span></code></pre></div><h2 id="copier--une-copie-de-lobjet">
   Copier : une copie de l&rsquo;objet
   <a class="anchor" href="#copier--une-copie-de-lobjet">#</a>
 </h2>
@@ -5954,13 +5954,13 @@ MathJax.Hub.Config({
   On contourne cette difficulté avec un &ldquo;slice&rdquo;
   <a class="anchor" href="#on-contourne-cette-difficult%c3%a9-avec-un-slice">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>:] <span style="color:#09f;font-style:italic"># une copie de l à partir de l&#39;élément 1</span>
-<span style="color:#555">&gt;&gt;&gt;</span> n <span style="color:#555">=</span> l[:] <span style="color:#09f;font-style:italic"># une COPIE complète de l</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l est modifée, pas n</span>
-<span style="color:#555">&gt;&gt;&gt;</span> l, n
-([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])
-</code></pre></div><h2 id="retour-sur-les-tableaux">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">1</span>:] <span style="color:#09f;font-style:italic"># une copie de l à partir de l&#39;élément 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> n <span style="color:#555">=</span> l[:] <span style="color:#09f;font-style:italic"># une COPIE complète de l</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l[<span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;pqr&#34;</span> <span style="color:#09f;font-style:italic"># l est modifée, pas n</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l, n
+</span></span><span style="display:flex;"><span>([<span style="color:#c30">&#39;pqr&#39;</span>, <span style="color:#c30">&#39;def&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>], [<span style="color:#c30">&#39;abc&#39;</span>, <span style="color:#c30">&#39;xyz&#39;</span>, <span style="color:#c30">&#39;ghi&#39;</span>])
+</span></span></code></pre></div><h2 id="retour-sur-les-tableaux">
   Retour sur les tableaux
   <a class="anchor" href="#retour-sur-les-tableaux">#</a>
 </h2>
@@ -6102,10 +6102,10 @@ MathJax.Hub.Config({
 </tbody>
 </table>
 <p>Pour présenter facilement on s&rsquo;aligne au même niveau</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T <span style="color:#555">=</span> [[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>],
-     [<span style="color:#f60">2</span>, <span style="color:#f60">3</span>]] <span style="color:#09f;font-style:italic"># [[0, 1], [2, 3]]</span>
-T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span style="color:#09f;font-style:italic"># 2</span>
-</code></pre></div><h2 id="python--listes-de-listes-par-compréhension">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>T <span style="color:#555">=</span> [[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>],
+</span></span><span style="display:flex;"><span>     [<span style="color:#f60">2</span>, <span style="color:#f60">3</span>]] <span style="color:#09f;font-style:italic"># [[0, 1], [2, 3]]</span>
+</span></span><span style="display:flex;"><span>T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span style="color:#09f;font-style:italic"># 2</span>
+</span></span></code></pre></div><h2 id="python--listes-de-listes-par-compréhension">
   Python : listes de listes par compréhension
   <a class="anchor" href="#python--listes-de-listes-par-compr%c3%a9hension">#</a>
 </h2>
@@ -6113,21 +6113,21 @@ T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span st
   Une méthode efficace :
   <a class="anchor" href="#une-m%c3%a9thode-efficace-">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T <span style="color:#555">=</span> [
-     [j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
-        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)
-     ]
-</code></pre></div><p>Qu&rsquo;obtient-on dans <code>T</code> ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>T <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>     [j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)
+</span></span><span style="display:flex;"><span>     ]
+</span></span></code></pre></div><p>Qu&rsquo;obtient-on dans <code>T</code> ?</p>
 <h2 id="python--listes-de-listes---solution">
   Python : listes de listes - solution
   <a class="anchor" href="#python--listes-de-listes---solution">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> T <span style="color:#555">=</span> [[j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
-<span style="color:#555">...</span> <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)]
-
-<span style="color:#555">&gt;&gt;&gt;</span> T
-[[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>], [<span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> T <span style="color:#555">=</span> [[j <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span><span style="color:#555">*</span>i, <span style="color:#f60">3</span><span style="color:#555">*</span>i<span style="color:#555">+</span><span style="color:#f60">3</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#555">...</span> <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> T
+</span></span><span style="display:flex;"><span>[[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>], [<span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>], [<span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>l/c</th>
@@ -6165,12 +6165,12 @@ T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span st
   pour itérer dans une matrice il faut 2 boucles <em>imbriquées</em>
   <a class="anchor" href="#pour-it%c3%a9rer-dans-une-matrice-il-faut-2-boucles-imbriqu%c3%a9es">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Pour i allant de 1 à n {
-  Pour j allant de 1 à n {
-    faire... T[i][j] ...
-  }
-}
-</code></pre></div><h2 id="calcul-dune-moyenne-des-éléments-dun-tableau">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Pour i allant de 1 à n {
+</span></span><span style="display:flex;"><span>  Pour j allant de 1 à n {
+</span></span><span style="display:flex;"><span>    faire... T[i][j] ...
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="calcul-dune-moyenne-des-éléments-dun-tableau">
   Calcul d&rsquo;une moyenne des éléments d&rsquo;un tableau.
   <a class="anchor" href="#calcul-dune-moyenne-des-%c3%a9l%c3%a9ments-dun-tableau">#</a>
 </h2>
@@ -6191,47 +6191,47 @@ T[<span style="color:#f60">1</span>][<span style="color:#f60">0</span>] <span st
   Solution &ldquo;naturelle&rdquo;
   <a class="anchor" href="#solution-naturelle">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; n <span style="color:#555">=</span> <span style="color:#366">len</span>(T); p <span style="color:#555">=</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-  <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
-    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(p):
-      s <span style="color:#555">+=</span> T[i][j]
-  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> (n <span style="color:#555">*</span> p)
-</code></pre></div><h2 id="solution-avec-des-outils-de-python">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; n <span style="color:#555">=</span> <span style="color:#366">len</span>(T); p <span style="color:#555">=</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(p):
+</span></span><span style="display:flex;"><span>      s <span style="color:#555">+=</span> T[i][j]
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> (n <span style="color:#555">*</span> p)
+</span></span></code></pre></div><h2 id="solution-avec-des-outils-de-python">
   Solution avec des outils de python
   <a class="anchor" href="#solution-avec-des-outils-de-python">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T)<span style="color:#555">*</span><span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-  <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
-    <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> ligne:
-      s <span style="color:#555">+=</span> x
-  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> k
-</code></pre></div><h2 id="solutions-encore-plus-radicale">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>  s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T)<span style="color:#555">*</span><span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> ligne:
+</span></span><span style="display:flex;"><span>      s <span style="color:#555">+=</span> x
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> s <span style="color:#555">/</span> k
+</span></span></code></pre></div><h2 id="solutions-encore-plus-radicale">
   Solutions encore plus radicale&hellip;
   <a class="anchor" href="#solutions-encore-plus-radicale">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-    s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
-    <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
-        s <span style="color:#555">+=</span> <span style="color:#366">sum</span>(ligne)
-    <span style="color:#069;font-weight:bold">return</span> s<span style="color:#555">/</span>k
-</code></pre></div><p><a href="https://goo.gl/aov75J">Python Tutor</a>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>    s <span style="color:#555">=</span> <span style="color:#f60">0</span>; k <span style="color:#555">=</span> <span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> T:
+</span></span><span style="display:flex;"><span>        s <span style="color:#555">+=</span> <span style="color:#366">sum</span>(ligne)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> s<span style="color:#555">/</span>k
+</span></span></code></pre></div><p><a href="https://goo.gl/aov75J">Python Tutor</a>
 Et la plus courte à laquelle j&rsquo;ai pensé :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>([<span style="color:#366">sum</span>(row) <span style="color:#069;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> T])\
-      <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
-</code></pre></div><h2 id="il-y-a-encore-plus-court">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>([<span style="color:#366">sum</span>(row) <span style="color:#069;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> T])\
+</span></span><span style="display:flex;"><span>      <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
+</span></span></code></pre></div><h2 id="il-y-a-encore-plus-court">
   Il y a encore plus court&hellip;
   <a class="anchor" href="#il-y-a-encore-plus-court">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">map</span>(<span style="color:#366">sum</span>, T)) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
-
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">sum</span>(T,[])) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
-</code></pre></div><h2 id="exercices">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">map</span>(<span style="color:#366">sum</span>, T)) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(T):
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(<span style="color:#366">sum</span>(T,[])) <span style="color:#555">/</span> (<span style="color:#366">len</span>(T) <span style="color:#555">*</span> <span style="color:#366">len</span>(T[<span style="color:#f60">0</span>]))
+</span></span></code></pre></div><h2 id="exercices">
   Exercices
   <a class="anchor" href="#exercices">#</a>
 </h2>
@@ -6242,15 +6242,15 @@ Et la plus courte à laquelle j&rsquo;ai pensé :</p>
 <p>On considère une liste de nombres (exemple : <code>[2, 0, 4, 8]</code>  )</p>
 <p>Programmer une fonction <code>zeroADroite(liste)</code> qui renvoie une liste de même taille mais avec tous les 0 qu&rsquo;elle contenait déplacés à droite.</p>
 <p>Exemples :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
-[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">0</span>])
-[<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
-[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">16</span>])
-[<span style="color:#f60">4</span>, <span style="color:#f60">16</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
+</span></span><span style="display:flex;"><span>[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">0</span>])
+</span></span><span style="display:flex;"><span>[<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">2</span>, <span style="color:#f60">0</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>])
+</span></span><span style="display:flex;"><span>[<span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">8</span>, <span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> zeroADroite([<span style="color:#f60">4</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>, <span style="color:#f60">16</span>])
+</span></span><span style="display:flex;"><span>[<span style="color:#f60">4</span>, <span style="color:#f60">16</span>, <span style="color:#f60">0</span>, <span style="color:#f60">0</span>]
+</span></span></code></pre></div></article>
  
 
                 <div class="backtotop">
@@ -6271,7 +6271,7 @@ Et la plus courte à laquelle j&rsquo;ai pensé :</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

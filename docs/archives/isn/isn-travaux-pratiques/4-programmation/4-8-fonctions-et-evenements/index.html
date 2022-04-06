@@ -17,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/4-programmation/4-8-fonctions-et-evenements/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5741,7 +5741,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5849,27 +5849,27 @@ représentant les éléments d&rsquo;une page HTML sont beaucoup plus larges.</p
 <p>La première méthode d&rsquo;accès aux données représentant un élément de
 la page HTML que nous allons utiliser consiste à exploiter la
 possibilité de nommer en HTML un élément de la page grâce à
-l&rsquo;attribut <code>id</code> (on pourra parler d'<em>élément
+l&rsquo;attribut <code>id</code> (on pourra parler d&rsquo;<em>élément
 identifié</em>). En effet la fonction <code>getElementById</code>
 qui s&rsquo;applique sur la donnée <code>document</code> permet de
 récupérer la donnée de type <code>Element</code> dont
 l&rsquo;attribut <code>id</code> correspond à la valeur passée en
 paramètre de l&rsquo;appel de fonction.</p>
 <p>Ainsi considérons la portion de code HTML suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>h1<span style="color:#555">&gt;</span>Un exemple avec des id<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/h1&gt;</span>
-<span style="color:#555">&lt;</span>div<span style="color:#555">&gt;</span>Un premier bloc div<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
-
-
-
-<span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;important&#34;</span><span style="color:#555">&gt;</span>Ceci est un texte important.<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
-
-<span style="color:#555">&lt;</span>img src<span style="color:#555">=</span><span style="color:#c30">&#34;exemple.png&#34;</span> id<span style="color:#555">=</span><span style="color:#c30">&#34;monImage&#34;</span> <span style="color:#069;font-weight:bold">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;encadree&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/img&gt;</span>
-</code></pre></div><p>Il est possible d&rsquo;associer une variable Javascript pour chacun des
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>h1<span style="color:#555">&gt;</span>Un exemple avec des id<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/h1&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>div<span style="color:#555">&gt;</span>Un premier bloc div<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;important&#34;</span><span style="color:#555">&gt;</span>Ceci est un texte important.<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>img src<span style="color:#555">=</span><span style="color:#c30">&#34;exemple.png&#34;</span> id<span style="color:#555">=</span><span style="color:#c30">&#34;monImage&#34;</span> <span style="color:#069;font-weight:bold">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;encadree&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/img&gt;</span>
+</span></span></code></pre></div><p>Il est possible d&rsquo;associer une variable Javascript pour chacun des
 éléments identifiés par un attribut <code>id</code> de la manière
 suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> divImportant <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;important&#34;</span>);
-<span style="color:#069;font-weight:bold">var</span> lImage <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;monImage&#34;</span>);
-</code></pre></div><p>Les éléments qui ne possèdent pas d&rsquo;attribut <code>id</code> ne sont
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> divImportant <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;important&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lImage <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;monImage&#34;</span>);
+</span></span></code></pre></div><p>Les éléments qui ne possèdent pas d&rsquo;attribut <code>id</code> ne sont
 pas accessibles par cette méthode.</p>
 <h2 id="evénements">
   Evénements
@@ -5938,20 +5938,20 @@ l&rsquo;élément concerné</p>
 fonction fonctionDeclenchee lorsque l&rsquo;événement de
 type typeEvenement se produit sur l&rsquo;élément concerné.</p>
 <p>La syntaxe d&rsquo;un appel sur un élément ressemble donc à :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    element.addEventListener(typeEvenement,fonctionDeclenchee)
-</code></pre></div><p>On rencontrera (et utilisera) donc souvent le schéma typique de code
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    element.addEventListener(typeEvenement,fonctionDeclenchee)
+</span></span></code></pre></div><p>On rencontrera (et utilisera) donc souvent le schéma typique de code
 suivant, où <code>action</code> est une fonction supposée définie par
 ailleurs :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#069;font-weight:bold">var</span> unElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;lElementQueJeVeux&#34;</span>);
-    unElement.addEventListener(<span style="color:#c30">&#34;click&#34;</span>,action);
-</code></pre></div><p>qui aura pour conséquence que la méthode <code>action</code> sera
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">var</span> unElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;lElementQueJeVeux&#34;</span>);
+</span></span><span style="display:flex;"><span>    unElement.addEventListener(<span style="color:#c30">&#34;click&#34;</span>,action);
+</span></span></code></pre></div><p>qui aura pour conséquence que la méthode <code>action</code> sera
 appelée à chaque fois que l&rsquo;utilisateur cliquera sur l&rsquo;élément de la
-page dont l'<code>id</code> est <code>lElementQueJeVeux</code>.</p>
+page dont l&rsquo;<code>id</code> est <code>lElementQueJeVeux</code>.</p>
 <p>Attention Il est important de noter que le second paramètre
 de <code>addEventListener</code> est un nom de fonction
 (identificateur) et pas une
 chaîne de caractères représentant ce nom.</p>
-<p>On utilise le terme d'<strong>abonnement</strong> de la fonction
+<p>On utilise le terme d&rsquo;<strong>abonnement</strong> de la fonction
 à l&rsquo;événement sur l&rsquo;objet. La fonction est elle appelée <em>fonction
 écouteur</em>, <strong>listener</strong> en anglais.</p>
 <h2 id="mise-en-place-des-abonnements">
@@ -6001,31 +6001,31 @@ pour l&rsquo;événement <code>load</code></li>
 </ol>
 <p>Le fichier <code>mesEvenements.js</code> ressemblera donc à ceci
 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">/* fonction de mise en place des abonnements
-</span><span style="color:#09f;font-style:italic"> */</span>
-<span style="color:#069;font-weight:bold">var</span> setupEvents <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> ()  {
-
-  <span style="color:#09f;font-style:italic">// abonnement de la fonction action pour l&#39;élément d&#39;id lElementQueJeVeux en réaction à un click&lt;
-</span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">var</span> unElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;lElementQueJeVeux&#34;</span>);
-  unElement.addEventListener(<span style="color:#c30">&#34;click&#34;</span>,action);
-
-  <span style="color:#09f;font-style:italic">// ... on répète le même schéma ici si on veut mettre en place d&#39;autres abonnements
-</span><span style="color:#09f;font-style:italic"></span>}
-
-<span style="color:#09f;font-style:italic">// pour appeler la fonction ci-dessus quans la page est chargée
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#366">window</span>.addEventListener(<span style="color:#c30">&#34;load&#34;</span>,setupEvents);
-
-<span style="color:#09f;font-style:italic">// ----------------------------------------
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#09f;font-style:italic">/* Documentation de la fonction action
-</span><span style="color:#09f;font-style:italic"> */</span>
-<span style="color:#069;font-weight:bold">var</span> action <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> () {
-   ... <span style="color:#09f;font-style:italic">// ce que action doit faire
-</span><span style="color:#09f;font-style:italic"></span>}
-
-<span style="color:#09f;font-style:italic">// ... et d&#39;autres définitions éventuellement
-</span></code></pre></div><p>alors que le fichier HTML ressemble à :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;mesEvenements.js&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;......</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">/* fonction de mise en place des abonnements
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> setupEvents <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> ()  {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic">// abonnement de la fonction action pour l&#39;élément d&#39;id lElementQueJeVeux en réaction à un click&lt;
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#069;font-weight:bold">var</span> unElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;lElementQueJeVeux&#34;</span>);
+</span></span><span style="display:flex;"><span>  unElement.addEventListener(<span style="color:#c30">&#34;click&#34;</span>,action);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic">// ... on répète le même schéma ici si on veut mettre en place d&#39;autres abonnements
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// pour appeler la fonction ci-dessus quans la page est chargée
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#366">window</span>.addEventListener(<span style="color:#c30">&#34;load&#34;</span>,setupEvents);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// ----------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#09f;font-style:italic">/* Documentation de la fonction action
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> action <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> () {
+</span></span><span style="display:flex;"><span>   ... <span style="color:#09f;font-style:italic">// ce que action doit faire
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// ... et d&#39;autres définitions éventuellement
+</span></span></span></code></pre></div><p>alors que le fichier HTML ressemble à :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;mesEvenements.js&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;......</span>
+</span></span></code></pre></div><hr>
 <p>La méthode <code>alert</code> qui s&rsquo;applique à la
 donnée <code>window</code> permet l&rsquo;affichage d&rsquo;une
 fenêtre <em>pop-up</em> affichant le message passé en paramètre (de type
@@ -6065,7 +6065,7 @@ déclenché chacun des événements.</p>
 <li>plusieurs abonnements pour un même type d&rsquo;événement</li>
 </ul>
 <p>On réutilise la version initiale de
-l'<a href="/uploads/docs/doc04/exemples/exemple_event1.html">exemple précédent</a>.</p>
+l&rsquo;<a href="/uploads/docs/doc04/exemples/exemple_event1.html">exemple précédent</a>.</p>
 <ol>
 <li>L&rsquo;événement <code>mousedown</code> est déclenché lorsque l&rsquo;on
 presse le bouton de la souris et l&rsquo;événement <code>mouseup</code>
@@ -6073,15 +6073,15 @@ lorsqu&rsquo;on le relâche. Complétez le code Javascript de l&rsquo;exemple po
 afficher une alerte différente lorsque chacun de ces événements se
 produit sur l&rsquo;image.</li>
 <li>Ajoutez un second abonnement pour l&rsquo;événement <code>click</code>
-sur l&rsquo;élément d'<code>id</code> &ldquo;<code>piedDePage</code>&rdquo; qui
+sur l&rsquo;élément d&rsquo;<code>id</code> &ldquo;<code>piedDePage</code>&rdquo; qui
 déclenchera la fonction suivante :</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> piedEnBleu <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
-  <span style="color:#069;font-weight:bold">var</span> piedDePage <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;piedDePage&#34;</span>);
-  piedDePage.style.backgroundColor <span style="color:#555">=</span> <span style="color:#c30">&#34;blue&#34;</span>;
-  piedDePage.style.color <span style="color:#555">=</span> <span style="color:#c30">&#34;white&#34;</span>;
-}
-</code></pre></div><h2 id="manipulation-sur-les-éléments">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> piedEnBleu <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">var</span> piedDePage <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;piedDePage&#34;</span>);
+</span></span><span style="display:flex;"><span>  piedDePage.style.backgroundColor <span style="color:#555">=</span> <span style="color:#c30">&#34;blue&#34;</span>;
+</span></span><span style="display:flex;"><span>  piedDePage.style.color <span style="color:#555">=</span> <span style="color:#c30">&#34;white&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="manipulation-sur-les-éléments">
   Manipulation sur les éléments
   <a class="anchor" href="#manipulation-sur-les-%c3%a9l%c3%a9ments">#</a>
 </h2>
@@ -6105,9 +6105,9 @@ modifier le style d’un élément ayant
 comme <code>id</code> <em>monElement</em> et donner la
 valeur <em>laValeur</em> à sa propriété <em>laPropriete</em> il faut
 utiliser la syntaxe suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> monElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(monElement);
-monElement.style.laPropriete <span style="color:#555">=</span> <span style="color:#c30">&#34;laValeur&#34;</span>;
-</code></pre></div><p>On note que les valeurs des propriétés sont des chaînes de caractères.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> monElement <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(monElement);
+</span></span><span style="display:flex;"><span>monElement.style.laPropriete <span style="color:#555">=</span> <span style="color:#c30">&#34;laValeur&#34;</span>;
+</span></span></code></pre></div><p>On note que les valeurs des propriétés sont des chaînes de caractères.</p>
 <ol>
 <li>Définissez une page HTML contenant un élément de
 balise <code>div</code> d&rsquo;identifiant <code>zoneTravail</code> et
@@ -6181,9 +6181,9 @@ de l&rsquo;image dans la page !</p>
 <p>Ainsi si dans une page une balise <code>img</code> a pour
 identifiant <code>monImage</code>, le code Javascript
 suivant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">var</span> elementImg <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;monImage&#34;</span>);
-elementImg.src <span style="color:#555">=</span> <span style="color:#c30">&#34;isn.png&#34;</span>;
-</code></pre></div><p>aura pour conséquence que dans la page HTML, l&rsquo;image correspondant au
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> elementImg <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;monImage&#34;</span>);
+</span></span><span style="display:flex;"><span>elementImg.src <span style="color:#555">=</span> <span style="color:#c30">&#34;isn.png&#34;</span>;
+</span></span></code></pre></div><p>aura pour conséquence que dans la page HTML, l&rsquo;image correspondant au
 fichier <code>isn.png</code> sera affichée dans
 l&rsquo;élément <code>monImage</code>, quelle que soit l&rsquo;image initialement présente
 (éventuellement aucune).</p>
@@ -6240,13 +6240,13 @@ contenu de l&rsquo;élément identifié en attribuant à sa
 propriété <code>innerHTML</code> la valeur :</p>
 <p>le contenu a été changé. On peut placer dans innerHTML de l&rsquo;HTML
 qui est interprété. Du gras ou une image par  exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>img src<span style="color:#555">=</span><span style="color:#c30">&#34;/uploads/docs/doc04/alan-turing.jpeg&#34;</span> alt<span style="color:#555">=</span><span style="color:#c30">&#34;Alan Turing&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/img&gt;</span>
-</code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>img src<span style="color:#555">=</span><span style="color:#c30">&#34;/uploads/docs/doc04/alan-turing.jpeg&#34;</span> alt<span style="color:#555">=</span><span style="color:#c30">&#34;Alan Turing&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/img&gt;</span>
+</span></span></code></pre></div><ol start="3">
 <li>
 <p>Testez.</p>
 </li>
 <li>
-<p>Reprenez et complétez la Manip' sur les conversions d&rsquo;unités de
+<p>Reprenez et complétez la Manip&rsquo; sur les conversions d&rsquo;unités de
 mesure de température pour que lors d&rsquo;un calcul de conversion, la
 page affiche un texte de la forme <code>la température _ccc_ en Celsius vaut _fff_ en Fahrenheit</code>.</p>
 </li>
@@ -6270,16 +6270,16 @@ style&rdquo; à chacun de ces éléments.</li>
 <li>Complétez la feuille de style en ajoutant pour le premier élément
 le couple propriété/valeur :</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">display<span style="color:#555">:</span> none;
-</code></pre></div><p>et pour le second le couple</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">display<span style="color:#555">:</span> block;
-</code></pre></div><p>(cette seconde valeur est la valeur par défaut pour les
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>display<span style="color:#555">:</span> none;
+</span></span></code></pre></div><p>et pour le second le couple</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>display<span style="color:#555">:</span> block;
+</span></span></code></pre></div><p>(cette seconde valeur est la valeur par défaut pour les
 blocs <code>div</code>)
 4. Rechargez la page. Que constatez-vous ?
 5. Ajoutez 2 autres éléments <code>div</code> identifiés et cette
 fois attribuez au premier la propriété :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">visibility<span style="color:#555">:</span> hidden;
-</code></pre></div><p>et au second</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>visibility<span style="color:#555">:</span> hidden;
+</span></span></code></pre></div><p>et au second</p>
 <pre><code>visibility: visible;
 </code></pre>
 <p>(cette seconde valeur est la valeur par défaut pour les éléments).
@@ -6304,8 +6304,8 @@ y avoir plusieurs abonnements pour une même fonction et plusieurs
 fonctions pour un même abonnement il est nécessaire de préciser à la
 fois le type de l&rsquo;événement et la fonction désabonnée. La
 syntaxe d&rsquo;un désabonnement est donc :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">element.removeEventListener(typeEvenement,fonctionDeclenchee)
-</code></pre></div><p>En s&rsquo;appuyant sur les travaux précédents, créez une page HTML avec
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>element.removeEventListener(typeEvenement,fonctionDeclenchee)
+</span></span></code></pre></div><p>En s&rsquo;appuyant sur les travaux précédents, créez une page HTML avec
 un bloc <code>div</code> identifié, telle que</p>
 <ol>
 <li>un clic sur cet élément lui attribue une couleur de fond
@@ -6339,7 +6339,7 @@ fois !&rdquo;,</li>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

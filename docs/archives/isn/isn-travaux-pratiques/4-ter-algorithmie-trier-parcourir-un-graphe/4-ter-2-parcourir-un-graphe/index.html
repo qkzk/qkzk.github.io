@@ -17,7 +17,7 @@ Vous partez de la page d&rsquo;accueil wikipedia.fr Vous devez parvenir à cette
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/4-ter-algorithmie-trier-parcourir-un-graphe/4-ter-2-parcourir-un-graphe/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5741,7 +5741,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5881,18 +5881,18 @@ Tester à la main sur les arbres 1 et 4 et s&rsquo;assurer que l&rsquo;algorithm
 <p><em>arbre1 = {1:[2,3],2:[4],3:[5],4:[],5:[]}</em>
 <em>arbre4 = {1:[2,3],2:[4,5],3:[6,7],4:[],5:[],6:[],7:[]}</em></p>
 <p>Solution en Python :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parcoursLargeur</span>(arbre, sommet):
-    f <span style="color:#555">=</span> []
-    f<span style="color:#555">.</span>append(sommet) <span style="color:#09f;font-style:italic"># ajoute à la fin de la liste</span>
-    <span style="color:#366">print</span> sommet
-    <span style="color:#069;font-weight:bold">while</span> <span style="color:#366">len</span>(f)<span style="color:#555">&gt;</span><span style="color:#f60">0</span>:
-    s <span style="color:#555">=</span> f[<span style="color:#f60">0</span>]
-    f <span style="color:#555">=</span> f[<span style="color:#f60">1</span>:]<span style="color:#09f;font-style:italic"># notation qui prend tous les elements de f à partir de l&#39;element 1</span>
-    <span style="color:#366">print</span> s
-    <span style="color:#069;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> arbre[s]:
-    <span style="color:#366">print</span> t
-    f<span style="color:#555">.</span>append(t)
-</code></pre></div><p>Tester cette fonction sur nos arbres1 et arbres4.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">parcoursLargeur</span>(arbre, sommet):
+</span></span><span style="display:flex;"><span>    f <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>append(sommet) <span style="color:#09f;font-style:italic"># ajoute à la fin de la liste</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span> sommet
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">while</span> <span style="color:#366">len</span>(f)<span style="color:#555">&gt;</span><span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>    s <span style="color:#555">=</span> f[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>    f <span style="color:#555">=</span> f[<span style="color:#f60">1</span>:]<span style="color:#09f;font-style:italic"># notation qui prend tous les elements de f à partir de l&#39;element 1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span> s
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> arbre[s]:
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span> t
+</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>append(t)
+</span></span></code></pre></div><p>Tester cette fonction sur nos arbres1 et arbres4.</p>
 <h3 id="le-parcours-en-largeur-pour-les-graphes">
   Le parcours en largeur pour les graphes
   <a class="anchor" href="#le-parcours-en-largeur-pour-les-graphes">#</a>
@@ -5930,7 +5930,7 @@ Testez le abondamment sur les exemples plus haut.</p>
 <p>Ce problème a ouvert une autre branche des mathématiques, elle aussi très féconde : la <strong>topologie</strong> (l&rsquo;étude des formes et de leurs propriétés).</p>
 <p>Les graphes sont omniprésents en informatique et dans toute théorie de l&rsquo;information.
 Certains problèmes de théorie des graphes (par exemple <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce">le voyageur de commerce</a>) n&rsquo;ont pas de solution simple et c&rsquo;est encore de nos jours un problème majeur.</p>
-<p>En spécialité mathématiques on étudie l'<a href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">algorithme de Djikstra</a> qui permet de déterminer le plus court chemin reliant deux sommets. On doit supposer que certains arcs ont des poids (pensez à la longueur totale d&rsquo;une route ou à un temps de transport entre deux villes).
+<p>En spécialité mathématiques on étudie l&rsquo;<a href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">algorithme de Djikstra</a> qui permet de déterminer le plus court chemin reliant deux sommets. On doit supposer que certains arcs ont des poids (pensez à la longueur totale d&rsquo;une route ou à un temps de transport entre deux villes).
 D&rsquo;autres algorithmes plus efficaces sont employés couramment, par exemple google maps propose un trajet efficace qui n&rsquo;est pas forcement le meilleur pour relier deux villes. Le célèbre <a href="https://fr.wikipedia.org/wiki/Algorithme_A*">algorithme A*</a> est un bon exemple de recherche à la fois efficace (mais pas toujours optimale !) et simple à mettre en oeuvre.</p>
 <p>S&rsquo;il voulait trouver absolument le meilleur il devrait sans doute parcourir énormément de chemins possibles&hellip; mais s&rsquo;il ne cherche qu&rsquo;un très bon chemin alors il peut limiter son parcours à des trajets cohérents (= qui le font s&rsquo;approcher du but).</p>
 <p>La théorie des graphes est encore un domaine de recherche très actif en mathématique, et en informatique car elle est appliquée partout : intelligence artificielle, chimie, physique théorique, biologie, logistique, télécommunication, cartographie etc.</p>
@@ -5968,7 +5968,7 @@ cf Wikipédia</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

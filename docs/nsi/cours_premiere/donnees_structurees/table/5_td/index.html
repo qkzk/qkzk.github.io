@@ -19,7 +19,7 @@ a. des virgules b. des points-virgules c. des tabulations d. des espaces
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/table/5_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5743,7 +5743,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5815,8 +5815,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf : <h3 id="pdf--pour-impressionuploadsdocsnsitable_csv5_tdpdf">
-  <a href="/uploads/docsnsi/table_csv/5_td.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf--pour-impressionuploadsdocsnsitable_csv5_tdpdf">
+  pdf : <a href="/uploads/docsnsi/table_csv/5_td.pdf">pour impression</a>
   <a class="anchor" href="#pdf--pour-impressionuploadsdocsnsitable_csv5_tdpdf">#</a>
 </h3>
 <h1 id="se-tester">
@@ -5893,11 +5893,11 @@ c. une cellule</p>
 <li>
 <p>Selon la définition ci-dessous, <code>select(T,&quot;'17' in ligne.values()&quot;)</code> renvoie
 une table :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">select</span>(table, critere):
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">test</span>(ligne):
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">eval</span>(critere)
-<span style="color:#069;font-weight:bold">return</span> [ligne <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> table <span style="color:#069;font-weight:bold">if</span> test(ligne)]
-</code></pre></div><p>a. vide
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">select</span>(table, critere):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">test</span>(ligne):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">eval</span>(critere)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">return</span> [ligne <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> table <span style="color:#069;font-weight:bold">if</span> test(ligne)]
+</span></span></code></pre></div><p>a. vide
 b. avec une ligne
 c. avec deux lignes
 d. avec trois lignes</p>
@@ -5927,21 +5927,21 @@ d. avec trois lignes</p>
 </table>
 <p>Selon la définition ci-dessous <code>jointure(T, U, 'Nom')</code> renvoie une table
 ayant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">copy</span> <span style="color:#069;font-weight:bold">import</span> deepcopy
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">jointure</span>(table1, table2, cle1, cle2<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
-    <span style="color:#069;font-weight:bold">if</span> cle2 <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>:
-        cle2 <span style="color:#555">=</span> cle1
-    new_table <span style="color:#555">=</span> []
-    <span style="color:#069;font-weight:bold">for</span> line1 <span style="color:#000;font-weight:bold">in</span> table1:
-        <span style="color:#069;font-weight:bold">for</span> line2 <span style="color:#000;font-weight:bold">in</span> table2:
-            <span style="color:#069;font-weight:bold">if</span> line1[cle1] <span style="color:#555">==</span> line2[cle2]:
-                new_line <span style="color:#555">=</span> deepcopy(line1)
-                <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> line2:
-                    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">!=</span> cle2:
-                        new_line[cle] <span style="color:#555">=</span> line2[cle]
-                new_table<span style="color:#555">.</span>append(new_line)
-    <span style="color:#069;font-weight:bold">return</span> new_table
-</code></pre></div><p>a. 3 lignes
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">copy</span> <span style="color:#069;font-weight:bold">import</span> deepcopy
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">jointure</span>(table1, table2, cle1, cle2<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> cle2 <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>        cle2 <span style="color:#555">=</span> cle1
+</span></span><span style="display:flex;"><span>    new_table <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> line1 <span style="color:#000;font-weight:bold">in</span> table1:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> line2 <span style="color:#000;font-weight:bold">in</span> table2:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">if</span> line1[cle1] <span style="color:#555">==</span> line2[cle2]:
+</span></span><span style="display:flex;"><span>                new_line <span style="color:#555">=</span> deepcopy(line1)
+</span></span><span style="display:flex;"><span>                <span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> line2:
+</span></span><span style="display:flex;"><span>                    <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#555">!=</span> cle2:
+</span></span><span style="display:flex;"><span>                        new_line[cle] <span style="color:#555">=</span> line2[cle]
+</span></span><span style="display:flex;"><span>                new_table<span style="color:#555">.</span>append(new_line)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> new_table
+</span></span></code></pre></div><p>a. 3 lignes
 b. 2 lignes
 c. 6 colonnes
 d. 5 colonnes
@@ -5967,16 +5967,16 @@ son nombre de lignes.</li>
   <a class="anchor" href="#4reconna%c3%aetre-une-fonction">#</a>
 </h2>
 <p>Quel est le rôle de la fonction suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">mystere</span>(t, cs):
-    t_p <span style="color:#555">=</span> []
-    <span style="color:#069;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">in</span> t:
-        new_l <span style="color:#555">=</span> {}
-        <span style="color:#069;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> l:
-            <span style="color:#069;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">in</span> cs:
-                new_l[c] <span style="color:#555">=</span> l[c]
-        t_p<span style="color:#555">.</span>append(new_l)
-    <span style="color:#069;font-weight:bold">return</span> t_p
-</code></pre></div><h2 id="5-tester-la-cohérence-dune-table">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">mystere</span>(t, cs):
+</span></span><span style="display:flex;"><span>    t_p <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> l <span style="color:#000;font-weight:bold">in</span> t:
+</span></span><span style="display:flex;"><span>        new_l <span style="color:#555">=</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> l:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">in</span> cs:
+</span></span><span style="display:flex;"><span>                new_l[c] <span style="color:#555">=</span> l[c]
+</span></span><span style="display:flex;"><span>        t_p<span style="color:#555">.</span>append(new_l)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> t_p
+</span></span></code></pre></div><h2 id="5-tester-la-cohérence-dune-table">
   5. Tester la cohérence d&rsquo;une table
   <a class="anchor" href="#5-tester-la-coh%c3%a9rence-dune-table">#</a>
 </h2>
@@ -5992,17 +5992,17 @@ dans une table.</li>
   <a class="anchor" href="#6-lier-tableur-fichier-csv-et-dictionnaires">#</a>
 </h2>
 <p>On dispose de la liste de dictionnaires suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">base_aliens <span style="color:#555">=</span> [
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zorglub&#39;</span>,    <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;1&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Blorx&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Euterpe&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;2&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Urxiz&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Aurora&#39;</span>,   <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;3&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zbleurdite&#39;</span>, <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;4&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Darnerane&#39;</span>,  <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;5&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Mulzo&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Helicon&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;6&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zzzzzzzz&#39;</span>,   <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Aurora&#39;</span>,   <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;7&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Arghh&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Nexon&#39;</span>,    <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;8&#39;</span>},
-    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Joranum&#39;</span>,    <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Euterpe&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;9&#39;</span>},]
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>base_aliens <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zorglub&#39;</span>,    <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;1&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Blorx&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Euterpe&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;2&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Urxiz&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Aurora&#39;</span>,   <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;3&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zbleurdite&#39;</span>, <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;4&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Darnerane&#39;</span>,  <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Trantor&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;5&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Mulzo&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Helicon&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;6&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Zzzzzzzz&#39;</span>,   <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Aurora&#39;</span>,   <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;7&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Arghh&#39;</span>,      <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;M&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Nexon&#39;</span>,    <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;8&#39;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;NomAlien&#39;</span>:  <span style="color:#c30">&#39;Joranum&#39;</span>,    <span style="color:#c30">&#39;Sexe&#39;</span>: <span style="color:#c30">&#39;F&#39;</span>, <span style="color:#c30">&#39;Planete&#39;</span>: <span style="color:#c30">&#39;Euterpe&#39;</span>,  <span style="color:#c30">&#39;NoCabine&#39;</span>: <span style="color:#c30">&#39;9&#39;</span>},]
+</span></span></code></pre></div><ol>
 <li>On travaille avec le tableur LibreOffice Calc de la suite LibreOffice qui
 produit des fichiers au format odt. Quelle est la première ligne de la
 feuille de calcul obtenue dans un tableau à partir de cette liste ?</li>
@@ -6053,11 +6053,11 @@ nom : <code>'./Groupe1.csv'</code></p>
 </tbody>
 </table>
 <p>On donne la fonction ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">csv</span>
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">depuis_csv</span>(fichier):
-    lecteur <span style="color:#555">=</span> csv<span style="color:#555">.</span>DictReader(<span style="color:#366">open</span>(fichier), <span style="color:#c30">&#39;r&#39;</span>):
-    <span style="color:#069;font-weight:bold">return</span> [<span style="color:#366">dict</span>(ligne) <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> lecteur]
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">csv</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">depuis_csv</span>(fichier):
+</span></span><span style="display:flex;"><span>    lecteur <span style="color:#555">=</span> csv<span style="color:#555">.</span>DictReader(<span style="color:#366">open</span>(fichier), <span style="color:#c30">&#39;r&#39;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> [<span style="color:#366">dict</span>(ligne) <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> lecteur]
+</span></span></code></pre></div><ol>
 <li>
 <p>Comment obtenir la liste de dictionnaires correspondante en utilisant cette
 fonction ?</p>
@@ -6116,18 +6116,18 @@ de dictionnaires), on peut utiliser la fonction <code>deepcopy</code> de la
 bibliothèque <code>copy</code>.
 La fonction à créer pourra donc avoir la structure suivante qu&rsquo;il s&rsquo;agit
 de compléter :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">copy</span> <span style="color:#069;font-weight:bold">import</span> deepcopy
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ajoute_moyenne_ligne</span>(table):
-    new_table <span style="color:#555">=</span> deepcopy(table)
-    <span style="color:#09f;font-style:italic"># compléter le code</span>
-
-    <span style="color:#069;font-weight:bold">return</span> table
-</code></pre></div><p>Pour obtenir l&rsquo;affichage d&rsquo;un flottant arrondi à deux chiffres, on peut
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">copy</span> <span style="color:#069;font-weight:bold">import</span> deepcopy
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ajoute_moyenne_ligne</span>(table):
+</span></span><span style="display:flex;"><span>    new_table <span style="color:#555">=</span> deepcopy(table)
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># compléter le code</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> table
+</span></span></code></pre></div><p>Pour obtenir l&rsquo;affichage d&rsquo;un flottant arrondi à deux chiffres, on peut
 utiliser la méthode <code>format</code>.
 Par exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;</span><span style="color:#a00">{:.2f}</span><span style="color:#c30">&#39;</span><span style="color:#555">.</span>format(<span style="color:#f60">314</span><span style="color:#555">/</span><span style="color:#f60">100</span>) <span style="color:#09f;font-style:italic"># .2f indique un flottant arrondi à 2 décimales</span>
-<span style="color:#c30">&#39;3.14&#39;</span>
-</code></pre></div><ol start="4">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c30">&#39;</span><span style="color:#a00">{:.2f}</span><span style="color:#c30">&#39;</span><span style="color:#555">.</span>format(<span style="color:#f60">314</span><span style="color:#555">/</span><span style="color:#f60">100</span>) <span style="color:#09f;font-style:italic"># .2f indique un flottant arrondi à 2 décimales</span>
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;3.14&#39;</span>
+</span></span></code></pre></div><ol start="4">
 <li>Ajouter une ligne qui contient les moyennes par matière.
 Vous devez obtenir la table suivante :</li>
 </ol>
@@ -6729,7 +6729,7 @@ la jointure effectuée à la question <strong>2.e</strong> entre <code>BaseAlien
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

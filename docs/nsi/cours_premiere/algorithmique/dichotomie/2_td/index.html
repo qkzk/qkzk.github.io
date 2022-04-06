@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/dichotomie/2_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5751,7 +5751,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5813,8 +5813,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf <h3 id="pdf-pour-impressionuploadsdocsnsialgodichodichotomie_tdpdf">
-  <a href="/uploads/docsnsi/algo/dicho/dichotomie_td.pdf">pour impression</a>
+  <article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsialgodichodichotomie_tdpdf">
+  pdf <a href="/uploads/docsnsi/algo/dicho/dichotomie_td.pdf">pour impression</a>
   <a class="anchor" href="#pdf-pour-impressionuploadsdocsnsialgodichodichotomie_tdpdf">#</a>
 </h3>
 <h1 id="recherche-dichotomique-dans-un-tableau-trié">
@@ -5841,22 +5841,22 @@ d&rsquo;itération d&rsquo;une recherche dichotomique ?</p>
 </h2>
 <p>On rappelle l&rsquo;algorithme de recherche dichotomique dans un tableau trié.</p>
 <p>On dispose d&rsquo;un tableau d&rsquo;éléments triés par ordre croissant.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fonction appartient(tableau, element)
-
-    gauche = 0
-    droite = dernier indice
-    trouvé = faux
-    # AVANT
-
-    Tant que gauche &lt;= droite et que trouvé = faux 
-        milieu = (gauche + droite) // 2
-        # ICI
-        si tableau[milieu] = element alors trouvé = vrai
-        sinon si tableau[milieu] &lt; element alors gauche = milieu + 1
-        sinon droite = milieu - 1
-        # LA
-    Retourner trouvé
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction appartient(tableau, element)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    gauche = 0
+</span></span><span style="display:flex;"><span>    droite = dernier indice
+</span></span><span style="display:flex;"><span>    trouvé = faux
+</span></span><span style="display:flex;"><span>    # AVANT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Tant que gauche &lt;= droite et que trouvé = faux 
+</span></span><span style="display:flex;"><span>        milieu = (gauche + droite) // 2
+</span></span><span style="display:flex;"><span>        # ICI
+</span></span><span style="display:flex;"><span>        si tableau[milieu] = element alors trouvé = vrai
+</span></span><span style="display:flex;"><span>        sinon si tableau[milieu] &lt; element alors gauche = milieu + 1
+</span></span><span style="display:flex;"><span>        sinon droite = milieu - 1
+</span></span><span style="display:flex;"><span>        # LA
+</span></span><span style="display:flex;"><span>    Retourner trouvé
+</span></span></code></pre></div><ol>
 <li>
 <p>a. Que retourne l&rsquo;appel <code>appartient ([1, 3, 5, 17, 17, 19], 3)</code> ?</p>
 <p>b. Compléter le tableau suivant pour l&rsquo;appel précédent.</p>
@@ -5959,19 +5959,19 @@ pas les indications de type et la documentation.</p>
 <li>
 <p>En vous aidant de la fonction précédente, écrire le code de la fonction
 suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">indice</span>(tableau: <span style="color:#366">list</span>, element: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
-    <span style="color:#c30">&#39;&#39;&#39;
-</span><span style="color:#c30">    Retourne l&#39;indice `i` tel que `tableau[i] == element` s&#39;il y en a un
-</span><span style="color:#c30">    sinon retourne -1.
-</span><span style="color:#c30">    Pré condition : ... A FAIRE
-</span><span style="color:#c30">    &#39;&#39;&#39;</span>
-    <span style="color:#09f;font-style:italic"># À FAIRE</span>
-
-<span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">3</span>) <span style="color:#555">==</span> <span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">4</span>) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">17</span>) <span style="color:#555">==</span> <span style="color:#f60">3</span> <span style="color:#000;font-weight:bold">or</span> \
-       indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">3</span>) <span style="color:#555">==</span> <span style="color:#f60">4</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">indice</span>(tableau: <span style="color:#366">list</span>, element: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Retourne l&#39;indice `i` tel que `tableau[i] == element` s&#39;il y en a un
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    sinon retourne -1.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Pré condition : ... A FAIRE
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># À FAIRE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">3</span>) <span style="color:#555">==</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">4</span>) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">17</span>) <span style="color:#555">==</span> <span style="color:#f60">3</span> <span style="color:#000;font-weight:bold">or</span> \
+</span></span><span style="display:flex;"><span>       indice([<span style="color:#f60">1</span>, <span style="color:#f60">5</span>, <span style="color:#f60">17</span>, <span style="color:#f60">17</span>, <span style="color:#f60">19</span>], <span style="color:#f60">3</span>) <span style="color:#555">==</span> <span style="color:#f60">4</span>
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="4-dichotomie-et-présence-dex-aequo">
   4. Dichotomie et présence d&rsquo;ex aequo
@@ -5996,9 +5996,9 @@ Quel sera la valeur de <code>t</code> après l&rsquo;instruction : <code>t.inser
 </li>
 <li>
 <p>De manière générale, on considère un tableau <code>t</code> et les deux instructions suivantes :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">indice <span style="color:#555">=</span> bisect_left(t, valeur)
-t<span style="color:#555">.</span>insert(indice, valeur)
-</code></pre></div><p>Que peut-on dire de l&rsquo;état de <code>t</code> après ces instructions ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>indice <span style="color:#555">=</span> bisect_left(t, valeur)
+</span></span><span style="display:flex;"><span>t<span style="color:#555">.</span>insert(indice, valeur)
+</span></span></code></pre></div><p>Que peut-on dire de l&rsquo;état de <code>t</code> après ces instructions ?</p>
 </li>
 <li>
 <p>Quel-est le rôle de la fonction <code>bisect_left</code> ?</p>
@@ -6053,11 +6053,11 @@ mais ne permet pas non plus d&rsquo;assurer qu&rsquo;il y en a une).</p>
 <li>
 <p>Tester la méthode de résolution pour une équation dont la solution exacte
 est connue par exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fonction</span>(x):
-    <span style="color:#069;font-weight:bold">return</span> (x<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">*</span> (x<span style="color:#555">+</span><span style="color:#f60">3</span>) <span style="color:#555">**</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> (x<span style="color:#555">-</span><span style="color:#f60">4</span>)
-
-dichotomie(fonction, <span style="color:#f60">0</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1e-2</span>)
-</code></pre></div><p>La seule racine entre $0$ et $2$ est $1$. Vérifier que la valeur approchée
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fonction</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> (x<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">*</span> (x<span style="color:#555">+</span><span style="color:#f60">3</span>) <span style="color:#555">**</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> (x<span style="color:#555">-</span><span style="color:#f60">4</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dichotomie(fonction, <span style="color:#f60">0</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1e-2</span>)
+</span></span></code></pre></div><p>La seule racine entre $0$ et $2$ est $1$. Vérifier que la valeur approchée
 de la racine est correcte.</p>
 </li>
 <li>
@@ -6085,15 +6085,15 @@ etait maintenant $10^{-6}$ ?</p>
 <p><strong>Passer une fonction en paramètre d&rsquo;une autre fonction</strong></p>
 <p>On peut passer une fonction en paramètre d&rsquo;une autre fonction en Python.
 Par exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">carre</span>(x):
-    <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">**</span> <span style="color:#f60">2</span>
-
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">appliquer</span>(f, x):
-    <span style="color:#069;font-weight:bold">return</span> f(x)
-
-<span style="color:#555">&gt;&gt;&gt;</span> appliquer(carre, <span style="color:#f60">3</span>)
-<span style="color:#f60">9</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">carre</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> x <span style="color:#555">**</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">appliquer</span>(f, x):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> f(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> appliquer(carre, <span style="color:#f60">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f60">9</span>
+</span></span></code></pre></div></li>
 <li>
 <p>et 3. <strong>Programmer un algorithme itératif</strong></p>
 <p>Après avoir vérifié que $f(a)f(b) \leq 0$ (si ce n&rsquo;est pas le cas, la
@@ -6142,7 +6142,7 @@ boucle.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

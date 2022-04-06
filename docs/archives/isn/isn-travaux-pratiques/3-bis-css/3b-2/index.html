@@ -18,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/3-bis-css/3b-2/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5754,7 +5754,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5850,21 +5850,21 @@ dans un fichier écrit dans un format appelé css, pour <em>Cascading Style Shee
 <p>La structure et les éléments d&rsquo;une page html sont définis par les balises. C&rsquo;est donc
 sur ces éléments balises que porte un style défini par un ensemble de couples <em>(propriété,valeur)</em>. Le langage CSS définit la syntaxe d&rsquo;écriture de ces styles. Celle-ci est simple : on précise le type d&rsquo;élément concerné, puis on énumère entre accolade et séparés par des <code>;</code> les couples sous le forme <code>_propriété : valeur_</code>. Il &ldquo;suffit&rdquo; donc de    connaître les propriétés qui s&rsquo;appliquent à l&rsquo;élément concerné et les valeurs possibles.</p>
 <p>Voici un premier exemple de style qui s&rsquo;applique aux éléments marqués par les balises <code>h2</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#309;font-weight:bold">h2</span> {
-   <span style="color:#069;font-weight:bold">font-size</span>: <span style="color:#f60">16</span><span style="color:#078;font-weight:bold">pt</span>;
-   <span style="color:#069;font-weight:bold">color</span>: <span style="color:#069;font-weight:bold">yellow</span>;
-   <span style="color:#069;font-weight:bold">background-color</span>: <span style="color:#f60">#6A0888</span>;
-}
-</code></pre></div><p>On comprend sans difficulté les propriétés utilisées et leur~~~s valeurs : la taille de la police fixée à 16pt, la couleur d&rsquo;écriture fixée à la constante prédéfinie <code>yellow</code> et la couleur d&rsquo;arrière-plan fixée à <code>#6A0888</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#309;font-weight:bold">h2</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">font-size</span>: <span style="color:#f60">16</span><span style="color:#078;font-weight:bold">pt</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">color</span>: <span style="color:#069;font-weight:bold">yellow</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#069;font-weight:bold">background-color</span>: <span style="color:#f60">#6A0888</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>On comprend sans difficulté les propriétés utilisées et leur~~~s valeurs : la taille de la police fixée à 16pt, la couleur d&rsquo;écriture fixée à la constante prédéfinie <code>yellow</code> et la couleur d&rsquo;arrière-plan fixée à <code>#6A0888</code>.</p>
 <p>Pour appliquer ce style à un document html, il faut d&rsquo;abord créer un fichier contenant ce code.</p>
 <p>Sauvegardez ce texte dans un fichier que vous   appellerez <code>styleCSS1.css</code> .</p>
 <p>On peut également utiliser la syntaxe</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">style</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span><span style="color:#555">&gt;</span>
-  @<span style="color:#069;font-weight:bold">import</span> <span style="color:#309;font-weight:bold">url</span><span style="color:#555">(</span><span style="color:#c30">&#39;styleCSS1.css&#39;</span><span style="color:#555">)</span>;
-<span style="color:#555">&lt;/</span><span style="color:#309;font-weight:bold">style</span><span style="color:#555">&gt;</span>
-</code></pre></div><p>Il faut ensuite préciser dans le document que l&rsquo;on souhaite utiliser cette feuille de style. Une manière de procéder qui permet l&rsquo;application du principe de séparation du contenu et de la forme est d&rsquo;ajouter dans la partie <code>head</code> de la page html la ligne :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">link</span> <span style="color:#309;font-weight:bold">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;styleCSS1.css&#34;</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span> <span style="color:#309;font-weight:bold">rel</span><span style="color:#555">=</span><span style="color:#c30">&#34;stylesheet&#34;</span><span style="color:#555">&gt;&lt;/</span><span style="color:#309;font-weight:bold">link</span><span style="color:#555">&gt;</span>
-</code></pre></div><p>Reprenez le
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">style</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span><span style="color:#555">&gt;</span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#069;font-weight:bold">import</span> <span style="color:#309;font-weight:bold">url</span><span style="color:#555">(</span><span style="color:#c30">&#39;styleCSS1.css&#39;</span><span style="color:#555">)</span>;
+</span></span><span style="display:flex;"><span><span style="color:#555">&lt;/</span><span style="color:#309;font-weight:bold">style</span><span style="color:#555">&gt;</span>
+</span></span></code></pre></div><p>Il faut ensuite préciser dans le document que l&rsquo;on souhaite utiliser cette feuille de style. Une manière de procéder qui permet l&rsquo;application du principe de séparation du contenu et de la forme est d&rsquo;ajouter dans la partie <code>head</code> de la page html la ligne :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#555">&lt;</span><span style="color:#309;font-weight:bold">link</span> <span style="color:#309;font-weight:bold">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;styleCSS1.css&#34;</span> <span style="color:#309;font-weight:bold">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/css&#34;</span> <span style="color:#309;font-weight:bold">rel</span><span style="color:#555">=</span><span style="color:#c30">&#34;stylesheet&#34;</span><span style="color:#555">&gt;&lt;/</span><span style="color:#309;font-weight:bold">link</span><span style="color:#555">&gt;</span>
+</span></span></code></pre></div><p>Reprenez le
 document <a href="/uploads/docs/doc03b/ex_html2.html">ex_html2.html</a>
 que vous avez corrigé, appliquez-lui la feuille de style du
 fichier <code>styleCSS1.css</code> (que vous aurez placé dans le même
@@ -6122,7 +6122,7 @@ border : 1px solid red;         // fixe dans l&rsquo;ordre width, style, color p
 </ul>
 <p>Le terme <em>Cascade</em> de l&rsquo;acronyme <em>CSS</em> signifie que certaines
 propriétés d&rsquo;un élément s&rsquo;appliquent sur les autres éléments qu&rsquo;il
-contient (on rencontre le terme d'<em>héritage</em> de propriété pour
+contient (on rencontre le terme d&rsquo;<em>héritage</em> de propriété pour
 évoquer cette notion).</p>
 <p>Ainsi si on attribue une valeur à  la
 propriété <code>background-color</code> de l&rsquo;élément <code>body</code>
@@ -6133,7 +6133,7 @@ balises <code>&lt;body&gt;</code> et <code>&lt;/body&gt;</code>.
 A moins bien sûr que cette propriété ne soit explicitement redéfinie
 pour un de ces éléments.</p>
 <p>Vous serez peut-être amenés dans les documentations que vous
-lirez à rencontrer le terme d'<em>élément parent</em>. Ce terme désigne
+lirez à rencontrer le terme d&rsquo;<em>élément parent</em>. Ce terme désigne
 l&rsquo;élément dans lequel est contenu l&rsquo;élément
 considéré : <code>body</code> est l&rsquo;élément parent des
 balises <code>h1</code> dans votre document.</p>
@@ -6198,7 +6198,7 @@ qu&rsquo;un élève curieux pourra découvrir seul.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

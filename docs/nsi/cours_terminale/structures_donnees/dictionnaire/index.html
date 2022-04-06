@@ -21,7 +21,7 @@ Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/dictionnaire/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5757,7 +5757,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5840,8 +5840,8 @@ MathJax.Hub.Config({
   <article class="markdown"><!-- 
 pandoc -t beamer --slide-level=2
 -->
-pdf : pour <h3 id="pdf--pour-impressionuploadsdocnsitaledictionnairecourspdf">
-  <a href="/uploads/docnsitale/dictionnaire/cours.pdf">impression</a>
+<h3 id="pdf--pour-impressionuploadsdocnsitaledictionnairecourspdf">
+  pdf : pour <a href="/uploads/docnsitale/dictionnaire/cours.pdf">impression</a>
   <a class="anchor" href="#pdf--pour-impressionuploadsdocnsitaledictionnairecourspdf">#</a>
 </h3>
 <h1 id="structure-de-donnée--dictionnaire">
@@ -5923,26 +5923,26 @@ localiser rapidement les paires <code>(clé, valeur)</code></p>
 <li>
 <p>On ajoute le couple <code>(clé, valeur)</code> :</p>
 <p>On calcule le hash de la <code>clé</code> (en choisissant une fonction de hachage
-adaptée). Ce nombre devient l'<code>indice</code> où sera enregistré la paire.</p>
+adaptée). Ce nombre devient l&rsquo;<code>indice</code> où sera enregistré la paire.</p>
 </li>
 </ol>
 <p>Exemple</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> contenu <span style="color:#555">=</span> [<span style="color:#069;font-weight:bold">None</span>] <span style="color:#555">*</span> <span style="color:#f60">1024</span>
-<span style="color:#555">&gt;&gt;&gt;</span> hachage(<span style="color:#c30">&#39;clé&#39;</span>)
-<span style="color:#f60">5</span>
-<span style="color:#555">&gt;&gt;&gt;</span> contenu[<span style="color:#f60">5</span>] <span style="color:#555">=</span> (<span style="color:#c30">&#39;clé&#39;</span>, <span style="color:#c30">&#39;valeur&#39;</span>)
-<span style="color:#555">&gt;&gt;&gt;</span> contenu
-[<span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, (clé, valeur), <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#555">...</span>]
-<span style="color:#555">&gt;&gt;&gt;</span> contenu[ hachage((<span style="color:#c30">&#39;clé&#39;</span>)) ][ <span style="color:#f60">1</span> ]
-<span style="color:#c30">&#39;valeur&#39;</span>
-</code></pre></div><h3 id="2-implantation-inefficace-avec-des-listes">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> contenu <span style="color:#555">=</span> [<span style="color:#069;font-weight:bold">None</span>] <span style="color:#555">*</span> <span style="color:#f60">1024</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> hachage(<span style="color:#c30">&#39;clé&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> contenu[<span style="color:#f60">5</span>] <span style="color:#555">=</span> (<span style="color:#c30">&#39;clé&#39;</span>, <span style="color:#c30">&#39;valeur&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> contenu
+</span></span><span style="display:flex;"><span>[<span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, (clé, valeur), <span style="color:#069;font-weight:bold">None</span>, <span style="color:#069;font-weight:bold">None</span>, <span style="color:#555">...</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> contenu[ hachage((<span style="color:#c30">&#39;clé&#39;</span>)) ][ <span style="color:#f60">1</span> ]
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;valeur&#39;</span>
+</span></span></code></pre></div><h3 id="2-implantation-inefficace-avec-des-listes">
   2. Implantation inefficace avec des listes
   <a class="anchor" href="#2-implantation-inefficace-avec-des-listes">#</a>
 </h3>
 <p>Le principe est beaucoup plus simple.</p>
 <p>Les données sont enregistrées dans une liste :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">contenu <span style="color:#555">=</span> [(<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#f60">1</span>), (<span style="color:#c30">&#39;b&#39;</span>, <span style="color:#f60">17</span>), <span style="color:#555">...</span>]
-</code></pre></div><p>Pour chaque élément de <code>contenu</code>, par exemple <code>('a', 1)</code>, le premier élément
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>contenu <span style="color:#555">=</span> [(<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#f60">1</span>), (<span style="color:#c30">&#39;b&#39;</span>, <span style="color:#f60">17</span>), <span style="color:#555">...</span>]
+</span></span></code></pre></div><p>Pour chaque élément de <code>contenu</code>, par exemple <code>('a', 1)</code>, le premier élément
 désigne la clé et le second la valeur. Ainsi <code>a</code> est la clé et <code>1</code> est la valeur.</p>
 <p>Lors de l&rsquo;ajout, on doit vérifier (en parcourant la liste) qu&rsquo;elle ne contient
 pas déjà une <code>clé</code> à ce nom.</p>
@@ -6012,20 +6012,20 @@ d&rsquo;entrée</p>
 <li>
 <p>Les fonctions de hachage cryptographique
 Le critère fondamental est l&rsquo;impossibilité à inverser la fonction.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">hash</span>(<span style="color:#a00;background-color:#faa">???</span>)
-<span style="color:#f60">12345987</span>
-</code></pre></div><p>Quelle est la donnée en entrée qui produit ce <code>hash</code> ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">hash</span>(<span style="color:#a00;background-color:#faa">???</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f60">12345987</span>
+</span></span></code></pre></div><p>Quelle est la donnée en entrée qui produit ce <code>hash</code> ?</p>
 </li>
 </ol>
 <hr>
 <p>Pour créer des dictionnaires, on n&rsquo;a pas besoin d&rsquo;obtenir TOUJOURS la même
 sortie. Ainsi, lors de deux exécutions d&rsquo;un même programme, la fonction python
 <code>hash</code> ne renvoie pas les mêmes valeurs :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python -c <span style="color:#c30">&#34;print(hash(&#39;a&#39;))&#34;</span>
-<span style="color:#f60">2976264172894533586</span>
-$ python -c <span style="color:#c30">&#34;print(hash(&#39;a&#39;))&#34;</span>
-<span style="color:#f60">1904027818818373130</span>
-</code></pre></div><p>Par contre, durant une même exécution, la fonction <code>hash</code> renvoie toujours
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python -c <span style="color:#c30">&#34;print(hash(&#39;a&#39;))&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">2976264172894533586</span>
+</span></span><span style="display:flex;"><span>$ python -c <span style="color:#c30">&#34;print(hash(&#39;a&#39;))&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">1904027818818373130</span>
+</span></span></code></pre></div><p>Par contre, durant une même exécution, la fonction <code>hash</code> renvoie toujours
 la même valeur. Cette propriété permet :</p>
 <ol>
 <li>de créer des dictionnaires utilisant cette fonction</li>
@@ -6044,12 +6044,11 @@ même fonction.</p>
 <li>Si elle trouve le même hash, le document est beaucoup plus sûr.</li>
 </ol>
 <p>L&rsquo;édition d&rsquo;un seul bit dans le document provoque un hash totalement différent :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#366">echo</span> <span style="color:#c30">&#34;bonjour&#34;</span> | sha1sum
-e7bc546316d2d0ec13a2d3117b13468f5e939f95  -
-$ <span style="color:#366">echo</span> <span style="color:#c30">&#34;bonjouR&#34;</span> | sha1sum
-f6849d79cbdb3be947d586ba195fd4584107fa9c  -
-
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#366">echo</span> <span style="color:#c30">&#34;bonjour&#34;</span> | sha1sum
+</span></span><span style="display:flex;"><span>e7bc546316d2d0ec13a2d3117b13468f5e939f95  -
+</span></span><span style="display:flex;"><span>$ <span style="color:#366">echo</span> <span style="color:#c30">&#34;bonjouR&#34;</span> | sha1sum
+</span></span><span style="display:flex;"><span>f6849d79cbdb3be947d586ba195fd4584107fa9c  -
+</span></span></code></pre></div><ul>
 <li>
 <p><code>sha1</code> est un algorithme de hachage cryptographique qui est maintenant désuet,
 il est toujours utilisé par Git pour créer un dictionnaire entre les noms
@@ -6075,11 +6074,11 @@ et c&rsquo;est généralement très difficile.</p>
 </h2>
 <p>Elle prend une unique paramètre (d&rsquo;un type non mutable) et renvoie un entier.
 Python l&rsquo;utilise en interne pour la structure de donnée <code>dict</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&gt;&gt;&gt;</span> {[<span style="color:#f60">1</span>], <span style="color:#f60">2</span>} <span style="color:#09f;font-style:italic"># plante parce que la clé &#39;[1]&#39; est une liste mutable</span>
-Traceback (most recent call last):
-  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
-<span style="color:#c00;font-weight:bold">TypeError</span>: unhashable <span style="color:#366">type</span>: <span style="color:#c30">&#39;list&#39;</span>
-</code></pre></div><p>En interne elle appelle la méthode <code>__hash__</code> du type d&rsquo;entrée.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> {[<span style="color:#f60">1</span>], <span style="color:#f60">2</span>} <span style="color:#09f;font-style:italic"># plante parce que la clé &#39;[1]&#39; est une liste mutable</span>
+</span></span><span style="display:flex;"><span>Traceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c00;font-weight:bold">TypeError</span>: unhashable <span style="color:#366">type</span>: <span style="color:#c30">&#39;list&#39;</span>
+</span></span></code></pre></div><p>En interne elle appelle la méthode <code>__hash__</code> du type d&rsquo;entrée.</p>
 <p>Mais comment c&rsquo;est programmé en interne ?</p>
 <p>Comme le reste des fonctions natives, le code est en C.</p>
 <p>Cette <a href="https://stackoverflow.com/questions/2070276/where-can-i-find-source-or-algorithm-of-pythons-hash-function">discussion</a>
@@ -6167,7 +6166,7 @@ dans le cas de SHA-512, ce qui « limite » la taille des messages à traiter à
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

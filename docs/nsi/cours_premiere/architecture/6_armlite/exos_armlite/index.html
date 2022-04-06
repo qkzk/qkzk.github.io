@@ -19,7 +19,7 @@ MOV R0, #25 ADD R1, R0, #12  RO contient 25 R1 contient $25&#43;12=37$  Ecrit 1 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/exos_armlite/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5755,7 +5755,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5824,9 +5824,9 @@ MathJax.Hub.Config({
 <p>À chaque fois, on veut connaître l&rsquo;état de tous les registres modifiés durant le programme à la fin de celui ci.</p>
 <p>Lorsque le registre n&rsquo;est pas modifié, inutile de le préciser.</p>
 <p>Exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>25
-ADD R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>12
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>25
+</span></span><span style="display:flex;"><span>ADD R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>12
+</span></span></code></pre></div><ul>
 <li><code>RO</code> contient 25</li>
 <li><code>R1</code> contient $25+12=37$</li>
 </ul>
@@ -5835,62 +5835,62 @@ ADD R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <spa
   <a class="anchor" href="#ecrit-1---mnemonique">#</a>
 </h2>
 <p>Remplacer chaque instruction suivante par son mnemonique puis dérouler le programme pas à pas.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    Charger la valeur 2 dans le registre 3
-    Charger la valeur 5 dans le registre 1
-    Ajouter les registres 3 et 1 et enregistrer dans le registre 2
-    Soustraire 25 du registre 2 et enregistrer dans le registre 1
-    Comparer les registres 3 et 1
-    Si la comparaison est différente, sauter à FIN
-    Charger la valeur 1 dans le registre 2
-FIN:
-    arrêter le programme
-</code></pre></div><p>Quels sont les états des registres ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    Charger la valeur 2 dans le registre 3
+</span></span><span style="display:flex;"><span>    Charger la valeur 5 dans le registre 1
+</span></span><span style="display:flex;"><span>    Ajouter les registres 3 et 1 et enregistrer dans le registre 2
+</span></span><span style="display:flex;"><span>    Soustraire 25 du registre 2 et enregistrer dans le registre 1
+</span></span><span style="display:flex;"><span>    Comparer les registres 3 et 1
+</span></span><span style="display:flex;"><span>    Si la comparaison est différente, sauter à FIN
+</span></span><span style="display:flex;"><span>    Charger la valeur 1 dans le registre 2
+</span></span><span style="display:flex;"><span>FIN:
+</span></span><span style="display:flex;"><span>    arrêter le programme
+</span></span></code></pre></div><p>Quels sont les états des registres ?</p>
 <h2 id="ecrit-2---dérouler-et-traduire">
   Ecrit 2 - Dérouler et traduire
   <a class="anchor" href="#ecrit-2---d%c3%a9rouler-et-traduire">#</a>
 </h2>
 <p>Dérouler le programme suivant, noter les états finaux des variables <code>x, y, z</code> puis le traduire en assembleur
 et recommencer.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#555">=</span> <span style="color:#f60">8</span>
-y <span style="color:#555">=</span> <span style="color:#f60">12</span>
-z <span style="color:#555">=</span> x <span style="color:#555">+</span> y
-<span style="color:#069;font-weight:bold">if</span> z <span style="color:#555">==</span> x:
-  x <span style="color:#555">=</span> y
-<span style="color:#069;font-weight:bold">else</span>:
-  x <span style="color:#555">=</span> z
-</code></pre></div><h2 id="ecrit-3---traduire-et-dérouler">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#555">=</span> <span style="color:#f60">8</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#555">=</span> <span style="color:#f60">12</span>
+</span></span><span style="display:flex;"><span>z <span style="color:#555">=</span> x <span style="color:#555">+</span> y
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> z <span style="color:#555">==</span> x:
+</span></span><span style="display:flex;"><span>  x <span style="color:#555">=</span> y
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>  x <span style="color:#555">=</span> z
+</span></span></code></pre></div><h2 id="ecrit-3---traduire-et-dérouler">
   Ecrit 3 - Traduire et dérouler
   <a class="anchor" href="#ecrit-3---traduire-et-d%c3%a9rouler">#</a>
 </h2>
 <p>Traduire le programme suivant en langage naturel et le dérouler ligne par ligne.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    MOV R1, #10
-    MOV R2, #12
-    ADD R3, R2, R1
-    CMP R1, R2
-    BNE Different
-    SUB R3, R2, R1
-    B Fin
-Different:
-    SUB R2, R1, R3
-Fin:
-    HALT
-</code></pre></div><h2 id="ecrit-4---traduire-et-dérouler-suite">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    MOV R1, #10
+</span></span><span style="display:flex;"><span>    MOV R2, #12
+</span></span><span style="display:flex;"><span>    ADD R3, R2, R1
+</span></span><span style="display:flex;"><span>    CMP R1, R2
+</span></span><span style="display:flex;"><span>    BNE Different
+</span></span><span style="display:flex;"><span>    SUB R3, R2, R1
+</span></span><span style="display:flex;"><span>    B Fin
+</span></span><span style="display:flex;"><span>Different:
+</span></span><span style="display:flex;"><span>    SUB R2, R1, R3
+</span></span><span style="display:flex;"><span>Fin:
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><h2 id="ecrit-4---traduire-et-dérouler-suite">
   Ecrit 4 - Traduire et dérouler (suite)
   <a class="anchor" href="#ecrit-4---traduire-et-d%c3%a9rouler-suite">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-       LDR R1<span style="color:#555">,</span> a
-       LDR R2<span style="color:#555">,</span> b
-       ADD R3<span style="color:#555">,</span> R2<span style="color:#555">,</span> R1
-       STR R3<span style="color:#555">,</span> a
-       LDR R1<span style="color:#555">,</span> a
-       LDR R2<span style="color:#555">,</span> b
-       SUB R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2
-       STR R3<span style="color:#555">,</span> a
-       HALT
- a<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 42
- b<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 20
-</code></pre></div><p>Dérouler le programme suivant, on notera l&rsquo;état de la mémoire et des registres au fur et à mesure.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       LDR R1<span style="color:#555">,</span> a
+</span></span><span style="display:flex;"><span>       LDR R2<span style="color:#555">,</span> b
+</span></span><span style="display:flex;"><span>       ADD R3<span style="color:#555">,</span> R2<span style="color:#555">,</span> R1
+</span></span><span style="display:flex;"><span>       STR R3<span style="color:#555">,</span> a
+</span></span><span style="display:flex;"><span>       LDR R1<span style="color:#555">,</span> a
+</span></span><span style="display:flex;"><span>       LDR R2<span style="color:#555">,</span> b
+</span></span><span style="display:flex;"><span>       SUB R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2
+</span></span><span style="display:flex;"><span>       STR R3<span style="color:#555">,</span> a
+</span></span><span style="display:flex;"><span>       HALT
+</span></span><span style="display:flex;"><span> a<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 42
+</span></span><span style="display:flex;"><span> b<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 20
+</span></span></code></pre></div><p>Dérouler le programme suivant, on notera l&rsquo;état de la mémoire et des registres au fur et à mesure.</p>
 <h2 id="ecrit-5---boucle">
   Ecrit 5 - Boucle
   <a class="anchor" href="#ecrit-5---boucle">#</a>
@@ -5898,17 +5898,17 @@ Fin:
 <p>Il existe de nombreuses manières d&rsquo;écrire une boucle en assembleur.</p>
 <p>Le principe consiste à renvoyer à la même adresse tant qu&rsquo;une condition n&rsquo;est
 pas remplie.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    MOV R1, #0
-    MOV R2, #1
-    MOV R3, #4
-Boucle:
-    CMP R1, R3
-    BEQ Fin
-    ADD R1, R1, R2
-    B Boucle
-Fin:
-    HALT
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    MOV R1, #0
+</span></span><span style="display:flex;"><span>    MOV R2, #1
+</span></span><span style="display:flex;"><span>    MOV R3, #4
+</span></span><span style="display:flex;"><span>Boucle:
+</span></span><span style="display:flex;"><span>    CMP R1, R3
+</span></span><span style="display:flex;"><span>    BEQ Fin
+</span></span><span style="display:flex;"><span>    ADD R1, R1, R2
+</span></span><span style="display:flex;"><span>    B Boucle
+</span></span><span style="display:flex;"><span>Fin:
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><ol>
 <li>Dérouler le programme précédent pas à pas. Combien de fois les instructions
 entre <code>Boucle:</code> et <code>Fin:</code> seront-elles exécutées ?</li>
 <li>Modifier le programme afin que 10 tours de boucle soient réalisés.</li>
@@ -5920,10 +5920,10 @@ entre <code>Boucle:</code> et <code>Fin:</code> seront-elles exécutées ?</li>
 </h2>
 <p>Voici un programme Python qui utilise une boucle pour calculer
 un montant après 10 ans sur un compte rapportant 150€ d&rsquo;intérêts annuels.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">capital <span style="color:#555">=</span> <span style="color:#f60">2000</span>
-<span style="color:#069;font-weight:bold">for</span> annee <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">10</span>);
-  capital <span style="color:#555">+=</span> <span style="color:#f60">150</span>
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>capital <span style="color:#555">=</span> <span style="color:#f60">2000</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> annee <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">10</span>);
+</span></span><span style="display:flex;"><span>  capital <span style="color:#555">+=</span> <span style="color:#f60">150</span>
+</span></span></code></pre></div><ol>
 <li>Quel est le montant de <code>capital</code> après l&rsquo;exécution du programme ?</li>
 <li>Traduire ce programme en assembleur.</li>
 </ol>
@@ -5933,13 +5933,13 @@ un montant après 10 ans sur un compte rapportant 150€ d&rsquo;intérêts annu
 </h2>
 <p>Voici un programme qui compte le nombre d&rsquo;années nécessaires pour doubler
 un capital.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">capital <span style="color:#555">=</span> <span style="color:#f60">3000</span>
-double <span style="color:#555">=</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> capital
-annee <span style="color:#555">=</span> <span style="color:#f60">0</span>
-<span style="color:#069;font-weight:bold">while</span> capital <span style="color:#555">&lt;</span> double:
-  capital <span style="color:#555">+=</span> <span style="color:#f60">150</span>
-  annee <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>capital <span style="color:#555">=</span> <span style="color:#f60">3000</span>
+</span></span><span style="display:flex;"><span>double <span style="color:#555">=</span> <span style="color:#f60">2</span> <span style="color:#555">*</span> capital
+</span></span><span style="display:flex;"><span>annee <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> capital <span style="color:#555">&lt;</span> double:
+</span></span><span style="display:flex;"><span>  capital <span style="color:#555">+=</span> <span style="color:#f60">150</span>
+</span></span><span style="display:flex;"><span>  annee <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</span></span></code></pre></div><ol>
 <li>Combien d&rsquo;années sont nécessaires ? Résoudre mathématiquement la question.</li>
 <li>Faire tourner en Python en le programmant sur votre calculatrice.
 Ajouter les instructions nécessaires pour consulter le solde final
@@ -5961,19 +5961,19 @@ de multiplier deux entiers.</p>
 </ol>
 <p>Compléter le programme suivant afin qu&rsquo;il réalise le produit $3 \times 12$</p>
 <p>R1: 3, R2: 12, R3: résultat de la multiplication, R4: nombre d&rsquo;additions déjà réalisées.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    MOV R1, #3
-    MOV R2, #12
-    MOV R3, #0
-    MOV R4, #0
-  Produit:
-    CMP R4, R2
-    BEQ Fin
-    ADD R3, R3, R1
-    ...
-    B Produit
-Fin:
-    HALT
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    MOV R1, #3
+</span></span><span style="display:flex;"><span>    MOV R2, #12
+</span></span><span style="display:flex;"><span>    MOV R3, #0
+</span></span><span style="display:flex;"><span>    MOV R4, #0
+</span></span><span style="display:flex;"><span>  Produit:
+</span></span><span style="display:flex;"><span>    CMP R4, R2
+</span></span><span style="display:flex;"><span>    BEQ Fin
+</span></span><span style="display:flex;"><span>    ADD R3, R3, R1
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    B Produit
+</span></span><span style="display:flex;"><span>Fin:
+</span></span><span style="display:flex;"><span>    HALT
+</span></span></code></pre></div><ol start="2">
 <li>En cherchant à minimiser le nombre d&rsquo;instruction</li>
 </ol>
 <p>Il est préférable de réaliser $12 + 12 + 12$ que $3+ 3 + \cdots + 3$.</p>
@@ -6003,34 +6003,34 @@ deux registres supplémentaires.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// R1: a
-// R2: b
-// R3: a * b
-// R4: compteur de tour
-// R5: temp
-      LDR R1, a
-      LDR R2, b
-      MOV R3, #0
-      MOV R4, #0
-      CMP ...
-      BLT Petit 
-      B Produit
-Petit:
-      ...
-      ...
-      ...
-      B Produit
-Produit:
-      CMP R4, R2
-      BEQ Fin
-      ...
-      ...
-      B Produit
-Fin:
-      HALT
-a:    .WORD 12
-b:    .WORD 3
-</code></pre></div><p>Compléter le programme suivant. Vérifier qu&rsquo;il exécute bien l&rsquo;opération optimale.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// R1: a
+</span></span><span style="display:flex;"><span>// R2: b
+</span></span><span style="display:flex;"><span>// R3: a * b
+</span></span><span style="display:flex;"><span>// R4: compteur de tour
+</span></span><span style="display:flex;"><span>// R5: temp
+</span></span><span style="display:flex;"><span>      LDR R1, a
+</span></span><span style="display:flex;"><span>      LDR R2, b
+</span></span><span style="display:flex;"><span>      MOV R3, #0
+</span></span><span style="display:flex;"><span>      MOV R4, #0
+</span></span><span style="display:flex;"><span>      CMP ...
+</span></span><span style="display:flex;"><span>      BLT Petit 
+</span></span><span style="display:flex;"><span>      B Produit
+</span></span><span style="display:flex;"><span>Petit:
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      B Produit
+</span></span><span style="display:flex;"><span>Produit:
+</span></span><span style="display:flex;"><span>      CMP R4, R2
+</span></span><span style="display:flex;"><span>      BEQ Fin
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      B Produit
+</span></span><span style="display:flex;"><span>Fin:
+</span></span><span style="display:flex;"><span>      HALT
+</span></span><span style="display:flex;"><span>a:    .WORD 12
+</span></span><span style="display:flex;"><span>b:    .WORD 3
+</span></span></code></pre></div><p>Compléter le programme suivant. Vérifier qu&rsquo;il exécute bien l&rsquo;opération optimale.</p>
 <h2 id="ecrit-9---division-euclidienne">
   Ecrit 9 - Division Euclidienne
   <a class="anchor" href="#ecrit-9---division-euclidienne">#</a>
@@ -6041,18 +6041,18 @@ reste d&rsquo;une division.</p>
 <p>La division Euclidienne de $20$ par $7$ a pour quotient $2$ et reste $6$.</p>
 <p>Voici l&rsquo;algorithme de la division Euclidienne de $a$ par $b$ utilisant des
 soustractions successives :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Diviser(a: entier, b: entier)
-  a et b deux entiers.
-  q = 0
-
-  Tant que a &gt;= b faire
-    a = a - b
-    q = q + 1
-
-  r = a
-
-  renvoyer q et r
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Diviser(a: entier, b: entier)
+</span></span><span style="display:flex;"><span>  a et b deux entiers.
+</span></span><span style="display:flex;"><span>  q = 0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Tant que a &gt;= b faire
+</span></span><span style="display:flex;"><span>    a = a - b
+</span></span><span style="display:flex;"><span>    q = q + 1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  r = a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  renvoyer q et r
+</span></span></code></pre></div><ol>
 <li>Traduire ce programme en assembleur.</li>
 <li>Vérifier qu&rsquo;il renvoie le résultat correct pour les divisions de $7$ par $2$ et de $21$ par $4$</li>
 </ol>
@@ -6073,30 +6073,30 @@ soustractions successives :</p>
 <li>Affiche le message &ldquo;Bonjour $nom&rdquo;</li>
 </ol>
 <p>Exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Tapez votre nom :
-Robert
-Bonjour Robert
-</code></pre></div><p>En python :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nom <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#34;tapez votre nom&#34;</span>)
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>, nom)
-</code></pre></div><h2 id="programmation-2-opérations-courantes">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Tapez votre nom :
+</span></span><span style="display:flex;"><span>Robert
+</span></span><span style="display:flex;"><span>Bonjour Robert
+</span></span></code></pre></div><p>En python :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>nom <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#34;tapez votre nom&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>, nom)
+</span></span></code></pre></div><h2 id="programmation-2-opérations-courantes">
   Programmation 2. Opérations courantes
   <a class="anchor" href="#programmation-2-op%c3%a9rations-courantes">#</a>
 </h2>
 <ol>
 <li>
 <p>Exécutez le code python suivant (Thonny, sublime text etc.)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#555">=</span> <span style="color:#f60">0b10011111</span>
-b <span style="color:#555">=</span> <span style="color:#f60">0b00110011</span>
-
-<span style="color:#366">print</span>(a <span style="color:#555">+</span> b)
-<span style="color:#366">print</span>(a <span style="color:#555">-</span> b)
-<span style="color:#366">print</span>(a <span style="color:#555">&amp;</span> b)
-<span style="color:#366">print</span>(a <span style="color:#555">|</span> b)
-<span style="color:#366">print</span>(a <span style="color:#555">^</span> b)
-<span style="color:#366">print</span>(a <span style="color:#555">&gt;&gt;</span> <span style="color:#f60">2</span>)
-<span style="color:#366">print</span>(b <span style="color:#555">&lt;&lt;</span> <span style="color:#f60">2</span>)
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#555">=</span> <span style="color:#f60">0b10011111</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#555">=</span> <span style="color:#f60">0b00110011</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">+</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">-</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">&amp;</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">|</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">^</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(a <span style="color:#555">&gt;&gt;</span> <span style="color:#f60">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(b <span style="color:#555">&lt;&lt;</span> <span style="color:#f60">2</span>)
+</span></span></code></pre></div></li>
 <li>
 <p>Le traduire en ARMlite et vérifier les résultats obtenus.</p>
 </li>
@@ -6118,19 +6118,19 @@ b <span style="color:#555">=</span> <span style="color:#f60">0b00110011</span>
 <ol>
 <li>
 <p>Affichez les tous à l&rsquo;écran sans retour à la ligne entre les caractères à l&rsquo;aide d&rsquo;une boucle.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> !&#34;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ 
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> !&#34;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ 
+</span></span></code></pre></div></li>
 <li>
 <p>Affichez une ligne par caractère avec sa valeur numérique d&rsquo;abord</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">32 
-33 !
-...
-64 @
-65 A
-66 B
-67 C
-...
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>32 
+</span></span><span style="display:flex;"><span>33 !
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>64 @
+</span></span><span style="display:flex;"><span>65 A
+</span></span><span style="display:flex;"><span>66 B
+</span></span><span style="display:flex;"><span>67 C
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="programmation-5-jeu-à-deux-joueurs-le-plus-ou-moins">
   Programmation 5. Jeu à deux joueurs, le plus ou moins.
@@ -6182,7 +6182,7 @@ Pour simplifier, on utilisera des nombres entre 1 et un puissance de 2 (entre 1 
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

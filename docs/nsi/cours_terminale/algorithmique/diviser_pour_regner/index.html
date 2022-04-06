@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5755,7 +5755,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5847,8 +5847,8 @@ MathJax.Hub.Config({
 
                 
                 
-  <article class="markdown">pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <h3 id="pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">
-  <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a>
+  <article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">
+  pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a>
   <a class="anchor" href="#pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">#</a>
 </h3>
 <!-- pandoc diviser_pour_regner.md -o diviser_pour_regner_print.pdf -->
@@ -5891,8 +5891,8 @@ qui s&rsquo;énoncent de la même manière</p>
   <a class="anchor" href="#recherche-du-maximum-dans-une-liste">#</a>
 </h1>
 <p>On dispose d&rsquo;un tableau de nombres, on en cherche le plus grand élément.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [5, 71, 23, 45, 28, 89, 63, 39]
-</code></pre></div><h2 id="algorithme-itératif-naturel">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [5, 71, 23, 45, 28, 89, 63, 39]
+</span></span></code></pre></div><h2 id="algorithme-itératif-naturel">
   Algorithme itératif naturel
   <a class="anchor" href="#algorithme-it%c3%a9ratif-naturel">#</a>
 </h2>
@@ -5919,22 +5919,22 @@ qui s&rsquo;énoncent de la même manière</p>
 <li>On sépare le tableau en deux parties (sensiblement de même taille),</li>
 <li>on retourne le plus grand des maxima des parties gauche et droite.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [5, 71, 23, 45, 28, 89, 63, 39]
-</code></pre></div><h2 id="heading-3">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [5, 71, 23, 45, 28, 89, 63, 39]
+</span></span></code></pre></div><h2 id="heading-3">
   
   <a class="anchor" href="#heading-3">#</a>
 </h2>
 <ol>
 <li>
 <p>séparer</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">        [5, 71, 23, 45, 28, 89, 63, 39]
-              /                 \
-      [5, 71, 23, 45]       [28, 89, 63, 39]
-        /       \             /         \
-    [5, 71]   [23, 45]     [28, 89]   [63, 39]
-    /   \      /    \       /   \       /   \
-[5] , [71],  [23], [45], [28],  [89], [63], [39]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>        [5, 71, 23, 45, 28, 89, 63, 39]
+</span></span><span style="display:flex;"><span>              /                 \
+</span></span><span style="display:flex;"><span>      [5, 71, 23, 45]       [28, 89, 63, 39]
+</span></span><span style="display:flex;"><span>        /       \             /         \
+</span></span><span style="display:flex;"><span>    [5, 71]   [23, 45]     [28, 89]   [63, 39]
+</span></span><span style="display:flex;"><span>    /   \      /    \       /   \       /   \
+</span></span><span style="display:flex;"><span>[5] , [71],  [23], [45], [28],  [89], [63], [39]
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="heading-4">
   
@@ -5943,16 +5943,16 @@ qui s&rsquo;énoncent de la même manière</p>
 <ol start="2">
 <li>
 <p>Recombiner : on ne garde que le plus grand de chaque paire</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[5, 71],   [23, 45],  [28, 89],  [63, 39]
-  \           /           \        /
-  [71]      [45]         [89]     [63]
-      [71, 45]             [89, 63]
-           \                 /
-           [71]          [89]
-                [71,  89]
-                    |
-                   [89]
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[5, 71],   [23, 45],  [28, 89],  [63, 39]
+</span></span><span style="display:flex;"><span>  \           /           \        /
+</span></span><span style="display:flex;"><span>  [71]      [45]         [89]     [63]
+</span></span><span style="display:flex;"><span>      [71, 45]             [89, 63]
+</span></span><span style="display:flex;"><span>           \                 /
+</span></span><span style="display:flex;"><span>           [71]          [89]
+</span></span><span style="display:flex;"><span>                [71,  89]
+</span></span><span style="display:flex;"><span>                    |
+</span></span><span style="display:flex;"><span>                   [89]
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="est-ce-plus-efficace--non-cest-même-plus-lent-">
   Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !
@@ -5999,21 +5999,21 @@ est vrai.</li>
   Exemple
   <a class="anchor" href="#exemple">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tableau = [4, 10, 20, 5]
-clé = 10
-</code></pre></div><p>A-t-on <code>clé</code> dans <code>tableau</code> ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [4, 10, 20, 5]
+</span></span><span style="display:flex;"><span>clé = 10
+</span></span></code></pre></div><p>A-t-on <code>clé</code> dans <code>tableau</code> ?</p>
 <h2 id="exemple-1">
   Exemple
   <a class="anchor" href="#exemple-1">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">clé = 10
-                 [4, 10, 20, 5]
-diviser      [4, 10]       [20, 5]
-diviser     [4]   [10]     [20]   [5]
-combiner   Faux ou Vrai | Faux ou Faux
-combiner       Vrai    ou    Faux
-combiner              Vrai
-</code></pre></div><h2 id="cest-mieux-cette-fois--toujours-pas">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>clé = 10
+</span></span><span style="display:flex;"><span>                 [4, 10, 20, 5]
+</span></span><span style="display:flex;"><span>diviser      [4, 10]       [20, 5]
+</span></span><span style="display:flex;"><span>diviser     [4]   [10]     [20]   [5]
+</span></span><span style="display:flex;"><span>combiner   Faux ou Vrai | Faux ou Faux
+</span></span><span style="display:flex;"><span>combiner       Vrai    ou    Faux
+</span></span><span style="display:flex;"><span>combiner              Vrai
+</span></span></code></pre></div><h2 id="cest-mieux-cette-fois--toujours-pas">
   C&rsquo;est mieux cette fois ??? Toujours pas.
   <a class="anchor" href="#cest-mieux-cette-fois--toujours-pas">#</a>
 </h2>
@@ -6169,7 +6169,7 @@ racine carrée entière d’un entier n ∈ N, à savoir E(sqrt(n)), avec un co�
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

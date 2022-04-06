@@ -17,7 +17,7 @@ Nous allons travailler avec le serveur web qui est installé sur votre ordinateu
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/flask/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5753,7 +5753,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5855,16 +5855,16 @@ plus de précision sur ce terme &ldquo;statique&rdquo;).</p>
 <p>À l&rsquo;aide de Thonny, créez un fichier Python &ldquo;views.py&rdquo; (ce fichier
 devra être sauvegardé dans le répertoire &ldquo;serveur_essai&rdquo; précédemment créé).
 Saisissez le code suivant dans le fichier &ldquo;views.py&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
-
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><hr>
 <h2 id="à-faire-vous-même-3">
   À faire vous-même 3
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-3">#</a>
@@ -5893,25 +5893,25 @@ faisons une requête HTTP.</p>
 cette requête HTTP en envoyant une page web contenant uniquement
 <code>&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;</code>.</p>
 <p>Reprenons le programme Python ligne par ligne :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
-</code></pre></div><p>Nous importons la bibliothèque Flask</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app <span style="color:#555">=</span> Flask(__name__)
-</code></pre></div><p>Nous créons un objet app : cette ligne est systématiquement nécessaire.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-</code></pre></div><p>Nous utilisons ici un décorateur (cette notion de décorateur ne sera pas
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
+</span></span></code></pre></div><p>Nous importons la bibliothèque Flask</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span></code></pre></div><p>Nous créons un objet app : cette ligne est systématiquement nécessaire.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span></code></pre></div><p>Nous utilisons ici un décorateur (cette notion de décorateur ne sera pas
 traitée en NSI). Vous devez juste comprendre la fonction (&ldquo;index&rdquo;) qui suit ce
 décorateur, sera exécutée dans le cas où le serveur web
 recevra une requête HTTP avec une URL correspondant à la racine du site
-('/'), c&rsquo;est à dire, dans notre exemple, le cas où on saisie dans la
+(&rsquo;/&rsquo;), c&rsquo;est à dire, dans notre exemple, le cas où on saisie dans la
 barre d&rsquo;adresse &ldquo;localhost:5000/&rdquo; (ou simplement &ldquo;localhost:5000&rdquo;)
 Nous verrons ci-dessous un exemple avec une URL autre que &lsquo;/&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
-</code></pre></div><p>En cas de requête HTTP d&rsquo;un client avec l&rsquo;URL &ldquo;/&rdquo;, le serveur
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
+</span></span></code></pre></div><p>En cas de requête HTTP d&rsquo;un client avec l&rsquo;URL &ldquo;/&rdquo;, le serveur
 renvoie vers le client une page HTML contenant uniquement la ligne
 <code>&lt;p&gt;Tout fonctionne parfaitement&lt;p/&gt;</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Cette ligne permet de lancer le serveur, elle sera systématiquement
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Cette ligne permet de lancer le serveur, elle sera systématiquement
 présente. Le paramètre <code>debug=True</code> permet d&rsquo;avoir des informations de
 debuggage dans le navigateur.</p>
 <p>Ce n&rsquo;est souhaitable que durant le <em>développement</em> d&rsquo;un site web.</p>
@@ -5920,18 +5920,18 @@ debuggage dans le navigateur.</p>
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-4">#</a>
 </h2>
 <p>À l&rsquo;aide de Thonny, modifiez le fichier Python &ldquo;views.py&rdquo; :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/about&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">about</span>():
-  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Une autre page&lt;/p&gt;&#34;</span>
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Après avoir exécuté le programme ci-dessus, saisissez
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Tout fonctionne parfaitement&lt;/p&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/about&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">about</span>():
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;&lt;p&gt;Une autre page&lt;/p&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Après avoir exécuté le programme ci-dessus, saisissez
 &ldquo;localhost:5000/about&rdquo; dans la barre d&rsquo;adresse de votre navigateur.</p>
 <p>Comme vous pouvez le constater, le serveur nous renvoie dans ce cas une
 autre page. Évidemment l&rsquo;URL racine (&quot;/&quot;) reste disponible, vous
@@ -5948,33 +5948,33 @@ plus satisfaisante :</p>
 <p>Dans votre répertoire &ldquo;serveur_web&rdquo;, créez un répertoire &ldquo;templates&rdquo;. Dans
 ce répertoire templates, créez un fichier index.html. Saisissez le code
 HTML ci-dessous dans ce fichier index.html</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Ma page&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-      &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Mon super site&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
-      &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Tout fonctionne parfaitement&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Ma page&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Mon super site&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Tout fonctionne parfaitement&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><hr>
 <h2 id="à-faire-vous-même-6">
   À faire vous-même 6
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-6">#</a>
 </h2>
 <p>Modifiez le programme <code>views.py</code> comme suit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>)
-
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Relancez le programme Python et tapez &ldquo;localhost:5000&rdquo; dans la barre
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Relancez le programme Python et tapez &ldquo;localhost:5000&rdquo; dans la barre
 d&rsquo;adresse de votre navigateur</p>
 <hr>
 <p>Le serveur renvoie maintenant au client la page HTML correspondant au
@@ -6000,32 +6000,32 @@ client</li>
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-7">#</a>
 </h2>
 <p>Modifiez le fichier &ldquo;views.py&rdquo; comme suit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">datetime</span>
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-  date <span style="color:#555">=</span> datetime<span style="color:#555">.</span>datetime<span style="color:#555">.</span>now()
-  h <span style="color:#555">=</span> date<span style="color:#555">.</span>hour
-  m <span style="color:#555">=</span> date<span style="color:#555">.</span>minute
-  s <span style="color:#555">=</span> date<span style="color:#555">.</span>second
-  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)
-
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Dans le programme ci-dessous nous importons le module <code>datetime</code> afin
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">datetime</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>  date <span style="color:#555">=</span> datetime<span style="color:#555">.</span>datetime<span style="color:#555">.</span>now()
+</span></span><span style="display:flex;"><span>  h <span style="color:#555">=</span> date<span style="color:#555">.</span>hour
+</span></span><span style="display:flex;"><span>  m <span style="color:#555">=</span> date<span style="color:#555">.</span>minute
+</span></span><span style="display:flex;"><span>  s <span style="color:#555">=</span> date<span style="color:#555">.</span>second
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Dans le programme ci-dessous nous importons le module <code>datetime</code> afin
 de pouvoir déterminer la date et l&rsquo;heure courante. Le</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">date <span style="color:#555">=</span> datetime<span style="color:#555">.</span>datetime<span style="color:#555">.</span>now()
-</code></pre></div><p>nous permet de récupérer la date et l&rsquo;heure courante</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">h <span style="color:#555">=</span> date<span style="color:#555">.</span>hour
-m <span style="color:#555">=</span> date<span style="color:#555">.</span>minute
-s <span style="color:#555">=</span> date<span style="color:#555">.</span>second
-</code></pre></div><p>Après l&rsquo;exécution des 3 lignes ci-dessus, les variables h, m et s
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>date <span style="color:#555">=</span> datetime<span style="color:#555">.</span>datetime<span style="color:#555">.</span>now()
+</span></span></code></pre></div><p>nous permet de récupérer la date et l&rsquo;heure courante</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>h <span style="color:#555">=</span> date<span style="color:#555">.</span>hour
+</span></span><span style="display:flex;"><span>m <span style="color:#555">=</span> date<span style="color:#555">.</span>minute
+</span></span><span style="display:flex;"><span>s <span style="color:#555">=</span> date<span style="color:#555">.</span>second
+</span></span></code></pre></div><p>Après l&rsquo;exécution des 3 lignes ci-dessus, les variables h, m et s
 contiennent l&rsquo;heure courante.</p>
 <p>La fonction &ldquo;render_template&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)
-</code></pre></div><p>contient 3 paramètres de plus par rapport à l&rsquo;exemple du &ldquo;À faire
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;index.html&#34;</span>, heure <span style="color:#555">=</span> h, minute <span style="color:#555">=</span> m, seconde <span style="color:#555">=</span> s)
+</span></span></code></pre></div><p>contient 3 paramètres de plus par rapport à l&rsquo;exemple du &ldquo;À faire
 vous-même 6&rdquo; : le paramètre <code>heure</code>, le paramètre <code>minute</code> et le
 paramètre <code>seconde</code>, nous allons retrouver ces 3 paramètres dans le
 fichier HTML.</p>
@@ -6035,18 +6035,18 @@ fichier HTML.</p>
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-8">#</a>
 </h2>
 <p>Modifiez le fichier &ldquo;index.html&rdquo; comme suit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Utilisation de Flask&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-      &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Mon super site&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
-      &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Le serveur fonctionne parfaitement, il est {{heure}} h {{minute}} minutes et {{seconde}} secondes&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><p>Testez ces modifications en saisissant &ldquo;localhost:5000&rdquo; dans la barre
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Utilisation de Flask&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Mon super site&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Le serveur fonctionne parfaitement, il est {{heure}} h {{minute}} minutes et {{seconde}} secondes&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>Testez ces modifications en saisissant &ldquo;localhost:5000&rdquo; dans la barre
 de votre navigateur web.</p>
 <hr>
 <p>Nous avons bien une page dynamique, puisqu&rsquo;à chaque fois que vous
@@ -6083,54 +6083,54 @@ le navigateur.</p>
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-8-1">#</a>
 </h2>
 <p>Modifiez le fichier &ldquo;index.html&rdquo; comme suit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Le formulaire&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://localhost:5000/resultat&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;
-                &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Nom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;nom&#34;</span> /&gt;
-                &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Prénom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;prenom&#34;</span> /&gt;
-                &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Envoyer&#34;</span> /&gt;
-        &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><p>et créez un fichier &ldquo;resultat.html&rdquo; (dans le répertoire
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Le formulaire&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://localhost:5000/resultat&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Nom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;nom&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Prénom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;prenom&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Envoyer&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>et créez un fichier &ldquo;resultat.html&rdquo; (dans le répertoire
 &ldquo;templates&rdquo;), ce fichier devra contenir le code suivant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Résultat&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-        &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Bonjour {{prenom}} {{nom}}, j&#39;espère que vous allez bien.&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
-    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><h2 id="à-faire-vous-même-9">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Résultat&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Bonjour {{prenom}} {{nom}}, j&#39;espère que vous allez bien.&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><h2 id="à-faire-vous-même-9">
   À faire vous-même 9
   <a class="anchor" href="#%c3%a0-faire-vous-m%c3%aame-9">#</a>
 </h2>
 <p>Modifiez le fichier views.py comme suit :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template, request
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
-  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;index.html&#39;</span>)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/resultat&#39;</span>,methods <span style="color:#555">=</span> [<span style="color:#c30">&#39;POST&#39;</span>])
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
-  result <span style="color:#555">=</span> request<span style="color:#555">.</span>form
-  n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
-  p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
-  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
-
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Après avoir relancé &ldquo;views.py&rdquo;, testez cet exemple en saisissant
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template, request
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;index.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/resultat&#39;</span>,methods <span style="color:#555">=</span> [<span style="color:#c30">&#39;POST&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
+</span></span><span style="display:flex;"><span>  result <span style="color:#555">=</span> request<span style="color:#555">.</span>form
+</span></span><span style="display:flex;"><span>  n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
+</span></span><span style="display:flex;"><span>  p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Après avoir relancé &ldquo;views.py&rdquo;, testez cet exemple en saisissant
 &ldquo;localhost:5000&rdquo; dans la barre d&rsquo;adresse de votre navigateur web.</p>
 <hr>
 <p>Si vous saisissez, par exemple, &ldquo;Martin&rdquo; et &ldquo;Sophie&rdquo; dans les champs
@@ -6156,18 +6156,18 @@ effectuer la requête HTTP n&rsquo;est pas précisée dans le
 méthode <code>GET</code> qui est utilisée.</p>
 <p>Intéressons-nous à la fonction <code>resultat</code>, puisque c&rsquo;est cette
 fonction qui sera exécutée côté serveur pour traiter la requête POST :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
-    result <span style="color:#555">=</span> request<span style="color:#555">.</span>form
-    n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
-    p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
-    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
-</code></pre></div><p><code>request.form</code> est un dictionnaire Python qui a pour clés les
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
+</span></span><span style="display:flex;"><span>    result <span style="color:#555">=</span> request<span style="color:#555">.</span>form
+</span></span><span style="display:flex;"><span>    n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
+</span></span><span style="display:flex;"><span>    p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
+</span></span></code></pre></div><p><code>request.form</code> est un dictionnaire Python qui a pour clés les
 attributs <code>name</code> des balises <code>input</code> du formulaire (dans notre cas
 les clés sont donc &ldquo;nom&rdquo; et &ldquo;prenom&rdquo;) et comme valeurs ce qui a été
 saisi par l&rsquo;utilisateur. Si l&rsquo;utilisateur saisit &ldquo;Martin&rdquo; et
 &ldquo;Sophie&rdquo;, le dictionnaire &ldquo;request.form&rdquo; sera :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{<span style="color:#c30">&#39;nom&#39;</span>:<span style="color:#c30">&#39;Martin&#39;</span>, <span style="color:#c30">&#39;prenom&#39;</span>:<span style="color:#c30">&#39;Sophie&#39;</span>}
-</code></pre></div><p>Le reste du code ne devrait pas vous poser de problème.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#c30">&#39;nom&#39;</span>:<span style="color:#c30">&#39;Martin&#39;</span>, <span style="color:#c30">&#39;prenom&#39;</span>:<span style="color:#c30">&#39;Sophie&#39;</span>}
+</span></span></code></pre></div><p>Le reste du code ne devrait pas vous poser de problème.</p>
 <p>Le template &ldquo;resultat.html&rdquo; utilise des paramètres &ldquo;nom&rdquo; et
 &ldquo;prenom&rdquo;.</p>
 <p>En réponse à la requête <code>POST</code>, le serveur renvoie une page HTML créée à
@@ -6183,49 +6183,49 @@ bien.&rdquo;</p>
 </h2>
 <p>Modifiez les fichiers comme suit :</p>
 <p>index.html</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-   &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Le formulaire&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-   &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-   &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://localhost:5000/resultat&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;get&#34;</span>&gt;
-               &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Nom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;nom&#34;</span> /&gt;
-               &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Prénom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;prenom&#34;</span> /&gt;
-               &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Envoyer&#34;</span> /&gt;
-       &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
-   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><p>resultat.html (le fichier est inchangé)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#099">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
-   &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Résultat&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
-   &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
-   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-       &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Bonjour {{prenom}} {{nom}}, j&#39;espère que vous allez bien.&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
-   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</code></pre></div><p>views.py</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template, request
-
-app <span style="color:#555">=</span> Flask(__name__)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
- <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;index.html&#39;</span>)
-
-<span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/resultat&#39;</span>,methods <span style="color:#555">=</span> [<span style="color:#c30">&#39;GET&#39;</span>])
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
-  result<span style="color:#555">=</span>request<span style="color:#555">.</span>args
-  n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
-  p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
-  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
-
-app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</code></pre></div><p>Dans &ldquo;index.html&rdquo;, la méthode <code>POST</code> a été remplacée par la méthode <code>GET</code>.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Le formulaire&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;http://localhost:5000/resultat&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;get&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>               &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Nom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;nom&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>               &lt;<span style="color:#309;font-weight:bold">label</span>&gt;Prénom&lt;/<span style="color:#309;font-weight:bold">label</span>&gt; : &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text&#34;</span> <span style="color:#309">name</span><span style="color:#555">=</span><span style="color:#c30">&#34;prenom&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>               &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Envoyer&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>       &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>resultat.html (le fichier est inchangé)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">meta</span> <span style="color:#309">charset</span><span style="color:#555">=</span><span style="color:#c30">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Résultat&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Bonjour {{prenom}} {{nom}}, j&#39;espère que vous allez bien.&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">flask</span> <span style="color:#069;font-weight:bold">import</span> Flask, render_template, request
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#555">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">index</span>():
+</span></span><span style="display:flex;"><span> <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#39;index.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99f">@app</span><span style="color:#555">.</span>route(<span style="color:#c30">&#39;/resultat&#39;</span>,methods <span style="color:#555">=</span> [<span style="color:#c30">&#39;GET&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resultat</span>():
+</span></span><span style="display:flex;"><span>  result<span style="color:#555">=</span>request<span style="color:#555">.</span>args
+</span></span><span style="display:flex;"><span>  n <span style="color:#555">=</span> result[<span style="color:#c30">&#39;nom&#39;</span>]
+</span></span><span style="display:flex;"><span>  p <span style="color:#555">=</span> result[<span style="color:#c30">&#39;prenom&#39;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> render_template(<span style="color:#c30">&#34;resultat.html&#34;</span>, nom<span style="color:#555">=</span>n, prenom<span style="color:#555">=</span>p)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#555">.</span>run(debug<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span></code></pre></div><p>Dans &ldquo;index.html&rdquo;, la méthode <code>POST</code> a été remplacée par la méthode <code>GET</code>.
 Dans le fichier &ldquo;views.py&rdquo; nous avons aussi remplacé <code>POST</code> par <code>GET</code>, et
 on utilise <code>request.args</code> à la place de <code>request.form</code>.</p>
 <hr>
@@ -6313,7 +6313,7 @@ de poursuivre, sans quoi vous serez incapable de l&rsquo;adapter.</p>
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 

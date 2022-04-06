@@ -6,7 +6,7 @@
 <meta name="description" content="L&rsquo;écriture et la lecture du contenu d&rsquo;un fichier audio au format WAV est simplifiée par l&rsquo;utilisation du module wave.
 Ecriture #  Voici un exemple de création d&rsquo;un fichier audio (PCM 8 bits stéréo 44100 Hz) avec une forme d&rsquo;onde sinusoïdale :
 [embed]http://fsincere.free.fr/isn/python/download/audio/son1.wav[/embed]
-# script audio.py # (C) Fabrice Sincère ; Jean-Claude Meilland import wave import math import binascii print(&#34;Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)&#34;) print(&#34;Son de forme sinusoïdale sur chaque canal\n&#34;) NomFichier = &#39;son.">
+# script audio.py # (C) Fabrice Sincère ; Jean-Claude Meilland import wave import math import binascii  print(&#34;Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)&#34;) print(&#34;Son de forme sinusoïdale sur chaque canal\n&#34;)  NomFichier = &#39;son.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Python 3 - 15 Le son au format audio WAV" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +18,7 @@ Ecriture #  Voici un exemple de création d&rsquo;un fichier audio (PCM 8 bits s
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4e34b17898ac7e66f9b98c17e51af21d790fed3f671c06be39e34bc6b2a7744.js" integrity="sha256-pONLF4mKx&#43;Zvm5jBflGvIdeQ/tP2ccBr4540vGsqd0Q=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2c3c41b0c70885091a741c0af4cbfc7aaa2467a95c837374aa492a56eb7049a0.js" integrity="sha256-LDxBsMcIhQkadBwK9Mv8eqokZ6lcg3N0qkkqVutwSaA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/cours-python/python-3-15-le-son-au-format-audio-wav/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5754,7 +5754,7 @@ MathJax.Hub.Config({
 
 
 
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -5813,61 +5813,61 @@ MathJax.Hub.Config({
 </h3>
 <p>Voici un exemple de création d&rsquo;un fichier audio (PCM 8 bits stéréo 44100 Hz) avec une forme d&rsquo;onde sinusoïdale :</p>
 <p>[embed]http://fsincere.free.fr/isn/python/download/audio/son1.wav[/embed]</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># script audio.py</span>
-<span style="color:#09f;font-style:italic"># (C) Fabrice Sincère ; Jean-Claude Meilland</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">wave</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">math</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">binascii</span>
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)&#34;</span>)
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Son de forme sinusoïdale sur chaque canal</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">&#34;</span>)
-
-NomFichier <span style="color:#555">=</span> <span style="color:#c30">&#39;son.wav&#39;</span>
-Monson <span style="color:#555">=</span> wave<span style="color:#555">.</span>open(NomFichier,<span style="color:#c30">&#39;w&#39;</span>) <span style="color:#09f;font-style:italic"># instanciation de l&#39;objet Monson</span>
-
-nbCanal <span style="color:#555">=</span> <span style="color:#f60">2</span>    <span style="color:#09f;font-style:italic"># stéreo</span>
-nbOctet <span style="color:#555">=</span> <span style="color:#f60">1</span>    <span style="color:#09f;font-style:italic"># taille d&#39;un échantillon : 1 octet = 8 bits</span>
-fech <span style="color:#555">=</span> <span style="color:#f60">44100</span>   <span style="color:#09f;font-style:italic"># fréquence d&#39;échantillonnage</span>
-
-frequenceG <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Fréquence du son du canal de gauche (Hz) ? &#39;</span>))
-frequenceD <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Fréquence du son du canal de droite (Hz) ? &#39;</span>))
-niveauG <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Niveau du son du canal de gauche (0 à 1) ? &#39;</span>))
-niveauD <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Niveau du son du canal de droite (0 à 1) ? &#39;</span>))
-duree <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Durée (en secondes) ? &#39;</span>))
-
-nbEchantillon <span style="color:#555">=</span> <span style="color:#366">int</span>(duree<span style="color:#555">*</span>fech)
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;échantillons :&#34;</span>,nbEchantillon)
-
-parametres <span style="color:#555">=</span> (nbCanal,nbOctet,fech,nbEchantillon,<span style="color:#c30">&#39;NONE&#39;</span>,<span style="color:#c30">&#39;not compressed&#39;</span>)<span style="color:#09f;font-style:italic"># tuple</span>
-Monson<span style="color:#555">.</span>setparams(parametres)    <span style="color:#09f;font-style:italic"># création de l&#39;en-tête (44 octets)</span>
-
-<span style="color:#09f;font-style:italic"># niveau max dans l&#39;onde positive : +1 -&gt; 255 (0xFF)</span>
-<span style="color:#09f;font-style:italic"># niveau max dans l&#39;onde négative : -1 -&gt;   0 (0x00)</span>
-<span style="color:#09f;font-style:italic"># niveau sonore nul :                0 -&gt; 127.5 (0x80 en valeur arrondi)</span>
-
-amplitudeG <span style="color:#555">=</span> <span style="color:#f60">127.5</span><span style="color:#555">*</span>niveauG
-amplitudeD <span style="color:#555">=</span> <span style="color:#f60">127.5</span><span style="color:#555">*</span>niveauD
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#39;Veuillez patienter...&#39;</span>)
-<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">0</span>,nbEchantillon):
-    <span style="color:#09f;font-style:italic"># canal gauche</span>
-    <span style="color:#09f;font-style:italic"># 127.5 + 0.5 pour arrondir à l&#39;entier le plus proche</span>
-valG <span style="color:#555">=</span> wave<span style="color:#555">.</span>struct<span style="color:#555">.</span>pack(<span style="color:#c30">&#39;B&#39;</span>,<span style="color:#366">int</span>(<span style="color:#f60">128.0</span> <span style="color:#555">+</span> amplitudeG<span style="color:#555">*</span>math<span style="color:#555">.</span>sin(<span style="color:#f60">2.0</span><span style="color:#555">*</span>math<span style="color:#555">.</span>pi<span style="color:#555">*</span>frequenceG<span style="color:#555">*</span>i<span style="color:#555">/</span>fech)))
-    <span style="color:#09f;font-style:italic"># canal droit</span>
-valD <span style="color:#555">=</span> wave<span style="color:#555">.</span>struct<span style="color:#555">.</span>pack(<span style="color:#c30">&#39;B&#39;</span>,<span style="color:#366">int</span>(<span style="color:#f60">128.0</span> <span style="color:#555">+</span> amplitudeD<span style="color:#555">*</span>math<span style="color:#555">.</span>sin(<span style="color:#f60">2.0</span><span style="color:#555">*</span>math<span style="color:#555">.</span>pi<span style="color:#555">*</span>frequenceD<span style="color:#555">*</span>i<span style="color:#555">/</span>fech)))
-    Monson<span style="color:#555">.</span>writeframes(valG <span style="color:#555">+</span> valD) <span style="color:#09f;font-style:italic"># écriture frame</span>
-
-Monson<span style="color:#555">.</span>close()
-
-Fichier <span style="color:#555">=</span> <span style="color:#366">open</span>(NomFichier,<span style="color:#c30">&#39;rb&#39;</span>)
-data <span style="color:#555">=</span> Fichier<span style="color:#555">.</span>read()
-tailleFichier <span style="color:#555">=</span> <span style="color:#366">len</span>(data)
-<span style="color:#366">print</span>(<span style="color:#c30">&#39;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Taille du fichier&#39;</span>,NomFichier, <span style="color:#c30">&#39;:&#39;</span>, tailleFichier,<span style="color:#c30">&#39;octets&#39;</span>)
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Lecture du contenu de l&#39;en-tête (44 octets) :&#34;</span>)
-<span style="color:#366">print</span>(binascii<span style="color:#555">.</span>hexlify(data[<span style="color:#f60">0</span>:<span style="color:#f60">44</span>]))
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;octets de données :&#34;</span>,tailleFichier <span style="color:#555">-</span> <span style="color:#f60">44</span>)
-Fichier<span style="color:#555">.</span>close()
-</code></pre></div><pre><code>&gt;&gt;&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># script audio.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># (C) Fabrice Sincère ; Jean-Claude Meilland</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">wave</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">math</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">binascii</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Son de forme sinusoïdale sur chaque canal</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NomFichier <span style="color:#555">=</span> <span style="color:#c30">&#39;son.wav&#39;</span>
+</span></span><span style="display:flex;"><span>Monson <span style="color:#555">=</span> wave<span style="color:#555">.</span>open(NomFichier,<span style="color:#c30">&#39;w&#39;</span>) <span style="color:#09f;font-style:italic"># instanciation de l&#39;objet Monson</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nbCanal <span style="color:#555">=</span> <span style="color:#f60">2</span>    <span style="color:#09f;font-style:italic"># stéreo</span>
+</span></span><span style="display:flex;"><span>nbOctet <span style="color:#555">=</span> <span style="color:#f60">1</span>    <span style="color:#09f;font-style:italic"># taille d&#39;un échantillon : 1 octet = 8 bits</span>
+</span></span><span style="display:flex;"><span>fech <span style="color:#555">=</span> <span style="color:#f60">44100</span>   <span style="color:#09f;font-style:italic"># fréquence d&#39;échantillonnage</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frequenceG <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Fréquence du son du canal de gauche (Hz) ? &#39;</span>))
+</span></span><span style="display:flex;"><span>frequenceD <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Fréquence du son du canal de droite (Hz) ? &#39;</span>))
+</span></span><span style="display:flex;"><span>niveauG <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Niveau du son du canal de gauche (0 à 1) ? &#39;</span>))
+</span></span><span style="display:flex;"><span>niveauD <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Niveau du son du canal de droite (0 à 1) ? &#39;</span>))
+</span></span><span style="display:flex;"><span>duree <span style="color:#555">=</span> <span style="color:#366">float</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;Durée (en secondes) ? &#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nbEchantillon <span style="color:#555">=</span> <span style="color:#366">int</span>(duree<span style="color:#555">*</span>fech)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;échantillons :&#34;</span>,nbEchantillon)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parametres <span style="color:#555">=</span> (nbCanal,nbOctet,fech,nbEchantillon,<span style="color:#c30">&#39;NONE&#39;</span>,<span style="color:#c30">&#39;not compressed&#39;</span>)<span style="color:#09f;font-style:italic"># tuple</span>
+</span></span><span style="display:flex;"><span>Monson<span style="color:#555">.</span>setparams(parametres)    <span style="color:#09f;font-style:italic"># création de l&#39;en-tête (44 octets)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># niveau max dans l&#39;onde positive : +1 -&gt; 255 (0xFF)</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># niveau max dans l&#39;onde négative : -1 -&gt;   0 (0x00)</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># niveau sonore nul :                0 -&gt; 127.5 (0x80 en valeur arrondi)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>amplitudeG <span style="color:#555">=</span> <span style="color:#f60">127.5</span><span style="color:#555">*</span>niveauG
+</span></span><span style="display:flex;"><span>amplitudeD <span style="color:#555">=</span> <span style="color:#f60">127.5</span><span style="color:#555">*</span>niveauD
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#39;Veuillez patienter...&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">0</span>,nbEchantillon):
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># canal gauche</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># 127.5 + 0.5 pour arrondir à l&#39;entier le plus proche</span>
+</span></span><span style="display:flex;"><span>valG <span style="color:#555">=</span> wave<span style="color:#555">.</span>struct<span style="color:#555">.</span>pack(<span style="color:#c30">&#39;B&#39;</span>,<span style="color:#366">int</span>(<span style="color:#f60">128.0</span> <span style="color:#555">+</span> amplitudeG<span style="color:#555">*</span>math<span style="color:#555">.</span>sin(<span style="color:#f60">2.0</span><span style="color:#555">*</span>math<span style="color:#555">.</span>pi<span style="color:#555">*</span>frequenceG<span style="color:#555">*</span>i<span style="color:#555">/</span>fech)))
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># canal droit</span>
+</span></span><span style="display:flex;"><span>valD <span style="color:#555">=</span> wave<span style="color:#555">.</span>struct<span style="color:#555">.</span>pack(<span style="color:#c30">&#39;B&#39;</span>,<span style="color:#366">int</span>(<span style="color:#f60">128.0</span> <span style="color:#555">+</span> amplitudeD<span style="color:#555">*</span>math<span style="color:#555">.</span>sin(<span style="color:#f60">2.0</span><span style="color:#555">*</span>math<span style="color:#555">.</span>pi<span style="color:#555">*</span>frequenceD<span style="color:#555">*</span>i<span style="color:#555">/</span>fech)))
+</span></span><span style="display:flex;"><span>    Monson<span style="color:#555">.</span>writeframes(valG <span style="color:#555">+</span> valD) <span style="color:#09f;font-style:italic"># écriture frame</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Monson<span style="color:#555">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fichier <span style="color:#555">=</span> <span style="color:#366">open</span>(NomFichier,<span style="color:#c30">&#39;rb&#39;</span>)
+</span></span><span style="display:flex;"><span>data <span style="color:#555">=</span> Fichier<span style="color:#555">.</span>read()
+</span></span><span style="display:flex;"><span>tailleFichier <span style="color:#555">=</span> <span style="color:#366">len</span>(data)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#39;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Taille du fichier&#39;</span>,NomFichier, <span style="color:#c30">&#39;:&#39;</span>, tailleFichier,<span style="color:#c30">&#39;octets&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Lecture du contenu de l&#39;en-tête (44 octets) :&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(binascii<span style="color:#555">.</span>hexlify(data[<span style="color:#f60">0</span>:<span style="color:#f60">44</span>]))
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;octets de données :&#34;</span>,tailleFichier <span style="color:#555">-</span> <span style="color:#f60">44</span>)
+</span></span><span style="display:flex;"><span>Fichier<span style="color:#555">.</span>close()
+</span></span></code></pre></div><pre><code>&gt;&gt;&gt;
 Création d'un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)
 Son de forme sinusoïdale sur chaque canal
 
@@ -5922,38 +5922,38 @@ pass</p>
   <a class="anchor" href="#lecture">#</a>
 </h3>
 <p>Le script suivant fonctionne avec tous les fichiers audio au format WAV (PCM sans compression).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#09f;font-style:italic"># (C) Fabrice Sincère</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">wave</span>
-<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">binascii</span>
-
-NomFichier <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer le nom du fichier : &#39;</span>)
-Monson <span style="color:#555">=</span> wave<span style="color:#555">.</span>open(NomFichier,<span style="color:#c30">&#39;r&#39;</span>)	<span style="color:#09f;font-style:italic"># instanciation de l&#39;objet Monson</span>
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Nombre de canaux :&#34;</span>,Monson<span style="color:#555">.</span>getnchannels())
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Taille d&#39;un échantillon (en octets):&#34;</span>,Monson<span style="color:#555">.</span>getsampwidth())
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Fréquence d&#39;échantillonnage (en Hz):&#34;</span>,Monson<span style="color:#555">.</span>getframerate())
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;échantillons :&#34;</span>,Monson<span style="color:#555">.</span>getnframes())
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Type de compression :&#34;</span>,Monson<span style="color:#555">.</span>getcompname())
-
-TailleData <span style="color:#555">=</span> Monson<span style="color:#555">.</span>getnchannels()<span style="color:#555">*</span>Monson<span style="color:#555">.</span>getsampwidth()<span style="color:#555">*</span>Monson<span style="color:#555">.</span>getnframes()
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Taille du fichier (en octets) :&#34;</span>,TailleData <span style="color:#555">+</span> <span style="color:#f60">44</span>)
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;octets de données :&#34;</span>,TailleData)
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Affichage d&#39;une plage de données (dans l&#39;intervalle 0 -&#34;</span>,Monson<span style="color:#555">.</span>getnframes()<span style="color:#555">-</span><span style="color:#f60">1</span>,<span style="color:#c30">&#34;)&#34;</span>)
-
-echDebut <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;N° échantillon (début) : &#39;</span>))
-echFin <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;N° échantillon (fin) : &#39;</span>))
-
-<span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">N° échantillon	Contenu&#34;</span>)
-
-Monson<span style="color:#555">.</span>setpos(echDebut)
-plage <span style="color:#555">=</span> echFin <span style="color:#555">-</span> echDebut <span style="color:#555">+</span> <span style="color:#f60">1</span>
-<span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">0</span>,plage):
-    <span style="color:#366">print</span>(Monson<span style="color:#555">.</span>tell(),<span style="color:#c30">&#39;</span><span style="color:#c30;font-weight:bold">\t\t</span><span style="color:#c30">&#39;</span>,binascii<span style="color:#555">.</span>hexlify(Monson<span style="color:#555">.</span>readframes(<span style="color:#f60">1</span>)))
-
-Monson<span style="color:#555">.</span>close()
-</code></pre></div><p>Avec le fichier créé précédemment, on obtient :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># (C) Fabrice Sincère</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">wave</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">binascii</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NomFichier <span style="color:#555">=</span> <span style="color:#366">input</span>(<span style="color:#c30">&#39;Entrer le nom du fichier : &#39;</span>)
+</span></span><span style="display:flex;"><span>Monson <span style="color:#555">=</span> wave<span style="color:#555">.</span>open(NomFichier,<span style="color:#c30">&#39;r&#39;</span>)	<span style="color:#09f;font-style:italic"># instanciation de l&#39;objet Monson</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Nombre de canaux :&#34;</span>,Monson<span style="color:#555">.</span>getnchannels())
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Taille d&#39;un échantillon (en octets):&#34;</span>,Monson<span style="color:#555">.</span>getsampwidth())
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Fréquence d&#39;échantillonnage (en Hz):&#34;</span>,Monson<span style="color:#555">.</span>getframerate())
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;échantillons :&#34;</span>,Monson<span style="color:#555">.</span>getnframes())
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Type de compression :&#34;</span>,Monson<span style="color:#555">.</span>getcompname())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TailleData <span style="color:#555">=</span> Monson<span style="color:#555">.</span>getnchannels()<span style="color:#555">*</span>Monson<span style="color:#555">.</span>getsampwidth()<span style="color:#555">*</span>Monson<span style="color:#555">.</span>getnframes()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Taille du fichier (en octets) :&#34;</span>,TailleData <span style="color:#555">+</span> <span style="color:#f60">44</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;Nombre d&#39;octets de données :&#34;</span>,TailleData)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">Affichage d&#39;une plage de données (dans l&#39;intervalle 0 -&#34;</span>,Monson<span style="color:#555">.</span>getnframes()<span style="color:#555">-</span><span style="color:#f60">1</span>,<span style="color:#c30">&#34;)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echDebut <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;N° échantillon (début) : &#39;</span>))
+</span></span><span style="display:flex;"><span>echFin <span style="color:#555">=</span> <span style="color:#366">int</span>(<span style="color:#366">input</span>(<span style="color:#c30">&#39;N° échantillon (fin) : &#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;</span><span style="color:#c30;font-weight:bold">\n</span><span style="color:#c30">N° échantillon	Contenu&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Monson<span style="color:#555">.</span>setpos(echDebut)
+</span></span><span style="display:flex;"><span>plage <span style="color:#555">=</span> echFin <span style="color:#555">-</span> echDebut <span style="color:#555">+</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">0</span>,plage):
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(Monson<span style="color:#555">.</span>tell(),<span style="color:#c30">&#39;</span><span style="color:#c30;font-weight:bold">\t\t</span><span style="color:#c30">&#39;</span>,binascii<span style="color:#555">.</span>hexlify(Monson<span style="color:#555">.</span>readframes(<span style="color:#f60">1</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Monson<span style="color:#555">.</span>close()
+</span></span></code></pre></div><p>Avec le fichier créé précédemment, on obtient :</p>
 <pre><code>&gt;&gt;&gt;
 Entrer le nom du fichier : son.wav
 
@@ -6064,7 +6064,7 @@ Niveau de l'écho (0 à 1) ?&lt;/span&gt; 0.3
 
 
 
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 
