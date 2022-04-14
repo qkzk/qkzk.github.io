@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf pour impression #  1. Le problème du sac à dos #  Un cambrioleur possède un sac à dos d&rsquo;une contenance maximum de 30 Kg. Au cours d&rsquo;un de ses cambriolages, il a la possibilité de dérober 4 objets A, B, C et D. Voici un tableau qui résume les caractéristiques de ces objets :
-objet A B C D
- masse 13 kg 12 kg 8 kg 10 kg valeur marchande 700 € 400 € 300 € 300 €">
+   objet A B C D     masse 13 kg 12 kg 8 kg 10 kg   valeur marchande 700 € 400 € 300 € 300 €    On ajoute les contraintes suivantes :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="2. TD" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -17,13 +16,17 @@ objet A B C D
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5053f7678b3bba6eea5997636939a7e617b3d00403b735b55e9b49998a3209d9.js" integrity="sha256-UFP3Z4s7um7qWZdjaTmn5hez0AQDtzW1XptJmYoyCdk=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.e67ddd07fde3ca0108894e4677f0867c78d25fcfaf85be863e39c040c3cadaba.js" integrity="sha256-5n3dB/3jygEIiU5Gd/CGfHjSX8&#43;vhb6GPjnAQMPK2ro=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/2_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
   
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -42,6 +45,14 @@ MathJax.Hub.Config({
 </script>
 
 
+
+
+
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script type="text/x-mathjax-config">
@@ -5823,11 +5834,33 @@ MathJax.Hub.Config({
 Au cours d&rsquo;un de ses cambriolages, il a la possibilité de dérober 4
 objets A, B, C et D. Voici un tableau qui résume les caractéristiques de
 ces objets :</p>
-<p>objet              A       B       C       D</p>
-<hr>
-<p>masse              13 kg   12 kg   8 kg    10 kg
-valeur marchande   700 €   400 €   300 €   300 €</p>
-<p>: premier cambriolage</p>
+<table>
+<thead>
+<tr>
+<th>objet</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>masse</td>
+<td>13 kg</td>
+<td>12 kg</td>
+<td>8 kg</td>
+<td>10 kg</td>
+</tr>
+<tr>
+<td>valeur marchande</td>
+<td>700 €</td>
+<td>400 €</td>
+<td>300 €</td>
+<td>300 €</td>
+</tr>
+</tbody>
+</table>
 <p>On ajoute les contraintes suivantes :</p>
 <ul>
 <li>le sac à dos a une contenance de 30 kg</li>
@@ -5846,11 +5879,33 @@ Proposer un algorithme glouton pour résoudre le problème du sac à dos.</p>
 </li>
 <li>
 <p>Reprendre le problème avec les objets suivants :</p>
-<p>objet              A       B       C       D</p>
-<hr>
-<p>masse              35 kg   41 kg   28 kg   39 kg
-valeur marchande   70 €    40 €    30 €    30 €</p>
-<p>: second cambriolage</p>
+<table>
+<thead>
+<tr>
+<th>objet</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>masse</td>
+<td>35 kg</td>
+<td>41 kg</td>
+<td>28 kg</td>
+<td>39 kg</td>
+</tr>
+<tr>
+<td>valeur marchande</td>
+<td>70 €</td>
+<td>40 €</td>
+<td>30 €</td>
+<td>30 €</td>
+</tr>
+</tbody>
+</table>
 <p>a. Si le sac peut contenir 100 kg,
 b. Si le sac peut contenir 85 kg.</p>
 </li>
@@ -5899,6 +5954,133 @@ et renvoie la meilleure.</p>
 <p>Comparer les complexités de deux algorithmes : glouton et exhaustif.</p>
 </li>
 </ol>
+<h1 id="3-somme-de-n-nombres-maximale">
+  3. Somme de $n$ nombres maximale
+  <a class="anchor" href="#3-somme-de-n-nombres-maximale">#</a>
+</h1>
+<p>On cherche à sélectionner <strong>cinq</strong> nombres de la liste suivante en maximisant leur somme et en s&rsquo;interdisant de choisir deux nombres voisins.</p>
+<p>Ainsi, si la liste contient la séquence <code>1, 2, 3</code>, et qu&rsquo;on choisit <code>2</code>, il ne sera plus possible de choisir <code>1</code> ou <code>3</code>.</p>
+<p><code>Liste = 15, 4, 20, 17, 11, 8, 11, 16, 7, 14, 2, 7, 5, 17, 19, 18, 4, 5, 13, 8</code></p>
+<ol>
+<li>Décrire une stratégie gloutonne pour résoudre ce problème.</li>
+<li>Mettre en oeuvre cette stratégie sur cet exemple.</li>
+<li>Vérifier que <code>20, 18, 17, 16, 15</code> est une solution acceptable.</li>
+<li>Comparer ces solutions.</li>
+</ol>
+<h1 id="4-retour-sur-le-voyageur-de-commerce">
+  4. Retour sur le voyageur de commerce
+  <a class="anchor" href="#4-retour-sur-le-voyageur-de-commerce">#</a>
+</h1>
+<p><em>à traiter après avoir étudié le problème en TP machine</em></p>
+<p>On rappelle rapidement le principe du problème :</p>
+<p>Un voyageur a ciblé plusieurs villes qu&rsquo;il souhaite visiter. Il cherche un itinéraire passant par toutes ces villes, depuis un point de départ et revenant
+à la ville de départ. Il ne doit passer qu&rsquo;une et une seule fois par chaque ville.</p>
+<p>Par exemple : Nancy, Metz, Paris, Reims, Troye, Nancy est un trajet possible.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nancy</th>
+<th>Metz</th>
+<th>Paris</th>
+<th>Reims</th>
+<th>Troyes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nancy</td>
+<td></td>
+<td>55</td>
+<td>303</td>
+<td>188</td>
+<td>183</td>
+</tr>
+<tr>
+<td>Metz</td>
+<td></td>
+<td></td>
+<td>306</td>
+<td>176</td>
+<td>203</td>
+</tr>
+<tr>
+<td>Paris</td>
+<td></td>
+<td></td>
+<td></td>
+<td>142</td>
+<td>153</td>
+</tr>
+<tr>
+<td>Reims</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>123</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Décrire la stratégie gloutonne.</li>
+<li>Mettre en oeuvre la stratégie et mesurer la distance parcourue.</li>
+<li>Comparer à : Nancy, Metz, Reims, Paris, Troyes, Nancy.</li>
+<li>Estimer le nombre de trajets possibles (départ &amp; retour à Nancy).</li>
+</ol>
+<h1 id="5-le-parc-dattractions">
+  5. Le parc d&rsquo;attractions
+  <a class="anchor" href="#5-le-parc-dattractions">#</a>
+</h1>
+<p>Vous visitez un parc d&rsquo;attractions proposant des spectables à différents horaires. Voici les horaires des spectacles :</p>
+<table>
+<thead>
+<tr>
+<th>Spectacle</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+<th>I</th>
+<th>J</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horaires</td>
+<td>10h-11h</td>
+<td>10h30-11h30</td>
+<td>11h-12h30</td>
+<td>11h30-12h</td>
+<td>12h-13h</td>
+<td>13h-15h</td>
+<td>13h30-14h</td>
+<td>14h-15h30</td>
+<td>15h-16h</td>
+<td>16h-17h30</td>
+</tr>
+</tbody>
+</table>
+<p>Vous avez remarqué qu&rsquo;il n&rsquo;était pas possible d&rsquo;assister à tous les spectacles puisque certains ont lieu
+à des moments communs; Vous souhaitez assister à un maximum de spectacles. Quels spectacles choisir ?</p>
+<p>Voici deux stratégies gloutonnes possibles :</p>
+<ul>
+<li><strong>Stratégie 1</strong> : choisir le spéctacle dont l&rsquo;heure de début arrive le plus tot parmi les spectacles
+dont l&rsquo;heure de début est postérieure à l&rsquo;heure de fin des spectacles déjà choisis.
+Cette stratégie minimise le temps d&rsquo;attente.</li>
+<li><strong>Stratégie 2</strong> : choisir le spectacle dont l&rsquo;heure de fin arrive le plus tôt parmi les spectacles
+dont l&rsquo;heure de début est postérieure à l&rsquo;heure de fin des spectacles déjà choisis.
+Cette stratégie maximise le temps restant aux autres spectacles.</li>
+</ul>
+<ol>
+<li>Appliquer ces deux stratégies aux données.</li>
+<li>Laquelle est la meilleure ?</li>
+</ol>
+<p><em>Remarque théorique</em> : la seconde stratégie gloutonne donne toujours la meilleure solution.</p>
 </article>
  
 

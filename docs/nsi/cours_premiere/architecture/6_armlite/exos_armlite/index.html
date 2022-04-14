@@ -19,7 +19,7 @@ MOV R0, #25 ADD R1, R0, #12  RO contient 25 R1 contient $25&#43;12=37$  Ecrit 1 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5053f7678b3bba6eea5997636939a7e617b3d00403b735b55e9b49998a3209d9.js" integrity="sha256-UFP3Z4s7um7qWZdjaTmn5hez0AQDtzW1XptJmYoyCdk=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.e67ddd07fde3ca0108894e4677f0867c78d25fcfaf85be863e39c040c3cadaba.js" integrity="sha256-5n3dB/3jygEIiU5Gd/CGfHjSX8&#43;vhb6GPjnAQMPK2ro=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/exos_armlite/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5817,6 +5817,13 @@ MathJax.Hub.Config({
     <li><a href="#ecrit-7---compteur">Ecrit 7 - Compteur</a></li>
     <li><a href="#ecrit-8---multiplication">Ecrit 8 - Multiplication</a></li>
     <li><a href="#ecrit-9---division-euclidienne">Ecrit 9 - Division Euclidienne</a></li>
+    <li><a href="#ecrit-10---maximum-dune-collection">Ecrit 10 - Maximum d&rsquo;une collection</a>
+      <ul>
+        <li><a href="#enregister-les-données">Enregister les données.</a></li>
+        <li><a href="#le-programme-lui-même">Le programme lui même</a></li>
+        <li><a href="#un-exemple">Un exemple</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
@@ -6077,6 +6084,80 @@ soustractions successives :</p>
 <li>Traduire ce programme en assembleur.</li>
 <li>Vérifier qu&rsquo;il renvoie le résultat correct pour les divisions de $7$ par $2$ et de $21$ par $4$</li>
 </ol>
+<h2 id="ecrit-10---maximum-dune-collection">
+  Ecrit 10 - Maximum d&rsquo;une collection
+  <a class="anchor" href="#ecrit-10---maximum-dune-collection">#</a>
+</h2>
+<p>Dans cette partie, plus délicate, on va s&rsquo;intéresser à <em>l&rsquo;adressage indirect.</em></p>
+<p>Ce principe permet de réaliser des opérations sur les adresses. L&rsquo;objectif est d&rsquo;utiliser un tableau
+de données enregistré en mémoire.</p>
+<h3 id="enregister-les-données">
+  Enregister les données.
+  <a class="anchor" href="#enregister-les-donn%c3%a9es">#</a>
+</h3>
+<ol>
+<li>On aligne d&rsquo;abord la mémoire à une adresse spécifiée, assez grande pour pouvoir enregistrer le code avant.</li>
+<li>On spécifie la taille totale des données, en nombre de mots,</li>
+<li>On donne un nom à l&rsquo;adresse de départ de la collection, ensuite on écrit les valeurs de cette collection.</li>
+</ol>
+<h3 id="le-programme-lui-même">
+  Le programme lui même
+  <a class="anchor" href="#le-programme-lui-m%c3%aame">#</a>
+</h3>
+<p>Dans le code, on va d&rsquo;abord charger l&rsquo;adresse du premier élément.
+Pour accéder au suivant, on se déplace de la taille d&rsquo;un mot (4 octets) dans la mémoire.
+Et ainsi de suite.</p>
+<h3 id="un-exemple">
+  Un exemple
+  <a class="anchor" href="#un-exemple">#</a>
+</h3>
+<p>Le code suivant présente un parcours séquentiel afin de déterminer un maximum. C&rsquo;est le plus simple que je parvienne à écrire, il y a sûrement mieux !</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  1<span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>tableau  <span style="color:#09f;font-style:italic">// adresse du début du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  2<span style="color:#555">|</span>      LDR R2<span style="color:#555">,</span> longueur  <span style="color:#09f;font-style:italic">// taille du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  3<span style="color:#555">|</span>      LSL R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>2    <span style="color:#09f;font-style:italic">// multiplier par 2**2 pour compter les octets (1 mot = 4 octets)
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  4<span style="color:#555">|</span>      MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0        <span style="color:#09f;font-style:italic">// compteur de boucle
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  5<span style="color:#555">|</span>      LDR R4<span style="color:#555">,</span> tableau   <span style="color:#09f;font-style:italic">// maximum
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  6<span style="color:#555">|</span>boucle<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span>  7<span style="color:#555">|</span>      LDR R5<span style="color:#555">,</span> <span style="color:#555">[</span>R1<span style="color:#555">+</span>R3<span style="color:#555">]</span>   <span style="color:#09f;font-style:italic">// charger la valeur courante
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  8<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4    <span style="color:#09f;font-style:italic">// incrémenter le compteur de boucle
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  9<span style="color:#555">|</span>      CMP R5<span style="color:#555">,</span> R4        <span style="color:#09f;font-style:italic">// comparer la valeur courante au max
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 10<span style="color:#555">|</span>      BGT nouveaumax    <span style="color:#09f;font-style:italic">// on a un nouveau max ! 
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 11<span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit-on continuer la boucle ?
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 12<span style="color:#555">|</span>nouveaumax<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> 13<span style="color:#555">|</span>      MOV R4<span style="color:#555">,</span> R5        <span style="color:#09f;font-style:italic">// sauvegarder le nouveau max
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 14<span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit on continuer la boucle ?
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 15<span style="color:#555">|</span>continuer<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> 16<span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R2        <span style="color:#09f;font-style:italic">// comparer l&#39;indice de boucle au nombre d&#39;éléments
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 17<span style="color:#555">|</span>      BGT fin           <span style="color:#09f;font-style:italic">// on dépasse, on s&#39;arrête
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 18<span style="color:#555">|</span>      B boucle          <span style="color:#09f;font-style:italic">// on ne dépasse pas, encore un tour
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 19<span style="color:#555">|</span>fin<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> 20<span style="color:#555">|</span>      HALT
+</span></span><span style="display:flex;"><span> 21<span style="color:#555">|</span>      <span style="color:#555">.</span><span style="color:#309">ALIGN</span> 0x00100
+</span></span><span style="display:flex;"><span> 22<span style="color:#555">|</span>longueur<span style="color:#555">:</span> 5             <span style="color:#09f;font-style:italic">// taille du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 23<span style="color:#555">|</span>tableau<span style="color:#555">:</span> 10             <span style="color:#09f;font-style:italic">// 1er élément
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 24<span style="color:#555">|</span>      11
+</span></span><span style="display:flex;"><span> 25<span style="color:#555">|</span>      5
+</span></span><span style="display:flex;"><span> 26<span style="color:#555">|</span>      8
+</span></span><span style="display:flex;"><span> 27<span style="color:#555">|</span>      4
+</span></span></code></pre></div><p>L&rsquo;étape importante est en trois temps :</p>
+<ul>
+<li>d&rsquo;abord ligne 1, on charge une <em>adresse</em>,</li>
+<li>ensuite ligne 3 on mesure le nombre d&rsquo;octets, vu qu&rsquo;on doit donner une adresse dans cette unité,</li>
+<li>enfin ligne 7 <code>[R1+R3]</code> va nous donner la position du nombre courant.</li>
+</ul>
+<ol>
+<li>
+<p>Faire tourner ce programme à la main</p>
+</li>
+<li>
+<p>Que changer pour un tableau de 20 éléments ?</p>
+</li>
+<li>
+<p>L&rsquo;adapter proprement pour déterminer :</p>
+<p>a. le minimum des éléments,
+b. la somme des éléments.</p>
+</li>
+</ol>
 <h1 id="exercices-de-programmation">
   Exercices de programmation
   <a class="anchor" href="#exercices-de-programmation">#</a>
@@ -6265,6 +6346,13 @@ Pour simplifier, on utilisera des nombres entre 1 et un puissance de 2 (entre 1 
     <li><a href="#ecrit-7---compteur">Ecrit 7 - Compteur</a></li>
     <li><a href="#ecrit-8---multiplication">Ecrit 8 - Multiplication</a></li>
     <li><a href="#ecrit-9---division-euclidienne">Ecrit 9 - Division Euclidienne</a></li>
+    <li><a href="#ecrit-10---maximum-dune-collection">Ecrit 10 - Maximum d&rsquo;une collection</a>
+      <ul>
+        <li><a href="#enregister-les-données">Enregister les données.</a></li>
+        <li><a href="#le-programme-lui-même">Le programme lui même</a></li>
+        <li><a href="#un-exemple">Un exemple</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
