@@ -16,7 +16,7 @@ Entrainer une machine à apprendre n&rsquo;est pas une idée récente, la premi�
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.3a71a411e448db13af7ca72889d0c734186cde3b5544eecbe377df081611fbfa.css" integrity="sha256-OnGkEeRI2xOvfKcoidDHNBhs3jtVRO7L43ffCBYR&#43;/o=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.d5f8834fb8a277855be26072d643947e26783e785434c5a7ddef0dfc059183b2.js" integrity="sha256-1fiDT7iid4Vb4mBy1kOUfiZ4PnhUNMWn3e8N/AWRg7I=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.5b98407699db4bd27b4d1496ee2814c03a3604aedc034aa03ce7915525aa5215.js" integrity="sha256-W5hAdpnbS9J7TRSW7igUwDo2BK7cA0qgPOeRVSWqUhU=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5901,9 +5901,9 @@ pour lesquelles on connait déjà la classe.</p>
   Exemple
   <a class="anchor" href="#exemple">#</a>
 </h2>
-<p>On considère deux espères, les crocodiles et les alligators.</p>
+<p>On considère deux espèces, les <em>crocodiles</em> et les <em>alligators</em>.</p>
 <p>On a des raisons de supposer qu&rsquo;on peut les distinguer en mesurant la
-largeur de leur gueule et leur longueur.</p>
+largeur de leur gueule et la longueur de leur corps.</p>
 <table>
 <thead>
 <tr>
@@ -5960,9 +5960,9 @@ largeur de leur gueule et leur longueur.</p>
 </tr>
 </tbody>
 </table>
-<p>On ajoute un nouvel animal dont on connait les caractéristiques :</p>
+<p>On ajoute un nouvel animal dont on connait les caractéristiques <strong>mais pas l&rsquo;espèce</strong> :</p>
 <blockquote>
-<p><code>N : gueule = 0.19, longueur = 2.91</code></p>
+<p><code>Nouveau : gueule = 0.19, longueur = 2.91</code></p>
 </blockquote>
 <blockquote>
 <p><strong>À quelle espèce appartient-il ?</strong></p>
@@ -6048,6 +6048,7 @@ nouvel animal.</p>
   Complexité
   <a class="anchor" href="#complexit%c3%a9">#</a>
 </h2>
+<p>Intéressons-nous à la complexité de cet algorithme. Le résultat sera décevant !</p>
 <ul>
 <li>
 <p>Afin de calculer les distances, un parcourt du tableau suffit : $O(n)$</p>
@@ -6062,7 +6063,7 @@ on l&rsquo;insère dans la liste à sa place.</p>
 <p>Ainsi la complexité devient $O(k \times n)$, mais $k$ étant constant : $O(n)$.</p>
 </li>
 </ul>
-<p>L&rsquo;algorithme de $k$ plus proches voisins, bien implanté, est <em>linéaire.</em></p>
+<p>L&rsquo;algorithme de $k$ plus proches voisins, bien implanté, est <em>linéaire en la taille des données.</em></p>
 <h2 id="choix-dune-distance-et-pré-traitement-des-données">
   Choix d&rsquo;une distance et pré-traitement des données
   <a class="anchor" href="#choix-dune-distance-et-pr%c3%a9-traitement-des-donn%c3%a9es">#</a>
@@ -6071,9 +6072,9 @@ on l&rsquo;insère dans la liste à sa place.</p>
 la distance <em>usuelle</em>, vue en seconde n&rsquo;en est qu&rsquo;une parmi d&rsquo;autre.</p>
 <p>Selon le type de donnée, on peut amené à changer la distance employée.</p>
 <p>C&rsquo;est en particulier le cas lorsqu&rsquo;on utilise avec des données <em>qualitatives</em>
-(couleur des yeux).</p>
+(couleur des yeux, plat favori etc.).</p>
 <p>Par ailleurs, ainsi qu&rsquo;on peut le remarquer dans l&rsquo;exemple précédent, les données
-ne sont pas toutes du même ordre de grandeur. Cela engendre un problème,
+ne sont pas toutes du même ordre de grandeur. Cela engendre un problème :
 les données les plus <em>grandes</em> vont peser plus lourdement dans le calcul de distance.</p>
 <p>Afin de pallier cette difficulté on <em>normalise</em> les données, c&rsquo;est à dire
 qu&rsquo;on divise toutes les données d&rsquo;une même catégorie par leur valeur maximale
@@ -6099,6 +6100,8 @@ succeptibles de vous intéresser. Comment faire ?</p>
 déterminant les autres vidéos dont elle est le plus proche.</p>
 <p>On utilise plusieurs labels différents (&ldquo;intérêt chez les moins de 18&rdquo;,
 &ldquo;nombre de scènes d&rsquo;action&rdquo; etc.) et on détermine les plus représentatifs.</p>
+<p>Bien sûr, d&rsquo;autres traitements sont effectués afin d&rsquo;accélérer le procédé sans perdre
+trop de précision sur les recommandations.</p>
 </article>
  
 
