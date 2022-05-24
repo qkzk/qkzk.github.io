@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sql dans le navigateur #    Depuis un fichier init   Commande SQL SELECT * FROM employees;  Exécuter  Résultat   var worker_0 = new Worker(&#34;https:\/\/qkzk.xyz\/js/worker.sql-wasm.js&#34;); var execBtn_0 = document.getElementById(&#34;execute_0&#34;); var outputElm_0 = document.getElementById(&#39;output_0&#39;); var errorElm_0 = document.getElementById(&#39;error_0&#39;); var commandsElm_0 = document.getElementById(&#39;commands_0&#39;); var dbFileElm_0 = document.getElementById(&#39;dbfile_0&#39;); var savedbElm_0 = document.getElementById(&#39;savedb_0&#39;); worker_0.onerror = function (e) { console.log(e); errorElm_0.style.height = &#39;2em&#39;; errorElm_0.textContent = e.message; }; worker_0.postMessage({ action: &#39;open&#39; }); function error_0(e) { console.">
+<meta name="description" content="Sql dans le navigateur #    Depuis un fichier init   Commande SQL SELECT * FROM employees;  Exécuter  Résultat      var dbfile = null; var init_file = &#34;https:\/\/qkzk.xyz\/&#34; &#43; &#34;/&#34; &#43; &#34;docs\/nsi\/cours_terminale\/bdd\/sqljs\/&#34; &#43; &#34;init.sql&#34;; var worker_url = &#34;https:\/\/qkzk.xyz\/js/worker.sql-wasm.js&#34;; onElementLoaded(&#34;div#ide_0&#34;).then(() = { const ide = document.querySelector(&#34;div#ide_0&#34;); load(ide, worker_url, dbfile, init_file); }).catch(() = { });    depuis un fichier bdd   Commande SQL SELECT * FROM employees;  Exécuter  Résultat      var dbfile = &#34;">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Editeur SQL" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.097ae4d27a89a63bee387b11d1eea20bb5e31558773f42dcd6d1a3e257076936.css" integrity="sha256-CXrk0nqJpjvuOHsR0e6iC7XjFVh3P0Lc1tGj4lcHaTY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6e70ee0a8d42ccf0dbc601a32407bda15474ba7371104115bcd66b0c45737d90.js" integrity="sha256-bnDuCo1CzPDbxgGjJAe9oVR0unNxEEEVvNZrDEVzfZA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1498a4c1fe5b8048fbe555d7044f62c15759bfc06d6b54e78bbe04801c305253.js" integrity="sha256-FJikwf5bgEj75VXXBE9iwVdZv8Bta1Tni74EgBwwUlM=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/sqljs/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5865,152 +5865,37 @@ MathJax.Hub.Config({
 
 </h2>
 <main>
-    <label for='commands_0'>Commande SQL</label>
-    <br>
-
-    <textarea id="commands_0">
+    <div id="ide_0">
+        <label for='commands_0'>Commande SQL</label>
+        <br>
+        <textarea id="commands_0" class="commands">
 
 SELECT * FROM employees;
 
-    </textarea>
-
-    <button id="execute_0" class="execute btn-sql">Exécuter</button>
-
-    <div id="error_0" class="error"></div>
-
-    <pre id="output_0" class="output">Résultat</pre>
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_0" class="output">Résultat</pre>
+    </div>
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
-<script type="text/javascript">
-    var worker_0 = new Worker("https:\/\/qkzk.xyz\/js/worker.sql-wasm.js");
-    var execBtn_0 = document.getElementById("execute_0");
-    var outputElm_0 = document.getElementById('output_0');
-    var errorElm_0 = document.getElementById('error_0');
-    var commandsElm_0 = document.getElementById('commands_0');
-    var dbFileElm_0 = document.getElementById('dbfile_0');
-    var savedbElm_0 = document.getElementById('savedb_0');
-
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
     
-    worker_0.onerror = function (e) {
-            console.log(e);
-            errorElm_0.style.height = '2em';
-            errorElm_0.textContent = e.message;
-        };
-
-    
-    worker_0.postMessage({ action: 'open' });
-
-    function error_0(e) {
-        console.log(e);
-        errorElm_0.style.height = '2em';
-        errorElm_0.textContent = e.message;
-    }
-
-    function print_0(text) {
-        outputElm_0.innerHTML = text.replace(/\n/g, '<br>');
-    }
-
-    function noerror_0() {
-        errorElm_0.style.height = '0';
-    }
-
-    
-    function execEditorContents_0() {
-        noerror_0()
-        execute_0(editor_0.getValue() + ';');
-    }
-
-    
-    var tictime;
-    if (!window.performance || !performance.now) { window.performance = { now: Date.now } }
-    function tic() { tictime = performance.now() }
-    function toc(msg) {
-        var dt = performance.now() - tictime;
-        console.log((msg || 'toc') + ": " + dt + "ms");
-    }
-
-    function execute_0(commands) {
-        tic();
-        worker_0.onmessage = function(event) {
-            var results = event.data.results;
-            toc("Executing SQL");
-            if (!results) {
-                error_0({ message: event.data.error });
-                return;
-            }
-
-            tic();
-            outputElm_0.innerHTML = "";
-            for (var i = 0; i < results.length; i++) {
-                outputElm_0.appendChild(tableCreate(results[i].columns, results[i].values));
-            }
-            toc("Displaying results");
-        }
-        worker_0.postMessage({ action: 'exec', sql: commands });
-        outputElm_0.textContent = "Fetching results...";
-    }
-
-    
-    var tableCreate = function() {
-        function valconcat(vals, tagName) {
-            if (vals.length === 0) return '';
-            var open = '<' + tagName + '>', close = '</' + tagName + '>';
-            return open + vals.join(close + open) + close;
-        }
-        return function(columns, values) {
-            var tbl = document.createElement('table');
-            var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
-            var rows = values.map(function(v) { return valconcat(v, 'td'); });
-            html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
-            tbl.innerHTML = html;
-            return tbl;
-        }
-    }();
-
-    execBtn_0.addEventListener(
-            "click", 
-            execEditorContents_0, 
-            true
-        );
-
-    
-    var editor_0 = CodeMirror.fromTextArea(commandsElm_0, {
-        mode: 'text/x-mysql',
-        viewportMargin: Infinity,
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: false,
-        matchBrackets: true,
-        autofocus: true,
-        extraKeys: {
-            "Ctrl-Enter": execEditorContents_0,
-        }
-    });
-
-
+        var dbfile = null;
     
 
-
     
-    async function load_commands_file_0(filepath) {
-        const u = new URL(filepath);
-        fetch(u).then(res => res.text()).then(text => {
-            try {
-                execute_0(text);
-            } catch (exception) {
-                console.log(exception);
-                console.log("commands failed");
-            }
-        });
-    }
-
-    console.log("commands:", "init.sql");
-    const init_0 = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "init.sql";
-    console.log("init:", init_0);
-    load_commands_file_0(init_0);
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "init.sql";
     
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_0").then(() => {
+        const ide = document.querySelector("div#ide_0");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
@@ -6023,152 +5908,38 @@ SELECT * FROM employees;
 
 </h2>
 <main>
-    <label for='commands_1'>Commande SQL</label>
-    <br>
-
-    <textarea id="commands_1">
+    <div id="ide_1">
+        <label for='commands_1'>Commande SQL</label>
+        <br>
+        <textarea id="commands_1" class="commands">
 
 SELECT * FROM employees;
 
-    </textarea>
-
-    <button id="execute_1" class="execute btn-sql">Exécuter</button>
-
-    <div id="error_1" class="error"></div>
-
-    <pre id="output_1" class="output">Résultat</pre>
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_1" class="output">Résultat</pre>
+    </div>
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
-<script type="text/javascript">
-    var worker_1 = new Worker("https:\/\/qkzk.xyz\/js/worker.sql-wasm.js");
-    var execBtn_1 = document.getElementById("execute_1");
-    var outputElm_1 = document.getElementById('output_1');
-    var errorElm_1 = document.getElementById('error_1');
-    var commandsElm_1 = document.getElementById('commands_1');
-    var dbFileElm_1 = document.getElementById('dbfile_1');
-    var savedbElm_1 = document.getElementById('savedb_1');
-
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
     
-    worker_1.onerror = function (e) {
-            console.log(e);
-            errorElm_1.style.height = '2em';
-            errorElm_1.textContent = e.message;
-        };
-
-    
-    worker_1.postMessage({ action: 'open' });
-
-    function error_1(e) {
-        console.log(e);
-        errorElm_1.style.height = '2em';
-        errorElm_1.textContent = e.message;
-    }
-
-    function print_1(text) {
-        outputElm_1.innerHTML = text.replace(/\n/g, '<br>');
-    }
-
-    function noerror_1() {
-        errorElm_1.style.height = '0';
-    }
-
-    
-    function execEditorContents_1() {
-        noerror_1()
-        execute_1(editor_1.getValue() + ';');
-    }
-
-    
-    var tictime;
-    if (!window.performance || !performance.now) { window.performance = { now: Date.now } }
-    function tic() { tictime = performance.now() }
-    function toc(msg) {
-        var dt = performance.now() - tictime;
-        console.log((msg || 'toc') + ": " + dt + "ms");
-    }
-
-    function execute_1(commands) {
-        tic();
-        worker_1.onmessage = function(event) {
-            var results = event.data.results;
-            toc("Executing SQL");
-            if (!results) {
-                error_1({ message: event.data.error });
-                return;
-            }
-
-            tic();
-            outputElm_1.innerHTML = "";
-            for (var i = 0; i < results.length; i++) {
-                outputElm_1.appendChild(tableCreate(results[i].columns, results[i].values));
-            }
-            toc("Displaying results");
-        }
-        worker_1.postMessage({ action: 'exec', sql: commands });
-        outputElm_1.textContent = "Fetching results...";
-    }
-
-    
-    var tableCreate = function() {
-        function valconcat(vals, tagName) {
-            if (vals.length === 0) return '';
-            var open = '<' + tagName + '>', close = '</' + tagName + '>';
-            return open + vals.join(close + open) + close;
-        }
-        return function(columns, values) {
-            var tbl = document.createElement('table');
-            var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
-            var rows = values.map(function(v) { return valconcat(v, 'td'); });
-            html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
-            tbl.innerHTML = html;
-            return tbl;
-        }
-    }();
-
-    execBtn_1.addEventListener(
-            "click", 
-            execEditorContents_1, 
-            true
-        );
-
-    
-    var editor_1 = CodeMirror.fromTextArea(commandsElm_1, {
-        mode: 'text/x-mysql',
-        viewportMargin: Infinity,
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: false,
-        matchBrackets: true,
-        autofocus: true,
-        extraKeys: {
-            "Ctrl-Enter": execEditorContents_1,
-        }
-    });
-
-
-    
-    async function load_db_file_1(filepath) {
-        console.log("loading :", filepath);
-        worker_1.postMessage({ action: 'open' });
-
-        const u = new URL(filepath);
-        fetch(u).then(res => res.arrayBuffer()).then(buf => {
-            try {
-                worker_1.postMessage({ action: 'open', 'buffer': buf }, [buf]);
-            } catch (exception) {
-                worker_1.postMessage({ action: 'open', 'buffer': buf });
-            }
-        });
-    }
-    const dbfile_1 = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "employees.db";
-    console.log("file from markdown:", dbfile_1);
-    load_db_file_1(dbfile_1);
+        var dbfile = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "employees.db";
+        console.log("dbfile", dbfile);
     
 
-
     
+        var init_file = null;
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_1").then(() => {
+        const ide = document.querySelector("div#ide_1");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
@@ -6181,152 +5952,37 @@ SELECT * FROM employees;
 
 </h2>
 <main>
-    <label for='commands_2'>Commande SQL</label>
-    <br>
-
-    <textarea id="commands_2">
+    <div id="ide_2">
+        <label for='commands_2'>Commande SQL</label>
+        <br>
+        <textarea id="commands_2" class="commands">
 
 SELECT * FROM employees;
 
-    </textarea>
-
-    <button id="execute_2" class="execute btn-sql">Exécuter</button>
-
-    <div id="error_2" class="error"></div>
-
-    <pre id="output_2" class="output">Résultat</pre>
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_2" class="output">Résultat</pre>
+    </div>
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
-<script type="text/javascript">
-    var worker_2 = new Worker("https:\/\/qkzk.xyz\/js/worker.sql-wasm.js");
-    var execBtn_2 = document.getElementById("execute_2");
-    var outputElm_2 = document.getElementById('output_2');
-    var errorElm_2 = document.getElementById('error_2');
-    var commandsElm_2 = document.getElementById('commands_2');
-    var dbFileElm_2 = document.getElementById('dbfile_2');
-    var savedbElm_2 = document.getElementById('savedb_2');
-
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
     
-    worker_2.onerror = function (e) {
-            console.log(e);
-            errorElm_2.style.height = '2em';
-            errorElm_2.textContent = e.message;
-        };
-
-    
-    worker_2.postMessage({ action: 'open' });
-
-    function error_2(e) {
-        console.log(e);
-        errorElm_2.style.height = '2em';
-        errorElm_2.textContent = e.message;
-    }
-
-    function print_2(text) {
-        outputElm_2.innerHTML = text.replace(/\n/g, '<br>');
-    }
-
-    function noerror_2() {
-        errorElm_2.style.height = '0';
-    }
-
-    
-    function execEditorContents_2() {
-        noerror_2()
-        execute_2(editor_2.getValue() + ';');
-    }
-
-    
-    var tictime;
-    if (!window.performance || !performance.now) { window.performance = { now: Date.now } }
-    function tic() { tictime = performance.now() }
-    function toc(msg) {
-        var dt = performance.now() - tictime;
-        console.log((msg || 'toc') + ": " + dt + "ms");
-    }
-
-    function execute_2(commands) {
-        tic();
-        worker_2.onmessage = function(event) {
-            var results = event.data.results;
-            toc("Executing SQL");
-            if (!results) {
-                error_2({ message: event.data.error });
-                return;
-            }
-
-            tic();
-            outputElm_2.innerHTML = "";
-            for (var i = 0; i < results.length; i++) {
-                outputElm_2.appendChild(tableCreate(results[i].columns, results[i].values));
-            }
-            toc("Displaying results");
-        }
-        worker_2.postMessage({ action: 'exec', sql: commands });
-        outputElm_2.textContent = "Fetching results...";
-    }
-
-    
-    var tableCreate = function() {
-        function valconcat(vals, tagName) {
-            if (vals.length === 0) return '';
-            var open = '<' + tagName + '>', close = '</' + tagName + '>';
-            return open + vals.join(close + open) + close;
-        }
-        return function(columns, values) {
-            var tbl = document.createElement('table');
-            var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
-            var rows = values.map(function(v) { return valconcat(v, 'td'); });
-            html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
-            tbl.innerHTML = html;
-            return tbl;
-        }
-    }();
-
-    execBtn_2.addEventListener(
-            "click", 
-            execEditorContents_2, 
-            true
-        );
-
-    
-    var editor_2 = CodeMirror.fromTextArea(commandsElm_2, {
-        mode: 'text/x-mysql',
-        viewportMargin: Infinity,
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: false,
-        matchBrackets: true,
-        autofocus: true,
-        extraKeys: {
-            "Ctrl-Enter": execEditorContents_2,
-        }
-    });
-
-
+        var dbfile = null;
     
 
-
     
-    async function load_commands_file_2(filepath) {
-        const u = new URL(filepath);
-        fetch(u).then(res => res.text()).then(text => {
-            try {
-                execute_2(text);
-            } catch (exception) {
-                console.log(exception);
-                console.log("commands failed");
-            }
-        });
-    }
-
-    console.log("commands:", "init_2.sql");
-    const init_2 = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "init_2.sql";
-    console.log("init:", init_2);
-    load_commands_file_2(init_2);
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "init_2.sql";
     
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_2").then(() => {
+        const ide = document.querySelector("div#ide_2");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
@@ -6339,152 +5995,38 @@ SELECT * FROM employees;
 
 </h2>
 <main>
-    <label for='commands_3'>Commande SQL</label>
-    <br>
-
-    <textarea id="commands_3">
+    <div id="ide_3">
+        <label for='commands_3'>Commande SQL</label>
+        <br>
+        <textarea id="commands_3" class="commands">
 
 SELECT * FROM employees;
 
-    </textarea>
-
-    <button id="execute_3" class="execute btn-sql">Exécuter</button>
-
-    <div id="error_3" class="error"></div>
-
-    <pre id="output_3" class="output">Résultat</pre>
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_3" class="output">Résultat</pre>
+    </div>
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
-<script type="text/javascript">
-    var worker_3 = new Worker("https:\/\/qkzk.xyz\/js/worker.sql-wasm.js");
-    var execBtn_3 = document.getElementById("execute_3");
-    var outputElm_3 = document.getElementById('output_3');
-    var errorElm_3 = document.getElementById('error_3');
-    var commandsElm_3 = document.getElementById('commands_3');
-    var dbFileElm_3 = document.getElementById('dbfile_3');
-    var savedbElm_3 = document.getElementById('savedb_3');
-
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
     
-    worker_3.onerror = function (e) {
-            console.log(e);
-            errorElm_3.style.height = '2em';
-            errorElm_3.textContent = e.message;
-        };
-
-    
-    worker_3.postMessage({ action: 'open' });
-
-    function error_3(e) {
-        console.log(e);
-        errorElm_3.style.height = '2em';
-        errorElm_3.textContent = e.message;
-    }
-
-    function print_3(text) {
-        outputElm_3.innerHTML = text.replace(/\n/g, '<br>');
-    }
-
-    function noerror_3() {
-        errorElm_3.style.height = '0';
-    }
-
-    
-    function execEditorContents_3() {
-        noerror_3()
-        execute_3(editor_3.getValue() + ';');
-    }
-
-    
-    var tictime;
-    if (!window.performance || !performance.now) { window.performance = { now: Date.now } }
-    function tic() { tictime = performance.now() }
-    function toc(msg) {
-        var dt = performance.now() - tictime;
-        console.log((msg || 'toc') + ": " + dt + "ms");
-    }
-
-    function execute_3(commands) {
-        tic();
-        worker_3.onmessage = function(event) {
-            var results = event.data.results;
-            toc("Executing SQL");
-            if (!results) {
-                error_3({ message: event.data.error });
-                return;
-            }
-
-            tic();
-            outputElm_3.innerHTML = "";
-            for (var i = 0; i < results.length; i++) {
-                outputElm_3.appendChild(tableCreate(results[i].columns, results[i].values));
-            }
-            toc("Displaying results");
-        }
-        worker_3.postMessage({ action: 'exec', sql: commands });
-        outputElm_3.textContent = "Fetching results...";
-    }
-
-    
-    var tableCreate = function() {
-        function valconcat(vals, tagName) {
-            if (vals.length === 0) return '';
-            var open = '<' + tagName + '>', close = '</' + tagName + '>';
-            return open + vals.join(close + open) + close;
-        }
-        return function(columns, values) {
-            var tbl = document.createElement('table');
-            var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
-            var rows = values.map(function(v) { return valconcat(v, 'td'); });
-            html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
-            tbl.innerHTML = html;
-            return tbl;
-        }
-    }();
-
-    execBtn_3.addEventListener(
-            "click", 
-            execEditorContents_3, 
-            true
-        );
-
-    
-    var editor_3 = CodeMirror.fromTextArea(commandsElm_3, {
-        mode: 'text/x-mysql',
-        viewportMargin: Infinity,
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: false,
-        matchBrackets: true,
-        autofocus: true,
-        extraKeys: {
-            "Ctrl-Enter": execEditorContents_3,
-        }
-    });
-
-
-    
-    async function load_db_file_3(filepath) {
-        console.log("loading :", filepath);
-        worker_3.postMessage({ action: 'open' });
-
-        const u = new URL(filepath);
-        fetch(u).then(res => res.arrayBuffer()).then(buf => {
-            try {
-                worker_3.postMessage({ action: 'open', 'buffer': buf }, [buf]);
-            } catch (exception) {
-                worker_3.postMessage({ action: 'open', 'buffer': buf });
-            }
-        });
-    }
-    const dbfile_3 = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "employees.db";
-    console.log("file from markdown:", dbfile_3);
-    load_db_file_3(dbfile_3);
+        var dbfile = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/sqljs\/" + "employees.db";
+        console.log("dbfile", dbfile);
     
 
-
     
+        var init_file = null;
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_3").then(() => {
+        const ide = document.querySelector("div#ide_3");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
@@ -6497,10 +6039,10 @@ SELECT * FROM employees;
 
 </h2>
 <main>
-    <label for='commands_4'>Commande SQL</label>
-    <br>
-
-    <textarea id="commands_4">
+    <div id="ide_4">
+        <label for='commands_4'>Commande SQL</label>
+        <br>
+        <textarea id="commands_4" class="commands">
 
 DROP TABLE IF EXISTS employees;
 CREATE TABLE employees( id          integer,  name    text,
@@ -6526,128 +6068,30 @@ CREATE TABLE employees( id          integer,  name    text,
 SELECT designation,COUNT(*) AS nbr, (AVG(salary)) AS avg_salary FROM employees GROUP BY designation ORDER BY avg_salary DESC;
 SELECT name,hired_on FROM employees ORDER BY hired_on;
 
-    </textarea>
-
-    <button id="execute_4" class="execute btn-sql">Exécuter</button>
-
-    <div id="error_4" class="error"></div>
-
-    <pre id="output_4" class="output">Résultat</pre>
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_4" class="output">Résultat</pre>
+    </div>
 </main>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
-<script type="text/javascript">
-    var worker_4 = new Worker("https:\/\/qkzk.xyz\/js/worker.sql-wasm.js");
-    var execBtn_4 = document.getElementById("execute_4");
-    var outputElm_4 = document.getElementById('output_4');
-    var errorElm_4 = document.getElementById('error_4');
-    var commandsElm_4 = document.getElementById('commands_4');
-    var dbFileElm_4 = document.getElementById('dbfile_4');
-    var savedbElm_4 = document.getElementById('savedb_4');
-
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
     
-    worker_4.onerror = function (e) {
-            console.log(e);
-            errorElm_4.style.height = '2em';
-            errorElm_4.textContent = e.message;
-        };
-
-    
-    worker_4.postMessage({ action: 'open' });
-
-    function error_4(e) {
-        console.log(e);
-        errorElm_4.style.height = '2em';
-        errorElm_4.textContent = e.message;
-    }
-
-    function print_4(text) {
-        outputElm_4.innerHTML = text.replace(/\n/g, '<br>');
-    }
-
-    function noerror_4() {
-        errorElm_4.style.height = '0';
-    }
-
-    
-    function execEditorContents_4() {
-        noerror_4()
-        execute_4(editor_4.getValue() + ';');
-    }
-
-    
-    var tictime;
-    if (!window.performance || !performance.now) { window.performance = { now: Date.now } }
-    function tic() { tictime = performance.now() }
-    function toc(msg) {
-        var dt = performance.now() - tictime;
-        console.log((msg || 'toc') + ": " + dt + "ms");
-    }
-
-    function execute_4(commands) {
-        tic();
-        worker_4.onmessage = function(event) {
-            var results = event.data.results;
-            toc("Executing SQL");
-            if (!results) {
-                error_4({ message: event.data.error });
-                return;
-            }
-
-            tic();
-            outputElm_4.innerHTML = "";
-            for (var i = 0; i < results.length; i++) {
-                outputElm_4.appendChild(tableCreate(results[i].columns, results[i].values));
-            }
-            toc("Displaying results");
-        }
-        worker_4.postMessage({ action: 'exec', sql: commands });
-        outputElm_4.textContent = "Fetching results...";
-    }
-
-    
-    var tableCreate = function() {
-        function valconcat(vals, tagName) {
-            if (vals.length === 0) return '';
-            var open = '<' + tagName + '>', close = '</' + tagName + '>';
-            return open + vals.join(close + open) + close;
-        }
-        return function(columns, values) {
-            var tbl = document.createElement('table');
-            var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
-            var rows = values.map(function(v) { return valconcat(v, 'td'); });
-            html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
-            tbl.innerHTML = html;
-            return tbl;
-        }
-    }();
-
-    execBtn_4.addEventListener(
-            "click", 
-            execEditorContents_4, 
-            true
-        );
-
-    
-    var editor_4 = CodeMirror.fromTextArea(commandsElm_4, {
-        mode: 'text/x-mysql',
-        viewportMargin: Infinity,
-        indentWithTabs: true,
-        smartIndent: true,
-        lineNumbers: false,
-        matchBrackets: true,
-        autofocus: true,
-        extraKeys: {
-            "Ctrl-Enter": execEditorContents_4,
-        }
-    });
-
-
+        var dbfile = null;
     
 
-
     
+        var init_file = null;
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_4").then(() => {
+        const ide = document.querySelector("div#ide_4");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
 </script>
 
 </article>
