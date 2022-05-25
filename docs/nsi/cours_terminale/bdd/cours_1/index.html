@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf : pour impression, diapo #  Bases de données relationnelles #  Principe #  Une base de donnée est un concept qui permet de stocker efficacement une immense quantité d&rsquo;information. Elles permettent de croiser facilement les informations et d&rsquo;en extraire le contenu.
+<meta name="description" content="pdf : pour impression, diapo
+Bases de données relationnelles #  Principe #  Une base de donnée permet de stocker efficacement une immense quantité d&rsquo;information.
+Les BDD permettent de croiser facilement les informations et d&rsquo;en extraire le contenu.
 Les bases de données relationnelles sont apparues dans les années 60 et sont encore les plus utilisées à ce jour.
 Tous les informaticiens doivent maîtriser un minimum de concepts clés relatifs aux bases de données et doivent être capables de réaliser les manipulations de base que nous allons présenter.">
 <meta name="theme-color" content="#FFFFFF">
@@ -18,7 +20,7 @@ Tous les informaticiens doivent maîtriser un minimum de concepts clés relatifs
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.097ae4d27a89a63bee387b11d1eea20bb5e31558773f42dcd6d1a3e257076936.css" integrity="sha256-CXrk0nqJpjvuOHsR0e6iC7XjFVh3P0Lc1tGj4lcHaTY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1498a4c1fe5b8048fbe555d7044f62c15759bfc06d6b54e78bbe04801c305253.js" integrity="sha256-FJikwf5bgEj75VXXBE9iwVdZv8Bta1Tni74EgBwwUlM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.41cd50936439e7cc30f8b517b2f2b9b9e81d9a34dd70fe837a2d6504b7d6f31d.js" integrity="sha256-Qc1Qk2Q558ww&#43;LUXsvK5uegdmjTdcP6Dei1lBLfW8x0=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/cours_1/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5490,6 +5492,24 @@ MathJax.Hub.Config({
   
 
   
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/tp_commandes/" class="">TP Commandes</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/sqljs/" class="">Editeur SQL</a>
   
 
@@ -5843,14 +5863,6 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf--pour-impressionuploadsdocnsitalebddcours_sql1_printpdf-diapouploadsdocnsitalebddcours_sql1_slidespdf">pdf : <a href="/uploads/docnsitale/bdd/cours_sql1_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/bdd/cours_sql1_slides.pdf">diapo</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
     <li><a href="#principe">Principe</a></li>
     <li><a href="#définitions">Définitions</a>
       <ul>
@@ -5861,8 +5873,8 @@ MathJax.Hub.Config({
     <li><a href="#bdd-relationnelle">BDD relationnelle</a></li>
     <li><a href="#identifier-les-enregistrements">Identifier les enregistrements</a>
       <ul>
-        <li><a href="#clé-primaire--primary-key-pk">Clé primaire = Primary Key (PK)</a></li>
-        <li><a href="#clé-étrangère--foreign-key-fk">Clé étrangère = Foreign Key (FK)</a></li>
+        <li><a href="#clé-primaire-_primary-key_-pk">Clé primaire (<em>Primary Key</em>) (PK)</a></li>
+        <li><a href="#clé-étrangère-_foreign-key_-fk">Clé étrangère (<em>Foreign Key</em>) (FK)</a></li>
       </ul>
     </li>
     <li><a href="#identifier--une-nécessité">Identifier : une nécessité</a></li>
@@ -5894,62 +5906,48 @@ MathJax.Hub.Config({
     <li><a href="#description-de-sql">Description de SQL</a>
       <ul>
         <li><a href="#langage-informatique-servant-à-exploiter-des-bases-de-données-relationnelles">Langage informatique servant à exploiter des bases de données relationnelles</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#heading-1"></a></li>
-    <li><a href="#description-de-sql-1">Description de SQL</a>
-      <ul>
         <li><a href="#sgbdr--système-de-gestion-de-bases-de-données-relationnelle">SGBDR = Système de Gestion de Bases de Données Relationnelle</a></li>
         <li><a href="#cest-un-langage-déclaratif">C&rsquo;est un langage déclaratif</a></li>
       </ul>
     </li>
     <li><a href="#différents-sgbdr">Différents SGBDR</a></li>
     <li><a href="#sqlite">SQLite</a></li>
-    <li><a href="#extraction-des-données-dune-table">Extraction des données d&rsquo;une table</a></li>
-    <li><a href="#heading-2"></a>
+    <li><a href="#extraction-des-données-dune-table">Extraction des données d&rsquo;une table</a>
       <ul>
-        <li><a href="#précisions-sur-les-colonnes-affichées">Précisions sur les colonnes affichées</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-3"></a></li>
-    <li><a href="#extraction-des-données-dune-table-1">Extraction des données d&rsquo;une table</a></li>
-    <li><a href="#heading-4"></a>
-      <ul>
+        <li><a href="#-pour-toutes-les-colonnes"><code>*</code> pour toutes les colonnes</a></li>
+        <li><a href="#les-cellules-de-code-exécutables">Les cellules de code exécutables.</a></li>
+        <li><a href="#distinct-pour-sélectionner-une-seule-occurrence-de-chaque-valeur-de-la-colonne-en-question"><code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question</a></li>
+        <li><a href="#sélectionne-uniquement-les-lignes-qui-respectent-la-clause-du-where">Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></a></li>
         <li><a href="#la-clause-porte-sur-les-valeurs-des-colonnes">La clause porte sur les valeurs des colonnes</a></li>
       </ul>
     </li>
-    <li><a href="#extraction-des-données-dune-table-2">Extraction des données d&rsquo;une table</a>
+    <li><a href="#extraction-des-données-dune-table-1">Extraction des données d&rsquo;une table</a>
       <ul>
         <li><a href="#as"><code>AS</code></a></li>
         <li><a href="#order-by"><code>ORDER BY</code></a></li>
       </ul>
     </li>
-    <li><a href="#fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</a></li>
-    <li><a href="#heading-5"></a></li>
+    <li><a href="#fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</a>
+      <ul>
+        <li><a href="#aggrétats">Aggrétats</a></li>
+      </ul>
+    </li>
     <li><a href="#exemples-avec-ou-sans-agrégat">Exemples avec ou sans agrégat</a></li>
     <li><a href="#extraction-des-données-de-deux-tables">Extraction des données de deux tables</a>
       <ul>
         <li><a href="#produit-cartésien">Produit cartésien</a></li>
-      </ul>
-    </li>
-    <li><a href="#extraction-des-données-de-deux-tables-1">Extraction des données de deux tables</a>
-      <ul>
         <li><a href="#join-on"><code>JOIN ON</code></a></li>
       </ul>
     </li>
     <li><a href="#modification-des-données">Modification des données</a>
       <ul>
-        <li><a href="#syntaxe">Syntaxe</a></li>
+        <li><a href="#ajouter-avec-insert">Ajouter avec <code>INSERT</code></a></li>
+        <li><a href="#aparté-hors-programme">Aparté hors programme</a></li>
+        <li><a href="#mettre-à-jour-avec-update">Mettre à jour avec <code>UPDATE</code></a></li>
+        <li><a href="#effacer-avec-delete">Effacer avec <code>DELETE</code></a></li>
       </ul>
     </li>
-    <li><a href="#heading-6"></a></li>
-    <li><a href="#heading-7"></a></li>
-    <li><a href="#modification-des-données-1">Modification des données</a>
-      <ul>
-        <li><a href="#respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</a></li>
-      </ul>
-    </li>
+    <li><a href="#respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</a></li>
   </ul>
 </nav>
 
@@ -5963,10 +5961,7 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf--pour-impressionuploadsdocnsitalebddcours_sql1_printpdf-diapouploadsdocnsitalebddcours_sql1_slidespdf">
-  pdf : <a href="/uploads/docnsitale/bdd/cours_sql1_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/bdd/cours_sql1_slides.pdf">diapo</a>
-  <a class="anchor" href="#pdf--pour-impressionuploadsdocnsitalebddcours_sql1_printpdf-diapouploadsdocnsitalebddcours_sql1_slidespdf">#</a>
-</h3>
+<article class="markdown"><p>pdf : <a href="/uploads/docnsitale/bdd/cours_sql1_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/bdd/cours_sql1_slides.pdf">diapo</a></p>
 <!-- à compiler par
 pandoc -t beamer --slide-level 2 -V "aspectratio=1610" -s cours_sql1.md -o cours_sql1_slides.pdf
 -->
@@ -5978,8 +5973,9 @@ pandoc -t beamer --slide-level 2 -V "aspectratio=1610" -s cours_sql1.md -o cours
   Principe
   <a class="anchor" href="#principe">#</a>
 </h2>
-<p>Une <em>base de donnée</em> est un concept qui permet de stocker efficacement une immense
-quantité d&rsquo;information. Elles permettent de croiser facilement les informations
+<p>Une <em>base de donnée</em> permet de stocker efficacement une immense
+quantité d&rsquo;information.</p>
+<p>Les BDD permettent de croiser facilement les informations
 et d&rsquo;en extraire le contenu.</p>
 <p>Les bases de données <em>relationnelles</em> sont apparues dans les années 60 et sont
 encore les plus utilisées à ce jour.</p>
@@ -6010,9 +6006,9 @@ l&rsquo;organisation répond à une logique systématique.</p>
 <ul>
 <li><strong>BDD</strong> : ensemble des tables.</li>
 <li><strong>Table</strong> (parfois <strong>relation</strong>) : c&rsquo;est l&rsquo;ensemble des <strong>enregistrements</strong> qui existent sur les données</li>
-<li><strong>Colonne</strong> (parfois <strong>Champs</strong> ou <strong>attributs</strong>) : &ldquo;departement&rdquo;, &ldquo;code&rdquo; etc. : les différents champs à rempir</li>
-<li><strong>Ligne</strong>  (parfois <strong>Enregistrement</strong> ou <strong>relations</strong>) : &ldquo;1&rdquo;, &ldquo;2&rdquo; etc. les données elles-mêmes.</li>
-<li><strong>Cellules</strong> (parfois <strong>cases</strong>) : la valeur elle même.</li>
+<li><strong>Colonne</strong> (parfois <strong>champs</strong> ou <strong>attributs</strong>) : &ldquo;departement&rdquo;, &ldquo;code&rdquo; etc. : les différents champs à rempir</li>
+<li><strong>Ligne</strong>  (parfois <strong>Enregistrement</strong> ou <strong>Relations</strong>) : &ldquo;1&rdquo;, &ldquo;2&rdquo; etc. les données elles-mêmes.</li>
+<li><strong>Cellules</strong> (parfois <strong>Cases</strong>) : la valeur elle même.</li>
 </ul>
 <h2 id="bdd-relationnelle">
   BDD relationnelle
@@ -6046,10 +6042,10 @@ l&rsquo;organisation répond à une logique systématique.</p>
 </h2>
 <p>Chaque fois qu&rsquo;on enregistre quelque chose dans la base de donnée
 il faut s&rsquo;assurer que la donnée n&rsquo;est pas <em>déjà</em> présente.</p>
-<p>On résout ce problème avec la notion de &ldquo;clé&rdquo;</p>
-<h3 id="clé-primaire--primary-key-pk">
-  Clé primaire = Primary Key (PK)
-  <a class="anchor" href="#cl%c3%a9-primaire--primary-key-pk">#</a>
+<p>On résout ce problème avec la notion de &ldquo;clé&rdquo;.</p>
+<h3 id="clé-primaire-_primary-key_-pk">
+  Clé primaire (<em>Primary Key</em>) (PK)
+  <a class="anchor" href="#cl%c3%a9-primaire-_primary-key_-pk">#</a>
 </h3>
 <ul>
 <li>Identifie de manière unique une ligne</li>
@@ -6057,9 +6053,9 @@ il faut s&rsquo;assurer que la donnée n&rsquo;est pas <em>déjà</em> présente
 <li>Peut être composée d&rsquo;une ou plusieurs colonnes</li>
 <li>Ajout d&rsquo;une colonne dédiée si besoin</li>
 </ul>
-<h3 id="clé-étrangère--foreign-key-fk">
-  Clé étrangère = Foreign Key (FK)
-  <a class="anchor" href="#cl%c3%a9-%c3%a9trang%c3%a8re--foreign-key-fk">#</a>
+<h3 id="clé-étrangère-_foreign-key_-fk">
+  Clé étrangère (<em>Foreign Key</em>) (FK)
+  <a class="anchor" href="#cl%c3%a9-%c3%a9trang%c3%a8re-_foreign-key_-fk">#</a>
 </h3>
 <ul>
 <li>Référence une ou plusieurs colonnes d&rsquo;une autre table (représentant
@@ -6225,7 +6221,8 @@ seulement son numéro de sécu.</p>
   <a class="anchor" href="#langage-informatique-servant-%c3%a0-exploiter-des-bases-de-donn%c3%a9es-relationnelles">#</a>
 </h3>
 <ul>
-<li>Manipulation des données
+<li>
+<p>Manipulation des données</p>
 <ul>
 <li>Recherche de données : <code>SELECT</code></li>
 <li>Ajout de données : <code>INSERT</code></li>
@@ -6233,26 +6230,16 @@ seulement son numéro de sécu.</p>
 <li>Suppression de données : <code>DELETE</code></li>
 </ul>
 </li>
-</ul>
-<h2 id="heading">
-  
-  <a class="anchor" href="#heading">#</a>
-</h2>
-<ul>
-<li>Définition des données
+<li>
+<p>Définition des données</p>
 <ul>
 <li>Manipule les structures de données de la base</li>
 <li>Création de tables et autres structures : <code>CREATE</code></li>
 <li>&hellip;</li>
 </ul>
 </li>
-</ul>
-<h2 id="heading-1">
-  
-  <a class="anchor" href="#heading-1">#</a>
-</h2>
-<ul>
-<li>Contrôle des données et des transactions
+<li>
+<p>Contrôle des données et des transactions</p>
 <ul>
 <li>Gestion des autorisations d&rsquo;accès aux données par les différents utilisateurs</li>
 <li>Gestion de l&rsquo;exécution de transactions
@@ -6263,10 +6250,6 @@ seulement son numéro de sécu.</p>
 </ul>
 </li>
 </ul>
-<h2 id="description-de-sql-1">
-  Description de SQL
-  <a class="anchor" href="#description-de-sql-1">#</a>
-</h2>
 <h3 id="sgbdr--système-de-gestion-de-bases-de-données-relationnelle">
   SGBDR = Système de Gestion de Bases de Données Relationnelle
   <a class="anchor" href="#sgbdr--syst%c3%a8me-de-gestion-de-bases-de-donn%c3%a9es-relationnelle">#</a>
@@ -6274,8 +6257,8 @@ seulement son numéro de sécu.</p>
 <ul>
 <li>Logiciel permettant de manipuler le contenu des bases de données relationnelles</li>
 <li>Garantit la qualité, la pérennité et la confidentialité des informations</li>
-<li>Exemple : <a href="https://sqlite.org/">SQLite</a> est un SGBDR dont le code
-source est dans le domaine public <img src="/uploads/docnsitale/bdd/fig/SQLite370.svg.png" alt="logo SQLite" /></li>
+<li>Exemple : <a href="https://sqlite.org/">SQLite</a> <img src="/uploads/docnsitale/bdd/fig/SQLite370.svg.png" alt="logo SQLite" /> est un SGBDR dont le code
+source est dans le domaine public</li>
 </ul>
 <h3 id="cest-un-langage-déclaratif">
   C&rsquo;est un langage déclaratif
@@ -6311,17 +6294,19 @@ parfois commodes.</p>
   SQLite
   <a class="anchor" href="#sqlite">#</a>
 </h2>
-<p>Nous utiliserons SQLite qui est implémenté :</p>
+<p>Nous utiliserons SQLite qui est programmé en C et qu&rsquo;on peut utiliser depuis</p>
 <ul>
 <li>en Python (<code>import sqlite3</code>)</li>
 <li>sous windows / linux / osx (DB Browser, <code>$ sqlitebrowser</code>)</li>
 <li>ainsi <a href="https://inloop.github.io/sqlite-viewer/">qu&rsquo;en ligne</a>.</li>
+<li>ou même sur mon site <a href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/sqljs/">Editeur</a> et <a href="https://qkzk/docs/nsi/cours_terminale/bdd/tp_commandes/">TP commande</a>.</li>
 </ul>
 <p>mais aussi</p>
 <ul>
 <li>iOS,</li>
 <li>Android etc.</li>
 </ul>
+<p>À noter, toutes les applications mobiles qui enregistrent <em>localement</em> beaucoup de données utilisent SQLite. Ce n&rsquo;est pas le seul moyen d&rsquo;enregistrer quelque chose sur le téléphone : fichiers, &ldquo;local storage = dictionnaire&rdquo; etc.</p>
 <h2 id="extraction-des-données-dune-table">
   Extraction des données d&rsquo;une table
   <a class="anchor" href="#extraction-des-donn%c3%a9es-dune-table">#</a>
@@ -6329,43 +6314,193 @@ parfois commodes.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>noms_colonnes_séparés_par_virgules<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table;<span style="color:#bbb">
 </span></span></span></code></pre></div><p>Sélectionne toutes les lignes d&rsquo;une table</p>
-<h2 id="heading-2">
-  
-  <a class="anchor" href="#heading-2">#</a>
-</h2>
-<h3 id="précisions-sur-les-colonnes-affichées">
-  Précisions sur les colonnes affichées
-  <a class="anchor" href="#pr%c3%a9cisions-sur-les-colonnes-affich%c3%a9es">#</a>
+<h3 id="-pour-toutes-les-colonnes">
+  <code>*</code> pour toutes les colonnes
+  <a class="anchor" href="#-pour-toutes-les-colonnes">#</a>
 </h3>
-<ul>
-<li><code>*</code> pour toutes les colonnes</li>
-</ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#555">*</span><span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="heading-3">
-  
-  <a class="anchor" href="#heading-3">#</a>
-</h2>
-<ul>
-<li><code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question</li>
+</span></span></span></code></pre></div><p>Avant de se lancer, une petite parenthèse :</p>
+<h3 id="les-cellules-de-code-exécutables">
+  Les cellules de code exécutables.
+  <a class="anchor" href="#les-cellules-de-code-ex%c3%a9cutables">#</a>
+</h3>
+<p>Cette page présente des cellules comme celle ci-dessous, exécutables.</p>
+<p>Durant tout ce cours, on utilisera les mêmes données issues de deux tables.</p>
+<p>Intéressons nous d&rsquo;abord à la table <code>employees</code>.</p>
+<p>Voici le code qui a permis de la créer puis de la remplir :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">DROP</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">TABLE</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">IF</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">EXISTS</span><span style="color:#bbb"> </span>employees;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">TABLE</span><span style="color:#bbb"> </span>employees(<span style="color:#bbb"> </span>id<span style="color:#bbb"> </span><span style="color:#366">integer</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>name<span style="color:#bbb"> </span><span style="color:#366">text</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>designation<span style="color:#bbb"> </span><span style="color:#366">text</span>,<span style="color:#bbb">     
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>manager<span style="color:#bbb"> </span><span style="color:#366">integer</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>hired_on<span style="color:#bbb"> </span><span style="color:#366">date</span>,<span style="color:#bbb">     
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>salary<span style="color:#bbb"> </span><span style="color:#366">integer</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>commission<span style="color:#bbb"> </span><span style="color:#366">float</span>,<span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>dept<span style="color:#bbb"> </span><span style="color:#366">integer</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">1</span>,<span style="color:#c30">&#39;JOHNSON&#39;</span>,<span style="color:#c30">&#39;ADMIN&#39;</span>,<span style="color:#f60">6</span>,<span style="color:#c30">&#39;1990-12-17&#39;</span>,<span style="color:#f60">18000</span>,<span style="color:#069;font-weight:bold">NULL</span>,<span style="color:#f60">4</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">2</span>,<span style="color:#c30">&#39;HARDING&#39;</span>,<span style="color:#c30">&#39;MANAGER&#39;</span>,<span style="color:#f60">9</span>,<span style="color:#c30">&#39;1998-02-02&#39;</span>,<span style="color:#f60">52000</span>,<span style="color:#f60">300</span>,<span style="color:#f60">3</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">3</span>,<span style="color:#c30">&#39;TAFT&#39;</span>,<span style="color:#c30">&#39;SALES I&#39;</span>,<span style="color:#f60">2</span>,<span style="color:#c30">&#39;1996-01-02&#39;</span>,<span style="color:#f60">25000</span>,<span style="color:#f60">500</span>,<span style="color:#f60">3</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">4</span>,<span style="color:#c30">&#39;HOOVER&#39;</span>,<span style="color:#c30">&#39;SALES I&#39;</span>,<span style="color:#f60">2</span>,<span style="color:#c30">&#39;1990-04-02&#39;</span>,<span style="color:#f60">27000</span>,<span style="color:#069;font-weight:bold">NULL</span>,<span style="color:#f60">3</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">5</span>,<span style="color:#c30">&#39;LINCOLN&#39;</span>,<span style="color:#c30">&#39;TECH&#39;</span>,<span style="color:#f60">6</span>,<span style="color:#c30">&#39;1994-06-23&#39;</span>,<span style="color:#f60">22500</span>,<span style="color:#f60">1400</span>,<span style="color:#f60">4</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">6</span>,<span style="color:#c30">&#39;GARFIELD&#39;</span>,<span style="color:#c30">&#39;MANAGER&#39;</span>,<span style="color:#f60">9</span>,<span style="color:#c30">&#39;1993-05-01&#39;</span>,<span style="color:#f60">54000</span>,<span style="color:#069;font-weight:bold">NULL</span>,<span style="color:#f60">4</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#f60">7</span>,<span style="color:#c30">&#39;POLK&#39;</span>,<span style="color:#c30">&#39;TECH&#39;</span>,<span style="color:#f60">6</span>,<span style="color:#c30">&#39;1997-09-22&#39;</span>,<span style="color:#f60">25000</span>,<span style="color:#069;font-weight:bold">NULL</span>,<span style="color:#f60">4</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>La première ligne efface la table si elle existe déjà.</li>
+<li>Ensuite on la crée avec tous ses attributs (et généralement des contraintes, pas ici.)</li>
+<li>Ensuite on insère un par un les enregistrements.</li>
 </ul>
+<p>Voilà le résultat :</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Séléctionner toute une table
+
+</h2>
+<main>
+    <div id="ide_0">
+        <label for='commands_0'>Commande SQL</label>
+        <br>
+        <textarea id="commands_0" class="commands">
+
+SELECT * FROM employees;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_0" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_0").then(() => {
+        const ide = document.querySelector("div#ide_0");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h3 id="distinct-pour-sélectionner-une-seule-occurrence-de-chaque-valeur-de-la-colonne-en-question">
+  <code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question
+  <a class="anchor" href="#distinct-pour-s%c3%a9lectionner-une-seule-occurrence-de-chaque-valeur-de-la-colonne-en-question">#</a>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">DISTINCT</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table;<span style="color:#bbb">
 </span></span></span></code></pre></div><p>Exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">DISTINCT</span><span style="color:#bbb"> </span>categorie,<span style="color:#bbb"> </span>genre<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="extraction-des-données-dune-table-1">
-  Extraction des données d&rsquo;une table
-  <a class="anchor" href="#extraction-des-donn%c3%a9es-dune-table-1">#</a>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    avec et sans DISTINCT
+
 </h2>
+<main>
+    <div id="ide_1">
+        <label for='commands_1'>Commande SQL</label>
+        <br>
+        <textarea id="commands_1" class="commands">
+
+SELECT manager FROM employees;
+
+SELECT DISTINCT manager FROM employees;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_1" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_1").then(() => {
+        const ide = document.querySelector("div#ide_1");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h3 id="sélectionne-uniquement-les-lignes-qui-respectent-la-clause-du-where">
+  Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code>
+  <a class="anchor" href="#s%c3%a9lectionne-uniquement-les-lignes-qui-respectent-la-clause-du-where">#</a>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>noms_colonnes_séparés_par_virgules<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
-</span></span></span></code></pre></div><p>Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></p>
-<h2 id="heading-4">
-  
-  <a class="anchor" href="#heading-4">#</a>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    WHERE
+
 </h2>
+<main>
+    <div id="ide_2">
+        <label for='commands_2'>Commande SQL</label>
+        <br>
+        <textarea id="commands_2" class="commands">
+
+SELECT name, salary, commission FROM employees
+WHERE salary &gt; 50000;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_2" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_2").then(() => {
+        const ide = document.querySelector("div#ide_2");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
 <h3 id="la-clause-porte-sur-les-valeurs-des-colonnes">
   La clause porte sur les valeurs des colonnes
   <a class="anchor" href="#la-clause-porte-sur-les-valeurs-des-colonnes">#</a>
@@ -6387,9 +6522,53 @@ parfois commodes.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>code,<span style="color:#bbb"> </span>categorie,<span style="color:#bbb"> </span>effectif<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Agriculteurs Exploitants&#34;</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">OR</span><span style="color:#bbb"> </span>categorie<span style="color:#555">=</span><span style="color:#c30">&#34;Ouvriers&#34;</span>;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="extraction-des-données-dune-table-2">
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    WHERE, opération booléennes
+
+</h2>
+<main>
+    <div id="ide_3">
+        <label for='commands_3'>Commande SQL</label>
+        <br>
+        <textarea id="commands_3" class="commands">
+
+SELECT name, salary, commission FROM employees
+WHERE salary &gt; 20000 AND commission &gt; 0;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_3" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_3").then(() => {
+        const ide = document.querySelector("div#ide_3");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h2 id="extraction-des-données-dune-table-1">
   Extraction des données d&rsquo;une table
-  <a class="anchor" href="#extraction-des-donn%c3%a9es-dune-table-2">#</a>
+  <a class="anchor" href="#extraction-des-donn%c3%a9es-dune-table-1">#</a>
 </h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>abrev.nom_colonne<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>nom_affiché<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>abrev<span style="color:#bbb">
@@ -6411,6 +6590,50 @@ par plusieurs tables. Cette abréviation <strong>doit</strong> être utilisée d
 reste de la requête.</p>
 </li>
 </ul>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    avec et sans AS
+
+</h2>
+<main>
+    <div id="ide_4">
+        <label for='commands_4'>Commande SQL</label>
+        <br>
+        <textarea id="commands_4" class="commands">
+
+SELECT name, manager FROM employees;
+SELECT name AS superman, manager AS superpower FROM employees;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_4" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_4").then(() => {
+        const ide = document.querySelector("div#ide_4");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
 <h3 id="order-by">
   <code>ORDER BY</code>
   <a class="anchor" href="#order-by">#</a>
@@ -6426,7 +6649,51 @@ l&rsquo;ordre décroissant.</li>
 </h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>FONCTION(nom_colonne)<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table;<span style="color:#bbb">
-</span></span></span></code></pre></div><p>Applique une fonction sur les valeurs d&rsquo;une colonne</p>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    ORDER BY
+
+</h2>
+<main>
+    <div id="ide_5">
+        <label for='commands_5'>Commande SQL</label>
+        <br>
+        <textarea id="commands_5" class="commands">
+
+SELECT name, manager FROM employees
+ORDER BY salary ASC;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_5" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_5").then(() => {
+        const ide = document.querySelector("div#ide_5");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<p>Applique une fonction sur les valeurs d&rsquo;une colonne</p>
 <ul>
 <li>
 <p><code>COUNT</code> : compte le nombre de lignes sélectionnées.</p>
@@ -6441,10 +6708,10 @@ parmi les lignes sélectionnées</p>
 </li>
 </ul>
 <!-- new slide -->
-<h2 id="heading-5">
-  
-  <a class="anchor" href="#heading-5">#</a>
-</h2>
+<h3 id="aggrétats">
+  Aggrétats
+  <a class="anchor" href="#aggr%c3%a9tats">#</a>
+</h3>
 <p>Exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AVG</span>(effectif)<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">AS</span><span style="color:#bbb"> </span>Moy_employes<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">	</span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>evolution<span style="color:#bbb">
@@ -6465,6 +6732,55 @@ pour chaque ville.</p>
   <a class="anchor" href="#exemples-avec-ou-sans-agr%c3%a9gat">#</a>
 </h2>
 <p><img src="/uploads/docnsitale/bdd/fig/avg.png" alt="résultats avg sans GROUP BY" title="sans agrégat"/> <img src="/uploads/docnsitale/bdd/fig/avg_group_by.png" alt="résultats avg avec GROUP BY" title="avec agrégat"/></p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    AVERAGE
+
+</h2>
+<main>
+    <div id="ide_6">
+        <label for='commands_6'>Commande SQL</label>
+        <br>
+        <textarea id="commands_6" class="commands">
+
+SELECT AVG(salary) FROM employees;
+
+SELECT manager, AVG(salary) AS salary FROM employees
+GROUP BY manager;
+
+SELECT dept, AVG(salary) AS salary FROM employees
+GROUP BY dept;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_6" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_6").then(() => {
+        const ide = document.querySelector("div#ide_6");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
 <h2 id="extraction-des-données-de-deux-tables">
   Extraction des données de deux tables
   <a class="anchor" href="#extraction-des-donn%c3%a9es-de-deux-tables">#</a>
@@ -6483,63 +6799,442 @@ associations possibles entre les lignes des deux tables
 <li>Non pertinent</li>
 </ul>
 <p><img src="/uploads/docnsitale/bdd/fig/produit_cartesien.png" alt="" /></p>
-<h2 id="extraction-des-données-de-deux-tables-1">
-  Extraction des données de deux tables
-  <a class="anchor" href="#extraction-des-donn%c3%a9es-de-deux-tables-1">#</a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Produit cartésien
+
 </h2>
+<main>
+    <div id="ide_7">
+        <label for='commands_7'>Commande SQL</label>
+        <br>
+        <textarea id="commands_7" class="commands">
+
+SELECT * FROM department;
+
+SELECT * FROM department, employees
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_7" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_7").then(() => {
+        const ide = document.querySelector("div#ide_7");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<p>Une autre manière d&rsquo;écrire la même chose, parfois commode, <code>CROSS JOIN</code> :</p>
+<p><code>CROSS</code>, comme la croix du produit&hellip; $2 \times 3 = 6$</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Produit cartésien avec CROSS
+
+</h2>
+<main>
+    <div id="ide_8">
+        <label for='commands_8'>Commande SQL</label>
+        <br>
+        <textarea id="commands_8" class="commands">
+
+SELECT * FROM department;
+
+SELECT * FROM department
+CROSS JOIN employees
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_8" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_8").then(() => {
+        const ide = document.querySelector("div#ide_8");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
 <h3 id="join-on">
   <code>JOIN ON</code>
   <a class="anchor" href="#join-on">#</a>
 </h3>
-<ul>
-<li>Génère uniquement les associations entre les lignes qui sont liées
-par des clés primaires et étrangères identiques.
-<ul>
-<li>Nb_total_lignes = Nb_lignes_table_clé_étrangère = NB_lignes_evolution</li>
-</ul>
-</li>
-<li>À utiliser pour associer deux tables</li>
-</ul>
+<p>Génère uniquement les associations entre les lignes qui sont liées
+par des clés primaires et étrangères identiques.</p>
+<p>Permet d&rsquo;associer deux tables qui sont en relation.</p>
+<p><strong>C&rsquo;est la notion la plus importante et la plus délicate du chapitre.</strong></p>
 <p><img src="/uploads/docnsitale/bdd/fig/join_on.png" alt="" /></p>
+<p>Dans l&rsquo;exemple du code, <code>employees.dept</code> est un clé étrangère faisant référence à <code>departement.id</code></p>
+<p>On fait donc une jointure sur cette clé :</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Jointure
+
+</h2>
+<main>
+    <div id="ide_9">
+        <label for='commands_9'>Commande SQL</label>
+        <br>
+        <textarea id="commands_9" class="commands">
+
+
+SELECT * FROM department
+JOIN employees ON employees.dept=department.id;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_9" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_9").then(() => {
+        const ide = document.querySelector("div#ide_9");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<p>Qu&rsquo;on peut affiner un peu, par exemple :</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Jointure mieux présentée
+
+</h2>
+<main>
+    <div id="ide_10">
+        <label for='commands_10'>Commande SQL</label>
+        <br>
+        <textarea id="commands_10" class="commands">
+
+
+SELECT e.name AS name, d.name AS dept FROM department AS d
+JOIN employees AS e ON e.dept=d.id
+ORDER BY d.id;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_10" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_10").then(() => {
+        const ide = document.querySelector("div#ide_10");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
 <h2 id="modification-des-données">
   Modification des données
   <a class="anchor" href="#modification-des-donn%c3%a9es">#</a>
 </h2>
-<h3 id="syntaxe">
-  Syntaxe
-  <a class="anchor" href="#syntaxe">#</a>
+<h3 id="ajouter-avec-insert">
+  Ajouter avec <code>INSERT</code>
+  <a class="anchor" href="#ajouter-avec-insert">#</a>
 </h3>
-<ul>
-<li><code>INSERT</code> : ajoute une nouvelle ligne de données dans une table</li>
-</ul>
+<p><code>INSERT</code> : ajoute une nouvelle ligne de données dans une table</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(liste_valeurs_dans_ordre_colonnes_table);<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span>(liste_nom_colonnes_à_remplir)<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(liste_des_valeurs_à_insérer_dans_ordre_liste_colonnes);<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="heading-6">
-  
-  <a class="anchor" href="#heading-6">#</a>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    Insertion avant, après
+
 </h2>
+<main>
+    <div id="ide_11">
+        <label for='commands_11'>Commande SQL</label>
+        <br>
+        <textarea id="commands_11" class="commands">
+
+SELECT * FROM department;
+INSERT INTO department VALUES (5,&#34;Comms&#34;);
+SELECT * FROM department;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_11" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_11").then(() => {
+        const ide = document.querySelector("div#ide_11");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<p>Depuis une base vide, les données sont insérées de la même manière&hellip;</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    vide
+
+</h2>
+<main>
+    <div id="ide_12">
+        <label for='commands_12'>Commande SQL</label>
+        <br>
+        <textarea id="commands_12" class="commands">
+
+DROP TABLE IF EXISTS department;
+CREATE TABLE department(
+    id integer,
+    name text,
+	PRIMARY KEY(&#34;id&#34;)
+);
+
+
+  INSERT INTO department VALUES (1,&#34;Sales&#34;);
+  INSERT INTO department VALUES (2,&#34;Admin&#34;);
+  INSERT INTO department VALUES (3,&#34;IT&#34;);
+  INSERT INTO department VALUES (4,&#34;Foreign&#34;);
+
+  SELECT * FROM department;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_12" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "empty.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_12").then(() => {
+        const ide = document.querySelector("div#ide_12");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h3 id="aparté-hors-programme">
+  Aparté hors programme
+  <a class="anchor" href="#apart%c3%a9-hors-programme">#</a>
+</h3>
+<p>Il exite une autre manière d&rsquo;insérer des données, très utilisée en pratique :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">INTO</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">table</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>(<span style="color:#bbb"> </span>requete<span style="color:#bbb"> </span>de<span style="color:#bbb"> </span>selection<span style="color:#bbb"> </span>)<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Cela permet d&rsquo;insérer des données en faisant référence à une autre table.
+C&rsquo;est parfois indispensable, en particulier quand une table sert de pont entre deux tables :</p>
+<p>Par exemple pour des commande d&rsquo;une client à un vendeur, on utilise trois tables :</p>
 <ul>
-<li><code>UPDATE</code> : met à jour la ou les lignes qui respectent la clause du <code>WHERE</code></li>
+<li>client: les clients et leurs données statiques,</li>
+<li>vendeur: les vendeurs idem,</li>
+<li>commande: chaque commande avec une clé étrangère vers client et un autre vers vendeur.</li>
 </ul>
+<p>Pour insérer une commande du client A au vendeur B valant x€, il faudrait connaître les
+identifiants du client et du vendeur.</p>
+<p>On utilise alors <code>INSERT INTO commande SELECT (...)</code></p>
+<p>Ceci est largement hors programme et franchement mal documenté sur internet.</p>
+<h3 id="mettre-à-jour-avec-update">
+  Mettre à jour avec <code>UPDATE</code>
+  <a class="anchor" href="#mettre-%c3%a0-jour-avec-update">#</a>
+</h3>
+<p><code>UPDATE</code> : met à jour la ou les lignes qui respectent la clause du <code>WHERE</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">UPDATE</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">SET</span><span style="color:#bbb"> </span>nom_colonne1<span style="color:#555">=</span>valeur1,<span style="color:#bbb"> </span>nom_colonne2<span style="color:#555">=</span>valeur2<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="heading-7">
-  
-  <a class="anchor" href="#heading-7">#</a>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    UPDATE
+
 </h2>
-<ul>
-<li><code>DELETE</code> : efface la ou les lignes d&rsquo;une table qui respectent la clause du <code>WHERE</code></li>
-</ul>
+<main>
+    <div id="ide_13">
+        <label for='commands_13'>Commande SQL</label>
+        <br>
+        <textarea id="commands_13" class="commands">
+
+SELECT * FROM department;
+UPDATE department SET name=&#34;Foreign Affair&#34; WHERE name=&#34;Foreign&#34;;
+SELECT * FROM department;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_13" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_13").then(() => {
+        const ide = document.querySelector("div#ide_13");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h3 id="effacer-avec-delete">
+  Effacer avec <code>DELETE</code>
+  <a class="anchor" href="#effacer-avec-delete">#</a>
+</h3>
+<p><code>DELETE</code> : efface la ou les lignes d&rsquo;une table qui respectent la clause du <code>WHERE</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">DELETE</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>nom_table<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur<span style="color:#bbb"> </span>op_bool<span style="color:#bbb"> </span>nom_colonne<span style="color:#bbb"> </span>op_comp<span style="color:#bbb"> </span>valeur;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="modification-des-données-1">
-  Modification des données
-  <a class="anchor" href="#modification-des-donn%c3%a9es-1">#</a>
+</span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+
+<h2>
+
+    DELETE
+
 </h2>
-<h3 id="respect-de-lintégrité-des-données">
+<main>
+    <div id="ide_14">
+        <label for='commands_14'>Commande SQL</label>
+        <br>
+        <textarea id="commands_14" class="commands">
+
+SELECT * FROM department;
+DELETE FROM department WHERE name=&#34;Foreign&#34;;
+SELECT * FROM department;
+
+        </textarea>
+        <button id="execute" class="execute btn-sql">Exécuter</button>
+        <div id="error" class="error"></div>
+        <pre id="output_14" class="output">Résultat</pre>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+<script type="text/javascript" src="https://qkzk.xyz/js/sql_ide.js"></script>
+<script>
+    
+        var dbfile = null;
+    
+
+    
+        var init_file = "https:\/\/qkzk.xyz\/" + "/" + "docs\/nsi\/cours_terminale\/bdd\/cours_1\/" + "init_2_tables.sql";
+    
+
+    var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
+
+    onElementLoaded("div#ide_14").then(() => {
+        const ide = document.querySelector("div#ide_14");
+        load(ide, worker_url, dbfile, init_file);
+    }).catch(() => { });
+</script>
+
+<h2 id="respect-de-lintégrité-des-données">
   Respect de l&rsquo;intégrité des données
   <a class="anchor" href="#respect-de-lint%c3%a9grit%c3%a9-des-donn%c3%a9es">#</a>
-</h3>
+</h2>
 <ul>
 <li>Une clé primaire doit être unique et non NULL
 <ul>
@@ -6633,14 +7328,6 @@ les cascades de modifications (interdiction ou gestion automatique)</li>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf--pour-impressionuploadsdocnsitalebddcours_sql1_printpdf-diapouploadsdocnsitalebddcours_sql1_slidespdf">pdf : <a href="/uploads/docnsitale/bdd/cours_sql1_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/bdd/cours_sql1_slides.pdf">diapo</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
     <li><a href="#principe">Principe</a></li>
     <li><a href="#définitions">Définitions</a>
       <ul>
@@ -6651,8 +7338,8 @@ les cascades de modifications (interdiction ou gestion automatique)</li>
     <li><a href="#bdd-relationnelle">BDD relationnelle</a></li>
     <li><a href="#identifier-les-enregistrements">Identifier les enregistrements</a>
       <ul>
-        <li><a href="#clé-primaire--primary-key-pk">Clé primaire = Primary Key (PK)</a></li>
-        <li><a href="#clé-étrangère--foreign-key-fk">Clé étrangère = Foreign Key (FK)</a></li>
+        <li><a href="#clé-primaire-_primary-key_-pk">Clé primaire (<em>Primary Key</em>) (PK)</a></li>
+        <li><a href="#clé-étrangère-_foreign-key_-fk">Clé étrangère (<em>Foreign Key</em>) (FK)</a></li>
       </ul>
     </li>
     <li><a href="#identifier--une-nécessité">Identifier : une nécessité</a></li>
@@ -6684,62 +7371,48 @@ les cascades de modifications (interdiction ou gestion automatique)</li>
     <li><a href="#description-de-sql">Description de SQL</a>
       <ul>
         <li><a href="#langage-informatique-servant-à-exploiter-des-bases-de-données-relationnelles">Langage informatique servant à exploiter des bases de données relationnelles</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#heading-1"></a></li>
-    <li><a href="#description-de-sql-1">Description de SQL</a>
-      <ul>
         <li><a href="#sgbdr--système-de-gestion-de-bases-de-données-relationnelle">SGBDR = Système de Gestion de Bases de Données Relationnelle</a></li>
         <li><a href="#cest-un-langage-déclaratif">C&rsquo;est un langage déclaratif</a></li>
       </ul>
     </li>
     <li><a href="#différents-sgbdr">Différents SGBDR</a></li>
     <li><a href="#sqlite">SQLite</a></li>
-    <li><a href="#extraction-des-données-dune-table">Extraction des données d&rsquo;une table</a></li>
-    <li><a href="#heading-2"></a>
+    <li><a href="#extraction-des-données-dune-table">Extraction des données d&rsquo;une table</a>
       <ul>
-        <li><a href="#précisions-sur-les-colonnes-affichées">Précisions sur les colonnes affichées</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-3"></a></li>
-    <li><a href="#extraction-des-données-dune-table-1">Extraction des données d&rsquo;une table</a></li>
-    <li><a href="#heading-4"></a>
-      <ul>
+        <li><a href="#-pour-toutes-les-colonnes"><code>*</code> pour toutes les colonnes</a></li>
+        <li><a href="#les-cellules-de-code-exécutables">Les cellules de code exécutables.</a></li>
+        <li><a href="#distinct-pour-sélectionner-une-seule-occurrence-de-chaque-valeur-de-la-colonne-en-question"><code>DISTINCT</code> pour sélectionner une seule occurrence de chaque valeur de la colonne en question</a></li>
+        <li><a href="#sélectionne-uniquement-les-lignes-qui-respectent-la-clause-du-where">Sélectionne uniquement les lignes qui respectent la clause du <code>WHERE</code></a></li>
         <li><a href="#la-clause-porte-sur-les-valeurs-des-colonnes">La clause porte sur les valeurs des colonnes</a></li>
       </ul>
     </li>
-    <li><a href="#extraction-des-données-dune-table-2">Extraction des données d&rsquo;une table</a>
+    <li><a href="#extraction-des-données-dune-table-1">Extraction des données d&rsquo;une table</a>
       <ul>
         <li><a href="#as"><code>AS</code></a></li>
         <li><a href="#order-by"><code>ORDER BY</code></a></li>
       </ul>
     </li>
-    <li><a href="#fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</a></li>
-    <li><a href="#heading-5"></a></li>
+    <li><a href="#fonctions-de-calcul-sur-les-données-extraites">Fonctions de calcul sur les données extraites.</a>
+      <ul>
+        <li><a href="#aggrétats">Aggrétats</a></li>
+      </ul>
+    </li>
     <li><a href="#exemples-avec-ou-sans-agrégat">Exemples avec ou sans agrégat</a></li>
     <li><a href="#extraction-des-données-de-deux-tables">Extraction des données de deux tables</a>
       <ul>
         <li><a href="#produit-cartésien">Produit cartésien</a></li>
-      </ul>
-    </li>
-    <li><a href="#extraction-des-données-de-deux-tables-1">Extraction des données de deux tables</a>
-      <ul>
         <li><a href="#join-on"><code>JOIN ON</code></a></li>
       </ul>
     </li>
     <li><a href="#modification-des-données">Modification des données</a>
       <ul>
-        <li><a href="#syntaxe">Syntaxe</a></li>
+        <li><a href="#ajouter-avec-insert">Ajouter avec <code>INSERT</code></a></li>
+        <li><a href="#aparté-hors-programme">Aparté hors programme</a></li>
+        <li><a href="#mettre-à-jour-avec-update">Mettre à jour avec <code>UPDATE</code></a></li>
+        <li><a href="#effacer-avec-delete">Effacer avec <code>DELETE</code></a></li>
       </ul>
     </li>
-    <li><a href="#heading-6"></a></li>
-    <li><a href="#heading-7"></a></li>
-    <li><a href="#modification-des-données-1">Modification des données</a>
-      <ul>
-        <li><a href="#respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</a></li>
-      </ul>
-    </li>
+    <li><a href="#respect-de-lintégrité-des-données">Respect de l&rsquo;intégrité des données</a></li>
   </ul>
 </nav>
 
