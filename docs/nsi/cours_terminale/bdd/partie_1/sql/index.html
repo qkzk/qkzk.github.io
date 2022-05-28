@@ -17,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.097ae4d27a89a63bee387b11d1eea20bb5e31558773f42dcd6d1a3e257076936.css" integrity="sha256-CXrk0nqJpjvuOHsR0e6iC7XjFVh3P0Lc1tGj4lcHaTY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5b073a16d2a2433694c39544cd603d5545976c225a16a0371c10156a8b1bbbd2.js" integrity="sha256-Wwc6FtKiQzaUw5VEzWA9VUWXbCJaFqA3HBAVaosbu9I=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.89a1ce1dbc70e11ba197fe8caad285f81670f41fb479b763e25b220c60ca18e0.js" integrity="sha256-iaHOHbxw4Ruhl/6MqtKF&#43;BZw9B&#43;0ebdj4lsiDGDKGOA=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/partie_1/sql/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6216,7 +6216,7 @@ vous pouvez essayer autre chose.</p>
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6226,7 +6226,7 @@ vous pouvez essayer autre chose.</p>
 
 </h3>
 <main>
-    <div id="ide_6">
+    <div id="sql_ide_6">
         <label for='commands_6'>Commande SQL</label>
         <br>
         <textarea id="commands_6" class="commands">
@@ -6234,7 +6234,9 @@ vous pouvez essayer autre chose.</p>
 SELECT name, salary FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_6" class="output">Résultat</pre>
     </div>
@@ -6255,8 +6257,8 @@ SELECT name, salary FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_6").then(() => {
-        const ide = document.querySelector("div#ide_6");
+    onElementLoaded("div#sql_ide_6").then(() => {
+        const ide = document.querySelector("div#sql_ide_6");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6280,7 +6282,7 @@ SELECT name, salary FROM employees;
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6290,7 +6292,7 @@ SELECT name, salary FROM employees;
 
 </h3>
 <main>
-    <div id="ide_9">
+    <div id="sql_ide_9">
         <label for='commands_9'>Commande SQL</label>
         <br>
         <textarea id="commands_9" class="commands">
@@ -6298,7 +6300,9 @@ SELECT name, salary FROM employees;
 SELECT * FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_9" class="output">Résultat</pre>
     </div>
@@ -6319,8 +6323,8 @@ SELECT * FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_9").then(() => {
-        const ide = document.querySelector("div#ide_9");
+    onElementLoaded("div#sql_ide_9").then(() => {
+        const ide = document.querySelector("div#sql_ide_9");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6348,7 +6352,7 @@ SELECT * FROM employees;
 <p>Exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">DISTINCT</span><span style="color:#bbb"> </span>manager<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees;<span style="color:#bbb">
 </span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6358,7 +6362,7 @@ SELECT * FROM employees;
 
 </h3>
 <main>
-    <div id="ide_12">
+    <div id="sql_ide_12">
         <label for='commands_12'>Commande SQL</label>
         <br>
         <textarea id="commands_12" class="commands">
@@ -6366,7 +6370,9 @@ SELECT * FROM employees;
 SELECT DISTINCT manager FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_12" class="output">Résultat</pre>
     </div>
@@ -6387,8 +6393,8 @@ SELECT DISTINCT manager FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_12").then(() => {
-        const ide = document.querySelector("div#ide_12");
+    onElementLoaded("div#sql_ide_12").then(() => {
+        const ide = document.querySelector("div#sql_ide_12");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6414,7 +6420,7 @@ SELECT DISTINCT manager FROM employees;
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6424,7 +6430,7 @@ SELECT DISTINCT manager FROM employees;
 
 </h3>
 <main>
-    <div id="ide_15">
+    <div id="sql_ide_15">
         <label for='commands_15'>Commande SQL</label>
         <br>
         <textarea id="commands_15" class="commands">
@@ -6433,7 +6439,9 @@ SELECT name, salary, commission FROM employees
 WHERE salary &gt; 50000;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_15" class="output">Résultat</pre>
     </div>
@@ -6454,8 +6462,8 @@ WHERE salary &gt; 50000;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_15").then(() => {
-        const ide = document.querySelector("div#ide_15");
+    onElementLoaded("div#sql_ide_15").then(() => {
+        const ide = document.querySelector("div#sql_ide_15");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6491,7 +6499,7 @@ WHERE salary &gt; 50000;
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span>salary,<span style="color:#bbb"> </span>commission<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="color:#555">&gt;</span><span style="color:#bbb"> </span><span style="color:#f60">20000</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">OR</span><span style="color:#bbb"> </span>commission<span style="color:#bbb"> </span><span style="color:#555">&gt;</span><span style="color:#bbb"> </span><span style="color:#f60">0</span>;<span style="color:#bbb">
 </span></span></span></code></pre></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6501,7 +6509,7 @@ WHERE salary &gt; 50000;
 
 </h3>
 <main>
-    <div id="ide_17">
+    <div id="sql_ide_17">
         <label for='commands_17'>Commande SQL</label>
         <br>
         <textarea id="commands_17" class="commands">
@@ -6513,7 +6521,9 @@ SELECT name, salary, commission FROM employees
     WHERE salary &gt; 20000 OR commission &gt; 0;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_17" class="output">Résultat</pre>
     </div>
@@ -6534,8 +6544,8 @@ SELECT name, salary, commission FROM employees
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_17").then(() => {
-        const ide = document.querySelector("div#ide_17");
+    onElementLoaded("div#sql_ide_17").then(() => {
+        const ide = document.querySelector("div#sql_ide_17");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6573,7 +6583,7 @@ reste de la requête.</p>
 </li>
 </ul>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6583,7 +6593,7 @@ reste de la requête.</p>
 
 </h3>
 <main>
-    <div id="ide_20">
+    <div id="sql_ide_20">
         <label for='commands_20'>Commande SQL</label>
         <br>
         <textarea id="commands_20" class="commands">
@@ -6592,7 +6602,9 @@ SELECT name, manager FROM employees;
 SELECT name AS superman, manager AS superpower FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_20" class="output">Résultat</pre>
     </div>
@@ -6613,8 +6625,8 @@ SELECT name AS superman, manager AS superpower FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_20").then(() => {
-        const ide = document.querySelector("div#ide_20");
+    onElementLoaded("div#sql_ide_20").then(() => {
+        const ide = document.querySelector("div#sql_ide_20");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6640,7 +6652,7 @@ l&rsquo;ordre décroissant.</li>
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6650,7 +6662,7 @@ l&rsquo;ordre décroissant.</li>
 
 </h3>
 <main>
-    <div id="ide_22">
+    <div id="sql_ide_22">
         <label for='commands_22'>Commande SQL</label>
         <br>
         <textarea id="commands_22" class="commands">
@@ -6659,7 +6671,9 @@ SELECT name, manager FROM employees
 ORDER BY salary ASC;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_22" class="output">Résultat</pre>
     </div>
@@ -6680,8 +6694,8 @@ ORDER BY salary ASC;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_22").then(() => {
-        const ide = document.querySelector("div#ide_22");
+    onElementLoaded("div#sql_ide_22").then(() => {
+        const ide = document.querySelector("div#sql_ide_22");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6712,7 +6726,7 @@ parmi les lignes sélectionnées</p>
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6722,7 +6736,7 @@ parmi les lignes sélectionnées</p>
 
 </h3>
 <main>
-    <div id="ide_25">
+    <div id="sql_ide_25">
         <label for='commands_25'>Commande SQL</label>
         <br>
         <textarea id="commands_25" class="commands">
@@ -6730,7 +6744,9 @@ parmi les lignes sélectionnées</p>
 SELECT AVG(salary) FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_25" class="output">Résultat</pre>
     </div>
@@ -6751,8 +6767,8 @@ SELECT AVG(salary) FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_25").then(() => {
-        const ide = document.querySelector("div#ide_25");
+    onElementLoaded("div#sql_ide_25").then(() => {
+        const ide = document.querySelector("div#sql_ide_25");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6792,7 +6808,7 @@ pour chaque ville.</p>
 </h3>
 <p><img src="/uploads/docnsitale/bdd/fig/avg.png" alt="résultats avg sans GROUP BY" title="sans agrégat"/> <img src="/uploads/docnsitale/bdd/fig/avg_group_by.png" alt="résultats avg avec GROUP BY" title="avec agrégat"/></p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6802,7 +6818,7 @@ pour chaque ville.</p>
 
 </h3>
 <main>
-    <div id="ide_28">
+    <div id="sql_ide_28">
         <label for='commands_28'>Commande SQL</label>
         <br>
         <textarea id="commands_28" class="commands">
@@ -6813,7 +6829,9 @@ SELECT manager, AVG(salary) AS salary FROM employees
 GROUP BY manager;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_28" class="output">Résultat</pre>
     </div>
@@ -6834,8 +6852,8 @@ GROUP BY manager;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_28").then(() => {
-        const ide = document.querySelector("div#ide_28");
+    onElementLoaded("div#sql_ide_28").then(() => {
+        const ide = document.querySelector("div#sql_ide_28");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6866,7 +6884,7 @@ On utilisera un nom de colonne pertinent.
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6876,7 +6894,7 @@ On utilisera un nom de colonne pertinent.
 
 </h3>
 <main>
-    <div id="ide_31">
+    <div id="sql_ide_31">
         <label for='commands_31'>Commande SQL</label>
         <br>
         <textarea id="commands_31" class="commands">
@@ -6886,7 +6904,9 @@ INSERT INTO department VALUES (5,&#34;Comms&#34;);
 SELECT * FROM department;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_31" class="output">Résultat</pre>
     </div>
@@ -6907,8 +6927,8 @@ SELECT * FROM department;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_31").then(() => {
-        const ide = document.querySelector("div#ide_31");
+    onElementLoaded("div#sql_ide_31").then(() => {
+        const ide = document.querySelector("div#sql_ide_31");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -6949,7 +6969,7 @@ SELECT * FROM department;
 
 <p>Depuis une base vide, les données sont insérées de la même manière :</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6959,7 +6979,7 @@ SELECT * FROM department;
 
 </h3>
 <main>
-    <div id="ide_33">
+    <div id="sql_ide_33">
         <label for='commands_33'>Commande SQL</label>
         <br>
         <textarea id="commands_33" class="commands">
@@ -6980,7 +7000,9 @@ INSERT INTO department VALUES (4,&#34;Foreign&#34;);
 SELECT * FROM department;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_33" class="output">Résultat</pre>
     </div>
@@ -7001,8 +7023,8 @@ SELECT * FROM department;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_33").then(() => {
-        const ide = document.querySelector("div#ide_33");
+    onElementLoaded("div#sql_ide_33").then(() => {
+        const ide = document.querySelector("div#sql_ide_33");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7055,7 +7077,7 @@ identifiants du client et du vendeur.</p>
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7065,7 +7087,7 @@ identifiants du client et du vendeur.</p>
 
 </h3>
 <main>
-    <div id="ide_36">
+    <div id="sql_ide_36">
         <label for='commands_36'>Commande SQL</label>
         <br>
         <textarea id="commands_36" class="commands">
@@ -7075,7 +7097,9 @@ UPDATE department SET name=&#34;Foreign Affair&#34; WHERE name=&#34;Foreign&#34;
 SELECT * FROM department;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_36" class="output">Résultat</pre>
     </div>
@@ -7096,8 +7120,8 @@ SELECT * FROM department;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_36").then(() => {
-        const ide = document.querySelector("div#ide_36");
+    onElementLoaded("div#sql_ide_36").then(() => {
+        const ide = document.querySelector("div#sql_ide_36");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7122,7 +7146,7 @@ SELECT * FROM department;
 </blockquote>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7132,7 +7156,7 @@ SELECT * FROM department;
 
 </h3>
 <main>
-    <div id="ide_39">
+    <div id="sql_ide_39">
         <label for='commands_39'>Commande SQL</label>
         <br>
         <textarea id="commands_39" class="commands">
@@ -7142,7 +7166,9 @@ DELETE FROM department WHERE name=&#34;Foreign&#34;;
 SELECT * FROM department;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_39" class="output">Résultat</pre>
     </div>
@@ -7163,8 +7189,8 @@ SELECT * FROM department;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_39").then(() => {
-        const ide = document.querySelector("div#ide_39");
+    onElementLoaded("div#sql_ide_39").then(() => {
+        const ide = document.querySelector("div#sql_ide_39");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7208,7 +7234,7 @@ associations possibles entre les lignes des deux tables</p>
 
 <p><img src="/uploads/docnsitale/bdd/fig/produit_cartesien.png" alt="" /></p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7218,7 +7244,7 @@ associations possibles entre les lignes des deux tables</p>
 
 </h3>
 <main>
-    <div id="ide_43">
+    <div id="sql_ide_43">
         <label for='commands_43'>Commande SQL</label>
         <br>
         <textarea id="commands_43" class="commands">
@@ -7228,7 +7254,9 @@ SELECT * FROM department;
 SELECT * FROM department, employees
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_43" class="output">Résultat</pre>
     </div>
@@ -7249,8 +7277,8 @@ SELECT * FROM department, employees
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_43").then(() => {
-        const ide = document.querySelector("div#ide_43");
+    onElementLoaded("div#sql_ide_43").then(() => {
+        const ide = document.querySelector("div#sql_ide_43");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7258,7 +7286,7 @@ SELECT * FROM department, employees
 <p>Une autre manière d&rsquo;obtenir le même résultat <code>CROSS JOIN</code> :</p>
 <p><code>CROSS</code>, comme la <em>croix</em> du produit&hellip; $2 \times 3 = 6$</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7268,7 +7296,7 @@ SELECT * FROM department, employees
 
 </h3>
 <main>
-    <div id="ide_44">
+    <div id="sql_ide_44">
         <label for='commands_44'>Commande SQL</label>
         <br>
         <textarea id="commands_44" class="commands">
@@ -7279,7 +7307,9 @@ SELECT * FROM department
 CROSS JOIN employees
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_44" class="output">Résultat</pre>
     </div>
@@ -7300,8 +7330,8 @@ CROSS JOIN employees
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_44").then(() => {
-        const ide = document.querySelector("div#ide_44");
+    onElementLoaded("div#sql_ide_44").then(() => {
+        const ide = document.querySelector("div#sql_ide_44");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7333,7 +7363,7 @@ par des clés primaires et étrangères identiques.</p>
 <p>Dans l&rsquo;exemple du code, <code>employees.dept</code> est un clé étrangère faisant référence à <code>departement.id</code></p>
 <p>On fait donc une jointure sur cette clé :</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7343,7 +7373,7 @@ par des clés primaires et étrangères identiques.</p>
 
 </h3>
 <main>
-    <div id="ide_47">
+    <div id="sql_ide_47">
         <label for='commands_47'>Commande SQL</label>
         <br>
         <textarea id="commands_47" class="commands">
@@ -7353,7 +7383,9 @@ SELECT * FROM department
 JOIN employees ON employees.dept=department.id;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_47" class="output">Résultat</pre>
     </div>
@@ -7374,15 +7406,15 @@ JOIN employees ON employees.dept=department.id;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_47").then(() => {
-        const ide = document.querySelector("div#ide_47");
+    onElementLoaded("div#sql_ide_47").then(() => {
+        const ide = document.querySelector("div#sql_ide_47");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <p>Pour sélectionner des colonnes il convient d&rsquo;utiliser le noms complets :</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7392,7 +7424,7 @@ JOIN employees ON employees.dept=department.id;
 
 </h3>
 <main>
-    <div id="ide_48">
+    <div id="sql_ide_48">
         <label for='commands_48'>Commande SQL</label>
         <br>
         <textarea id="commands_48" class="commands">
@@ -7402,7 +7434,9 @@ SELECT employees.name, department.name FROM department
 JOIN employees ON employees.dept=department.id;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_48" class="output">Résultat</pre>
     </div>
@@ -7423,8 +7457,8 @@ JOIN employees ON employees.dept=department.id;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_48").then(() => {
-        const ide = document.querySelector("div#ide_48");
+    onElementLoaded("div#sql_ide_48").then(() => {
+        const ide = document.querySelector("div#sql_ide_48");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
@@ -7432,7 +7466,7 @@ JOIN employees ON employees.dept=department.id;
 <p>Problème, deux colonnes issues de tables différentes peuvent porter
 le même nom. On utilise alors des alias :</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7442,7 +7476,7 @@ le même nom. On utilise alors des alias :</p>
 
 </h3>
 <main>
-    <div id="ide_49">
+    <div id="sql_ide_49">
         <label for='commands_49'>Commande SQL</label>
         <br>
         <textarea id="commands_49" class="commands">
@@ -7452,7 +7486,9 @@ SELECT employees.name AS name, department.name AS dept FROM department
 JOIN employees ON employees.dept=department.id;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_49" class="output">Résultat</pre>
     </div>
@@ -7473,15 +7509,15 @@ JOIN employees ON employees.dept=department.id;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_49").then(() => {
-        const ide = document.querySelector("div#ide_49");
+    onElementLoaded("div#sql_ide_49").then(() => {
+        const ide = document.querySelector("div#sql_ide_49");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <p>Avec un alias sur les <em>tables</em> on écrit la requête plus facilement :</p>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -7491,7 +7527,7 @@ JOIN employees ON employees.dept=department.id;
 
 </h3>
 <main>
-    <div id="ide_50">
+    <div id="sql_ide_50">
         <label for='commands_50'>Commande SQL</label>
         <br>
         <textarea id="commands_50" class="commands">
@@ -7502,7 +7538,9 @@ JOIN employees AS e ON e.dept=d.id
 ORDER BY d.id;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_50" class="output">Résultat</pre>
     </div>
@@ -7523,8 +7561,8 @@ ORDER BY d.id;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_50").then(() => {
-        const ide = document.querySelector("div#ide_50");
+    onElementLoaded("div#sql_ide_50").then(() => {
+        const ide = document.querySelector("div#sql_ide_50");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
