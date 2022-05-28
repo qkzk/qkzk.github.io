@@ -18,7 +18,7 @@ Pourquoi doit-on tester ? #  Imaginons la situation courante du développeur :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.097ae4d27a89a63bee387b11d1eea20bb5e31558773f42dcd6d1a3e257076936.css" integrity="sha256-CXrk0nqJpjvuOHsR0e6iC7XjFVh3P0Lc1tGj4lcHaTY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1daffa71b7412e92d64733c94e2156c634254b30ce619dbeb90560bf2093447b.js" integrity="sha256-Ha/6cbdBLpLWRzPJTiFWxjQlSzDOYZ2&#43;uQVgvyCTRHs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.5b073a16d2a2433694c39544cd603d5545976c225a16a0371c10156a8b1bbbd2.js" integrity="sha256-Wwc6FtKiQzaUw5VEzWA9VUWXbCJaFqA3HBAVaosbu9I=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/programmation/tester/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6071,33 +6071,167 @@ limites susceptibles de provoquer des erreurs.</p>
 </span></span><span style="display:flex;"><span>Traceback (most recent call last):
 </span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#c00;font-weight:bold">AssertionError</span>
-</span></span></code></pre></div><p>C&rsquo;est le moyen le plus efficace et rapide de tester un programme ou une fonction.</p>
+</span></span></code></pre></div><script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+
+
+    <h3 id="assert">
+  Assert
+  <a class="anchor" href="#assert">#</a>
+</h3>
+
+
+
+<main>
+    <div id="ide_0">
+        <textarea id="commands_0" class="commands">
+
+assert 1 &#43; 1 == 2, &#34;message si ça échoue&#34;
+assert &#34;1&#34; &#43; &#34;1&#34; == &#34;2&#34;, &#34;Concaténation...&#34;
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre id="output_0" class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        var initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#ide_0").then(() => {
+        const ide = document.querySelector("div#ide_0");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<p>C&rsquo;est le moyen le plus efficace et rapide de tester un programme ou une fonction.</p>
 <p>Il ne faut pas intégrer les assertions à la fonction elle même. Il est préférable de les intégrer à des fonctions de tests indépendantes du programme.</p>
 <h2 id="un-exemple">
   Un exemple
   <a class="anchor" href="#un-exemple">#</a>
 </h2>
 <p>Reprenons notre fonction Fibonacci</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fibonacci</span>(n):
-</span></span><span style="display:flex;"><span>  <span style="color:#c30">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">  Liste des termes de la suite de Fibonacci
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Code Fibonacci</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fibonacci</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Liste des termes de la suite de Fibonacci
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    de l&#39;indice 0 à l&#39;indice n inclus
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">  @param n: (int) l&#39;indice maximal voulu
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">  @return: (list) la liste des termes
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">  &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">if</span> <span style="color:#366">type</span>(n) <span style="color:#555">!=</span> <span style="color:#366">int</span> <span style="color:#000;font-weight:bold">or</span> n <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>  x <span style="color:#555">=</span> <span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  y <span style="color:#555">=</span> <span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  suite_fibonacci <span style="color:#555">=</span> [x]
-</span></span><span style="display:flex;"><span>  indice <span style="color:#555">=</span> <span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">while</span> indice <span style="color:#555">&lt;</span> n:
-</span></span><span style="display:flex;"><span>    x, y <span style="color:#555">=</span> y, x <span style="color:#555">+</span> y
-</span></span><span style="display:flex;"><span>    suite_fibonacci<span style="color:#555">.</span>append(x)
-</span></span><span style="display:flex;"><span>    indice <span style="color:#555">+=</span> <span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> suite_fibonacci
-</span></span></code></pre></div><h2 id="heading">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @param n: (int) l&#39;indice maximal voulu
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @return: (list) la liste des termes
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> <span style="color:#366">type</span>(n) <span style="color:#555">!=</span> <span style="color:#366">int</span> <span style="color:#000;font-weight:bold">or</span> n <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#555">=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    y <span style="color:#555">=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    suite_fibonacci <span style="color:#555">=</span> [x]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> indice <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(n):
+</span></span><span style="display:flex;"><span>        x, y <span style="color:#555">=</span> y, x <span style="color:#555">+</span> y
+</span></span><span style="display:flex;"><span>        suite_fibonacci<span style="color:#555">.</span>append(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> suite_fibonacci
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+
+
+    <h3 id="fibonacci">
+  Fibonacci
+  <a class="anchor" href="#fibonacci">#</a>
+</h3>
+
+
+
+<main>
+    <div id="ide_2">
+        <textarea id="commands_2" class="commands">
+def fibonacci(n):
+    &#34;&#34;&#34;
+    Liste des termes de la suite de Fibonacci
+    de l&#39;indice 0 à l&#39;indice n inclus
+
+    @param n: (int) l&#39;indice maximal voulu
+    @return: (list) la liste des termes
+    &#34;&#34;&#34;
+    if type(n) != int or n &lt; 0:
+        return None
+    x = 1
+    y = 1
+    suite_fibonacci = [x]
+
+    for indice in range(n):
+        x, y = y, x &#43; y
+        suite_fibonacci.append(x)
+
+    return suite_fibonacci
+
+fibonacci(15)
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre id="output_2" class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        var initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#ide_2").then(() => {
+        const ide = document.querySelector("div#ide_2");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<h2 id="heading">
   
   <a class="anchor" href="#heading">#</a>
 </h2>
@@ -6109,13 +6243,21 @@ limites susceptibles de provoquer des erreurs.</p>
 <li>La propriété de Fibonacci : $u_n + u_{n + 1} = u_{n + 2}$</li>
 <li>La sortie dans les cas impossibles : paramètre négatif, paramètre non entier</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tester_fibonacci</span>():
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Test Fibonacci</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tester_fibonacci</span>():
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    Teste certaines propriétés de la fonction Fibonacci
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    return: None
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    CU: lève une exception AssertionError si la fonction est mal programmée
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    CU: lève une exception AssertionError si un test échoue
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#39;&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    fib_10 <span style="color:#555">=</span> fibonacci(<span style="color:#f60">10</span>)
 </span></span><span style="display:flex;"><span>
@@ -6129,16 +6271,101 @@ limites susceptibles de provoquer des erreurs.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># ses éléments sont entiers</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> terme <span style="color:#000;font-weight:bold">in</span> fib_10:
-</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">type</span>(terme) <span style="color:#555">==</span> <span style="color:#366">int</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">isinstance</span>(terme, <span style="color:#366">int</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># La propriété de récurrence</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">3</span>] <span style="color:#555">+</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">2</span>] <span style="color:#555">==</span> fib_10[<span style="color:#555">-</span><span style="color:#f60">1</span>]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Valeur de retour dans les cas impossibles</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#c30">&#39;a&#39;</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">3.14</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span></code></pre></div><h1 id="doctest">
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#555">-</span><span style="color:#f60">1</span>) <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#c30">&#39;a&#39;</span>) <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> fibonacci(<span style="color:#f60">3.14</span>) <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+
+
+    <h3 id="tester-fibonacci">
+  Tester Fibonacci
+  <a class="anchor" href="#tester-fibonacci">#</a>
+</h3>
+
+
+
+<main>
+    <div id="ide_4">
+        <textarea id="commands_4" class="commands">
+
+def tester_fibonacci():
+    &#39;&#39;&#39;
+    Teste certaines propriétés de la fonction Fibonacci
+
+    return: None
+    CU: lève une exception AssertionError si un test échoue
+    &#39;&#39;&#39;
+    fib_10 = fibonacci(10)
+
+    # longueur de la liste
+    assert len(fib_10) == 11
+
+    # différents résultats
+    assert fibonacci(0) == [1]
+    assert fibonacci(1) == [1, 1]
+    assert fibonacci(5) == [1, 1, 2, 3, 5, 8]
+
+    # ses éléments sont entiers
+    for terme in fib_10:
+        assert isinstance(terme, int)
+
+    # La propriété de récurrence
+    assert fib_10[-3] &#43; fib_10[-2] == fib_10[-1]
+
+    # Valeur de retour dans les cas impossibles
+    assert fibonacci(-1) is None
+    assert fibonacci(&#39;a&#39;) is None
+    assert fibonacci(3.14) is None
+
+tester_fibonacci()
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre id="output_4" class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        var initfile = "https:\/\/qkzk.xyz\/"  + "docs\/nsi\/cours_premiere\/programmation\/tester\/" + "fib.py";
+        initfile = initfile.toLowerCase();
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#ide_4").then(() => {
+        const ide = document.querySelector("div#ide_4");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<h1 id="doctest">
   Doctest
   <a class="anchor" href="#doctest">#</a>
 </h1>
@@ -6149,12 +6376,18 @@ limites susceptibles de provoquer des erreurs.</p>
   Un exemple :
   <a class="anchor" href="#un-exemple-">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">multiply</span>(a, b):
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Exemple de doctest</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">multiply</span>(a: <span style="color:#366">int</span>, b: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    Calcule produit de a et b
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @param a: (number, str, list) premier facteur
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @param b: (number, str, list) second facteur
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    @return: (number, str, list) le produit
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    &gt;&gt;&gt; multiply(4, 3)
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    12
@@ -6166,7 +6399,74 @@ limites susceptibles de provoquer des erreurs.</p>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#39;__main__&#39;</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">doctest</span>
 </span></span><span style="display:flex;"><span>  doctest<span style="color:#555">.</span>testmod() <span style="color:#09f;font-style:italic"># s&#39;il ne se passe rien, les test sont justes</span>
-</span></span></code></pre></div><p>Quand on exécute le programme, il ne se passe rien.</p>
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+
+
+    <h3 id="exemple-de-doctest">
+  Exemple de doctest
+  <a class="anchor" href="#exemple-de-doctest">#</a>
+</h3>
+
+
+
+<main>
+    <div id="ide_6">
+        <textarea id="commands_6" class="commands">
+
+def multiply(a: int, b: int) -&gt; int:
+    &#34;&#34;&#34;
+    Calcule produit de a et b
+
+    &gt;&gt;&gt; multiply(4, 3)
+    12
+    &gt;&gt;&gt; multiply(&#39;a&#39;, 3)
+    &#39;aaa&#39;
+    &#34;&#34;&#34;
+    return a * b
+
+import doctest
+doctest.testmod() # s&#39;il ne se passe rien, les test sont justes
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre id="output_6" class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        var initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#ide_6").then(() => {
+        const ide = document.querySelector("div#ide_6");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<p>Quand on exécute le programme, il ne se passe rien.</p>
 <h2 id="un-exemple-qui-échoue-">
   Un exemple qui échoue :
   <a class="anchor" href="#un-exemple-qui-%c3%a9choue-">#</a>
