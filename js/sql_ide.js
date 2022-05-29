@@ -1,30 +1,35 @@
 function load(ide, worker_url, dbfile, init_file) {
     // Creates a new worker
-    const worker = new Worker(worker_url);
+    var worker = new Worker(worker_url);
 
     // Selects the DOM elements relative to the given element.
-    const output_elm = ide.querySelector('pre.output');
-    const error_elm = ide.querySelector('div.error');
-    const textarea_elm = ide.querySelector('textarea.commands');
-    const btn_execute = ide.querySelector('a.execute');
-    const btn_reset = ide.querySelector('a.reset');
-    const btn_download = ide.querySelector('a.download');
+    var execBtn = ide.querySelector('a.execute');
+    var outputElm = ide.querySelector('pre.output');
+    var errorElm = ide.querySelector('div.error');
+    var commandsElm = ide.querySelector('textarea.commands');
 
-    const initial_editor_value = textarea_elm.value;
+    // Start the worker in which sql.js will run
+    worker.onerror = function(e) {
+        console.log(e);
+        errorElm.style.height = '2em';
+        errorElm.textContent = e.message;
+    };
 
+    // Open a database
+    worker.postMessage({ action: 'open' });
 
     function error(e) {
         console.log(e);
-        error_elm.style.height = '2em';
-        error_elm.textContent = e.message;
+        errorElm.style.height = '2em';
+        errorElm.textContent = e.message;
     }
 
     function print(text) {
-        output_elm.innerHTML = text.replace(/\n/g, '<br>');
+        outputElm.innerHTML = text.replace(/\n/g, '<br>');
     }
 
     function noerror() {
-        error_elm.style.height = '0';
+        errorElm.style.height = '0';
     }
 
     // Execute the commands when the button is clicked
@@ -54,14 +59,14 @@ function load(ide, worker_url, dbfile, init_file) {
             }
 
             tic();
-            output_elm.innerHTML = "";
+            outputElm.innerHTML = "";
             for (var i = 0; i < results.length; i++) {
-                output_elm.appendChild(tableCreate(results[i].columns, results[i].values));
+                outputElm.appendChild(tableCreate(results[i].columns, results[i].values));
             }
             toc("Displaying results");
         }
         worker.postMessage({ action: 'exec', sql: commands });
-        output_elm.textContent = "Fetching results...";
+        outputElm.textContent = "Fetching results...";
     }
 
     // Create an HTML table
@@ -73,7 +78,6 @@ function load(ide, worker_url, dbfile, init_file) {
         }
         return function(columns, values) {
             var tbl = document.createElement('table');
-            tbl.classList.add("sql");
             var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
             var rows = values.map(function(v) { return valconcat(v, 'td'); });
             html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
@@ -82,36 +86,14 @@ function load(ide, worker_url, dbfile, init_file) {
         }
     }();
 
-    // Start the worker in which sql.js will run
-    worker.onerror = function(e) {
-        console.log(e);
-        error_elm.style.height = '2em';
-        error_elm.textContent = e.message;
-    };
-
-    // Open a database
-    worker.postMessage({ action: 'open' });
-
-    // Download editor content
-    function download_editor() {
-        download("commands.sql", editor.getValue());
-    }
-
-    // Reset editor content
-    function reset_editor() {
-        editor.setValue(initial_editor_value);
-    }
-
-    function remove_focus() {
-        editor.display.input.blur();
-    }
-
-    btn_execute.addEventListener( "click", execEditorContent, true);
-    btn_reset.addEventListener("click", reset_editor, true);
-    btn_download.addEventListener("click", download_editor, true);
+    execBtn.addEventListener(
+        "click",
+        execEditorContent,
+        true
+    );
 
     // Add syntax highlihjting to the textarea
-    var editor = CodeMirror.fromTextArea(textarea_elm, {
+    var editor = CodeMirror.fromTextArea(commandsElm, {
         mode: 'text/x-mysql',
         viewportMargin: Infinity,
         indentWithTabs: true,
@@ -119,15 +101,10 @@ function load(ide, worker_url, dbfile, init_file) {
         lineNumbers: false,
         matchBrackets: true,
         autofocus: true,
-        theme: "idea",
+        theme: "xq-light",
         extraKeys: {
-            "Tab": (cm) => cm.execCommand("indentMore"),
-            "Shift-Tab": (cm) => cm.execCommand("indentLess"),
-            "Esc": remove_focus,
-            "Ctrl-Enter": execute,
-            "Ctrl-R": reset_editor,
-            "Ctrl-S": download_editor,
-        },
+            "Ctrl-Enter": execEditorContent,
+        }
     });
 
 
@@ -168,22 +145,8 @@ function load(ide, worker_url, dbfile, init_file) {
     if (init_file !== null) {
         load_init_file(init_file);
     }
-
 }
 
-
-function download(filename, text) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-
-    element.style.display = 'none';
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
-}
 /**
  *
  * Wait for an HTML element to be loaded like `div`, `span`, `img`, etc.
