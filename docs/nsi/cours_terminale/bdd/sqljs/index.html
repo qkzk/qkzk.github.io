@@ -18,7 +18,7 @@ Lorsque la page est chargée par le navigateur, celui-ci crée en mémoire une b
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.097ae4d27a89a63bee387b11d1eea20bb5e31558773f42dcd6d1a3e257076936.css" integrity="sha256-CXrk0nqJpjvuOHsR0e6iC7XjFVh3P0Lc1tGj4lcHaTY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.f9030f2a21e9128d03d2456056c7e4b93d25f5cd08710c072b4a4e54d1351ab4.js" integrity="sha256-&#43;QMPKiHpEo0D0kVgVsfkuT0l9c0IcQwHK0pOVNE1GrQ=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.42db94678c35ca3fca6bf3e9035d99dbd9380aa509c605d9e32a8c4a709ca0bd.js" integrity="sha256-QtuUZ4w1yj/Ka/PpA12Z29k4CqUJxgXZ4yqMSnCcoL0=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/sqljs/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5872,7 +5872,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/ressources/test/" class="">Python shortcodes</a>
+    <a href="https://qkzk.xyz/docs/ressources/python/" class="">Python worker</a>
   
 
           
@@ -5966,7 +5966,7 @@ Plusieurs requêtes peuvent être exécutées dans une seule fenêtre d&rsquo;é
   <a class="anchor" href="#sql-dans-le-navigateur">#</a>
 </h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -5976,7 +5976,7 @@ Plusieurs requêtes peuvent être exécutées dans une seule fenêtre d&rsquo;é
 
 </h3>
 <main>
-    <div id="ide_0">
+    <div id="sql_ide_0">
         <label for='commands_0'>Commande SQL</label>
         <br>
         <textarea id="commands_0" class="commands">
@@ -5984,7 +5984,9 @@ Plusieurs requêtes peuvent être exécutées dans une seule fenêtre d&rsquo;é
 SELECT * FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_0" class="output">Résultat</pre>
     </div>
@@ -6005,14 +6007,14 @@ SELECT * FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_0").then(() => {
-        const ide = document.querySelector("div#ide_0");
+    onElementLoaded("div#sql_ide_0").then(() => {
+        const ide = document.querySelector("div#sql_ide_0");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6022,7 +6024,7 @@ SELECT * FROM employees;
 
 </h3>
 <main>
-    <div id="ide_1">
+    <div id="sql_ide_1">
         <label for='commands_1'>Commande SQL</label>
         <br>
         <textarea id="commands_1" class="commands">
@@ -6030,7 +6032,9 @@ SELECT * FROM employees;
 SELECT * FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_1" class="output">Résultat</pre>
     </div>
@@ -6051,14 +6055,14 @@ SELECT * FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_1").then(() => {
-        const ide = document.querySelector("div#ide_1");
+    onElementLoaded("div#sql_ide_1").then(() => {
+        const ide = document.querySelector("div#sql_ide_1");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6068,7 +6072,7 @@ SELECT * FROM employees;
 
 </h3>
 <main>
-    <div id="ide_2">
+    <div id="sql_ide_2">
         <label for='commands_2'>Commande SQL</label>
         <br>
         <textarea id="commands_2" class="commands">
@@ -6076,7 +6080,9 @@ SELECT * FROM employees;
 SELECT * FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_2" class="output">Résultat</pre>
     </div>
@@ -6097,14 +6103,14 @@ SELECT * FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_2").then(() => {
-        const ide = document.querySelector("div#ide_2");
+    onElementLoaded("div#sql_ide_2").then(() => {
+        const ide = document.querySelector("div#sql_ide_2");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6114,7 +6120,7 @@ SELECT * FROM employees;
 
 </h3>
 <main>
-    <div id="ide_3">
+    <div id="sql_ide_3">
         <label for='commands_3'>Commande SQL</label>
         <br>
         <textarea id="commands_3" class="commands">
@@ -6122,7 +6128,9 @@ SELECT * FROM employees;
 SELECT * FROM employees;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_3" class="output">Résultat</pre>
     </div>
@@ -6143,14 +6151,14 @@ SELECT * FROM employees;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_3").then(() => {
-        const ide = document.querySelector("div#ide_3");
+    onElementLoaded("div#sql_ide_3").then(() => {
+        const ide = document.querySelector("div#sql_ide_3");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/xq-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/theme/idea.css">
 <link rel="stylesheet" href="https://qkzk.xyz/css/sql_editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
 
@@ -6160,7 +6168,7 @@ SELECT * FROM employees;
 
 </h3>
 <main>
-    <div id="ide_4">
+    <div id="sql_ide_4">
         <label for='commands_4'>Commande SQL</label>
         <br>
         <textarea id="commands_4" class="commands">
@@ -6190,7 +6198,9 @@ SELECT designation,COUNT(*) AS nbr, (AVG(salary)) AS avg_salary FROM employees G
 SELECT name,hired_on FROM employees ORDER BY hired_on;
 
         </textarea>
-        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Exécuter</a>
+        <a id="execute" class="execute btn-sql book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
         <div id="error" class="error"></div>
         <pre id="output_4" class="output">Résultat</pre>
     </div>
@@ -6209,8 +6219,8 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;
 
     var worker_url = "https:\/\/qkzk.xyz\/js/worker.sql-wasm.js";
 
-    onElementLoaded("div#ide_4").then(() => {
-        const ide = document.querySelector("div#ide_4");
+    onElementLoaded("div#sql_ide_4").then(() => {
+        const ide = document.querySelector("div#sql_ide_4");
         load(ide, worker_url, dbfile, initfile);
     }).catch(() => { });
 </script>
