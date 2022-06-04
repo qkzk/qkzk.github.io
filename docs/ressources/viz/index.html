@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Graphe au format DOT avec viz.js #  Exemple 1 #      Graphe orienté #      const viz_elm_0 = document.getElementById(&#34;viz_0&#34;); const graphContent_0 = &#34;\ndigraph {\n a -\u003e b\n}\n&#34;; let viz_0 = new Viz(); viz_0.renderImageElement(graphContent_0) .then(function(element) { viz_elm_0.appendChild(element); }) .catch(error = { viz_0 = new Viz(); console.error(error); });  Exemple 2 #      Graphe simple #      const viz_elm_1 = document.">
+<meta name="description" content="Graphe au format DOT avec viz.js #  Exemple 1 #     .svg-container { display: inline-block; position: relative; width: 100%; padding-bottom: 100%; vertical-align: middle; overflow: hidden; } .svg-content { display: inline-block; position: absolute; top: 0; left: 0; }    Graphe orienté #      const viz_elm_0 = document.getElementById(&#34;viz_0&#34;); const graphContent_0 = &#34;\ndigraph {\n a -\u003e b\n}\n&#34;; let viz_0 = new Viz(); viz_0.renderSVGElement(graphContent_0) .">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="viz.js" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.f0bdf7010403ac7970b6b1f002a8bcfd636125e20b5c5891741970e6ed2d0496.js" integrity="sha256-8L33AQQDrHlwtrHwAqi8/WNhJeILXFiRdBlw5u0tBJY=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/ressources/viz/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5924,6 +5924,9 @@ MathJax.Hub.Config({
     <li><a href="#exemple-2">Exemple 2</a></li>
     <li><a href="#exemple-3">Exemple 3</a></li>
     <li><a href="#exemple-4">Exemple 4</a></li>
+    <li><a href="#exemple-5">Exemple 5</a></li>
+    <li><a href="#exemple-6">Exemple 6</a></li>
+    <li><a href="#exemple-7">Exemple 7</a></li>
   </ul>
 </nav>
 
@@ -5947,7 +5950,25 @@ MathJax.Hub.Config({
 </h2>
 <script src="https://qkzk.xyz/viz/viz.js"></script>
 <script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
 
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
 <main>
     <h3>
         
@@ -5958,7 +5979,7 @@ MathJax.Hub.Config({
 
         
     </h3>
-    <div id="viz_0" style="width: 100%; height: 100%;">
+    <div id="viz_0">
     </div>
 </main>
 
@@ -5966,10 +5987,26 @@ MathJax.Hub.Config({
     const viz_elm_0 = document.getElementById("viz_0");
     const graphContent_0 = "\ndigraph {\n    a -\u003e b\n}\n";
     let viz_0 = new Viz();
-
-    viz_0.renderImageElement(graphContent_0)
+    
+    viz_0.renderSVGElement(graphContent_0)
         .then(function(element) {
             viz_elm_0.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_0.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_0.style.maxWidth = `${box.width}px`;
+                viz_elm_0.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_0.style.textAlign = "center";
+            }
         })
         .catch(error => {
             
@@ -5986,29 +6023,63 @@ MathJax.Hub.Config({
 </h2>
 <script src="https://qkzk.xyz/viz/viz.js"></script>
 <script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
 
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
 <main>
     <h3>
         
-            <h3 id="graphe-simple">
-  Graphe simple
-  <a class="anchor" href="#graphe-simple">#</a>
+            <h3 id="graphe-contenant-une-erreur">
+  Graphe contenant une erreur
+  <a class="anchor" href="#graphe-contenant-une-erreur">#</a>
 </h3>
 
         
     </h3>
-    <div id="viz_1" style="width: 100%; height: 100%;">
+    <div id="viz_1">
     </div>
 </main>
 
 <script>
     const viz_elm_1 = document.getElementById("viz_1");
-    const graphContent_1 = "\ngraph {\n    c -- d\n    d -- e\n    c -- e\n}\n";
+    const graphContent_1 = "\ndigraph {\n    a -\u003e \n}\n";
     let viz_1 = new Viz();
-
-    viz_1.renderImageElement(graphContent_1)
+    
+    viz_1.renderSVGElement(graphContent_1)
         .then(function(element) {
             viz_elm_1.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_1.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_1.style.maxWidth = `${box.width}px`;
+                viz_elm_1.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_1.style.textAlign = "center";
+            }
         })
         .catch(error => {
             
@@ -6025,29 +6096,63 @@ MathJax.Hub.Config({
 </h2>
 <script src="https://qkzk.xyz/viz/viz.js"></script>
 <script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
 
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
 <main>
     <h3>
         
-            <h3 id="finite-state-machine">
-  Finite State Machine
-  <a class="anchor" href="#finite-state-machine">#</a>
+            <h3 id="graphe-simple">
+  Graphe simple
+  <a class="anchor" href="#graphe-simple">#</a>
 </h3>
 
         
     </h3>
-    <div id="viz_2" style="width: 100%; height: 100%;">
+    <div id="viz_2">
     </div>
 </main>
 
 <script>
     const viz_elm_2 = document.getElementById("viz_2");
-    const graphContent_2 = "\ndigraph finite_state_machine {\n\tfontname=\"Helvetica,Arial,sans-serif\"\n\tnode [fontname=\"Helvetica,Arial,sans-serif\"]\n\tedge [fontname=\"Helvetica,Arial,sans-serif\"]\n\trankdir=LR;\n\tnode [shape = doublecircle]; 0 3 4 8;\n\tnode [shape = circle];\n\t0 -\u003e 2 [label = \"SS(B)\"];\n\t0 -\u003e 1 [label = \"SS(S)\"];\n\t1 -\u003e 3 [label = \"S($end)\"];\n\t2 -\u003e 6 [label = \"SS(b)\"];\n\t2 -\u003e 5 [label = \"SS(a)\"];\n\t2 -\u003e 4 [label = \"S(A)\"];\n\t5 -\u003e 7 [label = \"S(b)\"];\n\t5 -\u003e 5 [label = \"S(a)\"];\n\t6 -\u003e 6 [label = \"S(b)\"];\n\t6 -\u003e 5 [label = \"S(a)\"];\n\t7 -\u003e 8 [label = \"S(b)\"];\n\t7 -\u003e 5 [label = \"S(a)\"];\n\t8 -\u003e 6 [label = \"S(b)\"];\n\t8 -\u003e 5 [label = \"S(a)\"];\n}\n";
+    const graphContent_2 = "\ngraph {\n    c -- d\n    d -- e\n    c -- e\n}\n";
     let viz_2 = new Viz();
-
-    viz_2.renderImageElement(graphContent_2)
+    
+    viz_2.renderSVGElement(graphContent_2)
         .then(function(element) {
             viz_elm_2.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_2.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_2.style.maxWidth = `${box.width}px`;
+                viz_elm_2.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_2.style.textAlign = "center";
+            }
         })
         .catch(error => {
             
@@ -6064,7 +6169,98 @@ MathJax.Hub.Config({
 </h2>
 <script src="https://qkzk.xyz/viz/viz.js"></script>
 <script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
 
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
+<main>
+    <h3>
+        
+            <h3 id="finite-state-machine">
+  Finite State Machine
+  <a class="anchor" href="#finite-state-machine">#</a>
+</h3>
+
+        
+    </h3>
+    <div id="viz_3">
+    </div>
+</main>
+
+<script>
+    const viz_elm_3 = document.getElementById("viz_3");
+    const graphContent_3 = "\ndigraph finite_state_machine {\n\tfontname=\"Helvetica,Arial,sans-serif\"\n\tnode [fontname=\"Helvetica,Arial,sans-serif\"]\n\tedge [fontname=\"Helvetica,Arial,sans-serif\"]\n\trankdir=LR;\n\tnode [shape = doublecircle]; 0 3 4 8;\n\tnode [shape = circle];\n\t0 -\u003e 2 [label = \"SS(B)\"];\n\t0 -\u003e 1 [label = \"SS(S)\"];\n\t1 -\u003e 3 [label = \"S($end)\"];\n\t2 -\u003e 6 [label = \"SS(b)\"];\n\t2 -\u003e 5 [label = \"SS(a)\"];\n\t2 -\u003e 4 [label = \"S(A)\"];\n\t5 -\u003e 7 [label = \"S(b)\"];\n\t5 -\u003e 5 [label = \"S(a)\"];\n\t6 -\u003e 6 [label = \"S(b)\"];\n\t6 -\u003e 5 [label = \"S(a)\"];\n\t7 -\u003e 8 [label = \"S(b)\"];\n\t7 -\u003e 5 [label = \"S(a)\"];\n\t8 -\u003e 6 [label = \"S(b)\"];\n\t8 -\u003e 5 [label = \"S(a)\"];\n}\n";
+    let viz_3 = new Viz();
+    
+    viz_3.renderSVGElement(graphContent_3)
+        .then(function(element) {
+            viz_elm_3.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_3.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_3.style.maxWidth = `${box.width}px`;
+                viz_elm_3.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_3.style.textAlign = "center";
+            }
+        })
+        .catch(error => {
+            
+            viz_3 = new Viz();
+
+            
+            console.error(error);
+        });
+</script>
+
+<h2 id="exemple-5">
+  Exemple 5
+  <a class="anchor" href="#exemple-5">#</a>
+</h2>
+<script src="https://qkzk.xyz/viz/viz.js"></script>
+<script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
 <main>
     <h3>
         
@@ -6075,22 +6271,184 @@ MathJax.Hub.Config({
 
         
     </h3>
-    <div id="viz_3" style="width: 100%; height: 100%;">
+    <div id="viz_4">
     </div>
 </main>
 
 <script>
-    const viz_elm_3 = document.getElementById("viz_3");
-    const graphContent_3 = "\ndigraph \"Linux_kernel_diagram\" {\n\tfontname=\"Helvetica,Arial,sans-serif\"\n\tnode [fontname=\"Helvetica,Arial,sans-serif\"]\n\tedge [fontname=\"Helvetica,Arial,sans-serif\"]\n\tgraph [\n\t\tnewrank = true,\n\t\tnodesep = 0.3,\n\t\tranksep = 0.2,\n\t\toverlap = true,\n\t\tsplines = false,\n\t]\n\tnode [\n\t\tfixedsize = false,\n\t\tfontsize = 24,\n\t\theight = 1,\n\t\tshape = box,\n\t\tstyle = \"filled,setlinewidth(5)\",\n\t\twidth = 2.2\n\t]\n\tedge [\n\t\tarrowhead = none,\n\t\tarrowsize = 0.5,\n\t\tlabelfontname = \"Ubuntu\",\n\t\tweight = 10,\n\t\tstyle = \"filled,setlinewidth(5)\"\n\t]\n\tsubgraph system {\n\t\tnode [color = \"#e27dd6ff\"]\n\t\tedge [color = \"#e27dd6ff\"]\n\t\tsystem_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\tshape = point\n\t\t]\n\t\tsystem [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/System\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tsystem -\u003e system_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func];\n\t\tSCI [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Syscalls\",\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"System calls\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tsysfs [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"proc \u0026 sysfs\\nfile systems\"]\n\t\tSCI -\u003e sysfs\n\t\tDM [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"Device\\nModel\",\n\t\t\tshape = octagon,\n\t\t\twidth = 2]\n\t\tsysfs -\u003e DM\n\t\tlog_sys [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"system run,\\nmodules,\\ngeneric\\nHW access \"]\n\t\tDM -\u003e log_sys\n\t\tbus_drv [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"bus drivers\"]\n\t\tlog_sys -\u003e bus_drv\n\t\tbuses [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"buses:\\nPCI, USB ...\",\n\t\t\trow = chip]\n\t\tbus_drv -\u003e buses\n\t}\n\tsubgraph networking {\n\t\tnode [color = \"#61c2c5\"]\n\t\tedge [color = \"#61c2c5\"]\n\t\tnetworking_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\tshape = point\n\t\t\t\twidth = 0]\n\t\tnetworking [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Networking\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tnetworking -\u003e networking_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tsock [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Sockets,\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tprot_fam [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"protocol\\nfamilies\"]\n\t\tsock -\u003e prot_fam\n\t\tlog_prot [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"protocols:\\nTCP, UDP, IP\"]\n\t\tprot_fam -\u003e log_prot\n\t\tnetif [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"network\\ninterfaces\\nand drivers\"]\n\t\tlog_prot -\u003e netif\n\t\tnet_hw [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"network:\\nEthernet, WiFi ...\",\n\t\t\trow = chip]\n\t\tnetif -\u003e net_hw\n\t\tNFS [\n\t\t\tcolor = \"#8383cc\",\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\theight = 0.8,\n\t\t\tlabel = NFS,\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tNFS -\u003e log_prot [weight = 0]\n\t}\n\tsubgraph processing {\n\t\tnode [color = \"#c46747\"]\n\t\tedge [color = \"#c46747\"]\n\t\tprocessing_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tprocessing [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Processing\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tprocessing -\u003e processing_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tproc [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Processes,\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tTasks [\n\t\t\tfillcolor = \"#b2d3e4\"]\n\t\tproc -\u003e Tasks\n\t\tsync [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\tfontname = \"Arial Narrow\"\n\t\t\tlabel = synchronization,\n\t\t\theight = 0.7,\n\t\t\t//width = 2,\n\t\t\tshape = octagon]\n\t\tTasks -\u003e sync\n\t\tsched [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = Scheduler]\n\t\tsync -\u003e sched\n\t\tIRQ [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"interrupts\\ncore,\\nCPU arch\"]\n\t\tsched -\u003e IRQ\n\t\tCPU [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\trow = chip]\n\t\tIRQ -\u003e CPU\n\t}\t// processing\n\tsubgraph mem {\n\t\tnode [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\theight = 1\n\t\t]\n\t\tedge [color = \"#51bf5b\"]\n\t\tMA [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"memory\\naccess\",\n\t\t\trow = usr,\n\t\t\theight = 1,\n\t\t\tshape = ellipse]\n\t\tMA -\u003e VM\n\t\tmmap [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"memory\\nmapping\",\n\t\t\tshape = octagon,\n\t\t\twidth = 2]\n\t\tmmap -\u003e log_mem\n\t\tlog_mem -\u003e PA\n\t\tSW [\n\t\t\tcolor = \"#8383cc\",\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Swap,\n\t\t\theight = 0.8,\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tmmap -\u003e SW [weight = 1]\n\t\tSW -\u003e block [\n\t\t\tcolor = \"#8383cc\", weight = 1]\n\t\tPA [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"Page\\nAllocator\"\n\t\t]\n\t\tPC -\u003e PA [weight = 0 color=\"#51bf5b\"]\n\t\tRAM [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"MMU, RAM\",\n\t\t\theight = 1,\n\t\t\trow = chip]\n\t\tPA -\u003e RAM\n\t\tmemory -\u003e memory_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tVM -\u003e mmap\n\t}\t// mem\n\tsubgraph storage {\n\t\tnode [color = \"#8383cc\"]\n\t\tedge [color = \"#8383cc\"]\n\t\tNFS;\n\t\tstorage_ [\n\t\t\tshape = point,\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tstorage [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Storage\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tstorage -\u003e storage_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tFS [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"files and\\ndirectories\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tVFS [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"Virtual\\nFile System\"]\n\t\tFS -\u003e VFS\n\t\tVFS -\u003e mmap [weight = 0]\n\t\tVFS -\u003e NFS [weight = 0]\n\t\tlogFS [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"logical\\nfilesystems:\\next3, xfs ...\"]\n\t\tVFS -\u003e logFS\n\t\tPC [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"page\\ncache\",\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tVFS -\u003e PC [weight = 0]\n\t\tblock [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"Block\\ndevices\\nand drivers\"]\n\t\tlogFS -\u003e block\n\t\tSD [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"storage devices:\\nSCSI, NVMe ...\",\n\t\t\trow = chip]\n\t\tblock -\u003e SD\n\t}\t// storge\n\tsubgraph HI {\n\t\tnode [color = \"#cfbf57ff\"]\n\t\tedge [\n\t\t\tcolor = \"#cfbf57ff\",\n\t\t\tweight = 10\n\t\t]\n\t\tHI_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tHI [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Human_interfaces\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 12,\n\t\t\theight = 0.6,\n\t\t\tlabel = \"human\\ninterface\",\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tHI -\u003e HI_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tchar [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"char\\ndevices\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tinput [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"input\\nsubsystem\"]\n\t\tchar -\u003e input\n\t\tF7 [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"HI class\\ndrivers\"]\n\t\tinput -\u003e F7\n\t\tHID [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tURL = \"https://www.kernel.org/doc/html/latest/hid/\",\n\t\t\tlabel = \"HI\\nperipherals\\ndrivers\"]\n\t\tF7 -\u003e HID\n\t\tdisplay [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 19,\n\t\t\tlabel = \"keyboard, mouse,\\ndisplay, audio\",\n\t\t\trow = chip]\n\t\tHID -\u003e display\n\t} // HI\n\tsubgraph functions {\n\t\tgraph [rank = same]\n\t\tedge [\n\t\t\tstyle = invis,\n\t\t\tweight = 1\n\t\t]\n\t\tsystem;\n\t\tnetworking;\n\t\tsystem -\u003e processing [weight = 1]\n\t\tstorage -\u003e networking [weight = 1]\n\t\tmemory [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Memory\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tmemory -\u003e storage [weight = 1]\n\t\tprocessing -\u003e memory [weight = 1]\n\t\tfunctions_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tfunctions_ -\u003e HI -\u003e system [weight = 1]\n\t\tfunctions [\n\t\t\tcolor = gray,\n\t\t\ttooltip = \"Columns represent main functionalities of the kernel\",\n\t\t\tURL = \"http://www.makelinux.net/ldd3/chp-1-sect-2.shtml\",\n\t\t\tfillcolor = gray,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\tstyle = dashed,\n\t\t\twidth = 1.6]\n\t\tfunctions -\u003e functions_ [\n\t\t\tarrowhead = \"\",\n\t\t\tcolor = gray,\n\t\t\tstyle = \"\",\n\t\t\tweight = \"\"]\n\t}\n\tsubgraph interfaces {\n\t\tgraph [rank = same]\n\t\tSCI;\n\t\tsock;\n\t\tFS;\n\t\tproc;\n\t\tchar;\n\t\tusr_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\t\tstyle = invis,\n\t\t\twidth = 0.5]\n\t\tusr [\n\t\t\tfillcolor = \"#d9e7eeff\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"user space\\ninterfaces\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse,\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tMA;\n\t}\n\t{\n\t\tedge [style = invis weight = 10 ]\n\t\tsystem_;\n\t\tSCI;\n\t\tsystem_ -\u003e SCI;\n\t\tnetworking_;\n\t\tsock;\n\t\tnetworking_ -\u003e sock;\n\t\tstorage_;\n\t\tFS;\n\t\tstorage_ -\u003e FS;\n\t\tprocessing_;\n\t\tproc;\n\t\tprocessing_ -\u003e proc;\n\t\tHI_;\n\t\tchar;\n\t\tHI_ -\u003e char;\n\t\tMA;\n\t\tmemory_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tmemory_ -\u003e MA;\n\t}\n\tsubgraph virtual {\n\t\tgraph [rank = same]\n\t\tsysfs;\n\t\tprot_fam;\n\t\tVFS;\n\t\tTasks;\n\t\tinput;\n\t\tD0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tvirt [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"virtual\\nsubsystems\",\n\t\t\tURL = \"https://en.wikipedia.org/wiki/Proxy_pattern\",\n\t\t\ttooltip = \"proxy between standard user space interfaces and internal implementations\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tVM [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"Virtual\\nmemory\"]\n\t}\n\tsubgraph bridges {\n\t\tgraph [rank = same]\n\t\tbridges [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tshape = octagon,\n\t\t\ttooltip = \"bridges between uniform virtual interfaces and various implementations\",\n\t\t\tURL = \"https://en.wikipedia.org/wiki/Bridge_pattern\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tDM;\n\t\tNFS;\n\t\tmmap;\n\t\tsync;\n\t\tE0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\t//PC\n\t}\n\tsubgraph logical {\n\t\tgraph [rank = same]\n\t\tlog_sys;\n\t\tlog_prot;\n\t\tlogFS;\n\t\tsched;\n\t\tF7;\n\t\tF0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tlogical [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tlog_mem [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"logical\\nmemory\"]\n\t\t//SW\n\t}\n\tsubgraph HWI {\n\t\tgraph [rank = same]\n\t\tHWI [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"hardware\\ninterfaces\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tbus_drv;\n\t\tnetif;\n\t\tblock;\n\t\t//PA;\n\t\tIRQ;\n\t\tHID;\n\t\tG0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t}\n\tsubgraph HW {\n\t\tgraph [rank = same]\n\t\tHW [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tlabel = \"electronics,\\nhardware\",\n\t\t\trow = chip,\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tbuses;\n\t\tnet_hw;\n\t\tSD;\n\t\tCPU;\n\t\tdisplay;\n\t\tH0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tRAM;\n\t}\n\tbottom [\n\t\tlabel = \"© 2007-2022 Costa Shulyupin http://www.MakeLinux.net/kernel/diagram\",\n\t\tURL = \"http://www.MakeLinux.net/kernel/diagram\",\n\t\tshape = plaintext,\n\t\tstyle = \"\"]\n\tCPU -\u003e bottom [style = invis]\n\tlayers [\n\t\tfillcolor = lightgray,\n\t\ttooltip = \"Functionalities are divided to common layers. It is approximate division.\",\n\t\theight = 0.1,\n\t\tstyle = \"filled,setlinewidth(0)\",\n\t\twidth = 0.5]\n\tfunctions -\u003e layers [style = invis ]\n\tusr -\u003e usr_ [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#d9e7eeff\",\n\t\tminlen = 2]\n\tusr -\u003e virt [\n\t\tcolor = \"#d9e7eeff\"]\n\tvirt -\u003e D0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#b2d3e4\",\n\t\tminlen = 2]\n\tvirt -\u003e bridges [\n\t\tcolor = \"#b2d3e4\"]\n\tbridges -\u003e E0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#91b5c9\",\n\t\tminlen = 2,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tbridges -\u003e logical [\n\t\tcolor = \"#91b5c9\",\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tlogical -\u003e F0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#6a9ab1\",\n\t\tminlen = 2,\n\t\trow = logical,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tlogical -\u003e HWI [\n\t\tcolor = \"#6a9ab1\",\n\t\trow = logical,\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tHWI -\u003e G0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#71809b\",\n\t\tminlen = 2,\n\t\trow = HWI,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tHWI -\u003e HW [\n\t\tcolor = \"#71809b\",\n\t\trow = HWI,\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tHW -\u003e H0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#777777\",\n\t\tminlen = 2,\n\t\trow = chip,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tlayers -\u003e usr [\n\t\tarrowhead = \"\",\n\t\tcolor = gray,\n\t\tstyle = \"filled,setlinewidth(1)\"]\n\tLKD [\n\t\tfontsize = 40,\n\t\tlabel = \"Linux kernel diagram\",\n\t\tshape = plain,\n\t\tstyle = \"\"]\n\tLKD -\u003e processing [style = invis]\n}\n";
-    let viz_3 = new Viz();
-
-    viz_3.renderImageElement(graphContent_3)
+    const viz_elm_4 = document.getElementById("viz_4");
+    const graphContent_4 = "\ndigraph \"Linux_kernel_diagram\" {\n\tfontname=\"Helvetica,Arial,sans-serif\"\n\tnode [fontname=\"Helvetica,Arial,sans-serif\"]\n\tedge [fontname=\"Helvetica,Arial,sans-serif\"]\n\tgraph [\n\t\tnewrank = true,\n\t\tnodesep = 0.3,\n\t\tranksep = 0.2,\n\t\toverlap = true,\n\t\tsplines = false,\n\t]\n\tnode [\n\t\tfixedsize = false,\n\t\tfontsize = 24,\n\t\theight = 1,\n\t\tshape = box,\n\t\tstyle = \"filled,setlinewidth(5)\",\n\t\twidth = 2.2\n\t]\n\tedge [\n\t\tarrowhead = none,\n\t\tarrowsize = 0.5,\n\t\tlabelfontname = \"Ubuntu\",\n\t\tweight = 10,\n\t\tstyle = \"filled,setlinewidth(5)\"\n\t]\n\tsubgraph system {\n\t\tnode [color = \"#e27dd6ff\"]\n\t\tedge [color = \"#e27dd6ff\"]\n\t\tsystem_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\tshape = point\n\t\t]\n\t\tsystem [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/System\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tsystem -\u003e system_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func];\n\t\tSCI [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Syscalls\",\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"System calls\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tsysfs [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"proc \u0026 sysfs\\nfile systems\"]\n\t\tSCI -\u003e sysfs\n\t\tDM [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"Device\\nModel\",\n\t\t\tshape = octagon,\n\t\t\twidth = 2]\n\t\tsysfs -\u003e DM\n\t\tlog_sys [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"system run,\\nmodules,\\ngeneric\\nHW access \"]\n\t\tDM -\u003e log_sys\n\t\tbus_drv [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"bus drivers\"]\n\t\tlog_sys -\u003e bus_drv\n\t\tbuses [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"buses:\\nPCI, USB ...\",\n\t\t\trow = chip]\n\t\tbus_drv -\u003e buses\n\t}\n\tsubgraph networking {\n\t\tnode [color = \"#61c2c5\"]\n\t\tedge [color = \"#61c2c5\"]\n\t\tnetworking_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\tshape = point\n\t\t\t\twidth = 0]\n\t\tnetworking [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Networking\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tnetworking -\u003e networking_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tsock [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Sockets,\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tprot_fam [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"protocol\\nfamilies\"]\n\t\tsock -\u003e prot_fam\n\t\tlog_prot [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"protocols:\\nTCP, UDP, IP\"]\n\t\tprot_fam -\u003e log_prot\n\t\tnetif [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"network\\ninterfaces\\nand drivers\"]\n\t\tlog_prot -\u003e netif\n\t\tnet_hw [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"network:\\nEthernet, WiFi ...\",\n\t\t\trow = chip]\n\t\tnetif -\u003e net_hw\n\t\tNFS [\n\t\t\tcolor = \"#8383cc\",\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\theight = 0.8,\n\t\t\tlabel = NFS,\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tNFS -\u003e log_prot [weight = 0]\n\t}\n\tsubgraph processing {\n\t\tnode [color = \"#c46747\"]\n\t\tedge [color = \"#c46747\"]\n\t\tprocessing_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tprocessing [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Processing\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tprocessing -\u003e processing_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tproc [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Processes,\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tTasks [\n\t\t\tfillcolor = \"#b2d3e4\"]\n\t\tproc -\u003e Tasks\n\t\tsync [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\tfontname = \"Arial Narrow\"\n\t\t\tlabel = synchronization,\n\t\t\theight = 0.7,\n\t\t\t//width = 2,\n\t\t\tshape = octagon]\n\t\tTasks -\u003e sync\n\t\tsched [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = Scheduler]\n\t\tsync -\u003e sched\n\t\tIRQ [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"interrupts\\ncore,\\nCPU arch\"]\n\t\tsched -\u003e IRQ\n\t\tCPU [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\trow = chip]\n\t\tIRQ -\u003e CPU\n\t}\t// processing\n\tsubgraph mem {\n\t\tnode [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\theight = 1\n\t\t]\n\t\tedge [color = \"#51bf5b\"]\n\t\tMA [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"memory\\naccess\",\n\t\t\trow = usr,\n\t\t\theight = 1,\n\t\t\tshape = ellipse]\n\t\tMA -\u003e VM\n\t\tmmap [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"memory\\nmapping\",\n\t\t\tshape = octagon,\n\t\t\twidth = 2]\n\t\tmmap -\u003e log_mem\n\t\tlog_mem -\u003e PA\n\t\tSW [\n\t\t\tcolor = \"#8383cc\",\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = Swap,\n\t\t\theight = 0.8,\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tmmap -\u003e SW [weight = 1]\n\t\tSW -\u003e block [\n\t\t\tcolor = \"#8383cc\", weight = 1]\n\t\tPA [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"Page\\nAllocator\"\n\t\t]\n\t\tPC -\u003e PA [weight = 0 color=\"#51bf5b\"]\n\t\tRAM [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"MMU, RAM\",\n\t\t\theight = 1,\n\t\t\trow = chip]\n\t\tPA -\u003e RAM\n\t\tmemory -\u003e memory_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tVM -\u003e mmap\n\t}\t// mem\n\tsubgraph storage {\n\t\tnode [color = \"#8383cc\"]\n\t\tedge [color = \"#8383cc\"]\n\t\tNFS;\n\t\tstorage_ [\n\t\t\tshape = point,\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tstorage [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Storage\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tstorage -\u003e storage_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tFS [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"files and\\ndirectories\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tVFS [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"Virtual\\nFile System\"]\n\t\tFS -\u003e VFS\n\t\tVFS -\u003e mmap [weight = 0]\n\t\tVFS -\u003e NFS [weight = 0]\n\t\tlogFS [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"logical\\nfilesystems:\\next3, xfs ...\"]\n\t\tVFS -\u003e logFS\n\t\tPC [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 20,\n\t\t\theight = 0.8,\n\t\t\tlabel = \"page\\ncache\",\n\t\t\tshape = octagon,\n\t\t\twidth = 1.2]\n\t\tVFS -\u003e PC [weight = 0]\n\t\tblock [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"Block\\ndevices\\nand drivers\"]\n\t\tlogFS -\u003e block\n\t\tSD [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 20,\n\t\t\tlabel = \"storage devices:\\nSCSI, NVMe ...\",\n\t\t\trow = chip]\n\t\tblock -\u003e SD\n\t}\t// storge\n\tsubgraph HI {\n\t\tnode [color = \"#cfbf57ff\"]\n\t\tedge [\n\t\t\tcolor = \"#cfbf57ff\",\n\t\t\tweight = 10\n\t\t]\n\t\tHI_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tHI [\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Human_interfaces\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\tfontsize = 12,\n\t\t\theight = 0.6,\n\t\t\tlabel = \"human\\ninterface\",\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tHI -\u003e HI_ [\n\t\t\tarrowhead = \"\",\n\t\t\trow = func]\n\t\tchar [\n\t\t\tfillcolor = \"#d9e7ee\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"char\\ndevices\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse]\n\t\tinput [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"input\\nsubsystem\"]\n\t\tchar -\u003e input\n\t\tF7 [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"HI class\\ndrivers\"]\n\t\tinput -\u003e F7\n\t\tHID [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tfontsize = 20,\n\t\t\tURL = \"https://www.kernel.org/doc/html/latest/hid/\",\n\t\t\tlabel = \"HI\\nperipherals\\ndrivers\"]\n\t\tF7 -\u003e HID\n\t\tdisplay [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tfontsize = 19,\n\t\t\tlabel = \"keyboard, mouse,\\ndisplay, audio\",\n\t\t\trow = chip]\n\t\tHID -\u003e display\n\t} // HI\n\tsubgraph functions {\n\t\tgraph [rank = same]\n\t\tedge [\n\t\t\tstyle = invis,\n\t\t\tweight = 1\n\t\t]\n\t\tsystem;\n\t\tnetworking;\n\t\tsystem -\u003e processing [weight = 1]\n\t\tstorage -\u003e networking [weight = 1]\n\t\tmemory [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tURL = \"https://en.wikibooks.org/wiki/The_Linux_Kernel/Memory\",\n\t\t\tfillcolor = white,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\twidth = 2]\n\t\tmemory -\u003e storage [weight = 1]\n\t\tprocessing -\u003e memory [weight = 1]\n\t\tfunctions_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tfunctions_ -\u003e HI -\u003e system [weight = 1]\n\t\tfunctions [\n\t\t\tcolor = gray,\n\t\t\ttooltip = \"Columns represent main functionalities of the kernel\",\n\t\t\tURL = \"http://www.makelinux.net/ldd3/chp-1-sect-2.shtml\",\n\t\t\tfillcolor = gray,\n\t\t\tfixedsize = true,\n\t\t\theight = 0.6,\n\t\t\trow = func,\n\t\t\tstyle = dashed,\n\t\t\twidth = 1.6]\n\t\tfunctions -\u003e functions_ [\n\t\t\tarrowhead = \"\",\n\t\t\tcolor = gray,\n\t\t\tstyle = \"\",\n\t\t\tweight = \"\"]\n\t}\n\tsubgraph interfaces {\n\t\tgraph [rank = same]\n\t\tSCI;\n\t\tsock;\n\t\tFS;\n\t\tproc;\n\t\tchar;\n\t\tusr_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point\n\t\t\t\tstyle = invis,\n\t\t\twidth = 0.5]\n\t\tusr [\n\t\t\tfillcolor = \"#d9e7eeff\",\n\t\t\tfixedsize = true,\n\t\t\tlabel = \"user space\\ninterfaces\",\n\t\t\trow = usr,\n\t\t\tshape = ellipse,\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tMA;\n\t}\n\t{\n\t\tedge [style = invis weight = 10 ]\n\t\tsystem_;\n\t\tSCI;\n\t\tsystem_ -\u003e SCI;\n\t\tnetworking_;\n\t\tsock;\n\t\tnetworking_ -\u003e sock;\n\t\tstorage_;\n\t\tFS;\n\t\tstorage_ -\u003e FS;\n\t\tprocessing_;\n\t\tproc;\n\t\tprocessing_ -\u003e proc;\n\t\tHI_;\n\t\tchar;\n\t\tHI_ -\u003e char;\n\t\tMA;\n\t\tmemory_ [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tmemory_ -\u003e MA;\n\t}\n\tsubgraph virtual {\n\t\tgraph [rank = same]\n\t\tsysfs;\n\t\tprot_fam;\n\t\tVFS;\n\t\tTasks;\n\t\tinput;\n\t\tD0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tvirt [\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"virtual\\nsubsystems\",\n\t\t\tURL = \"https://en.wikipedia.org/wiki/Proxy_pattern\",\n\t\t\ttooltip = \"proxy between standard user space interfaces and internal implementations\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tVM [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#b2d3e4\",\n\t\t\tlabel = \"Virtual\\nmemory\"]\n\t}\n\tsubgraph bridges {\n\t\tgraph [rank = same]\n\t\tbridges [\n\t\t\tfillcolor = \"#91b5c9\",\n\t\t\tshape = octagon,\n\t\t\ttooltip = \"bridges between uniform virtual interfaces and various implementations\",\n\t\t\tURL = \"https://en.wikipedia.org/wiki/Bridge_pattern\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tDM;\n\t\tNFS;\n\t\tmmap;\n\t\tsync;\n\t\tE0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\t//PC\n\t}\n\tsubgraph logical {\n\t\tgraph [rank = same]\n\t\tlog_sys;\n\t\tlog_prot;\n\t\tlogFS;\n\t\tsched;\n\t\tF7;\n\t\tF0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tlogical [\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tlog_mem [\n\t\t\tcolor = \"#51bf5b\",\n\t\t\tfillcolor = \"#6a9ab1\",\n\t\t\tlabel = \"logical\\nmemory\"]\n\t\t//SW\n\t}\n\tsubgraph HWI {\n\t\tgraph [rank = same]\n\t\tHWI [\n\t\t\tfillcolor = \"#71809b\",\n\t\t\tlabel = \"hardware\\ninterfaces\",\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tbus_drv;\n\t\tnetif;\n\t\tblock;\n\t\t//PA;\n\t\tIRQ;\n\t\tHID;\n\t\tG0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t}\n\tsubgraph HW {\n\t\tgraph [rank = same]\n\t\tHW [\n\t\t\tfillcolor = \"#777777\",\n\t\t\tfontcolor = white,\n\t\t\tlabel = \"electronics,\\nhardware\",\n\t\t\trow = chip,\n\t\t\tstyle = \"filled,setlinewidth(0)\"]\n\t\tbuses;\n\t\tnet_hw;\n\t\tSD;\n\t\tCPU;\n\t\tdisplay;\n\t\tH0 [\n\t\t\tfixedsize = true,\n\t\t\theight = 0,\n\t\t\tshape = point,\n\t\t\tstyle = invis,\n\t\t\twidth = 0]\n\t\tRAM;\n\t}\n\tbottom [\n\t\tlabel = \"© 2007-2022 Costa Shulyupin http://www.MakeLinux.net/kernel/diagram\",\n\t\tURL = \"http://www.MakeLinux.net/kernel/diagram\",\n\t\tshape = plaintext,\n\t\tstyle = \"\"]\n\tCPU -\u003e bottom [style = invis]\n\tlayers [\n\t\tfillcolor = lightgray,\n\t\ttooltip = \"Functionalities are divided to common layers. It is approximate division.\",\n\t\theight = 0.1,\n\t\tstyle = \"filled,setlinewidth(0)\",\n\t\twidth = 0.5]\n\tfunctions -\u003e layers [style = invis ]\n\tusr -\u003e usr_ [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#d9e7eeff\",\n\t\tminlen = 2]\n\tusr -\u003e virt [\n\t\tcolor = \"#d9e7eeff\"]\n\tvirt -\u003e D0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#b2d3e4\",\n\t\tminlen = 2]\n\tvirt -\u003e bridges [\n\t\tcolor = \"#b2d3e4\"]\n\tbridges -\u003e E0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#91b5c9\",\n\t\tminlen = 2,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tbridges -\u003e logical [\n\t\tcolor = \"#91b5c9\",\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tlogical -\u003e F0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#6a9ab1\",\n\t\tminlen = 2,\n\t\trow = logical,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tlogical -\u003e HWI [\n\t\tcolor = \"#6a9ab1\",\n\t\trow = logical,\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tHWI -\u003e G0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#71809b\",\n\t\tminlen = 2,\n\t\trow = HWI,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tHWI -\u003e HW [\n\t\tcolor = \"#71809b\",\n\t\trow = HWI,\n\t\tstyle = \"filled,setlinewidth(6)\"]\n\tHW -\u003e H0 [\n\t\tarrowhead = \"\",\n\t\tcolor = \"#777777\",\n\t\tminlen = 2,\n\t\trow = chip,\n\t\tstyle = \"filled,setlinewidth(6)\",\n\t\tweight = \"\"]\n\tlayers -\u003e usr [\n\t\tarrowhead = \"\",\n\t\tcolor = gray,\n\t\tstyle = \"filled,setlinewidth(1)\"]\n\tLKD [\n\t\tfontsize = 40,\n\t\tlabel = \"Linux kernel diagram\",\n\t\tshape = plain,\n\t\tstyle = \"\"]\n\tLKD -\u003e processing [style = invis]\n}\n";
+    let viz_4 = new Viz();
+    
+    viz_4.renderSVGElement(graphContent_4)
         .then(function(element) {
-            viz_elm_3.appendChild(element);
+            viz_elm_4.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_4.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_4.style.maxWidth = `${box.width}px`;
+                viz_elm_4.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_4.style.textAlign = "center";
+            }
         })
         .catch(error => {
             
-            viz_3 = new Viz();
+            viz_4 = new Viz();
+
+            
+            console.error(error);
+        });
+</script>
+
+<h2 id="exemple-6">
+  Exemple 6
+  <a class="anchor" href="#exemple-6">#</a>
+</h2>
+<script src="https://qkzk.xyz/viz/viz.js"></script>
+<script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
+<main>
+    <h3>
+        
+            <h3 id="cluster">
+  Cluster
+  <a class="anchor" href="#cluster">#</a>
+</h3>
+
+        
+    </h3>
+    <div id="viz_5">
+    </div>
+</main>
+
+<script>
+    const viz_elm_5 = document.getElementById("viz_5");
+    const graphContent_5 = "\ndigraph G {\n\tfontname=\"Helvetica,Arial,sans-serif\"\n\tnode [fontname=\"Helvetica,Arial,sans-serif\"]\n\tedge [fontname=\"Helvetica,Arial,sans-serif\"]\n\n\tsubgraph cluster_0 {\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\tnode [style=filled,color=white];\n\t\ta0 -\u003e a1 -\u003e a2 -\u003e a3;\n\t\tlabel = \"process #1\";\n\t}\n\n\tsubgraph cluster_1 {\n\t\tnode [style=filled];\n\t\tb0 -\u003e b1 -\u003e b2 -\u003e b3;\n\t\tlabel = \"process #2\";\n\t\tcolor=blue\n\t}\n\tstart -\u003e a0;\n\tstart -\u003e b0;\n\ta1 -\u003e b3;\n\tb2 -\u003e a3;\n\ta3 -\u003e a0;\n\ta3 -\u003e end;\n\tb3 -\u003e end;\n\n\tstart [shape=Mdiamond];\n\tend [shape=Msquare];\n}\n";
+    let viz_5 = new Viz();
+    
+    viz_5.renderSVGElement(graphContent_5)
+        .then(function(element) {
+            viz_elm_5.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_5.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_5.style.maxWidth = `${box.width}px`;
+                viz_elm_5.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_5.style.textAlign = "center";
+            }
+        })
+        .catch(error => {
+            
+            viz_5 = new Viz();
+
+            
+            console.error(error);
+        });
+</script>
+
+<h2 id="exemple-7">
+  Exemple 7
+  <a class="anchor" href="#exemple-7">#</a>
+</h2>
+<script src="https://qkzk.xyz/viz/viz.js"></script>
+<script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
+<main>
+    <h3>
+        
+            <h3 id="ninja">
+  ninja
+  <a class="anchor" href="#ninja">#</a>
+</h3>
+
+        
+    </h3>
+    <div id="viz_6">
+    </div>
+</main>
+
+<script>
+    const viz_elm_6 = document.getElementById("viz_6");
+    const graphContent_6 = "\ndigraph ninja {\nfontname=\"Helvetica,Arial,sans-serif\"\nnode [fontname=\"Helvetica,Arial,sans-serif\"]\nedge [fontname=\"Helvetica,Arial,sans-serif\"]\nrankdir=\"LR\"\nnode [fontsize=10, shape=box, height=0.25]\nedge [fontsize=10]\n\"0x7fe58d50f070\" [label=\"all\"]\n\"0x7fe58d50eeb0\" [label=\"phony\", shape=ellipse]\n\"0x7fe58d50eeb0\" -\u003e \"0x7fe58d50f070\"\n\"0x7fe58d5092d0\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50b640\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50bc10\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d508820\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50c0a0\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50c470\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50c880\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d50cc10\" -\u003e \"0x7fe58d50eeb0\" [arrowhead=none]\n\"0x7fe58d5092d0\" [label=\"ninja\"]\n\"0x7fe58d509260\" [label=\"link\", shape=ellipse]\n\"0x7fe58d509260\" -\u003e \"0x7fe58d5092d0\"\n\"0x7fe58d508ef0\" -\u003e \"0x7fe58d509260\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d509260\" [arrowhead=none]\n\"0x7fe58d508ef0\" [label=\"build/ninja.o\"]\n\"0x7fe58d508c50\" -\u003e \"0x7fe58d508ef0\" [label=\" cxx\"]\n\"0x7fe58d508c50\" [label=\"src/ninja.cc\"]\n\"0x7fe58d508f80\" [label=\"build/libninja.a\"]\n\"0x7fe58d508e00\" [label=\"ar\", shape=ellipse]\n\"0x7fe58d508e00\" -\u003e \"0x7fe58d508f80\"\n\"0x7fe58d505cb0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d505e40\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d506020\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5061e0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5063d0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5065e0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5067a0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d506a00\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d506b60\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d506d40\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d506ee0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507160\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507320\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5074e0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5076a0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507950\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507ad0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507ce0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507ea0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d508000\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5081c0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d508400\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d5085a0\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d507080\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d508b10\" -\u003e \"0x7fe58d508e00\" [arrowhead=none]\n\"0x7fe58d505cb0\" [label=\"build/browse.o\"]\n\"0x7fe58d505910\" [label=\"cxx\", shape=ellipse]\n\"0x7fe58d505910\" -\u003e \"0x7fe58d505cb0\"\n\"0x7fe58d505d10\" -\u003e \"0x7fe58d505910\" [arrowhead=none]\n\"0x7fe58d505a40\" -\u003e \"0x7fe58d505910\" [arrowhead=none style=dotted]\n\"0x7fe58d505d10\" [label=\"src/browse.cc\"]\n\"0x7fe58d505a40\" [label=\"build/browse_py.h\"]\n\"0x7fe58d5059d0\" [label=\"inline\", shape=ellipse]\n\"0x7fe58d5059d0\" -\u003e \"0x7fe58d505a40\"\n\"0x7fe58d505aa0\" -\u003e \"0x7fe58d5059d0\" [arrowhead=none]\n\"0x7fe58d505b40\" -\u003e \"0x7fe58d5059d0\" [arrowhead=none]\n\"0x7fe58d505aa0\" [label=\"src/browse.py\"]\n\"0x7fe58d505b40\" [label=\"src/inline.sh\"]\n\"0x7fe58d505e40\" [label=\"build/build.o\"]\n\"0x7fe58d505f00\" -\u003e \"0x7fe58d505e40\" [label=\" cxx\"]\n\"0x7fe58d505f00\" [label=\"src/build.cc\"]\n\"0x7fe58d506020\" [label=\"build/build_log.o\"]\n\"0x7fe58d5060c0\" -\u003e \"0x7fe58d506020\" [label=\" cxx\"]\n\"0x7fe58d5060c0\" [label=\"src/build_log.cc\"]\n\"0x7fe58d5061e0\" [label=\"build/clean.o\"]\n\"0x7fe58d506280\" -\u003e \"0x7fe58d5061e0\" [label=\" cxx\"]\n\"0x7fe58d506280\" [label=\"src/clean.cc\"]\n\"0x7fe58d5063d0\" [label=\"build/clparser.o\"]\n\"0x7fe58d505ea0\" -\u003e \"0x7fe58d5063d0\" [label=\" cxx\"]\n\"0x7fe58d505ea0\" [label=\"src/clparser.cc\"]\n\"0x7fe58d5065e0\" [label=\"build/debug_flags.o\"]\n\"0x7fe58d506680\" -\u003e \"0x7fe58d5065e0\" [label=\" cxx\"]\n\"0x7fe58d506680\" [label=\"src/debug_flags.cc\"]\n\"0x7fe58d5067a0\" [label=\"build/depfile_parser.o\"]\n\"0x7fe58d506870\" -\u003e \"0x7fe58d5067a0\" [label=\" cxx\"]\n\"0x7fe58d506870\" [label=\"src/depfile_parser.cc\"]\n\"0x7fe58d506a00\" [label=\"build/deps_log.o\"]\n\"0x7fe58d506a60\" -\u003e \"0x7fe58d506a00\" [label=\" cxx\"]\n\"0x7fe58d506a60\" [label=\"src/deps_log.cc\"]\n\"0x7fe58d506b60\" [label=\"build/disk_interface.o\"]\n\"0x7fe58d506c30\" -\u003e \"0x7fe58d506b60\" [label=\" cxx\"]\n\"0x7fe58d506c30\" [label=\"src/disk_interface.cc\"]\n\"0x7fe58d506d40\" [label=\"build/dyndep.o\"]\n\"0x7fe58d506dd0\" -\u003e \"0x7fe58d506d40\" [label=\" cxx\"]\n\"0x7fe58d506dd0\" [label=\"src/dyndep.cc\"]\n\"0x7fe58d506ee0\" [label=\"build/dyndep_parser.o\"]\n\"0x7fe58d5070f0\" -\u003e \"0x7fe58d506ee0\" [label=\" cxx\"]\n\"0x7fe58d5070f0\" [label=\"src/dyndep_parser.cc\"]\n\"0x7fe58d507160\" [label=\"build/edit_distance.o\"]\n\"0x7fe58d507200\" -\u003e \"0x7fe58d507160\" [label=\" cxx\"]\n\"0x7fe58d507200\" [label=\"src/edit_distance.cc\"]\n\"0x7fe58d507320\" [label=\"build/eval_env.o\"]\n\"0x7fe58d5073c0\" -\u003e \"0x7fe58d507320\" [label=\" cxx\"]\n\"0x7fe58d5073c0\" [label=\"src/eval_env.cc\"]\n\"0x7fe58d5074e0\" [label=\"build/graph.o\"]\n\"0x7fe58d507580\" -\u003e \"0x7fe58d5074e0\" [label=\" cxx\"]\n\"0x7fe58d507580\" [label=\"src/graph.cc\"]\n\"0x7fe58d5076a0\" [label=\"build/graphviz.o\"]\n\"0x7fe58d507740\" -\u003e \"0x7fe58d5076a0\" [label=\" cxx\"]\n\"0x7fe58d507740\" [label=\"src/graphviz.cc\"]\n\"0x7fe58d507950\" [label=\"build/lexer.o\"]\n\"0x7fe58d5079c0\" -\u003e \"0x7fe58d507950\" [label=\" cxx\"]\n\"0x7fe58d5079c0\" [label=\"src/lexer.cc\"]\n\"0x7fe58d507ad0\" [label=\"build/line_printer.o\"]\n\"0x7fe58d507b40\" -\u003e \"0x7fe58d507ad0\" [label=\" cxx\"]\n\"0x7fe58d507b40\" [label=\"src/line_printer.cc\"]\n\"0x7fe58d507ce0\" [label=\"build/manifest_parser.o\"]\n\"0x7fe58d507d60\" -\u003e \"0x7fe58d507ce0\" [label=\" cxx\"]\n\"0x7fe58d507d60\" [label=\"src/manifest_parser.cc\"]\n\"0x7fe58d507ea0\" [label=\"build/metrics.o\"]\n\"0x7fe58d507f00\" -\u003e \"0x7fe58d507ea0\" [label=\" cxx\"]\n\"0x7fe58d507f00\" [label=\"src/metrics.cc\"]\n\"0x7fe58d508000\" [label=\"build/parser.o\"]\n\"0x7fe58d5080a0\" -\u003e \"0x7fe58d508000\" [label=\" cxx\"]\n\"0x7fe58d5080a0\" [label=\"src/parser.cc\"]\n\"0x7fe58d5081c0\" [label=\"build/state.o\"]\n\"0x7fe58d508260\" -\u003e \"0x7fe58d5081c0\" [label=\" cxx\"]\n\"0x7fe58d508260\" [label=\"src/state.cc\"]\n\"0x7fe58d508400\" [label=\"build/string_piece_util.o\"]\n\"0x7fe58d508480\" -\u003e \"0x7fe58d508400\" [label=\" cxx\"]\n\"0x7fe58d508480\" [label=\"src/string_piece_util.cc\"]\n\"0x7fe58d5085a0\" [label=\"build/util.o\"]\n\"0x7fe58d506f70\" -\u003e \"0x7fe58d5085a0\" [label=\" cxx\"]\n\"0x7fe58d506f70\" [label=\"src/util.cc\"]\n\"0x7fe58d507080\" [label=\"build/version.o\"]\n\"0x7fe58d508970\" -\u003e \"0x7fe58d507080\" [label=\" cxx\"]\n\"0x7fe58d508970\" [label=\"src/version.cc\"]\n\"0x7fe58d508b10\" [label=\"build/subprocess-posix.o\"]\n\"0x7fe58d508b90\" -\u003e \"0x7fe58d508b10\" [label=\" cxx\"]\n\"0x7fe58d508b90\" [label=\"src/subprocess-posix.cc\"]\n\"0x7fe58d50b640\" [label=\"ninja_test\"]\n\"0x7fe58d50b5c0\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50b5c0\" -\u003e \"0x7fe58d50b640\"\n\"0x7fe58d5093e0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d509570\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d509710\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d507850\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d509c10\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d509df0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d509fe0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50a1b0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50a3b0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50a5b0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50a710\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50a970\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50ab10\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50ac90\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50aef0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50b0d0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50b290\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d50b3f0\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50b5c0\" [arrowhead=none]\n\"0x7fe58d5093e0\" [label=\"build/build_log_test.o\"]\n\"0x7fe58d509470\" -\u003e \"0x7fe58d5093e0\" [label=\" cxx\"]\n\"0x7fe58d509470\" [label=\"src/build_log_test.cc\"]\n\"0x7fe58d509570\" [label=\"build/build_test.o\"]\n\"0x7fe58d509600\" -\u003e \"0x7fe58d509570\" [label=\" cxx\"]\n\"0x7fe58d509600\" [label=\"src/build_test.cc\"]\n\"0x7fe58d509710\" [label=\"build/clean_test.o\"]\n\"0x7fe58d5097b0\" -\u003e \"0x7fe58d509710\" [label=\" cxx\"]\n\"0x7fe58d5097b0\" [label=\"src/clean_test.cc\"]\n\"0x7fe58d507850\" [label=\"build/clparser_test.o\"]\n\"0x7fe58d5078f0\" -\u003e \"0x7fe58d507850\" [label=\" cxx\"]\n\"0x7fe58d5078f0\" [label=\"src/clparser_test.cc\"]\n\"0x7fe58d509c10\" [label=\"build/depfile_parser_test.o\"]\n\"0x7fe58d509c90\" -\u003e \"0x7fe58d509c10\" [label=\" cxx\"]\n\"0x7fe58d509c90\" [label=\"src/depfile_parser_test.cc\"]\n\"0x7fe58d509df0\" [label=\"build/deps_log_test.o\"]\n\"0x7fe58d509e50\" -\u003e \"0x7fe58d509df0\" [label=\" cxx\"]\n\"0x7fe58d509e50\" [label=\"src/deps_log_test.cc\"]\n\"0x7fe58d509fe0\" [label=\"build/dyndep_parser_test.o\"]\n\"0x7fe58d50a040\" -\u003e \"0x7fe58d509fe0\" [label=\" cxx\"]\n\"0x7fe58d50a040\" [label=\"src/dyndep_parser_test.cc\"]\n\"0x7fe58d50a1b0\" [label=\"build/disk_interface_test.o\"]\n\"0x7fe58d50a250\" -\u003e \"0x7fe58d50a1b0\" [label=\" cxx\"]\n\"0x7fe58d50a250\" [label=\"src/disk_interface_test.cc\"]\n\"0x7fe58d50a3b0\" [label=\"build/edit_distance_test.o\"]\n\"0x7fe58d50a450\" -\u003e \"0x7fe58d50a3b0\" [label=\" cxx\"]\n\"0x7fe58d50a450\" [label=\"src/edit_distance_test.cc\"]\n\"0x7fe58d50a5b0\" [label=\"build/graph_test.o\"]\n\"0x7fe58d50a610\" -\u003e \"0x7fe58d50a5b0\" [label=\" cxx\"]\n\"0x7fe58d50a610\" [label=\"src/graph_test.cc\"]\n\"0x7fe58d50a710\" [label=\"build/lexer_test.o\"]\n\"0x7fe58d50a7b0\" -\u003e \"0x7fe58d50a710\" [label=\" cxx\"]\n\"0x7fe58d50a7b0\" [label=\"src/lexer_test.cc\"]\n\"0x7fe58d50a970\" [label=\"build/manifest_parser_test.o\"]\n\"0x7fe58d50a9f0\" -\u003e \"0x7fe58d50a970\" [label=\" cxx\"]\n\"0x7fe58d50a9f0\" [label=\"src/manifest_parser_test.cc\"]\n\"0x7fe58d50ab10\" [label=\"build/ninja_test.o\"]\n\"0x7fe58d50ab70\" -\u003e \"0x7fe58d50ab10\" [label=\" cxx\"]\n\"0x7fe58d50ab70\" [label=\"src/ninja_test.cc\"]\n\"0x7fe58d50ac90\" [label=\"build/state_test.o\"]\n\"0x7fe58d50ad30\" -\u003e \"0x7fe58d50ac90\" [label=\" cxx\"]\n\"0x7fe58d50ad30\" [label=\"src/state_test.cc\"]\n\"0x7fe58d50aef0\" [label=\"build/string_piece_util_test.o\"]\n\"0x7fe58d50af70\" -\u003e \"0x7fe58d50aef0\" [label=\" cxx\"]\n\"0x7fe58d50af70\" [label=\"src/string_piece_util_test.cc\"]\n\"0x7fe58d50b0d0\" [label=\"build/subprocess_test.o\"]\n\"0x7fe58d50b150\" -\u003e \"0x7fe58d50b0d0\" [label=\" cxx\"]\n\"0x7fe58d50b150\" [label=\"src/subprocess_test.cc\"]\n\"0x7fe58d50b290\" [label=\"build/test.o\"]\n\"0x7fe58d50b2f0\" -\u003e \"0x7fe58d50b290\" [label=\" cxx\"]\n\"0x7fe58d50b2f0\" [label=\"src/test.cc\"]\n\"0x7fe58d50b3f0\" [label=\"build/util_test.o\"]\n\"0x7fe58d50b490\" -\u003e \"0x7fe58d50b3f0\" [label=\" cxx\"]\n\"0x7fe58d50b490\" [label=\"src/util_test.cc\"]\n\"0x7fe58d50bc10\" [label=\"build_log_perftest\"]\n\"0x7fe58d50bba0\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50bba0\" -\u003e \"0x7fe58d50bc10\"\n\"0x7fe58d50b990\" -\u003e \"0x7fe58d50bba0\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50bba0\" [arrowhead=none]\n\"0x7fe58d50b990\" [label=\"build/build_log_perftest.o\"]\n\"0x7fe58d50ba20\" -\u003e \"0x7fe58d50b990\" [label=\" cxx\"]\n\"0x7fe58d50ba20\" [label=\"src/build_log_perftest.cc\"]\n\"0x7fe58d508820\" [label=\"canon_perftest\"]\n\"0x7fe58d5087b0\" [label=\"link\", shape=ellipse]\n\"0x7fe58d5087b0\" -\u003e \"0x7fe58d508820\"\n\"0x7fe58d50bd20\" -\u003e \"0x7fe58d5087b0\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d5087b0\" [arrowhead=none]\n\"0x7fe58d50bd20\" [label=\"build/canon_perftest.o\"]\n\"0x7fe58d508660\" -\u003e \"0x7fe58d50bd20\" [label=\" cxx\"]\n\"0x7fe58d508660\" [label=\"src/canon_perftest.cc\"]\n\"0x7fe58d50c0a0\" [label=\"depfile_parser_perftest\"]\n\"0x7fe58d50c030\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50c030\" -\u003e \"0x7fe58d50c0a0\"\n\"0x7fe58d50bdf0\" -\u003e \"0x7fe58d50c030\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50c030\" [arrowhead=none]\n\"0x7fe58d50bdf0\" [label=\"build/depfile_parser_perftest.o\"]\n\"0x7fe58d50be70\" -\u003e \"0x7fe58d50bdf0\" [label=\" cxx\"]\n\"0x7fe58d50be70\" [label=\"src/depfile_parser_perftest.cc\"]\n\"0x7fe58d50c470\" [label=\"hash_collision_bench\"]\n\"0x7fe58d50c400\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50c400\" -\u003e \"0x7fe58d50c470\"\n\"0x7fe58d50c270\" -\u003e \"0x7fe58d50c400\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50c400\" [arrowhead=none]\n\"0x7fe58d50c270\" [label=\"build/hash_collision_bench.o\"]\n\"0x7fe58d50c2d0\" -\u003e \"0x7fe58d50c270\" [label=\" cxx\"]\n\"0x7fe58d50c2d0\" [label=\"src/hash_collision_bench.cc\"]\n\"0x7fe58d50c880\" [label=\"manifest_parser_perftest\"]\n\"0x7fe58d50c810\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50c810\" -\u003e \"0x7fe58d50c880\"\n\"0x7fe58d50c5e0\" -\u003e \"0x7fe58d50c810\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50c810\" [arrowhead=none]\n\"0x7fe58d50c5e0\" [label=\"build/manifest_parser_perftest.o\"]\n\"0x7fe58d50c670\" -\u003e \"0x7fe58d50c5e0\" [label=\" cxx\"]\n\"0x7fe58d50c670\" [label=\"src/manifest_parser_perftest.cc\"]\n\"0x7fe58d50cc10\" [label=\"clparser_perftest\"]\n\"0x7fe58d50cba0\" [label=\"link\", shape=ellipse]\n\"0x7fe58d50cba0\" -\u003e \"0x7fe58d50cc10\"\n\"0x7fe58d50c9c0\" -\u003e \"0x7fe58d50cba0\" [arrowhead=none]\n\"0x7fe58d508f80\" -\u003e \"0x7fe58d50cba0\" [arrowhead=none]\n\"0x7fe58d50c9c0\" [label=\"build/clparser_perftest.o\"]\n\"0x7fe58d50ca20\" -\u003e \"0x7fe58d50c9c0\" [label=\" cxx\"]\n\"0x7fe58d50ca20\" [label=\"src/clparser_perftest.cc\"]\n}\n";
+    let viz_6 = new Viz();
+    
+    viz_6.renderSVGElement(graphContent_6)
+        .then(function(element) {
+            viz_elm_6.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_6.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_6.style.maxWidth = `${box.width}px`;
+                viz_elm_6.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_6.style.textAlign = "center";
+            }
+        })
+        .catch(error => {
+            
+            viz_6 = new Viz();
 
             
             console.error(error);
@@ -6163,6 +6521,9 @@ MathJax.Hub.Config({
     <li><a href="#exemple-2">Exemple 2</a></li>
     <li><a href="#exemple-3">Exemple 3</a></li>
     <li><a href="#exemple-4">Exemple 4</a></li>
+    <li><a href="#exemple-5">Exemple 5</a></li>
+    <li><a href="#exemple-6">Exemple 6</a></li>
+    <li><a href="#exemple-7">Exemple 7</a></li>
   </ul>
 </nav>
 
