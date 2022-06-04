@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PDF : Pour impression #  Correction d&rsquo;un algorithme #  Afin de justifier qu&rsquo;un algorithme est juste on doit s&rsquo;assurer de plusieurs choses :
- Qu&rsquo;il termine bien. Qu&rsquo;il fait ce qu&rsquo;il affirme.  Variant et invariant #  Un variant de boucle est une valeur entière positive qui décroît à chaque passage dans la boucle.
-On prouve souvent la terminaison d&rsquo;un algorithme en identifiant un variant de boucle.">
+<meta name="description" content="pdf : pour impression
+Correction d&rsquo;un algorithme #  Afin de justifier qu&rsquo;un algorithme est juste on doit s&rsquo;assurer de plusieurs choses :
+ Qu&rsquo;il termine bien. Qu&rsquo;il fait ce qu&rsquo;il affirme.   Variant et invariant #  Un variant de boucle est une valeur entière positive qui décroît à chaque passage dans la boucle.
+On prouve souvent la terminaison d&rsquo;un algorithme en identifiant un variant de boucle.
+Dans une boucle bornée (for i in range(3)) il n&rsquo;est pas utile de donner un variant, par définition cette boucle termine.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Complexité, correction" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +20,7 @@ On prouve souvent la terminaison d&rsquo;un algorithme en identifiant un variant
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e9436b28674b4fbe17f69180e7b412b4db98cf954068a075c8e5785bb82c5bb1.js" integrity="sha256-6UNrKGdLT74X9pGA57QStNuYz5VAaKB1yOV4W7gsW7E=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/tris/5_cout/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -1375,7 +1377,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-717cf588b3f314c9bb0655dc545c4145" class="toggle"  />
     <label for="section-717cf588b3f314c9bb0655dc545c4145" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. cours</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. Cours</a>
     </label>
   
 
@@ -1520,7 +1522,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1 Cours</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1. Cours - kNN</a>
   
 
           
@@ -5922,27 +5924,22 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#variant-et-invariant">Variant et invariant</a></li>
+    <li><a href="#correction-du-tri-par-sélection">Correction du tri par sélection</a>
       <ul>
-        <li><a href="#pdf--pour-impression5_coutpdf">PDF : <a href="./5_cout.pdf">Pour impression</a></a></li>
+        <li><a href="#terminaison">Terminaison</a></li>
+        <li><a href="#invariants-de-boucle">Invariants de boucle</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#variant-et-invariant">Variant et invariant</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#quelles-opérations-compter-">Quelles opérations compter ?</a>
+    <li><a href="#correction-du-tri-par-insertion">Correction du tri par insertion</a></li>
+    <li><a href="#complexité">Complexité</a>
       <ul>
+        <li><a href="#quelles-opérations-compter-">Quelles opérations compter ?</a></li>
+        <li><a href="#complexité-du-tri-par-sélection">Complexité du tri par sélection</a></li>
         <li><a href="#à-retenir--_coût-du-tri-par-sélection_">À retenir : <em>Coût du tri par sélection</em></a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#complexité-du-tri-par-insertion">Complexité du tri par insertion</a>
       <ul>
         <li><a href="#à-retenir--_coût-du-tri-par-insertion_">À retenir : <em>Coût du tri par insertion</em></a></li>
       </ul>
@@ -5961,41 +5958,53 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf--pour-impression5_coutpdf">
-  PDF : <a href="./5_cout.pdf">Pour impression</a>
-  <a class="anchor" href="#pdf--pour-impression5_coutpdf">#</a>
-</h3>
+<article class="markdown"><p>pdf : <a href="./5_cout.pdf">pour impression</a></p>
 <h1 id="correction-dun-algorithme">
   Correction d&rsquo;un algorithme
   <a class="anchor" href="#correction-dun-algorithme">#</a>
 </h1>
 <p>Afin de justifier qu&rsquo;un algorithme est juste on doit s&rsquo;assurer de plusieurs
 choses :</p>
-<ol>
+<blockquote class="book-hint warning">
+  <ol>
 <li>Qu&rsquo;il termine bien.</li>
 <li>Qu&rsquo;il fait ce qu&rsquo;il affirme.</li>
 </ol>
+
+</blockquote>
+
 <h2 id="variant-et-invariant">
   Variant et invariant
   <a class="anchor" href="#variant-et-invariant">#</a>
 </h2>
-<p>Un <strong>variant</strong> de boucle est une valeur entière positive qui décroît à chaque
+<blockquote class="book-hint info">
+  <p>Un <strong>variant</strong> de boucle est une valeur entière positive qui décroît à chaque
 passage dans la boucle.</p>
 <p>On prouve souvent la <em>terminaison</em> d&rsquo;un algorithme en identifiant un variant
 de boucle.</p>
 <p>Dans une boucle <em>bornée</em> (<code>for i in range(3)</code>) il n&rsquo;est pas utile de donner
 un variant, par définition cette boucle termine.</p>
-<p>Un <strong>invariant</strong> de boucle est une propriété qui est vraie au début et à la fin
+
+</blockquote>
+
+<blockquote class="book-hint info">
+  <p>Un <strong>invariant</strong> de boucle est une propriété qui est vraie au début et à la fin
 de chaque tour de la boucle.</p>
 <p>On prouve souvent la <em>correction</em> d&rsquo;un algorithme en produisant un invariant
 de boucle.</p>
-<h1 id="correction-du-tri-par-sélection">
+
+</blockquote>
+
+<h2 id="correction-du-tri-par-sélection">
   Correction du tri par sélection
   <a class="anchor" href="#correction-du-tri-par-s%c3%a9lection">#</a>
-</h1>
+</h2>
 <p>Considérons la fonction <code>tri_select</code> ci-dessous.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">plus_petit</span>(tableau: <span style="color:#366">list</span>, indice: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;renvoie l&#39;indice du plus petit élément de tableau à partir de &#34;indice&#34;&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Renvoie l&#39;indice du plus petit élément de tableau 
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    à partir de `indice`.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#39;&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    mini <span style="color:#555">=</span> indice
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(indice, <span style="color:#366">len</span>(tableau)):
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> tableau[k] <span style="color:#555">&lt;</span> tableau[mini]:
@@ -6003,24 +6012,43 @@ de boucle.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> mini
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_select</span>(tableau: <span style="color:#366">list</span>) <span style="color:#555">-&gt;</span> <span style="color:#069;font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;réalise le tri par sélection du tableau donné&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_select</span>(tableau: <span style="color:#366">list</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Réalise le tri par sélection du tableau donné
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#39;&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tableau)):
 </span></span><span style="display:flex;"><span>        mini <span style="color:#555">=</span> plus_petit(tableau, i)
 </span></span><span style="display:flex;"><span>        tableau[i], tableau[mini] <span style="color:#555">=</span> tableau[mini], tableau[i]
-</span></span></code></pre></div><p>Lorsqu&rsquo;on l&rsquo;appelle avec un tableau d&rsquo;objets comparables, elle réalise
+</span></span></code></pre></div><h3 id="terminaison">
+  Terminaison
+  <a class="anchor" href="#terminaison">#</a>
+</h3>
+<p>Lorsqu&rsquo;on l&rsquo;appelle avec un tableau d&rsquo;objets comparables, elle réalise
 une boucle <em>bornée</em> consistant à appeler la fonction plus petit.</p>
-<p>Dans la fonction plus petit, on réalise aussi une boucle bornée.</p>
+<p>Dans la fonction plus petit, on réalise aussi une boucle <em>bornée</em>.</p>
 <p>Aussi, ces deux algorithmes terminent bien.</p>
-<p><strong>Invariants de boucle</strong></p>
-<p>Commençons par <code>plus_petit</code>. À chaque tour de la boucle, la propriété :
-&ldquo;<code>tableau[mini] &lt;= tableau[k]</code>&rdquo; est vérifiée.</p>
-<p>Aussi, c&rsquo;est un invariant de boucle.</p>
+<h3 id="invariants-de-boucle">
+  Invariants de boucle
+  <a class="anchor" href="#invariants-de-boucle">#</a>
+</h3>
+<p><strong>Fonction <code>plus_petit</code>.</strong></p>
+<p>L&rsquo;invariant est :</p>
+<blockquote class="book-hint info">
+  <code>mini</code> est l&rsquo;indice du plus petit des <code>k</code> premiers éléments du tableau.
+</blockquote>
+
+<p>La propriété est vraie au départ, pour <code>k=0</code>.</p>
+<p>Si la propriété est vraie quand on débute un tour de boucle, elle le reste après celui-ci.</p>
+<p>En effet, si <code>tableau[k] &lt; tableau[mini]</code>, alors <code>mini</code> prend la valeur <code>k</code> et la propriété reste juste.</p>
 <p>Quand la boucle est terminée, on a eu <code>tableau[mini] &lt;= tableau[k]</code> pour
 tous les indices <code>k</code> entre <code>indice</code> et l&rsquo;indice du dernier élément.</p>
 <p>Donc <code>tableau[mini]</code> est le plus petit élément du tableau.</p>
-<p>Maintenant pour <code>tri_select</code>.</p>
-<p>L&rsquo;invariant est : &ldquo;les <code>i</code> premiers éléments sont triés et sont les plus petits éléments du tableau.&rdquo;</p>
+<p><strong>Fonction <code>tri_select</code></strong></p>
+<p>L&rsquo;invariant est :</p>
+<blockquote class="book-hint info">
+  les <code>i</code> premiers éléments sont triés et sont les plus petits éléments du tableau.
+</blockquote>
+
 <ul>
 <li>
 <p>Elle est vraie au départ. Les <code>0</code> premiers éléments <code>[]</code> sont triés.</p>
@@ -6044,10 +6072,10 @@ trié le plus petit des éléments. On ajoute un nouvel élément :</p>
 </li>
 </ul>
 <p>En définitive, l&rsquo;invariant de boucle prouve que la liste finale est triée.</p>
-<h1 id="correction-du-tri-par-insertion">
+<h2 id="correction-du-tri-par-insertion">
   Correction du tri par insertion
   <a class="anchor" href="#correction-du-tri-par-insertion">#</a>
-</h1>
+</h2>
 <p>Elle se démontre d&rsquo;une manière similaire.</p>
 <p>L&rsquo;invariant de la boucle externe ne change pas : après <code>i</code> tours de boucle, les <code>i</code> premiers
 éléments sont triés. Par contre la boucle interne consite à <em>insérer</em> un élément
@@ -6057,13 +6085,16 @@ l&rsquo;élément qu&rsquo;on cherche à insérer est plus petits que les élém
 et <code>i</code>.</p>
 <p>Vous pouvez vérifier que cet invariant est vrai à toutes les étapes de la boucle
 interne.</p>
-<h1 id="complexité-du-tri-par-sélection">
-  Complexité du tri par sélection
-  <a class="anchor" href="#complexit%c3%a9-du-tri-par-s%c3%a9lection">#</a>
-</h1>
-<p>La <em>complexité</em> d&rsquo;un algorithme est une mesure du temps qu&rsquo;il va prendre à
+<h2 id="complexité">
+  Complexité
+  <a class="anchor" href="#complexit%c3%a9">#</a>
+</h2>
+<blockquote class="book-hint info">
+  La <em>complexité</em> d&rsquo;un algorithme est une mesure du temps qu&rsquo;il va prendre à
 s&rsquo;exécuter. En particulier on cherche une relation entre la taille des données
-en entrée et la durée.</p>
+en entrée et la durée.
+</blockquote>
+
 <p>Afin de rendre le calcul faisable, on réalise des simplifications.</p>
 <ol>
 <li>On considère que chaque opération élémentaire (ajouter, affecter, comparer etc.)
@@ -6075,14 +6106,27 @@ fiables.</p>
 <li>On ne s&rsquo;intéresse généralement qu&rsquo;à l&rsquo;odre de grandeur du nombre d&rsquo;opérations réalisé.</li>
 </ol>
 <p>On range généralement les algorithmes dans de grandes catégories de vitesse.</p>
-<h2 id="quelles-opérations-compter-">
+<h3 id="quelles-opérations-compter-">
   Quelles opérations compter ?
   <a class="anchor" href="#quelles-op%c3%a9rations-compter-">#</a>
-</h2>
-<p>On pourrait les compter toutes. C&rsquo;est ce qui donnerait les résultats les plus précis.</p>
-<p>On pourrait aussi ne compter que celles qui interviennent dans les boucles.</p>
-<p>Intéressons nous au nombre de comparaisons effectuées dans l&rsquo;algorithme.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">plus_petit</span>(tableau: <span style="color:#366">list</span>, indice: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
+</h3>
+<p>On pourrait les compter toutes. C&rsquo;est ce qui donnerait les résultats les plus précis.
+On pourrait aussi ne compter que celles qui interviennent dans les boucles.<br>
+Intéressons nous au <strong>nombre de comparaisons</strong> effectuées dans l&rsquo;algorithme.</p>
+<h3 id="complexité-du-tri-par-sélection">
+  Complexité du tri par sélection
+  <a class="anchor" href="#complexit%c3%a9-du-tri-par-s%c3%a9lection">#</a>
+</h3>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>tri par selection</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">plus_petit</span>(tableau: <span style="color:#366">list</span>, indice: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;renvoie l&#39;indice du plus petit élément de tableau à partir de &#34;indice&#34;&#39;&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    mini <span style="color:#555">=</span> indice
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(indice, <span style="color:#366">len</span>(tableau)):
@@ -6096,20 +6140,26 @@ fiables.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tableau)):
 </span></span><span style="display:flex;"><span>        mini <span style="color:#555">=</span> plus_petit(tableau, i)
 </span></span><span style="display:flex;"><span>        tableau[i], tableau[mini] <span style="color:#555">=</span> tableau[mini], tableau[i]
-</span></span></code></pre></div><p>Où compare-t-on ? Dans la boucle interne, en particulier, dans la fonction <code>plus_petit</code>.</p>
-<p>Cette fonction réalise une boucle qui tourne de <code>indice</code> jusque <code>len(tableau - 1)</code></p>
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<p>Où compare-t-on ? Dans la boucle interne, en particulier, dans la fonction <code>plus_petit</code>.</p>
+<p>Cette fonction réalise une boucle qui tourne de <code>indice = 0</code> jusque <code>indice = len(tableau - 1)</code></p>
 <p>Notons $n$ la taille du tableau.</p>
-<p>Qu&rsquo;est-ce qu&rsquo;<code>indice</code> ?</p>
-<p>Regardons dans la fonction appelante <code>tri_select</code> : <code>indice</code> est ici noté <code>i</code>.</p>
-<p>et évolue de 0 à $n - 1$.</p>
+<p>Regardons dans la fonction appelante <code>tri_select</code> : <code>indice</code> est ici noté <code>i</code> et évolue de $0$ à $n - 1$.</p>
 <p>On fait donc, pour chaque $i$ allant de 0 à $n - 1$, à chaque fois $n - i$ comparaisons.</p>
 <p>Notons $C$ le nombre de comparaisons. On a alors :</p>
 <p>$$C = (n-1) + (n-2) + (n-3) + \cdots + 2 + 1$$</p>
+<p>Qu&rsquo;on réordonne par ordre croissant.</p>
 <p>$$C = 1 + 2 + \cdots + (n-2) + (n-1)$$</p>
 <p>Formule que vous connaissaissez bien (Cf <em>Suites arithmétiques</em> en mathématiques)
 et qui vaut $$C = \dfrac{(n-1)n}{2}$$</p>
 <p>On reconnaît ici une expression du second degré, qu&rsquo;on peut développer et simplifier :</p>
-<p>$$C = \dfrac{1}{2}(n^2 - n) \leq n^2$$</p>
+<p>$$C = \dfrac{1}{2}(n^2 - n)$$</p>
+<p>Seul l&rsquo;ordre de grandeur nous intéresse, pas les coefficients ni le second terme donc :</p>
+<p>$$C \leq n^2$$</p>
 <p>On note cela $$C = O(n^2)$$ et on dit que le tri par sélection et <em>quadratique</em>,</p>
 <p>son coût (=sa complexité) se comporte comme une fonction du <em>second degré</em>, une fonction
 <em>quadratique</em>.</p>
@@ -6117,21 +6167,24 @@ et qui vaut $$C = \dfrac{(n-1)n}{2}$$</p>
   À retenir : <em>Coût du tri par sélection</em>
   <a class="anchor" href="#%c3%a0-retenir--_co%c3%bbt-du-tri-par-s%c3%a9lection_">#</a>
 </h3>
-<blockquote>
-<p><strong>Le coût du tri par sélection évolue avec le carré de la taille du tableau d&rsquo;entrée.</strong></p>
+<blockquote class="book-hint info">
+  Le coût du tri par sélection évolue avec le carré de la taille du tableau d&rsquo;entrée.
 </blockquote>
-<h1 id="complexité-du-tri-par-insertion">
+
+<h2 id="complexité-du-tri-par-insertion">
   Complexité du tri par insertion
   <a class="anchor" href="#complexit%c3%a9-du-tri-par-insertion">#</a>
-</h1>
+</h2>
 <p>La preuve est exactement la même et le résultat similaire :</p>
 <h3 id="à-retenir--_coût-du-tri-par-insertion_">
   À retenir : <em>Coût du tri par insertion</em>
   <a class="anchor" href="#%c3%a0-retenir--_co%c3%bbt-du-tri-par-insertion_">#</a>
 </h3>
-<blockquote>
-<p><strong>Le coût du tri par insertion évolue avec le carré de la taille du tableau d&rsquo;entrée.</strong></p>
+<blockquote class="book-hint info">
+  Le coût du tri par insertion évolue avec le carré de la taille du tableau d&rsquo;entrée.
 </blockquote>
+
+<hr>
 <h2 id="remarques-finales">
   Remarques finales
   <a class="anchor" href="#remarques-finales">#</a>
@@ -6233,27 +6286,22 @@ comme par exemple la reconnaissance d&rsquo;image.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#variant-et-invariant">Variant et invariant</a></li>
+    <li><a href="#correction-du-tri-par-sélection">Correction du tri par sélection</a>
       <ul>
-        <li><a href="#pdf--pour-impression5_coutpdf">PDF : <a href="./5_cout.pdf">Pour impression</a></a></li>
+        <li><a href="#terminaison">Terminaison</a></li>
+        <li><a href="#invariants-de-boucle">Invariants de boucle</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#variant-et-invariant">Variant et invariant</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#quelles-opérations-compter-">Quelles opérations compter ?</a>
+    <li><a href="#correction-du-tri-par-insertion">Correction du tri par insertion</a></li>
+    <li><a href="#complexité">Complexité</a>
       <ul>
+        <li><a href="#quelles-opérations-compter-">Quelles opérations compter ?</a></li>
+        <li><a href="#complexité-du-tri-par-sélection">Complexité du tri par sélection</a></li>
         <li><a href="#à-retenir--_coût-du-tri-par-sélection_">À retenir : <em>Coût du tri par sélection</em></a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#complexité-du-tri-par-insertion">Complexité du tri par insertion</a>
       <ul>
         <li><a href="#à-retenir--_coût-du-tri-par-insertion_">À retenir : <em>Coût du tri par insertion</em></a></li>
       </ul>

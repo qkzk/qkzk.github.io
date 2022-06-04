@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PDF : Pour impression #  Trier #  Trier : définition. #  Algorithme de tri
- Algorithme qui, partant d&rsquo;une liste, renvoie une version ordonnée de la liste. $$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$
- Trier : pourquoi ? #  Trier est une opération fréquente, certains algorithmes (dichotomie par exemple) partent d&rsquo;un tableau déjà trié.
+<meta name="description" content="Trier #  PDF : Pour impression
+Définition. #  Algorithme de tri
+Algorithme qui, partant d&rsquo;une liste, renvoie une version ordonnée de la liste. [5,1,4,3,2] -&gt; [1,2,3,4,5]  Pourquoi ? #  Trier est une opération fréquente, certains algorithmes (dichotomie par exemple) partent d&rsquo;un tableau déjà trié.
 Tous les langages &ldquo;haut niveau&rdquo; proposent une fonction native pour trier les tableaux.
-En terminale on utlisera des bases de données et on apprendra à répondre à des questions du type : &ldquo;quels sont les 5 films les plus vus au cinéma ?">
+En terminale on utlisera des bases de données pour répondre à des questions du type :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Intro - selection" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -20,31 +20,13 @@ En terminale on utlisera des bases de données et on apprendra à répondre à d
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e9436b28674b4fbe17f69180e7b412b4db98cf954068a075c8e5785bb82c5bb1.js" integrity="sha256-6UNrKGdLT74X9pGA57QStNuYz5VAaKB1yOV4W7gsW7E=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/tris/1_select/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script id="MathJax-script" async
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
 
 
 <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
@@ -1377,7 +1359,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-717cf588b3f314c9bb0655dc545c4145" class="toggle"  />
     <label for="section-717cf588b3f314c9bb0655dc545c4145" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. cours</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. Cours</a>
     </label>
   
 
@@ -1522,7 +1504,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1 Cours</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1. Cours - kNN</a>
   
 
           
@@ -5924,27 +5906,15 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf--pour-impression1_cours_selectionpdf">PDF : <a href="./1_cours_selection.pdf">Pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#trier--définition">Trier : définition.</a></li>
-    <li><a href="#trier--pourquoi-">Trier : pourquoi ?</a></li>
-    <li><a href="#trier--de-nombreux-algorithmes">Trier : de nombreux algorithmes</a></li>
-    <li><a href="#trier--de-nombreux-algorithmes-1">Trier : de nombreux algorithmes</a></li>
+    <li><a href="#définition">Définition.</a></li>
+    <li><a href="#pourquoi-">Pourquoi ?</a></li>
+    <li><a href="#de-nombreux-algorithmes">De nombreux algorithmes</a></li>
     <li><a href="#activité--trier-des-boîtes">Activité : Trier des boîtes</a>
       <ul>
         <li><a href="#description-de-la-séquence">Description de la séquence</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#tri-par-sélection-1">Tri par sélection</a></li>
+    <li><a href="#tri-par-sélection">Tri par sélection</a></li>
     <li><a href="#le-plus-petit-des-objets-non-triés">Le plus petit des objets non triés</a></li>
   </ul>
 </nav>
@@ -5959,47 +5929,49 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf--pour-impression1_cours_selectionpdf">
-  PDF : <a href="./1_cours_selection.pdf">Pour impression</a>
-  <a class="anchor" href="#pdf--pour-impression1_cours_selectionpdf">#</a>
-</h3>
-<h1 id="trier">
+<article class="markdown"><h1 id="trier">
   Trier
   <a class="anchor" href="#trier">#</a>
 </h1>
-<h2 id="trier--définition">
-  Trier : définition.
-  <a class="anchor" href="#trier--d%c3%a9finition">#</a>
+<p>PDF : <a href="./1_cours_selection.pdf">Pour impression</a></p>
+<h2 id="définition">
+  Définition.
+  <a class="anchor" href="#d%c3%a9finition">#</a>
 </h2>
 <p>Algorithme de <strong>tri</strong></p>
-<blockquote>
-<p>Algorithme qui, partant d&rsquo;une liste, renvoie une version ordonnée de la liste.
-$$[5,1,4,3,2] \rightarrow [1,2,3,4,5]$$</p>
+<blockquote class="book-hint info">
+  Algorithme qui, partant d&rsquo;une liste, renvoie une version ordonnée de la liste.
+<code>[5,1,4,3,2] -&gt; [1,2,3,4,5]</code>
 </blockquote>
-<h2 id="trier--pourquoi-">
-  Trier : pourquoi ?
-  <a class="anchor" href="#trier--pourquoi-">#</a>
+
+<h2 id="pourquoi-">
+  Pourquoi ?
+  <a class="anchor" href="#pourquoi-">#</a>
 </h2>
 <p>Trier est une opération fréquente, certains algorithmes (dichotomie par
-exemple) partent d&rsquo;un tableau déjà trié.</p>
+exemple) partent d&rsquo;un tableau <strong>déjà trié</strong>.</p>
 <p>Tous les langages &ldquo;haut niveau&rdquo; proposent une fonction native pour trier
 les tableaux.</p>
-<p>En terminale on utlisera des bases de données et on apprendra à répondre
-à des questions du type : &ldquo;quels sont les 5 films les plus vus au cinéma ?&rdquo;
-ou bien &ldquo;déterminer les 100 derniers inscrits à un jeu en ligne&rdquo;.</p>
+<p>En terminale on utlisera des bases de données pour répondre
+à des questions du type :</p>
+<blockquote>
+<p><em>&quot; Quels sont les 5 films les plus vus au cinéma ? &ldquo;</em></p>
+</blockquote>
+<p>ou bien :</p>
+<blockquote>
+<p><em>&rdquo; Déterminer les 100 derniers inscrits à un jeu en ligne &ldquo;</em></p>
+</blockquote>
 <p>Ces sélections <strong>nécessitent un tri</strong></p>
 <p>Notre objectif n&rsquo;est pas <em>d&rsquo;utiliser</em> en pratique nos algorithmes
 mais de <strong>comprendre leur fonctionnement.</strong></p>
-<h2 id="trier--de-nombreux-algorithmes">
-  Trier : de nombreux algorithmes
-  <a class="anchor" href="#trier--de-nombreux-algorithmes">#</a>
+<h2 id="de-nombreux-algorithmes">
+  De nombreux algorithmes
+  <a class="anchor" href="#de-nombreux-algorithmes">#</a>
 </h2>
-<p>Tous les algorithmes de tri ne se valent pas. Nous allons les étudier de plus en plus précisemment.</p>
-<h2 id="trier--de-nombreux-algorithmes-1">
-  Trier : de nombreux algorithmes
-  <a class="anchor" href="#trier--de-nombreux-algorithmes-1">#</a>
-</h2>
-<p>Il existe de nombreux algorithmes de tri.</p>
+<p>Il existe de nombreux algorithmes de tri et ils ne se valent pas.
+Certains sont plus efficaces que d&rsquo;autres de manière générale, d&rsquo;autres sont pratiques
+dans des cas particuliers.</p>
+<p>Citons par exemple :</p>
 <ul>
 <li><strong>Tri par insertion</strong> -&gt; 1ère</li>
 <li><strong>Tri par sélection</strong> -&gt; 1ère</li>
@@ -6010,6 +5982,7 @@ mais de <strong>comprendre leur fonctionnement.</strong></p>
 <li>Smoothsort</li>
 <li><strong>Timsort</strong> -&gt; Python</li>
 </ul>
+<p>Les algorithmes de première ont des caractéristiques communes : il sont simples et lents.</p>
 <h2 id="activité--trier-des-boîtes">
   Activité : Trier des boîtes
   <a class="anchor" href="#activit%c3%a9--trier-des-bo%c3%aetes">#</a>
@@ -6032,24 +6005,32 @@ légère,</li>
 <li>aucune explication supplémentaire ne doit être apportée</li>
 </ol>
 <hr>
-<h1 id="tri-par-sélection">
+<p>Généralement, les élèves proposent un des trois algorithmes &ldquo;naturels&rdquo; :</p>
+<ul>
+<li>tri par sélection,</li>
+<li>tri par insertion,</li>
+<li>tri à bulle.</li>
+</ul>
+<p>Nous allons d&rsquo;abord étudier le <em>tri par sélection</em>.</p>
+<h2 id="tri-par-sélection">
   Tri par sélection
   <a class="anchor" href="#tri-par-s%c3%a9lection">#</a>
-</h1>
-<h2 id="tri-par-sélection-1">
-  Tri par sélection
-  <a class="anchor" href="#tri-par-s%c3%a9lection-1">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Je débute avec un tableau non trié plein et un tableau trié vide.
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Je débute avec un tableau non trié plein et un tableau trié vide.
 </span></span><span style="display:flex;"><span>Tant qu&#39;il y a des objets non triées :
 </span></span><span style="display:flex;"><span>   Je cherche le plus petit des objets non triés,
-</span></span><span style="display:flex;"><span>   Je le place à la suite des objets déjà triée.
+</span></span><span style="display:flex;"><span>   Je le place à la suite des objets déjà triés.
 </span></span><span style="display:flex;"><span>fin Tant que
-</span></span></code></pre></div><h2 id="le-plus-petit-des-objets-non-triés">
+</span></span></code></pre></div>
+</blockquote>
+
+<h2 id="le-plus-petit-des-objets-non-triés">
   Le plus petit des objets non triés
   <a class="anchor" href="#le-plus-petit-des-objets-non-tri%c3%a9s">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entrée : Des objets
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entrée : Des objets
 </span></span><span style="display:flex;"><span>Sortie : L&#39;objet le plus petit
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Je prends un objet
@@ -6059,7 +6040,10 @@ légère,</li>
 </span></span><span style="display:flex;"><span>	Fin Si
 </span></span><span style="display:flex;"><span>	Je mets l&#39;autre de côté.
 </span></span><span style="display:flex;"><span>Fin Pour
-</span></span></code></pre></div></article>
+</span></span></code></pre></div>
+</blockquote>
+
+</article>
 
                 
 
@@ -6121,27 +6105,15 @@ légère,</li>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf--pour-impression1_cours_selectionpdf">PDF : <a href="./1_cours_selection.pdf">Pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#trier--définition">Trier : définition.</a></li>
-    <li><a href="#trier--pourquoi-">Trier : pourquoi ?</a></li>
-    <li><a href="#trier--de-nombreux-algorithmes">Trier : de nombreux algorithmes</a></li>
-    <li><a href="#trier--de-nombreux-algorithmes-1">Trier : de nombreux algorithmes</a></li>
+    <li><a href="#définition">Définition.</a></li>
+    <li><a href="#pourquoi-">Pourquoi ?</a></li>
+    <li><a href="#de-nombreux-algorithmes">De nombreux algorithmes</a></li>
     <li><a href="#activité--trier-des-boîtes">Activité : Trier des boîtes</a>
       <ul>
         <li><a href="#description-de-la-séquence">Description de la séquence</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#tri-par-sélection-1">Tri par sélection</a></li>
+    <li><a href="#tri-par-sélection">Tri par sélection</a></li>
     <li><a href="#le-plus-petit-des-objets-non-triés">Le plus petit des objets non triés</a></li>
   </ul>
 </nav>

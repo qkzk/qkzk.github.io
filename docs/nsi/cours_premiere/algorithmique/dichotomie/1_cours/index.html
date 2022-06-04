@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf présentation et slides #  Recherche dichotomique dans un tableau #  Contexte #    Un tableau trié : T = [0, 1, 2, ... ,9]
-  L&rsquo;élément 3 est-il dans le tableau ?
-  L&rsquo;objectif : répondre Oui ou Non en réalisant le moins d&rsquo;opérations possibles.
-  Dichotomie #   À chaque étape on teste la valeur centrale Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.">
+<meta name="description" content="Recherche dichotomique dans un tableau #  pdf présentation et slides
+Présentation #  La recherche dichotomique dans un tableau trié est un algorithme efficace qui permet de répondre à différentes questions :
+ Ce tableau trié contient-il cet élément ?  ou
+ Quel est l&rsquo;indice de cet élément dans ce tableau trié ?   Dichotomie vs recherche séquentielle #  Bien sûr, on sait déjà comment répondre à une telle question :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Cours : dichotomie" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e9436b28674b4fbe17f69180e7b412b4db98cf954068a075c8e5785bb82c5bb1.js" integrity="sha256-6UNrKGdLT74X9pGA57QStNuYz5VAaKB1yOV4W7gsW7E=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/dichotomie/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -1376,7 +1376,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-717cf588b3f314c9bb0655dc545c4145" class="toggle"  />
     <label for="section-717cf588b3f314c9bb0655dc545c4145" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. cours</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. Cours</a>
     </label>
   
 
@@ -1521,7 +1521,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1 Cours</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1. Cours - kNN</a>
   
 
           
@@ -5923,31 +5923,24 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-présentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemple-beamerpdf">pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Beamer.pdf">slides</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
+    <li><a href="#présentation">Présentation</a></li>
+    <li><a href="#dichotomie-vs-recherche-séquentielle">Dichotomie vs recherche séquentielle</a></li>
+    <li><a href="#principe">Principe</a></li>
     <li><a href="#contexte">Contexte</a></li>
     <li><a href="#dichotomie">Dichotomie</a></li>
-    <li><a href="#dichotomie-1">Dichotomie</a></li>
-    <li><a href="#dichotomie-2">Dichotomie</a></li>
-    <li><a href="#dichotomie-3">Dichotomie</a></li>
     <li><a href="#déroulé-sur-lexemple-à-la-main">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-1">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-2">Déroulé sur l&rsquo;exemple, à la main.</a></li>
     <li><a href="#lalgorithme">L&rsquo;algorithme</a></li>
-    <li><a href="#même-exemple-avec-les-variables">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-1">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-2">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-3">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-4">Même exemple, avec les variables</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#remarques-sur-la-complexité">Remarques sur la complexité</a></li>
-    <li><a href="#nombre-détapes">Nombre d&rsquo;étapes</a></li>
+    <li><a href="#même-exemple-avec-les-variables">Même exemple, avec les variables</a>
+      <ul>
+        <li><a href="#déroulé">Déroulé</a></li>
+        <li><a href="#complexité">Complexité</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a>
+      <ul>
+        <li><a href="#meilleure-stratégie--recherche-séquentielle-ou-tri--recherche-dichotomique-">Meilleure stratégie : recherche séquentielle ou tri + recherche dichotomique ?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -5961,14 +5954,77 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf-présentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemple-beamerpdf">
-  pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Beamer.pdf">slides</a>
-  <a class="anchor" href="#pdf-pr%c3%a9sentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemple-beamerpdf">#</a>
-</h3>
-<h1 id="recherche-dichotomique-dans-un-tableau">
+<article class="markdown"><h1 id="recherche-dichotomique-dans-un-tableau">
   Recherche dichotomique dans un tableau
   <a class="anchor" href="#recherche-dichotomique-dans-un-tableau">#</a>
 </h1>
+<p>pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Beamer.pdf">slides</a></p>
+<h2 id="présentation">
+  Présentation
+  <a class="anchor" href="#pr%c3%a9sentation">#</a>
+</h2>
+<blockquote class="book-hint info">
+  <p>La <em>recherche dichotomique dans un tableau trié</em> est un algorithme efficace
+qui permet de répondre à différentes questions :</p>
+<ul>
+<li>Ce tableau trié contient-il cet élément ?</li>
+</ul>
+<p>ou</p>
+<ul>
+<li>Quel est l&rsquo;indice de cet élément dans ce tableau trié ?</li>
+</ul>
+
+</blockquote>
+
+<h2 id="dichotomie-vs-recherche-séquentielle">
+  Dichotomie vs recherche séquentielle
+  <a class="anchor" href="#dichotomie-vs-recherche-s%c3%a9quentielle">#</a>
+</h2>
+<p>Bien sûr, on sait déjà comment répondre à une telle question :</p>
+<p>on regarde les éléments un par un avec une boucle <code>for</code> et lorsqu&rsquo;on rencontre l&rsquo;élément, on fait quelque chose.</p>
+<p>C&rsquo;est une recherche séquentielle qui fonctionne parfaitement mais qui est beaucoup plus lente que la recherche
+dichotomique.</p>
+<blockquote class="book-hint info">
+  <p>La recherche <em>séquentielle</em> s&rsquo;applique à tous les tableaux.</p>
+<p>La recherche <em>dichotomique</em> ne s&rsquo;applique qu&rsquo;aux tableaux <strong>triés</strong> mais est <strong>beaucoup plus rapide</strong>.</p>
+
+</blockquote>
+
+<h2 id="principe">
+  Principe
+  <a class="anchor" href="#principe">#</a>
+</h2>
+<p>Il est similaire à la méthode efficace pour gagner au &ldquo;plus ou moins&rdquo;.</p>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Le jeu du plus ou moins</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <p>Votre adversaire a choisi un nombre entre 1 et 100 et vous devez le déviner.</p>
+<p>Il ne peut répondre que par &ldquo;c&rsquo;est plus&rdquo;, &ldquo;c&rsquo;est moins&rdquo; ou &ldquo;gagné&rdquo;.</p>
+<p>Une approche qui gagne toujours consiste à partir de 1 et augmenter de 1 en 1 :</p>
+<ul>
+<li>1 ? C&rsquo;est plus,</li>
+<li>2 ? C&rsquo;est plus, etc.</li>
+</ul>
+<p>Elle termine toujours et trouve toujours la réponse. Pourquoi s&rsquo;embêter ?</p>
+<p>Parce qu&rsquo;on peut gagner en 7 coups alors qu&rsquo;il en faut 100 si l&rsquo;adversaire choisit 100&hellip;</p>
+<p>Comment gagner en 7 coups ?</p>
+<p><strong>Choisir la valeur centrale parmi les valeurs restantes.</strong></p>
+<p>Et c&rsquo;est tout.</p>
+<ul>
+<li>La première approche (1, 2, 3&hellip;) est <em>séquentielle</em>,</li>
+<li>La seconde approche (50, 25, 12&hellip;) est <em>dichotomique</em>.</li>
+</ul>
+
+    </div>
+  </label>
+</div>
+
 <h2 id="contexte">
   Contexte
   <a class="anchor" href="#contexte">#</a>
@@ -5989,72 +6045,17 @@ MathJax.Hub.Config({
   <a class="anchor" href="#dichotomie">#</a>
 </h2>
 <ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-</ul>
-<h2 id="dichotomie-1">
-  Dichotomie
-  <a class="anchor" href="#dichotomie-1">#</a>
-</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-<li><strong>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec</strong>
-<strong>la partie gauche</strong></li>
-</ul>
-<h2 id="dichotomie-2">
-  Dichotomie
-  <a class="anchor" href="#dichotomie-2">#</a>
-</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
-<li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
-<li>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec
-la partie gauche</li>
-<li><strong>Sinon on recommence avec la partie droite.</strong></li>
-</ul>
-<h2 id="dichotomie-3">
-  Dichotomie
-  <a class="anchor" href="#dichotomie-3">#</a>
-</h2>
-<ul>
-<li>À chaque étape on teste la valeur centrale</li>
+<li>À chaque étape on teste la valeur centrale du tableau considéré</li>
 <li>Si c&rsquo;est l&rsquo;élément cherché, on a trouvé et la réponse est Oui.</li>
 <li>Si la valeur centrale est supérieure à l&rsquo;élément cherché on recommence avec
 la partie gauche</li>
 <li>Sinon on recommence avec la partie droite.</li>
-<li><strong>Si la partie gauche ou la partie droite est vide, l&rsquo;élément n&rsquo;est pas dans le</strong>
-<strong>tableau et la réponse est : Non.</strong></li>
+<li>Si la partie gauche ou la partie droite est vide, l&rsquo;élément n&rsquo;est pas dans le
+tableau et la réponse est : Non.</li>
 </ul>
 <h2 id="déroulé-sur-lexemple-à-la-main">
   Déroulé sur l&rsquo;exemple, à la main.
   <a class="anchor" href="#d%c3%a9roul%c3%a9-sur-lexemple-%c3%a0-la-main">#</a>
-</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
-<ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc <em>on recommence avec la partie <strong>avant 4 : <code>T1 = [0,1,2,3]</code></strong></em></p>
-</li>
-</ol>
-<h2 id="déroulé-sur-lexemple-à-la-main-1">
-  Déroulé sur l&rsquo;exemple, à la main.
-  <a class="anchor" href="#d%c3%a9roul%c3%a9-sur-lexemple-%c3%a0-la-main-1">#</a>
-</h2>
-<p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
-<ol>
-<li>
-<p>On propose : 4.</p>
-<p>4 &gt; 3 donc on recommence avec la partie avant 4 : <code>T1 = [0,1,2,3]</code></p>
-</li>
-<li>
-<p>On propose : 2</p>
-<p>2 &lt; 3 donc <em>on recommence avec la partie <strong>après 2 : <code>T2 = [3]</code></strong></em></p>
-</li>
-</ol>
-<h2 id="déroulé-sur-lexemple-à-la-main-2">
-  Déroulé sur l&rsquo;exemple, à la main.
-  <a class="anchor" href="#d%c3%a9roul%c3%a9-sur-lexemple-%c3%a0-la-main-2">#</a>
 </h2>
 <p><code>T=[0,1,2,...,9]</code>. On cherche 3.</p>
 <ol>
@@ -6075,7 +6076,8 @@ la partie gauche</li>
   L&rsquo;algorithme
   <a class="anchor" href="#lalgorithme">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rechercheDicho(liste, clé)
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rechercheDicho(liste, clé)
 </span></span><span style="display:flex;"><span>  bas <span style="color:#555">=</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span>  haut <span style="color:#555">=</span> longueur(liste) <span style="color:#555">-</span> <span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>  Tant que (bas <span style="color:#555">&lt;</span> haut) :
@@ -6087,7 +6089,10 @@ la partie gauche</li>
 </span></span><span style="display:flex;"><span>      sinon: haut <span style="color:#555">=</span> med <span style="color:#555">-</span> <span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>  si cle <span style="color:#555">==</span> liste[bas]: renvoyer Vrai
 </span></span><span style="display:flex;"><span>  sinon: renvoyer Faux
-</span></span></code></pre></div><h2 id="même-exemple-avec-les-variables">
+</span></span></code></pre></div>
+</blockquote>
+
+<h2 id="même-exemple-avec-les-variables">
   Même exemple, avec les variables
   <a class="anchor" href="#m%c3%aame-exemple-avec-les-variables">#</a>
 </h2>
@@ -6100,10 +6105,10 @@ la partie gauche</li>
 <li>et <code>val &gt; milieu</code> (booléen, qui va nous aider à choisir)</li>
 </ul>
 <p>On présent les éléments dans une table :</p>
-<h2 id="même-exemple-avec-les-variables-1">
-  Même exemple, avec les variables
-  <a class="anchor" href="#m%c3%aame-exemple-avec-les-variables-1">#</a>
-</h2>
+<h3 id="déroulé">
+  Déroulé
+  <a class="anchor" href="#d%c3%a9roul%c3%a9">#</a>
+</h3>
 <p>Voici un déroulé de l&rsquo;algorithme à la main.</p>
 <p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
 <ul>
@@ -6131,10 +6136,6 @@ la partie gauche</li>
 </tr>
 </tbody>
 </table>
-<h2 id="même-exemple-avec-les-variables-2">
-  Même exemple, avec les variables
-  <a class="anchor" href="#m%c3%aame-exemple-avec-les-variables-2">#</a>
-</h2>
 <p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
 <ol>
 <li>
@@ -6142,8 +6143,6 @@ la partie gauche</li>
 <p>On calcule milieu (0+9)/2 = 4.5 dont la partie entière est 4. Donc milieu = 4.</p>
 <p>Est-ce que 3==4 ? Faux.</p>
 <p>Est-ce-que &ldquo;3&gt;4&rdquo; ? Faux. Dans ce cas, c&rsquo;est <code>fin</code> qui prend la valeur de <code>milieu</code></p>
-</li>
-</ol>
 <table>
 <thead>
 <tr>
@@ -6174,14 +6173,9 @@ la partie gauche</li>
 </tr>
 </tbody>
 </table>
-<h2 id="même-exemple-avec-les-variables-3">
-  Même exemple, avec les variables
-  <a class="anchor" href="#m%c3%aame-exemple-avec-les-variables-3">#</a>
-</h2>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ol start="2">
-<li><strong>Second tour.</strong> On a descendu début, on donne à fin la valeur précédente de milieu (4). Et on calcule les nouveaux éléments. milieu = (0+4)/2 = 2 (entier).</li>
-</ol>
+</li>
+<li>
+<p><strong>Second tour.</strong> On a descendu début, on donne à fin la valeur précédente de milieu (4). Et on calcule les nouveaux éléments. milieu = (0+4)/2 = 2 (entier).</p>
 <p>Est-ce-que 3==2 ? Faux.</p>
 <p>Est-ce-que 3&gt;2 ? Vrai. Dans ce cas, c&rsquo;est début qui change et prend la valeur de milieu + 1.</p>
 <table>
@@ -6222,17 +6216,10 @@ la partie gauche</li>
 </tr>
 </tbody>
 </table>
-<h2 id="même-exemple-avec-les-variables-4">
-  Même exemple, avec les variables
-  <a class="anchor" href="#m%c3%aame-exemple-avec-les-variables-4">#</a>
-</h2>
-<p>Notre tableau <code>T</code> est <code>[0, 1, 2, ..., 9]</code> et on cherche <code>3</code>.</p>
-<ol start="3">
+</li>
 <li>
 <p><strong>Troisième tour</strong>. On a descendu la valeur de fin et donné à début l&rsquo;ancienne valeur de milieu + 1 (3). Et on recommence.</p>
-<p>Milieu = (3 + 4)/2 = 3.5 dont la partie entière est 3. Est-ce-que 3==3 ? VRAI !!!</p>
-</li>
-</ol>
+<p>Milieu = (3 + 4)/2 = 3.5 dont la partie entière est 3. Est-ce-que 3==3 ? Oui.</p>
 <table>
 <thead>
 <tr>
@@ -6279,12 +6266,25 @@ la partie gauche</li>
 </tr>
 </tbody>
 </table>
+</li>
+</ol>
 <p>L&rsquo;algorithme est terminé et la sortie est &ldquo;VRAI&rdquo;. Le nombre 3 est bien un élément du tableau [0, 1, <strong>3</strong>, 4, 5, &hellip;, 9].</p>
+<h3 id="complexité">
+  Complexité
+  <a class="anchor" href="#complexit%c3%a9">#</a>
+</h3>
+<ul>
+<li><strong>parcours séquentiel</strong> : autant que d&rsquo;éléments dans le tableau dans le pire des cas.
+Le parcours séquentiel prend (dans le pire des cas) $n$ étapes.</li>
+<li><strong>recherche dichotomique</strong> (après le tri) : $\log_2 n$ étapes.
+$\log_2 n$ est (grosso modo) la taille de l&rsquo;entier représenté en base 2 (= son nombre de bits).</li>
+</ul>
 <h2 id="conclusion">
   Conclusion
   <a class="anchor" href="#conclusion">#</a>
 </h2>
-<ul>
+<blockquote class="book-hint info">
+  <ul>
 <li>
 <p>La recherche dichotomique permet de gagner beaucoup d&rsquo;étape par rapport au parcours
 séquentiel du tableau.</p>
@@ -6292,26 +6292,29 @@ séquentiel du tableau.</p>
 <li>
 <p>Elle nécessite d&rsquo;avoir un tableau <strong>trié</strong> sans quoi on ne peut l&rsquo;appliquer.</p>
 </li>
+<li>
+<p>Une recherche séquentielle dans un tableau de taille $n$ demande jusqu&rsquo;à $n$ étapes,</p>
+</li>
+<li>
+<p>Une recherche dichotomique dans un tableau trié de taille $n$ demande $\log_2(n)$ étapes.</p>
+</li>
 </ul>
-<h2 id="remarques-sur-la-complexité">
-  Remarques sur la complexité
-  <a class="anchor" href="#remarques-sur-la-complexit%c3%a9">#</a>
-</h2>
+
+</blockquote>
+
+<hr>
+<h3 id="meilleure-stratégie--recherche-séquentielle-ou-tri--recherche-dichotomique-">
+  Meilleure stratégie : recherche séquentielle ou tri + recherche dichotomique ?
+  <a class="anchor" href="#meilleure-strat%c3%a9gie--recherche-s%c3%a9quentielle-ou-tri--recherche-dichotomique-">#</a>
+</h3>
+<p>Supposons partir d&rsquo;un tableau <em>non trié</em>. Est-il plus efficace de le trier avant de faire une recherche ?</p>
 <ul>
-<li>Si on ne souhaite l&rsquo;appliquer qu&rsquo;une seule fois, il n&rsquo;est pas toujours intéressant
-de trier de le tableau pour chercher. C&rsquo;est généralement trop long&hellip;</li>
-<li>Mais si on doit souvent effectuer des recherches dans le tableau, alors c&rsquo;est indispensable.</li>
-</ul>
-<h2 id="nombre-détapes">
-  Nombre d&rsquo;étapes
-  <a class="anchor" href="#nombre-d%c3%a9tapes">#</a>
-</h2>
-<ul>
-<li><strong>parcours séquentiel</strong> : autant que d&rsquo;éléments dans le tableau dans le pire des cas.
-Le parcours séquentiel prend (dans le pire des cas) $n$ étapes.</li>
-<li><strong>recherche dichotomique</strong> (après le tri) : $\log_2 n$ étapes.
-$\log_2 n$ est (grosso modo) le nombre de divisions entières de $n$ par 2 qu&rsquo;on peut effectuer
-avant de trouver un quotient nul.</li>
+<li>
+<p>Si on ne souhaite l&rsquo;appliquer qu&rsquo;<em>une</em> seule fois, il n&rsquo;est pas intéressant de trier avant de chercher. C&rsquo;est trop long.</p>
+</li>
+<li>
+<p>Mais si on doit effectuer beaucoup de recherches dans le tableau et qu&rsquo;il ne change pas, alors c&rsquo;est plus envisageable.</p>
+</li>
 </ul>
 </article>
 
@@ -6375,31 +6378,24 @@ avant de trouver un quotient nul.</li>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-présentationuploadsdocsnsialgodichodicho_exemple-articlepdf-et-slidesuploadsdocsnsialgodichodicho_exemple-beamerpdf">pdf <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Article.pdf">présentation</a> et <a href="/uploads/docsnsi/algo/dicho/dicho_exemple-Beamer.pdf">slides</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
+    <li><a href="#présentation">Présentation</a></li>
+    <li><a href="#dichotomie-vs-recherche-séquentielle">Dichotomie vs recherche séquentielle</a></li>
+    <li><a href="#principe">Principe</a></li>
     <li><a href="#contexte">Contexte</a></li>
     <li><a href="#dichotomie">Dichotomie</a></li>
-    <li><a href="#dichotomie-1">Dichotomie</a></li>
-    <li><a href="#dichotomie-2">Dichotomie</a></li>
-    <li><a href="#dichotomie-3">Dichotomie</a></li>
     <li><a href="#déroulé-sur-lexemple-à-la-main">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-1">Déroulé sur l&rsquo;exemple, à la main.</a></li>
-    <li><a href="#déroulé-sur-lexemple-à-la-main-2">Déroulé sur l&rsquo;exemple, à la main.</a></li>
     <li><a href="#lalgorithme">L&rsquo;algorithme</a></li>
-    <li><a href="#même-exemple-avec-les-variables">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-1">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-2">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-3">Même exemple, avec les variables</a></li>
-    <li><a href="#même-exemple-avec-les-variables-4">Même exemple, avec les variables</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#remarques-sur-la-complexité">Remarques sur la complexité</a></li>
-    <li><a href="#nombre-détapes">Nombre d&rsquo;étapes</a></li>
+    <li><a href="#même-exemple-avec-les-variables">Même exemple, avec les variables</a>
+      <ul>
+        <li><a href="#déroulé">Déroulé</a></li>
+        <li><a href="#complexité">Complexité</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a>
+      <ul>
+        <li><a href="#meilleure-stratégie--recherche-séquentielle-ou-tri--recherche-dichotomique-">Meilleure stratégie : recherche séquentielle ou tri + recherche dichotomique ?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

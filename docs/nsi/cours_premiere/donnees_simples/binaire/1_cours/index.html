@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf pour impression et diaporama #  Les nombres en en informatique #  Différentes bases #  Dans la vie courante on utilise la base 10.
+<meta name="description" content="Représenter des entiers en machine : le système binaire #  pdf pour impression et diaporama
+Binaire #  Différentes bases #  Dans la vie courante on utilise la base 10.
 En informatique on rencontre d&rsquo;autres manières de représenter les nombres :
- binaire complément à 2 octal hexadécimal etc. nombres à virgules flottantes  Système de représentation par position #  Qu&rsquo;on utilise la base 10, 2, 8, 16 ou autre, on emploie toujours la numération par position.">
+ binaire complément à 2 octal hexadécimal etc. nombres à virgules flottantes  En quand on creuse, c&rsquo;est encore plus complexe. Par exemple le langage Rust utilise 14 types différents pour représenter les nombres !">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="binaire - cours" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +19,7 @@ En informatique on rencontre d&rsquo;autres manières de représenter les nombre
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e9436b28674b4fbe17f69180e7b412b4db98cf954068a075c8e5785bb82c5bb1.js" integrity="sha256-6UNrKGdLT74X9pGA57QStNuYz5VAaKB1yOV4W7gsW7E=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/binaire/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -1375,7 +1376,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-717cf588b3f314c9bb0655dc545c4145" class="toggle"  />
     <label for="section-717cf588b3f314c9bb0655dc545c4145" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. cours</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="">1. Cours</a>
     </label>
   
 
@@ -1520,7 +1521,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1 Cours</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1. Cours - kNN</a>
   
 
           
@@ -5922,103 +5923,76 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgbinaire_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgbinaire_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_slides.pdf">diaporama</a></a></li>
+    <li><a href="#binaire">Binaire</a>
+      <ul>
+        <li><a href="#différentes-bases">Différentes bases</a></li>
+        <li><a href="#système-de-représentation-par-position">Système de représentation par position</a></li>
+        <li><a href="#numération-par-position">Numération par position</a></li>
+        <li><a href="#les-puissances-de-2">Les puissances de 2</a></li>
+        <li><a href="#du-binaire-au-décimal">Du binaire au décimal.</a></li>
+        <li><a href="#du-décimal-au-binaire">Du décimal au binaire.</a></li>
+        <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
+        <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a></li>
+        <li><a href="#exercice-1">Exercice 1</a></li>
+        <li><a href="#exercice-2">Exercice 2</a></li>
+        <li><a href="#binaire-en-python">Binaire en Python</a></li>
+        <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
+        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
+        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
+        <li><a href="#le-logarithme-binaire">Le logarithme binaire</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
-    <li><a href="#différentes-bases">Différentes bases</a></li>
-    <li><a href="#système-de-représentation-par-position">Système de représentation par position</a></li>
-    <li><a href="#numération-par-position">numération par position</a></li>
-    <li><a href="#du-binaire-au-décimal">Du binaire au décimal.</a></li>
-    <li><a href="#du-décimal-au-binaire">Du décimal au binaire.</a></li>
-    <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
-    <li><a href="#heading"></a>
+    <li><a href="#booléen">Booléen</a>
       <ul>
-        <li><a href="#10-types-of-peopleuploadsdocsnsidonnees_qkzk_img10typesofppljpgwidth40"><img src="/uploads/docsnsi/donnees_qkzk_img/10typesofppl.jpg" alt="10 types of people">{width=40%}</a></li>
+        <li><a href="#un-booléen-en-informatique">Un booléen en informatique</a></li>
+        <li><a href="#fonction-qui-renvoie-un-booléen">Fonction qui renvoie un booléen</a></li>
+        <li><a href="#affecter-un-booléen-à-une-variable">Affecter un booléen à une variable</a></li>
+        <li><a href="#opérateurs-booléens">Opérateurs booléens</a></li>
+        <li><a href="#le-non-logique">Le NON logique</a></li>
+        <li><a href="#le-et-logique">Le ET logique</a></li>
+        <li><a href="#le-ou-logique">Le OU logique</a></li>
+        <li><a href="#équivalences">Équivalences</a></li>
+        <li><a href="#preuve">Preuve</a></li>
+        <li><a href="#table-intermédiaire">Table intermédiaire</a></li>
+        <li><a href="#table-finale">Table finale</a></li>
+        <li><a href="#exercice-3--_a_-et-_b_">Exercice 3 : <strong><em>a</em> ET <em>b</em></strong></a></li>
+        <li><a href="#exercice-4--lois-de-morgan">Exercice 4 : Lois de Morgan</a></li>
+        <li><a href="#ou-exclusif">OU exclusif</a></li>
+        <li><a href="#exercice-5--xor-à-partir-des-premiers">Exercice 5 : XOR à partir des premiers</a></li>
       </ul>
     </li>
-    <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a>
+    <li><a href="#opérateurs-en-taille-quelconque">Opérateurs en taille quelconque</a>
       <ul>
-        <li><a href="#divisions-successivesuploadsdocsnsidonnees_qkzk_imgdivisionspng"><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives"></a></li>
+        <li><a href="#not-bit-à-bit">NOT bit à bit</a></li>
+        <li><a href="#et-bit-à-bit">ET bit à bit</a></li>
+        <li><a href="#ou-bit-à-bit">OU bit à bit</a></li>
+        <li><a href="#xor-bit-à-bit">XOR bit à bit</a></li>
+        <li><a href="#opérateurs-bits-à-bits-en-python">Opérateurs bits à bits en Python</a></li>
+        <li><a href="#décalages-à-gauche-et-à-droite">Décalages à gauche et à droite</a></li>
+        <li><a href="#exercice-6">Exercice 6</a></li>
+        <li><a href="#les-masques-de-sous-réseau">Les masques de sous-réseau</a></li>
+        <li><a href="#exemple-de-masque">Exemple de masque</a></li>
+        <li><a href="#exercice-7---masques-de-sous-réseau">Exercice 7 - Masques de sous-réseau</a></li>
       </ul>
     </li>
-    <li><a href="#changements-de-bases">Changements de bases</a>
-      <ul>
-        <li><a href="#exercice">Exercice</a></li>
-        <li><a href="#exercice-1">Exercice</a></li>
-        <li><a href="#exercice-2">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#binaire-en-python">Binaire en Python</a></li>
-    <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
-    <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
-    <li><a href="#taille-et-opérations">Taille et opérations</a></li>
   </ul>
 
   <ul>
-    <li><a href="#booléen-">Booléen ?</a></li>
-    <li><a href="#un-booléen-en-informatique">Un booléen en informatique</a></li>
-    <li><a href="#fonction-qui-retourne-une-booléen">Fonction qui retourne une booléen</a></li>
-    <li><a href="#affecter-un-booléen-à-une-variable">Affecter un booléen à une variable</a></li>
-    <li><a href="#opérateurs-booléens">Opérateurs booléens</a></li>
-    <li><a href="#le-non-logique">Le NON logique</a></li>
-    <li><a href="#le-et-logique">Le ET logique</a></li>
-    <li><a href="#le-ou-logique">Le OU logique</a></li>
-    <li><a href="#équivalences">Équivalences</a></li>
-    <li><a href="#preuve">Preuve</a></li>
-    <li><a href="#table-intermédiaire">Table intermédiaire</a></li>
-    <li><a href="#table-finale">Table finale</a></li>
-    <li><a href="#a-et-b"><em>a</em> ET <em>b</em></a>
+    <li><a href="#électronique">Électronique</a>
       <ul>
-        <li><a href="#exercice-3">Exercice</a></li>
+        <li><a href="#représentation-graphique">Représentation graphique</a></li>
+        <li><a href="#portes-logiques">Portes logiques</a></li>
+        <li><a href="#demi-additionneur">Demi additionneur</a></li>
+        <li><a href="#circuit-du-demi-additionneur">Circuit du demi additionneur</a></li>
+        <li><a href="#exercice-8---étude-du-demi-additionneur">Exercice 8 - Étude du demi-additionneur</a></li>
+        <li><a href="#un-exemple-plus-élaboré-le-circuit-7400">Un exemple plus élaboré, le circuit 7400</a></li>
+        <li><a href="#combinaisons-plus-complexes">Combinaisons plus complexes</a></li>
+        <li><a href="#nombres-en-binaires-de-plusieurs-chiffres">Nombres en binaires de plusieurs chiffres</a></li>
       </ul>
     </li>
-    <li><a href="#lois-de-morgan">Lois de Morgan</a>
-      <ul>
-        <li><a href="#exercice-4">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#ou-exclusif">OU exclusif</a>
-      <ul>
-        <li><a href="#exercice-5">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#opérateurs-bits-à-bits-en-python">Opérateurs bits à bits en Python</a></li>
-    <li><a href="#par-exemple-pour-le-xor-bit-à-bit">Par exemple, pour le XOR bit à bit</a></li>
-    <li><a href="#et-bit-à-bit">Et bit à bit</a>
-      <ul>
-        <li><a href="#exercice-6">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#les-masques-de-sous-réseau">Les masques de sous-réseau</a></li>
-    <li><a href="#exemple-de-masque">Exemple de masque</a></li>
-    <li><a href="#exercice-7">Exercice</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#représentation-graphique">Représentation graphique</a></li>
-    <li><a href="#portes-logiques">Portes logiques</a></li>
-    <li><a href="#demi-additionneur">Demi additionneur</a></li>
-    <li><a href="#circuit-du-demi-additionneur">Circuit du demi additionneur</a></li>
-    <li><a href="#étude-du-demi-additionneur">Étude du demi-additionneur</a>
-      <ul>
-        <li><a href="#exercice-8">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#un-exemple-plus-élaboré-le-circuit-7400">Un exemple plus élaboré, le circuit 7400</a></li>
-    <li><a href="#combinaisons-plus-complexes">Combinaisons plus complexes</a></li>
-    <li><a href="#nombres-en-binaires-de-plusieurs-chiffres">Nombres en binaires de plusieurs chiffres</a>
-      <ul>
-        <li><a href="#comment-ajouter-rapidement-deux-nombres-en-binaire-">Comment ajouter rapidement deux nombres en binaire ?</a></li>
-      </ul>
-    </li>
-    <li><a href="#opérateurs-en-taille-quelconque">Opérateurs en taille quelconque</a></li>
-    <li><a href="#not-bit-à-bit">NOT bit à bit</a></li>
-    <li><a href="#et-bit-à-bit-1">ET bit à bit</a></li>
-    <li><a href="#ou-bit-à-bit">OU bit à bit</a></li>
-    <li><a href="#xor-bit-à-bit">XOR bit à bit</a></li>
-    <li><a href="#décalage-de-bits">Décalage de bits</a></li>
-    <li><a href="#décalages-à-gauche-et-à-droite-python">Décalages à gauche et à droite Python</a></li>
   </ul>
 </nav>
 
@@ -6032,18 +6006,19 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h2 id="pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgbinaire_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgbinaire_slidespdf">
-  pdf <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_slides.pdf">diaporama</a>
-  <a class="anchor" href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgbinaire_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgbinaire_slidespdf">#</a>
-</h2>
-<h1 id="les-nombres-en-en-informatique">
-  Les nombres en en informatique
-  <a class="anchor" href="#les-nombres-en-en-informatique">#</a>
+<article class="markdown"><h1 id="représenter-des-entiers-en-machine--le-système-binaire">
+  Représenter des entiers en machine : le système binaire
+  <a class="anchor" href="#repr%c3%a9senter-des-entiers-en-machine--le-syst%c3%a8me-binaire">#</a>
 </h1>
-<h2 id="différentes-bases">
+<p>pdf <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_slides.pdf">diaporama</a></p>
+<h2 id="binaire">
+  Binaire
+  <a class="anchor" href="#binaire">#</a>
+</h2>
+<h3 id="différentes-bases">
   Différentes bases
   <a class="anchor" href="#diff%c3%a9rentes-bases">#</a>
-</h2>
+</h3>
 <p>Dans la vie courante on utilise la base 10.</p>
 <p>En informatique on rencontre d&rsquo;autres manières de représenter les nombres :</p>
 <ul>
@@ -6053,40 +6028,31 @@ MathJax.Hub.Config({
 <li>hexadécimal etc.</li>
 <li>nombres à virgules flottantes</li>
 </ul>
-<h2 id="système-de-représentation-par-position">
+<p><em>En quand on creuse, c&rsquo;est encore plus complexe. Par exemple le langage Rust utilise 14 types différents pour représenter les nombres !</em></p>
+<h3 id="système-de-représentation-par-position">
   Système de représentation par position
   <a class="anchor" href="#syst%c3%a8me-de-repr%c3%a9sentation-par-position">#</a>
-</h2>
+</h3>
 <p>Qu&rsquo;on utilise la base 10, 2, 8, 16 ou autre, on emploie toujours
 <em>la numération par position.</em></p>
-<p><strong>La position des chiffres définit la valeur associée à ce chiffre.</strong></p>
-<h2 id="numération-par-position">
-  numération par position
+<blockquote class="book-hint info">
+  <strong>Représentation par position</strong> : La position d&rsquo;un chiffres définit la valeur associée à ce chiffre.
+</blockquote>
+
+<h3 id="numération-par-position">
+  Numération par position
   <a class="anchor" href="#num%c3%a9ration-par-position">#</a>
-</h2>
-<p><strong>Exemple</strong> : En base 10, on a dix chiffres.</p>
+</h3>
+<p><strong>Exemple</strong> : En base 10 :</p>
 <p>$345 = 3\times100 + 4\times10 + 5 = 3\times 10^2 + 4\times10^1+5\times10^0$</p>
+<p>Le $3$ de $345$ vaut donc beaucoup plus ($300$ &hellip;) que le $5$ et pourtant $3&lt;5$.</p>
 <p>En binaire, on a deux chiffres. Chaque chiffre est un <em>bit</em> (=<strong>bi</strong>nary digi<strong>t</strong>).</p>
 <p>$0b1101 = 1 \times 2^3 + 1\times 2^2 + 0\times2^1 + 1\times2^0 = 13$</p>
-<h2 id="du-binaire-au-décimal">
-  Du binaire au décimal.
-  <a class="anchor" href="#du-binaire-au-d%c3%a9cimal">#</a>
-</h2>
-<p>Pour convertir un entier donné en binaire vers les décimal on le décompose.</p>
-<p>Ensuite on effectue la somme. Cela va beaucoup plus vite en lisant de droite
-à gauche.</p>
-<p>$0b10011$ = 1 + 2 + 0 + 0 + 16 = 19.</p>
-<p>Autre notation $0b10011_2 = 19_{10}$</p>
-<h2 id="du-décimal-au-binaire">
-  Du décimal au binaire.
-  <a class="anchor" href="#du-d%c3%a9cimal-au-binaire">#</a>
-</h2>
-<p>Deux algorithmes majeurs.</p>
-<ul>
-<li>Facile <em>à programmer</em> : les divisions successives.</li>
-<li>Facile <em>de tête</em> : soustraire des puissances de 2.</li>
-</ul>
-<p>Les puissances successives de 2 :</p>
+<h3 id="les-puissances-de-2">
+  Les puissances de 2
+  <a class="anchor" href="#les-puissances-de-2">#</a>
+</h3>
+<p>Les puissances de 10 c&rsquo;est facile : 1, 10, 100, 1000 etc. mais celles de 2 demandent un effort.</p>
 <table>
 <thead>
 <tr>
@@ -6129,51 +6095,84 @@ MathJax.Hub.Config({
 </tr>
 </tbody>
 </table>
-<h2 id="décimal-au-binaire-avec-les-puissances-de-2">
-  Décimal au binaire avec les puissances de 2.
-  <a class="anchor" href="#d%c3%a9cimal-au-binaire-avec-les-puissances-de-2">#</a>
-</h2>
-<p>Écrire 57 en base 2 (=donner sa représentation binaire).</p>
-<ul>
-<li>$32&lt;57&lt;64$. Donc on fait $57 = 32 + 25 = 2^5 + 25$. On a un chiffre 1 à la position 6.</li>
-<li>$16&lt;25&lt;32$. Donc on fait $25 = 16 + 9 = 2^4 + 9$. On a un chiffre 1 à la position 5.</li>
-<li>$8&lt;9&lt;16$. Donc on fait $9 = 8 + 1 = 2^3 + 1$. On a un chiffre 1 à la position 4.</li>
-<li>$1=2^0$. On peut s&rsquo;arrêter (dès qu&rsquo;on atteint une puissance de 2). On a un chiffre 1 à la position 1.</li>
-</ul>
-<p>$$57 = 0b111001$$</p>
+<p><strong>Conseil :</strong> retenez les par coeur en jouant à <a href="https://play2048.co/">2048</a>.</p>
+<h3 id="du-binaire-au-décimal">
+  Du binaire au décimal.
+  <a class="anchor" href="#du-binaire-au-d%c3%a9cimal">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <p>Pour convertir un entier donné en binaire on le lit depuis la droite et on fait la somme.</p>
+<p>$0b10011$ = 1 + 2 + 0 + 0 + 16 = 19.</p>
+<p>Autre notation : $10011_2 = 19_{10}$</p>
+
+</blockquote>
+
 <p>Autre exemple :</p>
 <p>La représentation décimale de $0b101010$ est</p>
 <p>$$1\times2^5+0\times2^4+1\times2^3+0\times2^2+1\times2^1+0\times2^0$$
-$$=1\times32+0\times16+1\times8+0+\times4+1\times2+0\times1=42$$</p>
-<h2 id="heading">
-  
-  <a class="anchor" href="#heading">#</a>
-</h2>
-<h3 id="10-types-of-peopleuploadsdocsnsidonnees_qkzk_img10typesofppljpgwidth40">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/10typesofppl.jpg" alt="10 types of people" />{width=40%}
-  <a class="anchor" href="#10-types-of-peopleuploadsdocsnsidonnees_qkzk_img10typesofppljpgwidth40">#</a>
+$$=32+8+2$$
+$$=42$$</p>
+<h3 id="du-décimal-au-binaire">
+  Du décimal au binaire.
+  <a class="anchor" href="#du-d%c3%a9cimal-au-binaire">#</a>
 </h3>
-<h2 id="du-décimal-au-binaire-avec-les-divisions-successives">
+<p>Deux algorithmes majeurs.</p>
+<ul>
+<li>Facile <em>à programmer</em> : les divisions successives.</li>
+<li>Facile <em>de tête</em> : soustraire des puissances de 2.</li>
+</ul>
+<h3 id="décimal-au-binaire-avec-les-puissances-de-2">
+  Décimal au binaire avec les puissances de 2.
+  <a class="anchor" href="#d%c3%a9cimal-au-binaire-avec-les-puissances-de-2">#</a>
+</h3>
+<p>Écrire 57 en base 2 (=donner sa représentation binaire).</p>
+<ul>
+<li>
+<p>$32&lt;57&lt;64$.</p>
+<p>Donc on fait $57 = 32 + 25 = 2^5 + 25$. On a un chiffre 1 à la position 6.</p>
+</li>
+<li>
+<p>$16&lt;25&lt;32$.</p>
+<p>Donc on fait $25 = 16 + 9 = 2^4 + 9$. On a un chiffre 1 à la position 5.</p>
+</li>
+<li>
+<p>$8&lt;9&lt;16$.</p>
+<p>Donc on fait $9 = 8 + 1 = 2^3 + 1$. On a un chiffre 1 à la position 4.</p>
+</li>
+<li>
+<p>$1=2^0$.</p>
+<p>On peut s&rsquo;arrêter dès qu&rsquo;on atteint une puissance de 2. On a un chiffre 1 à la position 1.</p>
+</li>
+</ul>
+<p>$$57 = 0b111001$$</p>
+<p><em>Autre exemple :</em></p>
+<p>$$123 = 64 + 59 = 64 + 32 + 27$$
+$$123 = 64 + 32 + 16 + 11$$
+$$123 = 64 + 32 + 16 + 8 + 3$$
+$$123 = 64 + 32 + 16 + 8 + 2 + 1$$</p>
+<p>Donc</p>
+<p>$$123 = 0b1111011$$</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/10typesofppl.jpg" alt="10 types of people" /></p>
+<h3 id="du-décimal-au-binaire-avec-les-divisions-successives">
   Du décimal au binaire avec les divisions successives
   <a class="anchor" href="#du-d%c3%a9cimal-au-binaire-avec-les-divisions-successives">#</a>
-</h2>
-<p><strong>Algorithme des divisions successives</strong></p>
-<p>Donner la représentation binaire de 167.</p>
+</h3>
+<blockquote class="book-hint info">
+  <p><strong>Algorithme des divisions successives</strong></p>
 <ol>
 <li>On divise par 2 <strong>jusqu&rsquo;à ce que le quotient soit 0</strong></li>
-<li>On lit les bits en montant de droite à gauche : <code>167 = 0b10100111</code></li>
+<li>On lit les bits en montant de droite à gauche :</li>
 </ol>
-<h3 id="divisions-successivesuploadsdocsnsidonnees_qkzk_imgdivisionspng">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives" />
-  <a class="anchor" href="#divisions-successivesuploadsdocsnsidonnees_qkzk_imgdivisionspng">#</a>
-</h3>
-<h2 id="changements-de-bases">
-  Changements de bases
-  <a class="anchor" href="#changements-de-bases">#</a>
-</h2>
-<h3 id="exercice">
-  Exercice
-  <a class="anchor" href="#exercice">#</a>
+
+</blockquote>
+
+<p>Donner la représentation binaire de 167.</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives" /></p>
+<p><code>167 = 0b10100111</code></p>
+<hr>
+<h3 id="exercice-1">
+  Exercice 1
+  <a class="anchor" href="#exercice-1">#</a>
 </h3>
 <ul>
 <li>
@@ -6185,53 +6184,60 @@ $0b0101$ et $0b00101$.</p>
 et $0b100$, $0b111$ et $0b1000$.</p>
 </li>
 </ul>
-<h3 id="exercice-1">
-  Exercice
-  <a class="anchor" href="#exercice-1">#</a>
-</h3>
-<p>Quelle est la représentation binaire de 14 et 78 ?</p>
 <h3 id="exercice-2">
-  Exercice
+  Exercice 2
   <a class="anchor" href="#exercice-2">#</a>
 </h3>
-<p>De manière générale, quelle méthode employer pour trouver
-la représentation binaire d&rsquo;une valeur entière ?</p>
-<h2 id="binaire-en-python">
+<p>Quelle est la représentation binaire de 14 et 78 ?</p>
+<h3 id="binaire-en-python">
   Binaire en Python
   <a class="anchor" href="#binaire-en-python">#</a>
-</h2>
+</h3>
 <p>Python dérivant du langage C, les nombres en binaire sont notés <code>0bxxxx</code></p>
 <p>Python converti naturellement un entier <strong>d&rsquo;une base <em>b</em> vers le décimal</strong> avec <code>int(nombre, b)</code></p>
 <p>La conversion <strong>vers le binaire</strong> se fait avec <code>bin</code> et renvoie une <em>chaîne de caractères</em>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#c30">&#39;0b11&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0b111011</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">59</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#c30">&#39;0b11&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(a, <span style="color:#f60">2</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">10</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(b)
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0b1010&#39;</span>
-</span></span></code></pre></div><h2 id="les-nombres-en-mémoire">
+</span></span></code></pre></div><p>Faites bien attention :</p>
+<ul>
+<li><code>0b111011</code> est un <code>int</code> qu&rsquo;on a écrit sous forme binaire et dont la valeur est 59.</li>
+<li><code>&quot;0b111011&quot;</code> est une <code>str</code> qu&rsquo;on peut <em>convertir</em> en entier avec <code>int</code>.</li>
+</ul>
+<h3 id="les-nombres-en-mémoire">
   Les nombres en mémoire
   <a class="anchor" href="#les-nombres-en-m%c3%a9moire">#</a>
-</h2>
-<p><strong>ATTENTION</strong> En mémoire, ce sont des entiers. POINT BARRE.</p>
-<p>Ils sont encodés en binaire de toute manière.</p>
-<p>Ainsi, pour réaliser l&rsquo;opération <code>4+5</code> Python converti d&rsquo;abord en binaire,
+</h3>
+<blockquote class="book-hint info">
+  <p><strong>ATTENTION</strong> En mémoire, ce sont des entiers encodés en binaire.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">4</span> <span style="color:#555">+</span> <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">9</span>
+</span></span></code></pre></div><p>Ainsi, pour réaliser l&rsquo;opération <code>4+5</code> Python converti d&rsquo;abord en binaire,
 additionne puis converti en décimal pour afficher <code>9</code>.</p>
+
+</blockquote>
+
 <!-- Complément info : convertisseur binaire à la main, algo à la main -->
-<h2 id="taille-dun-nombre-en-binaire">
+<h3 id="taille-dun-nombre-en-binaire">
   Taille d&rsquo;un nombre en binaire
   <a class="anchor" href="#taille-dun-nombre-en-binaire">#</a>
-</h2>
+</h3>
 <p>Le <strong>nombre de bit</strong> d&rsquo;un entier nous indique l&rsquo;espace mémoire <em>minimal</em> qu&rsquo;il
 faudra pour le stocker.</p>
 <p>$123 = 0b1111011$ il faut au moins 7 bits pour stocker ce nombre.</p>
 <p>En pratique, les machines utilisent des bloc de taille 1 octet, ce nombre entre
 dans un octet.</p>
-<h2 id="taille-et-opérations">
+<h3 id="taille-et-opérations">
   Taille et opérations
   <a class="anchor" href="#taille-et-op%c3%a9rations">#</a>
-</h2>
-<p>Si $x$ occupe <code>n</code> bits et $y$ occupe <code>p</code> bits alors :</p>
+</h3>
+<blockquote class="book-hint info">
+  <p>Si $x$ occupe <code>n</code> bits et $y$ occupe <code>p</code> bits alors :</p>
 <ul>
 <li><strong>SOMME</strong>  : $x + y$ occupe au plus <code>max(n, p) + 1</code> bits,</li>
 <li><strong>PRODUIT</strong> : $x \times y$ occupe au plus <code>n + p</code> bits.</li>
@@ -6256,158 +6262,355 @@ dans un octet.</p>
 </tr>
 </tbody>
 </table>
+
+</blockquote>
+
+<h3 id="le-logarithme-binaire">
+  Le logarithme binaire
+  <a class="anchor" href="#le-logarithme-binaire">#</a>
+</h3>
+<p>En mathématique, la fonction $\ln$ pour <em>logarithme népérien</em> ou <em>logarithme naturel</em>
+est une fonction ayant d&rsquo;importantes propriétés.</p>
+<p>Rendue populaire par Napier, elle a permis de considérablement simplifier les calculs à la main.</p>
+<p><em>Vous verrez en mathématiques qu&rsquo;elle permet de transformer les produits en somme : $\ln (a \times b) = \ln a + \ln b$</em></p>
+<p>Une de ses propriétés est de donner une mesure du nombre de chiffres d&rsquo;un nombre dans une base :</p>
+<p>Si $t$ est la taille de $x$ en base $b$ alors $$\frac{\ln(n)}{\ln(b)} \leq t &lt; 1 + \frac{\ln(n)}{\ln(b)}$$</p>
+<p>Pour nous, cela se traduit ainsi :</p>
+<blockquote class="book-hint info">
+  <p>En notant $\log_2 (n) = \frac{\ln n}{\ln 2}$ et $\lceil x \rceil$ l&rsquo;arrondi supérieur de $x$ :</p>
+<p>Le nombre de bits d&rsquo;un entier $n$ est $\lceil \log_2(x + 1) \rceil$.</p>
+
+</blockquote>
+
+<hr>
 <h1 id="calcul-booléen">
   Calcul booléen
   <a class="anchor" href="#calcul-bool%c3%a9en">#</a>
 </h1>
-<h2 id="booléen-">
-  Booléen ?
-  <a class="anchor" href="#bool%c3%a9en-">#</a>
+<h2 id="booléen">
+  Booléen
+  <a class="anchor" href="#bool%c3%a9en">#</a>
 </h2>
 <p>Le terme <em>booléen</em> vient du nom du mathématicien britannique <a href="http://fr.wikipedia.org/wiki/George_Boole">George
 Boole</a>. Il est le créateur de
 la logique moderne qui s&rsquo;appuie sur l&rsquo;algèbre qui porte désormais son
 nom : l&rsquo;<em>algèbre de Boole</em>. </p>
-<p>Un <strong>booléen</strong> est une donnée dont la valeur ne peut prendre que deux états, soit
+<blockquote class="book-hint info">
+  Un <strong>booléen</strong> est une donnée dont la valeur ne peut prendre que deux états, soit
 l&rsquo;état <em>vrai</em> soit à l&rsquo;état <em>faux</em>. On utilise également le bit pour
 représenter des booléens : ainsi un 0 représente la valeur <em>faux</em> et un
-1 représente la valeur <em>vrai</em>.</p>
-<h2 id="un-booléen-en-informatique">
+1 représente la valeur <em>vrai</em>.
+</blockquote>
+
+<h3 id="un-booléen-en-informatique">
   Un booléen en informatique
   <a class="anchor" href="#un-bool%c3%a9en-en-informatique">#</a>
-</h2>
-<p>En python les booléens sont <code>True</code> et <code>False</code>.</p>
+</h3>
+<blockquote class="book-hint info">
+  <p>En python les booléens sont <code>False</code> et <code>True</code>.</p>
 <p>Toute <em>comparaison</em> produit un booléen.</p>
 <p>Par exemple, l&rsquo;instruction <code>1==2</code> s&rsquo;évalue à <code>False</code> :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">2</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
-</span></span></code></pre></div><p>Bien que le résultat soit faux, cette instruction est VALIDE.</p>
-<h2 id="fonction-qui-retourne-une-booléen">
-  Fonction qui retourne une booléen
-  <a class="anchor" href="#fonction-qui-retourne-une-bool%c3%a9en">#</a>
-</h2>
+</span></span></code></pre></div>
+</blockquote>
+
+<p>Bien que le résultat soit faux, cette instruction est VALIDE.</p>
+<h3 id="fonction-qui-renvoie-un-booléen">
+  Fonction qui renvoie un booléen
+  <a class="anchor" href="#fonction-qui-renvoie-un-bool%c3%a9en">#</a>
+</h3>
 <p>On peut tout à fait retourner un booléen.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_majeur</span>(age):
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> age <span style="color:#555">&gt;=</span> <span style="color:#f60">18</span>
 </span></span></code></pre></div><p>Et quand on l&rsquo;exécute :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> est_majeur(<span style="color:#f60">22</span>)
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
-</span></span></code></pre></div><h2 id="affecter-un-booléen-à-une-variable">
+</span></span></code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Comment reconnaître un débutant ?</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <p>Il écrit des trucs comme ça :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_majeur</span>(age):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> age <span style="color:#555">&gt;=</span> <span style="color:#f60">18</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<h3 id="affecter-un-booléen-à-une-variable">
   Affecter un booléen à une variable
   <a class="anchor" href="#affecter-un-bool%c3%a9en-%c3%a0-une-variable">#</a>
-</h2>
+</h3>
+<p>À nouveau, cela ne pose aucun problème.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> x <span style="color:#555">=</span> <span style="color:#f60">9</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># imaginez ici 50 lignes de code</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> comparaison <span style="color:#555">=</span> x <span style="color:#555">==</span> <span style="color:#f60">3</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> comparaison
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
-</span></span></code></pre></div><h2 id="opérateurs-booléens">
+</span></span></code></pre></div><h3 id="opérateurs-booléens">
   Opérateurs booléens
   <a class="anchor" href="#op%c3%a9rateurs-bool%c3%a9ens">#</a>
-</h2>
-<p>On définit sur ces valeurs booléennes trois opérations :</p>
+</h3>
+<blockquote class="book-hint info">
+  <p>On définit sur ces valeurs booléennes trois opérations :</p>
 <ul>
 <li>la négation (le NON logique)</li>
 <li>la conjonction (le ET logique)</li>
 <li>la disjonction (le OU logique)</li>
 </ul>
-<h2 id="le-non-logique">
+
+</blockquote>
+
+<p><em>Ce ne sont pas les seules mais ces opérations sont suffisantes pour décrire toute l&rsquo;algèbre de boole</em>.</p>
+<h3 id="le-non-logique">
   Le NON logique
   <a class="anchor" href="#le-non-logique">#</a>
-</h2>
+</h3>
 <p>Le NON logique d&rsquo;un booléen <em>a</em> se définit par :</p>
-<p>a    NON a</p>
-<hr>
-<p>0       1
-1       0</p>
 <p>NON <em>a</em> vaut VRAI si et seulement si <em>a</em> vaut FAUX.</p>
-<h2 id="le-et-logique">
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>NON a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="le-et-logique">
   Le ET logique
   <a class="anchor" href="#le-et-logique">#</a>
-</h2>
-<p>Le ET logique entre deux booléens <em>a</em> et <em>b</em> se définit par :<br>
-<em>a</em> ET <em>b</em> vaut VRAI si et seulement si <em>a</em> vaut VRAI et <em>b</em> vaut VRAI.</p>
-<p>a   b    a ET b</p>
-<hr>
-<p>0   0     0
-0   1     0
-1   0     0
-1   1     1</p>
-<h2 id="le-ou-logique">
+</h3>
+<p>Le ET logique entre deux booléens <em>a</em> et <em>b</em> se définit par :</p>
+<p><em>a</em> ET <em>b</em> vaut VRAI si et seulement si <em>a</em> vaut VRAI et <em>b</em> vaut VRAI.</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a ET b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="le-ou-logique">
   Le OU logique
   <a class="anchor" href="#le-ou-logique">#</a>
-</h2>
-<p>Le OU logique entre deux booléens <em>a</em> et <em>b</em> se définit par :
-<em>a</em> OU <em>b</em> vaut VRAI si et seulement si <em>a</em> vaut VRAI ou <em>b</em> vaut VRAI.\</p>
-<p>a   b    a OU b</p>
-<hr>
-<p>0   0     0
-0   1     1
-1   0     1
-1   1     1</p>
-<h2 id="équivalences">
+</h3>
+<p>Le OU logique entre deux booléens <em>a</em> et <em>b</em> se définit par :</p>
+<p><em>a</em> OU <em>b</em> vaut VRAI si et seulement si <em>a</em> vaut VRAI ou <em>b</em> vaut VRAI.</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a OU b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="équivalences">
   Équivalences
   <a class="anchor" href="#%c3%a9quivalences">#</a>
-</h2>
+</h3>
 <p>Il est possible de définir l&rsquo;opérateur OU logique à partir du
 NON logique et du ET logique.</p>
-<p>En effet, si <em>a</em> et <em>b</em> sont des booléens alors<br>
-<em>a OU b = NON ((NON a) ET (NON b))</em>.\ On peut utiliser les tables
+<p>En effet, si <em>a</em> et <em>b</em> sont des booléens alors</p>
+<p><em>a OU b = NON ((NON a) ET (NON b))</em>.</p>
+<p>On peut utiliser les tables
 de vérités pour démontrer cette égalité.</p>
-<h2 id="preuve">
+<h3 id="preuve">
   Preuve
   <a class="anchor" href="#preuve">#</a>
-</h2>
+</h3>
 <p>On construit une table dans
 lesquelles les colonnes représentent les différentes sous-expressions
 dont nous avons besoin. Les contenus des colonnes sont construits en
 appliquant aux colonnes connues les tables de vérité connues définies
 ci-dessus.</p>
 <p>Dans notre cas en plus de <em>a</em>, <em>b</em>, parmi les expressions
-utiles à notre calcul on trouve NON <em>a</em>, NON <em>b</em>. Une fois la table
-remplie pour ces deux expressions on peut déterminer celle de
-l&rsquo;expression (NON <em>a</em>) ET (NON <em>b</em>) :</p>
-<p>si on définit <em>x</em>=NON *a *et <em>y</em>= NON <em>b</em>,</p>
+utiles à notre calcul on trouve :</p>
+<p>NON <em>a</em>, NON <em>b</em>.</p>
+<p>Une fois la table remplie pour ces deux expressions on peut déterminer celle de
+l&rsquo;expression</p>
+<p>(NON <em>a</em>) ET (NON <em>b</em>) :</p>
+<p>si on définit <em>x</em>=NON <em>a</em> et <em>y</em>= NON <em>b</em>,</p>
 <p>alors (NON <em>a</em>) ET (NON <em>b</em>)=<em>x</em> ET <em>y</em>.</p>
-<h2 id="table-intermédiaire">
+<h3 id="table-intermédiaire">
   Table intermédiaire
   <a class="anchor" href="#table-interm%c3%a9diaire">#</a>
-</h2>
-<p>a   b   NON a   NON b   (NON a) ET (NON b)</p>
-<hr>
-<pre><code>      x       y       x ET y
-</code></pre>
-<p>0   0   1       1       1
-0   1   1       0       0
-1   0   0       1       0
-1   1   0       0       0</p>
+</h3>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>NON a</th>
+<th>NON b</th>
+<th>(NON a) ET (NON b)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>y</td>
+<td></td>
+<td></td>
+<td>x ET y</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <p>On complète alors la table avec les expressions : NON ((NON <em>a</em>) ET (NON
 <em>b</em>)) et (<em>a</em> OU <em>b</em>)</p>
-<h2 id="table-finale">
+<h3 id="table-finale">
   Table finale
   <a class="anchor" href="#table-finale">#</a>
-</h2>
-<p>a   b   (NON a) ET (NON b)   (NON <em>a</em>) ET (NON <em>b</em>)     <em>a</em> OU <em>b</em></p>
-<hr>
-<pre><code>      (x ET y) = z         NON z
-</code></pre>
-<p>0   0   1                    0                          0
-0   1   0                    1                          1
-1   0   0                    1                          1
-1   1   0                    1                          1</p>
+</h3>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>(NON a) ET (NON b)</th>
+<th>NON((NON a) ET (NON b))</th>
+<th>a OU b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>(x ET y) = z</td>
+<td>NON   z</td>
+<td></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p>L&rsquo;égalité des contenus des deux dernières colonnes
 démontre l&rsquo;équivalence des deux expressions.</p>
-<h2 id="a-et-b">
-  <em>a</em> ET <em>b</em>
-  <a class="anchor" href="#a-et-b">#</a>
-</h2>
-<h3 id="exercice-3">
-  Exercice
-  <a class="anchor" href="#exercice-3">#</a>
+<h3 id="exercice-3--_a_-et-_b_">
+  Exercice 3 : <strong><em>a</em> ET <em>b</em></strong>
+  <a class="anchor" href="#exercice-3--_a_-et-_b_">#</a>
 </h3>
 <ol>
 <li>
-<p>Trouvez une expression équivalente à <em>a</em> ET *b *construite
+<p>Trouvez une expression équivalente à <em>a</em> ET <em>b</em> construite
 uniquement à partir des opérateurs NON et OU.</p>
 </li>
 <li>
@@ -6415,13 +6618,9 @@ uniquement à partir des opérateurs NON et OU.</p>
 tables de vérité.</p>
 </li>
 </ol>
-<h2 id="lois-de-morgan">
-  Lois de Morgan
-  <a class="anchor" href="#lois-de-morgan">#</a>
-</h2>
-<h3 id="exercice-4">
-  Exercice
-  <a class="anchor" href="#exercice-4">#</a>
+<h3 id="exercice-4--lois-de-morgan">
+  Exercice 4 : Lois de Morgan
+  <a class="anchor" href="#exercice-4--lois-de-morgan">#</a>
 </h3>
 <ol>
 <li>
@@ -6439,56 +6638,137 @@ tables de vérité.</p>
 </ol>
 </li>
 </ol>
-<h2 id="ou-exclusif">
+<h3 id="ou-exclusif">
   OU exclusif
   <a class="anchor" href="#ou-exclusif">#</a>
-</h2>
-<p>a   b   a XOR b</p>
-<hr>
-<p>0   0   0
-0   1   1
-1   0   1
-1   1   0</p>
+</h3>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a XOR b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <p>On rencontre également défini l&rsquo;opérateur OU-exclusif, également appelé
 XOR (pour &ldquo;eXclusive OR&rdquo;).</p>
-<h3 id="exercice-5">
-  Exercice
-  <a class="anchor" href="#exercice-5">#</a>
+<h3 id="exercice-5--xor-à-partir-des-premiers">
+  Exercice 5 : XOR à partir des premiers
+  <a class="anchor" href="#exercice-5--xor-%c3%a0-partir-des-premiers">#</a>
 </h3>
 <p>Démontrez l&rsquo;équivalence :</p>
 <p><em>a</em> XOR <em>b</em> = (<em>a</em> ET (NON <em>b</em>))) OU ((NON <em>a</em>) ET <em>b</em>)</p>
-<h2 id="opérateurs-bits-à-bits-en-python">
+<h2 id="opérateurs-en-taille-quelconque">
+  Opérateurs en taille quelconque
+  <a class="anchor" href="#op%c3%a9rateurs-en-taille-quelconque">#</a>
+</h2>
+<p>On applique, bit par bit nos opérateurs usuels :</p>
+<h3 id="not-bit-à-bit">
+  NOT bit à bit
+  <a class="anchor" href="#not-bit-%c3%a0-bit">#</a>
+</h3>
+<p>Chaque bit est inversé.</p>
+<p>Sur 4 bits, NOT 7 = 8</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>NOT <span style="color:#f60">0111</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">1000</span>
+</span></span></code></pre></div><h3 id="et-bit-à-bit">
+  ET bit à bit
+  <a class="anchor" href="#et-bit-%c3%a0-bit">#</a>
+</h3>
+<p>Sur 4 bits, 5 AND 3 = 1 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">0101</span>
+</span></span><span style="display:flex;"><span>AND <span style="color:#f60">0011</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">0001</span>
+</span></span></code></pre></div><h3 id="ou-bit-à-bit">
+  OU bit à bit
+  <a class="anchor" href="#ou-bit-%c3%a0-bit">#</a>
+</h3>
+<p>Sur 4 bits, 5 OR 3 = 7 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>   <span style="color:#f60">0101</span>
+</span></span><span style="display:flex;"><span>OR <span style="color:#f60">0011</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">=</span> <span style="color:#f60">0111</span>
+</span></span></code></pre></div><h3 id="xor-bit-à-bit">
+  XOR bit à bit
+  <a class="anchor" href="#xor-bit-%c3%a0-bit">#</a>
+</h3>
+<p>Sur 4 bits, 5 XOR 3 = 6 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">0101</span>
+</span></span><span style="display:flex;"><span>XOR <span style="color:#f60">0011</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">0110</span>
+</span></span></code></pre></div><h3 id="opérateurs-bits-à-bits-en-python">
   Opérateurs bits à bits en Python
   <a class="anchor" href="#op%c3%a9rateurs-bits-%c3%a0-bits-en-python">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#555">&lt;&lt;</span> y      <span style="color:#09f;font-style:italic"># x décalé de y bits à gauche (vu plus tard)</span>
-</span></span><span style="display:flex;"><span>x <span style="color:#555">&gt;&gt;</span> y      <span style="color:#09f;font-style:italic"># x décalé de y bits à droite (vu plus tard)</span>
-</span></span><span style="display:flex;"><span>x <span style="color:#555">&amp;</span> y       <span style="color:#09f;font-style:italic"># ET  bit à bit (ampersand)</span>
+</h3>
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#555">&amp;</span> y       <span style="color:#09f;font-style:italic"># ET  bit à bit (ampersand)</span>
 </span></span><span style="display:flex;"><span>x <span style="color:#555">|</span> y       <span style="color:#09f;font-style:italic"># OU  bit à bit (tuyau)</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">~</span>x          <span style="color:#09f;font-style:italic"># NON bit à bit (tilde)</span>
 </span></span><span style="display:flex;"><span>x <span style="color:#555">^</span> y       <span style="color:#09f;font-style:italic"># XOR bit à bit (accent circonflexe)</span>
-</span></span></code></pre></div><h2 id="par-exemple-pour-le-xor-bit-à-bit">
-  Par exemple, pour le XOR bit à bit
-  <a class="anchor" href="#par-exemple-pour-le-xor-bit-%c3%a0-bit">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0 ^ 0 = 0
-</span></span><span style="display:flex;"><span>0 ^ 1 = 1
-</span></span><span style="display:flex;"><span>1 ^ 0 = 1
-</span></span><span style="display:flex;"><span>1 ^ 1 = 0
-</span></span><span style="display:flex;"><span>60       = 0b111100
-</span></span><span style="display:flex;"><span>30       = 0b011110
-</span></span><span style="display:flex;"><span>60 ^ 30  = 0b100010
-</span></span><span style="display:flex;"><span>0b100010 = 34
+</span></span></code></pre></div>
+</blockquote>
+
+<p><strong>Par exemple, pour le XOR bit à bit</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f60">0</span> <span style="color:#555">^</span> <span style="color:#f60">0</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">0</span> <span style="color:#555">^</span> <span style="color:#f60">1</span> <span style="color:#555">=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span> <span style="color:#555">^</span> <span style="color:#f60">0</span> <span style="color:#555">=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span> <span style="color:#555">^</span> <span style="color:#f60">1</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">60</span>       <span style="color:#555">=</span> <span style="color:#f60">0b111100</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">30</span>       <span style="color:#555">=</span> <span style="color:#f60">0b011110</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">60</span> <span style="color:#555">^</span> <span style="color:#f60">30</span>  <span style="color:#555">=</span> <span style="color:#f60">0b100010</span> <span style="color:#09f;font-style:italic"># XOR bit à bit en colonne</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">0b100010</span> <span style="color:#555">=</span> <span style="color:#f60">34</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">60</span> <span style="color:#555">^</span> <span style="color:#f60">30</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">34</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">60</span> <span style="color:#555">^</span> <span style="color:#f60">30</span>)
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0b100010&#39;</span>
-</span></span></code></pre></div><h2 id="et-bit-à-bit">
-  Et bit à bit
-  <a class="anchor" href="#et-bit-%c3%a0-bit">#</a>
-</h2>
+</span></span></code></pre></div><h3 id="décalages-à-gauche-et-à-droite">
+  Décalages à gauche et à droite
+  <a class="anchor" href="#d%c3%a9calages-%c3%a0-gauche-et-%c3%a0-droite">#</a>
+</h3>
+<p>Il existe aussi deux opérations courantes lorsqu&rsquo;on manipule des bits :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#555">&lt;&lt;</span> y      <span style="color:#09f;font-style:italic"># x décalé de y bits à gauche</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#555">&gt;&gt;</span> y      <span style="color:#09f;font-style:italic"># x décalé de y bits à droite</span>
+</span></span></code></pre></div><p>Par exemple</p>
+<ul>
+<li><code>111 &lt;&lt; 2 = 11100</code> : décalage de 2 bits vers la gauche.</li>
+<li><code>101110 &gt;&gt; 3 = 101</code> : décalage de 3 bits vers la droite (les bits trop à droite sont supprimés).</li>
+</ul>
+<p>Ces opérations correspondent à des produits ou des divisions par 2 :</p>
+<ul>
+<li>décaler d&rsquo;un bit vers la gauche c&rsquo;est multiplier par 2,</li>
+<li>décaler d&rsquo;un bit vers la droite c&rsquo;est diviser (entièrement) par 2.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> (x <span style="color:#555">&lt;&lt;</span> y) <span style="color:#555">==</span> x <span style="color:#555">*</span> <span style="color:#f60">2</span> <span style="color:#555">**</span> y
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> (x <span style="color:#555">&gt;&gt;</span> y) <span style="color:#555">==</span> x <span style="color:#555">//</span> (<span style="color:#f60">2</span> <span style="color:#555">**</span> y)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
+</span></span></code></pre></div><p>Un schéma electronique représentant un décalage à gauche</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/Rotate_left_logically.png" alt="Décalage à gauche" /></p>
 <h3 id="exercice-6">
-  Exercice
+  Exercice 6
   <a class="anchor" href="#exercice-6">#</a>
 </h3>
 <ol>
@@ -6496,10 +6776,10 @@ XOR (pour &ldquo;eXclusive OR&rdquo;).</p>
 <li>Calculez la représentation binaire de 15.</li>
 <li>Démontrer que le ET bit à bit entre 29 et 15 vaut 13.</li>
 </ol>
-<h2 id="les-masques-de-sous-réseau">
+<h3 id="les-masques-de-sous-réseau">
   Les masques de sous-réseau
   <a class="anchor" href="#les-masques-de-sous-r%c3%a9seau">#</a>
-</h2>
+</h3>
 <p>Très largement inspiré de
 <a href="http://fr.wikipedia.org/wiki/Sous-r%C3%A9seau#Masque_de_sous-r.C3.A9seau">cet article</a> de Wikipedia.</p>
 <p>Les adresses IP de version 4, IPv4, sont codés sur <strong>32 bits</strong>.</p>
@@ -6510,19 +6790,19 @@ XOR (pour &ldquo;eXclusive OR&rdquo;).</p>
 Ils utilisent la même représentation.</p>
 <p>On utilise des masques constitués (sous leur forme binaire) d&rsquo;une suite
 de 1 suivis d&rsquo;une suite de 0, il y a donc 32 masques réseau possibles.</p>
-<h2 id="exemple-de-masque">
+<h3 id="exemple-de-masque">
   Exemple de masque
   <a class="anchor" href="#exemple-de-masque">#</a>
-</h2>
+</h3>
 <p>Un exemple possible est le masque <code>255.255.255.0</code>.</p>
 <p>Pour obtenir l&rsquo;adresse du sous-réseau on applique l&rsquo;opérateur ET entre les notations binaires de l&rsquo;adresse IP et du masque de sous-réseau.</p>
 <p>L&rsquo;adresse de l&rsquo;hôte à l&rsquo;intérieur du sous-réseau est quant à elle obtenue
 en appliquant l&rsquo;opérateur ET entre l&rsquo;adresse IPv4 et la négation (NON)
 du masque.</p>
-<h2 id="exercice-7">
-  Exercice
-  <a class="anchor" href="#exercice-7">#</a>
-</h2>
+<h3 id="exercice-7---masques-de-sous-réseau">
+  Exercice 7 - Masques de sous-réseau
+  <a class="anchor" href="#exercice-7---masques-de-sous-r%c3%a9seau">#</a>
+</h3>
 <ol>
 <li>Calculez le code binaire correspondant à l&rsquo;adresse <code>192.168.100.2</code></li>
 <li>Calculez le code binaire correspondant au masque <code>255.255.255.0</code>.</li>
@@ -6530,83 +6810,82 @@ du masque.</p>
 <li>Vérifier que l&rsquo;adresse de l&rsquo;hôte est <code>0.0.0.2</code></li>
 </ol>
 <p><em>Conclusion</em> : si le masque n&rsquo;est constitué que de 255 et de 0 c&rsquo;est facile.</p>
+<hr>
 <h1 id="vers-lélectronique-et-le-calcul">
   Vers l&rsquo;électronique et le calcul
   <a class="anchor" href="#vers-l%c3%a9lectronique-et-le-calcul">#</a>
 </h1>
-<h2 id="représentation-graphique">
+<h2 id="électronique">
+  Électronique
+  <a class="anchor" href="#%c3%a9lectronique">#</a>
+</h2>
+<h3 id="représentation-graphique">
   Représentation graphique
   <a class="anchor" href="#repr%c3%a9sentation-graphique">#</a>
-</h2>
+</h3>
 <p>A chaque porte est associée une représentation graphique. Voici pour les
 portes ET et XOR :</p>
 <ul>
 <li>porte ET</li>
 </ul>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/porte-et.png" alt="porte ET" />{ width=150px }</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/porte-et.png" alt="porte ET" /></p>
 <ul>
 <li>Porte XOR</li>
 </ul>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/porte-xor.png" alt="porte XOR" />{ width=150px }</p>
-<h2 id="portes-logiques">
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/porte-xor.png" alt="porte XOR" /></p>
+<h3 id="portes-logiques">
   Portes logiques
   <a class="anchor" href="#portes-logiques">#</a>
-</h2>
+</h3>
 <p>Les opérations logiques évoquées ci-dessus sont mises en oeuvre en
 électronique sous forme de <strong>portes logiques</strong>.</p>
 <p>Les circuits électroniques calculent des fonctions logiques de l&rsquo;algèbre de Boole.</p>
-<p>Pour chacun des opérateurs logiques évoquées ci-dessus (et d&rsquo;autres) il existe donc des portes logiques appelés <em>porte ET</em>, <em>porte NON</em>, etc. Les valeurs *vrai *et <em>faux</em> sont représentées par deux niveaux de tension, <em>haut</em> et <em>bas</em>.</p>
-<h2 id="demi-additionneur">
+<p>Pour chacun des opérateurs logiques évoquées ci-dessus (et d&rsquo;autres) il existe donc des portes logiques appelés
+<em>porte ET</em>, <em>porte NON</em>, etc. Les valeurs <em>vrai</em> et <em>faux</em> sont représentées par deux niveaux de tension, <em>haut</em> et <em>bas</em>.</p>
+<h3 id="demi-additionneur">
   Demi additionneur
   <a class="anchor" href="#demi-additionneur">#</a>
-</h2>
+</h3>
 <p>Un circuit de type <em>porte ET</em> dispose donc de deux entrées et une sortie.</p>
 <p>La valeur du niveau de tension en sortie est obtenue avec la table de vérité
 du ET.</p>
 <p>Les portes peuvent être connectées entre elles pour réaliser des
 <strong>circuits logiques</strong> et on peut ainsi réaliser des calculs.</p>
-<h2 id="circuit-du-demi-additionneur">
+<h3 id="circuit-du-demi-additionneur">
   Circuit du demi additionneur
   <a class="anchor" href="#circuit-du-demi-additionneur">#</a>
-</h2>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/demi-additionneur.png" alt="demi-additionneur" />{width=300px}</p>
+</h3>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/demi-additionneur.png" alt="demi-additionneur" /></p>
 <p>Il est appelé <em>demi-additionneur</em> car il réalise l&rsquo;addition de 2 bits
 (<strong>A</strong> et <strong>B</strong>), le résultats de cette somme est représentée par <strong>S</strong>
 et la retenue éventuelle par <strong>R</strong>.</p>
-<h2 id="étude-du-demi-additionneur">
-  Étude du demi-additionneur
-  <a class="anchor" href="#%c3%a9tude-du-demi-additionneur">#</a>
-</h2>
-<h3 id="exercice-8">
-  Exercice
-  <a class="anchor" href="#exercice-8">#</a>
+<h3 id="exercice-8---étude-du-demi-additionneur">
+  Exercice 8 - Étude du demi-additionneur
+  <a class="anchor" href="#exercice-8---%c3%a9tude-du-demi-additionneur">#</a>
 </h3>
 <p>Vérifiez, avec une table de vérité, que <strong>S</strong> et <strong>R</strong> correspondent bien aux
 valeurs de la somme et de la retenue sur 1 bit de <strong>A</strong> et <strong>B</strong>.</p>
-<h2 id="un-exemple-plus-élaboré-le-circuit-7400">
+<h3 id="un-exemple-plus-élaboré-le-circuit-7400">
   Un exemple plus élaboré, le circuit 7400
   <a class="anchor" href="#un-exemple-plus-%c3%a9labor%c3%a9-le-circuit-7400">#</a>
-</h2>
+</h3>
 <p>Circuit intégré 7400 contenant 4 portes NON-ET (NAND). Les deux
 autres broches servent à l&rsquo;alimentation 0V / 5V.</p>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/circuit-7400.jpg" alt="circuit intégré 7400" />{width=400px}</p>
-<h2 id="combinaisons-plus-complexes">
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/circuit-7400.jpg" alt="circuit intégré 7400" /></p>
+<h3 id="combinaisons-plus-complexes">
   Combinaisons plus complexes
   <a class="anchor" href="#combinaisons-plus-complexes">#</a>
-</h2>
+</h3>
 <p>A partir de ce circuit on peut en construire d&rsquo;autres plus complexes
 permettant d&rsquo;additionner des nombres de plusieurs bits. Voir <a href="http://fr.wikipedia.org/wiki/Additionneur">sur cette page</a> par exemple.</p>
 <p>Et on combine&hellip; jusqu&rsquo;au micro-processeur qui réalise les calculs au sein d&rsquo;un
 ordinateur. Il &ldquo;suffit&rdquo; de trouver la bonne organisation.</p>
 <p>C&rsquo;est un peu comme les Lego en somme&hellip; Vous pourrez trouver <a href="http://fr.wikipedia.org/wiki/Circuit_logique">ici quelques compléments.</a></p>
-<h2 id="nombres-en-binaires-de-plusieurs-chiffres">
+<h3 id="nombres-en-binaires-de-plusieurs-chiffres">
   Nombres en binaires de plusieurs chiffres
   <a class="anchor" href="#nombres-en-binaires-de-plusieurs-chiffres">#</a>
-</h2>
-<h3 id="comment-ajouter-rapidement-deux-nombres-en-binaire-">
-  Comment ajouter rapidement deux nombres en binaire ?
-  <a class="anchor" href="#comment-ajouter-rapidement-deux-nombres-en-binaire-">#</a>
 </h3>
+<p><em>Comment ajouter rapidement deux nombres en binaire ?</em></p>
 <p>$5 + 4 = 9$ donc $0b101 + 0b100 = 0b1001$</p>
 <p>On  part du dernier bit (de poids faible) et on compte les retenues.</p>
 <p>Il suffit donc de deux portes logiques pour réaliser une addition sur un bit :
@@ -6614,67 +6893,7 @@ le calcul du bit se fait par un XOR et la retenue par un AND.</p>
 <p>Il serait intéressant, pour limiter le nombre de composants de pouvoir décaler
 les bits. Ainsi, en décalant à droite et en conservant les retenues, on aurait
 toujours affaire au bit de poids faible.</p>
-<h2 id="opérateurs-en-taille-quelconque">
-  Opérateurs en taille quelconque
-  <a class="anchor" href="#op%c3%a9rateurs-en-taille-quelconque">#</a>
-</h2>
-<p>On applique, bit par bit nos opérateurs usuels :</p>
-<h2 id="not-bit-à-bit">
-  NOT bit à bit
-  <a class="anchor" href="#not-bit-%c3%a0-bit">#</a>
-</h2>
-<p>Chaque bit est inversé.</p>
-<p>Sur 4 bits, NOT 7 = 8</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>NOT 0111
-</span></span><span style="display:flex;"><span>  = 1000
-</span></span></code></pre></div><h2 id="et-bit-à-bit-1">
-  ET bit à bit
-  <a class="anchor" href="#et-bit-%c3%a0-bit-1">#</a>
-</h2>
-<p>Sur 4 bits, 5 AND 3 = 1 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    0101
-</span></span><span style="display:flex;"><span>AND 0011
-</span></span><span style="display:flex;"><span>  = 0001
-</span></span></code></pre></div><h2 id="ou-bit-à-bit">
-  OU bit à bit
-  <a class="anchor" href="#ou-bit-%c3%a0-bit">#</a>
-</h2>
-<p>Sur 4 bits, 5 OR 3 = 7 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   0101
-</span></span><span style="display:flex;"><span>OR 0011
-</span></span><span style="display:flex;"><span> = 0111
-</span></span></code></pre></div><h2 id="xor-bit-à-bit">
-  XOR bit à bit
-  <a class="anchor" href="#xor-bit-%c3%a0-bit">#</a>
-</h2>
-<p>Sur 4 bits, 5 XOR 3 = 6 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    0101
-</span></span><span style="display:flex;"><span>XOR 0011
-</span></span><span style="display:flex;"><span>  = 0110
-</span></span></code></pre></div><h2 id="décalage-de-bits">
-  Décalage de bits
-  <a class="anchor" href="#d%c3%a9calage-de-bits">#</a>
-</h2>
-<p>En décimal, un décalage à gauche est une multiplication par 10,</p>
-<p>un décalage à droite, une division par 10 (entière)</p>
-<p>En binaire :</p>
-<ul>
-<li><strong>décalage à gauche</strong> : multiplication par 2</li>
-<li><strong>décalage à droite</strong> : division par 2 (entière)</li>
-</ul>
-<p>On supprime un bit d&rsquo;un côté et on le remplace par un zéro.</p>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/Rotate_left_logically.png" alt="Décalage à gauche" />{width=50%}</p>
-<h2 id="décalages-à-gauche-et-à-droite-python">
-  Décalages à gauche et à droite Python
-  <a class="anchor" href="#d%c3%a9calages-%c3%a0-gauche-et-%c3%a0-droite-python">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># 1 * 2**5 = 32</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#555">&lt;&lt;</span> <span style="color:#f60">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#f60">32</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># 128 / 2**4 = 8</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">128</span> <span style="color:#555">&gt;&gt;</span> <span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span><span style="color:#f60">8</span>
-</span></span></code></pre></div></article>
+</article>
 
                 
 
@@ -6736,103 +6955,76 @@ toujours affaire au bit de poids faible.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imgbinaire_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imgbinaire_slidespdf">pdf <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_print.pdf">pour impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/binaire_slides.pdf">diaporama</a></a></li>
+    <li><a href="#binaire">Binaire</a>
+      <ul>
+        <li><a href="#différentes-bases">Différentes bases</a></li>
+        <li><a href="#système-de-représentation-par-position">Système de représentation par position</a></li>
+        <li><a href="#numération-par-position">Numération par position</a></li>
+        <li><a href="#les-puissances-de-2">Les puissances de 2</a></li>
+        <li><a href="#du-binaire-au-décimal">Du binaire au décimal.</a></li>
+        <li><a href="#du-décimal-au-binaire">Du décimal au binaire.</a></li>
+        <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
+        <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a></li>
+        <li><a href="#exercice-1">Exercice 1</a></li>
+        <li><a href="#exercice-2">Exercice 2</a></li>
+        <li><a href="#binaire-en-python">Binaire en Python</a></li>
+        <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
+        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
+        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
+        <li><a href="#le-logarithme-binaire">Le logarithme binaire</a></li>
+      </ul>
+    </li>
   </ul>
 
   <ul>
-    <li><a href="#différentes-bases">Différentes bases</a></li>
-    <li><a href="#système-de-représentation-par-position">Système de représentation par position</a></li>
-    <li><a href="#numération-par-position">numération par position</a></li>
-    <li><a href="#du-binaire-au-décimal">Du binaire au décimal.</a></li>
-    <li><a href="#du-décimal-au-binaire">Du décimal au binaire.</a></li>
-    <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
-    <li><a href="#heading"></a>
+    <li><a href="#booléen">Booléen</a>
       <ul>
-        <li><a href="#10-types-of-peopleuploadsdocsnsidonnees_qkzk_img10typesofppljpgwidth40"><img src="/uploads/docsnsi/donnees_qkzk_img/10typesofppl.jpg" alt="10 types of people">{width=40%}</a></li>
+        <li><a href="#un-booléen-en-informatique">Un booléen en informatique</a></li>
+        <li><a href="#fonction-qui-renvoie-un-booléen">Fonction qui renvoie un booléen</a></li>
+        <li><a href="#affecter-un-booléen-à-une-variable">Affecter un booléen à une variable</a></li>
+        <li><a href="#opérateurs-booléens">Opérateurs booléens</a></li>
+        <li><a href="#le-non-logique">Le NON logique</a></li>
+        <li><a href="#le-et-logique">Le ET logique</a></li>
+        <li><a href="#le-ou-logique">Le OU logique</a></li>
+        <li><a href="#équivalences">Équivalences</a></li>
+        <li><a href="#preuve">Preuve</a></li>
+        <li><a href="#table-intermédiaire">Table intermédiaire</a></li>
+        <li><a href="#table-finale">Table finale</a></li>
+        <li><a href="#exercice-3--_a_-et-_b_">Exercice 3 : <strong><em>a</em> ET <em>b</em></strong></a></li>
+        <li><a href="#exercice-4--lois-de-morgan">Exercice 4 : Lois de Morgan</a></li>
+        <li><a href="#ou-exclusif">OU exclusif</a></li>
+        <li><a href="#exercice-5--xor-à-partir-des-premiers">Exercice 5 : XOR à partir des premiers</a></li>
       </ul>
     </li>
-    <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a>
+    <li><a href="#opérateurs-en-taille-quelconque">Opérateurs en taille quelconque</a>
       <ul>
-        <li><a href="#divisions-successivesuploadsdocsnsidonnees_qkzk_imgdivisionspng"><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives"></a></li>
+        <li><a href="#not-bit-à-bit">NOT bit à bit</a></li>
+        <li><a href="#et-bit-à-bit">ET bit à bit</a></li>
+        <li><a href="#ou-bit-à-bit">OU bit à bit</a></li>
+        <li><a href="#xor-bit-à-bit">XOR bit à bit</a></li>
+        <li><a href="#opérateurs-bits-à-bits-en-python">Opérateurs bits à bits en Python</a></li>
+        <li><a href="#décalages-à-gauche-et-à-droite">Décalages à gauche et à droite</a></li>
+        <li><a href="#exercice-6">Exercice 6</a></li>
+        <li><a href="#les-masques-de-sous-réseau">Les masques de sous-réseau</a></li>
+        <li><a href="#exemple-de-masque">Exemple de masque</a></li>
+        <li><a href="#exercice-7---masques-de-sous-réseau">Exercice 7 - Masques de sous-réseau</a></li>
       </ul>
     </li>
-    <li><a href="#changements-de-bases">Changements de bases</a>
-      <ul>
-        <li><a href="#exercice">Exercice</a></li>
-        <li><a href="#exercice-1">Exercice</a></li>
-        <li><a href="#exercice-2">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#binaire-en-python">Binaire en Python</a></li>
-    <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
-    <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
-    <li><a href="#taille-et-opérations">Taille et opérations</a></li>
   </ul>
 
   <ul>
-    <li><a href="#booléen-">Booléen ?</a></li>
-    <li><a href="#un-booléen-en-informatique">Un booléen en informatique</a></li>
-    <li><a href="#fonction-qui-retourne-une-booléen">Fonction qui retourne une booléen</a></li>
-    <li><a href="#affecter-un-booléen-à-une-variable">Affecter un booléen à une variable</a></li>
-    <li><a href="#opérateurs-booléens">Opérateurs booléens</a></li>
-    <li><a href="#le-non-logique">Le NON logique</a></li>
-    <li><a href="#le-et-logique">Le ET logique</a></li>
-    <li><a href="#le-ou-logique">Le OU logique</a></li>
-    <li><a href="#équivalences">Équivalences</a></li>
-    <li><a href="#preuve">Preuve</a></li>
-    <li><a href="#table-intermédiaire">Table intermédiaire</a></li>
-    <li><a href="#table-finale">Table finale</a></li>
-    <li><a href="#a-et-b"><em>a</em> ET <em>b</em></a>
+    <li><a href="#électronique">Électronique</a>
       <ul>
-        <li><a href="#exercice-3">Exercice</a></li>
+        <li><a href="#représentation-graphique">Représentation graphique</a></li>
+        <li><a href="#portes-logiques">Portes logiques</a></li>
+        <li><a href="#demi-additionneur">Demi additionneur</a></li>
+        <li><a href="#circuit-du-demi-additionneur">Circuit du demi additionneur</a></li>
+        <li><a href="#exercice-8---étude-du-demi-additionneur">Exercice 8 - Étude du demi-additionneur</a></li>
+        <li><a href="#un-exemple-plus-élaboré-le-circuit-7400">Un exemple plus élaboré, le circuit 7400</a></li>
+        <li><a href="#combinaisons-plus-complexes">Combinaisons plus complexes</a></li>
+        <li><a href="#nombres-en-binaires-de-plusieurs-chiffres">Nombres en binaires de plusieurs chiffres</a></li>
       </ul>
     </li>
-    <li><a href="#lois-de-morgan">Lois de Morgan</a>
-      <ul>
-        <li><a href="#exercice-4">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#ou-exclusif">OU exclusif</a>
-      <ul>
-        <li><a href="#exercice-5">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#opérateurs-bits-à-bits-en-python">Opérateurs bits à bits en Python</a></li>
-    <li><a href="#par-exemple-pour-le-xor-bit-à-bit">Par exemple, pour le XOR bit à bit</a></li>
-    <li><a href="#et-bit-à-bit">Et bit à bit</a>
-      <ul>
-        <li><a href="#exercice-6">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#les-masques-de-sous-réseau">Les masques de sous-réseau</a></li>
-    <li><a href="#exemple-de-masque">Exemple de masque</a></li>
-    <li><a href="#exercice-7">Exercice</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#représentation-graphique">Représentation graphique</a></li>
-    <li><a href="#portes-logiques">Portes logiques</a></li>
-    <li><a href="#demi-additionneur">Demi additionneur</a></li>
-    <li><a href="#circuit-du-demi-additionneur">Circuit du demi additionneur</a></li>
-    <li><a href="#étude-du-demi-additionneur">Étude du demi-additionneur</a>
-      <ul>
-        <li><a href="#exercice-8">Exercice</a></li>
-      </ul>
-    </li>
-    <li><a href="#un-exemple-plus-élaboré-le-circuit-7400">Un exemple plus élaboré, le circuit 7400</a></li>
-    <li><a href="#combinaisons-plus-complexes">Combinaisons plus complexes</a></li>
-    <li><a href="#nombres-en-binaires-de-plusieurs-chiffres">Nombres en binaires de plusieurs chiffres</a>
-      <ul>
-        <li><a href="#comment-ajouter-rapidement-deux-nombres-en-binaire-">Comment ajouter rapidement deux nombres en binaire ?</a></li>
-      </ul>
-    </li>
-    <li><a href="#opérateurs-en-taille-quelconque">Opérateurs en taille quelconque</a></li>
-    <li><a href="#not-bit-à-bit">NOT bit à bit</a></li>
-    <li><a href="#et-bit-à-bit-1">ET bit à bit</a></li>
-    <li><a href="#ou-bit-à-bit">OU bit à bit</a></li>
-    <li><a href="#xor-bit-à-bit">XOR bit à bit</a></li>
-    <li><a href="#décalage-de-bits">Décalage de bits</a></li>
-    <li><a href="#décalages-à-gauche-et-à-droite-python">Décalages à gauche et à droite Python</a></li>
   </ul>
 </nav>
 

@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf pour impression #  En informatique, on rencontre souvent des problèmes d&rsquo;optimisation comme celui mis en oeuvre dans le rendu de monnaie. Les algorithmes gloutons sont couramment utilisés pour les résoudre.
-1. Le rendu de monnaie #   On veut programmer une caisse automatique pour qu&rsquo;elle rende la monnaie de façon optimale, c&rsquo;est-à-dire avec le nombre minimal de pièces et billets. La valeur des pièes et billets à disposition sont : 1, 2, 20, 5, 10, 50, 100 et 200 euros.">
+<meta name="description" content="Algorithmes glouton #  pdf pour impression
+En informatique, on rencontre souvent des problèmes d&rsquo;optimisation. Les algorithmes gloutons sont couramment utilisés pour les résoudre.  1. Le rendu de monnaie #  Afin d&rsquo;illustrer les algorithmes glouton, nous allons commencer par l&rsquo;exemple classique du rendu de monnaie.
+ On veut programmer une caisse automatique pour qu&rsquo;elle rende la monnaie de façon optimale, c&rsquo;est-à-dire avec le nombre minimal de pièces et billets.">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="1. cours" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="1. Cours" />
 <meta property="og:description" content="Informatique et mathématiques" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" />
 
-<title>1. cours | qkzk</title>
+<title>1. Cours | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e9436b28674b4fbe17f69180e7b412b4db98cf954068a075c8e5785bb82c5bb1.js" integrity="sha256-6UNrKGdLT74X9pGA57QStNuYz5VAaKB1yOV4W7gsW7E=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9d0906a5071131483891bbd85ad44c9fb0bfebca37dd7c517f37041bf6716e1c.js" integrity="sha256-nQkGpQcRMUg4kbvYWtRMn7C/68o33XxRfzcEG/Zxbhw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -55,7 +56,7 @@ MathJax.Hub.Config({
         <div class="container flex content-desktop ">
             <a id="bannerTitle" href="/">
                 <h1 id="siteTitle">
-                    1. cours
+                    1. Cours
                     
                 </h1>
             </a>
@@ -1374,7 +1375,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-717cf588b3f314c9bb0655dc545c4145" class="toggle" checked />
     <label for="section-717cf588b3f314c9bb0655dc545c4145" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="active">1. cours</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/1_cours/" class="active">1. Cours</a>
     </label>
   
 
@@ -1519,7 +1520,7 @@ MathJax.Hub.Config({
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1 Cours</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/1_cours/" class="">1. Cours - kNN</a>
   
 
           
@@ -5904,7 +5905,7 @@ MathJax.Hub.Config({
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>1. cours</strong>
+  <strong>1. Cours</strong>
 
   <label for="toc-control">
     
@@ -5921,17 +5922,19 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-le-rendu-de-monnaie">1. Le rendu de monnaie</a></li>
+    <li><a href="#2-résolution-du-problème-de-rendu-de-monnaie">2. Résolution du problème de rendu de monnaie</a>
       <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocsnsialgoglouton1_courspdf">pdf <a href="/uploads/docsnsi/algo/glouton/1_cours.pdf">pour impression</a></a></li>
+        <li><a href="#la-force-brute-comme-moi">La force brute (comme moi)</a></li>
+        <li><a href="#lalgorithme-glouton">L&rsquo;algorithme glouton</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#1-la-force-brute">1. La force brute</a></li>
-    <li><a href="#2-lalgorithme-glouton">2. L&rsquo;algorithme glouton</a></li>
-    <li><a href="#3-solution-du-problème-de-rendu-de-monnaie">3. Solution du problème de rendu de monnaie</a></li>
+    <li><a href="#3-déroulé-à-la-main">3. Déroulé à la main</a>
+      <ul>
+        <li><a href="#pertinence-des-algorithmes-gloutons">Pertinence des algorithmes gloutons</a></li>
+      </ul>
+    </li>
+    <li><a href="#programmer-le-rendu-de-monnaie">Programmer le rendu de monnaie</a></li>
   </ul>
 </nav>
 
@@ -5945,37 +5948,44 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocsnsialgoglouton1_courspdf">
-  pdf <a href="/uploads/docsnsi/algo/glouton/1_cours.pdf">pour impression</a>
-  <a class="anchor" href="#pdf-pour-impressionuploadsdocsnsialgoglouton1_courspdf">#</a>
-</h3>
-<p><em>En informatique, on rencontre souvent des problèmes d&rsquo;optimisation comme
-celui mis en oeuvre dans le rendu de monnaie. Les algorithmes gloutons sont
-couramment utilisés pour les résoudre.</em></p>
-<h1 id="1-le-rendu-de-monnaie">
+<article class="markdown"><h1 id="algorithmes-glouton">
+  Algorithmes glouton
+  <a class="anchor" href="#algorithmes-glouton">#</a>
+</h1>
+<p>pdf <a href="/uploads/docsnsi/algo/glouton/1_cours.pdf">pour impression</a></p>
+<blockquote class="book-hint info">
+  <em>En informatique, on rencontre souvent des problèmes d&rsquo;optimisation. Les algorithmes gloutons sont
+couramment utilisés pour les résoudre.</em>
+</blockquote>
+
+<h2 id="1-le-rendu-de-monnaie">
   1. Le rendu de monnaie
   <a class="anchor" href="#1-le-rendu-de-monnaie">#</a>
-</h1>
+</h2>
+<p><em>Afin d&rsquo;illustrer les algorithmes glouton, nous allons commencer par l&rsquo;exemple classique du rendu de monnaie.</em></p>
 <ul>
 <li>On veut programmer une caisse automatique pour qu&rsquo;elle rende la monnaie
 de façon optimale, c&rsquo;est-à-dire avec le <strong>nombre minimal</strong> de pièces et
 billets.</li>
-<li>La valeur des pièes et billets à disposition sont : 1, 2, 20, 5, 10, 50, 100 et
+<li>La valeur des pièces et billets à disposition sont : 1, 2, 20, 5, 10, 50, 100 et
 200 euros. On dispose d&rsquo;autant d&rsquo;exemplaires qu&rsquo;on le souhaite de chaque
 pièce et billet.</li>
 </ul>
 <p><em>Exemple :</em> Anaïs veut acheter un objet qui coûte 53 euros. Elle paye avec un
 billet de 100 euros. La caisse automatique doit lui rendre 47 euros.</p>
 <p>La meilleure façon de rendre la monnaie est de le faire avec deux billets de 20,
-un billet de 5 et une pièce de 2 euros.</p>
-<h1 id="2-résolution-du-problème-de-rendu-de-monnaie">
+un billet de 5 et une pièce de 2 euros :</p>
+<p>$$47 = 2 \times 20 + 1 \times 5 + 1 \times 2$$</p>
+<p>Intuitivement, cette solution est la meilleure.</p>
+<p>Comment en être certain ? Cette approche est-elle toujours efficace ?</p>
+<h2 id="2-résolution-du-problème-de-rendu-de-monnaie">
   2. Résolution du problème de rendu de monnaie
   <a class="anchor" href="#2-r%c3%a9solution-du-probl%c3%a8me-de-rendu-de-monnaie">#</a>
-</h1>
-<h2 id="1-la-force-brute">
-  1. La force brute
-  <a class="anchor" href="#1-la-force-brute">#</a>
 </h2>
+<h3 id="la-force-brute-comme-moi">
+  La force brute (comme moi)
+  <a class="anchor" href="#la-force-brute-comme-moi">#</a>
+</h3>
 <ul>
 <li>
 <p>La solution naïve consiste à énumérer toutes les solutions possibles puis
@@ -5990,11 +6000,11 @@ de billets. On peut totaliser 47 euros de différentes façons, par exemple :</p
 </thead>
 <tbody>
 <tr>
-<td>$47 \times 1$€</td>
+<td>$47 \times 1$</td>
 <td>47</td>
 </tr>
 <tr>
-<td>$45 \times 1 + 1 \times 2$€</td>
+<td>$45 \times 1 + 1 \times 2$</td>
 <td>46</td>
 </tr>
 <tr>
@@ -6014,17 +6024,21 @@ mais le nombre de possibilités est très important. L&rsquo;utilisation d&rsquo
 algorithme ici est très coûteux en temps de calcul.</p>
 </li>
 </ul>
-<h2 id="2-lalgorithme-glouton">
-  2. L&rsquo;algorithme glouton
-  <a class="anchor" href="#2-lalgorithme-glouton">#</a>
-</h2>
+<h3 id="lalgorithme-glouton">
+  L&rsquo;algorithme glouton
+  <a class="anchor" href="#lalgorithme-glouton">#</a>
+</h3>
 <ul>
 <li>
 <p><strong>Le principe de l&rsquo;algorithme glouton</strong><br>
 Utiliser un algorithme glouton consiste à optimiser la résolution d&rsquo;un
-problème en utilisant l&rsquo;approche suivante : on procède étape par étape,
+problème en utilisant l&rsquo;approche suivante :</p>
+<blockquote class="book-hint info">
+  on procède étape par étape,
 en faisant, à chaque étape, le choix qui semble le meilleur, sans jamais
-remettre en question les choix passés.</p>
+tenir compte des choix passés.
+</blockquote>
+
 </li>
 <li>
 <p><strong>Application au rendu de monnaie</strong><br>
@@ -6033,31 +6047,33 @@ pièce ou le billet de la plus grande valeur possible, c&rsquo;est-à-dire dont
 la valeur est inférieure à la somme à rendre. On déduit alors cette valeur
 de la somme à rendre, ce qui conduit à un problème de plus petite taille.
 On recommence ainsi jusqu&rsquo;à obtenir une somme nulle.</p>
-<p>Données : la <code>somme</code> à rendre et la <code>liste</code> des pièces et billets à
-disposition.</p>
-<p>Résultat : une liste des pièces et billets à rendre.</p>
-<p>Algorithme :</p>
-<ul>
-<li>initialiser <code>monnaie</code> à la liste vide ;</li>
-<li>initialiser <code>somme_restante</code> à <code>somme</code> ;</li>
-<li>tant que la <code>somme_restante</code> est strictement positive :
-<ul>
-<li>on choisit dans la liste la plus grande valeur qui ne dépasse pas
-la somme restante</li>
-<li>on ajoute cette valeur à <code>monnaie</code>,</li>
-<li><code>somme_restante = somme_restante - valeur_choisie</code> ;</li>
-</ul>
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Données : la somme à rendre et la liste des pièces et billets à
+</span></span><span style="display:flex;"><span>disposition<span style="color:#555">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Résultat : une liste des pièces et billets à rendre<span style="color:#555">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Algorithme :
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>initialiser monnaie à la liste vide 
+</span></span><span style="display:flex;"><span>initialiser somme_restante à somme 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tant que la somme_restante est strictement positive :
+</span></span><span style="display:flex;"><span>   on choisit dans la liste la plus grande valeur qui ne dépasse pas
+</span></span><span style="display:flex;"><span>     la somme restante
+</span></span><span style="display:flex;"><span>   on ajoute cette valeur à monnaie
+</span></span><span style="display:flex;"><span>   somme_restante <span style="color:#555">=</span> somme_restante <span style="color:#555">-</span> valeur_choisie
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>renvoyer monnaie
+</span></span></code></pre></div>
+</blockquote>
+
 </li>
-<li>renvoyer <code>monnaie</code></li>
 </ul>
-</li>
-</ul>
-<h2 id="3-solution-du-problème-de-rendu-de-monnaie">
-  3. Solution du problème de rendu de monnaie
-  <a class="anchor" href="#3-solution-du-probl%c3%a8me-de-rendu-de-monnaie">#</a>
+<h2 id="3-déroulé-à-la-main">
+  3. Déroulé à la main
+  <a class="anchor" href="#3-d%c3%a9roul%c3%a9-%c3%a0-la-main">#</a>
 </h2>
-<ul>
-<li>
 <p>Dans notre exemple on a :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>somme <span style="color:#555">=</span> <span style="color:#f60">47</span>
 </span></span><span style="display:flex;"><span>liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">5</span>, <span style="color:#f60">10</span>, <span style="color:#f60">20</span>, <span style="color:#f60">50</span>, <span style="color:#f60">100</span>, <span style="color:#f60">200</span>]
@@ -6099,20 +6115,120 @@ la somme restante</li>
 </tbody>
 </table>
 <p>Résultat : <code>[20, 20, 5, 2]</code></p>
-</li>
-<li>
-<p>Un algorithme glouton permet de trouver <strong>une solution optimale locale</strong> au
-problème, mais pas toujours une solution optimale globale.</p>
+<h3 id="pertinence-des-algorithmes-gloutons">
+  Pertinence des algorithmes gloutons
+  <a class="anchor" href="#pertinence-des-algorithmes-gloutons">#</a>
+</h3>
+<blockquote class="book-hint info">
+  Un algorithme glouton permet de trouver <strong>une solution optimale locale</strong> au
+problème, mais pas toujours une solution optimale globale.
+</blockquote>
+
 <p>Par exemple, si notre caisse automatique doit rendre une somme de 63 €
-mais qu&rsquo;elle ne dispose plus de billets de 5 euros ni de 10 euros.</p>
+mais qu&rsquo;elle ne dispose plus de billets de 5€ ni de 10€.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>somme <span style="color:#555">=</span> <span style="color:#f60">63</span>
 </span></span><span style="display:flex;"><span>liste <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">20</span>, <span style="color:#f60">50</span>, <span style="color:#f60">100</span>, <span style="color:#f60">200</span>]
 </span></span></code></pre></div><p>L&rsquo;algorithme glouton donne comme résultat :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resultat <span style="color:#555">=</span> [<span style="color:#f60">50</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
 </span></span></code></pre></div><p>Alors que la solution optimale globale est :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>solution_optimale_globale <span style="color:#555">=</span> [<span style="color:#f60">20</span>, <span style="color:#f60">20</span>, <span style="color:#f60">20</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
-</span></span></code></pre></div></li>
-</ul>
+</span></span></code></pre></div><h2 id="programmer-le-rendu-de-monnaie">
+  Programmer le rendu de monnaie
+  <a class="anchor" href="#programmer-le-rendu-de-monnaie">#</a>
+</h2>
+<ol>
+<li>Programmer une fonction Python qui prend en paramètre un jeu de pièces
+et une somme à rendre et retourne les pièces utilisées.
+Elle utilise l&rsquo;algorithme glouton.</li>
+<li>Écrire un jeu de tests pour votre fonction.</li>
+</ol>
+<script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/comment/comment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/fullscreen.js"></script>
+
+
+    <h3 id="rendu-de-monnaie">
+  Rendu de monnaie
+  <a class="anchor" href="#rendu-de-monnaie">#</a>
+</h3>
+
+
+
+<main>
+    <div id="python_ide_4">
+        <textarea id="commands_4" class="commands">
+systeme = [1, 2, 5, 10, 20, 50, 100, 200]
+
+
+
+assert rendre(systeme, 253) == [200, 50, 2, 1]
+assert rendre(systeme, 579) == [200, 200, 100, 50, 20, 5, 2, 2]
+print(&#34;all good&#34;)
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        let initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#python_ide_4").then(() => {
+        const ide = document.querySelector("div#python_ide_4");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>...</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systeme <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">5</span>, <span style="color:#f60">10</span>, <span style="color:#f60">20</span>, <span style="color:#f60">50</span>, <span style="color:#f60">100</span>, <span style="color:#f60">200</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">rendre</span>(systeme, montant):
+</span></span><span style="display:flex;"><span>    monnaie <span style="color:#555">=</span> []
+</span></span><span style="display:flex;"><span>    i <span style="color:#555">=</span> <span style="color:#366">len</span>(systeme) <span style="color:#555">-</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">while</span> montant <span style="color:#555">&gt;</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> systeme[i] <span style="color:#555">&lt;=</span> montant:
+</span></span><span style="display:flex;"><span>            montant <span style="color:#555">-=</span> systeme[i]
+</span></span><span style="display:flex;"><span>            monnaie<span style="color:#555">.</span>append(systeme[i])
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            i <span style="color:#555">-=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> monnaie
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> rendre(systeme, <span style="color:#f60">253</span>) <span style="color:#555">==</span> [<span style="color:#f60">200</span>, <span style="color:#f60">50</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> rendre(systeme, <span style="color:#f60">579</span>) <span style="color:#555">==</span> [<span style="color:#f60">200</span>, <span style="color:#f60">200</span>, <span style="color:#f60">100</span>, <span style="color:#f60">50</span>, <span style="color:#f60">20</span>, <span style="color:#f60">5</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>]
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;all good&#34;</span>)
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
 </article>
 
                 
@@ -6175,17 +6291,19 @@ mais qu&rsquo;elle ne dispose plus de billets de 5 euros ni de 10 euros.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-le-rendu-de-monnaie">1. Le rendu de monnaie</a></li>
+    <li><a href="#2-résolution-du-problème-de-rendu-de-monnaie">2. Résolution du problème de rendu de monnaie</a>
       <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocsnsialgoglouton1_courspdf">pdf <a href="/uploads/docsnsi/algo/glouton/1_cours.pdf">pour impression</a></a></li>
+        <li><a href="#la-force-brute-comme-moi">La force brute (comme moi)</a></li>
+        <li><a href="#lalgorithme-glouton">L&rsquo;algorithme glouton</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#1-la-force-brute">1. La force brute</a></li>
-    <li><a href="#2-lalgorithme-glouton">2. L&rsquo;algorithme glouton</a></li>
-    <li><a href="#3-solution-du-problème-de-rendu-de-monnaie">3. Solution du problème de rendu de monnaie</a></li>
+    <li><a href="#3-déroulé-à-la-main">3. Déroulé à la main</a>
+      <ul>
+        <li><a href="#pertinence-des-algorithmes-gloutons">Pertinence des algorithmes gloutons</a></li>
+      </ul>
+    </li>
+    <li><a href="#programmer-le-rendu-de-monnaie">Programmer le rendu de monnaie</a></li>
   </ul>
 </nav>
 
