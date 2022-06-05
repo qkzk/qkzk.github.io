@@ -19,7 +19,7 @@ Tous les informaticiens doivent maîtriser un minimum de concepts clés relatifs
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.3a924de8417bbe8e2d52f4b2c87198da809d211a012e51d5f504958aff0f07ca.js" integrity="sha256-OpJN6EF7vo4tUvSyyHGY2oCdIRoBLlHV9QSViv8PB8o=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.45b6b138a6cdde42d21bb1e283e23ad3b5bef472bb7f738768a98c738353c7cc.js" integrity="sha256-RbaxOKbN3kLSG7Hig&#43;I607W&#43;9HK7f3OHaKmMc4NTx8w=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/bdd/partie_1/intro/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6000,6 +6000,7 @@ MathJax.Hub.Config({
     <li><a href="#bdd-relationnelle">BDD relationnelle</a></li>
     <li><a href="#identifier-les-enregistrements">Identifier les enregistrements</a>
       <ul>
+        <li><a href="#contraintes-dintégrité">Contraintes d&rsquo;intégrité</a></li>
         <li><a href="#identifier--une-nécessité">Identifier : une nécessité</a></li>
       </ul>
     </li>
@@ -6143,6 +6144,42 @@ une clé primaire)</li>
 
 </blockquote>
 
+<h3 id="contraintes-dintégrité">
+  Contraintes d&rsquo;intégrité
+  <a class="anchor" href="#contraintes-dint%c3%a9grit%c3%a9">#</a>
+</h3>
+<blockquote class="book-hint info">
+  Une contrainte d&rsquo;intégrité est une règle qui définit la cohérence d&rsquo;une donnée ou d&rsquo;un ensemble de données d&rsquo;une  base de données.
+</blockquote>
+
+<blockquote class="book-hint info">
+  Tout  d&rsquo;abord,  le type  de  données  que l&rsquo;on  cherche  à  stocker définit  une
+<strong>contrainte de domaine</strong>. Cela est intégré dans la conception de la BDD.
+</blockquote>
+
+<blockquote class="book-hint info">
+  Ensuite, chaque ligne d&rsquo;une table doit pouvoir être identifiée par une clé primaire, unique et non nulle. On parle dans ce cas de <strong>contrainte de relation.</strong>
+</blockquote>
+
+<p>Enfin, lorsque des tables sont liées, il est indispensable que les trois règles suivantes soient respectées :</p>
+<blockquote class="book-hint info">
+  <ol>
+<li>
+<p>Une clé étrangère ne peut être une valeur qui n&rsquo;est pas clé primaire de la table à laquelle on se réfère.</p>
+</li>
+<li>
+<p>Une ligne de la table primaire ne peut être effacée si elle possède des lignes liées.</p>
+</li>
+<li>
+<p>La clé primaire ne peut être changée dans la table primaire si cette ligne possède des lignes liées.</p>
+</li>
+</ol>
+<p>Ces trois règles définissent la notion de <strong>contrainte d&rsquo;intégrité réferentielle</strong> d&rsquo;une base de données.</p>
+
+</blockquote>
+
+<p>Cet ensemble  de règles est au  coeur même de la  base de données et  confère le
+caractère relationnel au  modèle étudié.</p>
 <h3 id="identifier--une-nécessité">
   Identifier : une nécessité
   <a class="anchor" href="#identifier--une-n%c3%a9cessit%c3%a9">#</a>
@@ -6361,6 +6398,7 @@ seulement son numéro de sécu.</p>
     <li><a href="#bdd-relationnelle">BDD relationnelle</a></li>
     <li><a href="#identifier-les-enregistrements">Identifier les enregistrements</a>
       <ul>
+        <li><a href="#contraintes-dintégrité">Contraintes d&rsquo;intégrité</a></li>
         <li><a href="#identifier--une-nécessité">Identifier : une nécessité</a></li>
       </ul>
     </li>
