@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf pour impression #  Le complément à deux : comment représenter les entiers relatifs ? #  Les entiers relatifs #   Entiers naturels : entiers positifs ou nuls (0, 1, 2 etc.) Entiers relatifs : entiers de n&rsquo;importe quel signe (&hellip;, -2, -1, 0, 1,&hellip;)  Le problème du signe : #  Un signe n&rsquo;est pas un nombre&hellip; On ne peut pas l&rsquo;encoder directement en binaire.">
+<meta name="description" content="pdf pour impression
+Le complément à deux : comment représenter les entiers relatifs ? #  Les entiers relatifs #   Entiers naturels : entiers positifs ou nuls (0, 1, 2 etc.) Entiers relatifs : entiers de n&rsquo;importe quel signe (&hellip;, -2, -1, 0, 1,&hellip;)  Le problème du signe : #  Un signe n&rsquo;est pas un nombre&hellip; On ne peut pas l&rsquo;encoder directement en binaire.
+Le principe est d&rsquo;attribuer au bit de poids fort (premier bit) le signe du nombre.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Cours" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -16,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.45b6b138a6cdde42d21bb1e283e23ad3b5bef472bb7f738768a98c738353c7cc.js" integrity="sha256-RbaxOKbN3kLSG7Hig&#43;I607W&#43;9HK7f3OHaKmMc4NTx8w=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7a1fa51353b966a2c7dd22ae8fab0d8cc468c125f81f769c2318be3129c7ca37.js" integrity="sha256-eh&#43;lE1O5ZqLH3SKuj6sNjMRowSX4H3acIxi&#43;MSnHyjc=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/complement_a_deux/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5987,14 +5989,6 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-pour-impressioncomplement_a_2_elevespdf">pdf <a href="./complement_a_2_eleves.pdf">pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
     <li><a href="#les-entiers-relatifs">Les entiers relatifs</a>
       <ul>
         <li><a href="#le-problème-du-signe-">Le problème du signe :</a></li>
@@ -6007,41 +6001,19 @@ MathJax.Hub.Config({
     </li>
     <li><a href="#approche-naïve--binaire-signé">Approche naïve : binaire signé</a>
       <ul>
-        <li><a href="#27">27</a></li>
-      </ul>
-    </li>
-    <li><a href="#approche-naïve--binaire-signé-1">Approche naïve : binaire signé</a>
-      <ul>
-        <li><a href="#-9">-9</a></li>
-      </ul>
-    </li>
-    <li><a href="#et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a>
-      <ul>
-        <li><a href="#essayons-dajouter-ces-exemples-">Essayons d&rsquo;ajouter ces exemples :</a></li>
+        <li><a href="#et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a></li>
         <li><a href="#exercice-1">Exercice 1</a></li>
       </ul>
     </li>
-    <li><a href="#la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">La méthode naïve ne permet pas de faire de calculs !</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#complètement-à-deux--entiers-positifs">Complètement à deux : entiers positifs</a></li>
-    <li><a href="#complément-à-deux--entiers-négatifs">Complément à deux : entiers négatifs</a></li>
-    <li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
-    <li><a href="#exemple-1--27">Exemple 1 : 27</a>
+    <li><a href="#le-complément-à-deux">Le complément à deux</a>
       <ul>
-        <li><a href="#27-1">27</a></li>
-      </ul>
-    </li>
-    <li><a href="#exemple-2---9">Exemple 2 : -9</a>
-      <ul>
-        <li><a href="#-9-1">-9</a></li>
+        <li><a href="#entiers-positifs">Entiers positifs</a></li>
+        <li><a href="#entiers-négatifs">Entiers négatifs</a></li>
+        <li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
       </ul>
     </li>
     <li><a href="#complément-à-2-méthode-rapide">Complément à 2, méthode rapide</a>
       <ul>
-        <li><a href="#méthode-rapide--exemple">Méthode rapide : exemple</a></li>
-        <li><a href="#vérifions--27---9">Vérifions : $27 + (-9)$</a></li>
         <li><a href="#exercice-2">Exercice 2</a></li>
         <li><a href="#exercice-3">Exercice 3</a></li>
       </ul>
@@ -6050,19 +6022,14 @@ MathJax.Hub.Config({
       <ul>
         <li><a href="#si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)</a></li>
         <li><a href="#si-lentier-est-négatif-son-premier-bit-est-1">Si l&rsquo;entier est négatif (son premier bit est 1)</a></li>
-        <li><a href="#exemple--0b-1111-0111-en-complément-à-2-sur-8-bits">Exemple : <code>0b 1111 0111</code>, en complément à 2 sur 8 bits,</a></li>
-      </ul>
-    </li>
-    <li><a href="#du-complément-à-2-au-le-décimal-méthode-rapide">Du complément à 2 au le décimal, méthode rapide.</a>
-      <ul>
-        <li><a href="#exemple--0b-1010-1000-en-complément-à-2-sur-8-bits">Exemple : <code>0b 1010 1000</code>, en complément à 2 sur 8 bits,</a></li>
         <li><a href="#exercice-4">Exercice 4</a></li>
       </ul>
     </li>
-    <li><a href="#table-de-valeurs">Table de valeurs</a></li>
-    <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a></li>
-    <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</a>
+    <li><a href="#propriétés">Propriétés</a>
       <ul>
+        <li><a href="#table-de-valeurs">Table de valeurs</a></li>
+        <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a></li>
+        <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</a></li>
         <li><a href="#exercice-5">Exercice 5</a></li>
       </ul>
     </li>
@@ -6081,10 +6048,7 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf-pour-impressioncomplement_a_2_elevespdf">
-  pdf <a href="./complement_a_2_eleves.pdf">pour impression</a>
-  <a class="anchor" href="#pdf-pour-impressioncomplement_a_2_elevespdf">#</a>
-</h3>
+<article class="markdown"><p>pdf <a href="./complement_a_2_eleves.pdf">pour impression</a></p>
 <h1 id="le-complément-à-deux--comment-représenter-les-entiers-relatifs-">
   Le complément à deux : comment représenter les entiers relatifs ?
   <a class="anchor" href="#le-compl%c3%a9ment-%c3%a0-deux--comment-repr%c3%a9senter-les-entiers-relatifs-">#</a>
@@ -6104,12 +6068,16 @@ MathJax.Hub.Config({
   <a class="anchor" href="#le-probl%c3%a8me-du-signe-">#</a>
 </h3>
 <p>Un signe n&rsquo;est pas un nombre&hellip; On ne peut pas l&rsquo;encoder directement en binaire.</p>
-<p>Le principe est d&rsquo;attribuer au <em>bit de poids fort</em> (premier bit) le signe du
+<blockquote class="book-hint info">
+  <p>Le principe est d&rsquo;attribuer au <em>bit de poids fort</em> (premier bit) le signe du
 nombre.</p>
 <ul>
 <li>Si le <em>bit de poids</em> fort est <strong>0</strong>, le nombre est <strong>positif</strong>,</li>
 <li>Si le <em>bit de poids</em> fort est <strong>1</strong>, le nombre est <strong>négatif</strong>.</li>
 </ul>
+
+</blockquote>
+
 <h2 id="nombres-encodés-sur-un-octet">
   Nombres encodés sur un octet
   <a class="anchor" href="#nombres-encod%c3%a9s-sur-un-octet">#</a>
@@ -6124,7 +6092,10 @@ nombre.</p>
 <li>Comment déterminer &ldquo;le bit de poids fort&rdquo; ?</li>
 <li>Comment savoir où s&rsquo;arrête le nombre ?</li>
 </ul>
-<p>Durant tout le chapitre, on encodera <strong>nos nombres entiers sur 8 bits.</strong></p>
+<blockquote class="book-hint danger">
+  Dans tout ce document, on encodera <strong>nos nombres entiers sur 8 bits.</strong>
+</blockquote>
+
 <h2 id="approche-naïve--binaire-signé">
   Approche naïve : binaire signé
   <a class="anchor" href="#approche-na%c3%afve--binaire-sign%c3%a9">#</a>
@@ -6140,51 +6111,57 @@ nombre.</p>
 <li>Si le nombre est positif, on garde le bit de poids fort à 0,</li>
 <li><strong>Sinon, on met le bit de poids fort à 1.</strong></li>
 </ul>
-<h3 id="27">
-  27
-  <a class="anchor" href="#27">#</a>
-</h3>
+<p>Ce qui fait donc :</p>
+<blockquote class="book-hint info">
+  <p><strong>Binaire signé sur un octet</strong></p>
+<ul>
+<li>1 bit de signe (0: positif, 1, négatif),</li>
+<li>7 bits pour la valeur absolue.</li>
+</ul>
+
+</blockquote>
+
+<p>On peut donc représenter de <code>1 111 1111</code> à <code>0 111 1111</code> soit de -127 à 127.</p>
+<p>Que dire des nombres : <code>1 000 0000</code> et <code>0 000 0000</code> ?</p>
+<p>Ils valent tous deux 0&hellip; on les note -0 et +0.</p>
+<p><strong>Premier exemple : 27</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>27 = 0b11011
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>On complète sur 8 bits :
-</span></span><span style="display:flex;"><span>27 = 0b 0001 1011
+</span></span><span style="display:flex;"><span>27 = 0001 1011
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>27 &gt; 0 on garde le premier bit à 0
-</span></span></code></pre></div><h2 id="approche-naïve--binaire-signé-1">
-  Approche naïve : binaire signé
-  <a class="anchor" href="#approche-na%c3%afve--binaire-sign%c3%a9-1">#</a>
-</h2>
-<h3 id="-9">
-  -9
-  <a class="anchor" href="#-9">#</a>
-</h3>
+</span></span></code></pre></div><p>La représentation en binaire signé sur un octet de 27 est <code>0 001 1011</code></p>
+<p><strong>Autre exemple : -9</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>La valeur absolue de -9 est 9.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>9 = 0b1001
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>On complète sur 8 bits :
-</span></span><span style="display:flex;"><span>9 = 0b 0000 1001
+</span></span><span style="display:flex;"><span>9 = 0000 1001
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>-9 &lt; 0 on remplace le premier bit par -1 :
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>-9 = 0b 1000 1001
-</span></span></code></pre></div><p><strong>Jusqu&rsquo;ici tout va bien&hellip;</strong></p>
-<h2 id="et-soudain-cest-le-drame">
+</span></span><span style="display:flex;"><span>-9 = 1 000 1001
+</span></span></code></pre></div><p>La représentation en binaire signé sur un octet de -9 est <code>1 000 1001</code></p>
+<p><strong>Jusqu&rsquo;ici tout va bien&hellip;</strong></p>
+<h3 id="et-soudain-cest-le-drame">
   Et soudain, c&rsquo;est le drame&hellip;
   <a class="anchor" href="#et-soudain-cest-le-drame">#</a>
-</h2>
-<h3 id="essayons-dajouter-ces-exemples-">
-  Essayons d&rsquo;ajouter ces exemples :
-  <a class="anchor" href="#essayons-dajouter-ces-exemples-">#</a>
 </h3>
+<p>Essayons d&rsquo;ajouter ces exemples :</p>
 <p>Vérifions que $27 + (-9) = 18$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  0b 0001 1011
-</span></span><span style="display:flex;"><span>+ 0b 1000 1001
-</span></span><span style="display:flex;"><span>--------------
-</span></span><span style="display:flex;"><span>= 0b 1010 0100
-</span></span></code></pre></div><p>&hellip; mais <code>0b 1010 0100 = -36</code> en binaire signé&hellip;</p>
-<p>À retenir : <strong>Le binaire signé ne permet pas de réaliser les additions habituelles</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   0001 1011
+</span></span><span style="display:flex;"><span>+  1000 1001
+</span></span><span style="display:flex;"><span>------------
+</span></span><span style="display:flex;"><span>=  1010 0100
+</span></span></code></pre></div><p>&hellip; mais <code>1 010 0100 = -36</code> en binaire signé sur un octet&hellip;</p>
+<blockquote class="book-hint info">
+  <strong>Le binaire signé ne permet pas de réaliser les additions habituelles</strong>
+</blockquote>
+
 <hr>
 <h3 id="exercice-1">
   Exercice 1
@@ -6192,15 +6169,11 @@ nombre.</p>
 </h3>
 <p>On suppose toujours nos entiers encodés sur un octet.</p>
 <ol>
-<li>Donner la représentation binaire naïve de 12, de -100 et de -88.</li>
-<li>Réaliser l&rsquo;addition binaire bit à bit $12 + (-100)$.</li>
+<li>Donner la représentation binaire signé de 12, de -100 et de -88.</li>
+<li>Réaliser l&rsquo;addition binaire bit à bit 12 + (-100).</li>
 <li>Comparer avec le résultat obtenu.</li>
 </ol>
-<h2 id="la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">
-  La méthode naïve ne permet pas de faire de calculs !
-  <a class="anchor" href="#la-m%c3%a9thode-na%c3%afve-ne-permet-pas-de-faire-de-calculs-">#</a>
-</h2>
-<p>Avec la méthode naïve, <strong>on ne peut plus réaliser d&rsquo;opération naturelle sur les entiers</strong>.
+<p>Avec le binaire signé, <strong>on ne peut plus réaliser d&rsquo;opération naturelle sur les entiers</strong>.
 On a maintenant deux objectifs :</p>
 <ol>
 <li>
@@ -6211,60 +6184,46 @@ On a maintenant deux objectifs :</p>
 </li>
 </ol>
 <hr>
-<h1 id="le-complément-à-deux">
+<h2 id="le-complément-à-deux">
   Le complément à deux
   <a class="anchor" href="#le-compl%c3%a9ment-%c3%a0-deux">#</a>
-</h1>
+</h2>
 <p>On doit encore travailler avec <strong>une taille fixe</strong></p>
 <p>On choisit à nouveau 8 bits par simplicité.</p>
-<h2 id="complètement-à-deux--entiers-positifs">
-  Complètement à deux : entiers positifs
-  <a class="anchor" href="#compl%c3%a8tement-%c3%a0-deux--entiers-positifs">#</a>
-</h2>
+<h3 id="entiers-positifs">
+  Entiers positifs
+  <a class="anchor" href="#entiers-positifs">#</a>
+</h3>
 <ol>
-<li>coder l&rsquo;entier en binaire comme d&rsquo;habitude,</li>
-<li>compléter l&rsquo;octet avec des 0 devant.</li>
+<li>Coder l&rsquo;entier en binaire comme d&rsquo;habitude,</li>
+<li>Compléter l&rsquo;octet avec des 0 devant.</li>
 </ol>
-<h2 id="complément-à-deux--entiers-négatifs">
-  Complément à deux : entiers négatifs
-  <a class="anchor" href="#compl%c3%a9ment-%c3%a0-deux--entiers-n%c3%a9gatifs">#</a>
-</h2>
+<h3 id="entiers-négatifs">
+  Entiers négatifs
+  <a class="anchor" href="#entiers-n%c3%a9gatifs">#</a>
+</h3>
 <ol>
 <li>Coder la valeur absolue du nombre en binaire,</li>
-<li>compléter l&rsquo;octet avec des 0 devant,</li>
-<li>échanger tous les bits ($1 \leftrightarrow 0$),</li>
-<li>ajouter 1.</li>
+<li>Compléter l&rsquo;octet avec des 0 devant,</li>
+<li>Échanger tous les bits ($1 \leftrightarrow 0$),</li>
+<li>Ajouter 1.</li>
 </ol>
-<h2 id="signe-du-complément-à-deux">
+<h3 id="signe-du-complément-à-deux">
   Signe du complément à deux
   <a class="anchor" href="#signe-du-compl%c3%a9ment-%c3%a0-deux">#</a>
-</h2>
-<ul>
-<li>Si le bit de poids fort est 0 : le nombre est positif</li>
-<li>Si le bit de poids fort est 1 : le nombre est négatif</li>
-</ul>
-<h2 id="exemple-1--27">
-  Exemple 1 : 27
-  <a class="anchor" href="#exemple-1--27">#</a>
-</h2>
-<h3 id="27-1">
-  27
-  <a class="anchor" href="#27-1">#</a>
 </h3>
+<ul>
+<li>Si le bit de poids fort est 0, le nombre est positif</li>
+<li>Si le bit de poids fort est 1, le nombre est négatif</li>
+</ul>
+<p><strong>Exemple 1 : 27</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>1. coder l&#39;entier en binaire comme d&#39;habitude,
 </span></span><span style="display:flex;"><span>    27 = 0b11011
 </span></span><span style="display:flex;"><span>2. compléter l&#39;octet avec des 0 devant.
 </span></span><span style="display:flex;"><span>    27 = 0b 0001 1011
 </span></span></code></pre></div><p>Le complément à 2 sur un octet de 27 est <code>0b 0001 1011</code></p>
-<h2 id="exemple-2---9">
-  Exemple 2 : -9
-  <a class="anchor" href="#exemple-2---9">#</a>
-</h2>
-<h3 id="-9-1">
-  -9
-  <a class="anchor" href="#-9-1">#</a>
-</h3>
+<p><strong>Exemple 2 : -9</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>1. coder la valeur absolue du nombre :
 </span></span><span style="display:flex;"><span>    9 = 0b1001
@@ -6281,49 +6240,42 @@ On a maintenant deux objectifs :</p>
 </h2>
 <p>La méthode précédente se code facilement, elle est plus pénible à la main.</p>
 <p>La méthode rapide : complément à 2 sur un octet de $n$ :</p>
-<blockquote>
-<p>Si l&rsquo;entier est négatif :</p>
+<blockquote class="book-hint info">
+  <p>Si l&rsquo;entier est négatif :</p>
 <ol>
-<li>donner la représentation binaire de $|n|$</li>
+<li>donner la représentation binaire de la valeur absolue</li>
 <li>Compléter à gauche jusqu&rsquo;à avoir la taille voulue</li>
 <li>de droite à gauche, conserver tous les bits jusqu&rsquo;au premier 1 inclus</li>
 <li>changer tous les bits à gauche</li>
 </ol>
+
 </blockquote>
-<h3 id="méthode-rapide--exemple">
-  Méthode rapide : exemple
-  <a class="anchor" href="#m%c3%a9thode-rapide--exemple">#</a>
-</h3>
-<blockquote>
-<p>$n = -108$</p>
-</blockquote>
+
+<p><strong>Exemple $n = -108$</strong></p>
+<ol>
+<li>
 <p>Valeur absolue :</p>
-<blockquote>
 <p>$|n| = 108 = 64 + 32 + 8 + 4$</p>
-</blockquote>
 <p>Représentation binaire :</p>
-<blockquote>
-<p>$|n| = 108$ = <code>0b110 1100</code></p>
-</blockquote>
+<p>$|n| = 108$ = <code>110 1100</code></p>
+</li>
+<li>
 <p>Compléter :</p>
-<blockquote>
-<p>$|n| = 108$ = <code>0b0110 1100</code></p>
-</blockquote>
+<p>$|n| = 108$ = <code>0110 1100</code></p>
+</li>
+<li>
 <p>Conserver les 0 à droite jusqu&rsquo;au premier 1 inclus, changer tous les
 bits à gauche.</p>
-<blockquote>
-<p>$n = -108$ = <code>  0b1001 0100</code></p>
-</blockquote>
-<h3 id="vérifions--27---9">
-  Vérifions : $27 + (-9)$
-  <a class="anchor" href="#v%c3%a9rifions--27---9">#</a>
-</h3>
-<p>Vérifions : $27 + (-9) = 18$</p>
+<p>$n = -108$ = <code>  10010  100</code></p>
+</li>
+</ol>
+<p>La représentation en complément à 2 sur un octet de $-108$ est <code>1001 0100</code>.</p>
+<p><strong>Vérifions : $27 + (-9)$</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  0001 1011
 </span></span><span style="display:flex;"><span>+ 1111 0111
 </span></span><span style="display:flex;"><span>-----------
 </span></span><span style="display:flex;"><span>= 0001 0010
-</span></span></code></pre></div><p>On vérifie immédiatement que <code>18 = 0b10010</code></p>
+</span></span></code></pre></div><p>On a bien <code>18 = 0b10010</code></p>
 <p><strong>Remarque</strong> la dernière retenue (tout à gauche) disparait.</p>
 <hr>
 <h3 id="exercice-2">
@@ -6361,11 +6313,7 @@ bits à gauche.</p>
 <li>Convertir en décimal normalement,</li>
 <li>Changer le signe.</li>
 </ol>
-<h3 id="exemple--0b-1111-0111-en-complément-à-2-sur-8-bits">
-  Exemple : <code>0b 1111 0111</code>, en complément à 2 sur 8 bits,
-  <a class="anchor" href="#exemple--0b-1111-0111-en-compl%c3%a9ment-%c3%a0-2-sur-8-bits">#</a>
-</h3>
-<p><strong>Exemple :</strong> <code>0b 1111 0111</code></p>
+<p><strong>Exemple : <code>0b 1111 0111</code>, en complément à 2 sur 8 bits,</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1. On échange tous les bits,
 </span></span><span style="display:flex;"><span>    0b 0000 1000
 </span></span><span style="display:flex;"><span>2. On ajoute 1,
@@ -6374,28 +6322,32 @@ bits à gauche.</p>
 </span></span><span style="display:flex;"><span>    0b 1001 = 1 * 1 + 1 * 8 = 9
 </span></span><span style="display:flex;"><span>4. On change le signe.
 </span></span><span style="display:flex;"><span>    0b 1111 0111 = -9
-</span></span></code></pre></div><h2 id="du-complément-à-2-au-le-décimal-méthode-rapide">
+</span></span></code></pre></div><blockquote class="book-hint info">
+  <h2 id="du-complément-à-2-au-le-décimal-méthode-rapide">
   Du complément à 2 au le décimal, méthode rapide.
   <a class="anchor" href="#du-compl%c3%a9ment-%c3%a0-2-au-le-d%c3%a9cimal-m%c3%a9thode-rapide">#</a>
 </h2>
+<p>Si le nombre est positif, comme d&rsquo;habitude.</p>
+<p>Si le nombre est négatif :</p>
 <ol>
-<li>Conserver tous les bits à 0 droite jusqu&rsquo;au premier 1 inclus,</li>
+<li>De droite à gauche, conserver tous jusqu&rsquo;au premier 1 inclus,</li>
 <li>Échanger tous les bits <strong>à gauche</strong> de ce 1,</li>
 <li>Convertir en décimal normalement,</li>
 <li>Changer le signe,</li>
 </ol>
-<h3 id="exemple--0b-1010-1000-en-complément-à-2-sur-8-bits">
-  Exemple : <code>0b 1010 1000</code>, en complément à 2 sur 8 bits,
-  <a class="anchor" href="#exemple--0b-1010-1000-en-compl%c3%a9ment-%c3%a0-2-sur-8-bits">#</a>
-</h3>
+
+</blockquote>
+
+<p><strong>Exemple : <code>0b 1010 1000</code>, en complément à 2 sur 8 bits</strong></p>
 <ol>
-<li>Conserver tous les bits à 0 droite jusqu&rsquo;au premier 1 inclus,</li>
-<li>Échanger tous les bits à gauche de ce 1,
-<code>0b 0101 1000</code></li>
-<li>Convertir en décimal normalement,
-<code>0b 0101 1000</code> = $8 + 16 + 64 = 88$</li>
-<li>Changer le signe :
-en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
+<li>De droite à gauche, conserver tous jusqu&rsquo;au premier 1 inclus,<br>
+<code>0000</code> et <code>1000</code> qui sera conservé</li>
+<li>Échanger tous les bits à gauche de ce 1,<br>
+<code>0101 1000</code></li>
+<li>Convertir en décimal normalement,<br>
+<code>0101 1000</code> = $8 + 16 + 64 = 88$</li>
+<li>Changer le signe :<br>
+en complément à 2 sur un octet $n =$ <code>1010 1000</code> $=-88$</li>
 </ol>
 <hr>
 <h3 id="exercice-4">
@@ -6411,10 +6363,14 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
 <li>Calculer <code>a + b</code> et <code>c + d</code> en binaire et vérifier le résultat.</li>
 </ol>
 <hr>
-<h2 id="table-de-valeurs">
+<h2 id="propriétés">
+  Propriétés
+  <a class="anchor" href="#propri%c3%a9t%c3%a9s">#</a>
+</h2>
+<h3 id="table-de-valeurs">
   Table de valeurs
   <a class="anchor" href="#table-de-valeurs">#</a>
-</h2>
+</h3>
 <p>La table de valeur est remarquable, en particulier les &ldquo;petits&rdquo; nombres négatifs sont remplis de 1.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> bit
 </span></span><span style="display:flex;"><span> de
@@ -6429,20 +6385,21 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
 </span></span><span style="display:flex;"><span>    1      ...      =  ...
 </span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 1 = -127
 </span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 0 = -128
-</span></span></code></pre></div><h2 id="combien-dentiers-relatifs-sur-un-octet-">
+</span></span></code></pre></div><h3 id="combien-dentiers-relatifs-sur-un-octet-">
   Combien d&rsquo;entiers relatifs sur un octet ?
   <a class="anchor" href="#combien-dentiers-relatifs-sur-un-octet-">#</a>
-</h2>
+</h3>
 <blockquote>
 <p>Sur 8 bits en complément à deux, on peut encoder de $-128$ à $127$,</p>
 </blockquote>
-<h2 id="combien-dentiers-relatifs-sur-avec-n-bits-">
+<h3 id="combien-dentiers-relatifs-sur-avec-n-bits-">
   Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?
   <a class="anchor" href="#combien-dentiers-relatifs-sur-avec-n-bits-">#</a>
-</h2>
-<blockquote>
-<p>Sur un octet on peut encoder de $-2^{n-1}$ à $2^{n-1} - 1$.</p>
+</h3>
+<blockquote class="book-hint info">
+  Sur  $n$ bits on peut encoder de $-2^{n-1}$ à $2^{n-1} - 1$.
 </blockquote>
+
 <h3 id="exercice-5">
   Exercice 5
   <a class="anchor" href="#exercice-5">#</a>
@@ -6457,11 +6414,12 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
   Complément à 2 : résumé
   <a class="anchor" href="#compl%c3%a9ment-%c3%a0-2--r%c3%a9sum%c3%a9">#</a>
 </h2>
-<ul>
+<blockquote class="book-hint info">
+  <ul>
 <li>Le complément à 2 sur $n$ bits permet de représenter des entiers positifs et négatifs,</li>
 <li>Le signe du nombre est donné par le premier bit,</li>
 <li>L&rsquo;addition usuelle fonctionne aussi avec les entiers <em>négatifs</em>.</li>
-<li>Cette méthode permet d&rsquo;encoder les entiers de $-2^{n-1}$ à $2^{n-1} - 1$</li>
+<li>Cette méthode permet d&rsquo;encoder sur $n$ bits les entiers de $-2^{n-1}$ à $2^{n-1} - 1$</li>
 <li>La méthode rapide pour encoder un entier en complément à 2 sur un octet :
 <ul>
 <li>
@@ -6479,6 +6437,9 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
 </li>
 <li>Pour décoder on fait le contraire</li>
 </ul>
+
+</blockquote>
+
 <hr>
 <h2 id="python-et-le-complément-à-2">
   Python et le complément à 2.
@@ -6554,14 +6515,6 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-pour-impressioncomplement_a_2_elevespdf">pdf <a href="./complement_a_2_eleves.pdf">pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
     <li><a href="#les-entiers-relatifs">Les entiers relatifs</a>
       <ul>
         <li><a href="#le-problème-du-signe-">Le problème du signe :</a></li>
@@ -6574,41 +6527,19 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
     </li>
     <li><a href="#approche-naïve--binaire-signé">Approche naïve : binaire signé</a>
       <ul>
-        <li><a href="#27">27</a></li>
-      </ul>
-    </li>
-    <li><a href="#approche-naïve--binaire-signé-1">Approche naïve : binaire signé</a>
-      <ul>
-        <li><a href="#-9">-9</a></li>
-      </ul>
-    </li>
-    <li><a href="#et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a>
-      <ul>
-        <li><a href="#essayons-dajouter-ces-exemples-">Essayons d&rsquo;ajouter ces exemples :</a></li>
+        <li><a href="#et-soudain-cest-le-drame">Et soudain, c&rsquo;est le drame&hellip;</a></li>
         <li><a href="#exercice-1">Exercice 1</a></li>
       </ul>
     </li>
-    <li><a href="#la-méthode-naïve-ne-permet-pas-de-faire-de-calculs-">La méthode naïve ne permet pas de faire de calculs !</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#complètement-à-deux--entiers-positifs">Complètement à deux : entiers positifs</a></li>
-    <li><a href="#complément-à-deux--entiers-négatifs">Complément à deux : entiers négatifs</a></li>
-    <li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
-    <li><a href="#exemple-1--27">Exemple 1 : 27</a>
+    <li><a href="#le-complément-à-deux">Le complément à deux</a>
       <ul>
-        <li><a href="#27-1">27</a></li>
-      </ul>
-    </li>
-    <li><a href="#exemple-2---9">Exemple 2 : -9</a>
-      <ul>
-        <li><a href="#-9-1">-9</a></li>
+        <li><a href="#entiers-positifs">Entiers positifs</a></li>
+        <li><a href="#entiers-négatifs">Entiers négatifs</a></li>
+        <li><a href="#signe-du-complément-à-deux">Signe du complément à deux</a></li>
       </ul>
     </li>
     <li><a href="#complément-à-2-méthode-rapide">Complément à 2, méthode rapide</a>
       <ul>
-        <li><a href="#méthode-rapide--exemple">Méthode rapide : exemple</a></li>
-        <li><a href="#vérifions--27---9">Vérifions : $27 + (-9)$</a></li>
         <li><a href="#exercice-2">Exercice 2</a></li>
         <li><a href="#exercice-3">Exercice 3</a></li>
       </ul>
@@ -6617,19 +6548,14 @@ en complément à 2 sur un octet $n =$ <code>0b 1010 1000</code> $=-88$</li>
       <ul>
         <li><a href="#si-lentier-est-positif-son-premier-bit-est-0">Si l&rsquo;entier est positif (son premier bit est 0)</a></li>
         <li><a href="#si-lentier-est-négatif-son-premier-bit-est-1">Si l&rsquo;entier est négatif (son premier bit est 1)</a></li>
-        <li><a href="#exemple--0b-1111-0111-en-complément-à-2-sur-8-bits">Exemple : <code>0b 1111 0111</code>, en complément à 2 sur 8 bits,</a></li>
-      </ul>
-    </li>
-    <li><a href="#du-complément-à-2-au-le-décimal-méthode-rapide">Du complément à 2 au le décimal, méthode rapide.</a>
-      <ul>
-        <li><a href="#exemple--0b-1010-1000-en-complément-à-2-sur-8-bits">Exemple : <code>0b 1010 1000</code>, en complément à 2 sur 8 bits,</a></li>
         <li><a href="#exercice-4">Exercice 4</a></li>
       </ul>
     </li>
-    <li><a href="#table-de-valeurs">Table de valeurs</a></li>
-    <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a></li>
-    <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</a>
+    <li><a href="#propriétés">Propriétés</a>
       <ul>
+        <li><a href="#table-de-valeurs">Table de valeurs</a></li>
+        <li><a href="#combien-dentiers-relatifs-sur-un-octet-">Combien d&rsquo;entiers relatifs sur un octet ?</a></li>
+        <li><a href="#combien-dentiers-relatifs-sur-avec-n-bits-">Combien d&rsquo;entiers relatifs sur avec <code>n</code> bits ?</a></li>
         <li><a href="#exercice-5">Exercice 5</a></li>
       </ul>
     </li>

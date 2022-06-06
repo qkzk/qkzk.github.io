@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf pour impression et diaporama #  Hexadécimal #  Hexadécimal #  Les nombres en binaires sont longs. On utilise souvent la base 16 pour les manipuler plus facilement.
+<meta name="description" content="pdf pour impression et diaporama
+Hexadécimal #  Les nombres en binaires sont longs. On utilise souvent la base 16 pour les manipuler plus facilement. $16=2^4$ et utiliser une puissance a de nombreux avantages.
 Chiffre hexadécimaux #  On utilise 16 chiffres :
-   Hexa 0 1 2 3 4 5 6 7 8 9 A B C D E F     Décimal 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15    16 chiffres : 0 1 2 4 5 6 7 8 9 A B C D E F #  Convertir un binaire en hexa est facile.">
+   Hexa 0 1 2 3 4 5 6 7 8 9 A B C D E F     Décimal 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15    16 chiffres : 0 1 2 4 5 6 7 8 9 A B C D E F #  Je répète : il y a 16 chiffres en hexadécimal : 0 1 2 4 5 6 7 8 9 A B C D E F">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Hexa : Cours" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +19,7 @@ Chiffre hexadécimaux #  On utilise 16 chiffres :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.45b6b138a6cdde42d21bb1e283e23ad3b5bef472bb7f738768a98c738353c7cc.js" integrity="sha256-RbaxOKbN3kLSG7Hig&#43;I607W&#43;9HK7f3OHaKmMc4NTx8w=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7a1fa51353b966a2c7dd22ae8fab0d8cc468c125f81f769c2318be3129c7ca37.js" integrity="sha256-eh&#43;lE1O5ZqLH3SKuj6sNjMRowSX4H3acIxi&#43;MSnHyjc=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/hexadecimal/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5989,56 +5990,37 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imghexa_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imghexa_slidespdf">pdf pour <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_print.pdf">impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_slides.pdf">diaporama</a></a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#hexadécimal-1">Hexadécimal</a>
+    <li><a href="#hexadécimal">Hexadécimal</a>
       <ul>
         <li><a href="#chiffre-hexadécimaux">Chiffre hexadécimaux</a></li>
         <li><a href="#16-chiffres--0-1-2-4-5-6-7-8-9-a-b-c-d-e-f">16 chiffres : 0 1 2 4 5 6 7 8 9 A B C D E F</a></li>
         <li><a href="#notations">Notations</a></li>
       </ul>
     </li>
-    <li><a href="#pour-aller-vite-on-peut-utiliser-une-table">Pour aller vite on peut utiliser une table</a>
-      <ul>
-        <li><a href="#table-de-conversionuploadsdocsnsidonnees_qkzk_imgtable_hexapngheight7cm"><img src="/uploads/docsnsi/donnees_qkzk_img/table_hexa.png" alt="Table de conversion">{height=7cm}</a></li>
-      </ul>
-    </li>
-    <li><a href="#de-lhexadécimal-vers-le-décimal">De l&rsquo;hexadécimal vers le décimal</a></li>
-    <li><a href="#du-décimal-vers-lhexadécimal">Du décimal vers l&rsquo;hexadécimal</a></li>
-    <li><a href="#python">Python</a></li>
-    <li><a href="#représenter-facilement-des-octets-">Représenter facilement des octets ?</a>
+    <li><a href="#représenter-facilement-des-octets">Représenter facilement des octets</a>
       <ul>
         <li><a href="#comment-représenter-facilement-un-octet-">Comment représenter facilement un octet ?</a></li>
-        <li><a href="#un-octet-est-représenté-par-2-chiffres-hexadécimaux">Un octet est représenté par 2 chiffres hexadécimaux</a></li>
+      </ul>
+    </li>
+    <li><a href="#conversions">Conversions</a>
+      <ul>
+        <li><a href="#hexadécimal---binaire">Hexadécimal -&gt; binaire</a></li>
+        <li><a href="#hexadécimal---décimal">Hexadécimal -&gt; décimal</a></li>
+        <li><a href="#décimal---hexadécimal">Décimal -&gt; hexadécimal</a></li>
+        <li><a href="#python">Python</a></li>
       </ul>
     </li>
     <li><a href="#les-couleurs">Les couleurs</a>
       <ul>
-        <li><a href="#synthèses-additive-et-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthesesjpg"><img src="/uploads/docsnsi/donnees_qkzk_img/syntheses.jpg" alt="synthèses additive et soustractive"></a></li>
+        <li><a href="#synthèse-additive">Synthèse additive</a></li>
+        <li><a href="#synthèse-soustractive">Synthèse soustractive</a></li>
       </ul>
     </li>
-    <li><a href="#synthèse-additive">Synthèse additive</a>
+    <li><a href="#le-contenu-dun-fichier">Le contenu d&rsquo;un fichier</a>
       <ul>
-        <li><a href="#ff0080uploadsdocsnsidonnees_qkzk_imgff0080jpg"><img src="/uploads/docsnsi/donnees_qkzk_img/ff0080.jpg" alt="#FF0080"></a></li>
+        <li><a href="#comment-lire-le-résultat-">Comment lire le résultat ?</a></li>
       </ul>
     </li>
-    <li><a href="#quelques-exemples">Quelques exemples</a>
-      <ul>
-        <li><a href="#synthèse-additiveuploadsdocsnsidonnees_qkzk_imgsynthese_additivepng"><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_additive.png" alt="synthèse additive"></a></li>
-      </ul>
-    </li>
-    <li><a href="#synthèse-soustractive">Synthèse soustractive</a>
-      <ul>
-        <li><a href="#synthèse-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthese_soustractivepng"><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_soustractive.png" alt="synthèse soustractive"></a></li>
-      </ul>
-    </li>
-    <li><a href="#le-contenu-dun-fichier">Le contenu d&rsquo;un fichier</a></li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#que-fait-la-commande-">Que fait la commande ?</a></li>
-    <li><a href="#comment-lire-le-résultat-">Comment lire le résultat ?</a></li>
-    <li><a href="#heading-1"></a></li>
   </ul>
 </nav>
 
@@ -6052,20 +6034,14 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h2 id="pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imghexa_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imghexa_slidespdf">
-  pdf pour <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_print.pdf">impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_slides.pdf">diaporama</a>
-  <a class="anchor" href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imghexa_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imghexa_slidespdf">#</a>
-</h2>
-<h1 id="hexadécimal">
+<article class="markdown"><p>pdf pour <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_print.pdf">impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_slides.pdf">diaporama</a></p>
+<h2 id="hexadécimal">
   Hexadécimal
   <a class="anchor" href="#hexad%c3%a9cimal">#</a>
-</h1>
-<h2 id="hexadécimal-1">
-  Hexadécimal
-  <a class="anchor" href="#hexad%c3%a9cimal-1">#</a>
 </h2>
 <p>Les nombres en binaires sont longs.
-On utilise souvent la base 16 pour les manipuler plus facilement.</p>
+On utilise souvent la base 16 pour les manipuler plus facilement.
+$16=2^4$ et utiliser une puissance a de nombreux avantages.</p>
 <h3 id="chiffre-hexadécimaux">
   Chiffre hexadécimaux
   <a class="anchor" href="#chiffre-hexad%c3%a9cimaux">#</a>
@@ -6119,9 +6095,13 @@ On utilise souvent la base 16 pour les manipuler plus facilement.</p>
   16 chiffres : 0 1 2 4 5 6 7 8 9 A B C D E F
   <a class="anchor" href="#16-chiffres--0-1-2-4-5-6-7-8-9-a-b-c-d-e-f">#</a>
 </h3>
-<p>Convertir un binaire en hexa est facile.
-Chaque paquet de 4 bits donne un chiffre hexa :</p>
-<p>$$1010~0011~1011~1100_2 = A3BC_{16}$$</p>
+<blockquote class="book-hint info">
+  <p><strong>Je répète : il y a 16 chiffres en hexadécimal : 0 1 2 4 5 6 7 8 9 A B C D E F</strong></p>
+<p><strong>A</strong> est un chiffre en hexadécimal. Il vaut 10 en décimal.<br>
+<strong>F</strong>  est un chiffre en hexadécimal. Il vaut 15 en décimal.</p>
+
+</blockquote>
+
 <h3 id="notations">
   Notations
   <a class="anchor" href="#notations">#</a>
@@ -6142,53 +6122,10 @@ Chaque paquet de 4 bits donne un chiffre hexa :</p>
 </tr>
 </tbody>
 </table>
-<h2 id="pour-aller-vite-on-peut-utiliser-une-table">
-  Pour aller vite on peut utiliser une table
-  <a class="anchor" href="#pour-aller-vite-on-peut-utiliser-une-table">#</a>
-</h2>
-<h3 id="table-de-conversionuploadsdocsnsidonnees_qkzk_imgtable_hexapngheight7cm">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/table_hexa.png" alt="Table de conversion" />{height=7cm}
-  <a class="anchor" href="#table-de-conversionuploadsdocsnsidonnees_qkzk_imgtable_hexapngheight7cm">#</a>
-</h3>
-<h2 id="de-lhexadécimal-vers-le-décimal">
-  De l&rsquo;hexadécimal vers le décimal
-  <a class="anchor" href="#de-lhexad%c3%a9cimal-vers-le-d%c3%a9cimal">#</a>
-</h2>
-<p>Pour convertir $4D5_{16}$ de l&rsquo;hexa. vers le décimal,<br>
-on commence par le dernier chiffre :</p>
-<ul>
-<li>$5 \times 16^0$ et on recule :</li>
-<li>$13 \times 16^1$ ($D$ correspond au nombre 13)</li>
-<li>$4 \times 16^2$</li>
-</ul>
-<p>$$4D5_{16} = 5 \times 16^0 + 13\times 16^1 + 4\times 16^2 = 1~237_{10}$$</p>
-<h2 id="du-décimal-vers-lhexadécimal">
-  Du décimal vers l&rsquo;hexadécimal
-  <a class="anchor" href="#du-d%c3%a9cimal-vers-lhexad%c3%a9cimal">#</a>
-</h2>
-<ul>
-<li>Divisions entières successives par <strong>16</strong> <em>jusqu&rsquo;à trouver 0</em>.<br>
-Les <strong>restes</strong> donnent les chiffres dans l&rsquo;ordre <strong>inverse</strong>
-$$959 = 59 \times 16 + 15 ; \longrightarrow F$$
-$$59 = 3 \times 16 + 11   ; \longrightarrow B$$
-$$3 = 0 \times 16 + 3 ; \longrightarrow 3$$
-$$959_{10} = 3BF_{16}$$</li>
-</ul>
-<h2 id="python">
-  Python
-  <a class="anchor" href="#python">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#39;3BF&#39;</span>, <span style="color:#f60">16</span>)
-</span></span><span style="display:flex;"><span><span style="color:#f60">959</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">hex</span>(<span style="color:#f60">959</span>)
-</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0x3bf&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0xA3BC</span> <span style="color:#09f;font-style:italic"># c&#39;est un entier pas une chaîne !!!</span>
-</span></span><span style="display:flex;"><span><span style="color:#f60">41916</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0xa3bc</span> <span style="color:#09f;font-style:italic"># majuscule ou minuscule</span>
-</span></span><span style="display:flex;"><span><span style="color:#f60">41916</span>
-</span></span></code></pre></div><h2 id="représenter-facilement-des-octets-">
-  Représenter facilement des octets ?
-  <a class="anchor" href="#repr%c3%a9senter-facilement-des-octets-">#</a>
+<hr>
+<h2 id="représenter-facilement-des-octets">
+  Représenter facilement des octets
+  <a class="anchor" href="#repr%c3%a9senter-facilement-des-octets">#</a>
 </h2>
 <p>Pour la machine, l&rsquo;unité de stockage la plus petite n&rsquo;est pas le bit mais
 l&rsquo;octet.</p>
@@ -6198,10 +6135,59 @@ l&rsquo;octet.</p>
 </h3>
 <p>256 octets possibles&hellip; 256 symboles ? Difficile&hellip;</p>
 <p>Mais ! $256 = 16^2$ on peut utiliser 2 symboles en base 16.</p>
-<h3 id="un-octet-est-représenté-par-2-chiffres-hexadécimaux">
-  Un octet est représenté par 2 chiffres hexadécimaux
-  <a class="anchor" href="#un-octet-est-repr%c3%a9sent%c3%a9-par-2-chiffres-hexad%c3%a9cimaux">#</a>
+<p><strong>Un octet est représenté par 2 chiffres hexadécimaux</strong></p>
+<p>Ainsi, lorsqu&rsquo;on lit depuis la mémoire <code>0xA4</code> cela représente <em>un octet</em> valant 164.</p>
+<p>L&rsquo;interprétation dépend du contexte (caractère ? nombre ? ou tout autre chose&hellip;)</p>
+<hr>
+<h2 id="conversions">
+  Conversions
+  <a class="anchor" href="#conversions">#</a>
+</h2>
+<h3 id="hexadécimal---binaire">
+  Hexadécimal -&gt; binaire
+  <a class="anchor" href="#hexad%c3%a9cimal---binaire">#</a>
 </h3>
+<p>Convertir un binaire en hexa est facile.
+<strong>Chaque paquet de 4 bits donne un chiffre hexa :</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1010 0011 1011 1100
+</span></span><span style="display:flex;"><span>A    3    B    C
+</span></span></code></pre></div><p>Pour aller vite on peut utiliser une table</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/table_hexa.png" alt="Table de conversion" /></p>
+<h3 id="hexadécimal---décimal">
+  Hexadécimal -&gt; décimal
+  <a class="anchor" href="#hexad%c3%a9cimal---d%c3%a9cimal">#</a>
+</h3>
+<p>Pour convertir $4D5_{16}$ de l&rsquo;hexa. vers le décimal,<br>
+on commence par le dernier chiffre :</p>
+<ul>
+<li>$5 \times 16^0$ et on recule :</li>
+<li>$D \times 16 = 13 \times 16^1$ ($D$ correspond au nombre 13)</li>
+<li>$4 \times 16^2$</li>
+</ul>
+<p>$$4D5_{16} = 5 \times 16^0 + 13\times 16^1 + 4\times 16^2 = 1~237_{10}$$</p>
+<h3 id="décimal---hexadécimal">
+  Décimal -&gt; hexadécimal
+  <a class="anchor" href="#d%c3%a9cimal---hexad%c3%a9cimal">#</a>
+</h3>
+<p>Divisions entières successives par <strong>16</strong> <em>jusqu&rsquo;à trouver 0</em>.<br>
+Les <strong>restes</strong> donnent les chiffres dans l&rsquo;ordre <strong>inverse</strong></p>
+<p>$$959 = 59 \times 16 + 15  \longrightarrow F$$
+$$59 = 3 \times 16 + 11    \longrightarrow B$$
+$$3 = 0 \times 16 + 3  \longrightarrow 3$$
+$$959_{10} = 3BF_{16}$$</p>
+<h3 id="python">
+  Python
+  <a class="anchor" href="#python">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#39;3BF&#39;</span>, <span style="color:#f60">16</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f60">959</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">hex</span>(<span style="color:#f60">959</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0x3bf&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0xA3BC</span> <span style="color:#09f;font-style:italic"># c&#39;est un entier pas une chaîne !!!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">41916</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0xa3bc</span> <span style="color:#09f;font-style:italic"># majuscule ou minuscule</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">41916</span>
+</span></span></code></pre></div><hr>
 <h2 id="les-couleurs">
   Les couleurs
   <a class="anchor" href="#les-couleurs">#</a>
@@ -6211,40 +6197,54 @@ l&rsquo;octet.</p>
 <li>les couleurs à l&rsquo;écran : synthèse additive</li>
 <li>les couleurs imprimées : synthèse soustractive</li>
 </ul>
-<h3 id="synthèses-additive-et-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthesesjpg">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/syntheses.jpg" alt="synthèses additive et soustractive" />
-  <a class="anchor" href="#synth%c3%a8ses-additive-et-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthesesjpg">#</a>
-</h3>
-<h2 id="synthèse-additive">
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/syntheses.jpg" alt="synthèses additive et soustractive" /></p>
+<h3 id="synthèse-additive">
   Synthèse additive
   <a class="anchor" href="#synth%c3%a8se-additive">#</a>
-</h2>
+</h3>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_additive.png" alt="synthèse additive" /></p>
 <ul>
 <li>En <strong>synthèse additive</strong> on utilise 256 niveaux de couleur pour les composantes Rouge, Vert et Bleu.</li>
 <li>Chaque niveau de couleur est codé sur un octet.</li>
-<li><code>#FF0080</code> : FF rouge à fond, 00 pas de vert, 80 bleu à moitié :
-un joli rose, noté parfois : <code>rgb(255, 0, 128)</code></li>
 </ul>
-<h3 id="ff0080uploadsdocsnsidonnees_qkzk_imgff0080jpg">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/ff0080.jpg" alt="#FF0080" />
-  <a class="anchor" href="#ff0080uploadsdocsnsidonnees_qkzk_imgff0080jpg">#</a>
-</h3>
-<h2 id="quelques-exemples">
-  Quelques exemples
-  <a class="anchor" href="#quelques-exemples">#</a>
-</h2>
+<p>Par exemple :</p>
+<p><code>#FF0080</code> : <code>FF</code> rouge à fond, <code>00</code> pas de vert, <code>80</code> bleu à moitié :<br>
+un joli rose, noté parfois : <code>rgb(255, 0, 128)</code></p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/ff0080.jpg" alt="#FF0080" /></p>
+<p>Quelques exemples :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>blanc #FFFFFF     noir    #000000
 </span></span><span style="display:flex;"><span>rouge #FF0000     jaune   #FFFF00
 </span></span><span style="display:flex;"><span>vert  #00FF00     cyan    #00FFFF
 </span></span><span style="display:flex;"><span>bleu  #0000FF     magenta #FF00FF
-</span></span></code></pre></div><h3 id="synthèse-additiveuploadsdocsnsidonnees_qkzk_imgsynthese_additivepng">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/synthese_additive.png" alt="synthèse additive" />
-  <a class="anchor" href="#synth%c3%a8se-additiveuploadsdocsnsidonnees_qkzk_imgsynthese_additivepng">#</a>
-</h3>
-<h2 id="synthèse-soustractive">
+</span></span></code></pre></div><p>Il convient d&rsquo;être capable de <em>vaguement</em> reconnaître une couleur à partir de sa valeur :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>??? #FF8800 ???
+</span></span></code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>résultat ???</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div style="background-color:#FF8800; text-align: center; height=30px;">
+De l'orange...
+</div>
+
+    </div>
+  </label>
+</div>
+
+<blockquote class="book-hint info">
+  <p>Dans ce modèle (1 octet par niveau de rouge / vert / bleu), on peut représenter : $256^3 = 16^6= 2^{24} = 16~777~216$ de couleurs.</p>
+<p>Le résultat n&rsquo;a pas grande importance, la méthode si.</p>
+
+</blockquote>
+
+<h3 id="synthèse-soustractive">
   Synthèse soustractive
   <a class="anchor" href="#synth%c3%a8se-soustractive">#</a>
-</h2>
+</h3>
 <ul>
 <li>
 <p>En <strong>synthèse soustractive</strong> on utilise souvent <strong>CMJN</strong> :<br>
@@ -6255,21 +6255,41 @@ cyan, magenta, jaune et noir.</p>
 On a développé de nombreuses méthodes.</p>
 </li>
 </ul>
-<h3 id="synthèse-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthese_soustractivepng">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/synthese_soustractive.png" alt="synthèse soustractive" />
-  <a class="anchor" href="#synth%c3%a8se-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthese_soustractivepng">#</a>
-</h3>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_soustractive.png" alt="synthèse soustractive" /></p>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Remarques</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <p>Afin d&rsquo;économiser les coûts, les imprimeurs utilisent le moins de couleurs possible.</p>
+<p>Les tracts qu&rsquo;on distribuent n&rsquo;en utilisent souvent que 2 !</p>
+<p><img src="./tract.jpeg" alt="tract" /></p>
+<p>On réalise par exemple des aplats (<em>surface de couleur uniforme, qui ne varie ni en luminosité, ni en pureté</em>).</p>
+<p><img src="./cinq-heures.jpg" alt="aplat" /></p>
+<p>Lorsqu&rsquo;on veut imprimer davantage de couleurs, il faut :</p>
+<ul>
+<li>du papier de meilleure qualité,</li>
+<li>des encres différentes,</li>
+<li>plusieurs passages dans la machine, voire plusieurs machines.</li>
+</ul>
+<p>Pour aller un peu plus loin, <a href="https://www.youtube.com/watch?v=h6_vRSoTqPY">cette vidéo</a> pour enfant avec accent québéquois.</p>
+
+    </div>
+  </label>
+</div>
+
+<hr>
 <h2 id="le-contenu-dun-fichier">
   Le contenu d&rsquo;un fichier
   <a class="anchor" href="#le-contenu-dun-fichier">#</a>
 </h2>
 <p>Un fichier en machine n&rsquo;est pas toujours lisible directement.</p>
-<p>Ouvrir une image avec un lecteur de texte produit un résultat décevant.<br>
+<p>Ouvrir une <em>image</em> avec un lecteur de <em>texte</em> produit un résultat décevant.<br>
 Comment lire facilement les octets qui la constituent ?</p>
-<h2 id="heading">
-  
-  <a class="anchor" href="#heading">#</a>
-</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hexdump img/ff0080.jpg | head
 </span></span><span style="display:flex;"><span><span style="color:#f60">0000000</span> d8ff e0ff <span style="color:#f60">1000</span> 464a <span style="color:#f60">4649</span> <span style="color:#f60">0100</span> <span style="color:#f60">0101</span> <span style="color:#f60">4800</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">0000010</span> <span style="color:#f60">4800</span> <span style="color:#f60">0000</span> e2ff <span style="color:#f60">8823</span> <span style="color:#f60">4349</span> 5f43 <span style="color:#f60">5250</span> 464f
@@ -6281,34 +6301,27 @@ Comment lire facilement les octets qui la constituent ?</p>
 </span></span><span style="display:flex;"><span><span style="color:#f60">0000070</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> 2dd3 636c 736d <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">0000080</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span> <span style="color:#f60">0000</span>
 </span></span><span style="display:flex;"><span>*
-</span></span></code></pre></div><h2 id="que-fait-la-commande-">
-  Que fait la commande ?
-  <a class="anchor" href="#que-fait-la-commande-">#</a>
-</h2>
+</span></span></code></pre></div><p><strong>Que fait la commande ?</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hexdump img/ff0080.jpg | head
 </span></span></code></pre></div><ul>
-<li><code>hexdump</code> : affiche les octets d&rsquo;un fichier sous forme hexadécimale</li>
+<li><code>hexdump</code> : renvoie les octets d&rsquo;un fichier sous forme hexadécimale</li>
 <li><code>img/ff0080.jpg</code> : l&rsquo;image avec la couleur rose vue plus tôt</li>
 <li><code>| head</code> : ne garder que le début du fichier</li>
 </ul>
-<h2 id="comment-lire-le-résultat-">
+<h3 id="comment-lire-le-résultat-">
   Comment lire le résultat ?
   <a class="anchor" href="#comment-lire-le-r%c3%a9sultat-">#</a>
-</h2>
+</h3>
 <ul>
-<li>Première colonne : position dans le fichier
+<li>
+<p>Première colonne : position dans le fichier</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0000000
 </span></span><span style="display:flex;"><span>0000010   &lt;--- Cette ligne commence à l&#39;octet x10
 </span></span><span style="display:flex;"><span>0000020
 </span></span><span style="display:flex;"><span>0000030
 </span></span></code></pre></div></li>
-</ul>
-<h2 id="heading-1">
-  
-  <a class="anchor" href="#heading-1">#</a>
-</h2>
-<ul>
-<li><code>0000020 4c49 0045</code> :
+<li>
+<p><code>0000020 4c49 0045</code> :</p>
 <table>
 <thead>
 <tr>
@@ -6329,16 +6342,16 @@ Comment lire facilement les octets qui la constituent ?</p>
 </tr>
 <tr>
 <td style="text-align:center">Contenu</td>
-<td style="text-align:center">76</td>
-<td style="text-align:center">73</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">69</td>
+<td style="text-align:center"><code>76</code></td>
+<td style="text-align:center"><code>73</code></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>69</code></td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-<p>Le contenu de mon image .jpg est donc UN NOMBRE, encodé en binaire, que
+<p>Le contenu de mon image .jpg est donc <em>un nombre énorme</em>, encodé en binaire, que
 la machine interprète à l&rsquo;aide d&rsquo;un programme et affiche à l&rsquo;écran.</p>
 </article>
 
@@ -6402,56 +6415,37 @@ la machine interprète à l&rsquo;aide d&rsquo;un programme et affiche à l&rsqu
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdf-pour-impressionuploadsdocsnsidonnees_qkzk_imghexa_printpdf-et-diaporamauploadsdocsnsidonnees_qkzk_imghexa_slidespdf">pdf pour <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_print.pdf">impression</a> et <a href="/uploads/docsnsi/donnees_qkzk_img/hexa_slides.pdf">diaporama</a></a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#hexadécimal-1">Hexadécimal</a>
+    <li><a href="#hexadécimal">Hexadécimal</a>
       <ul>
         <li><a href="#chiffre-hexadécimaux">Chiffre hexadécimaux</a></li>
         <li><a href="#16-chiffres--0-1-2-4-5-6-7-8-9-a-b-c-d-e-f">16 chiffres : 0 1 2 4 5 6 7 8 9 A B C D E F</a></li>
         <li><a href="#notations">Notations</a></li>
       </ul>
     </li>
-    <li><a href="#pour-aller-vite-on-peut-utiliser-une-table">Pour aller vite on peut utiliser une table</a>
-      <ul>
-        <li><a href="#table-de-conversionuploadsdocsnsidonnees_qkzk_imgtable_hexapngheight7cm"><img src="/uploads/docsnsi/donnees_qkzk_img/table_hexa.png" alt="Table de conversion">{height=7cm}</a></li>
-      </ul>
-    </li>
-    <li><a href="#de-lhexadécimal-vers-le-décimal">De l&rsquo;hexadécimal vers le décimal</a></li>
-    <li><a href="#du-décimal-vers-lhexadécimal">Du décimal vers l&rsquo;hexadécimal</a></li>
-    <li><a href="#python">Python</a></li>
-    <li><a href="#représenter-facilement-des-octets-">Représenter facilement des octets ?</a>
+    <li><a href="#représenter-facilement-des-octets">Représenter facilement des octets</a>
       <ul>
         <li><a href="#comment-représenter-facilement-un-octet-">Comment représenter facilement un octet ?</a></li>
-        <li><a href="#un-octet-est-représenté-par-2-chiffres-hexadécimaux">Un octet est représenté par 2 chiffres hexadécimaux</a></li>
+      </ul>
+    </li>
+    <li><a href="#conversions">Conversions</a>
+      <ul>
+        <li><a href="#hexadécimal---binaire">Hexadécimal -&gt; binaire</a></li>
+        <li><a href="#hexadécimal---décimal">Hexadécimal -&gt; décimal</a></li>
+        <li><a href="#décimal---hexadécimal">Décimal -&gt; hexadécimal</a></li>
+        <li><a href="#python">Python</a></li>
       </ul>
     </li>
     <li><a href="#les-couleurs">Les couleurs</a>
       <ul>
-        <li><a href="#synthèses-additive-et-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthesesjpg"><img src="/uploads/docsnsi/donnees_qkzk_img/syntheses.jpg" alt="synthèses additive et soustractive"></a></li>
+        <li><a href="#synthèse-additive">Synthèse additive</a></li>
+        <li><a href="#synthèse-soustractive">Synthèse soustractive</a></li>
       </ul>
     </li>
-    <li><a href="#synthèse-additive">Synthèse additive</a>
+    <li><a href="#le-contenu-dun-fichier">Le contenu d&rsquo;un fichier</a>
       <ul>
-        <li><a href="#ff0080uploadsdocsnsidonnees_qkzk_imgff0080jpg"><img src="/uploads/docsnsi/donnees_qkzk_img/ff0080.jpg" alt="#FF0080"></a></li>
+        <li><a href="#comment-lire-le-résultat-">Comment lire le résultat ?</a></li>
       </ul>
     </li>
-    <li><a href="#quelques-exemples">Quelques exemples</a>
-      <ul>
-        <li><a href="#synthèse-additiveuploadsdocsnsidonnees_qkzk_imgsynthese_additivepng"><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_additive.png" alt="synthèse additive"></a></li>
-      </ul>
-    </li>
-    <li><a href="#synthèse-soustractive">Synthèse soustractive</a>
-      <ul>
-        <li><a href="#synthèse-soustractiveuploadsdocsnsidonnees_qkzk_imgsynthese_soustractivepng"><img src="/uploads/docsnsi/donnees_qkzk_img/synthese_soustractive.png" alt="synthèse soustractive"></a></li>
-      </ul>
-    </li>
-    <li><a href="#le-contenu-dun-fichier">Le contenu d&rsquo;un fichier</a></li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#que-fait-la-commande-">Que fait la commande ?</a></li>
-    <li><a href="#comment-lire-le-résultat-">Comment lire le résultat ?</a></li>
-    <li><a href="#heading-1"></a></li>
   </ul>
 </nav>
 

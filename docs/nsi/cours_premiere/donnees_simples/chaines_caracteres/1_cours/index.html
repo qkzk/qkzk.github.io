@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf #  Représentation d’un texte en machine #  Un caractère ? #  Comment enregistrer, de manière optimale, du texte en mémoire ?
+<meta name="description" content="pdf
+Représentation d’un texte en machine #  La mémoire ne contient que des 0 et des 1, ainsi lorsqu&rsquo;on voit une lettre à l&rsquo;écran, en mémoire c&rsquo;est un entier qui est encode ce caractère.  Différents encodages existent, nous allons les étudier.
+Un caractère ? #  Comment enregistrer, de manière optimale, du texte en mémoire ?
 De combien de symboles a-t-on besoin ?
- 26 lettres dans l&rsquo;alphabet, 52 avec les majuscules. 10 chiffres 0123456789 Un peu de ponctuation : ,;:!?./*$-&#43;=()[]{}&quot;&#39; etc. Quelques caractères techniques (retour à la ligne, espace etc.)  On dépasse $2^6 = 64$ mais en se contentant du minimum, on reste en dessous de $2^7 = 128$.">
+ 26 lettres dans l&rsquo;alphabet, 52 avec les majuscules.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Chaines : Cours" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +20,7 @@ De combien de symboles a-t-on besoin ?
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.45b6b138a6cdde42d21bb1e283e23ad3b5bef472bb7f738768a98c738353c7cc.js" integrity="sha256-RbaxOKbN3kLSG7Hig&#43;I607W&#43;9HK7f3OHaKmMc4NTx8w=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7a1fa51353b966a2c7dd22ae8fab0d8cc468c125f81f769c2318be3129c7ca37.js" integrity="sha256-eh&#43;lE1O5ZqLH3SKuj6sNjMRowSX4H3acIxi&#43;MSnHyjc=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/chaines_caracteres/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5989,35 +5991,35 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdfchainespdf"><a href="./chaines.pdf">pdf</a></a></li>
-  </ul>
-
-  <ul>
     <li><a href="#un-caractère-">Un caractère ?</a></li>
-    <li><a href="#la-table-ascii-complète">La table ASCII complète</a></li>
-    <li><a href="#remarques-sur-la-table-précédente">Remarques sur la table précédente</a></li>
+    <li><a href="#la-table-ascii-complète">La table ASCII complète</a>
+      <ul>
+        <li><a href="#remarques-sur-la-table-précédente">Remarques sur la table précédente</a></li>
+        <li><a href="#les-95-caractères-imprimables">Les 95 caractères imprimables</a></li>
+        <li><a href="#résumé-ascii">Résumé ASCII</a></li>
+      </ul>
+    </li>
     <li><a href="#python-et-la-table-ascii">Python et la table ascii</a></li>
     <li><a href="#iso-8859-1-ou-iso-latin-1">iso-8859-1 ou iso-Latin-1</a></li>
     <li><a href="#unicode">Unicode</a></li>
     <li><a href="#motivation-dunicode---et-">Motivation d&rsquo;unicode : $ et £</a></li>
-    <li><a href="#principe-simplifié-dutf8">Principe simplifié d&rsquo;UTF8</a></li>
-    <li><a href="#python-2-et-lencodage-des-caractères">Python 2 et l&rsquo;encodage des caractères</a></li>
+    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a></li>
     <li><a href="#python-et-lutf-8">Python et l&rsquo;UTF-8</a>
       <ul>
+        <li><a href="#python-2-lancien-et-lencodage-des-caractères">Python 2 (l&rsquo;ancien) et l&rsquo;encodage des caractères</a></li>
+        <li><a href="#python-3-le-notre">Python 3 (le notre)</a></li>
         <li><a href="#les-fonctions-chr-et-ord-supportent-unicode-">les fonctions chr et ord supportent unicode :)</a></li>
       </ul>
     </li>
-    <li><a href="#martine-écrit-en-utf-8">Martine écrit en UTF-8</a>
+    <li><a href="#martine-écrit-en-utf-8">Martine écrit en UTF-8</a></li>
+    <li><a href="#complément--base64">Complément : base64</a>
       <ul>
-        <li><a href="#martineuploadsdocsnsidonnees_qkzk_imgmartinejpg"><img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine"></a></li>
+        <li><a href="#contexte">Contexte</a></li>
+        <li><a href="#base-64">Base 64</a></li>
+        <li><a href="#principes-de-base-64">Principes de base 64</a></li>
+        <li><a href="#remarques">Remarques</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#contexte">Contexte</a></li>
-    <li><a href="#base64">Base64</a></li>
-    <li><a href="#remarques">Remarques</a></li>
     <li><a href="#exemple">Exemple</a></li>
   </ul>
 </nav>
@@ -6032,14 +6034,17 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h2 id="pdfchainespdf">
-  <a href="./chaines.pdf">pdf</a>
-  <a class="anchor" href="#pdfchainespdf">#</a>
-</h2>
+<article class="markdown"><p><a href="./chaines.pdf">pdf</a></p>
 <h1 id="représentation-dun-texte-en-machine">
   Représentation d’un texte en machine
   <a class="anchor" href="#repr%c3%a9sentation-dun-texte-en-machine">#</a>
 </h1>
+<blockquote class="book-hint info">
+  La mémoire ne contient que des 0 et des 1, ainsi lorsqu&rsquo;on voit une lettre à l&rsquo;écran, en mémoire c&rsquo;est <em>un entier</em>
+qui est <em>encode</em> ce caractère.
+</blockquote>
+
+<p>Différents encodages existent, nous allons les étudier.</p>
 <h2 id="un-caractère-">
   Un caractère ?
   <a class="anchor" href="#un-caract%c3%a8re-">#</a>
@@ -6054,29 +6059,187 @@ MathJax.Hub.Config({
 </ul>
 <p>On dépasse $2^6 = 64$ mais en se contentant du minimum, on reste en dessous de $2^7 = 128$. On peut encoder une table assez vaste avec 7 bits.</p>
 <p>Idée d&rsquo;ASCII (1961) : uniformiser les nombreux encodages incompatibles entre eux.</p>
+<p>L&rsquo;encodage ASCII est l&rsquo;encodage universel dont tous les autres dérivent.</p>
 <h2 id="la-table-ascii-complète">
   La table ASCII complète
   <a class="anchor" href="#la-table-ascii-compl%c3%a8te">#</a>
 </h2>
 <p><img src="/uploads/docsnsi/donnees_qkzk_img/ascii_table.png" alt="La table ASCII" /></p>
-<h2 id="remarques-sur-la-table-précédente">
+<h3 id="remarques-sur-la-table-précédente">
   Remarques sur la table précédente
   <a class="anchor" href="#remarques-sur-la-table-pr%c3%a9c%c3%a9dente">#</a>
-</h2>
+</h3>
 <ul>
-<li>Tout élément de la table est codé sur 7 bits, 1 octet par caractère suffit ($2^8 = 256$)</li>
+<li>Tout élément de la table est codé sur 7 bits, 1 octet par caractère suffit</li>
+<li>Les caractères codés entre 32 et 127 sont imprimables, les autres sont des caractères de contrôle.</li>
+<li>Certains caractères de contrôle ont un effet sur le texte comme le numéro 9 : <code>\t</code> (tabulation) ou le 10 :  <code>\n</code> (retour à la ligne).</li>
 <li>Les chiffres commencent à $30_{16}$, les majuscules à $41_{16}$ et les minuscules à $61_{16}$</li>
 <li>Pour obtenir la notation binaire, on part de l&rsquo;hexa.<br>
 Premier chiffre : 3 bits, second chiffre 4 bits
 $$A \rightarrow 41_{16} \rightarrow 4\times 16 + 1 \rightarrow 0100~0001$$
 $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
+</ul>
+<h3 id="les-95-caractères-imprimables">
+  Les 95 caractères imprimables
+  <a class="anchor" href="#les-95-caract%c3%a8res-imprimables">#</a>
+</h3>
+<ul>
 <li>Seulement 95 caractères imprimables, pas de caractère accentués :</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>          !&#34;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?
-</span></span><span style="display:flex;"><span>          @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
-</span></span><span style="display:flex;"><span>          `abcdefghijklmnopqrstuvwxyz{|}~
-</span></span></code></pre></div><p><strong>Question :</strong> Expliquer la phrase suivante : &ldquo;<em>Pour changer la casse d&rsquo;un caractère,
+<table>
+<thead>
+<tr>
+<th>hex</th>
+<th><code>0</code></th>
+<th><code>1</code></th>
+<th><code>2</code></th>
+<th><code>3</code></th>
+<th><code>4</code></th>
+<th><code>5</code></th>
+<th><code>6</code></th>
+<th><code>7</code></th>
+<th><code>8</code></th>
+<th><code>9</code></th>
+<th><code>a</code></th>
+<th><code>b</code></th>
+<th><code>c</code></th>
+<th><code>d</code></th>
+<th><code>e</code></th>
+<th><code>f</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x2.</code></td>
+<td></td>
+<td>!</td>
+<td>&quot;</td>
+<td>#</td>
+<td>$</td>
+<td>%</td>
+<td>&amp;</td>
+<td>'</td>
+<td>(</td>
+<td>)</td>
+<td>*</td>
+<td>+</td>
+<td>,</td>
+<td>-</td>
+<td>.</td>
+<td>/</td>
+</tr>
+<tr>
+<td><code>0x3.</code></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>:</td>
+<td>;</td>
+<td>&lt;</td>
+<td>=</td>
+<td>&gt;</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>0x4.</code></td>
+<td>@</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+</tr>
+<tr>
+<td><code>0x5.</code></td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>[</td>
+<td>\</td>
+<td>]</td>
+<td>^</td>
+<td>_</td>
+</tr>
+<tr>
+<td><code>0x6.</code></td>
+<td>`</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>e</td>
+<td>f</td>
+<td>g</td>
+<td>h</td>
+<td>i</td>
+<td>j</td>
+<td>k</td>
+<td>l</td>
+<td>m</td>
+<td>n</td>
+<td>o</td>
+</tr>
+<tr>
+<td><code>0x7.</code></td>
+<td>p</td>
+<td>q</td>
+<td>r</td>
+<td>s</td>
+<td>t</td>
+<td>u</td>
+<td>v</td>
+<td>w</td>
+<td>x</td>
+<td>y</td>
+<td>z</td>
+<td>{</td>
+<td></td>
+<td></td>
+<td>}</td>
+<td>~</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Question :</strong> Expliquer la phrase suivante : &ldquo;<em>Pour changer la casse d&rsquo;un caractère,
 il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
+<h3 id="résumé-ascii">
+  Résumé ASCII
+  <a class="anchor" href="#r%c3%a9sum%c3%a9-ascii">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <p>En ASCII on encode un caractère sur 7 bits.</p>
+<p>Cet encodage ne comporte que 95 caractères imprimables (de 20 à 127) et aucun accent.</p>
+<p>C&rsquo;est le seul encodage &ldquo;qui marche toujours&rdquo;.</p>
+<p>Si vous voyez un accent, ce n&rsquo;est pas de l&rsquo;ASCII.</p>
+<p>L&rsquo;organisation astucieuse permet de passer facilement de changer la casse.</p>
+
+</blockquote>
+
 <h2 id="python-et-la-table-ascii">
   Python et la table ascii
   <a class="anchor" href="#python-et-la-table-ascii">#</a>
@@ -6086,7 +6249,30 @@ il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;A&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">ord</span>(<span style="color:#c30">&#39;A&#39;</span>) <span style="color:#09f;font-style:italic"># numéro décimal du caractère</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">65</span>
-</span></span></code></pre></div><h2 id="iso-8859-1-ou-iso-latin-1">
+</span></span></code></pre></div><p><strong>Question :</strong> Comment reproduire la table ci-dessous en quelques lignes ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> !&#34;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?
+</span></span><span style="display:flex;"><span>@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
+</span></span><span style="display:flex;"><span>`abcdefghijklmnopqrstuvwxyz{|}~
+</span></span></code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>5</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">32</span>, <span style="color:#f60">128</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> c <span style="color:#000;font-weight:bold">and</span> (c <span style="color:#555">%</span> <span style="color:#f60">32</span>) <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#366">chr</span>(c), end<span style="color:#555">=</span><span style="color:#c30">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>()
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<h2 id="iso-8859-1-ou-iso-latin-1">
   iso-8859-1 ou iso-Latin-1
   <a class="anchor" href="#iso-8859-1-ou-iso-latin-1">#</a>
 </h2>
@@ -6095,18 +6281,27 @@ il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
 D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&rsquo;est etc.</p>
 <ul>
 <li>
-<p>Reprend la table ascii et ajoute les accents au coût d&rsquo;un octet supplémentaire.</p>
+<p>Reprend la table ascii et ajoute les accents au coût d&rsquo;un bit supplémentaire (à gauche).</p>
+</li>
+<li>
+<p>Ainsi <code>ASCII(A) = 0100 0001 = iso-latin1(A)</code>.</p>
+</li>
+<li>
+<p>Chaque caractère d&rsquo;une table <code>iso-xxxx-x</code> occupe exactement 1 octet.</p>
+</li>
+<li>
+<p>Les caractères &ldquo;spéciaux&rdquo; commencent donc à 128 jusque 255.</p>
 </li>
 <li>
 <p>Encore incomplet : œ et Œ n&rsquo;y sont pas !
 <em>Ce qui a contribué à leur disparition de nombreux documents écrits dans les années 90&hellip;</em></p>
 </li>
 <li>
-<p>Windows (Windows-1252) et Mac (MacRoman) ont leurs versions\newline
-Échange de documents et développement de logiciels <strong>plus que pénibles.</strong></p>
+<p>Windows (Windows-1252) et Mac (MacRoman) ont leurs propres versions rendant
+l&rsquo;échange de documents et développement de logiciels <strong>plus que pénibles.</strong></p>
 </li>
 </ul>
-<p>Bref, c&rsquo;est <del>de la merde</del> imparfait.</p>
+<p>Bref, c&rsquo;est <del>de la merde</del> imparfait mais cet encodage étant encore la norme sous Windows, il faudra faire avec.</p>
 <h2 id="unicode">
   Unicode
   <a class="anchor" href="#unicode">#</a>
@@ -6118,22 +6313,53 @@ D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&
 <li>conserver l&rsquo;ordre de la table ascii de départ</li>
 </ul>
 <p>Unicode remonte à 1991, est encore en développement, comporte déjà 137 374 caractères d&rsquo;une centaine d&rsquo;écritures dont les idéogrammes, l&rsquo;alphabet grec etc.</p>
-<p>UTF-8 est utilisé par 90,5% des sites web en 2017 et dans la majorité des systèmes UNIX (comprenez les serveurs)</p>
+<p>UTF-8 est utilisé par 90,5% des sites web en 2017 et dans la majorité des systèmes UNIX (comprenez les serveurs et appareils mobiles).</p>
 <h2 id="motivation-dunicode---et-">
   Motivation d&rsquo;unicode : $ et £
   <a class="anchor" href="#motivation-dunicode---et-">#</a>
 </h2>
-<p>Les machines des années 1980 étant fournies avec leur propre encodage, une somme d&rsquo;argent en dollars se voyait attribuer le symbole monétaire $ aux USA et le symbole £ au royaume uni (symbole monétaire de la livre sterling).</p>
+<p>Les machines des années 1980 étant fournies avec leur propre encodage, une somme d&rsquo;argent en dollars se voyait attribuer le symbole monétaire $ aux USA et le symbole £ au Royaume Uni (symbole monétaire de la livre sterling).</p>
 <p>Mais entre dollars ($) et livres (£) et les confusions étaient fréquentes.</p>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Rien compris ?</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <p>Bob est aux USA et saisit un message pour Alice, au Royaume Uni :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Bob ---&gt; Alice 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; Je t&#39;envoie 100$
+</span></span></code></pre></div><p>Sur son écran Alice voit apparaître :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Alice &lt;--- Bob
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; Je t&#39;envoie 100£
+</span></span></code></pre></div><p>La somme <em>réellement transférée est 100$</em> mais Alice <em>croit recevoir 100£</em> dont le montant est différent&hellip;</p>
+
+    </div>
+  </label>
+</div>
+
 <p>On a ensuite, peu à peu, étendu ce projet à tous les symboles existant.</p>
-<h2 id="principe-simplifié-dutf8">
-  Principe simplifié d&rsquo;UTF8
-  <a class="anchor" href="#principe-simplifi%c3%a9-dutf8">#</a>
+<h2 id="principe-simplifié-dutf-8">
+  Principe simplifié d&rsquo;UTF-8
+  <a class="anchor" href="#principe-simplifi%c3%a9-dutf-8">#</a>
 </h2>
 <ul>
-<li>Chaque caractère est codé avec une séquence de 1 à 4 octets.</li>
-<li>Un texte encodé en ASCII est encodé de la même manière en UTF8 (sauf exception)</li>
-<li>Les premiers bits indiquent la taille de la séquence :
+<li>
+<p>UTF-x n&rsquo;utilise pas une taille fixe pour chaque caractère. Les plus courants occupent 1 bits.</p>
+</li>
+<li>
+<p>Chaque caractère est codé avec une séquence de 1 à 4 octets.</p>
+</li>
+<li>
+<p>Un texte encodé en ASCII est encodé de la même manière en UTF8 (sauf exception)</p>
+</li>
+<li>
+<p>Les premiers bits indiquent la taille de la séquence :</p>
 <ul>
 <li><code>0xxxxxxx                             : 1 octet</code></li>
 <li><code>110xxxxx 10xxxxxxxx                  : 2 octets</code></li>
@@ -6141,15 +6367,32 @@ D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&
 <li><code>11110xxx 1001xxxx 10xxxxxx 10xxxxxx  : 4 octets</code></li>
 </ul>
 </li>
-<li>On note <code>U+XXXX</code> un caractère encodé en UTF-8</li>
-<li>La taille est variable (génant pour les développeurs novices), l&rsquo;espace en mémoire est parfois important</li>
-<li>Un caractère peut avoir plusieurs représentations
-$\rightarrow$ problèmes de sécurité informatique : certaines opérations interdites sont filtrées en reconnaissant des caractères. Ce problème est globalement résolu.</li>
+<li>
+<p>Lorsqu&rsquo;un document est encode en ASCII :</p>
+<ul>
+<li>Si on lit un octet comme <code>0100 0001</code> on sait que c&rsquo;est un caractère complet (<code>A</code>).</li>
+<li>Lorsqu&rsquo;il commence par <code>1110....</code> il faut lire <em>les deux octets suivants</em> pour connaître le caractère.</li>
 </ul>
-<h2 id="python-2-et-lencodage-des-caractères">
-  Python 2 et l&rsquo;encodage des caractères
-  <a class="anchor" href="#python-2-et-lencodage-des-caract%c3%a8res">#</a>
+</li>
+<li>
+<p>On note <code>U+XXXX</code> un caractère encodé en UTF-8</p>
+</li>
+<li>
+<p>La taille est variable (génant pour les développeurs novices), l&rsquo;espace en mémoire est parfois important</p>
+</li>
+<li>
+<p>Un caractère peut avoir plusieurs représentations
+$\rightarrow$ problèmes de sécurité informatique : certaines opérations interdites sont filtrées en reconnaissant des caractères. Ce problème est globalement résolu.</p>
+</li>
+</ul>
+<h2 id="python-et-lutf-8">
+  Python et l&rsquo;UTF-8
+  <a class="anchor" href="#python-et-lutf-8">#</a>
 </h2>
+<h3 id="python-2-lancien-et-lencodage-des-caractères">
+  Python 2 (l&rsquo;ancien) et l&rsquo;encodage des caractères
+  <a class="anchor" href="#python-2-lancien-et-lencodage-des-caract%c3%a8res">#</a>
+</h3>
 <p><strong>Python 2</strong> supporte bien UTF-8 <em>à condition de lui demander</em>.</p>
 <p><strong>Sans quoi le premier accent va faire planter python 2.</strong></p>
 <p>On trouve souvent dans l&rsquo;entête d&rsquo;un fichier .py :</p>
@@ -6160,12 +6403,12 @@ $\rightarrow$ problèmes de sécurité informatique : certaines opérations inte
 <li>Execute ce fichier avec <code>python</code>, situé dans le dossier <code>/usr/bin/env</code></li>
 <li><strong>l&rsquo;encodage du fichier est en utf-8</strong></li>
 </ul>
-<p>Python 3 supporte nativement utf-8, on peut se passer de cette précision</p>
-<h2 id="python-et-lutf-8">
-  Python et l&rsquo;UTF-8
-  <a class="anchor" href="#python-et-lutf-8">#</a>
-</h2>
-<p>On utilise les fonctions <code>chr</code> et <code>ord</code></p>
+<h3 id="python-3-le-notre">
+  Python 3 (le notre)
+  <a class="anchor" href="#python-3-le-notre">#</a>
+</h3>
+<p>Python 3 supporte nativement utf-8, on peut se passer de cette précision
+On utilise les fonctions <code>chr</code> et <code>ord</code></p>
 <ul>
 <li><code>chr(entier)</code> retourne le caractère encodé par cet entier en utf-8</li>
 <li><code>ord(caractère)</code> retourne l&rsquo;encodage utf-8 de ce caractère.</li>
@@ -6183,52 +6426,53 @@ $\rightarrow$ problèmes de sécurité informatique : certaines opérations inte
 ~~~
 '😽'
 
-`>>> ord('`😽`')`\
-`128573`
 
 ## -->
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">chr</span>(<span style="color:#f60">233</span>)
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;é&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">ord</span>(<span style="color:#c30">&#39;é&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f60">233</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">ord</span>(<span style="color:#c30">&#39;😽&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;128573&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">chr</span>(<span style="color:#f60">128570</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;😺&#39;</span>
 </span></span></code></pre></div><h2 id="martine-écrit-en-utf-8">
   Martine écrit en UTF-8
   <a class="anchor" href="#martine-%c3%a9crit-en-utf-8">#</a>
 </h2>
-<h3 id="martineuploadsdocsnsidonnees_qkzk_imgmartinejpg">
-  <img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine" />
-  <a class="anchor" href="#martineuploadsdocsnsidonnees_qkzk_imgmartinejpg">#</a>
-</h3>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine" /></p>
 <p><strong>WHAT ?</strong></p>
 <ul>
 <li>La lettre <strong>é</strong> a été <em>encodée</em> en <strong>UTF-8</strong> (parce que 2 caractères sont affichés)<br>
 En mémoire elle occupe 2 octets (elle n&rsquo;est pas dans la table ascii)</li>
-<li>Ces deux octets ont été <em>décodés</em> en <strong>iso-latin1</strong> (1 octet par caractère).</li>
+<li>Ces deux octets ont été <em>décodés</em> en <strong>iso-latin1</strong> (1 octet par caractère), respectivement en</li>
 </ul>
 <hr>
-<h1 id="complément--base64">
+<h2 id="complément--base64">
   Complément : base64
   <a class="anchor" href="#compl%c3%a9ment--base64">#</a>
-</h1>
+</h2>
+<h3 id="contexte">
+  Contexte
+  <a class="anchor" href="#contexte">#</a>
+</h3>
+<p>L&rsquo;email ne supporte que le texte. Afin de transmettre autre chose que du texte
+par email (images, vidéos, sons, dossiers compressés etc.) il convient de
+représenter le contenu du document sous la forme d&rsquo;un texte.</p>
+<h3 id="base-64">
+  Base 64
+  <a class="anchor" href="#base-64">#</a>
+</h3>
 <p>Base64 est l&rsquo;encodage utilisé pour transmettre des pièces jointes par email.
 C&rsquo;est un groupe de schéma pour encoder des données binaires sous forme
 d&rsquo;un texte au format ASCII grâce à la représentation de ces données en base 64.
 Le terme base64 vient à l&rsquo;origine de l&rsquo;encodage utilisé pour transférer
 certains contenus MIME (Extensions multifonctions du courrier Internet).</p>
 <p>base64 est aussi employé pour transmettre des du contenu dans les URL.</p>
-<h2 id="contexte">
-  Contexte
-  <a class="anchor" href="#contexte">#</a>
-</h2>
-<ul>
-<li>L&rsquo;email ne supporte que le texte. Afin de transmettre autre chose que du texte
-par email (images, vidéos, sons, dossiers compressés etc.) il convient de
-représenter le contenu du document sous la forme d&rsquo;un texte.</li>
-</ul>
-<h2 id="base64">
-  Base64
-  <a class="anchor" href="#base64">#</a>
-</h2>
+<h3 id="principes-de-base-64">
+  Principes de base 64
+  <a class="anchor" href="#principes-de-base-64">#</a>
+</h3>
 <p>Cet encodage utilise 65 symboles de la table ASCII pour encoder 6 bits par
 un caractère.</p>
 <p>Ce processus consiste à encoder 24 bits par une chaîne de 4 caractères.</p>
@@ -6237,29 +6481,29 @@ concaténant 3 octets pour créer un seul groupement de 24 bits (8 bits par
 octet). Ils sont alors séparés en 4 nombres de seulement 6 bits ($2^6=64$ d&rsquo;où
 le nom). Chacune des 4 valeurs est enfin représentée par un caractère de
 l&rsquo;alphabet retenu.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>        Valeur Codage         Valeur Codage         Valeur Codage         Valeur Codage
-</span></span><span style="display:flex;"><span>      0 000000 A           17 010001 R           34 100010 i           51 110011 z
-</span></span><span style="display:flex;"><span>      1 000001 B           18 010010 S           35 100011 j           52 110100 0
-</span></span><span style="display:flex;"><span>      2 000010 C           19 010011 T           36 100100 k           53 110101 1
-</span></span><span style="display:flex;"><span>      3 000011 D           20 010100 U           37 100101 l           54 110110 2
-</span></span><span style="display:flex;"><span>      4 000100 E           21 010101 V           38 100110 m           55 110111 3
-</span></span><span style="display:flex;"><span>      5 000101 F           22 010110 W           39 100111 n           56 111000 4
-</span></span><span style="display:flex;"><span>      6 000110 G           23 010111 X           40 101000 o           57 111001 5
-</span></span><span style="display:flex;"><span>      7 000111 H           24 011000 Y           41 101001 p           58 111010 6
-</span></span><span style="display:flex;"><span>      8 001000 I           25 011001 Z           42 101010 q           59 111011 7
-</span></span><span style="display:flex;"><span>      9 001001 J           26 011010 a           43 101011 r           60 111100 8
-</span></span><span style="display:flex;"><span>     10 001010 K           27 011011 b           44 101100 s           61 111101 9
-</span></span><span style="display:flex;"><span>     11 001011 L           28 011100 c           45 101101 t           62 111110 +
-</span></span><span style="display:flex;"><span>     12 001100 M           29 011101 d           46 101110 u           63 111111 /
-</span></span><span style="display:flex;"><span>     13 001101 N           30 011110 e           47 101111 v
-</span></span><span style="display:flex;"><span>     14 001110 O           31 011111 f           48 110000 w        (complément) =
-</span></span><span style="display:flex;"><span>     15 001111 P           32 100000 g           49 110001 x
-</span></span><span style="display:flex;"><span>     16 010000 Q           33 100001 h           50 110010 y
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   Valeur Codage         Valeur Codage         Valeur Codage         Valeur Codage
+</span></span><span style="display:flex;"><span> 0 000000 A           17 010001 R           34 100010 i           51 110011 z
+</span></span><span style="display:flex;"><span> 1 000001 B           18 010010 S           35 100011 j           52 110100 0
+</span></span><span style="display:flex;"><span> 2 000010 C           19 010011 T           36 100100 k           53 110101 1
+</span></span><span style="display:flex;"><span> 3 000011 D           20 010100 U           37 100101 l           54 110110 2
+</span></span><span style="display:flex;"><span> 4 000100 E           21 010101 V           38 100110 m           55 110111 3
+</span></span><span style="display:flex;"><span> 5 000101 F           22 010110 W           39 100111 n           56 111000 4
+</span></span><span style="display:flex;"><span> 6 000110 G           23 010111 X           40 101000 o           57 111001 5
+</span></span><span style="display:flex;"><span> 7 000111 H           24 011000 Y           41 101001 p           58 111010 6
+</span></span><span style="display:flex;"><span> 8 001000 I           25 011001 Z           42 101010 q           59 111011 7
+</span></span><span style="display:flex;"><span> 9 001001 J           26 011010 a           43 101011 r           60 111100 8
+</span></span><span style="display:flex;"><span>10 001010 K           27 011011 b           44 101100 s           61 111101 9
+</span></span><span style="display:flex;"><span>11 001011 L           28 011100 c           45 101101 t           62 111110 +
+</span></span><span style="display:flex;"><span>12 001100 M           29 011101 d           46 101110 u           63 111111 /
+</span></span><span style="display:flex;"><span>13 001101 N           30 011110 e           47 101111 v
+</span></span><span style="display:flex;"><span>14 001110 O           31 011111 f           48 110000 w        (complément) =
+</span></span><span style="display:flex;"><span>15 001111 P           32 100000 g           49 110001 x
+</span></span><span style="display:flex;"><span>16 010000 Q           33 100001 h           50 110010 y
 </span></span></code></pre></div><p>La description complète est disponible <a href="https://fr.wikipedia.org/wiki/Base64#Description">ici</a></p>
-<h2 id="remarques">
+<h3 id="remarques">
   Remarques
   <a class="anchor" href="#remarques">#</a>
-</h2>
+</h3>
 <ul>
 <li>
 <p>Ce codage augmente la taille des données : la taille des données est
@@ -6290,7 +6534,8 @@ par exemple).</p>
 indique en binaire l&rsquo;équivalence de ces 3 octets. La transformation consiste
 comme on peut le voir, à séparer les bits pour former en sortie 4 groupes de 6
 bits :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    H       i        !
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 8 bits   8 bits   8 bits  &lt;=&gt; 6 bits 6 bits 6 bits 6 bits 
+</span></span><span style="display:flex;"><span>    H       i        !
 </span></span><span style="display:flex;"><span>01001000 01101001 00100001 &lt;=&gt; 010010 000110 100100 100001
 </span></span><span style="display:flex;"><span>                                 S      G      k      h
 </span></span></code></pre></div><p>Les 4 groupes de 6 bits en sortie nous donnent les valeurs 18, 6, 36 et 33.
@@ -6303,7 +6548,27 @@ caractères  &ldquo;SGkh&rdquo;</p>
 </span></span></code></pre></div><p>Et pour décoder :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#366">echo</span> -n <span style="color:#c30">&#39;SGkh&#39;</span> | base64 -d
 </span></span><span style="display:flex;"><span>Hi!
-</span></span></code></pre></div><p>Si nous prenons une chaine de caractères qui n&rsquo;a pas un nombre de bits multiple
+</span></span></code></pre></div>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>python</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">base64</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> base64<span style="color:#555">.</span>b64encode(<span style="color:#c30">b</span><span style="color:#c30">&#39;Hi!&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">b</span><span style="color:#c30">&#39;SGkh&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> base64<span style="color:#555">.</span>b64decode(<span style="color:#c30">b</span><span style="color:#c30">&#39;SGkh&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">b</span><span style="color:#c30">&#39;Hi!&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span>
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
+<p>Si nous prenons une chaine de caractères qui n&rsquo;a pas un nombre de bits multiple
 de 24, on complète avec un ou deux symboles <code>=</code>.
 Par exemple la chaîne &ldquo;Salut&rdquo; :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>S        a        l        u        t
@@ -6372,35 +6637,35 @@ Par exemple la chaîne &ldquo;Salut&rdquo; :</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdfchainespdf"><a href="./chaines.pdf">pdf</a></a></li>
-  </ul>
-
-  <ul>
     <li><a href="#un-caractère-">Un caractère ?</a></li>
-    <li><a href="#la-table-ascii-complète">La table ASCII complète</a></li>
-    <li><a href="#remarques-sur-la-table-précédente">Remarques sur la table précédente</a></li>
+    <li><a href="#la-table-ascii-complète">La table ASCII complète</a>
+      <ul>
+        <li><a href="#remarques-sur-la-table-précédente">Remarques sur la table précédente</a></li>
+        <li><a href="#les-95-caractères-imprimables">Les 95 caractères imprimables</a></li>
+        <li><a href="#résumé-ascii">Résumé ASCII</a></li>
+      </ul>
+    </li>
     <li><a href="#python-et-la-table-ascii">Python et la table ascii</a></li>
     <li><a href="#iso-8859-1-ou-iso-latin-1">iso-8859-1 ou iso-Latin-1</a></li>
     <li><a href="#unicode">Unicode</a></li>
     <li><a href="#motivation-dunicode---et-">Motivation d&rsquo;unicode : $ et £</a></li>
-    <li><a href="#principe-simplifié-dutf8">Principe simplifié d&rsquo;UTF8</a></li>
-    <li><a href="#python-2-et-lencodage-des-caractères">Python 2 et l&rsquo;encodage des caractères</a></li>
+    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a></li>
     <li><a href="#python-et-lutf-8">Python et l&rsquo;UTF-8</a>
       <ul>
+        <li><a href="#python-2-lancien-et-lencodage-des-caractères">Python 2 (l&rsquo;ancien) et l&rsquo;encodage des caractères</a></li>
+        <li><a href="#python-3-le-notre">Python 3 (le notre)</a></li>
         <li><a href="#les-fonctions-chr-et-ord-supportent-unicode-">les fonctions chr et ord supportent unicode :)</a></li>
       </ul>
     </li>
-    <li><a href="#martine-écrit-en-utf-8">Martine écrit en UTF-8</a>
+    <li><a href="#martine-écrit-en-utf-8">Martine écrit en UTF-8</a></li>
+    <li><a href="#complément--base64">Complément : base64</a>
       <ul>
-        <li><a href="#martineuploadsdocsnsidonnees_qkzk_imgmartinejpg"><img src="/uploads/docsnsi/donnees_qkzk_img/martine.jpg" alt="martine"></a></li>
+        <li><a href="#contexte">Contexte</a></li>
+        <li><a href="#base-64">Base 64</a></li>
+        <li><a href="#principes-de-base-64">Principes de base 64</a></li>
+        <li><a href="#remarques">Remarques</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#contexte">Contexte</a></li>
-    <li><a href="#base64">Base64</a></li>
-    <li><a href="#remarques">Remarques</a></li>
     <li><a href="#exemple">Exemple</a></li>
   </ul>
 </nav>
