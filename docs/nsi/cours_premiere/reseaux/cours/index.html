@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf #  Réseau #  Lorsqu&rsquo;on relie plusieurs ordinateurs on dit qu&rsquo;ils sont en réseau.
+<meta name="description" content="pdf
+Réseau #  Lorsqu&rsquo;on relie plusieurs ordinateurs on dit qu&rsquo;ils sont en réseau.
 La laison entre ces machines peut être filaire (un câble) ou non (ondes radio).
 Nous allons étudier les protocoles qui sont employés sur internet afin de relier les machines, à savoir TCP et IP
 Liaison physique #  Dans l&rsquo;usage courant, on rencontre :
@@ -20,7 +21,7 @@ Liaison physique #  Dans l&rsquo;usage courant, on rencontre :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.31531c3787535ce4b5f557646aa73996f641d422cfdbf70c9195d587f3d73dba.js" integrity="sha256-MVMcN4dTXOS19Vdkaqc5lvZB1CLP2/cMkZXVh/PXPbo=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0d638af19e8cdc79574aad844b8d60acc775a83f6e42ef4a677a2c04c9a500d5.js" integrity="sha256-DWOK8Z6M3HlXSq2ES41grMd1qD9uQu9KZ3osBMmlANU=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/reseaux/cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -3300,7 +3301,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-62fc298e5f718928559024a9e76c82d3" class="toggle"  />
     <label for="section-62fc298e5f718928559024a9e76c82d3" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/td_complet/" class="">Travaux dirigés</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/td_complet/" class="">TD complet</a>
     </label>
   
 
@@ -6030,65 +6031,56 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#réseau">Réseau</a></li>
+    <li><a href="#liaison-physique">Liaison physique</a></li>
+    <li><a href="#adresse-ip">Adresse IP</a>
       <ul>
-        <li><a href="#pdfreseau_courspdf"><a href="./reseau_cours.pdf">pdf</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#ipv4-ipv6">IPv4, IPv6</a></li>
-    <li><a href="#partie-réseau-partie-machine">Partie réseau, partie machine</a>
-      <ul>
+        <li><a href="#ipv4-ipv6">IPv4, IPv6</a></li>
+        <li><a href="#partie-réseau-partie-machine">Partie réseau, partie machine</a></li>
         <li><a href="#masque-de-sous-réseau">Masque de sous réseau</a></li>
         <li><a href="#épuisement-des-adresses-ipv4">Épuisement des adresses IPv4</a></li>
+        <li><a href="#ipv6">IPv6</a></li>
+        <li><a href="#réseaux-publics-et-privés">Réseaux publics et privés</a></li>
       </ul>
     </li>
-    <li><a href="#ipv6">IPv6</a></li>
-    <li><a href="#réseaux-publics-et-privés">Réseaux publics et privés</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#fiabilité">Fiabilité</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#encapsulation">Encapsulation</a></li>
-    <li><a href="#tcp">TCP</a></li>
-    <li><a href="#trajet-sur-le-réseau">Trajet sur le réseau</a>
+    <li><a href="#protocole-ip">Protocole IP</a>
       <ul>
+        <li><a href="#fiabilité">Fiabilité</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcpip">TCP/IP</a>
+      <ul>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#tcp">TCP</a></li>
+        <li><a href="#trajet-sur-le-réseau">Trajet sur le réseau</a></li>
         <li><a href="#ports">Ports</a></li>
-      </ul>
-    </li>
-    <li><a href="#modèle-osi">Modèle OSI</a></li>
-    <li><a href="#principes">Principes</a>
-      <ul>
+        <li><a href="#modèle-osi">Modèle OSI</a></li>
+        <li><a href="#principes">Principes</a></li>
         <li><a href="#les-grandes-règles-du-modèle-osi">Les grandes règles du modèle OSI</a></li>
+        <li><a href="#chaque-couche-est-indépendante">Chaque couche est indépendante</a></li>
+        <li><a href="#chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente</a></li>
       </ul>
     </li>
-    <li><a href="#chaque-couche-est-indépendante">Chaque couche est indépendante</a></li>
-    <li><a href="#chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#smtp">SMTP</a></li>
-    <li><a href="#udp">UDP</a></li>
-    <li><a href="#dns">DNS</a>
+    <li><a href="#protocole-du-bit-alterné">Protocole du bit alterné</a></li>
+    <li><a href="#compléments">Compléments</a>
       <ul>
+        <li><a href="#smtp">SMTP</a></li>
+        <li><a href="#udp">UDP</a></li>
+        <li><a href="#dns">DNS</a></li>
         <li><a href="#blocage-dns">Blocage DNS</a></li>
+        <li><a href="#icmp">ICMP</a></li>
       </ul>
     </li>
-    <li><a href="#icmp">ICMP</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#comment-reproduire-ces-commandes-">Comment reproduire ces commandes ?</a></li>
-    <li><a href="#consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">Consulter et manipuler le réseau depuis la ligne de commande</a></li>
-    <li><a href="#ip-a-et-ifconfig-ou-ipconfig-sous-windows"><code>ip a</code> et <code>ifconfig</code> ou <code>ipconfig</code> sous windows.</a></li>
-    <li><a href="#ping"><code>ping</code></a></li>
-    <li><a href="#traceroute"><code>traceroute</code></a></li>
-    <li><a href="#nmap"><code>nmap</code></a></li>
+    <li><a href="#commandes-réseau-de-base">Commandes réseau de base</a>
+      <ul>
+        <li><a href="#comment-reproduire-ces-commandes-">Comment reproduire ces commandes ?</a></li>
+        <li><a href="#consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">Consulter et manipuler le réseau depuis la ligne de commande</a></li>
+        <li><a href="#ip-a-et-ifconfig-ou-ipconfig-sous-windows"><code>ip a</code> et <code>ifconfig</code> ou <code>ipconfig</code> sous windows.</a></li>
+        <li><a href="#ping"><code>ping</code></a></li>
+        <li><a href="#traceroute"><code>traceroute</code></a></li>
+        <li><a href="#nmap"><code>nmap</code></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -6102,38 +6094,35 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdfreseau_courspdf">
-  <a href="./reseau_cours.pdf">pdf</a>
-  <a class="anchor" href="#pdfreseau_courspdf">#</a>
-</h3>
-<h1 id="réseau">
+<article class="markdown"><p><a href="./reseau_cours.pdf">pdf</a></p>
+<h2 id="réseau">
   Réseau
   <a class="anchor" href="#r%c3%a9seau">#</a>
-</h1>
+</h2>
 <p>Lorsqu&rsquo;on relie plusieurs ordinateurs on dit qu&rsquo;ils sont en <strong>réseau</strong>.</p>
 <p>La laison entre ces machines peut être filaire (un câble) ou non (ondes radio).</p>
 <p>Nous allons étudier les protocoles qui sont employés sur internet afin de relier
 les machines, à savoir TCP et IP</p>
-<h1 id="liaison-physique">
+<h2 id="liaison-physique">
   Liaison physique
   <a class="anchor" href="#liaison-physique">#</a>
-</h1>
+</h2>
 <p>Dans l&rsquo;usage courant, on rencontre :</p>
 <ul>
 <li>les câbles ethernet munis de port RJ45</li>
 <li>les réseaux domestiques Wi-Fi (Wireless Fidelity)</li>
 <li>les réseaux mobiles GSM (Global System for Mobile Communications)</li>
 </ul>
-<h1 id="adresse-ip">
+<h2 id="adresse-ip">
   Adresse IP
   <a class="anchor" href="#adresse-ip">#</a>
-</h1>
+</h2>
 <p><strong>IP</strong> pour, <em>Internet Protocol</em> désigne à la fois le protocole utilisé et
 l&rsquo;adresse d&rsquo;une machine sur un réseau IP.</p>
-<h2 id="ipv4-ipv6">
+<h3 id="ipv4-ipv6">
   IPv4, IPv6
   <a class="anchor" href="#ipv4-ipv6">#</a>
-</h2>
+</h3>
 <p>Commençons par le protocole dont vous avez tous entendu parlé, IPv4.</p>
 <p>Ses adresses sont généralement présentées sous la forme de 4 nombres entre 0
 et 255 donnés sous forme décimale et séparés par des points : <code>192.168.0.1</code></p>
@@ -6144,10 +6133,10 @@ de l&rsquo;identifier.</p>
 <p>Plus rarement, on donne l&rsquo;adresse et un complément : <code>192.168.0.1/24</code></p>
 <p>Le <code>/24</code> permet de distinguer la partie <strong>réseau</strong> de la partie <strong>machine</strong>
 dans cette adresse.</p>
-<h2 id="partie-réseau-partie-machine">
+<h3 id="partie-réseau-partie-machine">
   Partie réseau, partie machine
   <a class="anchor" href="#partie-r%c3%a9seau-partie-machine">#</a>
-</h2>
+</h3>
 <p>Considérons une adresse IPv4 complète : <code>192.168.1.2/24</code></p>
 <p>Le <code>/24</code> signifie que les 24 premiers bits (= les 3 premiers octets = les 3 premiers
 nombres) constituent la partie <strong>réseau</strong> et les 8 derniers ($32-24=8$) la partie
@@ -6193,20 +6182,21 @@ qu&rsquo;il n&rsquo;existe de machines actuellement connectées à internet.</p>
 <p>Aussi, il faut trouver des solutions pour reconnaître les machines
 sur internet.</p>
 <p>Une approche est de modifier la norme IPv4 afin de proposer davantage d&rsquo;adresses.</p>
-<h2 id="ipv6">
+<h3 id="ipv6">
   IPv6
   <a class="anchor" href="#ipv6">#</a>
-</h2>
+</h3>
 <p>Cette nouvelle norme utilise 128 bits (au lieu de 32) soit largement assez
 pour donner une adresse unique à chaque machine.</p>
 <p>Il y a donc $2^{128}$ adresses IPv6 disponibles&hellip;</p>
 <p>La partie réseau occupe toujours les 64 premiers bits et la partie machine les
 64 derniers bits.</p>
-<p>Les adresses IPv6 sont généralement données en hexadécimal : <code>43:2f:5b:df:b2:f4</code></p>
-<h2 id="réseaux-publics-et-privés">
+<p>Les adresses IPv6 sont généralement données en hexadécimal : <code>fe81::b097:2eb5:47e3:fb4d:1ef3:98d3:90b4</code></p>
+<p>Vérifions rapidement : 8 blocs de 4 chiffres hexadécimaux = 32 chiffres hexadécimaux donc $16^{32} = 2^{4 \times 32} = 2^{128}$ adresses différentes. Le compte est bon&hellip;</p>
+<h3 id="réseaux-publics-et-privés">
   Réseaux publics et privés
   <a class="anchor" href="#r%c3%a9seaux-publics-et-priv%c3%a9s">#</a>
-</h2>
+</h3>
 <p>Internet est un ensemble de réseaux publics, chaque machine raccordée à internet
 peut transmettre des données à une autre machine.</p>
 <p>Les données transitent par des routeurs qui sont des machines raccordant plusieurs
@@ -6217,10 +6207,10 @@ réseau.</p>
 <p>Lorsqu&rsquo;on effectue une recherche depuis un poste du lycée vers une machine
 distante, c&rsquo;est le routeur qui se charge de transmettre les données.</p>
 <p>$;$<img src="./reseaux_prives_publics.png" alt="réseaux publics et privés" /></p>
-<h1 id="protocole-ip">
+<h2 id="protocole-ip">
   Protocole IP
   <a class="anchor" href="#protocole-ip">#</a>
-</h1>
+</h2>
 <p>Le rôle du protocole IP est de transmettre des <strong>paquets IP</strong> provenant d&rsquo;une
 couche supérieure (nous reviendrons sur ce terme) .</p>
 <p>Ces paquets sont <strong>encapsulés</strong> avant d&rsquo;être transmis sur le réseau puis
@@ -6230,10 +6220,10 @@ n&rsquo;est établie à l&rsquo;avance. Deux paquets qui se suivent peuvent empr
 deux chemins différents et arriver dans le désordre. Charge à la machine
 les recevant de les réordonner.</p>
 <p>Pour simplifier grandement, IP, c&rsquo;est comme la poste.</p>
-<h2 id="fiabilité">
+<h3 id="fiabilité">
   Fiabilité
   <a class="anchor" href="#fiabilit%c3%a9">#</a>
-</h2>
+</h3>
 <p>Ce protocole est dit &ldquo;non fiable&rdquo;, cela ne signifie pas que les données
 sont déteriorée ou perdues mais qu&rsquo;aucune règle ne permet de s&rsquo;assurer :</p>
 <ul>
@@ -6241,10 +6231,10 @@ sont déteriorée ou perdues mais qu&rsquo;aucune règle ne permet de s&rsquo;as
 <li>qu&rsquo;ils sont arrivés dans l&rsquo;ordre d&rsquo;émission</li>
 </ul>
 <p>Cette fiabilité est assurée par un autre protocole&hellip; TCP.</p>
-<h1 id="tcpip">
+<h2 id="tcpip">
   TCP/IP
   <a class="anchor" href="#tcpip">#</a>
-</h1>
+</h2>
 <p>TCP/IP désigne l&rsquo;ensemble des deux protocoles principaux sur internet.</p>
 <p>C&rsquo;est un modèle en quatre couches :</p>
 <table>
@@ -6283,10 +6273,10 @@ HTTP. Il n&rsquo;a pas de contrôle sur les autres protocoles utilisés en desso
 de lui.</p>
 <p>En pratique cela signifie qu&rsquo;on verra apparaître la même page qu&rsquo;on soit
 raccordé en Wi-Fi ou en Ethernet.</p>
-<h2 id="encapsulation">
+<h3 id="encapsulation">
   Encapsulation
   <a class="anchor" href="#encapsulation">#</a>
-</h2>
+</h3>
 <p>Considérons le fichier html suivant :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
@@ -6347,10 +6337,10 @@ raccordé en Wi-Fi ou en Ethernet.</p>
 </li>
 </ol>
 <p><img src="./encapsulation.png" alt="Encapsulation" /></p>
-<h2 id="tcp">
+<h3 id="tcp">
   TCP
   <a class="anchor" href="#tcp">#</a>
-</h2>
+</h3>
 <p>On l&rsquo;a dit, le protocole TCP (Transmission Control Protocol) est un protocole
 de transport &ldquo;fiable&rdquo; et &ldquo;connecté&rdquo; :</p>
 <ul>
@@ -6365,10 +6355,10 @@ de s&rsquo;assurer de la validité des donneés qu&rsquo;ils transportent.</p>
 <p>Chaque segment envoyé par une machine A vers une machine B est suivie d&rsquo;un
 accusé de réception de la machine B vers la machine A.</p>
 <p>En l&rsquo;absence de celui-ci, la machine A recommence et renvoie le même segment.</p>
-<h2 id="trajet-sur-le-réseau">
+<h3 id="trajet-sur-le-réseau">
   Trajet sur le réseau
   <a class="anchor" href="#trajet-sur-le-r%c3%a9seau">#</a>
-</h2>
+</h3>
 <p>$:$<img src="./tcp.png" alt="tcp/ip" /></p>
 <p>Les données, découpées et encapsulées sont transmises sur le réseau par
 le protocole IP. Les paquets n&rsquo;empruntent pas forcément le même chemin
@@ -6388,20 +6378,20 @@ les distinguer on ajoute une information supplémentaire, le <strong>port résea
 <p>Chaque fois que vous ouvrez deux onglets dans le navigateur, celui-ci établi une
 connexion avec une machine différente et se voit attribuer un port de réception
 différent.</p>
-<h2 id="modèle-osi">
+<h3 id="modèle-osi">
   Modèle OSI
   <a class="anchor" href="#mod%c3%a8le-osi">#</a>
-</h2>
+</h3>
 <p>Le modèle TCP/IP n&rsquo;est pas le seul modèle servant à décrire les étapes de connexion
 sur un réseau. Un autre modèle théorique existe, appelé OSI et constitué de 7 couches.</p>
 <p>Il n&rsquo;a jamais vraiment été mis en oeuvre, les grands acteurs d&rsquo;internet et de l&rsquo;informatique
 ne sont pas parvenus à s&rsquo;entendre sur ce sujet.</p>
 <p>$:$<img src="./osi.png" alt="osi" /></p>
 <p>TCP/IP est donc représenté par les couches <code>segments</code> et <code>packets</code> du modèle OSI.</p>
-<h2 id="principes">
+<h3 id="principes">
   Principes
   <a class="anchor" href="#principes">#</a>
-</h2>
+</h3>
 <h3 id="les-grandes-règles-du-modèle-osi">
   Les grandes règles du modèle OSI
   <a class="anchor" href="#les-grandes-r%c3%a8gles-du-mod%c3%a8le-osi">#</a>
@@ -6410,26 +6400,26 @@ ne sont pas parvenus à s&rsquo;entendre sur ce sujet.</p>
 <li>Chaque couche est indépendante</li>
 <li>Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente</li>
 </ul>
-<h2 id="chaque-couche-est-indépendante">
+<h3 id="chaque-couche-est-indépendante">
   Chaque couche est indépendante
   <a class="anchor" href="#chaque-couche-est-ind%c3%a9pendante">#</a>
-</h2>
+</h3>
 <ul>
 <li>Les informations d&rsquo;une couche ne peuvent être utilisées dans une autre</li>
 <li>Exemple : l&rsquo;adresse IP (couche 3) ne pourra être utilisée ailleurs</li>
 <li>Cela permet l&rsquo;évolution des communications dans le temps</li>
 <li>Elles sont interchangeables : IPv4 va devenir IPv6 sans qu&rsquo;on doive tout réécrire</li>
 </ul>
-<h2 id="chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">
+<h3 id="chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">
   Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente
   <a class="anchor" href="#chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">#</a>
-</h2>
+</h3>
 <p><strong>Exemple :</strong> on entre <code>google.com</code> dans le navigateur.</p>
 <p>Le navigateur (application) s&rsquo;est adressé aux couches réseau (1 à 4) pour qu&rsquo;elles transmettent l&rsquo;information à l&rsquo;application sur la machine demandée (le serveur web de google)</p>
-<h1 id="protocole-du-bit-alterné">
+<h2 id="protocole-du-bit-alterné">
   Protocole du bit alterné
   <a class="anchor" href="#protocole-du-bit-altern%c3%a9">#</a>
-</h1>
+</h2>
 <p>Le <strong>protocole du bit alterné</strong> est un protocole simplifié assurant la fiabilité
 de la communication de TCP. Il permet, dans une certaine mesure, de s&rsquo;assurer
 qu&rsquo;un segment a bien été reçu.</p>
@@ -6447,16 +6437,16 @@ suivi du bit contraire (1 pour le premier, puis 0, puis 1 etc.)</li>
 pas l&rsquo;acquittement attendu avant d&rsquo;être arrivé à 0, il recommence.</p>
 <p><em>De gauche à droite : transmission sans erreur, erreur d&rsquo;émission, erreur lors de l&rsquo;acquittement</em></p>
 <p>$;$<img src="./bit_alterne_3.png" alt="bit alterné" /></p>
-<h1 id="compléments">
+<h2 id="compléments">
   Compléments
   <a class="anchor" href="#compl%c3%a9ments">#</a>
-</h1>
+</h2>
 <p>Présentons quelques protocoles utilisés couramment :</p>
 <p>Ils sont classés en haut en bas dans le modèle TCP/IP</p>
-<h2 id="smtp">
+<h3 id="smtp">
   SMTP
   <a class="anchor" href="#smtp">#</a>
-</h2>
+</h3>
 <p>SMTP pour <em>simple mail transfer protocol</em> est, avec POP et IMAP un des protocoles
 utilisés pour envoyer des emails. Que vous utilisiez une application en ligne
 (un webmail comme hotmail ou gmail) ou une application native sur votre téléphone
@@ -6473,10 +6463,10 @@ des pièces jointes en convertissant leur contenu sous forme de texte.</p>
 </span></span><span style="display:flex;"><span>AElEQVR42uydZ3wUVReH7/aa3c1m0za9N9ILaUBIQpWOIiAWul1pymsDFBQpdkUBQaWIqCC9hZpO
 </span></span><span style="display:flex;"><span>KiQhvSebbHazvdf3w+AS00hCeu7zy4fsnTszd87M/...
 </span></span></code></pre></div><p>Cette image occupe 64ko et, une fois convertie en texte, 85ko.</p>
-<h2 id="udp">
+<h3 id="udp">
   UDP
   <a class="anchor" href="#udp">#</a>
-</h2>
+</h3>
 <p>UDP pour <em>user datagram protocol</em> est un autre protocole de la couche transfert,
 comme TCP.</p>
 <p>Il envoie les données sous forme de <em>datagrammes</em> entre deux machines définies
@@ -6484,10 +6474,10 @@ par une adresse IP et un numéro de port. C&rsquo;est un protocole déconnecté 
 pas la fiabilité des Communications.</p>
 <p>Il est utilisé pour transférer des données en flux (streaming, jeux vidéos),
 généralement après avoir établi une communication via un autre procédé.</p>
-<h2 id="dns">
+<h3 id="dns">
   DNS
   <a class="anchor" href="#dns">#</a>
-</h2>
+</h3>
 <p>DNS pour <em>Domain Name System</em> est un service effectué par une machine d&rsquo;un réseau
 pour attribuer des noms à des adresses IP. C&rsquo;est donc <em>une machine</em> qui effectue
 ce travail pour tout un réseau. Chaque machine d&rsquo;un réseau se voit attribuer un ou plusieurs
@@ -6510,10 +6500,10 @@ Par exemple pour bloquer &ldquo;phishing.pirate.com&rdquo; pointant vers l&rsquo
 fictive <code>1.2.3.4</code>, le DNS ne répond pas lorsqu&rsquo;on lui demande l&rsquo;adresse.</p>
 <p>Il est possible de changer de serveur DNS pour utiliser des DNS publics (comme 8.8.8.8)
 afin de contourner certains blocages.</p>
-<h2 id="icmp">
+<h3 id="icmp">
   ICMP
   <a class="anchor" href="#icmp">#</a>
-</h2>
+</h3>
 <p>ICMP pour <em>internet control message protocol</em> est un protocole utilisé pour
 assurer qu&rsquo;il existe une laison entre deux machines.</p>
 <p>C&rsquo;est un protocole qui utilise IP.</p>
@@ -6529,16 +6519,16 @@ aller retour.</p>
 <p><code>traceroute</code> permet de connaître les routeurs empruntés lors d&rsquo;un trajet.</p>
 </li>
 </ul>
-<h1 id="commandes-réseau-de-base">
+<h2 id="commandes-réseau-de-base">
   Commandes réseau de base
   <a class="anchor" href="#commandes-r%c3%a9seau-de-base">#</a>
-</h1>
+</h2>
 <p>Il existe de nombreuses commandes UNIX permettant de configurer et vérifier
 le bon fonctionnement d&rsquo;un réseau. Nous allons présenter les plus courantes.</p>
-<h2 id="comment-reproduire-ces-commandes-">
+<h3 id="comment-reproduire-ces-commandes-">
   Comment reproduire ces commandes ?
   <a class="anchor" href="#comment-reproduire-ces-commandes-">#</a>
-</h2>
+</h3>
 <p>Nous allons présenter des commandes UNIX et ou Windows.</p>
 <ul>
 <li>Si vous disposez d&rsquo;une machine sous Linux raccordée à un réseau, elle <em>devrait</em>
@@ -6574,14 +6564,14 @@ les commandes soient bloquées&hellip;</p>
 </tr>
 </tbody>
 </table>
-<h2 id="consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">
+<h3 id="consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">
   Consulter et manipuler le réseau depuis la ligne de commande
   <a class="anchor" href="#consulter-et-manipuler-le-r%c3%a9seau-depuis-la-ligne-de-commande">#</a>
-</h2>
-<h2 id="ip-a-et-ifconfig-ou-ipconfig-sous-windows">
+</h3>
+<h3 id="ip-a-et-ifconfig-ou-ipconfig-sous-windows">
   <code>ip a</code> et <code>ifconfig</code> ou <code>ipconfig</code> sous windows.
   <a class="anchor" href="#ip-a-et-ifconfig-ou-ipconfig-sous-windows">#</a>
-</h2>
+</h3>
 <p>Ces commandes permettent de connaître l&rsquo;adresse IP, l&rsquo;adresses MAC et la configuration
 d&rsquo;un réseau (passerelle, masque, serveur DNS etc.)</p>
 <p>Par exemple</p>
@@ -6653,10 +6643,10 @@ parce qu&rsquo;aucune machine virtuelle ne fonctionne en ce moment sur mon ordin
 </span></span></code></pre></div><p>Le découpage est similaire, on voit plus d&rsquo;informations. On voit aussi une nouvelle
 interface <code>wlan0</code> <code>Wireless Local Area Network 0</code> : l&rsquo;interface wifi.</p>
 <p>Cette machine n&rsquo;est raccordée qu&rsquo;en Wi-Fi, ce qu&rsquo;<code>ifconfig</code> ne permet que de deviner&hellip;</p>
-<h2 id="ping">
+<h3 id="ping">
   <code>ping</code>
   <a class="anchor" href="#ping">#</a>
-</h2>
+</h3>
 <p>Cette commande est employée pour s&rsquo;assurer qu&rsquo;une liaison existe avec une machine
 distante et connaître la durée d&rsquo;un trajet aller retour.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ping google.com 
@@ -6676,10 +6666,10 @@ tous sont revenus et la latence s&rsquo;élève à 10.2 ms en moyenne.</p>
 peut emprunter avant d&rsquo;être abandonné par celui-ci.</p>
 <p>Chaque routeur enlève 1 à ce TTL avant de transmettre. Le routeur qui arrive à 0 abandonne
 le paquet.</p>
-<h2 id="traceroute">
+<h3 id="traceroute">
   <code>traceroute</code>
   <a class="anchor" href="#traceroute">#</a>
-</h2>
+</h3>
 <p><code>traceroute</code> permet de connaître les routeurs empruntés lors d&rsquo;une connexion.</p>
 <ol>
 <li>Un paquet <code>ICMP</code> est d&rsquo;abord envoyé vers cette destination avec un TTL de 1.
@@ -6711,10 +6701,10 @@ puis transmet. Le second routeur répond et abandonne.</li>
 </span></span></code></pre></div><p>13 sauts sont nécessaires pour que ma machine puisse joindre <code>ovh.fr</code>.</p>
 <p>Ma machine est à Lille, le serveur d&rsquo;OVH est à Roubaix, soit à 15km de chez moi&hellip; et pourtant
 les paquets sont passés par la Belgique et l&rsquo;Angleterre.</p>
-<h2 id="nmap">
+<h3 id="nmap">
   <code>nmap</code>
   <a class="anchor" href="#nmap">#</a>
-</h2>
+</h3>
 <p><code>nmap</code> permet de connaître les ports en écoute sur une machine. Chaque serveur attend de recevoir
 des connexions en ouvrant un port TCP prédéfini (80 pour un serveur web non sécurisé, 443 pour un
 serveur web sécurisé, 22 pour ssh etc.)</p>
@@ -6799,65 +6789,56 @@ connexion.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#réseau">Réseau</a></li>
+    <li><a href="#liaison-physique">Liaison physique</a></li>
+    <li><a href="#adresse-ip">Adresse IP</a>
       <ul>
-        <li><a href="#pdfreseau_courspdf"><a href="./reseau_cours.pdf">pdf</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#ipv4-ipv6">IPv4, IPv6</a></li>
-    <li><a href="#partie-réseau-partie-machine">Partie réseau, partie machine</a>
-      <ul>
+        <li><a href="#ipv4-ipv6">IPv4, IPv6</a></li>
+        <li><a href="#partie-réseau-partie-machine">Partie réseau, partie machine</a></li>
         <li><a href="#masque-de-sous-réseau">Masque de sous réseau</a></li>
         <li><a href="#épuisement-des-adresses-ipv4">Épuisement des adresses IPv4</a></li>
+        <li><a href="#ipv6">IPv6</a></li>
+        <li><a href="#réseaux-publics-et-privés">Réseaux publics et privés</a></li>
       </ul>
     </li>
-    <li><a href="#ipv6">IPv6</a></li>
-    <li><a href="#réseaux-publics-et-privés">Réseaux publics et privés</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#fiabilité">Fiabilité</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#encapsulation">Encapsulation</a></li>
-    <li><a href="#tcp">TCP</a></li>
-    <li><a href="#trajet-sur-le-réseau">Trajet sur le réseau</a>
+    <li><a href="#protocole-ip">Protocole IP</a>
       <ul>
+        <li><a href="#fiabilité">Fiabilité</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcpip">TCP/IP</a>
+      <ul>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#tcp">TCP</a></li>
+        <li><a href="#trajet-sur-le-réseau">Trajet sur le réseau</a></li>
         <li><a href="#ports">Ports</a></li>
-      </ul>
-    </li>
-    <li><a href="#modèle-osi">Modèle OSI</a></li>
-    <li><a href="#principes">Principes</a>
-      <ul>
+        <li><a href="#modèle-osi">Modèle OSI</a></li>
+        <li><a href="#principes">Principes</a></li>
         <li><a href="#les-grandes-règles-du-modèle-osi">Les grandes règles du modèle OSI</a></li>
+        <li><a href="#chaque-couche-est-indépendante">Chaque couche est indépendante</a></li>
+        <li><a href="#chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente</a></li>
       </ul>
     </li>
-    <li><a href="#chaque-couche-est-indépendante">Chaque couche est indépendante</a></li>
-    <li><a href="#chaque-couche-ne-peut-communiquer-quavec-une-couche-adjacente">Chaque couche ne peut communiquer qu&rsquo;avec une couche adjacente</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#smtp">SMTP</a></li>
-    <li><a href="#udp">UDP</a></li>
-    <li><a href="#dns">DNS</a>
+    <li><a href="#protocole-du-bit-alterné">Protocole du bit alterné</a></li>
+    <li><a href="#compléments">Compléments</a>
       <ul>
+        <li><a href="#smtp">SMTP</a></li>
+        <li><a href="#udp">UDP</a></li>
+        <li><a href="#dns">DNS</a></li>
         <li><a href="#blocage-dns">Blocage DNS</a></li>
+        <li><a href="#icmp">ICMP</a></li>
       </ul>
     </li>
-    <li><a href="#icmp">ICMP</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#comment-reproduire-ces-commandes-">Comment reproduire ces commandes ?</a></li>
-    <li><a href="#consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">Consulter et manipuler le réseau depuis la ligne de commande</a></li>
-    <li><a href="#ip-a-et-ifconfig-ou-ipconfig-sous-windows"><code>ip a</code> et <code>ifconfig</code> ou <code>ipconfig</code> sous windows.</a></li>
-    <li><a href="#ping"><code>ping</code></a></li>
-    <li><a href="#traceroute"><code>traceroute</code></a></li>
-    <li><a href="#nmap"><code>nmap</code></a></li>
+    <li><a href="#commandes-réseau-de-base">Commandes réseau de base</a>
+      <ul>
+        <li><a href="#comment-reproduire-ces-commandes-">Comment reproduire ces commandes ?</a></li>
+        <li><a href="#consulter-et-manipuler-le-réseau-depuis-la-ligne-de-commande">Consulter et manipuler le réseau depuis la ligne de commande</a></li>
+        <li><a href="#ip-a-et-ifconfig-ou-ipconfig-sous-windows"><code>ip a</code> et <code>ifconfig</code> ou <code>ipconfig</code> sous windows.</a></li>
+        <li><a href="#ping"><code>ping</code></a></li>
+        <li><a href="#traceroute"><code>traceroute</code></a></li>
+        <li><a href="#nmap"><code>nmap</code></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
