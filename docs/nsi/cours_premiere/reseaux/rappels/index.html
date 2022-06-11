@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf
 Rappels : Introduction au réseau #  Ce qu’il faut retenir de seconde
-  Des ordinateurs sont dits “en réseaux” quand ils sont capables de communiquer entre eux soit par l&rsquo;intermédiaire d’un câble (ex : câble Ethernet avec prises RJ45) ou d’une connexion radio (ex : Wifi) Pour relier plus de 2 ordinateurs, il est nécessaire d’utiliser un switch
-  Pour identifier un ordinateur sur un réseau, on utilise généralement une adresse IP.">
+Réseaux #  Des ordinateurs sont dits “en réseaux” quand ils sont capables de communiquer entre eux soit par l&rsquo;intermédiaire d’un câble (ex : câble Ethernet avec prises RJ45) ou d’une connexion radio (ex : Wifi).
+Pour relier plus de 2 ordinateurs, il est nécessaire d’utiliser un switch
+IP : Internet Protocol, les adresses #  Pour identifier un ordinateur sur un réseau, on utilise généralement une adresse IP.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Rappels" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -19,7 +20,7 @@ Rappels : Introduction au réseau #  Ce qu’il faut retenir de seconde
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0d638af19e8cdc79574aad844b8d60acc775a83f6e42ef4a677a2c04c9a500d5.js" integrity="sha256-DWOK8Z6M3HlXSq2ES41grMd1qD9uQu9KZ3osBMmlANU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.85ba7ac90082b584ad370d88f3be7419422d175a0333df534231f12ad15316cc.js" integrity="sha256-hbp6yQCCtYStNw2I8750GUItF1oDM99TQjHxKtFTFsw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/reseaux/rappels/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6011,7 +6012,15 @@ https://github.com/alex-shpak/hugo-book
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#rappels--introduction-au-réseau">Rappels : Introduction au réseau</a></li>
+    <li><a href="#rappels--introduction-au-réseau">Rappels : Introduction au réseau</a>
+      <ul>
+        <li><a href="#réseaux">Réseaux</a></li>
+        <li><a href="#ip--_internet-protocol_-les-adresses">IP : <em>Internet Protocol</em>, les adresses</a></li>
+        <li><a href="#adresse-réseau">Adresse réseau</a></li>
+        <li><a href="#routeurs">Routeurs</a></li>
+        <li><a href="#dns">DNS</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -6031,35 +6040,39 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#rappels--introduction-au-r%c3%a9seau">#</a>
 </h2>
 <p><em>Ce qu’il faut retenir de seconde</em></p>
-<ul>
-<li>
+<h3 id="réseaux">
+  Réseaux
+  <a class="anchor" href="#r%c3%a9seaux">#</a>
+</h3>
 <p>Des ordinateurs sont dits “en réseaux” quand ils sont capables de communiquer
 entre eux soit par l&rsquo;intermédiaire d’un câble (ex : câble Ethernet avec
-prises RJ45) ou d’une connexion radio (ex : Wifi) Pour relier plus de 2
-ordinateurs, il est nécessaire d’utiliser un switch</p>
-</li>
-<li>
-<p>Pour identifier un ordinateur sur un réseau, on utilise <em>généralement</em> une adresse IP. Les
-adresses IP sont de la forme : &ldquo;a.b.c.d&rdquo;, avec a, b, c et d compris entre 0
-et 255 (a, b, c et d sont codés sur 1 octet).</p>
-</li>
-<li>
+prises RJ45) ou d’une connexion radio (ex : Wifi).<br>
+Pour relier plus de 2 ordinateurs, il est nécessaire d’utiliser un switch</p>
+<h3 id="ip--_internet-protocol_-les-adresses">
+  IP : <em>Internet Protocol</em>, les adresses
+  <a class="anchor" href="#ip--_internet-protocol_-les-adresses">#</a>
+</h3>
+<p>Pour identifier un ordinateur sur un réseau, on utilise <em>généralement</em> une <strong>adresse IP</strong>.
+Les adresses IP sont de la forme : &ldquo;a.b.c.d&rdquo;, avec a, b, c et d compris entre 0
+et 255 (a, b, c et d sont codés sur 1 octet). Ce format est appelé IPv4. Nous en verrons
+un autre cette année : IPv6.</p>
 <p>Une partie de l’adresse IP permet d’identifier le réseau auquel appartient la
 machine et l’autre partie de l’adresse IP permet d’identifier la machine sur
-ce réseau (exemple : soit l’adresse IP d’un ordinateur : 192.168.3.1/24,
+ce réseau</p>
+<p>Exemple : soit l’adresse IP d’un ordinateur : 192.168.3.1/24,
 192.168.3 correspond à la partie réseau de l’adresse IP et 1 correspond à la
-partie machine de l’adresse IP)</p>
-</li>
-<li>
+partie machine de l’adresse IP</p>
+<h3 id="adresse-réseau">
+  Adresse réseau
+  <a class="anchor" href="#adresse-r%c3%a9seau">#</a>
+</h3>
 <p>Toutes les machines appartenant au même réseau devront posséder la même
 adresse réseau (sinon elles ne pourront pas communiquer ensemble, même si
 elles sont bien physiquement reliées).</p>
-</li>
-<li>
 <p>les adresses IP (a.b.c.d) n’ont forcément pas les parties a, b et c
 consacrées à l’identification du réseau et la partie d consacrées à
 l’identification des machines sur le réseau : on ajoute à l&rsquo;adresse IP un &ldquo;/&rdquo;
-suivi du nombre 8, 16 ou 24</p>
+suivi d&rsquo;un nombre, généralement 8, 16 ou 24</p>
 <ul>
 <li>
 <p>si ce nombre est 8 (exemple : 192.168.2.1/8), cela signifie que pour une
@@ -6071,20 +6084,35 @@ une adresse réseau de la forme a.0.0.0</p>
 <p>si ce nombre est 16 (exemple : 192.168.2.1/16), cela signifie que pour
 une adresse a.b.c.d/16, les parties a et b sont consacrées à l&rsquo;adresse
 réseau, le reste (c, d) est consacré à la partie machine de l&rsquo;adresse IP.
-On aura donc une adresse réseau de la forme a.b.0.0 si ce nombre est 24
+On aura donc une adresse réseau de la forme a.b.0.0</p>
+</li>
+<li>
+<p>si ce nombre est 24
 (exemple : 192.168.2.1/24), cela signifie que pour une adresse
 a.b.c.d/24, les parties a, b et c sont consacrées à l&rsquo;adresse réseau, le
 reste (d) est consacré à la partie machine de l&rsquo;adresse IP. On aura donc
 une adresse réseau de la forme a.b.c.0</p>
 </li>
 </ul>
-</li>
-<li>
+<h3 id="routeurs">
+  Routeurs
+  <a class="anchor" href="#routeurs">#</a>
+</h3>
+<p>Certaines machines sont connectées à plusieurs réseaux et réalisent un
+pont entre ces réseaux. On les appelle des <em>routeurs</em>.</p>
+<p>Chez vous ou au lycée, vous disposez d&rsquo;un <em>réseau local</em> au sein duquel les
+machines peuvent communiquer directement.</p>
+<p>Accéder à internet &ndash; qui est à l&rsquo;extérieur de votre réseau local &ndash; nécessite
+de passer par un routeur. Chez vous, c&rsquo;est généralement la box internet
+qui fait office de routeur (réseau local + internet), de switch (plusieurs prises RJ45)
+et de borne wifi.</p>
+<h3 id="dns">
+  DNS
+  <a class="anchor" href="#dns">#</a>
+</h3>
 <p>Il existe un protocole appelé DNS qui fait le lien entre un domaine (<code>impots.gouv.fr</code>)
 et une adresse IP (<code>145.242.11.100</code>). Certaines machines sur internet accomplissent ce rôle.
 Cela nous évite d&rsquo;avoir à retenir des adresses IP, c&rsquo;est comme une liste de contacts.</p>
-</li>
-</ul>
 </article>
 
                 
@@ -6147,7 +6175,15 @@ Cela nous évite d&rsquo;avoir à retenir des adresses IP, c&rsquo;est comme une
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#rappels--introduction-au-réseau">Rappels : Introduction au réseau</a></li>
+    <li><a href="#rappels--introduction-au-réseau">Rappels : Introduction au réseau</a>
+      <ul>
+        <li><a href="#réseaux">Réseaux</a></li>
+        <li><a href="#ip--_internet-protocol_-les-adresses">IP : <em>Internet Protocol</em>, les adresses</a></li>
+        <li><a href="#adresse-réseau">Adresse réseau</a></li>
+        <li><a href="#routeurs">Routeurs</a></li>
+        <li><a href="#dns">DNS</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
