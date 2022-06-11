@@ -7,7 +7,7 @@
 <meta name="description" content="Calculabilité - Problème de l&rsquo;arrêt en Python #  Terminaison #  On dit qu&rsquo;une fonction termine si elle renvoie une valeur ou si elle lève une exception (par exemple ZeroDivisionError si une division par zéro est tentée).
 Avec cette définition, seulement deux situations peuvent se présenter lorsqu&rsquo;on appelle une fonction :
  Elle termine,  ou
- Elle continue à calculer à l&rsquo;infini  Ainsi, la fonction ma_fonction (voir ci-dessous), termine pour un entier n inférieur ou égal à 10 (elle renvoie None) et ne termine pas pour n strictement plus grand que 10.">
+ Elle continue de calculer indéfiniment  Ainsi, la fonction ma_fonction (voir ci-dessous), termine pour un entier n inférieur ou égal à 10 (elle renvoie None) et ne termine pas pour n strictement plus grand que 10.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Problème de l&#39;arrêt en Python" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -19,7 +19,7 @@ Avec cette définition, seulement deux situations peuvent se présenter lorsqu&r
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.85ba7ac90082b584ad370d88f3be7419422d175a0333df534231f12ad15316cc.js" integrity="sha256-hbp6yQCCtYStNw2I8750GUItF1oDM99TQjHxKtFTFsw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a4a1d3781c453f48343adfeb3ff7e96c897869fcc916a81b3d8720fbc9d1a8a3.js" integrity="sha256-pKHTeBxFP0g0Ot/rP/fpbIl4afzJFqgbPYcg&#43;8nRqKM=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/calculabilite/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -4743,7 +4743,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-01474ec81563823229c0eef0d485af61" class="toggle"  />
     <label for="section-01474ec81563823229c0eef0d485af61" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/paradigmes/fonctionnel/" class="">Paradigmes</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/paradigmes/fonctionnel/" class="">Paradigme fonctionnel</a>
     </label>
   
 
@@ -4848,7 +4848,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-d0bc07857c379b86baab35eb14723d7d" class="toggle"  />
     <label for="section-d0bc07857c379b86baab35eb14723d7d" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/tp/" class="">TP POO</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/tp/" class="">TP</a>
     </label>
   
 
@@ -4867,7 +4867,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/cours/" class="">cours POO</a>
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/cours/" class="">cours</a>
   
 
           
@@ -4887,7 +4887,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-ffc977d198143786341ceb78e3a8ddbc" class="toggle"  />
     <label for="section-ffc977d198143786341ceb78e3a8ddbc" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/td/" class="">POO - TD</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/td/" class="">TD</a>
     </label>
   
 
@@ -6014,7 +6014,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#terminaison">Terminaison</a></li>
     <li><a href="#de-lutilité-dune-fonction-arret">De l&rsquo;utilité d&rsquo;une fonction <code>arret</code></a></li>
     <li><a href="#le-problème-de-larrêt">Le Problème de l&rsquo;arrêt&hellip;</a></li>
-    <li><a href="#est-impossible">est impossible.</a>
+    <li><a href="#cest-impossible">C&rsquo;est impossible</a>
       <ul>
         <li><a href="#hypothèse">Hypothèse</a></li>
         <li><a href="#la-fonction-strange">La fonction <code>strange</code></a></li>
@@ -6053,11 +6053,11 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <p>ou</p>
 <ul>
-<li>Elle <em>continue à calculer à l&rsquo;infini</em></li>
+<li>Elle <em>continue de calculer indéfiniment</em></li>
 </ul>
 <p>Ainsi, la fonction <code>ma_fonction</code> (voir ci-dessous), termine pour un entier <code>n</code> inférieur ou égal à 10 (elle renvoie <code>None</code>) et ne termine pas pour <code>n</code> strictement plus grand que 10.</p>
 <p>En outre, cette fonction termine pour une chaîne de caractères <code>n</code> (en levant l&rsquo;exception <code>TypeError</code> à cause de l&rsquo;opération <code>+</code>).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ma_fonction</span> (n):
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">ma_fonction</span>(n):
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">while</span> n <span style="color:#555">!=</span> <span style="color:#f60">10</span> :
 </span></span><span style="display:flex;"><span>    n <span style="color:#555">=</span> n <span style="color:#555">+</span> <span style="color:#f60">1</span>
 </span></span></code></pre></div><h2 id="de-lutilité-dune-fonction-arret">
@@ -6076,10 +6076,14 @@ https://github.com/alex-shpak/hugo-book
   Le Problème de l&rsquo;arrêt&hellip;
   <a class="anchor" href="#le-probl%c3%a8me-de-larr%c3%aat">#</a>
 </h2>
-<p>La question <em>Est-il possible de programmer une telle fonction ?</em> est connue sous le nom de <strong>problème de l&rsquo;arrêt</strong>.</p>
-<h2 id="est-impossible">
-  est impossible.
-  <a class="anchor" href="#est-impossible">#</a>
+<p>La question :</p>
+<blockquote>
+<p>&ldquo;<em>Est-il possible de programmer la fonction <code>arret</code> ?</em>&rdquo;</p>
+</blockquote>
+<p>est connue sous le nom de <strong>problème de l&rsquo;arrêt</strong>.</p>
+<h2 id="cest-impossible">
+  C&rsquo;est impossible
+  <a class="anchor" href="#cest-impossible">#</a>
 </h2>
 <p>Nous allons montrer qu&rsquo;une telle fonction ne peut pas exister.</p>
 <p>Pour cela, nous allons employer un raisonnement par l&rsquo;absurde.</p>
@@ -6088,7 +6092,15 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#hypoth%c3%a8se">#</a>
 </h3>
 <p>Supposons que quelqu&rsquo;un ait réussi à programmer cette fonction <code>arret</code>.</p>
-<h3 id="la-fonction-strange">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">arret</span>(f, x) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Prend une fonction et ses paramètres en entrée.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    * Termine toujours
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    * Renvoie `True` si `f(x)` termine
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    * Renvoie `False` si `f(x)` ne termine pas.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><h3 id="la-fonction-strange">
   La fonction <code>strange</code>
   <a class="anchor" href="#la-fonction-strange">#</a>
 </h3>
@@ -6100,10 +6112,10 @@ https://github.com/alex-shpak/hugo-book
 </span></span></code></pre></div><p>Cette fonction teste si le calcul de <code>f(x)</code> termine.</p>
 <ul>
 <li>
-<p>si c&rsquo;est le cas, elle rentre dans une boucle infinie dans laquelle elle ne fait rien.</p>
+<p>si <code>f(x)</code> termine, elle rentre dans une boucle infinie dans laquelle elle ne fait rien.</p>
 </li>
 <li>
-<p>Si ce n&rsquo;est pas le cas, elle ne fait rien et termine.</p>
+<p>Sinon, elle ne fait rien et termine.</p>
 </li>
 </ul>
 <p><strong>Autrement dit, <code>strange(f, x)</code> termine si et seulement si <code>f(x)</code> ne termine pas.</strong></p>
@@ -6115,25 +6127,33 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">paradox</span>(f):
 </span></span><span style="display:flex;"><span>  strange(f, f)
 </span></span></code></pre></div><p>Par construction, le calcul de <code>paradox(f)</code> termine si et seulement si le calcul de <code>f(f)</code> ne termine pas. Appelons (1) cette propriété.</p>
+<blockquote>
+<p>(1) <em>le calcul de <code>paradox(f)</code> termine si et seulement si le calcul de <code>f(f)</code> ne termine pas</em></p>
+</blockquote>
 <h3 id="paradoxparadox-">
   <code>paradox(paradox)</code> ?
   <a class="anchor" href="#paradoxparadox-">#</a>
 </h3>
 <p>Maintenant, demandons-nous si le calcul de <code>paradox(paradox)</code> termine.</p>
 <p>Pour cela, dans la propriété (1), remplaçons <code>f</code> par <code>paradox</code>.</p>
-<p>La propriété devient : &quot; le calcul de paradox(paradox) termine si et seulement si le calcul de paradox(paradox) ne termine pas &ldquo;.</p>
+<p>La propriété devient :</p>
+<blockquote>
+<p><em>Le calcul de paradox(paradox) termine si et seulement si le calcul de paradox(paradox) ne termine pas.</em></p>
+</blockquote>
 <p>Cette dernière propriété est évidemment absurde (elle se contredit elle même).</p>
 <p>Nous pouvons donc conclure notre raisonnement par l&rsquo;absurde et affirmer qu&rsquo;il est impossible de programmer la fonction <code>arret</code>.</p>
 <h3 id="remarque">
   Remarque
   <a class="anchor" href="#remarque">#</a>
 </h3>
-<p>Cela reste impossible même si on se limite à ce que les arguments de arrêt soient une fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>. Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représenté en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
+<p>Le problème de l&rsquo;arrêt reste impossible même si on se limite à ce que les arguments de arrêt soient une
+fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>.</p>
+<p>Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représenté en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
 <h2 id="complément">
   Complément
   <a class="anchor" href="#compl%c3%a9ment">#</a>
 </h2>
-<p>La résolution du problème de l&rsquo;arrêt par Alonzo Church et lan Turing, en 1936 a eu de nombreuses conséquences
+<p>La résolution du problème de l&rsquo;arrêt par Alonzo Church et Alan Turing, en 1936 a eu de nombreuses conséquences
 en informatique et en mathématiques. La résolution de ce problème a conduit Alan Turing à créer les machines de Turing, modèle mathématiques à l&rsquo;origine des ordinateurs modernes&hellip;</p>
 <p>En particulier, il n&rsquo;est pas possible d&rsquo;écrire un assistant de programmation qui repère
 tous les problèmes qu&rsquo;un code présente avant de l&rsquo;avoir exécuté.</p>
@@ -6141,7 +6161,7 @@ tous les problèmes qu&rsquo;un code présente avant de l&rsquo;avoir exécuté.
 Un ramasse miette cherche à libérer des zones de la mémoire après leur dernière utilisation
 dans un programme.
 Ces outils existent dans beaucoup de langages modernes (python, java, Golang etc.) mais
-ne sont jamais parfaits, en effet, l&rsquo;existance d&rsquo;un ramasse miette parfait est équivalente
+ne sont jamais parfaits, en effet, l&rsquo;existence d&rsquo;un ramasse miette parfait est équivalente
 au problème de l&rsquo;arrêt.</p>
 <h2 id="vidéo">
   Vidéo
@@ -6213,7 +6233,7 @@ au problème de l&rsquo;arrêt.</p>
     <li><a href="#terminaison">Terminaison</a></li>
     <li><a href="#de-lutilité-dune-fonction-arret">De l&rsquo;utilité d&rsquo;une fonction <code>arret</code></a></li>
     <li><a href="#le-problème-de-larrêt">Le Problème de l&rsquo;arrêt&hellip;</a></li>
-    <li><a href="#est-impossible">est impossible.</a>
+    <li><a href="#cest-impossible">C&rsquo;est impossible</a>
       <ul>
         <li><a href="#hypothèse">Hypothèse</a></li>
         <li><a href="#la-fonction-strange">La fonction <code>strange</code></a></li>
