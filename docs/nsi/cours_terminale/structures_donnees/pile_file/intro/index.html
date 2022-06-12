@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf : au format imprimable #  Les files et les piles #  Une classe générique pour les structures en ligne : les sacs #  Les piles et les files sont des exemples de structures de données que faute de mieux, nous appellerons des sacs. Un sac offre trois opérations élémentaires :
+<meta name="description" content="pdf : au format imprimable
+Les files et les piles #  Une classe générique pour les structures en ligne : les sacs #  Les piles et les files sont des exemples de structures de données que faute de mieux, nous appellerons des sacs. Un sac offre trois opérations élémentaires :
  tester si le sac est vide, ajouter un élément dans le sac, retirer un élément du sac (tenter de retirer un élément d’un sac vide déclenche une erreur).">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Les files et les piles" />
@@ -17,31 +18,13 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4a1d3781c453f48343adfeb3ff7e96c897869fcc916a81b3d8720fbc9d1a8a3.js" integrity="sha256-pKHTeBxFP0g0Ot/rP/fpbIl4afzJFqgbPYcg&#43;8nRqKM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.c5ee7412f75d69c46c1d0b0df3ef12ad6cb2d9d128387f5d148f2eccefe418f9.js" integrity="sha256-xe50EvddacRsHQsN8&#43;8SrWyy2dEoOH9dFI8uzO/kGPk=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/intro/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script id="MathJax-script" async
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
 
 
 <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
@@ -5167,7 +5150,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-59defabfa06793f91faa95a25d1ebdfe" class="toggle"  />
     <label for="section-59defabfa06793f91faa95a25d1ebdfe" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/td_structures_lineaires/" class="">Structures de données linéaires : travaux dirigés</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/td_structures_lineaires/" class="">Structures de données linéaires : TD</a>
     </label>
   
 
@@ -6027,21 +6010,19 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#les-files-et-les-piles">Les files et les piles</a>
       <ul>
-        <li><a href="#pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a></a></li>
+        <li><a href="#une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</a></li>
+        <li><a href="#piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</a></li>
-    <li><a href="#piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#modéliser-une-pile-avec-un-objet-list">Modéliser une pile avec un objet <code>list</code></a></li>
-    <li><a href="#modéliser-une-file-avec-un-objet-list">Modéliser une file avec un objet <code>list</code></a></li>
+    <li><a href="#python-et-les-piles-et-files">Python et les piles et files</a>
+      <ul>
+        <li><a href="#modéliser-une-pile-avec-un-objet-list">Modéliser une pile avec un objet <code>list</code></a></li>
+        <li><a href="#modéliser-une-file-avec-un-objet-list">Modéliser une file avec un objet <code>list</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#utilisation-des-piles-et-files-en-informatique">Utilisation des piles et files en informatique</a></li>
   </ul>
 </nav>
 
@@ -6055,18 +6036,15 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">
-  pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a>
-  <a class="anchor" href="#pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">#</a>
-</h3>
-<h1 id="les-files-et-les-piles">
+<article class="markdown"><p>pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a></p>
+<h2 id="les-files-et-les-piles">
   Les files et les piles
   <a class="anchor" href="#les-files-et-les-piles">#</a>
-</h1>
-<h2 id="une-classe-générique-pour-les-structures-en-ligne--les-sacs">
+</h2>
+<h3 id="une-classe-générique-pour-les-structures-en-ligne--les-sacs">
   Une classe générique pour les structures en ligne : les sacs
   <a class="anchor" href="#une-classe-g%c3%a9n%c3%a9rique-pour-les-structures-en-ligne--les-sacs">#</a>
-</h2>
+</h3>
 <p>Les piles et les files sont des exemples de structures de données que faute de
 mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élémentaires :</p>
 <ol>
@@ -6094,10 +6072,10 @@ mieux, nous appellerons des <em>sacs</em>. Un sac offre trois opérations élém
 référencé dans une liste python. C&rsquo;est un choix qui sera commode.</p>
 <p>Ainsi on ajoute par exemple un élément <code>e</code> dans le sac <code>b</code> par <code>b.ajouter(e)</code>,
 ce qui modifie l’état interne du sac.</p>
-<h2 id="piles-et-files--des-sacs-aux-propriétés-particulières">
+<h3 id="piles-et-files--des-sacs-aux-propriétés-particulières">
   Piles et Files : des sacs aux propriétés particulières
   <a class="anchor" href="#piles-et-files--des-sacs-aux-propri%c3%a9t%c3%a9s-particuli%c3%a8res">#</a>
-</h2>
+</h3>
 <p>Piles et files se distinguent par la relation entre éléments ajoutés et
 éléments retirés.</p>
 <ul>
@@ -6112,7 +6090,19 @@ ce qui modifie l’état interne du sac.</p>
 <p>Si on représente pile et file par des tas de cases, on voit que la pile possède
 un sommet, où sont ajoutés et d’où sont retirés les éléments, tandis que la
 file possède une entrée et une sortie.</p>
-<p><img src="img/file_pile.png" alt="pile_file" />\</p>
+<p><div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    Pile
+  </div>
+
+  <div class="flex-even markdown-inner">
+    File
+  </div>
+
+</div>
+
+<img src="/uploads/docnsitale/pile_file/img/file_pile.png" alt="pile_file" /></p>
 <p>Tout ceci est parfaitement conforme à l’intuition d’une pile d’assiettes, ou de
 la queue devant un guichet, et suggère fortement des techniques
 d’implémentations pour les piles et les files.</p>
@@ -6185,16 +6175,16 @@ inverse de la liste <code>p</code>.</p>
 Traditionnellement, ajouter un élément dans une pile se dit empiler (<code>push</code>),
 et l’enlever dépiler (<code>pop</code>), tandis qu’ajouter un élément dans une file se dit
 enfiler (<code>enqueue</code>), et l’enlever défiler (<code>dequeue</code>).</p>
-<h1 id="python-et-les-piles-et-files">
+<h2 id="python-et-les-piles-et-files">
   Python et les piles et files
   <a class="anchor" href="#python-et-les-piles-et-files">#</a>
-</h1>
+</h2>
 <p>Le moyen le plus simple de modéliser une pile ou une file est d&rsquo;utiliser
 un objet <code>list</code> et les méthodes <code>append</code> et <code>pop</code></p>
-<h2 id="modéliser-une-pile-avec-un-objet-list">
+<h3 id="modéliser-une-pile-avec-un-objet-list">
   Modéliser une pile avec un objet <code>list</code>
   <a class="anchor" href="#mod%c3%a9liser-une-pile-avec-un-objet-list">#</a>
-</h2>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile <span style="color:#555">=</span> [ ]
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
@@ -6206,10 +6196,10 @@ un objet <code>list</code> et les méthodes <code>append</code> et <code>pop</co
 </span></span><span style="display:flex;"><span><span style="color:#f60">2</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> pile<span style="color:#555">.</span>pop() <span style="color:#09f;font-style:italic"># sort le dernier élément</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
-</span></span></code></pre></div><h2 id="modéliser-une-file-avec-un-objet-list">
+</span></span></code></pre></div><h3 id="modéliser-une-file-avec-un-objet-list">
   Modéliser une file avec un objet <code>list</code>
   <a class="anchor" href="#mod%c3%a9liser-une-file-avec-un-objet-list">#</a>
-</h2>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file <span style="color:#555">=</span> [ ]
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> file<span style="color:#555">.</span>append(<span style="color:#f60">1</span>)
@@ -6223,10 +6213,10 @@ un objet <code>list</code> et les méthodes <code>append</code> et <code>pop</co
 </span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
 </span></span></code></pre></div><p>Bien sûr il est parfaitement possible de créer une classe et d&rsquo;implémenter
 les notations traditionnelles (push, pop, enqueue, dequeue).</p>
-<h1 id="utilisation-des-piles-et-files-en-informatique">
+<h2 id="utilisation-des-piles-et-files-en-informatique">
   Utilisation des piles et files en informatique
   <a class="anchor" href="#utilisation-des-piles-et-files-en-informatique">#</a>
-</h1>
+</h2>
 <ul>
 <li>
 <p>Les gestionnaires de messages, utilisent un &ldquo;tampon&rdquo; pour accumuler les
@@ -6242,6 +6232,9 @@ exécuter par le serveur lui même.</p>
 <p>Les appels successifs d&rsquo;une fonction récursive s&rsquo;accumulent dans la pile
 de récursion. Le dernier appel retourne une valeur au précédent, qui
 retourne au précédent etc.</p>
+<p>Le bouton &ldquo;annuler&rdquo; et le retour en arrière des navigateurs utilisent
+des piles assez évoluées (on peut, par exemple, consulter le contenu sans
+vider la pile).</p>
 </li>
 </ul>
 </article>
@@ -6306,21 +6299,19 @@ retourne au précédent etc.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#les-files-et-les-piles">Les files et les piles</a>
       <ul>
-        <li><a href="#pdf--au-format-imprimableuploadsdocnsitalepile_filefile_pilepdf">pdf : au <a href="/uploads/docnsitale/pile_file/file_pile.pdf">format imprimable</a></a></li>
+        <li><a href="#une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</a></li>
+        <li><a href="#piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#une-classe-générique-pour-les-structures-en-ligne--les-sacs">Une classe générique pour les structures en ligne : les sacs</a></li>
-    <li><a href="#piles-et-files--des-sacs-aux-propriétés-particulières">Piles et Files : des sacs aux propriétés particulières</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#modéliser-une-pile-avec-un-objet-list">Modéliser une pile avec un objet <code>list</code></a></li>
-    <li><a href="#modéliser-une-file-avec-un-objet-list">Modéliser une file avec un objet <code>list</code></a></li>
+    <li><a href="#python-et-les-piles-et-files">Python et les piles et files</a>
+      <ul>
+        <li><a href="#modéliser-une-pile-avec-un-objet-list">Modéliser une pile avec un objet <code>list</code></a></li>
+        <li><a href="#modéliser-une-file-avec-un-objet-list">Modéliser une file avec un objet <code>list</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#utilisation-des-piles-et-files-en-informatique">Utilisation des piles et files en informatique</a></li>
   </ul>
 </nav>
 

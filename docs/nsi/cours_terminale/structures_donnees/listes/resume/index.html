@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf: pour impression #  La structure de donnée liste #  Objectifs #  La structure de données linéaire liste.
- de définir la structure de données liste. Pour cela nous allons nous concentrer sur ses méthodes, de manipuler cette structure de données, d&rsquo;appréhender la notion de mutabilité des listes (elles peuvent changer), d&rsquo;appréhender la complexité de la manipulation des listes, de comprendre que ce qui est appelé List en Python n&rsquo;est pas une liste au sens commun du terme.">
+<meta name="description" content="pdf: pour impression
+La structure de donnée linéaire liste #   de définir la structure de données liste. Pour cela nous allons nous concentrer sur ses méthodes, de manipuler cette structure de données, d&rsquo;appréhender la notion de mutabilité des listes (elles peuvent changer), d&rsquo;appréhender la complexité de la manipulation des listes, de comprendre que ce qui est appelé List en Python n&rsquo;est pas une liste au sens commun du terme.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -17,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a4a1d3781c453f48343adfeb3ff7e96c897869fcc916a81b3d8720fbc9d1a8a3.js" integrity="sha256-pKHTeBxFP0g0Ot/rP/fpbIl4afzJFqgbPYcg&#43;8nRqKM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.c5ee7412f75d69c46c1d0b0df3ef12ad6cb2d9d128387f5d148f2eccefe418f9.js" integrity="sha256-xe50EvddacRsHQsN8&#43;8SrWyy2dEoOH9dFI8uzO/kGPk=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/listes/resume/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -5167,7 +5167,7 @@ MathJax.Hub.Config({
   
     <input type="checkbox" id="section-59defabfa06793f91faa95a25d1ebdfe" class="toggle"  />
     <label for="section-59defabfa06793f91faa95a25d1ebdfe" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/td_structures_lineaires/" class="">Structures de données linéaires : travaux dirigés</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/pile_file/td_structures_lineaires/" class="">Structures de données linéaires : TD</a>
     </label>
   
 
@@ -6027,39 +6027,23 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocnsitalelisteslistes_resumepdf">pdf: <a href="/uploads/docnsitale/listes/listes_resume.pdf">pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#objectifs">Objectifs</a></li>
-    <li><a href="#la-structure-de-donnée">La structure de donnée</a></li>
+    <li><a href="#la-structure-de-donnée-linéaire-liste">La structure de donnée linéaire <strong>liste</strong></a></li>
     <li><a href="#quest-ce-quune-liste-">Qu&rsquo;est-ce qu&rsquo;une liste ?</a></li>
     <li><a href="#obtenir-une-définition-formelle">Obtenir une définition formelle</a></li>
     <li><a href="#définition">Définition</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#primitives-sur-les-listes-1">Primitives sur les listes</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#quest-ce-qui-différencie-les-listes-des-tableaux-">Qu&rsquo;est ce qui différencie les listes des tableaux ?</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#accéder-à-un-élément--tableau">Accéder à un élément : tableau</a></li>
-    <li><a href="#accéder-à-un-élément--liste">Accéder à un élément : liste</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#implémenter-une-structure-minimale">Implémenter une structure minimale</a></li>
-    <li><a href="#construction-de-la-liste">Construction de la liste</a></li>
-    <li><a href="#sélecteurs">Sélecteurs</a></li>
-    <li><a href="#prédicat--_est-vide_">Prédicat : <em>est vide</em></a></li>
+    <li><a href="#primitives-sur-les-listes">Primitives sur les listes</a></li>
+    <li><a href="#liste-vs-tableaux">Liste vs tableaux</a>
+      <ul>
+        <li><a href="#quest-ce-qui-différencie-les-listes-des-tableaux-">Qu&rsquo;est ce qui différencie les listes des tableaux ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#complexité">Complexité</a>
+      <ul>
+        <li><a href="#accéder-à-un-élément--tableau">Accéder à un élément : tableau</a></li>
+        <li><a href="#accéder-à-un-élément--liste">Accéder à un élément : liste</a></li>
+      </ul>
+    </li>
+    <li><a href="#implémenter-une-structure-minimale-en-python">Implémenter une structure minimale en Python</a></li>
   </ul>
 
   <ul>
@@ -6077,19 +6061,11 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalelisteslistes_resumepdf">
-  pdf: <a href="/uploads/docnsitale/listes/listes_resume.pdf">pour impression</a>
-  <a class="anchor" href="#pdf-pour-impressionuploadsdocnsitalelisteslistes_resumepdf">#</a>
-</h3>
-<h1 id="la-structure-de-donnée-liste">
-  La structure de donnée liste
-  <a class="anchor" href="#la-structure-de-donn%c3%a9e-liste">#</a>
-</h1>
-<h2 id="objectifs">
-  Objectifs
-  <a class="anchor" href="#objectifs">#</a>
+<article class="markdown"><p>pdf: <a href="/uploads/docnsitale/listes/listes_resume.pdf">pour impression</a></p>
+<h2 id="la-structure-de-donnée-linéaire-liste">
+  La structure de donnée linéaire <strong>liste</strong>
+  <a class="anchor" href="#la-structure-de-donn%c3%a9e-lin%c3%a9aire-liste">#</a>
 </h2>
-<p>La structure de données linéaire <strong>liste</strong>.</p>
 <ul>
 <li>de <em>définir</em> la structure de données liste. Pour cela nous allons nous concentrer sur ses méthodes,</li>
 <li>de <em>manipuler</em> cette structure de données,</li>
@@ -6097,10 +6073,6 @@ MathJax.Hub.Config({
 <li>d&rsquo;appréhender la <em>complexité</em> de la manipulation des listes,</li>
 <li>de comprendre que ce qui est appelé <code>List</code> <em>en Python n&rsquo;est pas une liste au sens commun du terme</em>.</li>
 </ul>
-<h2 id="la-structure-de-donnée">
-  La structure de donnée
-  <a class="anchor" href="#la-structure-de-donn%c3%a9e">#</a>
-</h2>
 <h2 id="quest-ce-quune-liste-">
   Qu&rsquo;est-ce qu&rsquo;une liste ?
   <a class="anchor" href="#quest-ce-quune-liste-">#</a>
@@ -6117,65 +6089,59 @@ MathJax.Hub.Config({
   Obtenir une définition formelle
   <a class="anchor" href="#obtenir-une-d%c3%a9finition-formelle">#</a>
 </h2>
-<p>Prenons une liste comme par exemple $<code>\ell_1 = [3, 1, 4]</code>$.  C&rsquo;est une liste à trois éléments.</p>
+<p>Prenons une liste comme par exemple $\ell_1 = [3, 1, 4]$.  C&rsquo;est une liste à trois éléments.</p>
 <ul>
-<li>la liste $<code>\ell_1</code>$ possède un premier élément $<code>3</code>$ qu&rsquo;on nommera élément de <em>tête</em>,</li>
-<li>et que vient après cet élément de tête la liste $<code>\ell_2 = [1, 4]</code>$ des éléments qui suivent,
+<li>la liste $\ell_1$ possède un premier élément $3$ qu&rsquo;on nommera élément de <em>tête</em>,</li>
+<li>et que vient après cet élément de tête la liste $\ell_2 = [1, 4]$ des éléments qui suivent,
 liste qu&rsquo;on nommera <em>reste</em>.</li>
 </ul>
-<p>Peut être répété pour la liste $<code>\ell_2</code>$ qui est donc constituée :</p>
+<p>Peut être répété pour la liste $\ell_2$ qui est donc constituée :</p>
 <ul>
-<li>d&rsquo;un élément de <em>tête</em> : $<code>1</code>$,</li>
-<li>et d&rsquo;un <em>reste</em> : $<code>\ell_3 = [4]</code>$.</li>
+<li>d&rsquo;un élément de <em>tête</em> : $1$,</li>
+<li>et d&rsquo;un <em>reste</em> : $\ell_3 = [4]$.</li>
 </ul>
-<p>La liste $<code>\ell_3</code>$ est donc constituée :</p>
+<p>La liste $\ell_3$ est donc constituée :</p>
 <ul>
-<li>d&rsquo;un élément de <em>tête</em> : $<code>4</code>$,</li>
-<li>et d&rsquo;un <em>reste</em> : $<code>\ell_4 = []</code>$.</li>
+<li>d&rsquo;un élément de <em>tête</em> : $4$,</li>
+<li>et d&rsquo;un <em>reste</em> : $\ell_4 = []$.</li>
 </ul>
-<p>$<code>\ell_4</code>$ étant vide : pas d&rsquo;élément de tête, ne peut donc pas être décomposée comme nous venons.</p>
-<p>Si on convient d&rsquo;utiliser la notation $<code>(x,\ell)</code>$ pour désigner le couple constitué de
-l&rsquo;élément $<code>x</code>$ de tête, et du reste $<code>\ell</code>$ d&rsquo;une liste, on peut alors écrire :</p>
-<p>$$<code>\ell_1 = (3, (1, (4, [\;])))</code>$$</p>
+<p>$\ell_4$ étant vide : pas d&rsquo;élément de tête, ne peut donc pas être décomposée comme nous venons.</p>
+<p>Si on convient d&rsquo;utiliser la notation $(x,\ell)$ pour désigner le couple constitué de
+l&rsquo;élément $x$ de tête, et du reste $\ell$ d&rsquo;une liste, on peut alors écrire :</p>
+<p>$$\ell_1 = (3, (1, (4, [])))$$</p>
 <h2 id="définition">
   Définition
   <a class="anchor" href="#d%c3%a9finition">#</a>
 </h2>
-<p>Une <em>liste</em> d&rsquo;éléments d&rsquo;un ensemble $<code>E</code>$ est</p>
+<p>Une <em>liste</em> d&rsquo;éléments d&rsquo;un ensemble $E$ est</p>
 <ul>
 <li>soit la liste vide</li>
-<li>soit un couple $<code>(x,\ell)</code>$ constitué d&rsquo;un élément $<code>x\in E</code>$
-et d&rsquo;une liste $<code>\ell</code>$ d&rsquo;éléments de $<code>E</code>$.</li>
+<li>soit un couple $(x,\ell)$ constitué d&rsquo;un élément $x\in E$
+et d&rsquo;une liste $\ell$ d&rsquo;éléments de $E$.</li>
 </ul>
 <p>Les listes peuvent donc être vues comme <em>des structures de données récursives</em>.</p>
-<h1 id="primitives-sur-les-listes">
+<h2 id="primitives-sur-les-listes">
   Primitives sur les listes
   <a class="anchor" href="#primitives-sur-les-listes">#</a>
-</h1>
-<dl>
-<dt>Primitives</dt>
-<dd>
-<p>Les <em>opérations primitives</em> d&rsquo;une structure de donnée sont les opérations minimales qui permettent de définir la structure et de lui donner les méthodes attendues.</p>
-</dd>
-</dl>
-<h2 id="primitives-sur-les-listes-1">
-  Primitives sur les listes
-  <a class="anchor" href="#primitives-sur-les-listes-1">#</a>
 </h2>
+<p>Primitives</p>
+<blockquote>
+<p>Les <em>opérations primitives</em> d&rsquo;une structure de donnée sont les opérations minimales qui permettent de définir la structure et de lui donner les méthodes attendues.</p>
+</blockquote>
 <p>Une structure de donnée <strong>liste</strong> doit implémenter :</p>
 <ol>
 <li><strong>La construction</strong> à partir d&rsquo;une liste vide ou à partir d&rsquo;un couple tête (élément) et reste (liste).</li>
 <li><strong>La sélection</strong> de l&rsquo;élément de tête ou du reste.</li>
 <li><strong>Prédicat.</strong> on doit pouvoir répondre à la question : &ldquo;cette liste est-elle vide ?&rdquo;</li>
 </ol>
-<h1 id="liste-vs-tableaux">
+<h2 id="liste-vs-tableaux">
   Liste vs tableaux
   <a class="anchor" href="#liste-vs-tableaux">#</a>
-</h1>
-<h2 id="quest-ce-qui-différencie-les-listes-des-tableaux-">
+</h2>
+<h3 id="quest-ce-qui-différencie-les-listes-des-tableaux-">
   Qu&rsquo;est ce qui différencie les listes des tableaux ?
   <a class="anchor" href="#quest-ce-qui-diff%c3%a9rencie-les-listes-des-tableaux-">#</a>
-</h2>
+</h3>
 <p>les <em>tableaux</em> sont aussi des structures linéaires. Ils contiennent un nombre
 prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</p>
 <ul>
@@ -6184,17 +6150,17 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
 </ul>
 <p>Python utilise des tableaux dynamiques qu&rsquo;il appelle <code>list</code> (parce qu&rsquo;ils sont mutables).</p>
 <p>Ce ne sont ni des &ldquo;listes&rdquo; ni des &ldquo;tableaux&rdquo; tels qu&rsquo;on vient de les décrire.</p>
-<h1 id="complexité">
+<h2 id="complexité">
   Complexité
   <a class="anchor" href="#complexit%c3%a9">#</a>
-</h1>
+</h2>
 <p>Pourquoi implémenter plusieurs structures ? Après tout, on peut
 <em>tout faire</em> avec des listes Python !</p>
 <p>Parce que l&rsquo;efficacité est fondamentale. Certaines structures sont plus adaptées à certains problèmes.</p>
-<h2 id="accéder-à-un-élément--tableau">
+<h3 id="accéder-à-un-élément--tableau">
   Accéder à un élément : tableau
   <a class="anchor" href="#acc%c3%a9der-%c3%a0-un-%c3%a9l%c3%a9ment--tableau">#</a>
-</h2>
+</h3>
 <p>Pour accéder à l&rsquo;élément 2 du tableau</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>T <span style="color:#555">=</span> [<span style="color:#c30">&#39;a&#39;</span>, <span style="color:#c30">&#39;b&#39;</span>, <span style="color:#c30">&#39;c&#39;</span>]
 </span></span></code></pre></div><ol>
@@ -6202,10 +6168,10 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
 <li>On se déplace de deux positions. On lit : <code>'c'</code></li>
 </ol>
 <p>Le temps est constant : Accéder se fait en complexité $O(1)$.</p>
-<h2 id="accéder-à-un-élément--liste">
+<h3 id="accéder-à-un-élément--liste">
   Accéder à un élément : liste
   <a class="anchor" href="#acc%c3%a9der-%c3%a0-un-%c3%a9l%c3%a9ment--liste">#</a>
-</h2>
+</h3>
 <p>Pour accéder à l&rsquo;élément 2 de la liste</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>L <span style="color:#555">=</span> (<span style="color:#c30">&#39;a&#39;</span>, (<span style="color:#c30">&#39;b&#39;</span>, (<span style="color:#c30">&#39;c&#39;</span>, [])))
 </span></span></code></pre></div><ol>
@@ -6215,14 +6181,10 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
 <li>On lit la valeur de la tête : <code>'c'</code></li>
 </ol>
 <p>Le temps est linéaire : Accéder se fait en complexité $O(n)$.</p>
-<p>\newpage</p>
-<h1 id="une-classe-liste-minimale-en-python">
-  Une classe <code>Liste</code> minimale en Python
-  <a class="anchor" href="#une-classe-liste-minimale-en-python">#</a>
-</h1>
-<h2 id="implémenter-une-structure-minimale">
-  Implémenter une structure minimale
-  <a class="anchor" href="#impl%c3%a9menter-une-structure-minimale">#</a>
+<hr>
+<h2 id="implémenter-une-structure-minimale-en-python">
+  Implémenter une structure minimale en Python
+  <a class="anchor" href="#impl%c3%a9menter-une-structure-minimale-en-python">#</a>
 </h2>
 <p>Pour implémenter une structure de donnée il faut :</p>
 <ol>
@@ -6230,49 +6192,104 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
 <li>décrire les méthodes qui seront à construire plus tard</li>
 <li>Utilise la programmation objet pour créer un nouveau <em>type</em> de données</li>
 </ol>
-<h2 id="construction-de-la-liste">
-  Construction de la liste
-  <a class="anchor" href="#construction-de-la-liste">#</a>
-</h2>
-<p>Voici une manière <strong>construire</strong> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Liste</span>: <span style="color:#09f;font-style:italic"># avec un e !!!</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> __init__(self, <span style="color:#555">*</span>args):               <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># Un exemple :</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> <span style="color:#366">len</span>(args) <span style="color:#555">==</span> <span style="color:#f60">0</span>:                     <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span>
-</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>__contenu <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>                <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> Liste()
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:                                  <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> g <span style="color:#555">=</span> Liste(<span style="color:#f60">1</span>, l)
-</span></span><span style="display:flex;"><span>                                           <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> h <span style="color:#555">=</span> Liste(<span style="color:#f60">2</span>, g)
-</span></span><span style="display:flex;"><span>      self<span style="color:#555">.</span>__contenu <span style="color:#555">=</span> {                   <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(l, Liste)
-</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;tete&#34;</span>: args[<span style="color:#f60">0</span>],                   <span style="color:#555">|</span>        <span style="color:#069;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;queue&#34;</span>: args[<span style="color:#f60">1</span>]                   <span style="color:#555">|</span>
-</span></span><span style="display:flex;"><span>      }
-</span></span></code></pre></div><h2 id="sélecteurs">
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+     <!-- begin columns block -->
+<h3 id="constructeurs">
+  Constructeurs
+  <a class="anchor" href="#constructeurs">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Liste</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __init__(self, <span style="color:#555">*</span>args):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> <span style="color:#366">len</span>(args) <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__tete <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__queue <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__tete <span style="color:#555">=</span> args[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__queue <span style="color:#555">=</span> args[<span style="color:#f60">1</span>]
+</span></span></code></pre></div>
+  </div>
+
+  <div class="flex-even markdown-inner">
+     <!-- magic separator, between columns -->
+<h3 id="exemple">
+  Exemple
+  <a class="anchor" href="#exemple">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l <span style="color:#555">=</span> Liste()
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> g <span style="color:#555">=</span> Liste(<span style="color:#f60">1</span>, l)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> h <span style="color:#555">=</span> Liste(<span style="color:#f60">2</span>, g)      
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(l, Liste) 
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>                     
+</span></span></code></pre></div>
+  </div>
+
+</div>
+
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    <h3 id="sélecteurs">
   Sélecteurs
   <a class="anchor" href="#s%c3%a9lecteurs">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic"># toujours dans la classe List</span>
-</span></span><span style="display:flex;"><span>                                            <span style="color:#555">|</span>       <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># Exemple</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tete</span>(self):                           <span style="color:#555">|</span>       <span style="color:#555">&gt;&gt;&gt;</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>__contenu <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>:              <span style="color:#555">|</span>       <span style="color:#555">&gt;&gt;&gt;</span> g<span style="color:#555">.</span>tete()
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">None</span>                           <span style="color:#555">|</span>       <span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:                                   <span style="color:#555">|</span>       <span style="color:#555">&gt;&gt;&gt;</span> h<span style="color:#555">.</span>queue()
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__contenu[<span style="color:#c30">&#34;tete&#34;</span>]         <span style="color:#555">|</span>       <span style="color:#555">&lt;</span>__main__<span style="color:#555">.</span>Liste <span style="color:#366">object</span> at <span style="color:#f60">0x7f66fbdecf70</span><span style="color:#555">&gt;</span>
-</span></span><span style="display:flex;"><span>                                            <span style="color:#555">|</span>       <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(h, Liste)
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">queue</span>(self):                          <span style="color:#555">|</span>       <span style="color:#069;font-weight:bold">True</span> <span style="color:#09f;font-style:italic"># c&#39;est bien un objet de type liste</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>__contenu <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>:              <span style="color:#555">|</span>       <span style="color:#a00;background-color:#faa">```</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">None</span>                           <span style="color:#555">|</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:                                   <span style="color:#555">|</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__contenu[<span style="color:#c30">&#34;queue&#34;</span>]        <span style="color:#555">|</span>
-</span></span></code></pre></div><h2 id="prédicat--_est-vide_">
-  Prédicat : <em>est vide</em>
-  <a class="anchor" href="#pr%c3%a9dicat--_est-vide_">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic"># toujours dans la classe liste</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(self):                       <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># Exemple</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>__content <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>:              <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>                           <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> h<span style="color:#555">.</span>est_vide()
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:                                   <span style="color:#555">|</span>        <span style="color:#069;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>                          <span style="color:#555">|</span>        <span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>est_vide()
-</span></span></code></pre></div><h1 id="méthodes-utiles">
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tete</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__tete
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">queue</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__queue
+</span></span></code></pre></div>
+  </div>
+
+  <div class="flex-even markdown-inner">
+    <h3 id="exemple">
+  Exemple
+  <a class="anchor" href="#exemple">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> g<span style="color:#555">.</span>tete()
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> h<span style="color:#555">.</span>queue()
+</span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>__main__<span style="color:#555">.</span>Liste <span style="color:#366">object</span> at <span style="color:#f60">0x7f66fbdecf70</span><span style="color:#555">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(h, Liste)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> 
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># objet de type liste</span>
+</span></span></code></pre></div>
+  </div>
+
+</div>
+
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    <h3 id="prédicat">
+  Prédicat
+  <a class="anchor" href="#pr%c3%a9dicat">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> (
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__tete <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span> 
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">and</span> self<span style="color:#555">.</span>__queue <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div>
+  </div>
+
+  <div class="flex-even markdown-inner">
+    <h3 id="exemple">
+  Exemple
+  <a class="anchor" href="#exemple">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> h<span style="color:#555">.</span>est_vide()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> l<span style="color:#555">.</span>est_vide()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
+</span></span></code></pre></div>
+  </div>
+
+</div>
+
+<h1 id="méthodes-utiles">
   Méthodes utiles
   <a class="anchor" href="#m%c3%a9thodes-utiles">#</a>
 </h1>
@@ -6343,39 +6360,23 @@ prédéfini d&rsquo;emplacements mémoire (qu&rsquo;on peut parfois modifier).</
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocnsitalelisteslistes_resumepdf">pdf: <a href="/uploads/docnsitale/listes/listes_resume.pdf">pour impression</a></a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#objectifs">Objectifs</a></li>
-    <li><a href="#la-structure-de-donnée">La structure de donnée</a></li>
+    <li><a href="#la-structure-de-donnée-linéaire-liste">La structure de donnée linéaire <strong>liste</strong></a></li>
     <li><a href="#quest-ce-quune-liste-">Qu&rsquo;est-ce qu&rsquo;une liste ?</a></li>
     <li><a href="#obtenir-une-définition-formelle">Obtenir une définition formelle</a></li>
     <li><a href="#définition">Définition</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#primitives-sur-les-listes-1">Primitives sur les listes</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#quest-ce-qui-différencie-les-listes-des-tableaux-">Qu&rsquo;est ce qui différencie les listes des tableaux ?</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#accéder-à-un-élément--tableau">Accéder à un élément : tableau</a></li>
-    <li><a href="#accéder-à-un-élément--liste">Accéder à un élément : liste</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#implémenter-une-structure-minimale">Implémenter une structure minimale</a></li>
-    <li><a href="#construction-de-la-liste">Construction de la liste</a></li>
-    <li><a href="#sélecteurs">Sélecteurs</a></li>
-    <li><a href="#prédicat--_est-vide_">Prédicat : <em>est vide</em></a></li>
+    <li><a href="#primitives-sur-les-listes">Primitives sur les listes</a></li>
+    <li><a href="#liste-vs-tableaux">Liste vs tableaux</a>
+      <ul>
+        <li><a href="#quest-ce-qui-différencie-les-listes-des-tableaux-">Qu&rsquo;est ce qui différencie les listes des tableaux ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#complexité">Complexité</a>
+      <ul>
+        <li><a href="#accéder-à-un-élément--tableau">Accéder à un élément : tableau</a></li>
+        <li><a href="#accéder-à-un-élément--liste">Accéder à un élément : liste</a></li>
+      </ul>
+    </li>
+    <li><a href="#implémenter-une-structure-minimale-en-python">Implémenter une structure minimale en Python</a></li>
   </ul>
 
   <ul>
