@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pdf: pour impression, diaporama #  Diviser pour régner #  Diviser pour régner: #  #   Classe d&rsquo;algorithme où l&rsquo;on découpe un problème en sous problèmes qui s&rsquo;énoncent de la même manière
-  et qu&rsquo;on recompose à la fin pour former une solution
- #   C&rsquo;est une approche &ldquo;du haut vers les bas&rdquo;.
- #   Généralement, les algorithmes sont récursifs
- Recherche du maximum dans une liste #  On dispose d&rsquo;un tableau de nombres, on en cherche le plus grand élément.">
+<meta name="description" content="pdf: pour impression, diaporama
+Diviser pour régner #  Classe d&rsquo;algorithme où l&rsquo;on
+ découpe un problème en sous problèmes indépendants qui s&rsquo;énoncent de la même manière qu&rsquo;on recompose à la fin pour former une solution  C&rsquo;est une approche &ldquo;du haut vers les bas&rdquo;, généralement, les algorithmes sont récursifs
+ Nous allons exposer quelques problèmes simples afin d&rsquo;explorer la démarche. Dans un premier temps, nos nouveaux algorithmes seront moins efficaces que leur version classique.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Diviser pour régner." />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -20,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9a7b787ee68446d21f936eed1d7b970c65ca2bcf7a8f7455f54610dcbd41212f.js" integrity="sha256-mnt4fuaERtIfk27tHXuXDGXKK896j3RV9UYQ3L1BIS8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.081a3009886fec7616e4ede2f024f9ab0021614d52decce1bfd853d0dbaaf5b2.js" integrity="sha256-CBowCYhv7HYW5O3i8CT5qwAhYU1S3szhv9hT0Nuq9bI=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6030,49 +6029,53 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#diviser-pour-régner">Diviser pour régner</a></li>
+    <li><a href="#recherche-du-maximum-dans-une-liste">Recherche du maximum dans une liste</a>
       <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a></a></li>
+        <li><a href="#algorithme-itératif-naturel">Algorithme itératif naturel</a></li>
+        <li><a href="#version-diviser-pour-régner">Version diviser pour régner</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#heading-1"></a>
       <ul>
-        <li><a href="#diviser-pour-régner-1">Diviser pour régner:</a></li>
-        <li><a href="#heading"></a></li>
-        <li><a href="#heading-1"></a></li>
-        <li><a href="#heading-2"></a></li>
+        <li><a href="#est-ce-plus-efficace--non-cest-même-plus-lent-">Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#algorithme-itératif-naturel">Algorithme itératif naturel</a></li>
-    <li><a href="#version-diviser-pour-régner">Version diviser pour régner</a></li>
-    <li><a href="#heading-3"></a></li>
-    <li><a href="#heading-4"></a></li>
-    <li><a href="#est-ce-plus-efficace--non-cest-même-plus-lent-">Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !</a></li>
-    <li><a href="#recherche-dun-élément-dans-une-liste-pas-forcément-trié">Recherche d&rsquo;un élément dans une liste (pas forcément trié)</a></li>
-    <li><a href="#version-itérative-cf-première">Version itérative (cf première)</a></li>
-    <li><a href="#version-diviser-pour-régner-1">Version diviser pour régner</a></li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#exemple-1">Exemple</a></li>
-    <li><a href="#cest-mieux-cette-fois--toujours-pas">C&rsquo;est mieux cette fois ??? Toujours pas.</a></li>
-    <li><a href="#pourquoi-est-ce-inefficace-dans-ces-cas-">Pourquoi est-ce inefficace dans ces cas ?</a></li>
-    <li><a href="#quand-est-ce-intéressant-">Quand est-ce intéressant ?</a></li>
-    <li><a href="#dichotomie--cest-diviser-pour-régner">Dichotomie : c&rsquo;est diviser pour régner</a></li>
-    <li><a href="#dichotomie--récursif">Dichotomie : récursif</a></li>
-    <li><a href="#mais">Mais</a></li>
-    <li><a href="#calculer-la-puissance-dun-nombre">Calculer la puissance d&rsquo;un nombre</a></li>
-    <li><a href="#algorithme-naïf-pour-yn">Algorithme naïf pour $y^n$</a></li>
-    <li><a href="#complexité-">Complexité ?</a></li>
-    <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
-    <li><a href="#vitesses">Vitesses</a></li>
-    <li><a href="#heading-5"></a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#algorithmes-récursifs-implémentation">Algorithmes récursifs, implémentation</a>
+    <li><a href="#recherche-dun-élément-dans-une-liste-pas-forcément-trié">Recherche d&rsquo;un élément dans une liste (pas forcément trié)</a>
+      <ul>
+        <li><a href="#version-itérative-cf-première">Version itérative (cf première)</a></li>
+        <li><a href="#version-diviser-pour-régner-1">Version diviser pour régner</a></li>
+        <li><a href="#exemple">Exemple</a></li>
+        <li><a href="#cest-mieux-cette-fois--toujours-pas">C&rsquo;est mieux cette fois ??? Toujours pas.</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-est-ce-inefficace-dans-ces-cas-">Pourquoi est-ce inefficace dans ces cas ?</a>
+      <ul>
+        <li><a href="#quand-est-ce-intéressant-">Quand est-ce intéressant ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#dichotomie--cest-diviser-pour-régner">Dichotomie : c&rsquo;est diviser pour régner</a>
+      <ul>
+        <li><a href="#dichotomie--récursif">Dichotomie : récursif</a></li>
+        <li><a href="#mais">Mais</a></li>
+      </ul>
+    </li>
+    <li><a href="#calculer-la-puissance-dun-nombre">Calculer la puissance d&rsquo;un nombre</a>
+      <ul>
+        <li><a href="#algorithme-naïf-pour-yn">Algorithme naïf pour $y^n$</a></li>
+        <li><a href="#complexité-">Complexité ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#exponentiation-rapide">Exponentiation rapide</a>
+      <ul>
+        <li><a href="#algorithme">Algorithme</a></li>
+        <li><a href="#un-exemple">Un exemple</a></li>
+        <li><a href="#vitesses">Vitesses</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2"></a></li>
+    <li><a href="#conclusion">Conclusion</a>
       <ul>
         <li><a href="#algorithmes">Algorithmes</a></li>
         <li><a href="#implémentation">Implémentation</a></li>
@@ -6091,55 +6094,36 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">
-  pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a>
-  <a class="anchor" href="#pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">#</a>
-</h3>
+<article class="markdown"><p>pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a></p>
 <!-- pandoc diviser_pour_regner.md -o diviser_pour_regner_print.pdf -->
 <!-- pandoc -t beamer diviser_pour_regner.md --slide-level=2 -o diviser_pour_regner_slides.pdf -->
-<h1 id="diviser-pour-régner">
+<h2 id="diviser-pour-régner">
   Diviser pour régner
   <a class="anchor" href="#diviser-pour-r%c3%a9gner">#</a>
-</h1>
-<h3 id="diviser-pour-régner-1">
-  Diviser pour régner:
-  <a class="anchor" href="#diviser-pour-r%c3%a9gner-1">#</a>
-</h3>
-<h3 id="heading">
-  
-  <a class="anchor" href="#heading">#</a>
-</h3>
-<blockquote>
-<p>Classe d&rsquo;algorithme où l&rsquo;on découpe un problème en sous problèmes
-qui s&rsquo;énoncent de la même manière</p>
+</h2>
+<blockquote class="book-hint info">
+  <p>Classe d&rsquo;algorithme où l&rsquo;on</p>
+<ul>
+<li>découpe un problème en sous problèmes <em>indépendants</em> qui s&rsquo;énoncent de la même manière</li>
+<li>qu&rsquo;on recompose à la fin pour former une solution</li>
+</ul>
+<p>C&rsquo;est une approche &ldquo;du haut vers les bas&rdquo;, généralement, les algorithmes sont récursifs</p>
+
 </blockquote>
-<blockquote>
-<p>et qu&rsquo;on recompose à la fin pour former une solution</p>
-</blockquote>
-<h3 id="heading-1">
-  
-  <a class="anchor" href="#heading-1">#</a>
-</h3>
-<blockquote>
-<p>C&rsquo;est une approche &ldquo;du haut vers les bas&rdquo;.</p>
-</blockquote>
-<h3 id="heading-2">
-  
-  <a class="anchor" href="#heading-2">#</a>
-</h3>
-<blockquote>
-<p>Généralement, les algorithmes sont récursifs</p>
-</blockquote>
-<h1 id="recherche-du-maximum-dans-une-liste">
+
+<p><em>Nous allons exposer quelques problèmes simples afin d&rsquo;explorer la démarche.</em>
+<em>Dans un premier temps, nos nouveaux algorithmes seront moins efficaces que leur version classique.</em></p>
+<p><em>Ensuite nous traiterons de vrais problèmes avec l&rsquo;approche diviser pour régner.</em></p>
+<h2 id="recherche-du-maximum-dans-une-liste">
   Recherche du maximum dans une liste
   <a class="anchor" href="#recherche-du-maximum-dans-une-liste">#</a>
-</h1>
+</h2>
 <p>On dispose d&rsquo;un tableau de nombres, on en cherche le plus grand élément.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [5, 71, 23, 45, 28, 89, 63, 39]
-</span></span></code></pre></div><h2 id="algorithme-itératif-naturel">
+</span></span></code></pre></div><h3 id="algorithme-itératif-naturel">
   Algorithme itératif naturel
   <a class="anchor" href="#algorithme-it%c3%a9ratif-naturel">#</a>
-</h2>
+</h3>
 <p>On a déjà vu un algorithme en première :</p>
 <ol>
 <li>
@@ -6153,10 +6137,10 @@ qui s&rsquo;énoncent de la même manière</p>
 <p>On retourne <code>max</code></p>
 </li>
 </ol>
-<h2 id="version-diviser-pour-régner">
+<h3 id="version-diviser-pour-régner">
   Version diviser pour régner
   <a class="anchor" href="#version-diviser-pour-r%c3%a9gner">#</a>
-</h2>
+</h3>
 <p>fonction <code>maximum</code>:  <code>tableau ---&gt; entier</code></p>
 <ol start="0">
 <li>Le maximum d&rsquo;un tableau de taille 1 est son unique élément.</li>
@@ -6164,9 +6148,9 @@ qui s&rsquo;énoncent de la même manière</p>
 <li>on retourne le plus grand des maxima des parties gauche et droite.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [5, 71, 23, 45, 28, 89, 63, 39]
-</span></span></code></pre></div><h2 id="heading-3">
+</span></span></code></pre></div><h2 id="heading">
   
-  <a class="anchor" href="#heading-3">#</a>
+  <a class="anchor" href="#heading">#</a>
 </h2>
 <ol>
 <li>
@@ -6180,9 +6164,9 @@ qui s&rsquo;énoncent de la même manière</p>
 </span></span><span style="display:flex;"><span>[5] , [71],  [23], [45], [28],  [89], [63], [39]
 </span></span></code></pre></div></li>
 </ol>
-<h2 id="heading-4">
+<h2 id="heading-1">
   
-  <a class="anchor" href="#heading-4">#</a>
+  <a class="anchor" href="#heading-1">#</a>
 </h2>
 <ol start="2">
 <li>
@@ -6198,20 +6182,20 @@ qui s&rsquo;énoncent de la même manière</p>
 </span></span><span style="display:flex;"><span>                   [89]
 </span></span></code></pre></div></li>
 </ol>
-<h2 id="est-ce-plus-efficace--non-cest-même-plus-lent-">
+<h3 id="est-ce-plus-efficace--non-cest-même-plus-lent-">
   Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !
   <a class="anchor" href="#est-ce-plus-efficace--non-cest-m%c3%aame-plus-lent-">#</a>
-</h2>
+</h3>
 <p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/maximum.png" alt="maximum" />\</p>
 <h2 id="recherche-dun-élément-dans-une-liste-pas-forcément-trié">
   Recherche d&rsquo;un élément dans une liste (pas forcément trié)
   <a class="anchor" href="#recherche-dun-%c3%a9l%c3%a9ment-dans-une-liste-pas-forc%c3%a9ment-tri%c3%a9">#</a>
 </h2>
 <p>On dispose d&rsquo;un tableau d&rsquo;entiers. On cherche à savoir s&rsquo;il contient un élément.</p>
-<h2 id="version-itérative-cf-première">
+<h3 id="version-itérative-cf-première">
   Version itérative (cf première)
   <a class="anchor" href="#version-it%c3%a9rative-cf-premi%c3%a8re">#</a>
-</h2>
+</h3>
 <p>fonction <code>chercher</code> : <code>(tableau, clé) ----&gt; booléen</code></p>
 <ol>
 <li>
@@ -6227,10 +6211,10 @@ qui s&rsquo;énoncent de la même manière</p>
 <p>on retourne <code>trouvé</code></p>
 </li>
 </ol>
-<h2 id="version-diviser-pour-régner-1">
+<h3 id="version-diviser-pour-régner-1">
   Version diviser pour régner
   <a class="anchor" href="#version-diviser-pour-r%c3%a9gner-1">#</a>
-</h2>
+</h3>
 <p>fonction <code>chercher</code> : <code>(tableau, clé) ----&gt; booléen</code></p>
 <ol>
 <li>Pour un tableau de taille 1, il contient la clé si valeur est la clé</li>
@@ -6239,17 +6223,13 @@ qui s&rsquo;énoncent de la même manière</p>
 <code>chercher(gauche, clé)</code> ou <code>chercher(droite, clé)</code><br>
 est vrai.</li>
 </ol>
-<h2 id="exemple">
+<h3 id="exemple">
   Exemple
   <a class="anchor" href="#exemple">#</a>
-</h2>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tableau = [4, 10, 20, 5]
 </span></span><span style="display:flex;"><span>clé = 10
 </span></span></code></pre></div><p>A-t-on <code>clé</code> dans <code>tableau</code> ?</p>
-<h2 id="exemple-1">
-  Exemple
-  <a class="anchor" href="#exemple-1">#</a>
-</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>clé = 10
 </span></span><span style="display:flex;"><span>                 [4, 10, 20, 5]
 </span></span><span style="display:flex;"><span>diviser      [4, 10]       [20, 5]
@@ -6257,10 +6237,10 @@ est vrai.</li>
 </span></span><span style="display:flex;"><span>combiner   Faux ou Vrai | Faux ou Faux
 </span></span><span style="display:flex;"><span>combiner       Vrai    ou    Faux
 </span></span><span style="display:flex;"><span>combiner              Vrai
-</span></span></code></pre></div><h2 id="cest-mieux-cette-fois--toujours-pas">
+</span></span></code></pre></div><h3 id="cest-mieux-cette-fois--toujours-pas">
   C&rsquo;est mieux cette fois ??? Toujours pas.
   <a class="anchor" href="#cest-mieux-cette-fois--toujours-pas">#</a>
-</h2>
+</h3>
 <p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/recherche.png" alt="Recherche" />\</p>
 <p>Le coût est toujours linéaire, avec un coefficient assez mauvais.</p>
 <h2 id="pourquoi-est-ce-inefficace-dans-ces-cas-">
@@ -6271,10 +6251,10 @@ est vrai.</li>
 <li>Pour le maximum, on fait autant de comparaison que dans la méthode itérative.</li>
 <li>Pour la recherche on fait autant de comparaison ET on ajoute <code>n-1</code> &ldquo;Vrai ou Faux&rdquo;.</li>
 </ul>
-<h2 id="quand-est-ce-intéressant-">
+<h3 id="quand-est-ce-intéressant-">
   Quand est-ce intéressant ?
   <a class="anchor" href="#quand-est-ce-int%c3%a9ressant-">#</a>
-</h2>
+</h3>
 <ul>
 <li><strong>Quand on a une structure particulière,</strong></li>
 <li><strong>Quand on peut éviter beaucoup d&rsquo;étapes</strong></li>
@@ -6293,18 +6273,18 @@ est vrai.</li>
 <li>S&rsquo;il est plus grand que la clé, on cherche entre le début et la <em>valeur centrale</em>,</li>
 <li>Sinon, on cherche entre <em>la valeur centrale</em> et la fin,</li>
 </ul>
-<h2 id="dichotomie--récursif">
+<h3 id="dichotomie--récursif">
   Dichotomie : récursif
   <a class="anchor" href="#dichotomie--r%c3%a9cursif">#</a>
-</h2>
+</h3>
 <p>La version que nous avions étudiée était itérative.</p>
 <p>On peut l&rsquo;écrire en récursif.</p>
 <p>En Python, ce n&rsquo;est pas plus rapide :(</p>
 <p>Python, n&rsquo;est pas un langage <em>fonctionnel</em>, les récursions ne sont pas optimisées.</p>
-<h2 id="mais">
+<h3 id="mais">
   Mais
   <a class="anchor" href="#mais">#</a>
-</h2>
+</h3>
 <p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/dichotomie.png" alt="dichotomie" />\</p>
 <h2 id="calculer-la-puissance-dun-nombre">
   Calculer la puissance d&rsquo;un nombre
@@ -6313,82 +6293,173 @@ est vrai.</li>
 <p>Comment calculer $3^7$ ?</p>
 <p>$$3^7 = 3 \times 3 \times 3 \times 3 \times 3 \times 3 \times 3$$</p>
 <p>C&rsquo;est déjà un algorithme !</p>
-<h2 id="algorithme-naïf-pour-yn">
+<h3 id="algorithme-naïf-pour-yn">
   Algorithme naïf pour $y^n$
   <a class="anchor" href="#algorithme-na%c3%aff-pour-yn">#</a>
-</h2>
-<p>Puissance : $(y, n) \mapsto  y^n$</p>
-<ol>
-<li>On initialise $p = 0$ et $i = 0$</li>
-<li>Tant que $i &lt; n$ faire
-<ul>
-<li>$p = p \times y$</li>
-<li>$i = i + 1$</li>
-</ul>
-</li>
-<li>Retourner $p$</li>
-</ol>
-<h2 id="complexité-">
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Puissance(y, n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. initialiser p = 0 et i = 0
+</span></span><span style="display:flex;"><span>2. Tant que i &lt; n, faire
+</span></span><span style="display:flex;"><span>    p = p * y
+</span></span><span style="display:flex;"><span>    i = i + 1
+</span></span><span style="display:flex;"><span>renvoyer p
+</span></span></code></pre></div><h3 id="complexité-">
   Complexité ?
   <a class="anchor" href="#complexit%c3%a9-">#</a>
-</h2>
+</h3>
 <p>Clairement linéaire. Une seule boucle qui itère autant de fois que la puissance
 voulue.</p>
 <h2 id="exponentiation-rapide">
   Exponentiation rapide
   <a class="anchor" href="#exponentiation-rapide">#</a>
 </h2>
+<h3 id="algorithme">
+  Algorithme
+  <a class="anchor" href="#algorithme">#</a>
+</h3>
 <p>$ExpoRapide : (y, n) \mapsto y^n$</p>
-<p>Si $n = 0$ alors</p>
-<ul>
-<li>retourner $1$</li>
-</ul>
-<p>Sinon si $n$ est pair</p>
-<ul>
-<li>$a = ExpoRapide(y, n // 2)$</li>
-<li>retourner $a \times a$</li>
-</ul>
-<p>Sinon</p>
-<ul>
-<li>retourner $y * ExpoRapide(y, n - 1)$</li>
-</ul>
-<h2 id="vitesses">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Exporapide(y, n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Si n = 0, renvoyer 1
+</span></span><span style="display:flex;"><span>Sinon, si n est pair,
+</span></span><span style="display:flex;"><span>    a = exporapide(y, n // 2)
+</span></span><span style="display:flex;"><span>    renvoyer a * a
+</span></span><span style="display:flex;"><span>Sinon,
+</span></span><span style="display:flex;"><span>    renvoyer y * exporapide(y, n - 1)
+</span></span></code></pre></div><h3 id="un-exemple">
+  Un exemple
+  <a class="anchor" href="#un-exemple">#</a>
+</h3>
+<p>On veut calculer $3^7$</p>
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    <p>Appels récursifs</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>exporapide(3, 7)
+</span></span><span style="display:flex;"><span>    7 &gt; 0 et 7 impair
+</span></span><span style="display:flex;"><span>    on renvoie 3 * exporapide(3, 6)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 6)
+</span></span><span style="display:flex;"><span>    6 &gt; 0 et 6 pair
+</span></span><span style="display:flex;"><span>    a = exporapide(3, 3)
+</span></span><span style="display:flex;"><span>    on renvoie a * a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 3)
+</span></span><span style="display:flex;"><span>    3 &gt; 0 et 3 impair
+</span></span><span style="display:flex;"><span>    on renvoie 3 * exporapide(3, 2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 2)
+</span></span><span style="display:flex;"><span>    2 &gt; 0 et 2 pair
+</span></span><span style="display:flex;"><span>    a = exporapide(3, 1)
+</span></span><span style="display:flex;"><span>    renvoyer a * a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 1)
+</span></span><span style="display:flex;"><span>    1 &gt; 0 et 1 impair
+</span></span><span style="display:flex;"><span>    renvoyer 3 * exporapide(3, 0)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 0)
+</span></span><span style="display:flex;"><span>    0 est nul
+</span></span><span style="display:flex;"><span>    renvoyer 1
+</span></span></code></pre></div>
+  </div>
+
+  <div class="flex-even markdown-inner">
+    <p>Valeurs de retour</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>exporapide(3, 0) -&gt; 1
+</span></span><span style="display:flex;"><span>exporapide(3, 1) -&gt; 3 * 1   = 3
+</span></span><span style="display:flex;"><span>exporapide(3, 2) -&gt; 3 * 3   = 9
+</span></span><span style="display:flex;"><span>exporapide(3, 3) -&gt; 3 * 9   = 27
+</span></span><span style="display:flex;"><span>exporapide(3, 6) -&gt; 27 * 27 = 729
+</span></span><span style="display:flex;"><span>exporapide(3, 7) -&gt; 3 * 729 = 2187
+</span></span></code></pre></div><p>On gagne assez peu d&rsquo;étapes avec cet exemple !</p>
+
+  </div>
+
+</div>
+
+<p>Recommençons avec $3^{9}$</p>
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    <p>Appels récursifs</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>exporapide(3, 9)
+</span></span><span style="display:flex;"><span>    9 &gt; 0 et 8 impair
+</span></span><span style="display:flex;"><span>    on renvoie 3 * exporapide(3, 8)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 8)
+</span></span><span style="display:flex;"><span>    8 &gt; 0 et 8 pair
+</span></span><span style="display:flex;"><span>    a = exporapide(4, 4)
+</span></span><span style="display:flex;"><span>    on renvoie a * a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 4)
+</span></span><span style="display:flex;"><span>    4 &gt; 0 et 3 pair
+</span></span><span style="display:flex;"><span>    a = exporapide(3, 2)
+</span></span><span style="display:flex;"><span>    on renvoie a * a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 2)
+</span></span><span style="display:flex;"><span>    2 &gt; 0 et 2 pair
+</span></span><span style="display:flex;"><span>    a = exporapide(3, 1)
+</span></span><span style="display:flex;"><span>    renvoyer a * a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 1)
+</span></span><span style="display:flex;"><span>    1 &gt; 0 et 1 impair
+</span></span><span style="display:flex;"><span>    renvoyer 3 * exporapide(3, 0)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exporapide(3, 0)
+</span></span><span style="display:flex;"><span>    0 est nul
+</span></span><span style="display:flex;"><span>    renvoyer 1
+</span></span></code></pre></div>
+  </div>
+
+  <div class="flex-even markdown-inner">
+    <p>Valeurs de retour</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>exporapide(3, 0) -&gt; 1
+</span></span><span style="display:flex;"><span>exporapide(3, 1) -&gt; 3 * 1   = 3
+</span></span><span style="display:flex;"><span>exporapide(3, 2) -&gt; 3 * 3   = 9
+</span></span><span style="display:flex;"><span>exporapide(3, 4) -&gt; 9 * 9   = 81
+</span></span><span style="display:flex;"><span>exporapide(3, 8) -&gt; 81 * 81 = 6561
+</span></span><span style="display:flex;"><span>exporapide(3, 7) -&gt; 3 * 729 = 19683
+</span></span></code></pre></div><p>Cette fois on passe de 9 étapes à seulement 5.</p>
+<p>Pour les exposants légèrement plus grands qu&rsquo;une puissance de deux, c&rsquo;est un excellent algorithme.</p>
+
+  </div>
+
+</div>
+
+<h3 id="vitesses">
   Vitesses
   <a class="anchor" href="#vitesses">#</a>
-</h2>
-<p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/exponentiation.png" alt="expo" />\</p>
-<h2 id="heading-5">
+</h3>
+<p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/exponentiation.png" alt="expo" /></p>
+<h2 id="heading-2">
   
-  <a class="anchor" href="#heading-5">#</a>
+  <a class="anchor" href="#heading-2">#</a>
 </h2>
-<p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/expon_rapide_natif.png" alt="expo" />\</p>
+<p><img src="/uploads/docnsitale/algo/divide_n_conquer/figure/expon_rapide_natif.png" alt="expo" /></p>
 <h2 id="conclusion">
   Conclusion
   <a class="anchor" href="#conclusion">#</a>
 </h2>
 <p>La méthode <strong><em>diviser pour régner</em></strong> :</p>
 <ul>
-<li>découper le problème en sous-problèmes qui s&rsquo;énoncent de la même manière</li>
+<li>découper le problème en sous-problèmes <em>indépendants</em> qui s&rsquo;énoncent de la même manière</li>
 <li>résoudre les cas limites</li>
 <li>combiner les solutions</li>
 </ul>
-<h2 id="algorithmes-récursifs-implémentation">
-  Algorithmes récursifs, implémentation
-  <a class="anchor" href="#algorithmes-r%c3%a9cursifs-impl%c3%a9mentation">#</a>
-</h2>
 <h3 id="algorithmes">
   Algorithmes
   <a class="anchor" href="#algorithmes">#</a>
 </h3>
 <p>Les algorithmes présentés s&rsquo;énoncent facilement de manière récursive.</p>
-<p>Ce ne sont pas toujours les meilleurs.</p>
+<p>Ce sont parfois les meilleurs possibles (expo rapide, recherche dichotomique, tri fusion)</p>
 <h3 id="implémentation">
   Implémentation
   <a class="anchor" href="#impl%c3%a9mentation">#</a>
 </h3>
 <p>Elle n&rsquo;est pas toujours plus efficace. Cela dépend du langage employé.</p>
 <!--
-## Exos
+### Exos
 
  Utiliser le principe de la recherche dichotomique pour rédiger une fonction Caml calculant la
 racine carrée entière d’un entier n ∈ N, à savoir E(sqrt(n)), avec un coût logarithmique -->
@@ -6454,49 +6525,53 @@ racine carrée entière d’un entier n ∈ N, à savoir E(sqrt(n)), avec un co�
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#diviser-pour-régner">Diviser pour régner</a></li>
+    <li><a href="#recherche-du-maximum-dans-une-liste">Recherche du maximum dans une liste</a>
       <ul>
-        <li><a href="#pdf-pour-impressionuploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_printpdf-diaporamauploadsdocnsitalealgodivide_n_conquerdiviser_pour_regner_slidespdf">pdf: <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_print.pdf">pour impression</a>, <a href="/uploads/docnsitale/algo/divide_n_conquer/diviser_pour_regner_slides.pdf">diaporama</a></a></li>
+        <li><a href="#algorithme-itératif-naturel">Algorithme itératif naturel</a></li>
+        <li><a href="#version-diviser-pour-régner">Version diviser pour régner</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#heading-1"></a>
       <ul>
-        <li><a href="#diviser-pour-régner-1">Diviser pour régner:</a></li>
-        <li><a href="#heading"></a></li>
-        <li><a href="#heading-1"></a></li>
-        <li><a href="#heading-2"></a></li>
+        <li><a href="#est-ce-plus-efficace--non-cest-même-plus-lent-">Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#algorithme-itératif-naturel">Algorithme itératif naturel</a></li>
-    <li><a href="#version-diviser-pour-régner">Version diviser pour régner</a></li>
-    <li><a href="#heading-3"></a></li>
-    <li><a href="#heading-4"></a></li>
-    <li><a href="#est-ce-plus-efficace--non-cest-même-plus-lent-">Est-ce plus efficace ? Non&hellip; c&rsquo;est même plus lent !</a></li>
-    <li><a href="#recherche-dun-élément-dans-une-liste-pas-forcément-trié">Recherche d&rsquo;un élément dans une liste (pas forcément trié)</a></li>
-    <li><a href="#version-itérative-cf-première">Version itérative (cf première)</a></li>
-    <li><a href="#version-diviser-pour-régner-1">Version diviser pour régner</a></li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#exemple-1">Exemple</a></li>
-    <li><a href="#cest-mieux-cette-fois--toujours-pas">C&rsquo;est mieux cette fois ??? Toujours pas.</a></li>
-    <li><a href="#pourquoi-est-ce-inefficace-dans-ces-cas-">Pourquoi est-ce inefficace dans ces cas ?</a></li>
-    <li><a href="#quand-est-ce-intéressant-">Quand est-ce intéressant ?</a></li>
-    <li><a href="#dichotomie--cest-diviser-pour-régner">Dichotomie : c&rsquo;est diviser pour régner</a></li>
-    <li><a href="#dichotomie--récursif">Dichotomie : récursif</a></li>
-    <li><a href="#mais">Mais</a></li>
-    <li><a href="#calculer-la-puissance-dun-nombre">Calculer la puissance d&rsquo;un nombre</a></li>
-    <li><a href="#algorithme-naïf-pour-yn">Algorithme naïf pour $y^n$</a></li>
-    <li><a href="#complexité-">Complexité ?</a></li>
-    <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
-    <li><a href="#vitesses">Vitesses</a></li>
-    <li><a href="#heading-5"></a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#algorithmes-récursifs-implémentation">Algorithmes récursifs, implémentation</a>
+    <li><a href="#recherche-dun-élément-dans-une-liste-pas-forcément-trié">Recherche d&rsquo;un élément dans une liste (pas forcément trié)</a>
+      <ul>
+        <li><a href="#version-itérative-cf-première">Version itérative (cf première)</a></li>
+        <li><a href="#version-diviser-pour-régner-1">Version diviser pour régner</a></li>
+        <li><a href="#exemple">Exemple</a></li>
+        <li><a href="#cest-mieux-cette-fois--toujours-pas">C&rsquo;est mieux cette fois ??? Toujours pas.</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-est-ce-inefficace-dans-ces-cas-">Pourquoi est-ce inefficace dans ces cas ?</a>
+      <ul>
+        <li><a href="#quand-est-ce-intéressant-">Quand est-ce intéressant ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#dichotomie--cest-diviser-pour-régner">Dichotomie : c&rsquo;est diviser pour régner</a>
+      <ul>
+        <li><a href="#dichotomie--récursif">Dichotomie : récursif</a></li>
+        <li><a href="#mais">Mais</a></li>
+      </ul>
+    </li>
+    <li><a href="#calculer-la-puissance-dun-nombre">Calculer la puissance d&rsquo;un nombre</a>
+      <ul>
+        <li><a href="#algorithme-naïf-pour-yn">Algorithme naïf pour $y^n$</a></li>
+        <li><a href="#complexité-">Complexité ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#exponentiation-rapide">Exponentiation rapide</a>
+      <ul>
+        <li><a href="#algorithme">Algorithme</a></li>
+        <li><a href="#un-exemple">Un exemple</a></li>
+        <li><a href="#vitesses">Vitesses</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2"></a></li>
+    <li><a href="#conclusion">Conclusion</a>
       <ul>
         <li><a href="#algorithmes">Algorithmes</a></li>
         <li><a href="#implémentation">Implémentation</a></li>

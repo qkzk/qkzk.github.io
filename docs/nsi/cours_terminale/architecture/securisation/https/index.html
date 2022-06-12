@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="pour impression #  Principe #  HTTPS (littéralement « protocole de transfert hypertextuel sécurisé ») est la combinaison du protocole HTTP et d&rsquo;une couche de chiffrement, généralement TLS (sécurité de la couche transport).
+<meta name="description" content="pour impression
+Principe #  HTTPS (littéralement « protocole de transfert hypertextuel sécurisé ») est la combinaison du protocole HTTP et d&rsquo;une couche de chiffrement, généralement TLS (sécurité de la couche transport).
 Objectifs #  Trois objectifs sont visés par ce protocole :
- Authenticité : un certificat assure que vous visitez bien le site voulu. Confidentialité : les échanges sont chiffrés et ne peuvent être lus par un tiers.">
+ Authenticité : un certificat assure que vous visitez bien le site voulu. Confidentialité : les échanges sont chiffrés et ne peuvent être lus par un tiers. Intégrité : HTTPS rend la technique &ldquo;man in the middle&rdquo; quasi impossible.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -18,7 +19,7 @@ Objectifs #  Trois objectifs sont visés par ce protocole :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9a7b787ee68446d21f936eed1d7b970c65ca2bcf7a8f7455f54610dcbd41212f.js" integrity="sha256-mnt4fuaERtIfk27tHXuXDGXKK896j3RV9UYQ3L1BIS8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.081a3009886fec7616e4ede2f024f9ab0021614d52decce1bfd853d0dbaaf5b2.js" integrity="sha256-CBowCYhv7HYW5O3i8CT5qwAhYU1S3szhv9hT0Nuq9bI=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/securisation/https/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6028,33 +6029,26 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#principe">Principe</a></li>
+    <li><a href="#objectifs">Objectifs</a>
       <ul>
-        <li><a href="#pour-impressionuploadsdocnsitalesecurisationhttpspdf"><a href="/uploads/docnsitale/securisation/https.pdf">pour impression</a></a></li>
+        <li><a href="#authenticité">Authenticité</a></li>
+        <li><a href="#confidentialité">Confidentialité</a></li>
+        <li><a href="#intégrité">Intégrité</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#authenticité">Authenticité</a></li>
-    <li><a href="#confidentialité">Confidentialité</a></li>
-    <li><a href="#intégrité">Intégrité</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#étapes-dune-connexion-http-qui-se-passe-mal">Étapes d&rsquo;une connexion http&hellip; qui se passe mal</a>
+    <li><a href="#etapes">Etapes</a>
       <ul>
+        <li><a href="#étapes-dune-connexion-http-qui-se-passe-mal">Étapes d&rsquo;une connexion http&hellip; qui se passe mal</a></li>
         <li><a href="#comment-empêcher-cette-intrusion-">Comment empêcher cette intrusion ?</a></li>
-      </ul>
-    </li>
-    <li><a href="#1-négociation--la-poignée-de-main">1. Négociation : la poignée de main</a>
-      <ul>
-        <li><a href="#chiffrement-asymétrique--pour-initialiser-la-connexion">Chiffrement asymétrique : pour initialiser la connexion.</a></li>
+        <li><a href="#1-négociation--la-poignée-de-main">1. Négociation : la poignée de main</a></li>
+        <li><a href="#2-chiffrement-asymétrique--pour-initialiser-la-connexion">2. Chiffrement asymétrique : pour initialiser la connexion.</a></li>
         <li><a href="#boom-client-et-serveur-sont-seuls-détenteurs-dune-clé-secrète-commune">BOOM. <strong>Client et serveur sont seuls détenteurs d&rsquo;une clé secrète commune.</strong></a></li>
+        <li><a href="#3-chiffrement-symétrique--durant-la-communication">3. Chiffrement symétrique : durant la communication</a></li>
+        <li><a href="#résumé-des-étapes-dune-communication-tls">Résumé des étapes d&rsquo;une communication TLS</a></li>
       </ul>
     </li>
-    <li><a href="#2-chiffrement-symétrique--durant-la-communication">2. Chiffrement symétrique : durant la communication</a></li>
-    <li><a href="#résumé-des-étapes-dune-communication-tls">Résumé des étapes d&rsquo;une communication TLS</a></li>
+    <li><a href="#précisions">Précisions</a></li>
   </ul>
 </nav>
 
@@ -6068,64 +6062,61 @@ MathJax.Hub.Config({
 
                 
                 
-<article class="markdown"><h3 id="pour-impressionuploadsdocnsitalesecurisationhttpspdf">
-  <a href="/uploads/docnsitale/securisation/https.pdf">pour impression</a>
-  <a class="anchor" href="#pour-impressionuploadsdocnsitalesecurisationhttpspdf">#</a>
-</h3>
-<h1 id="principe">
+<article class="markdown"><p><a href="/uploads/docnsitale/securisation/https.pdf">pour impression</a></p>
+<h2 id="principe">
   Principe
   <a class="anchor" href="#principe">#</a>
-</h1>
+</h2>
 <p><strong>HTTPS</strong> (littéralement « protocole de transfert hypertextuel sécurisé ») est
 la combinaison du protocole HTTP et d&rsquo;une couche de chiffrement, généralement
 TLS (sécurité de la couche transport).</p>
-<h1 id="objectifs">
+<h2 id="objectifs">
   Objectifs
   <a class="anchor" href="#objectifs">#</a>
-</h1>
+</h2>
 <p>Trois objectifs sont visés par ce protocole :</p>
 <ul>
 <li><strong>Authenticité</strong> : un certificat assure que vous visitez bien le site voulu.</li>
 <li><strong>Confidentialité</strong> : les échanges sont chiffrés et ne peuvent être lus par un tiers.</li>
 <li><strong>Intégrité</strong> : HTTPS rend la technique &ldquo;man in the middle&rdquo; quasi impossible.</li>
 </ul>
-<h2 id="authenticité">
+<h3 id="authenticité">
   Authenticité
   <a class="anchor" href="#authenticit%c3%a9">#</a>
-</h2>
+</h3>
 <p>HTTPS permet aux visiteurs de vérifier l&rsquo;identité du site web auquel il se
 connecte. Cette identité est assurée par un <strong>certificat</strong> délivré par une
 autorité.</p>
-<p><img src="/uploads/docnsitale/securisation/certificat.png" alt="certificat" />{width=40%}</p>
-<h2 id="confidentialité">
+<p><img src="/uploads/docnsitale/securisation/certificat.png" alt="certificat" /></p>
+<h3 id="confidentialité">
   Confidentialité
   <a class="anchor" href="#confidentialit%c3%a9">#</a>
-</h2>
+</h3>
 <p>Les échanges étant chiffrés, seuls les détenteurs des clés peuvent les lire.
 Cela assure que votre numéro de carte bancaire n&rsquo;est pas lisible par un tiers
 qui parviendrait à pirater un routeur ou lorsque vous êtes sur une connexion
 partagée.</p>
-<h2 id="intégrité">
+<h3 id="intégrité">
   Intégrité
   <a class="anchor" href="#int%c3%a9grit%c3%a9">#</a>
-</h2>
+</h3>
 <p>Lors de ce chiffrage on ajoute une étape qui permet de s&rsquo;assurer que le message
 transmis est intègre (c&rsquo;est-à-dire qu&rsquo;il n&rsquo;a pas été altéré par une tierce
 personne ou des erreurs de transmission).</p>
-<h1 id="etapes">
+<h2 id="etapes">
   Etapes
   <a class="anchor" href="#etapes">#</a>
-</h1>
+</h2>
 <p>HTTPS procède en deux temps :</p>
 <ol>
 <li>Négociation (poignée de main) : échange de clés, validées par un certificat
 (cryptographie <strong>asymétrique</strong>)</li>
 <li>Communication : échange de données chiffrées (cryptographie <strong>symétrique</strong>)</li>
 </ol>
-<h2 id="étapes-dune-connexion-http-qui-se-passe-mal">
+<h3 id="étapes-dune-connexion-http-qui-se-passe-mal">
   Étapes d&rsquo;une connexion http&hellip; qui se passe mal
   <a class="anchor" href="#%c3%a9tapes-dune-connexion-http-qui-se-passe-mal">#</a>
-</h2>
+</h3>
 <ol>
 <li>
 <p>Vous ouvrez votre navigateur et vous rendez sur un site HTTP.
@@ -6143,7 +6134,7 @@ souhaitée.</p>
 <p>Votre navigateur envoie une requête <code>POST</code> avec les informations en clair.
 N&rsquo;importe qui peut les lire.</p>
 <p>Toutes les machines intermédiaires peuvent lire ce message.</p>
-<p>(Il y a <strong>trente</strong> sauts entre mon pc et mon site web, par exemple)</p>
+<p>(Il y a <strong>trente</strong> machines entre mon pc et mon site web, par exemple)</p>
 </li>
 <li>
 <p>Un des routeurs entre votre PC et le serveur web a été piraté !
@@ -6164,10 +6155,10 @@ courant de rien. Il valide la transaction et vous en informe.</p>
   <a class="anchor" href="#comment-emp%c3%aacher-cette-intrusion-">#</a>
 </h3>
 <p>En deux temps :</p>
-<h2 id="1-négociation--la-poignée-de-main">
+<h3 id="1-négociation--la-poignée-de-main">
   1. Négociation : la poignée de main
   <a class="anchor" href="#1-n%c3%a9gociation--la-poign%c3%a9e-de-main">#</a>
-</h2>
+</h3>
 <p>La phase de négociation assure <strong>l&rsquo;authenticité</strong> de l&rsquo;interlocuteur.</p>
 <ol start="0">
 <li>
@@ -6177,9 +6168,9 @@ ne fait que ça et en laquelle tout le monde a confiance.</p>
 <p>Ainsi, vous êtes rassuré : le site visité n&rsquo;est pas celui d&rsquo;un faussaire.</p>
 </li>
 </ol>
-<h3 id="chiffrement-asymétrique--pour-initialiser-la-connexion">
-  Chiffrement asymétrique : pour initialiser la connexion.
-  <a class="anchor" href="#chiffrement-asym%c3%a9trique--pour-initialiser-la-connexion">#</a>
+<h3 id="2-chiffrement-asymétrique--pour-initialiser-la-connexion">
+  2. Chiffrement asymétrique : pour initialiser la connexion.
+  <a class="anchor" href="#2-chiffrement-asym%c3%a9trique--pour-initialiser-la-connexion">#</a>
 </h3>
 <ol>
 <li>
@@ -6206,10 +6197,10 @@ le faire).</p>
   BOOM. <strong>Client et serveur sont seuls détenteurs d&rsquo;une clé secrète commune.</strong>
   <a class="anchor" href="#boom-client-et-serveur-sont-seuls-d%c3%a9tenteurs-dune-cl%c3%a9-secr%c3%a8te-commune">#</a>
 </h3>
-<h2 id="2-chiffrement-symétrique--durant-la-communication">
-  2. Chiffrement symétrique : durant la communication
-  <a class="anchor" href="#2-chiffrement-sym%c3%a9trique--durant-la-communication">#</a>
-</h2>
+<h3 id="3-chiffrement-symétrique--durant-la-communication">
+  3. Chiffrement symétrique : durant la communication
+  <a class="anchor" href="#3-chiffrement-sym%c3%a9trique--durant-la-communication">#</a>
+</h3>
 <p>Le chiffrement asymétrique est très pratique mais aussi très lent et coûteux
 en ressources.</p>
 <p>Une fois l&rsquo;authenticité avérée et qu&rsquo;une clé secrète a pu être échangée,
@@ -6221,10 +6212,10 @@ adresses (pages internes visitées, mots clés) sont chiffrées.</p>
 <p>Vos messages sont maintenant confidentiels (seul le serveur et vous détenez
 la clé secrète) et authentiques (la clé secrète permet aussi de vérifier
 que le message n&rsquo;a pas été altéré durant le transport).</p>
-<h2 id="résumé-des-étapes-dune-communication-tls">
+<h3 id="résumé-des-étapes-dune-communication-tls">
   Résumé des étapes d&rsquo;une communication TLS
   <a class="anchor" href="#r%c3%a9sum%c3%a9-des-%c3%a9tapes-dune-communication-tls">#</a>
-</h2>
+</h3>
 <p>A chaque envoi de données le serveur :</p>
 <ul>
 <li>découpe les données en paquets,</li>
@@ -6240,10 +6231,10 @@ que le message n&rsquo;a pas été altéré durant le transport).</p>
 <li>décompresse les données,</li>
 <li>les assemble</li>
 </ul>
-<h1 id="précisions">
+<h2 id="précisions">
   Précisions
   <a class="anchor" href="#pr%c3%a9cisions">#</a>
-</h1>
+</h2>
 <ol>
 <li>
 <p><strong>Choix d&rsquo;un algorithme de chiffrement.</strong></p>
@@ -6259,10 +6250,12 @@ un algorithme de chiffrement commun.</p>
 <p>Les algorithmes <strong>asymétriques</strong> courants sont <strong>RSA</strong> (avec différentes
 longueurs de clé) qui repose sur l&rsquo;arithmétique modulaire
 et un algorithme similaire à Diffie Hellman mais reposant les courbes
-elliptiques.</p>
+elliptiques <strong>ECC</strong>.</p>
 </li>
 <li>
-<p>L&rsquo;algorithme <strong>symétrique</strong> courant est <strong>AES</strong>. Successeur de DES.</p>
+<p>L&rsquo;algorithme <strong>symétrique</strong> courant est <strong>AES</strong>. Successeur de DES.
+Il est extrèment rapide et peut être implanté dans des puces assez
+simples et peu coûteuses.</p>
 </li>
 <li>
 <p>Ces algorithmes sont tous rendus publics, cela peut sembler
@@ -6289,9 +6282,10 @@ remis. Qui est le propriétaire du site, où habite-t-il etc.</p>
 <ul>
 <li><em>adresse</em>  : <a href="https://qkzk.xyz">https://qkzk.xyz</a>, &lt;&mdash;&ndash; nom du site</li>
 <li><em>délivré par</em> : Let&rsquo;s Encrypt &lt;&mdash;&mdash; une autorité</li>
-<li><em>date de validité</em> : du 30 mars 2020 au 28 juin 2020</li>
+<li><em>date de validité</em> : du 30 mars 2020 au 28 juin 2020 (mis à jour depuis, rassurez vous)</li>
 <li><em>empreinte</em> : <code>FF 45 67 FA...</code> &lt;&mdash;&mdash; vous permet de vérifier ce certificat auprès de Let&rsquo;s Encrypt</li>
 </ul>
+<p>Vérifiez en faisant un clic droit sur le cadenas à gauche de la barre d&rsquo;adresse !</p>
 </li>
 <li>
 <p><strong>HTTPS EveryWhere</strong>. À l&rsquo;initiative de google et des acteurs des réseaux
@@ -6397,33 +6391,26 @@ et environ 3 milliards de $ de perte&hellip;</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#principe">Principe</a></li>
+    <li><a href="#objectifs">Objectifs</a>
       <ul>
-        <li><a href="#pour-impressionuploadsdocnsitalesecurisationhttpspdf"><a href="/uploads/docnsitale/securisation/https.pdf">pour impression</a></a></li>
+        <li><a href="#authenticité">Authenticité</a></li>
+        <li><a href="#confidentialité">Confidentialité</a></li>
+        <li><a href="#intégrité">Intégrité</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#authenticité">Authenticité</a></li>
-    <li><a href="#confidentialité">Confidentialité</a></li>
-    <li><a href="#intégrité">Intégrité</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#étapes-dune-connexion-http-qui-se-passe-mal">Étapes d&rsquo;une connexion http&hellip; qui se passe mal</a>
+    <li><a href="#etapes">Etapes</a>
       <ul>
+        <li><a href="#étapes-dune-connexion-http-qui-se-passe-mal">Étapes d&rsquo;une connexion http&hellip; qui se passe mal</a></li>
         <li><a href="#comment-empêcher-cette-intrusion-">Comment empêcher cette intrusion ?</a></li>
-      </ul>
-    </li>
-    <li><a href="#1-négociation--la-poignée-de-main">1. Négociation : la poignée de main</a>
-      <ul>
-        <li><a href="#chiffrement-asymétrique--pour-initialiser-la-connexion">Chiffrement asymétrique : pour initialiser la connexion.</a></li>
+        <li><a href="#1-négociation--la-poignée-de-main">1. Négociation : la poignée de main</a></li>
+        <li><a href="#2-chiffrement-asymétrique--pour-initialiser-la-connexion">2. Chiffrement asymétrique : pour initialiser la connexion.</a></li>
         <li><a href="#boom-client-et-serveur-sont-seuls-détenteurs-dune-clé-secrète-commune">BOOM. <strong>Client et serveur sont seuls détenteurs d&rsquo;une clé secrète commune.</strong></a></li>
+        <li><a href="#3-chiffrement-symétrique--durant-la-communication">3. Chiffrement symétrique : durant la communication</a></li>
+        <li><a href="#résumé-des-étapes-dune-communication-tls">Résumé des étapes d&rsquo;une communication TLS</a></li>
       </ul>
     </li>
-    <li><a href="#2-chiffrement-symétrique--durant-la-communication">2. Chiffrement symétrique : durant la communication</a></li>
-    <li><a href="#résumé-des-étapes-dune-communication-tls">Résumé des étapes d&rsquo;une communication TLS</a></li>
+    <li><a href="#précisions">Précisions</a></li>
   </ul>
 </nav>
 

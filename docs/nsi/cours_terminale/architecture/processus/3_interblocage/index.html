@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf
-Les interblocages #  Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource.
+L&rsquo;interblocage #  Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource.
 Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter accéder à la même donnée sur le disque dur :
  Les deux processus ont uniquement besoin de lire la donnée : celle-ci est alors partagée, sans problème complexe. Les deux processus ont besoin de la donnée de manière exclusive, pour la modifier, par exemple.">
 <meta name="theme-color" content="#FFFFFF">
@@ -19,7 +19,7 @@ Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter a
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9a7b787ee68446d21f936eed1d7b970c65ca2bcf7a8f7455f54610dcbd41212f.js" integrity="sha256-mnt4fuaERtIfk27tHXuXDGXKK896j3RV9UYQ3L1BIS8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.081a3009886fec7616e4ede2f024f9ab0021614d52decce1bfd853d0dbaaf5b2.js" integrity="sha256-CBowCYhv7HYW5O3i8CT5qwAhYU1S3szhv9hT0Nuq9bI=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/3_interblocage/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6029,12 +6029,17 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
-    <li><a href="#race-condition-_situation-de-compétition_---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+    <li><a href="#linterblocage">L&rsquo;interblocage</a>
       <ul>
-        <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
+        <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
       </ul>
     </li>
+    <li><a href="#race-condition-_situation-de-compétition_---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+      <ul>
+        <li><a href="#un-exemple">Un exemple</a></li>
+      </ul>
+    </li>
+    <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
   </ul>
 </nav>
 
@@ -6049,10 +6054,10 @@ MathJax.Hub.Config({
                 
                 
 <article class="markdown"><p><a href="./3_interblocage.pdf">pdf</a></p>
-<h1 id="les-interblocages">
-  Les interblocages
-  <a class="anchor" href="#les-interblocages">#</a>
-</h1>
+<h2 id="linterblocage">
+  L&rsquo;interblocage
+  <a class="anchor" href="#linterblocage">#</a>
+</h2>
 <p>Nous avons dits précédemment que des processus peuvent avoir besoin de la
 même ressource.</p>
 <p>Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter
@@ -6083,14 +6088,14 @@ pour se terminer et les libérer.</p>
 <li>P2 attend D1</li>
 </ul>
 <p>Alors aucun des deux processus ne pourra avancer. C&rsquo;est <strong>l&rsquo;interblocage</strong>.
-Rien ne pourra avancer sans une intervention extérieure.</p>
-<p>Face à cette problématique la plupart des systèmes d&rsquo;exploitation ont choisir
+Sans une intervention extérieure, la situation est figée.</p>
+<p>Face à cette problématique la plupart des systèmes d&rsquo;exploitation ont choisi
 de ne pas essayer d&rsquo;éviter les interblocages mais de les détecter s&rsquo;ils
 surviennent et de les solutionner.</p>
-<h2 id="détecter-une-situation-dinterblocage">
+<h3 id="détecter-une-situation-dinterblocage">
   Détecter une situation d&rsquo;interblocage
   <a class="anchor" href="#d%c3%a9tecter-une-situation-dinterblocage">#</a>
-</h2>
+</h3>
 <p>Afin de résoudre <em>conceptuellement</em> ce problème on peut utiliser un graphe orienté.</p>
 <ul>
 <li>On sépare les processus et les ressources : ce sont les noeuds du graphe.</li>
@@ -6104,15 +6109,32 @@ ressource vers le processus. On efface l&rsquo;arc dans l&rsquo;autre sens s&rsq
 <p>Ce graphe présente un cycle et les processus sont bloqués.</p>
 <p><img src="graph_001.svg" alt="graph_001.svg" /></p>
 <p>Ce graphe ne présente pas ce cycle, il n&rsquo;y a pas d&rsquo;interblocage.</p>
+<p>En pratique, P1 possède les deux ressources dont il a besoin et va terminer en premier.
+Ensuite P2 va acquérir les ressources et terminer.</p>
+<hr>
+<p>Il existe d&rsquo;autres situations critiques lorsqu&rsquo;on exécute plusieurs processus
+en même temps. En voici une :</p>
 <h2 id="race-condition-_situation-de-compétition_---hp">
   Race condition (<em>situation de compétition</em>) - HP
   <a class="anchor" href="#race-condition-_situation-de-comp%c3%a9tition_---hp">#</a>
 </h2>
 <p>C&rsquo;est une situation dans laquelle le résultat d&rsquo;une série d&rsquo;opération
-dépend de <em>l&rsquo;ordre</em> dans lequel celles-ci sont effectuées&hellip;</p>
+dépend de <em>l&rsquo;ordre</em> dans lequel celles-ci sont effectuées.</p>
 <p>Lorsque un processus principal crée plusieurs processus fils, il ne contrôle
 pas l&rsquo;ordre dans lequel ils sont exécutés. S&rsquo;il a besoin des résultats de ceux
 ci, il ne pourra pas prédire le résultat final.</p>
+<h3 id="un-exemple">
+  Un exemple
+  <a class="anchor" href="#un-exemple">#</a>
+</h3>
+<p><code>hello</code> et <code>bonjour</code> sont deux processus indépendants qui partagent une même ressource.</p>
+<p>Afin d&rsquo;illustrer on se contente de les faire écrire dans la console. En pratique
+ils écriraient dans le même fichier.</p>
+<p>À l&rsquo;aide de Python nous allons les lancer l&rsquo;un après l&rsquo;autre et attendre
+qu&rsquo;ils aient terminé tous les deux.</p>
+<p>Le système d&rsquo;exploitation se charge de leur exécution et leur donne la main
+selon un ordre difficile (<em>quasi impossible</em>) à prédire.</p>
+<p>Leur résultat commun est donc la sortie console.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">multiprocessing</span> <span style="color:#069;font-weight:bold">import</span> Process
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">random</span> <span style="color:#069;font-weight:bold">import</span> random
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">time</span> <span style="color:#069;font-weight:bold">import</span> sleep
@@ -6240,19 +6262,37 @@ est 124&hellip;</p>
 ou des <code>lock</code> qui vérouillent une exécution tant que le <code>mutex</code> n&rsquo;est pas acquis.</p>
 <p>C&rsquo;est la raison pour laquelle on ne travaille pas avec des threads en NSI,
 vous verrez ça plus tard :) !</p>
-<h3 id="threads-vs-processus">
+<h2 id="threads-vs-processus">
   Threads vs Processus
   <a class="anchor" href="#threads-vs-processus">#</a>
-</h3>
+</h2>
+<p>Lorsqu&rsquo;on exécute un programme simple, il se déroule sur un seul coeur de processeur.
+Or&hellip; ajouter des coeurs de processeurs est la seule solution réaliste qu&rsquo;on ait trouvé
+pour accélérer les machines depuis 15 ans.</p>
+<p>Un programme devant s&rsquo;exécuter vite n&rsquo;a pas le choix, il doit utiliser au maximum les ressources
+de la machine et donc <em>le parallélisme</em>.</p>
+<p>On a donc crée deux manières d&rsquo;exécuter plusieurs séquences d&rsquo;instructions en parallèle : les <em>threads</em> (fils d&rsquo;exécutions) et les <em>processus</em>.</p>
 <p>Ce sont des séquences d&rsquo;instructions indépendantes.</p>
 <ul>
 <li>Un thread s&rsquo;exécute dans le même processus que le processus parent, il partage la mémoire du processus.</li>
 <li>Un processus fils est un autre processus, dépendant du parent, qui dispose de sa propre mémoire.</li>
 </ul>
-<p>Un processus est plus <em>lourd</em> pour le système qu&rsquo;un thread&hellip; mais peut s&rsquo;exécuter
-sur un coeur de processeur différent et donc en parallèle.</p>
-<p>Un thread est généralement cantoné au processeur sur lequel s&rsquo;exécute le processus
-qui l&rsquo;a crée.</p>
+<p>Un processus est plus <em>lourd</em> pour le système qu&rsquo;un thread&hellip; mais peut facilement être isolé
+et son exécution est déléguée à l&rsquo;OS, d&rsquo;autre part un processus dispose de son propre expace
+mémoire et ses erreurs ne risquent pas de compromettre l&rsquo;ensemble du programme.</p>
+<p>D&rsquo;autres nuances existent et selon les besoins on choisira l&rsquo;un ou l&rsquo;autre.</p>
+<p>Ces thèmes étant largement hors programme, je vous laisse vous documenter <a href="https://www.geeksforgeeks.org/difference-between-process-and-thread/">ici en anglais</a>.</p>
+<p>D&rsquo;autres précisions plus formelles sur la nuance <em>thead vs process</em> :</p>
+<blockquote>
+<p>A process is an address space with some open files and other resources, plus some number of threads.</p>
+<p>A thread is a set of registers and a stack and a program counter, that runs in an address space.</p>
+<p>Threads in the same process share the address space, and the threads have a consistent (coherent) view of the contents of memory, subject to memory ordering rules.</p>
+<p>So in current processors, you can run the threads of a process on any core, because modern machines all have coherent memory.</p>
+<p>It wasn’t always so. There were multiprocessors in the 80’s and 90’s where the different cores did not necessarily have coherent views of memory. On those systems, including some built by Silicon Graphics I think, you could not have multiple threads from the same process running on different cores.</p>
+<p>I am not sure those machines even had threads, but if they did, all the threads for a process would have to be scheduled on the same core.</p>
+<p>Threads like that would still be useful, because threads are useful as programming conveniences as well as for parallel execution. Programmers often use threads to call synchronous I/O functions where they block waiting for events. Programmers think this is easier than using event driven programming with a single thread or using asynchronous I/O. I am not sure I agree, but that’s what folks do.</p>
+<p><a href="https://www.quora.com/Could-process-threads-always-be-shared-between-cores">source quora</a></p>
+</blockquote>
 </article>
 
                 
@@ -6315,12 +6355,17 @@ qui l&rsquo;a crée.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
-    <li><a href="#race-condition-_situation-de-compétition_---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+    <li><a href="#linterblocage">L&rsquo;interblocage</a>
       <ul>
-        <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
+        <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
       </ul>
     </li>
+    <li><a href="#race-condition-_situation-de-compétition_---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+      <ul>
+        <li><a href="#un-exemple">Un exemple</a></li>
+      </ul>
+    </li>
+    <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
   </ul>
 </nav>
 
