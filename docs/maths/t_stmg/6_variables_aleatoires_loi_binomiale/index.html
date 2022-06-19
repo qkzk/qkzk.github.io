@@ -20,7 +20,7 @@ Exemple #  On lance un dé.">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.be73b1b656063068c63c8d77114caf6b4c835cda356c16080940e52bc687aa4c.js" integrity="sha256-vnOxtlYGMGjGPI13EUyva0yDXNo1bBYICUDlK8aHqkw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.766835fa22630d3814b07ffb9efcb5b670d280231e085b74e100cd644719cfcf.js" integrity="sha256-dmg1&#43;iJjDTgUsH/7nvy1tnDSgCMeCFt04QDNZEcZz88=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/maths/t_stmg/6_variables_aleatoires_loi_binomiale/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6099,10 +6099,17 @@ MathJax.Hub.Config({
         <li><a href="#1-épreuve-de-bernoulli">1. Épreuve de Bernoulli</a></li>
         <li><a href="#2-schéma-de-bernoulli">2. Schéma de Bernoulli</a></li>
         <li><a href="#3-loi-binomiale">3. Loi binomiale</a></li>
-        <li><a href="#4-combinaisons">4. Combinaisons</a></li>
-        <li><a href="#5-calculatrice-et-tableur">5. Calculatrice et tableur</a></li>
-        <li><a href="#6-allure-de-la-loi-binomiale">6. Allure de la loi binomiale</a></li>
+        <li><a href="#4-calculatrice-et-tableur">4. Calculatrice et tableur</a></li>
+        <li><a href="#5-allure-de-la-loi-binomiale">5. Allure de la loi binomiale</a></li>
         <li><a href="#7-espérance-de-la-loi-binomiale">7. Espérance de la loi binomiale</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-coefficients-binomiaux">3. Coefficients binomiaux</a>
+      <ul>
+        <li><a href="#1-combinaisons">1. Combinaisons</a></li>
+        <li><a href="#propriétés">Propriétés</a></li>
+        <li><a href="#2-triangle-de-pascal">2. Triangle de Pascal</a></li>
+        <li><a href="#3-calculer-une-probabilité-de-la-loi-binomiale">3. Calculer une probabilité de la loi binomiale</a></li>
       </ul>
     </li>
   </ul>
@@ -6255,7 +6262,7 @@ On note $p$ la probabilité du succès.</p>
 </h3>
 <p>Un <em>schéma de Bernoulli</em> est la répétition de $n$ épreuves de Bernoulli <em>identiques</em> (la même expérience aléatoire) et <em>indépendantes</em> (sans influence l&rsquo;une sur l&rsquo;autre)
 de probabilité de succès $p$.</p>
-<p>Il faut donc 2 paramètres pour définir un schéma de Bernoulli : le nombre de répétitions $n$ et la proba. du succès $p$.</p>
+<p>Il faut donc 2 paramètres pour définir un schéma de Bernoulli : le nombre de répétitions $n$ et la probabilité du succès $p$.</p>
 <h4 id="exemple-1">
   Exemple
   <a class="anchor" href="#exemple-1">#</a>
@@ -6265,7 +6272,7 @@ de probabilité de succès $p$.</p>
   3. Loi binomiale
   <a class="anchor" href="#3-loi-binomiale">#</a>
 </h3>
-<p>On réalise un schéma de Bernoulli composé de $n$ épreuves de Bernoulli de proba de succès $p$.</p>
+<p>On réalise un schéma de Bernoulli composé de $n$ épreuves de Bernoulli de probabilité de succès $p$.</p>
 <p>La <strong>loi binomiale</strong> donne la probabilité d&rsquo;obtenir $k$ succès, pour $k$ entier entre 0 et $n$.</p>
 <h4 id="exemple-2">
   Exemple
@@ -6289,7 +6296,7 @@ de probabilité de succès $p$.</p>
 <p>On représente l&rsquo;arbre de probabilité d&rsquo;un schéma de Bernoulli avec $n=3$ et $p$ quelconque.</p>
 <p>$X$ est la variable aléatoire qui compte les succès. $X$ suit la loi binomiale $B(n, p)$.</p>
 <p><img src="./arbre_1.svg" alt="3 répétitions" /></p>
-<p>Nous allons compter les succès rencontrés aux extémités de chaque branche (<em>les feuilles</em>).</p>
+<p>Nous allons compter les succès rencontrés aux extrémités de chaque branche (<em>les feuilles</em>).</p>
 <p>De haut en bas : 3 succès, 2, 2, 1, 2, 1, 1, 0.</p>
 <p>On peut calculer la probabilité de chaque feuille, par exemple :</p>
 <ul>
@@ -6342,24 +6349,9 @@ de probabilité de succès $p$.</p>
 <p><img src="./arbre_2.svg" alt="Les cartes" /></p>
 <p>En rouge les feuilles avec 2 succès exactement. À nouveau il y en a 3.</p>
 <p>La probabilité de gagner deux fois à ce jeu est donc $P(X = 2) = 3 \times \left(\dfrac{1}{4}\right)^2 \times \dfrac{3}{4} = \dfrac{9}{64}$.</p>
-<h3 id="4-combinaisons">
-  4. Combinaisons
-  <a class="anchor" href="#4-combinaisons">#</a>
-</h3>
-<p>On note $\binom{n}{k}$ le nombre de branches menant à $k$ succès dans un arbre probabilisé représentant un schéma de Bernoulli avec $n$ répétitions.</p>
-<p>Ce nombre est appelé &ldquo;Combinaisons de $k$ parmi $n$&rdquo;.</p>
-<p>Dans les exemples précédents on a vu que $\binom{3}{0} = 1, \binom{3}{1} = 3, \binom{3}{2} = 3, \binom{3}{3} = 1$</p>
-<h4 id="propriétés">
-  Propriétés
-  <a class="anchor" href="#propri%c3%a9t%c3%a9s">#</a>
-</h4>
-<ul>
-<li>$\binom{n}{0} = \binom{n}{n} = 1$ : il y a toujours 1 seul chemin qui mène à 0 succès ou à $n$ succès.</li>
-<li>$\binom{n}{1} = \binom{n}{n - 1} = n$ : il y a toujours n chemins qui mènent à $1$ succès ou à $n - 1$ succès.</li>
-</ul>
-<h3 id="5-calculatrice-et-tableur">
-  5. Calculatrice et tableur
-  <a class="anchor" href="#5-calculatrice-et-tableur">#</a>
+<h3 id="4-calculatrice-et-tableur">
+  4. Calculatrice et tableur
+  <a class="anchor" href="#4-calculatrice-et-tableur">#</a>
 </h3>
 <h4 id="numworks">
   Numworks
@@ -6373,9 +6365,9 @@ mais nous allons utiliser la calculatrice.</p>
 <p>C&rsquo;est le menu pour calculer $P(X = k)$ saisir <strong>$5$</strong>.</p>
 <p><img src="./numworks_1.png" alt="Loi binomiale sur la Numworks" /></p>
 <p>On lit que $P(X=5) \approx 0.103$.</p>
-<h3 id="6-allure-de-la-loi-binomiale">
-  6. Allure de la loi binomiale
-  <a class="anchor" href="#6-allure-de-la-loi-binomiale">#</a>
+<h3 id="5-allure-de-la-loi-binomiale">
+  5. Allure de la loi binomiale
+  <a class="anchor" href="#5-allure-de-la-loi-binomiale">#</a>
 </h3>
 <p>On peut remarquer quelques propriétés de la figure figure précédentes, elles sont vraies pour toutes les
 loi binomiales.</p>
@@ -6383,7 +6375,7 @@ loi binomiales.</p>
 <p>$\quad$<img src="./numworks_2.png" alt="Loi binomiale : la courbe en cloche" /></p>
 <ul>
 <li>On reconnait une <em>cloche</em> (ça monte et ça descend)</li>
-<li>Les &ldquo;valeurs centrales&rdquo; ont une probabilité plus élevées que les valeurs extrèmes.
+<li>Les &ldquo;valeurs centrales&rdquo; ont une probabilité plus élevées que les valeurs extrêmes.
 Intuitivement, lorsqu&rsquo;on fait 100 parties de pile ou face, il est plus probable d&rsquo;obtenir 50 piles que 0 pile.</li>
 </ul>
 <p>Essayez d&rsquo;autres valeurs de $p$ avec $n=100$.</p>
@@ -6425,6 +6417,81 @@ allant de $0$ à $n$.</p>
 <p>Soit $X$ la variable aléatoire comptant les bonnes réponses. Elle suit une loi binomiale de paramètres $n=10$
 et $p=0.25$.</p>
 <p>Son espérance est $E(X) = 10 \times 0.25 = 2.5$. On peut espérer 2.5 points en moyenne.</p>
+<hr>
+<h2 id="3-coefficients-binomiaux">
+  3. Coefficients binomiaux
+  <a class="anchor" href="#3-coefficients-binomiaux">#</a>
+</h2>
+<h3 id="1-combinaisons">
+  1. Combinaisons
+  <a class="anchor" href="#1-combinaisons">#</a>
+</h3>
+<h4 id="définition-1">
+  Définition
+  <a class="anchor" href="#d%c3%a9finition-1">#</a>
+</h4>
+<p>On note $\binom{n}{k}$ le nombre de branches menant à $k$ succès dans un arbre probabilisé représentant un schéma de Bernoulli avec $n$ répétitions.</p>
+<p>Ce nombre est appelé &ldquo;Combinaisons de $k$ parmi $n$&rdquo;.</p>
+<h4 id="exemple-3">
+  Exemple
+  <a class="anchor" href="#exemple-3">#</a>
+</h4>
+<p>Dans les exemples précédents on a vu que $\binom{3}{0} = 1, \binom{3}{1} = 3, \binom{3}{2} = 3, \binom{3}{3} = 1$</p>
+<h3 id="propriétés">
+  Propriétés
+  <a class="anchor" href="#propri%c3%a9t%c3%a9s">#</a>
+</h3>
+<ul>
+<li>$\binom{n}{0} = \binom{n}{n} = 1$ : il y a toujours 1 seul chemin qui mène à 0 succès ou à $n$ succès.</li>
+<li>$\binom{n}{1} = \binom{n}{n - 1} = n$ : il y a toujours n chemins qui mènent à $1$ succès ou à $n - 1$ succès.</li>
+</ul>
+<h4 id="calculatrice-numworks">
+  Calculatrice Numworks
+  <a class="anchor" href="#calculatrice-numworks">#</a>
+</h4>
+<p>Menu <strong>calculs</strong>, touche <strong>paste</strong>, choisir <strong>probabilités</strong>, puis <strong>Dénombrement</strong>, $\binom{n}{k}$</p>
+<h3 id="2-triangle-de-pascal">
+  2. Triangle de Pascal
+  <a class="anchor" href="#2-triangle-de-pascal">#</a>
+</h3>
+<p>On peut représenter les coefficients binomiaux d&rsquo;une manière pratique et qui permet de les retrouver facilement.</p>
+<p><img src="./triangle_pascal.svg" alt="Triangle de Pascal" /></p>
+<p>En <em>ligne</em>, les valeurs de $n$, en <em>colonne</em> celles de $k$.</p>
+<p>On remarque que $20 + 15 = 35$ soit  $\binom{6}{3} + \binom{6}{4} = \binom{7}{4}$.</p>
+<p>Cette propriété est vraie pour tout $n$ et tout $k$, à condition de supposer que les cases vides valent 0.</p>
+<h4 id="propriété-du-triangle-de-pascal">
+  Propriété du triangle de Pascal
+  <a class="anchor" href="#propri%c3%a9t%c3%a9-du-triangle-de-pascal">#</a>
+</h4>
+<p>$$\text{Pour tout } n \text{ et tout } k \leq n, \text{ on a } \binom{n}{k} + \binom{n}{k + 1} = \binom{n+1}{k+1}$$</p>
+<h3 id="3-calculer-une-probabilité-de-la-loi-binomiale">
+  3. Calculer une probabilité de la loi binomiale
+  <a class="anchor" href="#3-calculer-une-probabilit%c3%a9-de-la-loi-binomiale">#</a>
+</h3>
+<p>On peut maintenant citer la formule générale :</p>
+<h4 id="propriété">
+  Propriété
+  <a class="anchor" href="#propri%c3%a9t%c3%a9">#</a>
+</h4>
+<p>Soit une variable aléatoire $X$ qui suit une loi binomiale $B(n, p)$, on a :</p>
+<p>$$P(X=k) = \binom{n}{k} p^k (1-p)^{n - k}$$</p>
+<h4 id="exemple-4">
+  Exemple
+  <a class="anchor" href="#exemple-4">#</a>
+</h4>
+<p>On considère une urne contenant 5 boules blanches et 3 boules noires.
+L&rsquo;expérience consiste à prélever une boule, examiner sa couleur <em>et la remettre dans l&rsquo;urne</em>.</p>
+<p>On répète cette expérience 6 fois.</p>
+<p>Calculer la probabilité d&rsquo;avoir exactement 4 boules blanches.</p>
+<p><strong>Réponse</strong></p>
+<p>Notons $X$ la variable aléatoire qui compte le nombre de boules blanches.
+La probabilité d&rsquo;un succès est $\dfrac{5}{8}$.</p>
+<p>L&rsquo;expérience étant un schéma de Bernouilli, $X$ suit une loi binomiale $B\left(6, \dfrac{5}{8}\right)$.</p>
+<p>La probabilité d&rsquo;avoir 4 boules blanches est :</p>
+<p>$$P(X=4) = \binom{6}{4} \left(\dfrac{5}{8}\right)^4\left(1 - \dfrac{5}{8}\right)^{6-4}$$
+$$P(X=4) = \binom{6}{4} \left(\dfrac{5}{8}\right)^4\left(\dfrac{3}{8}\right)^{2}$$</p>
+<p>D&rsquo;après le triangle de Pascal donné plus haut, $\binom{6}{4} = 15$, donc</p>
+<p>$$P(X=4) = 15 \left(\dfrac{5}{8}\right)^4\left(\dfrac{3}{8}\right)^{2} = \dfrac{84~375}{262~144} \approx 0.322$$</p>
 </article>
 
                 
@@ -6497,10 +6564,17 @@ et $p=0.25$.</p>
         <li><a href="#1-épreuve-de-bernoulli">1. Épreuve de Bernoulli</a></li>
         <li><a href="#2-schéma-de-bernoulli">2. Schéma de Bernoulli</a></li>
         <li><a href="#3-loi-binomiale">3. Loi binomiale</a></li>
-        <li><a href="#4-combinaisons">4. Combinaisons</a></li>
-        <li><a href="#5-calculatrice-et-tableur">5. Calculatrice et tableur</a></li>
-        <li><a href="#6-allure-de-la-loi-binomiale">6. Allure de la loi binomiale</a></li>
+        <li><a href="#4-calculatrice-et-tableur">4. Calculatrice et tableur</a></li>
+        <li><a href="#5-allure-de-la-loi-binomiale">5. Allure de la loi binomiale</a></li>
         <li><a href="#7-espérance-de-la-loi-binomiale">7. Espérance de la loi binomiale</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-coefficients-binomiaux">3. Coefficients binomiaux</a>
+      <ul>
+        <li><a href="#1-combinaisons">1. Combinaisons</a></li>
+        <li><a href="#propriétés">Propriétés</a></li>
+        <li><a href="#2-triangle-de-pascal">2. Triangle de Pascal</a></li>
+        <li><a href="#3-calculer-une-probabilité-de-la-loi-binomiale">3. Calculer une probabilité de la loi binomiale</a></li>
       </ul>
     </li>
   </ul>
