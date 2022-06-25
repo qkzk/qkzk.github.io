@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf pour impression
-Structure de donnée : Dictionnaire #  1. Programme #  Contenus :
+Structure de donnée : Dictionnaire # 1. Programme # Contenus :
 Dictionnaires, index et clé.
 Capacités attendues :
 Distinguer des structures par le jeu des méthodes qui les caractérisent.
 Choisir une structure de données adaptée à la situation à modéliser.
 Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
-2. Définition #   Un dictionnaire est une structure de donnée gardant en mémoire des informations de la forme (clé, valeur).">
+2. Définition # Un dictionnaire est une structure de donnée gardant en mémoire des informations de la forme (clé, valeur).">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Dictionnaire" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -23,7 +23,7 @@ Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0605c711b3c71db0d77e144ea20431fdf8c2e54008a31c5f7f71a0688f784be6.js" integrity="sha256-BgXHEbPHHbDXfhROogQx/fjC5UAIoxxff3GgaI94S&#43;Y=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.75d354b820004afcaccc37be2de402c6408bbaa3b02bb1f5d99d0479f072940c.js" integrity="sha256-ddNUuCAASvyszDe&#43;LeQCxkCLuqOwK7H12Z0EefBylAw=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/dictionnaire/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6230,7 +6230,7 @@ même strucure de donnée : avec des listes et avec une table de hachage.</p>
 <li>Faire une copie du dictionnaire etc.</li>
 </ol>
 <p>Notons que Python propose toutes ces opérations avec le type <code>dict</code>.</p>
-<p>Un exemple en programme les illustrant toutes et indiquant à quelle méthode
+<p>Un exemple de programme les illustrant toutes et indiquant à quelle méthode
 magique ils correspondent est disponible en fin de document.</p>
 <h2 id="5-implantation">
   5. Implantation
@@ -6295,6 +6295,142 @@ collisions sont certaines et les données sont écrasées !</p>
 <p>Néanmoins, elle présente une démarche intéressante et je vous invite à l&rsquo;étudier
 comme approfondissement.</p>
 <p>Les <a href="/uploads/docnsitale/dictionnaire/code/dictionnaire_hash.py">sources</a></p>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>sources</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Implantation des dictionnaires en utilisant une table de hachage.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Objectif : accès aux valeurs en temps constant
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">On se limitera (pour l&#39;instant) à 1024 éléments
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">DictionnaireHash</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;Implantation des dictionnaires utilisant une table de hachage&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    TAILLE_MAX <span style="color:#555">=</span> <span style="color:#f60">1024</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __init__(self, collection<span style="color:#555">=</span><span style="color:#069;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__cles_valeurs <span style="color:#555">=</span> [<span style="color:#069;font-weight:bold">None</span>] <span style="color:#555">*</span> self<span style="color:#555">.</span>TAILLE_MAX
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__longueur <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> collection <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">for</span> cle, valeur <span style="color:#000;font-weight:bold">in</span> collection:
+</span></span><span style="display:flex;"><span>                self[cle] <span style="color:#555">=</span> valeur
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">__calculer_indice</span>(self, cle):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;calcule l&#39;indice d&#39;un élément dans la liste `__cles_valeurs`&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">hash</span>(cle) <span style="color:#555">%</span> self<span style="color:#555">.</span>TAILLE_MAX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;prédicat vrai ssi le dictionnaire est vide&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">len</span>(self) <span style="color:#555">==</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __setitem__(self, cle, valeur):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;permet d&#39;ajouter un élément avec &#39;d[cle] = valeur&#39; &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        indice <span style="color:#555">=</span> self<span style="color:#555">.</span>__calculer_indice(cle)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__cles_valeurs[indice] <span style="color:#555">=</span> (cle, valeur)
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__longueur <span style="color:#555">+=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __getitem__(self, cle):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;permet d&#39;accéder à un élément avec &#39;d[cle]&#39; -&gt; &#39;valeur&#39; &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        indice <span style="color:#555">=</span> self<span style="color:#555">.</span>__calculer_indice(cle)
+</span></span><span style="display:flex;"><span>        contenu <span style="color:#555">=</span> self<span style="color:#555">.</span>__cles_valeurs[indice]
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> contenu <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> contenu[<span style="color:#f60">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">KeyError</span>(cle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __repr__(self) <span style="color:#555">-&gt;</span> <span style="color:#366">str</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;renvoie une chaîne présentant le dictionnaire&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> self<span style="color:#555">.</span>est_vide():
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#39;DictionnaireHash()&#39;</span>
+</span></span><span style="display:flex;"><span>        elems <span style="color:#555">=</span> <span style="color:#366">tuple</span>((elt <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">f</span><span style="color:#c30">&#39;DictionnaireHash(</span><span style="color:#a00">{</span>elems<span style="color:#a00">}</span><span style="color:#c30">)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __iter__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;permet d&#39;itérer avec &#39;for cle in d&#39; &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#069;font-weight:bold">yield</span> elt[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __delitem__(self, cle_recherchee):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;permet d&#39;effacer une paire avec &#39;del d[cle] &#39; &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> self[cle_recherchee] <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>            indice <span style="color:#555">=</span> self<span style="color:#555">.</span>__calculer_indice(cle_recherchee)
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__cles_valeurs[indice] <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#555">.</span>__longueur <span style="color:#555">-=</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">values</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;renvoie un iterateur des valeurs&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> (elt[<span style="color:#f60">1</span>] <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">keys</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;renvoie un itérateur des clé&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> (elt[<span style="color:#f60">0</span>] <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">items</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;renvoie un itérateur des couples (clé, valeur)&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> (elt <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">clear</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;vide le dictionnaire&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__longueur <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#555">.</span>__cles_valeurs <span style="color:#555">=</span> [<span style="color:#069;font-weight:bold">None</span>] <span style="color:#555">*</span> <span style="color:#f60">1024</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">copy</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;retourne une copie du dictionnaire&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        items <span style="color:#555">=</span> [elt <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> self<span style="color:#555">.</span>__cles_valeurs <span style="color:#069;font-weight:bold">if</span> elt <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">None</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> DictionnaireHash(items)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get</span>(self, cle):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;retourne la valeur de la clé si elle est contenue, None sinon&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> self[cle] <span style="color:#069;font-weight:bold">if</span> cle <span style="color:#000;font-weight:bold">in</span> self <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> __len__(self) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#39;&#39;&#39;renvoie la longueur du dictionnaire avec &#39;len(d)&#39; &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> self<span style="color:#555">.</span>__longueur
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tester</span>():
+</span></span><span style="display:flex;"><span>    d <span style="color:#555">=</span> DictionnaireHash()
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(d) <span style="color:#555">==</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>    d[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(d) <span style="color:#555">==</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> d[<span style="color:#f60">1</span>] <span style="color:#555">==</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    e <span style="color:#555">=</span> DictionnaireHash(((<span style="color:#f60">1</span>, <span style="color:#f60">2</span>), (<span style="color:#f60">3</span>, <span style="color:#f60">4</span>)))
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> e[<span style="color:#f60">1</span>] <span style="color:#555">==</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> e[<span style="color:#f60">3</span>] <span style="color:#555">==</span> <span style="color:#f60">4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">repr</span>(e) <span style="color:#555">==</span> <span style="color:#c30">&#39;DictionnaireHash(((1, 2), (3, 4)))&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(e) <span style="color:#555">==</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> [(k, e[k]) <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> e] <span style="color:#555">==</span> [(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>), (<span style="color:#f60">3</span>, <span style="color:#f60">4</span>)]
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> [v <span style="color:#069;font-weight:bold">for</span> v <span style="color:#000;font-weight:bold">in</span> e<span style="color:#555">.</span>values()] <span style="color:#555">==</span> [<span style="color:#f60">2</span>, <span style="color:#f60">4</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#000;font-weight:bold">in</span> d
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">del</span> d[<span style="color:#f60">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#f60">1</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> d
+</span></span><span style="display:flex;"><span>    e<span style="color:#555">.</span>clear()
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(e) <span style="color:#555">==</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>    e <span style="color:#555">=</span> DictionnaireHash(((<span style="color:#f60">1</span>, <span style="color:#f60">2</span>), (<span style="color:#f60">3</span>, <span style="color:#f60">4</span>)))
+</span></span><span style="display:flex;"><span>    f <span style="color:#555">=</span> e<span style="color:#555">.</span>copy()
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">repr</span>(f) <span style="color:#555">==</span> <span style="color:#c30">&#39;DictionnaireHash(((1, 2), (3, 4)))&#39;</span>
+</span></span><span style="display:flex;"><span>    e[<span style="color:#f60">1</span>] <span style="color:#555">=</span> <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">repr</span>(e) <span style="color:#555">==</span> <span style="color:#c30">&#39;DictionnaireHash(((1, 5), (3, 4)))&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> e<span style="color:#555">.</span>get(<span style="color:#f60">7</span>) <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> __name__ <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    tester()
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
 <h3 id="4-le-type-dict">
   4. Le type <code>dict</code>
   <a class="anchor" href="#4-le-type-dict">#</a>
@@ -6303,6 +6439,107 @@ comme approfondissement.</p>
 d&rsquo;une table de hachage. Il utilise la fonction native <code>hash</code> qui accepte
 en paramètre tout objet non mutable et renvoie un entier.</p>
 <p><a href="/uploads/docnsitale/dictionnaire/code/dict_python.py">Ici</a> un petit rappel de la syntaxe.</p>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Rappels sur les dict</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>__doc__ <span style="color:#555">=</span> <span style="color:#c30">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Dictionnaire en Python
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">Que peut-on faire avec un dictionnaire ?
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 1. Créer un dictionnaire :</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># vide</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d1 <span style="color:#555">=</span> {}
+</span></span><span style="display:flex;"><span>d2 <span style="color:#555">=</span> <span style="color:#366">dict</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Avec des clés et valeurs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3 <span style="color:#555">=</span> {<span style="color:#c30">&#39;cle&#39;</span>: <span style="color:#c30">&#39;valeur&#39;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># avec le nom de la classe, on doit passer un tuple contenant des tuples</span>
+</span></span><span style="display:flex;"><span>d4 <span style="color:#555">=</span> <span style="color:#366">dict</span>(((<span style="color:#c30">&#39;cle1&#39;</span>, <span style="color:#c30">&#39;valeur1&#39;</span>), (<span style="color:#c30">&#39;cle2&#39;</span>, <span style="color:#c30">&#39;valeur2&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d4[<span style="color:#c30">&#39;cle1&#39;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#39;valeur1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d4[<span style="color:#c30">&#39;cle2&#39;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#39;valeur2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 2. Accéder à un élément</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3[<span style="color:#c30">&#39;cle&#39;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#39;valeur&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3<span style="color:#555">.</span>get(<span style="color:#c30">&#39;cle&#39;</span>) <span style="color:#555">==</span> <span style="color:#c30">&#39;valeur&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># si la clé n&#39;est pas présente, la méthode get renvoie None</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3<span style="color:#555">.</span>get(<span style="color:#c30">&#39;bonjour&#39;</span>) <span style="color:#000;font-weight:bold">is</span> <span style="color:#069;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">try</span>:
+</span></span><span style="display:flex;"><span>    d3[<span style="color:#c30">&#34;bonjour&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">KeyError</span> <span style="color:#069;font-weight:bold">as</span> e:
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># si la clé n&#39;est pas présente, la notation d[cle] lève une exception KeyError&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 3. ajouter un élément</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3[<span style="color:#c30">&#34;bonjour&#34;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#34;aurevoir&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># la notation d[cle] = valeur appelle la méthode d.__setitem__(cle, valeur)</span>
+</span></span><span style="display:flex;"><span>d3<span style="color:#555">.</span>__setitem__(<span style="color:#c30">&#34;1&#34;</span>, <span style="color:#c30">&#34;2&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3[<span style="color:#c30">&#34;bonjour&#34;</span>] <span style="color:#555">==</span> <span style="color:#c30">&#34;aurevoir&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># la notation d[cle] appelle d.__getitem__(cle)</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3<span style="color:#555">.</span>__getitem__(<span style="color:#c30">&#34;1&#34;</span>) <span style="color:#555">==</span> <span style="color:#c30">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># itérer sans préciser : sur les clés</span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> d3:
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;clé:&#34;</span>, cle, <span style="color:#c30">&#34; - valeur: &#34;</span>, d3[cle])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># itérer sur les clés</span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> d3<span style="color:#555">.</span>keys():
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;clé:&#34;</span>, cle, <span style="color:#c30">&#34; - valeur: &#34;</span>, d3[cle])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># itérer sur les valeurs</span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> valeur <span style="color:#000;font-weight:bold">in</span> d3<span style="color:#555">.</span>values():
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;valeur: &#34;</span>, valeur)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># itérer sur les couples clés, valeurs</span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>()
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle, valeur <span style="color:#000;font-weight:bold">in</span> d3<span style="color:#555">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;clé:&#34;</span>, cle, <span style="color:#c30">&#34; - valeur: &#34;</span>, valeur)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 4. Contient</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#c30">&#34;1&#34;</span> <span style="color:#000;font-weight:bold">in</span> d3
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#f60">1</span> <span style="color:#000;font-weight:bold">in</span> d3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 5. Longueur, comparaison</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#366">len</span>(d4) <span style="color:#555">==</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d4 <span style="color:#555">==</span> {<span style="color:#c30">&#39;cle1&#39;</span>: <span style="color:#c30">&#39;valeur1&#39;</span>, <span style="color:#c30">&#39;cle2&#39;</span>: <span style="color:#c30">&#39;valeur2&#39;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># 6. Nettoyer, copier</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d4<span style="color:#555">.</span>clear()  <span style="color:#09f;font-style:italic"># vide le dictionnaire</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d4 <span style="color:#555">==</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d5 <span style="color:#555">=</span> d3<span style="color:#555">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3 <span style="color:#555">==</span> d5      <span style="color:#09f;font-style:italic"># ils contiennent les mêmes éléments...</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> d3 <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> d5  <span style="color:#09f;font-style:italic"># mais sont des objets différents en mémoire</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(<span style="color:#c30">&#34;d3 et d5 sont des objets différents&#34;</span>, <span style="color:#366">id</span>(d3), <span style="color:#366">id</span>(d5))
+</span></span></code></pre></div>
+    </div>
+  </label>
+</div>
+
 <h1 id="compléments-hors-programme-sur-les-fonctions-de-hachage">
   Compléments (hors programme) sur les fonctions de hachage
   <a class="anchor" href="#compl%c3%a9ments-hors-programme-sur-les-fonctions-de-hachage">#</a>
@@ -6505,7 +6742,7 @@ dans le cas de SHA-512, ce qui « limite » la taille des messages à traiter à
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
 
