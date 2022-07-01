@@ -20,7 +20,7 @@ a = 3 b = 5 c = a * b Du code python extrait de l&rsquo;interpréteur :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.efd26f36036e95f870dbc8e75542d778ea3926397bd3e74cee3d23decaa21e97.css" integrity="sha256-79JvNgNulfhw28jnVULXeOo5Jjl70&#43;dM7j0j3sqiHpc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.8ef8e268af7397ea5e893d54710f836ec5449918e01736f43e57d9ea95ee52c3.js" integrity="sha256-jvjiaK9zl&#43;peiT1UcQ&#43;DbsVEmRjgFzb0PlfZ6pXuUsM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.69482afd1abf1dd70febcfd5544816506cc50bc72000c8f11a8f8e6de26b3855.js" integrity="sha256-aUgq/Rq/HdcP68/VVEgWUGzFC8cgAMjxGo&#43;ObeJrOFU=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/python/introduction_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -7033,6 +7033,36 @@ titre contient la lettre &ldquo;a&rdquo;.</p>
 <li>
 <p>Écrire une fonction <code>nb_div_par_2</code> qui prend un entier <code>n</code> et renvoie le nombre de fois où <code>n</code> est divisible par 2.</p>
 </li>
+<li>
+<p><code>split</code> est une méthode des chaînes de caractères qui permet de les découper en morceau. Écrire une fonction <code>split</code> qui prend deux chaines <code>phrase</code> et <code>symbole</code> et qui découpe la phrase en une liste de chaîne pour chaque <code>symbole</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> split(<span style="color:#c30">&#34;salut les amis&#34;</span>, <span style="color:#c30">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>[<span style="color:#c30">&#34;salut&#34;</span>, <span style="color:#c30">&#34;les&#34;</span>, <span style="color:#c30">&#34;amis&#34;</span>]
+</span></span></code></pre></div></li>
+<li>
+<p><code>join</code> fait le contraire de <code>split</code>. Elle regroupe une liste de chaines en une seule chaîne séparées par un caractère. Écrire une fonction <code>join</code> qui prend une liste de chaînes et une chaîne en paramètres et renvoie une seule chaîne formée des mots de la liste, séparés par le caractère.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> join([<span style="color:#c30">&#34;salut&#34;</span>, <span style="color:#c30">&#34;les&#34;</span>, <span style="color:#c30">&#34;amis&#34;</span>], <span style="color:#c30">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#34;salut-les-amis&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Écrire une fonction <code>ne_garder_que</code> qui prend deux paramètres <code>phrase</code> et <code>symboles</code>, des chaînes, et qui renvoie les symboles de <code>phrase</code> qui figurent dans <code>symboles</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> ne_garder_que(<span style="color:#c30">&#34;mon num 0711223344 apl moi bb&#34;</span>, <span style="color:#c30">&#34;0123456789&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#34;0711223344&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> ne_garder_que(<span style="color:#c30">&#34;j&#39;ai mange un cassoulet du tonnerre&#34;</span>, <span style="color:#c30">&#34;aeiouy&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#34;aieaoueuoee&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Écrire une fonction <code>premier_creu</code> qui reçoit une liste de nombres et renvoie l&rsquo;indice du premier minimum local rencontré.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> premier_creu([<span style="color:#f60">7</span>, <span style="color:#f60">6</span>, <span style="color:#f60">4</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">9</span>, <span style="color:#f60">7</span>, <span style="color:#f60">4</span>, <span style="color:#f60">1</span>, <span style="color:#f60">0</span>, <span style="color:#f60">10</span>])
+</span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
+</span></span></code></pre></div><p>Le premier minimum local est la valeur 2 (d&rsquo;abord on descend : 7, 6, 4, 2 ; ensuite on monte : 2, 3, 4&hellip;). L&rsquo;indice de la valeur <code>2</code> est 3. La fonction renvoie 3.</p>
+</li>
+<li>
+<p>Écrire une fonction <code>est_palindrome</code> qui prend un chaîne et renvoie un booléen vrai si le mot est un parlindrome (<em>qui se lit de la même manière dans les deux sens, comme radar</em>).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> est_palindrome(<span style="color:#c30">&#34;radar&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> est_palindrome(<span style="color:#c30">&#34;radarzz&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="exercice-16---dictionnaires">
   Exercice 16 - Dictionnaires
