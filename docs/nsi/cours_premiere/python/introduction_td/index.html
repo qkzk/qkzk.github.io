@@ -20,7 +20,7 @@ a = 3 b = 5 c = a * b Du code python extrait de l&rsquo;interpréteur :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.288b968b028855d923affd775d396dc7cde1a9de0027ff5082a0762ffbef1958.js" integrity="sha256-KIuWiwKIVdkjr/13XTltx83hqd4AJ/9QgqB2L/vvGVg=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.188ea6c9218a30a63319d3d6f2a90f592c93b40479fd373eeb0a06c31c36e753.js" integrity="sha256-GI6mySGKMKYzGdPW8qkPWSyTtAR5/Tc&#43;6woGwxw251M=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/python/introduction_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6152,7 +6152,7 @@ MathJax.Hub.Config({
     <li><a href="#exercice-16---dictionnaires">Exercice 16 - Dictionnaires</a></li>
     <li><a href="#exercice-17---depuis-un-dictionnaire-vide">Exercice 17 - Depuis un dictionnaire vide.</a></li>
     <li><a href="#exercice-18---itérer-sur-un-dictionnaire">Exercice 18 - Itérer sur un dictionnaire.</a></li>
-    <li><a href="#exercice-19---boucle-while">Exercice 19 - Boucle <code>while</code></a></li>
+    <li><a href="#exercice-19---complément-sur-les-boucles-while">Exercice 19 - Complément sur les boucles <code>while</code></a></li>
   </ul>
 </nav>
 
@@ -6399,6 +6399,10 @@ permettant de vérifier que :</p>
 <li>
 <p>On veut savoir si l&rsquo;entier $n$ est divisible par trois sans qu&rsquo;il ne
 vaille 0. Proposer une expression booléenne.</p>
+</li>
+<li>
+<p>Une année est bissextile si elle est divisible par 4 mais non divisible par 100. Les années divisibles par 400 sont également bissextiles.
+Ecrire une condition portant sur une <code>annee</code> pour savoir si elle est bissextile.</p>
 </li>
 </ol>
 <h2 id="exercice-5---affectation">
@@ -7063,6 +7067,13 @@ titre contient la lettre &ldquo;a&rdquo;.</p>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> est_palindrome(<span style="color:#c30">&#34;radarzz&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
 </span></span></code></pre></div></li>
+<li>
+<p>Écrire une fonction qui renvoie le $n^{ieme}$ terme de la suite $u_n = \dfrac{4n - 2}{0.8^n}$.</p>
+<p>Écrire une fonction qui calcule la somme des termes de $(u_k)$ pour $k$ entre $0$ et $n$</p>
+</li>
+<li>
+<p>Écrire une fonction qui renvoie le $n^{ieme}$ terme de la suite $u_n = 2u_n - 2$ et $u_0=25$.</p>
+</li>
 </ol>
 <h2 id="exercice-16---dictionnaires">
   Exercice 16 - Dictionnaires
@@ -7232,9 +7243,9 @@ b. Triées par score croissant.</p>
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
 </span></span></code></pre></div></li>
 </ol>
-<h2 id="exercice-19---boucle-while">
-  Exercice 19 - Boucle <code>while</code>
-  <a class="anchor" href="#exercice-19---boucle-while">#</a>
+<h2 id="exercice-19---complément-sur-les-boucles-while">
+  Exercice 19 - Complément sur les boucles <code>while</code>
+  <a class="anchor" href="#exercice-19---compl%c3%a9ment-sur-les-boucles-while">#</a>
 </h2>
 <p>La syntaxe d&rsquo;une boucle <code>while</code> est :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> condition:
@@ -7319,6 +7330,20 @@ possible.</p>
 </span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#f60">2</span>, <span style="color:#000;font-weight:bold">in</span> echantillon_sans_remise
 </span></span><span style="display:flex;"><span><span style="color:#c00;font-weight:bold">AssertionError</span>: pas assez de valeurs entre a et b
 </span></span></code></pre></div></li>
+<li>
+<p>La conjecture de Syracuse s&rsquo;intéresse au comportement des suites définies par :</p>
+<ul>
+<li>un premier terme $u_0$ entier positif,</li>
+<li>pour tout $n$, $u_{n+1} = \dfrac{u_n}{2}$ si $u_n$ est pair et $u_{n+1}= 3n+1$ si $u_n$ est impair.</li>
+</ul>
+<p>La conjecture affirme que toute suite de ce type contient la valeur 1.</p>
+<p>Par exemple, la suite des valeurs successives depuis 3 est :</p>
+<p>$$3, 10, 5, 16, 8, 4, 2, 1, 4, 2, 1 \ldots$$</p>
+<p>Cette suite de valeurs contient bien 1.</p>
+<p>a. Programmer une fonction <code>syracuse_vol</code> qui prend un entier positif <code>n</code> et renvoie la <em>liste des valeurs jusqu&rsquo;à rencontrer 1 inclus</em>.
+b. Programmer une fonction <code>syracuse_duree</code> prenant le même paramètre et qui renvoie <em>le nombre de termes</em> du vol.
+c. Programmer une fonction <code>syracuse_hauteur</code> prenant le même paramètre et qui renvoie <em>la valeur maximale atteinte</em> durant le vol.</p>
+</li>
 </ol>
 </article>
 
@@ -7409,7 +7434,7 @@ possible.</p>
     <li><a href="#exercice-16---dictionnaires">Exercice 16 - Dictionnaires</a></li>
     <li><a href="#exercice-17---depuis-un-dictionnaire-vide">Exercice 17 - Depuis un dictionnaire vide.</a></li>
     <li><a href="#exercice-18---itérer-sur-un-dictionnaire">Exercice 18 - Itérer sur un dictionnaire.</a></li>
-    <li><a href="#exercice-19---boucle-while">Exercice 19 - Boucle <code>while</code></a></li>
+    <li><a href="#exercice-19---complément-sur-les-boucles-while">Exercice 19 - Complément sur les boucles <code>while</code></a></li>
   </ul>
 </nav>
 
