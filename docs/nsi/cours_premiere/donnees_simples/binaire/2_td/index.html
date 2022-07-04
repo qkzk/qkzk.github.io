@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf : pour impression
-Exercice 1. Conversion binaire vers décimal. # Donnez les valeurs entières décimales représentées par les nombres :
-0b101 0b10101 0b0101 0b00101 0b1101 1101 0b1001 0111 0b1011 1000 Comment savoir qu&rsquo;un entier représenté en binaire est divisible par 2 ? Par 4 ?
-Exercice 2. Conversion décimal vers binaire. # Convertir les nombres suivants en binaire : 12 23 35 127 211 254 231 Calculer mentalement les puissances de 2 jusque $2^{20}$.">
+1. Conversion binaire vers décimal. # Donnez les valeurs entières décimales représentées par les nombres :
+0b101 0b10101 0b0101 0b00101 0b1101 1101 0b1001 0111 0b1011 1000 2. Examen d&rsquo;une représentation binaire # On considère a = 0b1010 0110 et b = 0b11 1101
+Lequel des deux est le plus grand ? Ces nombres sont-ils divisibles par 2 ? Pourquoi ? Combien de bits occupe la représentation binaire de a &#43; b ?">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="binaire - TD" />
 <meta property="og:description" content="Informatique et mathématiques" />
@@ -19,7 +19,7 @@ Exercice 2. Conversion décimal vers binaire. # Convertir les nombres suivants e
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.188ea6c9218a30a63319d3d6f2a90f592c93b40479fd373eeb0a06c31c36e753.js" integrity="sha256-GI6mySGKMKYzGdPW8qkPWSyTtAR5/Tc&#43;6woGwxw251M=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.4ff1223ab6bc07528538c475898d36a8d911c854784f06e86e9ee155a0ff9cc4.js" integrity="sha256-T/EiOra8B1KFOMR1iY02qNkRyFR4Twbobp7hVaD/nMQ=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/binaire/2_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6124,10 +6124,20 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#exercice-1-conversion-binaire-vers-décimal">Exercice 1. Conversion binaire vers décimal.</a></li>
-    <li><a href="#exercice-2-conversion-décimal-vers-binaire">Exercice 2. Conversion décimal vers binaire.</a></li>
-    <li><a href="#exercice-3-binaire-et-python">Exercice 3. Binaire et python</a></li>
-    <li><a href="#exercice-4-capacité">Exercice 4. Capacité</a></li>
+    <li><a href="#1-conversion-binaire-vers-décimal">1. Conversion binaire vers décimal.</a></li>
+    <li><a href="#2-examen-dune-représentation-binaire">2. Examen d&rsquo;une représentation binaire</a></li>
+    <li><a href="#2-conversion-décimal-vers-binaire">2. Conversion décimal vers binaire.</a></li>
+    <li><a href="#3-binaire-et-python">3. Binaire et python</a></li>
+    <li><a href="#4-capacité">4. Capacité</a></li>
+    <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a>
+      <ul>
+        <li><a href="#5-mettre-un-bit-à-1">5. Mettre un bit à 1</a></li>
+        <li><a href="#6-alterner-un-bit">6. Alterner un bit</a></li>
+        <li><a href="#7-retourner-la-queue">7. Retourner la queue</a></li>
+        <li><a href="#8-extraire-une-partie">8. Extraire une partie</a></li>
+        <li><a href="#8-dénombrer-les-bits-à-1-dun-entier">8. Dénombrer les bits à 1 d&rsquo;un entier</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -6142,12 +6152,10 @@ MathJax.Hub.Config({
                 
                 
 <article class="markdown"><p>pdf : <a href="/uploads/docsnsi/donnees_qkzk_img/TD_binaire.pdf">pour impression</a></p>
-<h2 id="exercice-1-conversion-binaire-vers-décimal">
-  Exercice 1. Conversion binaire vers décimal.
-  <a class="anchor" href="#exercice-1-conversion-binaire-vers-d%c3%a9cimal">#</a>
+<h2 id="1-conversion-binaire-vers-décimal">
+  1. Conversion binaire vers décimal.
+  <a class="anchor" href="#1-conversion-binaire-vers-d%c3%a9cimal">#</a>
 </h2>
-<ol>
-<li>
 <p>Donnez les valeurs entières décimales représentées par les nombres :</p>
 <ul>
 <li><code>0b101</code></li>
@@ -6158,18 +6166,23 @@ MathJax.Hub.Config({
 <li><code>0b1001 0111</code></li>
 <li><code>0b1011 1000</code></li>
 </ul>
-</li>
-<li>
-<p>Comment savoir qu&rsquo;un entier représenté en binaire est divisible par 2 ? Par 4 ?</p>
-</li>
+<h2 id="2-examen-dune-représentation-binaire">
+  2. Examen d&rsquo;une représentation binaire
+  <a class="anchor" href="#2-examen-dune-repr%c3%a9sentation-binaire">#</a>
+</h2>
+<p>On considère <code>a = 0b1010 0110</code> et <code>b = 0b11 1101</code></p>
+<ol>
+<li>Lequel des deux est le plus grand ?</li>
+<li>Ces nombres sont-ils divisibles par 2 ? Pourquoi ?</li>
+<li>Combien de bits occupe la représentation binaire de <code>a + b</code> ?</li>
 </ol>
-<h2 id="exercice-2-conversion-décimal-vers-binaire">
-  Exercice 2. Conversion décimal vers binaire.
-  <a class="anchor" href="#exercice-2-conversion-d%c3%a9cimal-vers-binaire">#</a>
+<h2 id="2-conversion-décimal-vers-binaire">
+  2. Conversion décimal vers binaire.
+  <a class="anchor" href="#2-conversion-d%c3%a9cimal-vers-binaire">#</a>
 </h2>
 <ol>
-<li>Convertir les nombres suivants en binaire :</li>
-</ol>
+<li>
+<p>Convertir les nombres suivants en binaire :</p>
 <ul>
 <li>12</li>
 <li>23</li>
@@ -6179,70 +6192,86 @@ MathJax.Hub.Config({
 <li>254</li>
 <li>231</li>
 </ul>
-<ol start="2">
+</li>
 <li>
 <p>Calculer mentalement les puissances de 2 jusque $2^{20}$.</p>
 </li>
 <li>
 <p>On considère des entiers représentés sur 1 octet. Quel est le plus grand
-entier représentable ?
-Réaliser l&rsquo;addition binaire entre $a = 0b1101 1001$ et $b = 0b1110 1100$.</p>
-<p>Qu&rsquo;advient-il du premier bit lors de cette addition ?</p>
+entier représentable ?</p>
 </li>
 <li>
 <p>Quelle est la représentation binaire d&rsquo;un nombre de la forme $2^k-1$ ?
 De la forme $2^k$ ?</p>
 </li>
 <li>
-<p>En remarquant que $2~048=2^{11}$, donner la représentation binaire de $2021$.</p>
-</li>
+<p>En remarquant que $2~048=2^{11}$, donner la représentation binaire de $2022$.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f60">2048</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>b <span style="color:#f60">1000</span> <span style="color:#f60">0000</span> xxxx
+</span></span><span style="display:flex;"><span><span style="color:#f60">2047</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>b  <span style="color:#f60">111</span> <span style="color:#f60">1111</span> xxxx
+</span></span><span style="display:flex;"><span>  <span style="color:#f60">25</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>b         <span style="color:#f60">1</span> xxxx
+</span></span><span style="display:flex;"><span><span style="color:#f60">2022</span> <span style="color:#555">=</span> <span style="color:#f60">0</span>b  <span style="color:#f60">111</span> <span style="color:#f60">1110</span> xxxx
+</span></span></code></pre></div></li>
 </ol>
-<h2 id="exercice-3-binaire-et-python">
-  Exercice 3. Binaire et python
-  <a class="anchor" href="#exercice-3-binaire-et-python">#</a>
+<h2 id="3-binaire-et-python">
+  3. Binaire et python
+  <a class="anchor" href="#3-binaire-et-python">#</a>
 </h2>
 <p>Python permet d&rsquo;obtenir la représentation binaire d&rsquo;un entier à l&rsquo;aide de la
 fonction <code>bin</code>. Voici ce qu&rsquo;on obtient avec <code>help(bin)</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#0a8;font-weight:bold">Help</span> <span style="color:#033">on</span> <span style="color:#033">built</span><span style="color:#555">-</span><span style="color:#069;font-weight:bold">in</span> <span style="color:#033">function</span> <span style="color:#033">bin</span> <span style="color:#069;font-weight:bold">in</span> <span style="color:#069;font-weight:bold">module</span> <span style="color:#99f">builtins</span>:
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Help on built<span style="color:#555">-</span><span style="color:#000;font-weight:bold">in</span> function <span style="color:#366">bin</span> <span style="color:#000;font-weight:bold">in</span> module builtins:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c0f">bin</span>(<span style="color:#033">number</span>, <span style="color:#555">/</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#0a8;font-weight:bold">Return</span> <span style="color:#033">the</span> <span style="color:#033">binary</span> <span style="color:#033">representation</span> <span style="color:#033">of</span> <span style="color:#033">an</span> <span style="color:#033">integer</span>.
+</span></span><span style="display:flex;"><span><span style="color:#366">bin</span>(number, <span style="color:#555">/</span>)
+</span></span><span style="display:flex;"><span>    Return the binary representation of an integer<span style="color:#555">.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#c0f">bin</span>(<span style="color:#f60">2796202</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">2796202</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;0b1010101010101010101010&#39;</span>
 </span></span></code></pre></div><p>Inversement, la conversion d&rsquo;une base $b$ vers la représentation décimale
 s&rsquo;obtient en passant à <code>int</code> une chaîne de caractères ainsi que la base.</p>
 <p>Voici ce qu&rsquo;on obtient avec <code>help(int)</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class int(object)
-</span></span><span style="display:flex;"><span> |  int([x]) -&gt; integer
-</span></span><span style="display:flex;"><span> |  int(x, base=10) -&gt; integer
-</span></span><span style="display:flex;"><span> |
-</span></span><span style="display:flex;"><span> |  Convert a number or string to an integer, or return 0 if no arguments
-</span></span><span style="display:flex;"><span> |  are given.  If x is a number, return x.__int__().  For floating point
-</span></span><span style="display:flex;"><span> |  numbers, this truncates towards zero.
-</span></span><span style="display:flex;"><span> |
-</span></span><span style="display:flex;"><span> |  If x is not a number or if base is given, then x must be a string,
-</span></span><span style="display:flex;"><span> |  bytes, or bytearray instance representing an integer literal in the
-</span></span><span style="display:flex;"><span> |  given base.  The literal can be preceded by &#39;+&#39; or &#39;-&#39; and be surrounded
-</span></span><span style="display:flex;"><span> |  by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
-</span></span><span style="display:flex;"><span> |  Base 0 means to interpret the base from the string as an integer literal.
-</span></span><span style="display:flex;"><span> |  &gt;&gt;&gt; int(&#39;0b100&#39;, base=0)
-</span></span><span style="display:flex;"><span> |  4
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">int</span>(<span style="color:#366">object</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  <span style="color:#366">int</span>([x]) <span style="color:#555">-&gt;</span> integer
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  <span style="color:#366">int</span>(x, base<span style="color:#555">=</span><span style="color:#f60">10</span>) <span style="color:#555">-&gt;</span> integer
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  Convert a number <span style="color:#000;font-weight:bold">or</span> string to an integer, <span style="color:#000;font-weight:bold">or</span> <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span> <span style="color:#069;font-weight:bold">if</span> no arguments
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  are given<span style="color:#555">.</span>  If x <span style="color:#000;font-weight:bold">is</span> a number, <span style="color:#069;font-weight:bold">return</span> x<span style="color:#555">.</span>__int__()<span style="color:#555">.</span>  For floating point
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  numbers, this truncates towards zero<span style="color:#555">.</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  If x <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> a number <span style="color:#000;font-weight:bold">or</span> <span style="color:#069;font-weight:bold">if</span> base <span style="color:#000;font-weight:bold">is</span> given, then x must be a string,
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  <span style="color:#366">bytes</span>, <span style="color:#000;font-weight:bold">or</span> <span style="color:#366">bytearray</span> instance representing an integer literal <span style="color:#000;font-weight:bold">in</span> the
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  given base<span style="color:#555">.</span>  The literal can be preceded by <span style="color:#c30">&#39;+&#39;</span> <span style="color:#000;font-weight:bold">or</span> <span style="color:#c30">&#39;-&#39;</span> <span style="color:#000;font-weight:bold">and</span> be surrounded
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  by whitespace<span style="color:#555">.</span>  The base defaults to <span style="color:#f60">10.</span>  Valid bases are <span style="color:#f60">0</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#f60">2</span><span style="color:#555">-</span><span style="color:#f60">36.</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  Base <span style="color:#f60">0</span> means to interpret the base <span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">the</span> string <span style="color:#069;font-weight:bold">as</span> an integer literal<span style="color:#555">.</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  <span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#39;0b100&#39;</span>, base<span style="color:#555">=</span><span style="color:#f60">0</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#555">|</span>  <span style="color:#f60">4</span>
 </span></span></code></pre></div><ol>
-<li>Quelle instruction saisir pour obtenir la représentation décimale de <code>0b1101001</code> ?</li>
-<li>$x$ est un entier dont la réprésentation binaire est <code>110100</code>. Donner
-deux instructions différentes permettant d&rsquo;obtenir sa représentation décimale.</li>
-<li>Quel sera le résultat des instructions suivantes ?</li>
-</ol>
+<li>
+<p>Quelle instruction saisir pour obtenir la représentation décimale de <code>0b1101001</code> ?</p>
+</li>
+<li>
+<p>$x$ est un entier dont la réprésentation binaire est <code>110100</code>. Donner
+deux instructions différentes permettant d&rsquo;obtenir sa représentation décimale.</p>
+</li>
+<li>
+<p>Quel sera le résultat des instructions suivantes ?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">123</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#34;0b1111&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#34;0b10101&#34;</span>, <span style="color:#f60">2</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">0</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">int</span>(<span style="color:#c30">&#34;0b101211&#34;</span>, <span style="color:#f60">2</span>)
-</span></span></code></pre></div><h2 id="exercice-4-capacité">
-  Exercice 4. Capacité
-  <a class="anchor" href="#exercice-4-capacit%c3%a9">#</a>
+</span></span></code></pre></div></li>
+<li>
+<p>Python accepte la notation <code>0b110</code> pour représenter un entier, en l&rsquo;occurence 6&hellip;</p>
+<p>Qu&rsquo;obient-on pour les opérations suivantes ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0b101</span> <span style="color:#555">+</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">0b110</span> <span style="color:#555">+</span> <span style="color:#f60">0b1110</span>)
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="4-capacité">
+  4. Capacité
+  <a class="anchor" href="#4-capacit%c3%a9">#</a>
 </h2>
+<ol>
+<li>
 <p>Parmi les additions suivantes, lesquelles vont provoquer un dépassement de
 capacité lorsque les nombres sont encodés sur 8 bits ?</p>
 <ul>
@@ -6251,6 +6280,180 @@ capacité lorsque les nombres sont encodés sur 8 bits ?</p>
 <li>$0011~1011 + 1001~1001$</li>
 <li>$1010~1011 + 0001~0100$</li>
 </ul>
+</li>
+<li>
+<p>La taille d&rsquo;une somme binaire nécessite de connaître les valeurs manipulées. Ce n&rsquo;est pas le cas d&rsquo;un produit.</p>
+<p>Quelle sera le nombre de bits des valeurs suivantes ?</p>
+<ul>
+<li>$0110 \times 1100$</li>
+<li>$1111~0011 \times  1101~0101$</li>
+</ul>
+</li>
+</ol>
+<h2 id="opérations-bits-à-bits">
+  Opérations bits à bits
+  <a class="anchor" href="#op%c3%a9rations-bits-%c3%a0-bits">#</a>
+</h2>
+<p>Rappelons les opérations bits à bits élémentaires :</p>
+<table>
+<thead>
+<tr>
+<th>Opérations</th>
+<th>Notation</th>
+<th>Exemple</th>
+<th>Remarque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND   bit à bit</td>
+<td><code>&amp;</code></td>
+<td><code>0b1100 &amp; 0b1010 = 0b1000</code></td>
+<td></td>
+</tr>
+<tr>
+<td>OR    bit à bit</td>
+<td>`</td>
+<td>`</td>
+<td>`0b1100</td>
+</tr>
+<tr>
+<td>XOR   bit à bit</td>
+<td><code>^</code></td>
+<td><code>0b1100 ^ 0b1010 = 0b0110</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Décalage à droite</td>
+<td><code>&gt;&gt;</code></td>
+<td><code>0b1101 &gt;&gt; 2     = 0b11</code></td>
+<td>Revient à diviser par $2^n$</td>
+</tr>
+<tr>
+<td>Décalage à gauche</td>
+<td><code>&lt;&lt;</code></td>
+<td><code>0b1101 &lt;&lt; 2     = 0b110100</code></td>
+<td>Revient à multiplier par $2^n$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-mettre-un-bit-à-1">
+  5. Mettre un bit à 1
+  <a class="anchor" href="#5-mettre-un-bit-%c3%a0-1">#</a>
+</h3>
+<p>On dispose d&rsquo;un entier <code>x</code> dont on ne connait pas la représentation.</p>
+<p>On voudrait mettre à 1 le bit de position <code>n</code> en partant de la fin (et en comptant à partir de 0)</p>
+<p>Par exemple avec <code>n = 4</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>                 bit 4 à 1
+</span></span><span style="display:flex;"><span>xxxx xxxx xxxx ------------&gt;  xxxx xxx1 xxxx
+</span></span></code></pre></div><p>Proposer une opération bit à bit qui réalise cet exploit.</p>
+<h3 id="6-alterner-un-bit">
+  6. Alterner un bit
+  <a class="anchor" href="#6-alterner-un-bit">#</a>
+</h3>
+<p>Même point de départ, un entier <code>x</code> quelconque.</p>
+<p>On veut <em>inverser</em> le bit de position <code>n</code> en partant de la fin (et en comptant à partir de 0)</p>
+<p>Par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>                retourne bit 4
+</span></span><span style="display:flex;"><span>xxxx xxx0 xxxx ----------------&gt;  xxxx xxx1 xxxx
+</span></span><span style="display:flex;"><span>xxxx xxx1 xxxx ----------------&gt;  xxxx xxx0 xxxx
+</span></span></code></pre></div><p>Les autres bits sont inchangés.</p>
+<p>Proposer une opération bit à bit.</p>
+<h3 id="7-retourner-la-queue">
+  7. Retourner la queue
+  <a class="anchor" href="#7-retourner-la-queue">#</a>
+</h3>
+<p>On veut échanger les derniers bits d&rsquo;un entier, à partir de son dernier 1 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>             retourner la queue
+</span></span><span style="display:flex;"><span>1101 1100    -----------------&gt;  1101 1000
+</span></span></code></pre></div><p>Les bits précédents le dernier 1 sont inchangés.</p>
+<p>Proposer une opération bit à bit.</p>
+<p><em>On pourra commencer par comparer les représentations binaires de <code>x</code> et <code>x - 1</code>.</em></p>
+<h3 id="8-extraire-une-partie">
+  8. Extraire une partie
+  <a class="anchor" href="#8-extraire-une-partie">#</a>
+</h3>
+<p>On considère un entier sur 8 bits comme :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>nombre  = 0b_1011_0111
+</span></span><span style="display:flex;"><span>indices =    0123 4567
+</span></span></code></pre></div><p>On souhaite récupérer les bits numéro 2, 3 et 4 du nombre (en comptant à partir de 0) donc : <code>110</code></p>
+<ol>
+<li>
+<p>On vire les derniers bits, il y en a 3 :</p>
+<p><code>x = nombre &gt;&gt; 3</code></p>
+</li>
+<li>
+<p>On masque avec <code>111</code> pour ne garder que trois bits : <code>bits = nombre &amp; 0b_111</code></p>
+</li>
+</ol>
+<p><em>Questions</em></p>
+<ol>
+<li>Détailler les calculs précédents et vérifier le résultat.</li>
+<li>Extraire les bits de position 4, 5 et 6 du nombre <code>0b1110 1100 1001</code> (en comptant à partir de 0)</li>
+</ol>
+<h3 id="8-dénombrer-les-bits-à-1-dun-entier">
+  8. Dénombrer les bits à 1 d&rsquo;un entier
+  <a class="anchor" href="#8-d%c3%a9nombrer-les-bits-%c3%a0-1-dun-entier">#</a>
+</h3>
+<p>Nous allons étudier deux algorithmes qui répondent à la même question : <strong>compter les bits valant 1 dans un entier</strong></p>
+<p>Exemple : <code>13 = 0b 1101</code> donc <code>nombre_bits_a_un(13) = 3</code></p>
+<p><em>Méthode 1</em></p>
+<ul>
+<li>On converti l&rsquo;entier en binaire (exemple : <code>bin(13) = &quot;0b1101&quot;</code>)</li>
+<li>On itère sur la représentation et compte les <code>&quot;1&quot;</code>.</li>
+</ul>
+<ol>
+<li>
+<p>Écrire une fonction Python qui implémente cet algorithme</p>
+</li>
+<li>
+<p>La faire tourner sur 5, 9 et 14.</p>
+</li>
+</ol>
+<p><em>Méthode 2, de Brian Kernighan &ndash; Accrochez vous.</em></p>
+<p>Remarques initiales :</p>
+<ul>
+<li>
+<p>Retirer 1 à un entier inverse tous les bits après le dernier bit à 1. Par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>décimal         binaire
+</span></span><span style="display:flex;"><span>10                 1010
+</span></span><span style="display:flex;"><span>9 = 10 - 1         1001
+</span></span><span style="display:flex;"><span>8 =  9 - 1         1000
+</span></span><span style="display:flex;"><span>7 =  8 - 1         0111
+</span></span><span style="display:flex;"><span>6 =  7 - 1         0110
+</span></span><span style="display:flex;"><span>5 =  6 - 1         0101
+</span></span></code></pre></div></li>
+<li>
+<p>Donc, si on soutrait 1 et qu&rsquo;on fait un ET bit à bit avec lui même <code>n &amp; (n - 1)</code>, on passe à 0 tous les derniers bits&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>décimal         binaire
+</span></span><span style="display:flex;"><span>10                 1010
+</span></span><span style="display:flex;"><span>9 = 10 - 1         1001
+</span></span><span style="display:flex;"><span>10 &amp; 9             1000 
+</span></span></code></pre></div></li>
+<li>
+<p>Si on fait <code>n = (n &amp; (n - 1))</code> jusqu&rsquo;à avoir <code>n == 0</code> et qu&rsquo;on compte les tours, on a le nombre de bits à 1 dans un entier.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> décimal                binaire
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>           Tour 1
+</span></span><span style="display:flex;"><span>n   = 10                  1010
+</span></span><span style="display:flex;"><span>n-1 =  9                  1001
+</span></span><span style="display:flex;"><span>n = (n &amp; (n-1))
+</span></span><span style="display:flex;"><span>10 &amp; 9 = 8                1000 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          Tour 2
+</span></span><span style="display:flex;"><span>n   =  8                  1000
+</span></span><span style="display:flex;"><span>n-1 =  7                  0111
+</span></span><span style="display:flex;"><span>n = (n &amp; (n-1))           
+</span></span><span style="display:flex;"><span>8 &amp; 7 = 0                 0000
+</span></span></code></pre></div></li>
+</ul>
+<p>L&rsquo;algorithme s&rsquo;arrête parce que <code>n</code> vaut 0</p>
+<p>Donc 10 comporte deux bits à 1.</p>
+<ol>
+<li>Écrire une fonction Python qui implante cet algorithme</li>
+<li>La faire tourner sur 5, 9 et 14.</li>
+</ol>
 </article>
 
                 
@@ -6313,10 +6516,20 @@ capacité lorsque les nombres sont encodés sur 8 bits ?</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#exercice-1-conversion-binaire-vers-décimal">Exercice 1. Conversion binaire vers décimal.</a></li>
-    <li><a href="#exercice-2-conversion-décimal-vers-binaire">Exercice 2. Conversion décimal vers binaire.</a></li>
-    <li><a href="#exercice-3-binaire-et-python">Exercice 3. Binaire et python</a></li>
-    <li><a href="#exercice-4-capacité">Exercice 4. Capacité</a></li>
+    <li><a href="#1-conversion-binaire-vers-décimal">1. Conversion binaire vers décimal.</a></li>
+    <li><a href="#2-examen-dune-représentation-binaire">2. Examen d&rsquo;une représentation binaire</a></li>
+    <li><a href="#2-conversion-décimal-vers-binaire">2. Conversion décimal vers binaire.</a></li>
+    <li><a href="#3-binaire-et-python">3. Binaire et python</a></li>
+    <li><a href="#4-capacité">4. Capacité</a></li>
+    <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a>
+      <ul>
+        <li><a href="#5-mettre-un-bit-à-1">5. Mettre un bit à 1</a></li>
+        <li><a href="#6-alterner-un-bit">6. Alterner un bit</a></li>
+        <li><a href="#7-retourner-la-queue">7. Retourner la queue</a></li>
+        <li><a href="#8-extraire-une-partie">8. Extraire une partie</a></li>
+        <li><a href="#8-dénombrer-les-bits-à-1-dun-entier">8. Dénombrer les bits à 1 d&rsquo;un entier</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
