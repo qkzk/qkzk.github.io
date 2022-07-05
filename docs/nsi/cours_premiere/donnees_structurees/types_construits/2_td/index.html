@@ -6,10 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf pour impression
 Se tester # 1. Tuples et listes # Parmi les affirmations suivantes lesquelles sont vraies ?
-a. Une liste peut contenir plusieurs éléments.
-b. On peut ajouter des éléments à un tuple.
-c. On peut modifier les éléments d&rsquo;un tuple.
-d. Un tuple peut contenir à la fois des nombres et des chaînes de caractères.
+a. Une liste peut contenir plusieurs éléments. b. On peut ajouter des éléments à un tuple. c. On peut modifier les éléments d&rsquo;un tuple. d. Un tuple peut contenir à la fois des nombres et des chaînes de caractères.
 Si liste est la liste [1, 3, 5], quelles sont les opérations valides ?">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="TD" />
@@ -22,7 +19,7 @@ Si liste est la liste [1, 3, 5], quelles sont les opérations valides ?">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7e4fc0b0af8209da8aa458a16b9f47cf8d419bdc8e068ca7e68f8cea8932a6f1.js" integrity="sha256-fk/AsK&#43;CCdqKpFiha59Hz41Bm9yOBoyn5o&#43;M6okypvE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.8e7595945e034433178ab2554dbf96b1c0a6be8e69f04d5fb9c39048a98c9e83.js" integrity="sha256-jnWVlF4DRDMXirJVTb&#43;WscCmvo5p8E1fucOQSKmMnoM=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/2_td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6138,9 +6135,9 @@ MathJax.Hub.Config({
     <li><a href="#6-manipulation-de-dictionnaires">6. Manipulation de dictionnaires</a></li>
     <li><a href="#7-modéliser-des-pokémons-avec-des-dictionnaires-et-des-tuples">7. Modéliser des Pokémons avec des dictionnaires et des tuples</a></li>
     <li><a href="#8-construire-des-listes-en-compréhension">8. Construire des listes en compréhension</a></li>
-    <li><a href="#10-vérifier-un-carré-magique">10. Vérifier un carré magique</a></li>
-    <li><a href="#11-manipuler-des-listes-de-nombres">11. Manipuler des listes de nombres</a></li>
-    <li><a href="#12-itérer-sur-les-éléments-dun-dictionnaire">12. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
+    <li><a href="#9-vérifier-un-carré-magique">9. Vérifier un carré magique</a></li>
+    <li><a href="#10-manipuler-des-listes-de-nombres">10. Manipuler des listes de nombres</a></li>
+    <li><a href="#11-itérer-sur-les-éléments-dun-dictionnaire">11. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
   </ul>
 
   <ul>
@@ -6183,25 +6180,54 @@ MathJax.Hub.Config({
 <ol>
 <li>
 <p>Parmi les affirmations suivantes lesquelles sont vraies ?</p>
-<p>a. Une liste peut contenir plusieurs éléments.<br>
-b. On peut ajouter des éléments à un tuple.<br>
-c. On peut modifier les éléments d&rsquo;un tuple.<br>
+<p>a. Une liste peut contenir plusieurs éléments.
+b. On peut ajouter des éléments à un tuple.
+c. On peut modifier les éléments d&rsquo;un tuple.
 d. Un tuple peut contenir à la fois des nombres et des chaînes de
 caractères.</p>
 </li>
 <li>
 <p>Si <code>liste</code> est la liste <code>[1, 3, 5]</code>, quelles sont les opérations valides ?</p>
-<p>a. <code>liste.append(4)</code><br>
-b. <code>liste[0]</code><br>
-c. <code>liste[0] = 4</code><br>
-d. <code>liste[4] = 7</code><br>
-e. <code>liste = [1, 3, 10, 7, 3]</code>\</p>
+<p>a. <code>liste.append(4)</code>
+b. <code>liste[0]</code>
+c. <code>liste[0] = 4</code>
+d. <code>liste[4] = 7</code>
+e. <code>liste = [1, 3, 10, 7, 3]</code></p>
 </li>
 <li>
 <p>Si <code>triplet</code> est le tuple <code>(1, 3, 5)</code>, quelles sont les opérations valides ?</p>
-<p>a. <code>triplet.append(4)</code><br>
-b. <code>triplet[0]</code><br>
+<p>a. <code>triplet.append(4)</code>
+b. <code>triplet[0]</code>
 c. <code>triplet[0] = 4</code></p>
+</li>
+<li>
+<p>Associer correctement les collections à leur description :</p>
+<table>
+<thead>
+<tr>
+<th>Collection</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list</code></td>
+<td>tableau mutable d&rsquo;associations de paires de clé et valeur</td>
+</tr>
+<tr>
+<td><code>dict</code></td>
+<td>collection ordonnée et non mutable d&rsquo;éléments de tout type</td>
+</tr>
+<tr>
+<td><code>tuple</code></td>
+<td>collection ordonnée et non mutable de caractères</td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>collection ordonnée mutable d&rsquo;éléments de tout type</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ol>
 <h2 id="2-dictionnaires">
@@ -6212,11 +6238,6 @@ c. <code>triplet[0] = 4</code></p>
 </span></span></code></pre></div><ol>
 <li>
 <p>Quelle est la valeur de <code>dico[1]</code> ?</p>
-<p>a. <code>&quot;a&quot;</code><br>
-b. <code>True</code><br>
-c. <code>&quot;b&quot;</code><br>
-d. <code>False</code><br>
-e. Rien car l&rsquo;expression est invalide.</p>
 </li>
 <li>
 <p>Quelle est la valeur de <code>dico[&quot;a&quot;]</code> ?</p>
@@ -6227,7 +6248,7 @@ sa nouvelle valeur soit :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#c30">&#34;a&#34;</span>: <span style="color:#069;font-weight:bold">True</span>, <span style="color:#c30">&#34;b&#34;</span>: <span style="color:#069;font-weight:bold">False</span>, <span style="color:#c30">&#34;c&#34;</span>: <span style="color:#069;font-weight:bold">False</span>, <span style="color:#c30">&#34;e&#34;</span>: <span style="color:#069;font-weight:bold">True</span>}
 </span></span></code></pre></div></li>
 <li>
-<p>Quels sont les affichages possibles lors de l&rsquo;exécution du code suivant ?</p>
+<p>Qu&rsquo;affichent les instructions suivantes ?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>keys():
 </span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(cle, end<span style="color:#555">=</span><span style="color:#c30">&#34; &#34;</span>)
 </span></span></code></pre></div><p><strong>Remarque</strong>: <em>Par défaut la fonction <code>print</code> termine l&rsquo;affichage par
@@ -6246,10 +6267,10 @@ en ajoutant <code>end=&quot; &quot;</code>, cela remplace le retour à la ligne 
 </h2>
 <ol>
 <li>
-<p>Si <code>tab</code> désigne la liste <code>[1, [2, 3], [4, 5], 6, 7]</code> que faut <code>len(tab)</code> ?</p>
+<p>Si liste désigne la liste <code>[1, [2, 3], [4, 5], 6, 7]</code> que faut <code>len(liste)</code> ?</p>
 </li>
 <li>
-<p>Que vaut <code>[2 * n for n in range(5)]</code></p>
+<p>Que vaut <code>[2 * n for n in range(5)]</code> ?</p>
 </li>
 <li>
 <p>Supposons que <code>liste = [-5, 2, 3, -7, 42, 7]</code></p>
@@ -6278,9 +6299,7 @@ en ajoutant <code>end=&quot; &quot;</code>, cela remplace le retour à la ligne 
   5. Détecter les erreurs dans les boucles et les listes.
   <a class="anchor" href="#5-d%c3%a9tecter-les-erreurs-dans-les-boucles-et-les-listes">#</a>
 </h2>
-<p>Pour chaque question suivante, on souhaite accomplir ce qui est décrit.
-Malheureusement tous ces codes sont faux. Rectifiez les afin qu&rsquo;ils réalisent
-ce qu&rsquo;on attend.</p>
+<p>Tous ces codes sont faux. Décrire les problèmes et les rectifier afin qu&rsquo;ils réalisent ce qu&rsquo;on attend.</p>
 <ol>
 <li>
 <p>Afficher les 10 premiers nombres pairs.</p>
@@ -6306,17 +6325,16 @@ figurer qu&rsquo;une fois au plus dans la liste finale.</p>
 </span></span><span style="display:flex;"><span>        voyelles_presentes<span style="color:#555">.</span>append(lettre)
 </span></span></code></pre></div></li>
 <li>
-<p>Calculer un capital après 10 années.</p>
-<p>Henri a déposé 1000€ sur son compte.
+<p>Calculer un capital après 10 années. Henri a déposé 1000€ sur son compte.
 Les intérêts sont annuels et composés, on augmente de 5% chaque année le
-montant du capital. Ensuite on affiche le montant du capital atteint.</p>
+montant du capital. Ensuite on affiche le montant du capital atteind.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>capital <span style="color:#555">=</span> <span style="color:#f60">1000</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> annee <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">10</span>):
 </span></span><span style="display:flex;"><span>    capital <span style="color:#555">+</span> <span style="color:#f60">0.05</span> <span style="color:#555">*</span> capital
 </span></span><span style="display:flex;"><span><span style="color:#366">print</span>(capital)
 </span></span></code></pre></div></li>
 <li>
-<p>Compter le tours de boucle jusqu&rsquo;à avoir atteint une valeur donnée et l&rsquo;afficher.</p>
+<p>Compter le tours de boucles jusqu&rsquo;à avoir atteint une valeur donnée et l&rsquo;afficher.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>seuil <span style="color:#555">=</span> <span style="color:#f60">200</span>
 </span></span><span style="display:flex;"><span>nombre_de_tours <span style="color:#555">=</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span>
@@ -6388,22 +6406,6 @@ au kilomètre carré.</li>
 </li>
 <li>
 <p>Boucles et dictionnaires.</p>
-<p>On a vu qu&rsquo;il existe trois syntaxes permettant d&rsquo;itérer sur les dictionnaires.</p>
-<p>Par exemple si <code>d</code> est un dictionnaire :</p>
-<ul>
-<li>
-<p>sur les <strong>clés</strong> :</p>
-<p><code>for cle in d: ...</code>  ou <code>for cle in dict.keys(): ...</code></p>
-</li>
-<li>
-<p>sur les <strong>valeurs</strong> :</p>
-<p><code>for valeur in d.values(): ...</code></p>
-</li>
-<li>
-<p>sur les paires (<strong>clé, valeur</strong>) :</p>
-<p><code>for cle, valeur in d.items()</code></p>
-</li>
-</ul>
 <ol>
 <li>
 <p>À l&rsquo;aide d&rsquo;une boucle, afficher toutes les clés du dictionnaire.</p>
@@ -6428,11 +6430,8 @@ au kilomètre carré.</li>
 </h2>
 <p>On modélise des informations (nom, taille et poids) sur des Pokémons de la
 façon suivante :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>exemple_pokemons <span style="color:#555">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Bulbizarre&#39;</span>: (<span style="color:#f60">70</span>, <span style="color:#f60">7</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Herbizarre&#39;</span>: (<span style="color:#f60">100</span>, <span style="color:#f60">13</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Ago&#39;</span>: (<span style="color:#f60">200</span>, <span style="color:#f60">7</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;Jungko&#39;</span>: (<span style="color:#f60">170</span>, <span style="color:#f60">52</span>)}
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>exemple_pokemons <span style="color:#555">=</span> {<span style="color:#c30">&#39;Bulbizarre&#39;</span>: (<span style="color:#f60">70</span>, <span style="color:#f60">7</span>),  <span style="color:#c30">&#39;Herbizarre&#39;</span>: (<span style="color:#f60">100</span>, <span style="color:#f60">13</span>),
+</span></span><span style="display:flex;"><span>                    <span style="color:#c30">&#39;Ago&#39;</span>:        (<span style="color:#f60">200</span>, <span style="color:#f60">7</span>), <span style="color:#c30">&#39;Jungko&#39;</span>:     (<span style="color:#f60">170</span>, <span style="color:#f60">52</span>)}
 </span></span></code></pre></div><p>Par exemple, Bulbizarre est un Pokémon qui mesure 70 cm et pèse 7 kg.</p>
 <ol>
 <li>
@@ -6478,18 +6477,13 @@ Pokémon.</p>
 <li>
 <p>Parmi les extraits de programme suivants, lesquels permettent de construire
 la liste des cinq premiers nombres impairs ?</p>
-<p>a.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>, <span style="color:#f60">7</span>, <span style="color:#f60">9</span>]
-</span></span></code></pre></div><p>b.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs <span style="color:#555">=</span> []
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs1 <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>, <span style="color:#f60">7</span>, <span style="color:#f60">9</span>]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs2 <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">5</span>):
 </span></span><span style="display:flex;"><span>        impairs<span style="color:#555">.</span>append(<span style="color:#f60">2</span> <span style="color:#555">*</span> n <span style="color:#555">+</span> <span style="color:#f60">1</span>)
-</span></span></code></pre></div><p>c.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs <span style="color:#555">=</span> [<span style="color:#f60">2</span> <span style="color:#555">*</span> n <span style="color:#555">+</span> <span style="color:#f60">1</span> <span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span>  <span style="color:#366">range</span>(<span style="color:#f60">5</span>)]
-</span></span></code></pre></div><p>d.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs <span style="color:#555">=</span> [n <span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">1</span>, <span style="color:#f60">11</span>, <span style="color:#f60">2</span>)]
-</span></span></code></pre></div><p>e.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs <span style="color:#555">=</span> []
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs3 <span style="color:#555">=</span> [<span style="color:#f60">2</span> <span style="color:#555">*</span> n <span style="color:#555">+</span> <span style="color:#f60">1</span> <span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span>  <span style="color:#366">range</span>(<span style="color:#f60">5</span>)]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs4 <span style="color:#555">=</span> [n <span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">1</span>, <span style="color:#f60">11</span>, <span style="color:#f60">2</span>)]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>impairs5 <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span>n <span style="color:#555">=</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> <span style="color:#366">len</span>(impairs) <span style="color:#555">!=</span> <span style="color:#f60">5</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">%</span> <span style="color:#f60">2</span> <span style="color:#555">==</span> <span style="color:#f60">1</span>:
@@ -6498,39 +6492,43 @@ la liste des cinq premiers nombres impairs ?</p>
 </span></span></code></pre></div></li>
 <li>
 <p>Donner plusieurs programmes permettant de construire la liste des
-25 premiers nombres pairs.</p>
+25 premiers multiples de 7.</p>
+</li>
+<li>
+<p>Construire par compréhension la liste <code>[31 ** 2, 41 ** 2, 51 ** 2, ..., 1311 ** 2, 1321 ** 2]</code></p>
 </li>
 <li>
 <p>a. Quelle est la valeur de <code>couples</code> à la fin de l&rsquo;exécution du programme
 suivant ?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lettres <span style="color:#555">=</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>]
-</span></span><span style="display:flex;"><span>nombres <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">5</span>]
-</span></span><span style="display:flex;"><span>couples <span style="color:#555">=</span> [(c, n) <span style="color:#069;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> lettres <span style="color:#069;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span> nombres]
-</span></span></code></pre></div><p>b. Proposer un programme qui permet de construire <code>couples</code> en utilisant
+<pre><code> ```python
+ lettres = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+ nombres = [1, 5]
+ couples = [(c, n) for c in lettres for n in nombres]
+ ```
+</code></pre>
+<p>b. Proposer un programme qui permet de construire <code>couples</code> en utilisant
 des boucles bornées.</p>
 </li>
 </ol>
-<h2 id="10-vérifier-un-carré-magique">
-  10. Vérifier un carré magique
-  <a class="anchor" href="#10-v%c3%a9rifier-un-carr%c3%a9-magique">#</a>
+<h2 id="9-vérifier-un-carré-magique">
+  9. Vérifier un carré magique
+  <a class="anchor" href="#9-v%c3%a9rifier-un-carr%c3%a9-magique">#</a>
 </h2>
-<p>Un carré d&rsquo;ordre $n$ est un tableau  carré contenant $n^2$ entiers
+<p>Un <strong>carré d&rsquo;ordre $n$</strong> est un tableau  carré contenant $n^2$ entiers
 strictement positifs.<br>
-On dit qu&rsquo;un carré d&rsquo;ordre $n$ est magique si :</p>
+On dit qu&rsquo;un carré d&rsquo;ordre $n$ est <strong>magique</strong> si :</p>
 <ul>
 <li>il contient tous les nombres entiers de $1$ à $n^2$</li>
 <li>les sommes des nombres de chaque rangée, de chaque colonne et de chaque
 diagonale principale sont égales.</li>
 </ul>
-<p>On modélie un carré par une liste de liste de nombres.</p>
-<p>Exemples :</p>
+<p>On modélie un carré par une liste de listes de nombres. Exemples :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>carre3 <span style="color:#555">=</span> [
 </span></span><span style="display:flex;"><span>     [<span style="color:#f60">2</span>, <span style="color:#f60">7</span>, <span style="color:#f60">6</span>],
 </span></span><span style="display:flex;"><span>     [<span style="color:#f60">9</span>, <span style="color:#f60">5</span>, <span style="color:#f60">1</span>],
 </span></span><span style="display:flex;"><span>     [<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">8</span>]
 </span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>carre4 <span style="color:#555">=</span> [
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>carre4 <span style="color:#555">=</span> [
 </span></span><span style="display:flex;"><span>     [ <span style="color:#f60">4</span>,  <span style="color:#f60">5</span>, <span style="color:#f60">11</span>, <span style="color:#f60">14</span>],
 </span></span><span style="display:flex;"><span>     [<span style="color:#f60">15</span>, <span style="color:#f60">10</span>,  <span style="color:#f60">8</span>,  <span style="color:#f60">1</span>],
 </span></span><span style="display:flex;"><span>     [ <span style="color:#f60">6</span>,  <span style="color:#f60">3</span>, <span style="color:#f60">13</span>, <span style="color:#f60">12</span>],
@@ -6545,30 +6543,34 @@ d. Quelle instruction permet de récupérer la valeur <code>3</code> de <code>ca
 </li>
 <li>
 <p>a. On propose le code suivant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">somme_ligne</span>(carre, n):
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    carre un tableau carré de nombres
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    n est un nombre entier
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> nombre <span style="color:#000;font-weight:bold">in</span> carre[n]:
-</span></span><span style="display:flex;"><span>        somme <span style="color:#555">=</span> somme <span style="color:#555">+</span> nombre
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> somme
-</span></span></code></pre></div><p>Que vaut <code>somme_ligne(carre4, 2)</code> ?</p>
-<p>À quoi sert cette fonction ?</p>
+<pre><code>```python
+def somme_ligne(carre: list, n: int) -&gt; int:
+    &quot;&quot;&quot;
+    carre un tableau carré de nombres
+    n est un nombre entier
+    &quot;&quot;&quot;
+    somme = 0
+    for nombre in carre[n]:
+        somme = somme + nombre
+    return somme
+```
+
+Que vaut `somme_ligne(carre4, 2)` ?
+À quoi sert cette fonction ?
+</code></pre>
 <p>b. Écrire le code d&rsquo;une fonction qui prend un carré en paramètre et qui
-vérifie que les sommes de nombres de chaque ligne sont égales.</p>
-<p>c. Proposer le code d&rsquo;une fonction d&rsquo;une fonction qui prend un carré
+vérifie que les sommes de nombres de chaque ligne sont égales.
+c. Proposer le code d&rsquo;une fonction d&rsquo;une fonction qui prend un carré
 en paramètre ainsi que le numéro d&rsquo;une colonne, et qui renvoie la somme
 des nombres de cette colonne.</p>
 </li>
 </ol>
-<p><strong>À noter :</strong> <em>Pour aller plus loin, écrivez une fonction <code>est_magique</code> qui
+<p><strong>Pour aller plus loin</strong> : <em>écrivez une fonction <code>est_magique</code> qui
 prend un carré en paramètre et renvoie <code>True</code> si le carré est magique et
 <code>False</code> sinon.</em></p>
-<h2 id="11-manipuler-des-listes-de-nombres">
-  11. Manipuler des listes de nombres
-  <a class="anchor" href="#11-manipuler-des-listes-de-nombres">#</a>
+<h2 id="10-manipuler-des-listes-de-nombres">
+  10. Manipuler des listes de nombres
+  <a class="anchor" href="#10-manipuler-des-listes-de-nombres">#</a>
 </h2>
 <p>On donne le code de la fonction suivante :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">mystere</span>(liste: <span style="color:#366">list</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
@@ -6585,7 +6587,7 @@ prend un carré en paramètre et renvoie <code>True</code> si le carré est magi
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> mystere([<span style="color:#f60">1</span>, <span style="color:#f60">6</span>, <span style="color:#f60">2</span>, <span style="color:#f60">9</span>])
 </span></span></code></pre></div><ol>
 <li>
-<p>Compléter le tabealu avec les valeurs des expressions à chaque passage
+<p>Compléter le tableau avec les valeurs des expressions à chaque passage
 par la ligne indiquée par le commentaire <code># ICI</code> lors de l&rsquo;appel à
 <code>mystere([1, 2, 6, 9])</code></p>
 <table>
@@ -6598,24 +6600,6 @@ par la ligne indiquée par le commentaire <code># ICI</code> lors de l&rsquo;app
 </tr>
 </thead>
 <tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 <tr>
 <td></td>
 <td></td>
@@ -6673,9 +6657,9 @@ par la ligne indiquée par le commentaire <code># ICI</code> lors de l&rsquo;app
 <p>Que fait la fonction <code>mystere</code> ?</p>
 </li>
 </ol>
-<h2 id="12-itérer-sur-les-éléments-dun-dictionnaire">
-  12. Itérer sur les éléments d&rsquo;un dictionnaire
-  <a class="anchor" href="#12-it%c3%a9rer-sur-les-%c3%a9l%c3%a9ments-dun-dictionnaire">#</a>
+<h2 id="11-itérer-sur-les-éléments-dun-dictionnaire">
+  11. Itérer sur les éléments d&rsquo;un dictionnaire
+  <a class="anchor" href="#11-it%c3%a9rer-sur-les-%c3%a9l%c3%a9ments-dun-dictionnaire">#</a>
 </h2>
 <p>Au zoo de Beauval, il y a 5 éléphants d&rsquo;Asie, 17 écureuils d&rsquo;Asie, 2 pandas
 d&rsquo;Asie&hellip;<br>
@@ -6692,21 +6676,28 @@ On représente cet inventaire à l&rsquo;aide d&rsquo;un dictionnaire, de la fa�
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;tigre&#39;</span>: (<span style="color:#c30">&#39;Asie&#39;</span>, <span style="color:#f60">7</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;girafe&#39;</span>: (<span style="color:#c30">&#39;Afrique&#39;</span>, <span style="color:#f60">11</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;hippopotame&#39;</span>: (<span style="color:#c30">&#39;Afrique&#39;</span>, <span style="color:#f60">3</span>)}
-</span></span></code></pre></div><p>On souhaite se doner d&rsquo;une fonction <code>plus_grand_nombre</code> qui prend un zoo
+</span></span></code></pre></div><ol>
+<li>
+<p>On souhaite se doner d&rsquo;une fonction <code>plus_grand_nombre</code> qui prend un zoo
 en paramètre et qui renvoie le nom de l&rsquo;animal le plus représenté dans ce zoo.</p>
 <p>Par exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> plus_grand_nombre(zoo_la_fleche) <span style="color:#555">==</span> <span style="color:#c30">&#39;girafe&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> plus_grand_nombre(zoo_beauval) <span style="color:#555">==</span> <span style="color:#c30">&#39;écureuil&#39;</span>
-</span></span></code></pre></div><ol>
-<li>
-<p>a. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p>
-<p>i. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>keys()
-</span></span></code></pre></div><p>ii. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> valeur <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>values()
-</span></span></code></pre></div><p>iii.  $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (cle, valeur) <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>items()
-</span></span></code></pre></div><p>iv. aucune boucle.</p>
+</span></span></code></pre></div><p>a. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p>
+<pre><code> ```python
+ for cle in dico.keys()
+ ```
+
+  ```python
+ for valeur in dico.values()
+ ```
+
+ ```python
+ for (cle, valeur) in dico.items()
+ ```
+
+ aucune boucle.
+</code></pre>
 <p>b. Écrire le code de cette fonction.</p>
 </li>
 <li>
@@ -6716,13 +6707,6 @@ d&rsquo;animaux originaires de ce continent dans le zoo. Par exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> nombre_total(zoo_beauval, <span style="color:#c30">&#39;Asie&#39;</span>) <span style="color:#555">==</span> <span style="color:#f60">24</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> nombre_total(zoo_la_fleche, <span style="color:#c30">&#39;Afrique&#39;</span>) <span style="color:#555">==</span> <span style="color:#f60">14</span>
 </span></span></code></pre></div><p>a. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p>
-<p>i.  $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>keys()
-</span></span></code></pre></div><p>ii. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> valeur <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>values()
-</span></span></code></pre></div><p>iii. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (cle, valeur) <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>items()
-</span></span></code></pre></div><p>iv. aucune boucle.</p>
 <p>b. Écrire le code de cette fonction.</p>
 </li>
 <li>
@@ -6732,13 +6716,6 @@ de cet animal dans le zoo. Par exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> nombre(zoo_la_fleche, <span style="color:#c30">&#39;panda&#39;</span>) <span style="color:#555">==</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> nombre(zoo_beauval, <span style="color:#c30">&#39;panda&#39;</span>) <span style="color:#555">==</span> <span style="color:#f60">2</span>
 </span></span></code></pre></div><p>a. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p>
-<p>i. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>keys()
-</span></span></code></pre></div><p>ii. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> valeur <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>values()
-</span></span></code></pre></div><p>iii. $\hspace{1cm}$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (cle, valeur) <span style="color:#000;font-weight:bold">in</span> dico<span style="color:#555">.</span>items()
-</span></span></code></pre></div><p>iv. aucune boucle.</p>
 <p>b. Écrire le code de cette fonction.</p>
 </li>
 </ol>
@@ -6759,18 +6736,12 @@ de cet animal dans le zoo. Par exemple :</p>
 <p>On modélise les notes d&rsquo;une élève de la façon suivante :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>notes_de_lea <span style="color:#555">=</span> [<span style="color:#f60">12</span>, <span style="color:#f60">14</span>, <span style="color:#f60">3</span>, <span style="color:#f60">16</span>, <span style="color:#f60">17</span>, <span style="color:#f60">2</span>, <span style="color:#f60">13</span>, <span style="color:#f60">19</span>]
 </span></span></code></pre></div><ol>
-<li>
-<p>Quel est le type de <code>notes_de_lea</code> ?</p>
-</li>
-<li>
-<p>Que vaut l&rsquo;expression <code>notes_de_lea[2]</code> ?</p>
-</li>
-<li>
-<p>Quelle instruction permet d&rsquo;ajouter une note de 15 à cette structure de
-données ?</p>
-</li>
-<li>
-<p>On propose le code suivant :</p>
+<li>Quel est le type de <code>notes_de_lea</code> ?</li>
+<li>Que vaut l&rsquo;expression <code>notes_de_lea[2]</code> ?</li>
+<li>Quelle instruction permet d&rsquo;ajouter une note de 15 à cette structure de
+données ?</li>
+<li>On propose le code suivant :</li>
+</ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">fonction</span>(liste_de_notes):
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    `liste_de_notes` est une liste de nombres qui modélise les notes d&#39;un
@@ -6788,17 +6759,11 @@ données ?</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>notes_de_lea <span style="color:#555">=</span> [<span style="color:#f60">12</span>, <span style="color:#f60">14</span>, <span style="color:#f60">3</span>, <span style="color:#f60">16</span>, <span style="color:#f60">17</span>, <span style="color:#f60">2</span>, <span style="color:#f60">13</span>, <span style="color:#f60">19</span>]
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> fonction(notes_de_lea) <span style="color:#555">==</span> <span style="color:#a00;background-color:#faa">???</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Quel est le type de retour de cette fonction ?</p>
-</li>
-<li>
-<p>Recopier et compléter la dernière de ce code.</p>
-</li>
-<li>
-<p>Recopier et compléter la dernière ligne de la documentation. On demande ici d&rsquo;expliquer
-en quelques mots ce que fait la fonction.</p>
-</li>
+</span></span></code></pre></div><ol>
+<li>Quel est le type de retour de cette fonction ?</li>
+<li>Recopier et compléter la dernière de ce code.</li>
+<li>Recopier et compléter la dernière ligne de la documentation. On demande ici d&rsquo;expliquer
+en quelques mots ce que fait la fonction.</li>
 </ol>
 <h3 id="partie-2--modélisation-avec-une-structure-de-données-imbriquées">
   Partie 2 : Modélisation avec une structure de données imbriquées
@@ -6827,15 +6792,18 @@ note.</p>
 <p>a. Proposer un test pour cette fonction.
 b. On donne le code mélangé de cette fonction. À vous de le remettre dans
 l&rsquo;ordre.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            note_max <span style="color:#555">=</span> note
-</span></span><span style="display:flex;"><span>    note_max <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">nom_du_genie</span>(les_notes):
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> genie
-</span></span><span style="display:flex;"><span>            genie <span style="color:#555">=</span> nom
-</span></span><span style="display:flex;"><span>    genie <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> note_max <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">None</span> <span style="color:#000;font-weight:bold">or</span> note <span style="color:#555">&gt;</span> note_max:
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> (nom, note) <span style="color:#000;font-weight:bold">in</span> les_notes:
-</span></span></code></pre></div><p>c. Que vaut l&rsquo;expression <code>nom_du_genie([])</code> ?</p>
+<pre><code> ```python
+             note_max = note
+     note_max = None
+ def nom_du_genie(les_notes):
+     return genie
+             genie = nom
+     genie = None
+         if note_max == None or note &gt; note_max:
+     for (nom, note) in les_notes:
+ ```
+</code></pre>
+<p>c. Que vaut l&rsquo;expression <code>nom_du_genie([])</code> ?</p>
 </li>
 </ol>
 <h3 id="partie-3--une-modélisation-plus-complète">
@@ -6880,9 +6848,8 @@ b. Écrire le code de cette fonction.</p>
 de données en paramètre et qui renvoie un dictionnaire dont les clés sont
 les noms des matières et les valeurs les notes obtenues par les élèves
 dans chaque matiere.</p>
-<p><em>Exemple</em> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> notes <span style="color:#555">=</span> {<span style="color:#c30">&#39;Emma&#39;</span>: (<span style="color:#c30">&#39;Math&#39;</span>, <span style="color:#f60">16</span>), <span style="color:#c30">&#39;Lucas&#39;</span>: (<span style="color:#c30">&#39;NSI&#39;</span>, <span style="color:#f60">14</span>), 
-</span></span><span style="display:flex;"><span>             <span style="color:#c30">&#39;Manon&#39;</span>: (<span style="color:#c30">&#39;NSI&#39;</span>, <span style="color:#f60">13</span>)}
+<p><em>Exemple</em> :\</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> notes <span style="color:#555">=</span> {<span style="color:#c30">&#39;Emma&#39;</span>: (<span style="color:#c30">&#39;Math&#39;</span>, <span style="color:#f60">16</span>), <span style="color:#c30">&#39;Lucas&#39;</span>: (<span style="color:#c30">&#39;NSI&#39;</span>, <span style="color:#f60">14</span>), <span style="color:#c30">&#39;Manon&#39;</span>: (<span style="color:#c30">&#39;NSI&#39;</span>, <span style="color:#f60">13</span>)}
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tri_par_matiere(notes)
 </span></span><span style="display:flex;"><span>{<span style="color:#c30">&#39;Math&#39;</span>: [<span style="color:#f60">16</span>], <span style="color:#c30">&#39;NSI&#39;</span>: [<span style="color:#f60">14</span>, <span style="color:#f60">13</span>]}
 </span></span></code></pre></div><p>Écrire le code de cette fonction.</p>
@@ -6995,9 +6962,9 @@ Inspirez-vous des codes proposés dans les autres questions.</li>
     <li><a href="#6-manipulation-de-dictionnaires">6. Manipulation de dictionnaires</a></li>
     <li><a href="#7-modéliser-des-pokémons-avec-des-dictionnaires-et-des-tuples">7. Modéliser des Pokémons avec des dictionnaires et des tuples</a></li>
     <li><a href="#8-construire-des-listes-en-compréhension">8. Construire des listes en compréhension</a></li>
-    <li><a href="#10-vérifier-un-carré-magique">10. Vérifier un carré magique</a></li>
-    <li><a href="#11-manipuler-des-listes-de-nombres">11. Manipuler des listes de nombres</a></li>
-    <li><a href="#12-itérer-sur-les-éléments-dun-dictionnaire">12. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
+    <li><a href="#9-vérifier-un-carré-magique">9. Vérifier un carré magique</a></li>
+    <li><a href="#10-manipuler-des-listes-de-nombres">10. Manipuler des listes de nombres</a></li>
+    <li><a href="#11-itérer-sur-les-éléments-dun-dictionnaire">11. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
   </ul>
 
   <ul>
