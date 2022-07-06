@@ -19,7 +19,7 @@ fonction (tableau T, objet x) ---&gt; booléen: Pour chaque élément e de T, Si
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0cdc4f42f72f370a70d79902e3f3829acd92cc3ec3acd96d24c75c1c43c3e2e6.js" integrity="sha256-DNxPQvcvNwpw15kC4/OCms2SzD7DrNltJMdcHEPD4uY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.e14a246f5bd6612b72ae91be7dd21a866bdbad033c36d00a43dd720f67216c92.js" integrity="sha256-4Uokb1vWYStyrpG&#43;fdIahmvbrQM8NtAKQ91yD2chbJI=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/td/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6146,6 +6146,12 @@ MathJax.Hub.Config({
     <li><a href="#9-puissance-de-2">9. Puissance de 2</a></li>
     <li><a href="#10-le-plus-vieux">10. Le plus vieux</a></li>
   </ul>
+
+  <ul>
+    <li><a href="#11-meilleur-ami">11. Meilleur ami</a></li>
+    <li><a href="#12-est-inclus">12. Est inclus</a></li>
+    <li><a href="#13-tester-si-un-nombre-est-palindromique">13. Tester si un nombre est palindromique</a></li>
+  </ul>
 </nav>
 
 
@@ -6371,7 +6377,142 @@ si un entier $n$ strictement positif est une puissance de 2.</li>
 <p>Traduire votre algorithme en Python.</p>
 </li>
 </ol>
-</article>
+<h1 id="autres-algorithmes">
+  Autres algorithmes
+  <a class="anchor" href="#autres-algorithmes">#</a>
+</h1>
+<h2 id="11-meilleur-ami">
+  11. Meilleur ami
+  <a class="anchor" href="#11-meilleur-ami">#</a>
+</h2>
+<p>On a demandé aux enfants d&rsquo;une classe le nom de leur meilleur ami. On a enregistré tous les noms dans un dictionnaire :</p>
+<p>Par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>exemple_1 <span style="color:#555">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Pierre&#34;</span>: <span style="color:#c30">&#34;Paul&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Fanny&#34;</span>: <span style="color:#c30">&#34;Léa&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Chloe&#34;</span>: <span style="color:#c30">&#34;Sadia&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Paul&#34;</span>: <span style="color:#c30">&#34;Léna&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Léa&#34;</span>: <span style="color:#c30">&#34;Sadia&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Léna&#34;</span>: <span style="color:#c30">&#34;Chloé&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Sadia&#34;</span>: <span style="color:#c30">&#34;Léna&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tous les enfants ont été interrogés et ils ont tous donné le prénom d&rsquo;un élève de la classe.
+On suppose que tous les enfants ont un prénom différent.</p>
+<p>On voudrait s&rsquo;assurer que chaque enfant est <em>le meilleur ami</em> d&rsquo;un autre et qu&rsquo;aucun n&rsquo;est isolé dans la classe.</p>
+<p>Partons d&rsquo;une situation simple :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>exemple_2 <span style="color:#555">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Pierre&#34;</span>: <span style="color:#c30">&#34;Paul&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Paul&#34;</span>: <span style="color:#c30">&#34;Pierre&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;Jacques&#34;</span>: <span style="color:#c30">&#34;Pierre&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Dans cet exemple, Jacques n&rsquo;est le meilleur ami de personne&hellip;</p>
+<p>On décide de tester ainsi :</p>
+<ol>
+<li>On crée une liste des amis <code>l</code>.</li>
+<li>On part d&rsquo;un prénom au hasard <code>p</code>.</li>
+<li>On consulte le meilleur ami de <code>p</code> noté <code>a</code>.</li>
+<li>Tant que <code>a</code> n&rsquo;est pas déja dans <code>l</code>, on l&rsquo;ajoute à <code>l</code> et <code>p = a</code></li>
+<li>On recommence à l&rsquo;étape 3.</li>
+</ol>
+<p><em>Questions</em></p>
+<ol>
+<li>Cet algorithme s&rsquo;arrête-il toujours ?</li>
+<li>Que produit-il comme liste <code>l</code> pour l&rsquo;exemple 2 si on a choisi de commencer par &ldquo;Pierre&rdquo; ? Par &ldquo;Jacques&rdquo; ?</li>
+<li>Comment peut-on savoir que &ldquo;Jacques&rdquo; n&rsquo;est le meilleur ami de personne ?</li>
+<li>Faire tourner l&rsquo;algorithme pour l&rsquo;exemple 1 en partant de Pierre. Relever les <code>amis</code>.</li>
+<li>Quels enfants ne sont pas cités à cette étape ?</li>
+<li>Choisir un enfant non cité et recommencer <em>en maintenant la liste des amis produite à l&rsquo;étape précédente</em>.</li>
+<li>S&rsquo;il reste des enfants non cités, recommencer en partant d&rsquo;eux.</li>
+<li>En appliquant cet algorithme assez de fois, on peut être certain de connaître tous les &ldquo;meilleurs amis&rdquo;.
+Comparer la liste des amis à celle des élèves, on devrait pouvoir repérer ceux qui ne sont le meileur ami de personne <code>:_(</code></li>
+</ol>
+<p><strong>Beaucoup plus efficace avec les outils natifs de python.</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>eleves <span style="color:#555">=</span> <span style="color:#366">set</span>(exemple_1<span style="color:#555">.</span>keys())
+</span></span><span style="display:flex;"><span>amis <span style="color:#555">=</span> <span style="color:#366">set</span>(exemple_2<span style="color:#555">.</span>values())
+</span></span><span style="display:flex;"><span>isoles <span style="color:#555">=</span> eleves<span style="color:#555">.</span>difference(amis)
+</span></span></code></pre></div><p>Un <code>set</code> (<em>ensemble</em>) est une structure qui permet d&rsquo;enregistrer des éléments sans ordre
+particulier et sans doublon.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s <span style="color:#555">=</span> <span style="color:#366">set</span>()
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s<span style="color:#555">.</span>add(<span style="color:#c30">&#34;Jean&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#39;Jean&#39;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s<span style="color:#555">.</span>add(<span style="color:#c30">&#34;Pierre&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#39;Pierre&#39;</span>, <span style="color:#c30">&#39;Jean&#39;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s<span style="color:#555">.</span>add(<span style="color:#c30">&#34;Jean&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> s
+</span></span><span style="display:flex;"><span>{<span style="color:#c30">&#39;Pierre&#39;</span>, <span style="color:#c30">&#39;Jean&#39;</span>}
+</span></span></code></pre></div><p>La méthode <code>.difference</code> renvoie les éléments du premier <code>set</code> qui ne sont pas dans le second <code>set</code>.</p>
+<p>Ainsi, on obtient immédiatement les noms des enfants non cités.</p>
+<h2 id="12-est-inclus">
+  12. Est inclus
+  <a class="anchor" href="#12-est-inclus">#</a>
+</h2>
+<p>L&rsquo;ADN peut être représenté par une chaine de caractères formée avec les lettres <code>A</code>, <code>T</code>, <code>G</code>, <code>C</code>.</p>
+<ul>
+<li>Un <strong>brin</strong> est un petit morceau d&rsquo;ADN, que l&rsquo;on retrouve parfois dans</li>
+<li>un <strong>gène</strong> qui est une grande séquence d&rsquo;ADN.</li>
+</ul>
+<p>La fonction <code>est_inclus</code> prend en paramètres deux chaines de caractères <code>brin</code> et <code>gene</code> et renvoie la réponse, un booléen, à la question « Retrouve-t-on <code>brin</code> inclus dans <code>gene</code> ? ».</p>
+<p>Cette fonction utilise une fonction auxiliaire : <code>correspond(motif, chaine, position)</code> qui renvoie <code>True</code> si on retrouve <code>motif</code> exactement à partir de <code>position</code> dans <code>chaine</code> et <code>False</code> sinon.</p>
+<p>Compléter le code Python ci-dessous.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">correspond</span>(motif, chaine, position):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> <span style="color:#555">...</span> <span style="color:#555">&gt;</span> <span style="color:#366">len</span>(chaine):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(motif)):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> chaine[position <span style="color:#555">+</span> <span style="color:#555">...</span>] <span style="color:#555">!=</span> <span style="color:#555">...</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_inclus</span>(brin, gene):
+</span></span><span style="display:flex;"><span>    taille_gene <span style="color:#555">=</span> <span style="color:#366">len</span>(gene)
+</span></span><span style="display:flex;"><span>    taille_brin <span style="color:#555">=</span> <span style="color:#366">len</span>(brin)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#555">...</span> <span style="color:#555">-</span> <span style="color:#555">...</span> <span style="color:#555">+</span> <span style="color:#f60">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> correspond(<span style="color:#555">...</span>, <span style="color:#555">...</span>, <span style="color:#555">...</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># tests</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> correspond(<span style="color:#c30">&#34;AA&#34;</span>, <span style="color:#c30">&#34;AAGGTTCC&#34;</span>, <span style="color:#f60">4</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> correspond(<span style="color:#c30">&#34;AT&#34;</span>, <span style="color:#c30">&#34;ATGCATGC&#34;</span>, <span style="color:#f60">4</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_inclus(<span style="color:#c30">&#34;AATC&#34;</span>, <span style="color:#c30">&#34;GTACAAATCTTGCC&#34;</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_inclus(<span style="color:#c30">&#34;AGTC&#34;</span>, <span style="color:#c30">&#34;GTACAAATCTTGCC&#34;</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_inclus(<span style="color:#c30">&#34;AGTC&#34;</span>, <span style="color:#c30">&#34;GTACAAATCTTGCA&#34;</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_inclus(<span style="color:#c30">&#34;AGTC&#34;</span>, <span style="color:#c30">&#34;GTACAAATCTAGTC&#34;</span>) <span style="color:#555">==</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span></code></pre></div><h2 id="13-tester-si-un-nombre-est-palindromique">
+  13. Tester si un nombre est palindromique
+  <a class="anchor" href="#13-tester-si-un-nombre-est-palindromique">#</a>
+</h2>
+<p>Un mot palindrome peut se lire de la même façon de gauche à droite ou de droite à
+gauche : <code>'esse'</code>, <code>'radar'</code>, et <code>'non'</code> sont des mots palindromes.</p>
+<p>De même certains nombres sont eux-aussi palindromiques : $33$, $121$, $345543$.</p>
+<p>L&rsquo;objectif de cet exercice est d&rsquo;obtenir un programme Python permettant de tester si un nombre est palindromique, quand sa représentation décimale est un palindrome.</p>
+<p>Pour remplir cette tâche, on vous demande de compléter le code des trois fonctions ci-dessous sachant que la fonction <code>est_palindromique</code> s&rsquo;appuiera sur la fonction <code>est_palindrome</code> qui elle-même s&rsquo;appuiera sur la fonction <code>inverse_chaine</code>.</p>
+<p>La fonction <code>inverse_chaine</code> inverse l&rsquo;ordre des caractères d&rsquo;une chaine de caractères <code>chaine</code> et renvoie la chaine inversée.</p>
+<p>La fonction <code>est_palindrome</code> teste si une chaine de caractères <code>chaine</code> est un
+palindrome. Elle renvoie <code>True</code> si c&rsquo;est le cas et <code>False</code> sinon. Cette fonction s&rsquo;appuie sur la fonction précédente.</p>
+<p>La fonction <code>est_palindromique</code> teste si un nombre <code>nombre</code> est palindromique. Elle renvoie <code>True</code> si c&rsquo;est le cas et <code>False</code> sinon. Cette fonction s&rsquo;appuie sur la fonction précédente.</p>
+<p>Compléter le code des trois fonctions ci-dessous.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">inverse_chaine</span>(chaine):
+</span></span><span style="display:flex;"><span>    resultat <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> caractere <span style="color:#000;font-weight:bold">in</span> chaine:
+</span></span><span style="display:flex;"><span>        resultat <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> resultat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_palindrome</span>(chaine):
+</span></span><span style="display:flex;"><span>    inverse <span style="color:#555">=</span> inverse_chaine(chaine)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_palindromique</span>(nombre):
+</span></span><span style="display:flex;"><span>    chaine <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> est_palindrome(chaine)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># tests</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> inverse_chaine(<span style="color:#c30">&#39;bac&#39;</span>) <span style="color:#555">==</span> <span style="color:#c30">&#39;cab&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> est_palindrome(<span style="color:#c30">&#39;NSI&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_palindrome(<span style="color:#c30">&#39;ISN-NSI&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> est_palindromique(<span style="color:#f60">214312</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> est_palindromique(<span style="color:#f60">213312</span>)
+</span></span></code></pre></div></article>
 
                 
 
@@ -6454,6 +6595,12 @@ si un entier $n$ strictement positif est une puissance de 2.</li>
     <li><a href="#8-correction-de-lalgorithme-factorielle">8. Correction de l&rsquo;algorithme <code>factorielle</code></a></li>
     <li><a href="#9-puissance-de-2">9. Puissance de 2</a></li>
     <li><a href="#10-le-plus-vieux">10. Le plus vieux</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#11-meilleur-ami">11. Meilleur ami</a></li>
+    <li><a href="#12-est-inclus">12. Est inclus</a></li>
+    <li><a href="#13-tester-si-un-nombre-est-palindromique">13. Tester si un nombre est palindromique</a></li>
   </ul>
 </nav>
 
