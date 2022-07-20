@@ -18,7 +18,7 @@ JavaScript a été créé en dix jours par Brendan Eich en 1995. Malgré son nom
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5db679fd1a8849aced0f53874b810ea65a07419190fde8f849c027d469de45d5.js" integrity="sha256-XbZ5/RqISaztD1OHS4EOploHQZGQ/ej4ScAn1GneRdU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.99e1c45fcbc9016963e7ae14c9208f9027f0f8fcec2fb521342d1fc61b9b43b6.js" integrity="sha256-meHEX8vJAWlj564UySCPkCfw&#43;PzsL7UhNC0fxhubQ7Y=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/js/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6174,7 +6174,11 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#éléments-de-syntaxe">Éléments de syntaxe</a></li>
     <li><a href="#modifier-les-attributs-html">Modifier les attributs html</a></li>
     <li><a href="#intéractivité">Intéractivité</a></li>
-    <li><a href="#programmation-_événementielle_">Programmation <em>événementielle</em></a></li>
+    <li><a href="#programmation-_événementielle_">Programmation <em>événementielle</em></a>
+      <ul>
+        <li><a href="#challenge-">Challenge :</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -6303,13 +6307,13 @@ par exemple :</p>
 <li>
 <p>conditions</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> (condition) {
-</span></span><span style="display:flex;"><span>    inscrution;
-</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  inscrution;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
 <li>
 <p>boucles</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> (<span style="color:#069;font-weight:bold">let</span> i <span style="color:#555">=</span> <span style="color:#f60">0</span>; i <span style="color:#555">&lt;</span> <span style="color:#f60">10</span>; i<span style="color:#555">++</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic">// corps de la boucle
+</span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic">// corps de la boucle
 </span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>}
 </span></span></code></pre></div><p>Pour <code>i</code> entre 0 et 9 et progressant de 1.</p>
 <p>Équivalent à :</p>
@@ -6416,12 +6420,12 @@ celles-ci n&rsquo;étant pas définies&hellip; il ne se passe rien.</p>
 </span></span><span style="display:flex;"><span>      monPara.classList.add(<span style="color:#c30">&#34;rouge&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">function</span> foncRouge() {
-</span></span><span style="display:flex;"><span>          monPara.classList.remove(<span style="color:#c30">&#34;vert&#34;</span>);
-</span></span><span style="display:flex;"><span>          monPara.classList.add(<span style="color:#c30">&#34;rouge&#34;</span>);
+</span></span><span style="display:flex;"><span>        monPara.classList.remove(<span style="color:#c30">&#34;vert&#34;</span>);
+</span></span><span style="display:flex;"><span>        monPara.classList.add(<span style="color:#c30">&#34;rouge&#34;</span>);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">function</span> foncVert() {
-</span></span><span style="display:flex;"><span>          monPara.classList.remove(<span style="color:#c30">&#34;rouge&#34;</span>);
-</span></span><span style="display:flex;"><span>          monPara.classList.add(<span style="color:#c30">&#34;vert&#34;</span>);
+</span></span><span style="display:flex;"><span>        monPara.classList.remove(<span style="color:#c30">&#34;rouge&#34;</span>);
+</span></span><span style="display:flex;"><span>        monPara.classList.add(<span style="color:#c30">&#34;vert&#34;</span>);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">script</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
@@ -6429,8 +6433,8 @@ celles-ci n&rsquo;étant pas définies&hellip; il ne se passe rien.</p>
 </span></span></code></pre></div><p><a href="https://jsfiddle.net/28fLbc6h/">jsfiddle</a></p>
 <p>Remarquons d&rsquo;abord la syntaxe des fonctions (il en existe d&rsquo;autres) :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> maFonction() {
-</span></span><span style="display:flex;"><span>    inscrutions;
-</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  inscrutions;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Que font ces fonctions :</p>
 <ul>
 <li>la première retire la classe <code>&quot;vert&quot;</code> et ajoute la classe <code>&quot;rouge&quot;</code></li>
@@ -6447,6 +6451,20 @@ lorsqu&rsquo;on clique sur les boutons.</p>
 <p>Python utilise la programmation <em>séquentielle</em> où les lignes sont exécutées les
 une après les autres. L&rsquo;exécution d&rsquo;une fonction est donc prédite par
 le contenu du programme.</p>
+<p>JavaScript utilise la programmation <em>événementielle</em> dans laquelle l&rsquo;exécution
+d&rsquo;actions est déclenchée automatiquement lorsqu&rsquo;un <em>événement</em> survient. Un
+<em>événement</em> correspond en général à un changement d&rsquo;état dans l&rsquo;univers, ou bien
+à une intervention explicite de l&rsquo;utilisateur (ou d&rsquo;un système externe).
+La programmation événementielle est souvent utilisée dans les cas suivants :</p>
+<ul>
+<li>
+<p>La programmation d&rsquo;automates (systèmes de régulation par exemple) Par exemple :</p>
+<p><code>température &lt; 20 → déclencher chauffage</code> ;</p>
+</li>
+<li>
+<p>La programmation d&rsquo;interface graphique. En effet, chaque action de l&rsquo;utilsateur (clic souris, etc.) peut être vu comme un événement.</p>
+</li>
+</ul>
 <p>Le programme sera principalement défini par ses réactions aux différents
 événements qui peuvent se produire, c&rsquo;est-à-dire des changements d&rsquo;état de
 variable, par exemple l&rsquo;incrémentation d&rsquo;une liste, un déplacement ou un click
@@ -6460,13 +6478,23 @@ de souris, une saisie au clavier&hellip;</p>
 soit toujours vert, sauf quand la souris le survole auquel cas il devient rouge.</p>
 <p><a href="https://jsfiddle.net/3wdxbs4y/">jsfiddle</a></p>
 <p>Il existe beaucoup d&rsquo;autres événements que nous n&rsquo;aborderons pas ici.
-Si vous voulez en savoir plus, vous pouvez consulter <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">ce
-site</a>.</p>
+Si vous voulez en savoir plus, vous pouvez consulter
+<a href="https://www.w3schools.com/tags/ref_eventattributes.asp">ce site</a>.</p>
 <p>En résumé, le code HTML permet de générer des éléments graphiques qui
 seront affichés par un navigateur web, mais pas seulement : il est aussi
 possible de mettre en place dans le code HTML des événements. Un
 événement donné pourra déclencher l&rsquo;exécution d&rsquo;instructions
 JavaScript.</p>
+<h3 id="challenge-">
+  Challenge :
+  <a class="anchor" href="#challenge-">#</a>
+</h3>
+<ol>
+<li>Se renseigner sur les événements liés au clavier.</li>
+<li>Créer une page présentant un simple texte de taille de police 10pt.</li>
+<li>Créer un événement qui augmente la taille de la police de 1 pt à chaque fois que l&rsquo;utilisateur appuie sur espace.</li>
+<li>Instaurer une limite, si la taille dépasse 48pt, on revient à 10.</li>
+</ol>
 </article>
 
                 
@@ -6535,7 +6563,11 @@ JavaScript.</p>
     <li><a href="#éléments-de-syntaxe">Éléments de syntaxe</a></li>
     <li><a href="#modifier-les-attributs-html">Modifier les attributs html</a></li>
     <li><a href="#intéractivité">Intéractivité</a></li>
-    <li><a href="#programmation-_événementielle_">Programmation <em>événementielle</em></a></li>
+    <li><a href="#programmation-_événementielle_">Programmation <em>événementielle</em></a>
+      <ul>
+        <li><a href="#challenge-">Challenge :</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
