@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf
-Représentation d’un texte en machine # La mémoire ne contient que des 0 et des 1, ainsi lorsqu&rsquo;on voit une lettre à l&rsquo;écran, en mémoire c&rsquo;est un entier qui est encode ce caractère. Différents encodages existent, nous allons les étudier.
+Représentation d’un texte en machine # La mémoire ne contient que des 0 et des 1, ainsi lorsqu&rsquo;on voit une lettre à l&rsquo;écran, en mémoire c&rsquo;est un entier qui encode ce caractère. Différents encodages existent, nous allons les étudier.
 Un caractère ? # Comment enregistrer, de manière optimale, du texte en mémoire ?
 De combien de symboles a-t-on besoin ?
 26 lettres dans l&rsquo;alphabet, 52 avec les majuscules. 10 chiffres 0123456789 Un peu de ponctuation : ,;:!">
@@ -20,7 +20,7 @@ De combien de symboles a-t-on besoin ?
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.99e1c45fcbc9016963e7ae14c9208f9027f0f8fcec2fb521342d1fc61b9b43b6.js" integrity="sha256-meHEX8vJAWlj564UySCPkCfw&#43;PzsL7UhNC0fxhubQ7Y=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.548ca9bc548aaee22f1f02c426e42322caf70e11dc59284fb7463e44a84bae5b.js" integrity="sha256-VIypvFSKruIvHwLEJuQjIsr3DhHcWShPt0Y&#43;RKhLrls=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/chaines_caracteres/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6238,7 +6238,7 @@ MathJax.Hub.Config({
 </h1>
 <blockquote class="book-hint info">
   La mémoire ne contient que des 0 et des 1, ainsi lorsqu&rsquo;on voit une lettre à l&rsquo;écran, en mémoire c&rsquo;est <em>un entier</em>
-qui est <em>encode</em> ce caractère.
+qui <em>encode</em> ce caractère.
 </blockquote>
 
 <p>Différents encodages existent, nous allons les étudier.</p>
@@ -6269,7 +6269,7 @@ qui est <em>encode</em> ce caractère.
 <ul>
 <li>Tout élément de la table est codé sur 7 bits, 1 octet par caractère suffit</li>
 <li>Les caractères codés entre 32 et 127 sont imprimables, les autres sont des caractères de contrôle.</li>
-<li>Certains caractères de contrôle ont un effet sur le texte comme le numéro 9 : <code>\t</code> (tabulation) ou le 10 :  <code>\n</code> (retour à la ligne).</li>
+<li>Certains caractères de contrôle ont un effet sur le texte comme le numéro 9 : <code>\t</code> (tabulation) ou le 10 : <code>\n</code> (retour à la ligne).</li>
 <li>Les chiffres commencent à $30_{16}$, les majuscules à $41_{16}$ et les minuscules à $61_{16}$</li>
 <li>Pour obtenir la notation binaire, on part de l&rsquo;hexa.<br>
 Premier chiffre : 3 bits, second chiffre 4 bits
@@ -6303,6 +6303,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <th><code>d</code></th>
 <th><code>e</code></th>
 <th><code>f</code></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -6324,6 +6325,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td>-</td>
 <td>.</td>
 <td>/</td>
+<td></td>
 </tr>
 <tr>
 <td><code>0x3.</code></td>
@@ -6343,6 +6345,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td>=</td>
 <td>&gt;</td>
 <td>?</td>
+<td></td>
 </tr>
 <tr>
 <td><code>0x4.</code></td>
@@ -6362,6 +6365,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td>M</td>
 <td>N</td>
 <td>O</td>
+<td></td>
 </tr>
 <tr>
 <td><code>0x5.</code></td>
@@ -6381,6 +6385,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td>]</td>
 <td>^</td>
 <td>_</td>
+<td></td>
 </tr>
 <tr>
 <td><code>0x6.</code></td>
@@ -6400,6 +6405,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td>m</td>
 <td>n</td>
 <td>o</td>
+<td></td>
 </tr>
 <tr>
 <td><code>0x7.</code></td>
@@ -6419,6 +6425,7 @@ $$s \rightarrow 73_{16} \rightarrow 7\times 16 + 3 \rightarrow 0111~0011$$</li>
 <td></td>
 <td>}</td>
 <td>~</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -6465,7 +6472,7 @@ il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
   iso-8859-1 ou iso-Latin-1
   <a class="anchor" href="#iso-8859-1-ou-iso-latin-1">#</a>
 </h2>
-<p>Comment compléter la table ASCII  ?</p>
+<p>Comment compléter la table ASCII ?</p>
 <p>L&rsquo;encodage iso-8859-1, dit iso-Latin-1 est apparu en 1986 et correspond à l&rsquo;Europe de l&rsquo;ouest.
 D&rsquo;autres versions pour les caractères iso-Latin-2 de l&rsquo;Europe de l&rsquo;est etc.</p>
 <ul>
@@ -6512,7 +6519,7 @@ l&rsquo;échange de documents et développement de logiciels <strong>plus que p�
 <details  class="no-outline"><summary class="no-outline"></summary>
     <div class="markdown-inner">
         <p>Bob est aux USA et saisit un message pour Alice, au Royaume Uni :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Bob ---&gt; Alice 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Bob ---&gt; Alice
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt; Je t&#39;envoie 100$
 </span></span></code></pre></div><p>Sur son écran Alice voit apparaître :</p>
@@ -6542,10 +6549,10 @@ l&rsquo;échange de documents et développement de logiciels <strong>plus que p�
 <li>
 <p>Les premiers bits indiquent la taille de la séquence :</p>
 <ul>
-<li><code>0xxxxxxx                             : 1 octet</code></li>
-<li><code>110xxxxx 10xxxxxxxx                  : 2 octets</code></li>
-<li><code>1110xxxx 10xxxxxx 10xxxxxx           : 3 octets</code></li>
-<li><code>11110xxx 1001xxxx 10xxxxxx 10xxxxxx  : 4 octets</code></li>
+<li><code>0xxxxxxx : 1 octet</code></li>
+<li><code>110xxxxx 10xxxxxxxx : 2 octets</code></li>
+<li><code>1110xxxx 10xxxxxx 10xxxxxx : 3 octets</code></li>
+<li><code>11110xxx 1001xxxx 10xxxxxx 10xxxxxx : 4 octets</code></li>
 </ul>
 </li>
 <li>
@@ -6715,13 +6722,13 @@ par exemple).</p>
 indique en binaire l&rsquo;équivalence de ces 3 octets. La transformation consiste
 comme on peut le voir, à séparer les bits pour former en sortie 4 groupes de 6
 bits :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 8 bits   8 bits   8 bits  &lt;=&gt; 6 bits 6 bits 6 bits 6 bits 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 8 bits   8 bits   8 bits  &lt;=&gt; 6 bits 6 bits 6 bits 6 bits
 </span></span><span style="display:flex;"><span>    H       i        !
 </span></span><span style="display:flex;"><span>01001000 01101001 00100001 &lt;=&gt; 010010 000110 100100 100001
 </span></span><span style="display:flex;"><span>                                 S      G      k      h
 </span></span></code></pre></div><p>Les 4 groupes de 6 bits en sortie nous donnent les valeurs 18, 6, 36 et 33.
 Ainsi en suivant la correspondance de la table indexée nous obtenons les 4
-caractères  &ldquo;SGkh&rdquo;</p>
+caractères &ldquo;SGkh&rdquo;</p>
 <p>Avec la commande base64 sous Linux :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#366">echo</span> -n <span style="color:#c30">&#39;Hi!&#39;</span> | base64
 </span></span><span style="display:flex;"><span>
@@ -6745,7 +6752,7 @@ caractères  &ldquo;SGkh&rdquo;</p>
 de 24, on complète avec un ou deux symboles <code>=</code>.
 Par exemple la chaîne &ldquo;Salut&rdquo; :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>S        a        l        u        t
-</span></span><span style="display:flex;"><span>01010011 01100001 01101100 01110101 01110100 
+</span></span><span style="display:flex;"><span>01010011 01100001 01101100 01110101 01110100
 </span></span><span style="display:flex;"><span>010100 110110 000101 101100 011101 010111 010000 ?????? (nombre de bits multiple de 24)
 </span></span><span style="display:flex;"><span>U      2      F      s      d      X      Q      =
 </span></span></code></pre></div></article>
