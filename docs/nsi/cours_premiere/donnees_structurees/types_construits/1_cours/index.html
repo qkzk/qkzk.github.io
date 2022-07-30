@@ -19,7 +19,7 @@ Manipuler les tuples # Les tuples ne sont pas mutables : on ne peut en changer l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.16d605a00468e118650928e62309f1995fa17511a72df8c07a8ceb63e6b51e9b.js" integrity="sha256-FtYFoARo4RhlCSjmIwnxmV&#43;hdRGnLfjAeozrY&#43;a1Hps=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.8668b6d7081ad48ad0eb0cdbbe4aadb2d67cb81007774e06e8f005e72a1c598f.js" integrity="sha256-hmi21wga1IrQ6wzbvkqtstZ8uBAHd04G6PAF5yocWY8=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -1180,7 +1180,28 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-f6a13975e713450fe55f3a8d9f81a203" class="toggle"  />
     <label for="section-f6a13975e713450fe55f3a8d9f81a203" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/python/introduction_td/" class="">Travaux dirigés</a>
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/python/introduction_td/" class="">TP introduction</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9cb483f9bc1e57b73bbb3e5fa321eea3" class="toggle"  />
+    <label for="section-9cb483f9bc1e57b73bbb3e5fa321eea3" class="flex justify-between">
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/python/tp_suite/" class="">TD compléments</a>
     </label>
   
 
@@ -6204,6 +6225,12 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#dictionnaire-par-compréhension">Dictionnaire par compréhension.</a></li>
+    <li><a href="#list--dict-python--comparaison"><code>list</code> &amp; <code>dict</code> Python : comparaison</a>
+      <ul>
+        <li><a href="#vitesses">Vitesses</a></li>
+        <li><a href="#implantation">Implantation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -6479,7 +6506,39 @@ sont des collections. Cela signifie qu&rsquo;on peut itérer dessus.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f60">2</span>: <span style="color:#f60">4</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f60">3</span>: <span style="color:#f60">9</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></article>
+</span></span></code></pre></div><h2 id="list--dict-python--comparaison">
+  <code>list</code> &amp; <code>dict</code> Python : comparaison
+  <a class="anchor" href="#list--dict-python--comparaison">#</a>
+</h2>
+<p>Ces deux structures ont des points communs :</p>
+<ul>
+<li>Collection d&rsquo;objets</li>
+<li>Accéder à un élément avec <code>collection[ obj ]</code></li>
+<li>Effacer avec <code>del collection[ ob ]</code></li>
+<li>Itérer avec <code>for obj in collection: ...</code></li>
+</ul>
+<p>Mais aussi des différences majeures</p>
+<ul>
+<li>Les <code>dict</code> sont beaucoup plus complexes que les <code>list</code></li>
+<li>L&rsquo;itération est rapide pour une <code>list</code>, très lente pour un <code>dict</code></li>
+<li>Les <code>dict</code> n&rsquo;ont pas d&rsquo;ordre : pas de premier, second, dernier élément&hellip;</li>
+</ul>
+<h3 id="vitesses">
+  Vitesses
+  <a class="anchor" href="#vitesses">#</a>
+</h3>
+<p>Généralement, les <code>list</code> sont beaucoup plus rapides que les <code>dict</code>.</p>
+<p>Une exception majeure, l&rsquo;appartenance : <code>obj in collecion</code>. Plus rapide pour les dict que les list.</p>
+<p>Pour les <code>list</code> il faut tout parcourir et comparer élément par élément, pour les <code>dict</code> c&rsquo;est en temps constant.</p>
+<h3 id="implantation">
+  Implantation
+  <a class="anchor" href="#implantation">#</a>
+</h3>
+<p>Les <code>list</code> python sont des <em>tableaux dynamiques</em> mutables qui acceptent des éléments de n&rsquo;importe quel type.</p>
+<p>Les <code>dict</code> python sont des <em>tableaux d&rsquo;associations</em> mutables dans lesquels on ne peut ajouter que des clés <em>non mutables</em>.
+Par exemple <code>(1, 2)</code> peut être un clé de dictionnaire mais <code>[1, 2]</code> ne le peut.</p>
+<p>Le type <code>dict</code> fait l&rsquo;objet d&rsquo;un chapitre complet de terminale aussi on s&rsquo;arrête là.</p>
+</article>
 
                 
 
@@ -6576,6 +6635,12 @@ sont des collections. Cela signifie qu&rsquo;on peut itérer dessus.</p>
       </ul>
     </li>
     <li><a href="#dictionnaire-par-compréhension">Dictionnaire par compréhension.</a></li>
+    <li><a href="#list--dict-python--comparaison"><code>list</code> &amp; <code>dict</code> Python : comparaison</a>
+      <ul>
+        <li><a href="#vitesses">Vitesses</a></li>
+        <li><a href="#implantation">Implantation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
