@@ -6727,8 +6727,8 @@ MathJax.Hub.Config({
 <p>À chaque fois, on veut connaître l&rsquo;état de tous les registres modifiés durant le programme à la fin de celui ci.</p>
 <p>Lorsque le registre n&rsquo;est pas modifié, inutile de le préciser.</p>
 <p>Exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>25
-</span></span><span style="display:flex;"><span>ADD R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>12
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">25</span>
+</span></span><span style="display:flex;"><span>ADD R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">12</span>
 </span></span></code></pre></div><ul>
 <li><code>RO</code> contient 25</li>
 <li><code>R1</code> contient $25+12=37$</li>
@@ -6791,8 +6791,8 @@ et recommencer.</p>
 </span></span><span style="display:flex;"><span>       SUB R3<span style="color:#555">,</span> R1<span style="color:#555">,</span> R2
 </span></span><span style="display:flex;"><span>       STR R3<span style="color:#555">,</span> a
 </span></span><span style="display:flex;"><span>       HALT
-</span></span><span style="display:flex;"><span> a<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 42
-</span></span><span style="display:flex;"><span> b<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> 20
+</span></span><span style="display:flex;"><span> a<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> <span style="color:#f60">42</span>
+</span></span><span style="display:flex;"><span> b<span style="color:#555">:</span>    <span style="color:#555">.</span><span style="color:#309">WORD</span> <span style="color:#f60">20</span>
 </span></span></code></pre></div><p>Dérouler le programme suivant, on notera l&rsquo;état de la mémoire et des registres au fur et à mesure.</p>
 <h2 id="ecrit-5---boucle">
   Ecrit 5 - Boucle
@@ -6987,33 +6987,33 @@ Et ainsi de suite.</p>
   <a class="anchor" href="#un-exemple">#</a>
 </h3>
 <p>Le code suivant présente un parcours séquentiel afin de déterminer un maximum. C&rsquo;est le plus simple que je parvienne à écrire, il y a sûrement mieux !</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  1<span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>tableau  <span style="color:#09f;font-style:italic">// adresse du début du tableau
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  2<span style="color:#555">|</span>      LDR R2<span style="color:#555">,</span> longueur  <span style="color:#09f;font-style:italic">// taille du tableau
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  3<span style="color:#555">|</span>      LSL R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>2    <span style="color:#09f;font-style:italic">// multiplier par 2**2 pour compter les octets (1 mot = 4 octets)
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  4<span style="color:#555">|</span>      MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>0        <span style="color:#09f;font-style:italic">// compteur de boucle
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  5<span style="color:#555">|</span>      LDR R4<span style="color:#555">,</span> tableau   <span style="color:#09f;font-style:italic">// maximum
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  6<span style="color:#555">|</span>boucle<span style="color:#555">:</span>
-</span></span><span style="display:flex;"><span>  7<span style="color:#555">|</span>      LDR R5<span style="color:#555">,</span> <span style="color:#555">[</span>R1<span style="color:#555">+</span>R3<span style="color:#555">]</span>   <span style="color:#09f;font-style:italic">// charger la valeur courante
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  8<span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>4    <span style="color:#09f;font-style:italic">// incrémenter le compteur de boucle
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  9<span style="color:#555">|</span>      CMP R5<span style="color:#555">,</span> R4        <span style="color:#09f;font-style:italic">// comparer la valeur courante au max
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 10<span style="color:#555">|</span>      BGT nouveaumax    <span style="color:#09f;font-style:italic">// on a un nouveau max !
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 11<span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit-on continuer la boucle ?
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 12<span style="color:#555">|</span>nouveaumax<span style="color:#555">:</span>
-</span></span><span style="display:flex;"><span> 13<span style="color:#555">|</span>      MOV R4<span style="color:#555">,</span> R5        <span style="color:#09f;font-style:italic">// sauvegarder le nouveau max
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 14<span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit on continuer la boucle ?
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 15<span style="color:#555">|</span>continuer<span style="color:#555">:</span>
-</span></span><span style="display:flex;"><span> 16<span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R2        <span style="color:#09f;font-style:italic">// comparer l&#39;indice de boucle au nombre d&#39;éléments
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 17<span style="color:#555">|</span>      BGT fin           <span style="color:#09f;font-style:italic">// on dépasse, on s&#39;arrête
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 18<span style="color:#555">|</span>      B boucle          <span style="color:#09f;font-style:italic">// on ne dépasse pas, encore un tour
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 19<span style="color:#555">|</span>fin<span style="color:#555">:</span>
-</span></span><span style="display:flex;"><span> 20<span style="color:#555">|</span>      HALT
-</span></span><span style="display:flex;"><span> 21<span style="color:#555">|</span>      <span style="color:#555">.</span><span style="color:#309">ALIGN</span> 0x00100
-</span></span><span style="display:flex;"><span> 22<span style="color:#555">|</span>longueur<span style="color:#555">:</span> 5             <span style="color:#09f;font-style:italic">// taille du tableau
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 23<span style="color:#555">|</span>tableau<span style="color:#555">:</span> 10             <span style="color:#09f;font-style:italic">// 1er élément
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> 24<span style="color:#555">|</span>      11
-</span></span><span style="display:flex;"><span> 25<span style="color:#555">|</span>      5
-</span></span><span style="display:flex;"><span> 26<span style="color:#555">|</span>      8
-</span></span><span style="display:flex;"><span> 27<span style="color:#555">|</span>      4
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#f60">1</span><span style="color:#555">|</span>      MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>tableau  <span style="color:#09f;font-style:italic">// adresse du début du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">2</span><span style="color:#555">|</span>      LDR R2<span style="color:#555">,</span> longueur  <span style="color:#09f;font-style:italic">// taille du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">3</span><span style="color:#555">|</span>      LSL R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">2</span>    <span style="color:#09f;font-style:italic">// multiplier par 2**2 pour compter les octets (1 mot = 4 octets)
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">4</span><span style="color:#555">|</span>      MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>        <span style="color:#09f;font-style:italic">// compteur de boucle
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">5</span><span style="color:#555">|</span>      LDR R4<span style="color:#555">,</span> tableau   <span style="color:#09f;font-style:italic">// maximum
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">6</span><span style="color:#555">|</span>boucle<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f60">7</span><span style="color:#555">|</span>      LDR R5<span style="color:#555">,</span> <span style="color:#555">[</span>R1<span style="color:#555">+</span>R3<span style="color:#555">]</span>   <span style="color:#09f;font-style:italic">// charger la valeur courante
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">8</span><span style="color:#555">|</span>      ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>    <span style="color:#09f;font-style:italic">// incrémenter le compteur de boucle
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  <span style="color:#f60">9</span><span style="color:#555">|</span>      CMP R5<span style="color:#555">,</span> R4        <span style="color:#09f;font-style:italic">// comparer la valeur courante au max
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">10</span><span style="color:#555">|</span>      BGT nouveaumax    <span style="color:#09f;font-style:italic">// on a un nouveau max !
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">11</span><span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit-on continuer la boucle ?
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">12</span><span style="color:#555">|</span>nouveaumax<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">13</span><span style="color:#555">|</span>      MOV R4<span style="color:#555">,</span> R5        <span style="color:#09f;font-style:italic">// sauvegarder le nouveau max
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">14</span><span style="color:#555">|</span>      B continuer       <span style="color:#09f;font-style:italic">// doit on continuer la boucle ?
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">15</span><span style="color:#555">|</span>continuer<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">16</span><span style="color:#555">|</span>      CMP R3<span style="color:#555">,</span> R2        <span style="color:#09f;font-style:italic">// comparer l&#39;indice de boucle au nombre d&#39;éléments
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">17</span><span style="color:#555">|</span>      BGT fin           <span style="color:#09f;font-style:italic">// on dépasse, on s&#39;arrête
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">18</span><span style="color:#555">|</span>      B boucle          <span style="color:#09f;font-style:italic">// on ne dépasse pas, encore un tour
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">19</span><span style="color:#555">|</span>fin<span style="color:#555">:</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">20</span><span style="color:#555">|</span>      HALT
+</span></span><span style="display:flex;"><span> <span style="color:#f60">21</span><span style="color:#555">|</span>      <span style="color:#555">.</span><span style="color:#309">ALIGN</span> <span style="color:#f60">0</span>x00100
+</span></span><span style="display:flex;"><span> <span style="color:#f60">22</span><span style="color:#555">|</span>longueur<span style="color:#555">:</span> <span style="color:#f60">5</span>             <span style="color:#09f;font-style:italic">// taille du tableau
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">23</span><span style="color:#555">|</span>tableau<span style="color:#555">:</span> <span style="color:#f60">10</span>             <span style="color:#09f;font-style:italic">// 1er élément
+</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span> <span style="color:#f60">24</span><span style="color:#555">|</span>      <span style="color:#f60">11</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">25</span><span style="color:#555">|</span>      <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">26</span><span style="color:#555">|</span>      <span style="color:#f60">8</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f60">27</span><span style="color:#555">|</span>      <span style="color:#f60">4</span>
 </span></span></code></pre></div><p>L&rsquo;étape importante est en trois temps :</p>
 <ul>
 <li>d&rsquo;abord ligne 1, on charge une <em>adresse</em>,</li>
