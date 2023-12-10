@@ -12,12 +12,13 @@ Fondamentaux du langage d&rsquo;assemblage # Chapitre 1. Introduction au langage
 <meta property="og:description" content="Informatique et mathématiques" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/livre_from_metal/" /><meta property="og:image" content="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/livre_from_metal/cover.png"/>
+
 <title>L&#39;informatique à partir du métal | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5c6871cd033384451dcdfb180f6544e436e4770174be30722f0afc80cad32f2a.js" integrity="sha256-XGhxzQMzhEUdzfsYD2VE5DbkdwF0vjByLwr8gMrTLyo=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.95d734520e9d26c52789412d3c7ddd1af3d3a2d77b2fe57ea66d35b75e22bc0a.js" integrity="sha256-ldc0Ug6dJsUniUEtPH3dGvPTotd7L&#43;V&#43;pm01t14ivAo=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/6_armlite/livre_from_metal/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -3762,6 +3763,27 @@ MathJax.Hub.Config({
   
 
   
+    <input type="checkbox" id="section-03f897648767f50a9ea5f31ca889e778" class="toggle"  />
+    <label for="section-03f897648767f50a9ea5f31ca889e778" class="flex justify-between">
+      <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/cookies/" class="">Cookies</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/projet_html_css/" class="">Projet : CSS</a>
   
 
@@ -6745,89 +6767,89 @@ Python, VB ou C#).</p>
 
   <div class="flex-even markdown-inner">
      <!-- begin columns block -->
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#555">.</span><span style="color:#309">PixelScreen</span>
-</span></span><span style="display:flex;"><span>  MOV R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>screen2
-</span></span><span style="display:flex;"><span>  MOV R6<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  MOV R9<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#555">.</span><span style="color:#309">black</span>
-</span></span><span style="display:flex;"><span>  MOV R10<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#555">.</span><span style="color:#309">white</span>
-</span></span><span style="display:flex;"><span>  MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">loopWhite:</span> STR R10<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  CMP R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">12288</span>
-</span></span><span style="display:flex;"><span>  BLT loopWhite
-</span></span><span style="display:flex;"><span>  MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">260</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">randLoop:</span> LDR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">Random</span>
-</span></span><span style="display:flex;"><span>  AND R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  BNE <span style="color:#555">.+</span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>  STR R9<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  BL nextCell
-</span></span><span style="display:flex;"><span>  CMP R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">12032</span>
-</span></span><span style="display:flex;"><span>  BLT randLoop
-</span></span><span style="display:flex;"><span><span style="color:#99f">copyScreen2to1:</span> MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">copyLoop:</span> LDR R0<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  STR R0<span style="color:#555">,</span> <span style="color:#555">[</span>R1<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  CMP R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">12288</span>
-</span></span><span style="display:flex;"><span>  BLT copyLoop
-</span></span><span style="display:flex;"><span>  ADD R6<span style="color:#555">,</span> R6<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  MOV R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">260</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">nextGenLoop:</span> MOV R5<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  SUB R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">256</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  SUB R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">252</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  ADD R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  ADD R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">260</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  ADD R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">256</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>.<span style="color:#309">PixelScreen</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>screen2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R6,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R9,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>.<span style="color:#309">black</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R10,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>.<span style="color:#309">white</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">loopWhite</span>:<span style="color:#bbb"> </span>STR<span style="color:#bbb"> </span>R10,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>12288<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>loopWhite<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>260<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">randLoop</span>:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">Random</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>AND<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BNE<span style="color:#bbb"> </span>.<span style="color:#555">+</span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R9,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>nextCell<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>12032<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>randLoop<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">copyScreen2to1</span>:<span style="color:#bbb"> </span>MOV<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">copyLoop</span>:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#555">[</span>R1<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>12288<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>copyLoop<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R6,<span style="color:#bbb"> </span>R6,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>260<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">nextGenLoop</span>:<span style="color:#bbb"> </span>MOV<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>256<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>252<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>260<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>256<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span></code></pre></div>
   </div>
 
   <div class="flex-even markdown-inner">
      <!-- magic separator, between columns -->
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  ADD R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">252</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  SUB R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  SUB R4<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">260</span>
-</span></span><span style="display:flex;"><span>  BL countIfLive
-</span></span><span style="display:flex;"><span>  CMP R5<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  BLT <span style="color:#555">.+</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  STR R10<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  B <span style="color:#069;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>  CMP R5<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  BLT <span style="color:#555">.+</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  STR R9<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  B <span style="color:#069;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>  CMP R5<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>  BLT <span style="color:#555">.+</span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>  B <span style="color:#069;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>  STR R10<span style="color:#555">,</span> <span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">continue</span><span style="color:#555">:</span> BL nextCell
-</span></span><span style="display:flex;"><span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">12032</span>
-</span></span><span style="display:flex;"><span>  CMP R3<span style="color:#555">,</span> R0
-</span></span><span style="display:flex;"><span>  BLT nextGenLoop
-</span></span><span style="display:flex;"><span>  B copyScreen2to1
-</span></span><span style="display:flex;"><span>  countIfLive<span style="color:#555">:</span> LDR R0<span style="color:#555">,</span> <span style="color:#555">[</span>R1<span style="color:#555">+</span>R4<span style="color:#555">]</span>
-</span></span><span style="display:flex;"><span>  CMP R0<span style="color:#555">,</span> R10 <span style="color:#09f;font-style:italic">//White
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  BEQ <span style="color:#555">.+</span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>  ADD R5<span style="color:#555">,</span> R5<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  RET
-</span></span><span style="display:flex;"><span><span style="color:#99f">nextCell:</span>
-</span></span><span style="display:flex;"><span>  ADD R3<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">4</span>
-</span></span><span style="display:flex;"><span>  AND R0<span style="color:#555">,</span> R3<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">255</span>
-</span></span><span style="display:flex;"><span>  CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  BEQ <span style="color:#555">.-</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">252</span>
-</span></span><span style="display:flex;"><span>  BEQ <span style="color:#555">.-</span><span style="color:#f60">5</span>
-</span></span><span style="display:flex;"><span>  RET
-</span></span><span style="display:flex;"><span>  HALT
-</span></span><span style="display:flex;"><span>  <span style="color:#555">.</span><span style="color:#309">ALIGN</span> <span style="color:#f60">1024</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">screen2:</span> <span style="color:#f60">0</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>252<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R4,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>260<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BL<span style="color:#bbb"> </span>countIfLive<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>.<span style="color:#555">+</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R10,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">continue</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>.<span style="color:#555">+</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R9,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">continue</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>.<span style="color:#555">+</span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">continue</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R10,<span style="color:#bbb"> </span><span style="color:#555">[</span>R2<span style="color:#555">+</span>R3<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#069;font-weight:bold">continue</span>:<span style="color:#bbb"> </span>BL<span style="color:#bbb"> </span>nextCell<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>12032<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span>R0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>nextGenLoop<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span>copyScreen2to1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>countIfLive:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#555">[</span>R1<span style="color:#555">+</span>R4<span style="color:#555">]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R10<span style="color:#bbb"> </span><span style="color:#09f;font-style:italic">//White</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>.<span style="color:#555">+</span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span>R5,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>RET<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">nextCell</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>AND<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>255<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>.<span style="color:#555">-</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>252<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>.<span style="color:#555">-</span>5<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>RET<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>.<span style="color:#309">ALIGN</span><span style="color:#bbb"> </span>1024<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">screen2</span>:<span style="color:#bbb"> </span>0<span style="color:#bbb">
+</span></span></span></code></pre></div>
   </div>
 
 </div>
@@ -7239,12 +7261,12 @@ secondes !</p>
 chiffres initiaux sont $100 , 25, 8, 7, 3, 1$ et notre cible est 84. C&rsquo;est un
 défi facile d&rsquo;un point de vue mathématique : $1+8+100-25$. Voici une façon de
 coder cette expression en langage assembleur :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>ADD R1<span style="color:#555">,</span>R0<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">8</span>
-</span></span><span style="display:flex;"><span>ADD R2<span style="color:#555">,</span>R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">100</span>
-</span></span><span style="display:flex;"><span>SUB R3<span style="color:#555">,</span>R2<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">25</span>
-</span></span><span style="display:flex;"><span>HALT
-</span></span></code></pre></div><p>Ce programme consiste en une séquence de cinq instructions, une par ligne.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ADD<span style="color:#bbb"> </span>R1,R0,<span style="color:#a00;background-color:#faa">#</span>8<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ADD<span style="color:#bbb"> </span>R2,R1,<span style="color:#a00;background-color:#faa">#</span>100<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>SUB<span style="color:#bbb"> </span>R3,R2,<span style="color:#a00;background-color:#faa">#</span>25<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Ce programme consiste en une séquence de cinq instructions, une par ligne.
 Chaque instruction consiste en une « opération », représentée ici sous forme «
 mnémonique » (généralement une abréviation de la description de l&rsquo;instruction).
 Vous avez probablement deviné que <code>ADD</code> et <code>SUB</code> sont les opérations d&rsquo;addition et
@@ -7325,12 +7347,12 @@ Cela facilitera les choses, dans un premier temps, données car notre jeu
 fonctionnera principalement avec des nombres décimaux.</p>
 <p>Sélectionnez Modifier pour pouvoir cliquer dans la zone de programme, puis copiez et collez le programme de cinq lignes ci-dessous
 dans cette zone de programme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>ADD R1<span style="color:#555">,</span>R0<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">8</span>
-</span></span><span style="display:flex;"><span>ADD R2<span style="color:#555">,</span>R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">100</span>
-</span></span><span style="display:flex;"><span>SUB R3<span style="color:#555">,</span>R2<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">25</span>
-</span></span><span style="display:flex;"><span>HALT
-</span></span></code></pre></div><p><strong>Soumettre</strong>, puis <strong>Exécuter</strong> le programme (avec le bouton &lsquo;play&rsquo;). Lorsque
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ADD<span style="color:#bbb"> </span>R1,R0,<span style="color:#a00;background-color:#faa">#</span>8<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ADD<span style="color:#bbb"> </span>R2,R1,<span style="color:#a00;background-color:#faa">#</span>100<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>SUB<span style="color:#bbb"> </span>R3,R2,<span style="color:#a00;background-color:#faa">#</span>25<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p><strong>Soumettre</strong>, puis <strong>Exécuter</strong> le programme (avec le bouton &lsquo;play&rsquo;). Lorsque
 le programme s&rsquo;arrête (presque immédiatement), collez un extrait d&rsquo;écran
 indiquant uniquement la valeur de <code>R3</code>.</p>
 <p><strong>Remarque</strong> : Lorsque le programme s&rsquo;est arrêté, si vous souhaitez le
@@ -7631,19 +7653,19 @@ de destination pour chaque instruction dans un commentaire.</p>
 </h3>
 <p>Réglez ARMlite pour afficher les données dans le format <code>Decimal (signed)</code></p>
 <p>Exécutez le programme simple suivant et capturez le résultat affiché dans R1.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">9999</span>
-</span></span><span style="display:flex;"><span>LSL R1<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">18</span>
-</span></span><span style="display:flex;"><span>HALT
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>9999<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>LSL<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>18<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div>
 </blockquote>
 
 <p>Pourquoi le résultat est-il affiché sous la forme d&rsquo;un nombre décimal négatif,
 et sans relation évidente (en décimal) à 9999?</p>
 <p>Si vous utilisez l&rsquo;infobulle, vous verrez que les représentations binaires de
 <code>R0</code> et <code>R1</code> sont :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>R0 <span style="color:#555">-</span> <span style="color:#f60">0</span>b00000000000000000010011100001111
-</span></span><span style="display:flex;"><span>R1 <span style="color:#555">-</span> <span style="color:#f60">0</span>b10011100001111000000000000000000
-</span></span></code></pre></div><p>Comme indiqué par les points saillants ajoutés ci-dessus, le processeur a
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>R0<span style="color:#bbb"> </span><span style="color:#555">-</span><span style="color:#bbb"> </span>0b00000000000000000010011100001111<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>R1<span style="color:#bbb"> </span><span style="color:#555">-</span><span style="color:#bbb"> </span>0b10011100001111000000000000000000<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Comme indiqué par les points saillants ajoutés ci-dessus, le processeur a
 décalé la valeur binaire dans R0 vers la gauche de 18 bits pour produire la
 valeur dans R1, comme prévu.</p>
 <p>En définissant le format d&rsquo;affichage sur Décimal (signé) , nous demandons à
@@ -7664,11 +7686,11 @@ pouvez modifier les mots mémoire. Cliquez sur le mot mémoire en haut à gauche
 décimales et traduites au format complément à deux 32 bits, que vous pourrez
 ensuite recopier dans votre réponses.</p>
 <p>Quelle est la représentation binaire de chacun de ces nombres décimaux signés :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">-</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">-</span><span style="color:#f60">2</span>
-</span></span></code></pre></div><p>Essayez de repérer le motif, si vous le pouvez, avant de poursuivre votre lecture.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#555">-</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#555">-</span>2<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Essayez de repérer le motif, si vous le pouvez, avant de poursuivre votre lecture.</p>
 
 </blockquote>
 
@@ -7684,23 +7706,23 @@ immédiate ou de la valeur dans un registre spécifié) se voit appliquer une
 opération NON logique avant d&rsquo;entrer dans le registre de destination.</p>
 <p>Dans le code suivant, les deuxième et troisième instructions implémentent la
 transformation spécifiée ci-dessus :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">27</span>
-</span></span><span style="display:flex;"><span>  MVN R1<span style="color:#555">,</span> R0
-</span></span><span style="display:flex;"><span>  ADD R2<span style="color:#555">,</span>R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  HALT
-</span></span></code></pre></div><p>Revenez au format d&rsquo;affichage du complément à deux : <code>Decimal (signed)</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>27<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MVN<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>R0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R2,R1,<span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Revenez au format d&rsquo;affichage du complément à deux : <code>Decimal (signed)</code>.</p>
 <p>Vérifiez par vous-même que <code>R2</code> finit par contenir -27, s&rsquo;il est présenté sous
 la forme d&rsquo;un décimal signé.</p>
 <p>Vous pouvez inverser cette transformation en soustrayant un puis en inversant
 tous les bits. Étonnamment, cependant, vous pourriez simplement appliquer à
 nouveau la transformation d&rsquo;origine :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">27</span>
-</span></span><span style="display:flex;"><span>  MVN R1<span style="color:#555">,</span>R0
-</span></span><span style="display:flex;"><span>  ADD R2<span style="color:#555">,</span>R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  MVN R3<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span>  ADD R4<span style="color:#555">,</span>R3<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  HALT
-</span></span></code></pre></div><p>Vérifiez par vous-même qu&rsquo;en appliquant deux fois la même transformation, vous
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>27<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MVN<span style="color:#bbb"> </span>R1,R0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R2,R1,<span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MVN<span style="color:#bbb"> </span>R3,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>ADD<span style="color:#bbb"> </span>R4,R3,<span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Vérifiez par vous-même qu&rsquo;en appliquant deux fois la même transformation, vous
 revenez (en R4) à la valeur initiale de 27.</p>
 <p>A première vue, cette transformation en deux étapes peut sembler plutôt
 arbitraire. Mais ce qui est extraordinaire, c&rsquo;est que ça marche. In signifie
@@ -7712,11 +7734,11 @@ soucier de savoir si les valeurs sont positives ou négatives pour commencer.</p
   <a class="anchor" href="#exercice-14">#</a>
 </h3>
 <p>Exécutez ce programme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">27</span>
-</span></span><span style="display:flex;"><span>MV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#555">-</span><span style="color:#f60">5</span>
-</span></span><span style="display:flex;"><span>ADD R2<span style="color:#555">,</span> R0<span style="color:#555">,</span> R1
-</span></span><span style="display:flex;"><span>HALT
-</span></span></code></pre></div><p>Et vérifiez par vous-même que l&rsquo;ajout de -5 à 27 produit le même résultat que
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>27<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>MV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span><span style="color:#555">-</span>5<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ADD<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Et vérifiez par vous-même que l&rsquo;ajout de -5 à 27 produit le même résultat que
 la soustraction de 5 à 27.</p>
 <p>Que se passe-t-il si vous ajoutez -49 à 27 ?</p>
 
@@ -7752,12 +7774,12 @@ emplacements de mémoire à l&rsquo;aide de LDR - &lsquo;LoaD</p>
 que le programme et la mémoire sont claires. (Le bouton Effacer , en bas à
 droite du simulateur, le fera, si nécessaire.)</p>
 <p>Entrez et soumettez le code suivant :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">255</span>
-</span></span><span style="display:flex;"><span>STR R0<span style="color:#555">,</span> <span style="color:#f60">68</span>
-</span></span><span style="display:flex;"><span>HALT
-</span></span><span style="display:flex;"><span>LDR R1<span style="color:#555">,</span> <span style="color:#f60">72</span>
-</span></span><span style="display:flex;"><span>HALT
-</span></span></code></pre></div><p>Vous verrez que le code du programme a été traduit en code machine et chargé
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>255<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>68<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>LDR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>72<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HALT<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Vous verrez que le code du programme a été traduit en code machine et chargé
 dans les cinq premiers mots de la mémoire principale.</p>
 <p>Exécutez le programme et notez que lorsqu&rsquo;il atteint le premier HALT, la valeur
 de l&rsquo;un des autres mots dans la mémoire principale aura changé. Collez une
@@ -7838,16 +7860,16 @@ les instructions du programme - c&rsquo;est la pratique recommandée. Une défin
 d&rsquo;étiquette doit avoir deux-points juste après - comme indiqué ci-dessous. Les
 instructions du programme utilisent, ou &ldquo;référencent&rdquo;, ces étiquettes, mais une
 référence d&rsquo;étiquette n&rsquo;a pas de deux-points.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    LDR R0<span style="color:#555">,</span> xCoordinate
-</span></span><span style="display:flex;"><span>    ADD R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">6</span>
-</span></span><span style="display:flex;"><span>    STR R0<span style="color:#555">,</span> xCoordinate
-</span></span><span style="display:flex;"><span>    LDR R0<span style="color:#555">,</span> yCoordinate
-</span></span><span style="display:flex;"><span>    ADD R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>    STR R0<span style="color:#555">,</span> yCoordinate
-</span></span><span style="display:flex;"><span>    HALT
-</span></span><span style="display:flex;"><span>xCoordonnée <span style="color:#555">:</span> <span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>yCoordonnée <span style="color:#555">:</span> <span style="color:#f60">4</span>
-</span></span></code></pre></div><p>Le programmeur ne sait pas, ou dans de nombreux cas même s&rsquo;en soucie, où se
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span>LDR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>xCoordinate<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>ADD<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>6<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>xCoordinate<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>LDR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>yCoordinate<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>ADD<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>yCoordinate<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>xCoordonnée<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>yCoordonnée<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>4<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Le programmeur ne sait pas, ou dans de nombreux cas même s&rsquo;en soucie, où se
 trouvent exactement les valeurs, de <code>xCoordinate</code> et <code>yCoordinate</code>, car elles
 peuvent toujours être référencées par l&rsquo;étiquette.</p>
 <blockquote class="book-hint warning">
@@ -7919,21 +7941,21 @@ d&rsquo;&ldquo;E/S mappées en mémoire&rdquo;.</p>
 <p>Nous présenterons ces idées en commençant l&rsquo;écriture du jeu Matchsticks. Nous
 adopterons une approche « itérative » du développement : écrire un peu plus de
 fonctionnalités à chaque itération. Voici l&rsquo;itération 1 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>    MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">15</span>
-</span></span><span style="display:flex;"><span>    STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-</span></span><span style="display:flex;"><span>    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>    MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg2
-</span></span><span style="display:flex;"><span>    STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>    LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
-</span></span><span style="display:flex;"><span>    SUB R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span>    HALT
-</span></span><span style="display:flex;"><span>msg1 <span style="color:#555">:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;restant\n&#34;</span>
-</span></span><span style="display:flex;"><span>msg2 <span style="color:#555">:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span>
-</span></span></code></pre></div><p>Notez ce qui suit :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>15<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">WriteUnsignedNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>LDR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">InputNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>SUB<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>msg1<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;restant\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>msg2<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Notez ce qui suit :</p>
 <ul>
 <li>Le programme commence par des commentaires (rendus en vert, ci-dessus) qui
 définissent, si possible, les usages des registres dans le code. Il s&rsquo;agit
@@ -8003,22 +8025,22 @@ l&rsquo; instruction B qui signifie &lsquo;Branch&rsquo; suivie de détails sur 
 voulons rebrancher (ou avancer). Le moyen le plus clair de spécifier la
 destination de la branche consiste à utiliser une étiquette définie par
 l&rsquo;utilisateur, par exemple, <code>loop</code> : comme indiqué ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">15</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">loop:</span> STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg2
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
-</span></span><span style="display:flex;"><span>  SUB R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span>  B loop
-</span></span><span style="display:flex;"><span>  HALT
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg1:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;restant\n&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg2:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span>
-</span></span></code></pre></div><p>Notez également que le fait de spécifier l&rsquo;emplacement vers lequel se brancher
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>15<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">loop</span>:<span style="color:#bbb"> </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">WriteUnsignedNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>LDR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">InputNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span>loop<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg1</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;restant\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg2</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Notez également que le fait de spécifier l&rsquo;emplacement vers lequel se brancher
 en tant qu&rsquo;étiquette signifie que nous n&rsquo;avons pas à nous soucier de modifier
 l&rsquo;adresse lorsque nous insérons ou supprimons des instructions.</p>
 <blockquote class="book-hint warning">
@@ -8058,9 +8080,9 @@ compare deux valeurs, par exemple :</p>
 mais il n&rsquo;affecte pas le résultat à un registre de destination, le résultat est
 immédiatement rejeté.</p>
 <p>La seule mémoire qu&rsquo;il conserve du résultat est conservée dans les drapeaux d&rsquo;état, qui sont affichés sur ARMlite (en surbrillance, à droite).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>            NZCV
-</span></span><span style="display:flex;"><span>Status bits <span style="color:#f60">0000</span><span style="color:#a00;background-color:#faa">`</span>
-</span></span></code></pre></div><p>Le bit N indique que le résultat de la comparaison était négatif et Z qu&rsquo;il était nul.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">            </span>NZCV<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Status<span style="color:#bbb"> </span>bits<span style="color:#bbb"> </span>0000<span style="color:#a00;background-color:#faa">`</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Le bit N indique que le résultat de la comparaison était négatif et Z qu&rsquo;il était nul.</p>
 <p>(Les bits C et V signifient Carry et oVerflow. D&rsquo;une manière générale, ils sont
 utilisés pour signaler quand le résultat d&rsquo;une opération n&rsquo;est pas correct, car
 le résultat correct ne rentrerait pas dans 32 bits. Nous n&rsquo;en aurons pas besoin
@@ -8070,24 +8092,24 @@ entrée : et une comparaison, suivies immédiatement d&rsquo;une branche conditi
 vers l&rsquo;entrée. L&rsquo;effet est que si le joueur entre une valeur supérieure à 3,
 elle sera ignorée et il sera simplement demandé au joueur d&rsquo;entrer à nouveau un
 nombre :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">15</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">boucle:</span> STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg2
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">entree:</span> LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  BGT enree
-</span></span><span style="display:flex;"><span>  SUB R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span>  B boucle
-</span></span><span style="display:flex;"><span>  HALT
-</span></span><span style="display:flex;"><span>msg1 <span style="color:#555">:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;restant\n&#34;</span>
-</span></span><span style="display:flex;"><span>msg2 <span style="color:#555">:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span>
-</span></span></code></pre></div><blockquote class="book-hint warning">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - allumettes restantes</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R1 - utilisé pour écrire des messages</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R2 - numéro à supprimer</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>15<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">boucle</span>:<span style="color:#bbb"> </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">WriteUnsignedNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">entree</span>:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">InputNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BGT<span style="color:#bbb"> </span>enree<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>B<span style="color:#bbb"> </span>boucle<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>msg1<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;restant\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>msg2<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;Combien voulez-vous supprimer (1-3) ?\n&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><blockquote class="book-hint warning">
   <h3 id="exercice-19">
   Exercice 19
   <a class="anchor" href="#exercice-19">#</a>
@@ -8130,59 +8152,59 @@ réfèrent toujours au résultat de la comparaison la plus récente - ce dernier
 n&rsquo;a pas besoin d&rsquo;être l&rsquo;instruction immédiatement avant le branchement.</p>
 <p>Nous sommes maintenant prêts à essayer l&rsquo;ensemble du programme (<em>NDT: le code
 ci-dessous n&rsquo;est pas traduit, il diffère légèrement des versions ci-dessus.</em>) :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - remaining matchsticks
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R1 - used for writing messages
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R2 - number to remove
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  MOV R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">15</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">loop:</span>
-</span></span><span style="display:flex;"><span>  STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span> <span style="color:#09f;font-style:italic">//Print remaining matchsticks
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//Computer&#39;s turn
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#99f">select:</span> LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">Random</span>
-</span></span><span style="display:flex;"><span>  AND R2<span style="color:#555">,</span> R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>  BEQ select
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> R0
-</span></span><span style="display:flex;"><span>  BGT select
-</span></span><span style="display:flex;"><span>  BEQ select
-</span></span><span style="display:flex;"><span><span style="color:#99f">cont:</span> STR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteSignedNum</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg4
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  SUB R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//Print remaining matchsticks
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  STR R0<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteUnsignedNum</span>
-</span></span><span style="display:flex;"><span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg1
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//Check for computer win
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  BEQ computerWins
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//Player&#39;s turn
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>  MOV R1<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span>msg2
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">input:</span> LDR R2<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">InputNum</span>
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">3</span>
-</span></span><span style="display:flex;"><span>  BGT input
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  BLT input
-</span></span><span style="display:flex;"><span>  CMP R2<span style="color:#555">,</span> R0
-</span></span><span style="display:flex;"><span>  BGT input
-</span></span><span style="display:flex;"><span>  SUB R0<span style="color:#555">,</span> R0<span style="color:#555">,</span> R2
-</span></span><span style="display:flex;"><span>  CMP R0<span style="color:#555">,</span> <span style="color:#a00;background-color:#faa">#</span><span style="color:#f60">1</span>
-</span></span><span style="display:flex;"><span>  BEQ playerWins
-</span></span><span style="display:flex;"><span>  b loop
-</span></span><span style="display:flex;"><span><span style="color:#99f">playerWins:</span> MOV R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span>msg3
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  HALT
-</span></span><span style="display:flex;"><span><span style="color:#99f">computerWins:</span> MOV R1<span style="color:#555">,</span><span style="color:#a00;background-color:#faa">#</span>msg5
-</span></span><span style="display:flex;"><span>  STR R1<span style="color:#555">,</span> <span style="color:#555">.</span><span style="color:#309">WriteString</span>
-</span></span><span style="display:flex;"><span>  HAT
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg1:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;remaining\n&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg2:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;How many do you want to remove (1-3)?\n&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg3:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;You win!\n&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg4:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;taken by computer. &#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#99f">msg5:</span> <span style="color:#555">.</span><span style="color:#309">ASCIZ</span> <span style="color:#c30">&#34;Computer wins! \n&#34;</span>
-</span></span></code></pre></div><blockquote class="book-hint warning">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//R0 - remaining matchsticks</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R1 - used for writing messages</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//R2 - number to remove</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>15<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">loop</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">WriteUnsignedNum</span><span style="color:#bbb"> </span><span style="color:#09f;font-style:italic">//Print remaining matchsticks</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//Computer&#39;s turn</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">select</span>:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">Random</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>AND<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>select<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>R0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BGT<span style="color:#bbb"> </span>select<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>select<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">cont</span>:<span style="color:#bbb"> </span>STR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">WriteSignedNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg4<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//Print remaining matchsticks</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>.<span style="color:#309">WriteUnsignedNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//Check for computer win</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>computerWins<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic">//Player&#39;s turn</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>msg2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">input</span>:<span style="color:#bbb"> </span>LDR<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>.<span style="color:#309">InputNum</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BGT<span style="color:#bbb"> </span>input<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BLT<span style="color:#bbb"> </span>input<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R2,<span style="color:#bbb"> </span>R0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BGT<span style="color:#bbb"> </span>input<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>SUB<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span>R2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>CMP<span style="color:#bbb"> </span>R0,<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">#</span>1<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>BEQ<span style="color:#bbb"> </span>playerWins<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>b<span style="color:#bbb"> </span>loop<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">playerWins</span>:<span style="color:#bbb"> </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#a00;background-color:#faa">#</span>msg3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HALT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">computerWins</span>:<span style="color:#bbb"> </span>MOV<span style="color:#bbb"> </span>R1,<span style="color:#a00;background-color:#faa">#</span>msg5<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>STR<span style="color:#bbb"> </span>R1,<span style="color:#bbb"> </span>.<span style="color:#309">WriteString</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>HAT<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg1</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;remaining\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg2</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;How many do you want to remove (1-3)?\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg3</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;You win!\n&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg4</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;taken by computer. &#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#99f">msg5</span>:<span style="color:#bbb"> </span>.<span style="color:#309">ASCIZ</span><span style="color:#bbb"> </span><span style="color:#c30">&#34;Computer wins! \n&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><blockquote class="book-hint warning">
   <h3 id="exercice-20">
   Exercice 20
   <a class="anchor" href="#exercice-20">#</a>
