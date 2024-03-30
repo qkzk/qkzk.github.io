@@ -19,7 +19,7 @@ x = 5 T = [11, 7, 9, 5, 15, 13, 3, 1] 0 1 2 3 4 5 6 7 ^ def recherche(T, x): Pou
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.5d1e0205f08b516e34dacb239ee38cdd14f4a403cbe1f4d0e2d36637e1150dd6.js" integrity="sha256-XR4CBfCLUW402ssjnuOM3RT0pAPL4fTQ4tNmN&#43;EVDdY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.9686ea940159992a40464d1ab79f1ae68397e52fff924beeb6ef5fed2704d0cb.js" integrity="sha256-lobqlAFZmSpARk0at58a5oOX5S//kkvutu9f7ScE0Ms=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/dichotomie/1_cours/index.xml" title="qkzk" />
 <!--
 Made with Book Theme
@@ -6989,20 +6989,20 @@ Boucle non bornée (<code>while</code>)<br>
 <details  class="no-outline"><summary class="no-outline"></summary>
     <div class="markdown-inner">
         <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># tableau vide</span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> contient_dichotomique([], <span style="color:#f60">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique([], <span style="color:#f60">0</span>) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># tableau à 1 élément</span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> contient_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">0</span>)
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> contient_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">1</span>)
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> contient_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">0</span>) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">1</span>) <span style="color:#555">==</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique([<span style="color:#f60">1</span>], <span style="color:#f60">2</span>) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># tableau plus grand</span>
 </span></span><span style="display:flex;"><span>tableau <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">2</span>, <span style="color:#f60">4</span>, <span style="color:#f60">6</span>, <span style="color:#f60">8</span>, <span style="color:#f60">10</span>]
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> tableau:
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> contient_dichotomique(tableau, cle)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique(tableau, cle) <span style="color:#555">==</span> cle <span style="color:#555">//</span> <span style="color:#f60">2</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> cle <span style="color:#000;font-weight:bold">in</span> [<span style="color:#555">-</span><span style="color:#f60">1</span>, <span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">5</span>, <span style="color:#f60">7</span>, <span style="color:#f60">9</span>, <span style="color:#f60">11</span>]:
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> contient_dichotomique(tableau, cle)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> recherche_dichotomique(tableau, cle) <span style="color:#555">==</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
 </span></span></code></pre></div>
     </div>
 </details>
