@@ -48,7 +48,7 @@ True print(type(True)) # &lt;class &#39;bool&#39;&gt; False print(type(False)) #
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.06bfd9e1f906f0e04d2c1a0bdd6e1f143749fe5bb9c7fdc2770ad22f52fb95ec.js" integrity="sha256-Br/Z4fkG8OBNLBoL3W4fFDdJ/lu5x/3CdwrSL1L7lew=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.4cfa11ddea0edba072e22f02eef02de7bfc9b672428ef35c848520ff11a59be4.js" integrity="sha256-TPoR3eoO26By4i8C7vAt57/JtnJCjvNchIUg/xGlm&#43;Q=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/booleen/1_cours/index.xml" title="qkzk" />
 <!--
@@ -7145,6 +7145,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#associativité">Associativité</a></li>
     <li><a href="#distributivité">Distributivité</a></li>
     <li><a href="#autres-tables-de-vérité">Autres tables de vérité</a></li>
+    <li><a href="#test-porte-logique">Test porte logique</a></li>
   </ul>
 </nav>
 
@@ -7579,6 +7580,27 @@ nous utiliserons les notations de Python.</p>
 </h2>
 <p>Toutes les opérations binaires peuvent être définies à l&rsquo;aide des trois opérateurs présentés plus haut.</p>
 <p>Par exemple : <code>a xor b = (a and not b) or (not a and b)</code></p>
+<h2 id="test-porte-logique">
+  Test porte logique
+  <a class="anchor" href="#test-porte-logique">#</a>
+</h2>
+<script src="/js/logic_simulator.js"></script>
+<div style="width: 100%; height: 250px">
+<logic-editor id="editor1" showonly="in,out,and,or,xor">
+<script type="application/json">
+{ // JSON5
+  v: 6,
+  components: {
+    in0: {type: 'in', pos: [50, 50], id: 0, val: 1},
+    in1: {type: 'in', pos: [60, 130], id: 1, val: 1},
+    out0: {type: 'out', pos: [270, 90], id: 5},
+    and0: {type: 'and', pos: [170, 90], in: [2, 3], out: 4},
+  },
+  wires: [[4, 5], [0, 2], [1, 3]]
+}
+</script>
+</logic-editor>
+</div>
 </article>
 
                 
@@ -7677,6 +7699,7 @@ nous utiliserons les notations de Python.</p>
     <li><a href="#associativité">Associativité</a></li>
     <li><a href="#distributivité">Distributivité</a></li>
     <li><a href="#autres-tables-de-vérité">Autres tables de vérité</a></li>
+    <li><a href="#test-porte-logique">Test porte logique</a></li>
   </ul>
 </nav>
 
