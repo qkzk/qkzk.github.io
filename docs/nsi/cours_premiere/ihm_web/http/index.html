@@ -12,12 +12,10 @@
 Revenons sur l&rsquo;adresse qui s&rsquo;affiche dans la barre d&rsquo;adresse d&rsquo;un
 navigateur web et plus précisément sur le début de cette adresse
 c&rsquo;est-à-dire le &ldquo;http&rdquo;
-Selon les cas cette adresse commencera par http ou https (nous verrons
-ce deuxième cas à la fin de cette activité).
-Le protocole (un protocole est ensemble de règles qui permettent à 2
-ordinateurs de communiquer ensemble) HTTP (HyperText Transfert Protocol)
-va permettre au client d&rsquo;effectuer des requêtes à destination d&rsquo;un
-serveur web. En retour, le serveur web va envoyer une réponse.">
+Selon les cas cette adresse commencera par http ou https (nous verrons ce deuxième cas à la fin de cette activité).
+
+  Un protocole est ensemble de règles qui permettent à 2 ordinateurs de communiquer ensemble
+Le protocole  HTTP (HyperText Transfert Protocol) va permettre au client d&rsquo;effectuer des requêtes à destination d&rsquo;un serveur web. En retour, le serveur web va envoyer une réponse.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/http/">
   <meta property="og:site_name" content="qkzk">
@@ -25,7 +23,8 @@ serveur web. En retour, le serveur web va envoyer une réponse.">
   <meta property="og:description" content="pdf : pour impression
 Protocole HTTP # Revenons sur l’adresse qui s’affiche dans la barre d’adresse d’un navigateur web et plus précisément sur le début de cette adresse c’est-à-dire le “http”
 Selon les cas cette adresse commencera par http ou https (nous verrons ce deuxième cas à la fin de cette activité).
-Le protocole (un protocole est ensemble de règles qui permettent à 2 ordinateurs de communiquer ensemble) HTTP (HyperText Transfert Protocol) va permettre au client d’effectuer des requêtes à destination d’un serveur web. En retour, le serveur web va envoyer une réponse.">
+Un protocole est ensemble de règles qui permettent à 2 ordinateurs de communiquer ensemble
+Le protocole HTTP (HyperText Transfert Protocol) va permettre au client d’effectuer des requêtes à destination d’un serveur web. En retour, le serveur web va envoyer une réponse.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>TP : Protocole HTTP | qkzk</title>
@@ -33,7 +32,7 @@ Le protocole (un protocole est ensemble de règles qui permettent à 2 ordinateu
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.22808af42facd4fe22281741453b3238da4ce9dc4fcf1e35e3a9971768e37bcf.js" integrity="sha256-IoCK9C&#43;s1P4iKBdBRTsyONpM6dxPzx4146mXF2jje88=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.837d51f9ac42829c023cb28b5ca90767ba2898209ba06dea1e1e252e212c9564.js" integrity="sha256-g31R&#43;axCgpwCPLKLXKkHZ7oomCCboG3qHh4lLiEslWQ=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/http/index.xml" title="qkzk" />
 <!--
@@ -7111,23 +7110,30 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</a></li>
-    <li><a href="#les-étapes-du-protocole-https">Les étapes du protocole HTTPS</a></li>
-    <li><a href="#complément">Complément</a></li>
-    <li><a href="#exercice-1">Exercice 1</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exercice-2">Exercice 2</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#transmettre-une-information-via-une-requête-get">Transmettre une information via une requête GET</a></li>
-    <li><a href="#transmettre-une-information-via-une-requête-post">Transmettre une information via une requête POST</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exercice-4">Exercice 4</a></li>
+    <li><a href="#réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</a>
+      <ul>
+        <li><a href="#résumé-du-protocole-http">Résumé du protocole HTTP</a></li>
+        <li><a href="#https">HTTPS</a></li>
+      </ul>
+    </li>
+    <li><a href="#complément">Complément</a>
+      <ul>
+        <li><a href="#exercice-1">Exercice 1</a></li>
+      </ul>
+    </li>
+    <li><a href="#éxaminer-une-requête-depuis-une-machine">Éxaminer une requête depuis une machine</a>
+      <ul>
+        <li><a href="#exercice-2">Exercice 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#requêtes-get-et-post">Requêtes GET et POST</a>
+      <ul>
+        <li><a href="#transmettre-une-information-via-une-requête-get">Transmettre une information via une requête GET</a></li>
+        <li><a href="#transmettre-une-information-via-une-requête-post">Transmettre une information via une requête POST</a></li>
+        <li><a href="#publier-sur-un-microblog">Publier sur un microblog</a></li>
+        <li><a href="#exercice-3">Exercice 3</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -7149,12 +7155,13 @@ MathJax.Hub.Config({
 <p>Revenons sur l&rsquo;adresse qui s&rsquo;affiche dans la barre d&rsquo;adresse d&rsquo;un
 navigateur web et plus précisément sur le début de cette adresse
 c&rsquo;est-à-dire le &ldquo;http&rdquo;</p>
-<p>Selon les cas cette adresse commencera par http ou https (nous verrons
-ce deuxième cas à la fin de cette activité).</p>
-<p>Le protocole (un protocole est ensemble de règles qui permettent à 2
-ordinateurs de communiquer ensemble) HTTP (HyperText Transfert Protocol)
-va permettre au client d&rsquo;effectuer des requêtes à destination d&rsquo;un
-serveur web. En retour, le serveur web va envoyer une réponse.</p>
+<p>Selon les cas cette adresse commencera par http ou https (nous verrons ce deuxième cas à la fin de cette activité).</p>
+<blockquote class="book-hint info">
+  <p>Un <em>protocole</em> est ensemble de règles qui permettent à 2 ordinateurs de communiquer ensemble</p>
+<p>Le protocole  HTTP (HyperText Transfert Protocol) va permettre au client d&rsquo;effectuer des requêtes à destination d&rsquo;un serveur web. En retour, le serveur web va envoyer une réponse.</p>
+
+</blockquote>
+
 <p>Voici une version simplifiée de la composition d&rsquo;une requête HTTP
 (client vers serveur) :</p>
 <ul>
@@ -7227,36 +7234,58 @@ sur les éléments qui nous seront indispensables par la suite :</p>
 code HTML, une fois ce
 code reçu par le client, il est interprété par le navigateur qui affiche
 le résultat à l&rsquo;écran. Cette partie correspond au <em>corps de la réponse</em>.</p>
-<p>La 1re ligne se nomme la ligne de statut :</p>
+<p>La première ligne se nomme la ligne de statut :</p>
 <ul>
 <li>HTTP/1.1 : version de HTTP utilisé par le serveur</li>
 <li>200 : code indiquant que le document recherché par le client a bien
-été trouvé par le serveur. Il existe <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">d&rsquo;autres codes</a>
-dont un que
-vous connaissez peut-être déjà : le code 404 (qui signifie  «Le
-document recherché n&rsquo;a pu être trouvé»).</li>
+été trouvé par le serveur. Il existe <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP">d&rsquo;autres codes</a> dont un que vous connaissez peut-être déjà : le code 404 (qui signifie  «Le document recherché n&rsquo;a pu être trouvé»).</li>
 </ul>
 <p>Les 5 lignes suivantes constituent l&rsquo;en-tête de la réponse, une ligne
 nous intéresse plus particulièrement :</p>
-<pre><code>Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4
-</code></pre>
-<p>Le serveur web qui a fourni la réponse http ci-dessus a comme système
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4
+</span></span></code></pre></div><p>Le serveur web qui a fourni la réponse http ci-dessus a comme système
 d&rsquo;exploitation une distribution GNU/Linux nommée &ldquo;Debian&rdquo; (pour en
 savoir plus sur GNU/Linux, c&rsquo;est celle que nous utiliserons d&rsquo;ailleurs).
 &ldquo;Apache&rdquo; est le coeur du serveur web puisque c&rsquo;est ce
 logiciel qui va gérer les requêtes http (recevoir les requêtes http en
 provenance des clients et renvoyer les réponses http).</p>
 <p>Il existe d&rsquo;autres logiciels capables de gérer les requêtes http (nginx,
-microsoft-iis&hellip;). NGINX (engine x) dépasse depuis peu (juin 2019) Apache.
+microsoft-iis&hellip;). NGINX (engine x) dépasse depuis 2019 Apache.
 NGINX et Apache sont installés sur 85% des serveurs web mondiaux.</p>
-<p>Le &ldquo;HTTPS&rdquo; est la version &ldquo;sécurisée&rdquo; du protocole HTTP. Par
-&ldquo;sécurisé&rdquo; en entend que les données sont chiffrées avant d&rsquo;être
-transmises sur le réseau et que leur provenance est certifiée.</p>
-<hr>
-<h2 id="les-étapes-du-protocole-https">
+<h3 id="résumé-du-protocole-http">
+  Résumé du protocole HTTP
+  <a class="anchor" href="#r%c3%a9sum%c3%a9-du-protocole-http">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <ul>
+<li>HTTP (HyperText Transfert Protocol) est un <em>protocole</em> permettant à un client de demander (<em>requête</em>) des contenus (fichiers) à  un serveur (<em>réponse</em>)</li>
+<li>Une requête ne peut demander l&rsquo;accès qu&rsquo;à <em>un</em> fichier. Lorsqu&rsquo;on accède à une page qui contient 100 fichiers annexes (images, css, javascript), il faut 101 requêtes (page + fichiers annexes).</li>
+<li>C&rsquo;est le <em>navigateur</em> qui exécute la première requête demandée par l&rsquo;utilisateur et les 100 suivantes automatiquement.</li>
+<li>C&rsquo;est ensuite le navigateur qui effectue le rendu de la page en question.</li>
+<li>Il existe plusieurs types de requêtes. On étudiera GET (obtenir sans modifier) et POST (envoyer des informations via un formulaire)</li>
+<li>Une réponse est accompagnée d&rsquo;un code (200, 404 etc.) permettant de savoir rapidement si la requête a réussi ou la raison de son échec.</li>
+<li>Le contenu de la page est placé après l&rsquo;<em>entête</em> de la réponse.</li>
+</ul>
+
+</blockquote>
+
+<h3 id="https">
+  HTTPS
+  <a class="anchor" href="#https">#</a>
+</h3>
+<p><em>HTTPS est étudié plus en détail en terminale</em></p>
+<p>&ldquo;HTTPS&rdquo; est la version &ldquo;sécurisée&rdquo; du protocole HTTP. Par &ldquo;sécurisé&rdquo; en entend que les données sont chiffrées avant d&rsquo;être transmises sur le réseau et que leur provenance est certifiée.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Mettre en place un serveur HTTPS nécessite un <em>certificat</em> délivré par une autorité de confiance. Ce certificat remplit deux rôles :</p>
+<ul>
+<li>il assure au client que le serveur web est bien celui auquel il s&rsquo;adresse,</li>
+<li>il permet d&rsquo;établir un chiffrement de la communication entre les machines. Ainsi, les ordinateurs assurant le transit des requêtes et réponses entre le client et le serveur sont incapables de lire leur contenu.</li>
+</ul>
+<h3 id="les-étapes-du-protocole-https">
   Les étapes du protocole HTTPS
   <a class="anchor" href="#les-%c3%a9tapes-du-protocole-https">#</a>
-</h2>
+</h3>
 <p>Voici les différentes étapes d&rsquo;une communication client - serveur
 utilisant le protocole HTTPS :</p>
 <ul>
@@ -7300,6 +7329,10 @@ interceptera les paquets de données sera en mesure de lire vos données
 sensibles.</p>
 <p>Concernant un site statique, comme le mien, https n&rsquo;apporte pas grand chose,
 seulement l&rsquo;assurance de l&rsquo;origine. Vous ne transmettez aucune donnée au site.</p>
+
+    </div>
+</details>
+
 <h2 id="complément">
   Complément
   <a class="anchor" href="#compl%c3%a9ment">#</a>
@@ -7359,13 +7392,13 @@ serveur :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30">&#34;https://qkzk.xyz&#34;</span>)
 </span></span></code></pre></div><p>On a bien transmis une requête GET au serveur, avec toutes les informations
 voulues. C&rsquo;est bien Python qui a transmis cette requête.</p>
-<h2 id="exercice-1">
+<h3 id="exercice-1">
   Exercice 1
   <a class="anchor" href="#exercice-1">#</a>
-</h2>
+</h3>
 <ol>
 <li>
-<p>En utilisant <del>Thonny</del> Google Colab reproduire les commandes présentées ci-dessus pour joindre
+<p>En utilisant Sublime Text reproduire les commandes présentées ci-dessus pour joindre
 successivement : <code>https://google.com</code> et <code>https://google.com/azeaze</code></p>
 </li>
 <li>
@@ -7379,10 +7412,10 @@ successivement : <code>https://google.com</code> et <code>https://google.com/aze
 <p>Comment expliquer cette différence ?</p>
 </li>
 </ol>
-<h1 id="éxaminer-une-requête-depuis-une-machine">
+<h2 id="éxaminer-une-requête-depuis-une-machine">
   Éxaminer une requête depuis une machine
   <a class="anchor" href="#%c3%a9xaminer-une-requ%c3%aate-depuis-une-machine">#</a>
-</h1>
+</h2>
 <p>Différentes approches permettent d&rsquo;exécuter et d&rsquo;examiner des requêtes.
 En voici une qui devrait fonctionner sur un ordinateur et un téléphone.</p>
 <ol>
@@ -7429,10 +7462,10 @@ En voici une qui devrait fonctionner sur un ordinateur et un téléphone.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;origin&#34;</span>: <span style="color:#c30">&#34;44.211.62.34&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;url&#34;</span>: <span style="color:#c30">&#34;http://pie.dev/put&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="exercice-2">
+</span></span></code></pre></div><h3 id="exercice-2">
   Exercice 2
   <a class="anchor" href="#exercice-2">#</a>
-</h2>
+</h3>
 <p>Toujours depuis httpie :</p>
 <ol>
 <li>
@@ -7452,18 +7485,18 @@ En voici une qui devrait fonctionner sur un ordinateur et un téléphone.</p>
 </ul>
 </li>
 </ol>
-<h1 id="requête-get-et-post">
-  Requête GET et POST
-  <a class="anchor" href="#requ%c3%aate-get-et-post">#</a>
-</h1>
+<h2 id="requêtes-get-et-post">
+  Requêtes GET et POST
+  <a class="anchor" href="#requ%c3%aates-get-et-post">#</a>
+</h2>
 <p>En théorie, une requête GET permet d&rsquo;<strong>accéder</strong> à un contenu, sans le modifier,
 et une requête POST d&rsquo;<strong>envoyer</strong> un nouveau contenu.</p>
 <p>Ainsi, presque toutes les requêtes effectuées sur internet sont des requêtes
 GET.</p>
-<h2 id="transmettre-une-information-via-une-requête-get">
+<h3 id="transmettre-une-information-via-une-requête-get">
   Transmettre une information via une requête GET
   <a class="anchor" href="#transmettre-une-information-via-une-requ%c3%aate-get">#</a>
-</h2>
+</h3>
 <p>Lorsqu&rsquo;on transmet des informations via une requête GET, celles-ci sont transmises
 dans l&rsquo;URL directement, sous la forme de paire &ldquo;clé:valeur&rdquo; :</p>
 <p><code>https://httpbin.org/get?cle1=valeur1&amp;cle2=valeur2</code></p>
@@ -7473,10 +7506,10 @@ dans l&rsquo;URL directement, sous la forme de paire &ldquo;clé:valeur&rdquo; :
 <p>Remarquez la syntaxe : <code>?</code> après l&rsquo;adresse, <code>cle=valeur</code> et <code>&amp;</code> pour séparer les
 paires.</p>
 <p>Recommencez cette requête en entrant les informations dans &ldquo;PARAMS&rdquo;</p>
-<h2 id="transmettre-une-information-via-une-requête-post">
+<h3 id="transmettre-une-information-via-une-requête-post">
   Transmettre une information via une requête POST
   <a class="anchor" href="#transmettre-une-information-via-une-requ%c3%aate-post">#</a>
-</h2>
+</h3>
 <p>Cette fois, on transmet l&rsquo;information dans l&rsquo;entête, généralement via
 le champ <code>form</code> (<em>formulaire</em>).</p>
 <p>Ainsi, lorsque vous vous identifiez ou remplissez un formulaire, vos informations
@@ -7495,12 +7528,13 @@ pour autant. Simplement, le navigateur ne les affiche pas dans la page.</p>
 <li>Le serveur transmet-il ce qu&rsquo;il a reçu en retour ? Dans quel champ ?</li>
 <li>La réponse de ce serveur est-elle un contenu html ?</li>
 </ol>
-<h1 id="publier-sur-un-microblog">
+<h3 id="publier-sur-un-microblog">
   Publier sur un microblog
   <a class="anchor" href="#publier-sur-un-microblog">#</a>
-</h1>
+</h3>
 <p><em>Cette partie nécessite qu&rsquo;un serveur dont je ne suis pas l&rsquo;administrateur
 fonctionne toujours à cette date. Espérons que ce soit bien le cas !</em></p>
+<p><em>Si daventure le serveur ne fonctionne plus, j&rsquo;en ai un de secours sous la main.</em></p>
 <p>Nous allons publier quelques messages sur le <a href="https://liris-ktbs01.insa-lyon.fr:8000/blogephem/">blog</a> de mon collègue.</p>
 <p>Les champs acceptés sont <code>title</code> et <code>body</code>.</p>
 <p>Lorsque le post est accepté, la réponse contient l&rsquo;url permettant de consulter le message.</p>
@@ -7539,10 +7573,10 @@ fonctionne toujours à cette date. Espérons que ce soit bien le cas !</em></p>
 </span></span><span style="display:flex;"><span>https://liris-ktbs01.insa-lyon.fr:8000/blogephem/kewotepo
 </span></span></code></pre></div><p>Ici, le code de la réponse est 201. Il indique qu&rsquo;une information a été crée
 dans la base.</p>
-<h2 id="exercice-4">
-  Exercice 4
-  <a class="anchor" href="#exercice-4">#</a>
-</h2>
+<h3 id="exercice-3">
+  Exercice 3
+  <a class="anchor" href="#exercice-3">#</a>
+</h3>
 <ol>
 <li>
 <p>Publier un message sur le microblog. Par exemple, dîtes vous bonjour !</p>
@@ -7621,23 +7655,30 @@ dans la base.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</a></li>
-    <li><a href="#les-étapes-du-protocole-https">Les étapes du protocole HTTPS</a></li>
-    <li><a href="#complément">Complément</a></li>
-    <li><a href="#exercice-1">Exercice 1</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exercice-2">Exercice 2</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#transmettre-une-information-via-une-requête-get">Transmettre une information via une requête GET</a></li>
-    <li><a href="#transmettre-une-information-via-une-requête-post">Transmettre une information via une requête POST</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exercice-4">Exercice 4</a></li>
+    <li><a href="#réponse-du-serveur-à-une-requête-http">Réponse du serveur à une requête HTTP</a>
+      <ul>
+        <li><a href="#résumé-du-protocole-http">Résumé du protocole HTTP</a></li>
+        <li><a href="#https">HTTPS</a></li>
+      </ul>
+    </li>
+    <li><a href="#complément">Complément</a>
+      <ul>
+        <li><a href="#exercice-1">Exercice 1</a></li>
+      </ul>
+    </li>
+    <li><a href="#éxaminer-une-requête-depuis-une-machine">Éxaminer une requête depuis une machine</a>
+      <ul>
+        <li><a href="#exercice-2">Exercice 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#requêtes-get-et-post">Requêtes GET et POST</a>
+      <ul>
+        <li><a href="#transmettre-une-information-via-une-requête-get">Transmettre une information via une requête GET</a></li>
+        <li><a href="#transmettre-une-information-via-une-requête-post">Transmettre une information via une requête POST</a></li>
+        <li><a href="#publier-sur-un-microblog">Publier sur un microblog</a></li>
+        <li><a href="#exercice-3">Exercice 3</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

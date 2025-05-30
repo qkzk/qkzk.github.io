@@ -42,7 +42,7 @@ Si liste est la liste [1, 3, 5], quelles sont les opérations valides ?">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.22808af42facd4fe22281741453b3238da4ce9dc4fcf1e35e3a9971768e37bcf.js" integrity="sha256-IoCK9C&#43;s1P4iKBdBRTsyONpM6dxPzx4146mXF2jje88=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.837d51f9ac42829c023cb28b5ca90767ba2898209ba06dea1e1e252e212c9564.js" integrity="sha256-g31R&#43;axCgpwCPLKLXKkHZ7oomCCboG3qHh4lLiEslWQ=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/2_td/index.xml" title="qkzk" />
 <!--
@@ -7134,9 +7134,8 @@ MathJax.Hub.Config({
     <li><a href="#9-vérifier-un-carré-magique">9. Vérifier un carré magique</a></li>
     <li><a href="#10-manipuler-des-listes-de-nombres">10. Manipuler des listes de nombres</a></li>
     <li><a href="#11-itérer-sur-les-éléments-dun-dictionnaire">11. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
-  </ul>
-
-  <ul>
+    <li><a href="#12-le-morpion">12. Le morpion</a></li>
+    <li><a href="#objectif-bac">Objectif BAC</a></li>
     <li><a href="#le-sujet">Le sujet</a>
       <ul>
         <li><a href="#parie-1--modélisation-simpliste">Parie 1 : Modélisation simpliste</a></li>
@@ -7747,10 +7746,94 @@ de cet animal dans le zoo. Par exemple :</p>
 <p>b. Écrire le code de cette fonction.</p>
 </li>
 </ol>
-<h1 id="objectif-bac">
+<h2 id="12-le-morpion">
+  12. Le morpion
+  <a class="anchor" href="#12-le-morpion">#</a>
+</h2>
+<p><em>Donné en TD parce que les fonctions sont toutes très courtes, vous pouvez tout à fait le faire en Python directement ou le tenter à l&rsquo;écrit</em></p>
+<p>On a modélisé une grille de morpion par une liste de liste qui peut ressembler à ça :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>morpion <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>    [<span style="color:#c30">&#39; &#39;</span>, <span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39;o&#39;</span>],
+</span></span><span style="display:flex;"><span>    [<span style="color:#c30">&#39; &#39;</span>, <span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39;o&#39;</span>],
+</span></span><span style="display:flex;"><span>    [<span style="color:#c30">&#39;o&#39;</span>, <span style="color:#c30">&#39;x&#39;</span>, <span style="color:#c30">&#39; &#39;</span>],
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>Donc :</p>
+<ul>
+<li><code>morpion</code> est une variable dont la valeur est une <code>list</code> de longueur 3.</li>
+<li>ses éléments sont eux mêmes des <code>list</code> de longueur 3.</li>
+<li>chacune de ces sous listes contient 3 objets, des <code>str</code>, pouvant prendre les valeurs <code>' '</code>, <code>'x'</code> ou <code>'o'</code>.</li>
+</ul>
+<ol>
+<li>
+<p>écrire une fonction <code>jouer</code> qui prendre 4 paramètres :</p>
+<ul>
+<li>un morpion tel que défini au dessus,</li>
+<li>ligne, un entier entre 0 et 2 inclus,</li>
+<li>colonne, un entier entre 0 et 2 inclus,</li>
+<li>symbole un <code>str</code> parmi <code>'x'</code> et <code>'o'</code></li>
+</ul>
+<p>Si la case en ligne colonne est inoccupée (c&rsquo;est-à-dire si elle contient un <code>' '</code>), alors on remplace cet espace par le symbole reçu. Alors la fonction renvoie Vrai.</p>
+<p>Sinon, on ne fait rien et la fonction renvoie Faux.</p>
+<p>Les erreurs possibles (numéro de ligne ou de colonne invalide, symbole invalide etc.) ne sont pas gérées dans cette fonction. On suppose qu&rsquo;on reçoit toujours des éléments valides.</p>
+</li>
+<li>
+<p>écrire une fonction <code>ligne_gagnante</code> qui prend en paramètre un morpion comme plus haut et un numéro de ligne (0 à 2 inclus) et renvoie vrai si la ligne en question contient trois fois le même symbole <code>'x'</code> ou <code>'o'</code>.</p>
+</li>
+<li>
+<p>écrire une fonction <code>colonne_gagnante</code>qui prend en paramètre un morpion comme plus haut et un numéro de colonne (0 à 2 inclus) et renvoie vrai si la colonne en question contient trois fois le même symbole <code>'x'</code> ou <code>'o'</code>.</p>
+</li>
+<li>
+<p>écrire une fonction <code>diagonale_gagnante</code>qui prend en paramètre un morpion comme plus haut et renvoie vrai si l&rsquo;une des diagonales contient trois fois le même symbole <code>'x'</code> ou <code>'o'</code>.</p>
+</li>
+<li>
+<p>écrire une fonction <code>est_gagnant</code> qui prend un morpion en paramètre et renvoie vrai si et seulement si le morpion est gagnant. Elle utilise vos trois fonctions précédentes.</p>
+</li>
+<li>
+<p>écrire une fonction <code>est_match_nul</code> qui prend un morpion en paramètre et renvoie vrai si aucune case n&rsquo;est libre.</p>
+</li>
+<li>
+<p>écrire une fonction <code>est_termine</code> et renvoie vrai si et seulement si l&rsquo;un des joueurs a gagné ou si la partie est un match nul.</p>
+</li>
+<li>
+<p>Le jeu complet dans l&rsquo;interpréteur Python.</p>
+<p>Écrire une fonction appelée <code>joueur_morpion</code> qui&hellip;</p>
+<p>crée un morpion vide (que des <code>' '</code>)</p>
+<p><code>joueur = x</code> commence.</p>
+<p>Tant que la partie n&rsquo;est pas terminée,</p>
+<ul>
+<li>
+<p>Affiche le symbole du joueur : &ldquo;Joueur x&rdquo;</p>
+</li>
+<li>
+<p>Affiche un morpion (à réserver à une version Python, sur le papier on suppose qu&rsquo;on a la fonction afficher&hellip;)</p>
+</li>
+<li>
+<p>Le jeu demande avec input un numéro de ligne puis un numéro de colonne. Supposez que l&rsquo;utilisateur tape toujours des entiers entre 0 et 2 inclus.</p>
+</li>
+<li>
+<p>Si c&rsquo;est possible de jouer, (<code>if jouer(...):</code>)</p>
+<ul>
+<li>
+<p>si la partie est gagnée, on félicite le joueur et on affiche la grille finale.</p>
+</li>
+<li>
+<p>on change &lsquo;x&rsquo; pour &lsquo;o&rsquo; ou &lsquo;o&rsquo; pour &lsquo;x&rsquo;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <a href="./morpion.py">morpion.py</a>
+    </div>
+</details>
+
+<h2 id="objectif-bac">
   Objectif BAC
   <a class="anchor" href="#objectif-bac">#</a>
-</h1>
+</h2>
 <p><em>Cet exercice propose plusieurs modélisations pour représenter les notes des
 élèves d&rsquo;une classe.</em></p>
 <h2 id="le-sujet">
@@ -7991,9 +8074,8 @@ Inspirez-vous des codes proposés dans les autres questions.</p>
     <li><a href="#9-vérifier-un-carré-magique">9. Vérifier un carré magique</a></li>
     <li><a href="#10-manipuler-des-listes-de-nombres">10. Manipuler des listes de nombres</a></li>
     <li><a href="#11-itérer-sur-les-éléments-dun-dictionnaire">11. Itérer sur les éléments d&rsquo;un dictionnaire</a></li>
-  </ul>
-
-  <ul>
+    <li><a href="#12-le-morpion">12. Le morpion</a></li>
+    <li><a href="#objectif-bac">Objectif BAC</a></li>
     <li><a href="#le-sujet">Le sujet</a>
       <ul>
         <li><a href="#parie-1--modélisation-simpliste">Parie 1 : Modélisation simpliste</a></li>
