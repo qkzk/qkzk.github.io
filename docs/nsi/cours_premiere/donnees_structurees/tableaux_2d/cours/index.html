@@ -39,7 +39,7 @@ Structures imbriquées et compréhension # Il est possible de combiner listes, t
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.837d51f9ac42829c023cb28b5ca90767ba2898209ba06dea1e1e252e212c9564.js" integrity="sha256-g31R&#43;axCgpwCPLKLXKkHZ7oomCCboG3qHh4lLiEslWQ=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.f29903ffbe2a85684eba7685c5fbd81e55f1cc1d2ac09bc6574e54ded610f9d3.js" integrity="sha256-8pkD/74qhWhOunaFxfvYHlXxzB0qwJvGV05U3tYQ&#43;dM=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/tableaux_2d/cours/index.xml" title="qkzk" />
 <!--
@@ -7181,6 +7181,19 @@ plan. Valeur numéro 1 du tuple 2 de la liste :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> lst[<span style="color:#f60">2</span>][<span style="color:#f60">1</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
 </span></span></code></pre></div></li>
+<li>
+<p>Cela permet d&rsquo;écrire du code un peu plus lisible comme :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">milieu</span>(A: <span style="color:#366">tuple</span>, B: <span style="color:#366">tuple</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">tuple</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    Renvoie le milieu du segment [AB].
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    A, B et le milieu sont des tuples.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> (A[<span style="color:#f60">0</span>] <span style="color:#555">+</span> B[<span style="color:#f60">0</span>])<span style="color:#555">/</span><span style="color:#f60">2</span>, (A[<span style="color:#f60">1</span>] <span style="color:#555">+</span> B[<span style="color:#f60">1</span>])<span style="color:#555">/</span><span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A <span style="color:#555">=</span> (<span style="color:#f60">1</span>, <span style="color:#f60">2</span>)
+</span></span><span style="display:flex;"><span>B <span style="color:#555">=</span> (<span style="color:#f60">3</span>, <span style="color:#f60">5</span>)
+</span></span><span style="display:flex;"><span>I <span style="color:#555">=</span> milieu(A, B)
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="2-parcours-dune-structure-imbriquée">
   2. Parcours d&rsquo;une structure imbriquée
@@ -7190,28 +7203,30 @@ plan. Valeur numéro 1 du tuple 2 de la liste :</p>
 <li>
 <p>Le parcours d&rsquo;une structure imbriquée nécessite plusieurs boucles.</p>
 <p><strong>Exemple :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>persos <span style="color:#555">=</span> [{<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Bilbo&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Baggins&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">111</span>},
-</span></span><span style="display:flex;"><span>          {<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Frodo&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Baggins&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">33</span>},
-</span></span><span style="display:flex;"><span>          {<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Sam&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Gamgee&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">21</span>}]
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>persos <span style="color:#555">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Bilbo&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Baggins&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">111</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Frodo&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Baggins&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">33</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#34;prenom&#34;</span>: <span style="color:#c30">&#34;Sam&#34;</span>, <span style="color:#c30">&#34;nom&#34;</span>: <span style="color:#c30">&#34;Gamgee&#34;</span>, <span style="color:#c30">&#34;age&#34;</span>: <span style="color:#f60">21</span>}
+</span></span><span style="display:flex;"><span>]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># Parcours de la liste</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> p <span style="color:#000;font-weight:bold">in</span> persos:
-</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#c30">&#34;--------&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>()
 </span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># Parcours d&#39;un dict</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> k, v <span style="color:#000;font-weight:bold">in</span> p<span style="color:#555">.</span>items():
 </span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(k, <span style="color:#c30">&#39;-&gt;&#39;</span>, v)
 </span></span></code></pre></div><p>Qui produit l&rsquo;affichage ci-dessous :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">--------</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>prenom <span style="color:#555">-&gt;</span> Bilbo
 </span></span><span style="display:flex;"><span>nom <span style="color:#555">-&gt;</span> Baggins
 </span></span><span style="display:flex;"><span>age <span style="color:#555">-&gt;</span> <span style="color:#f60">111</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">--------</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>prenom <span style="color:#555">-&gt;</span> Frodo
 </span></span><span style="display:flex;"><span>nom <span style="color:#555">-&gt;</span> Baggins
 </span></span><span style="display:flex;"><span>age <span style="color:#555">-&gt;</span> <span style="color:#f60">33</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">--------</span>
-</span></span><span style="display:flex;"><span>prenom <span style="color:#555">-&gt;</span> Gamgee
-</span></span><span style="display:flex;"><span>nom <span style="color:#555">-&gt;</span> Sam
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prenom <span style="color:#555">-&gt;</span> Sam
+</span></span><span style="display:flex;"><span>nom <span style="color:#555">-&gt;</span> Gamgee
 </span></span><span style="display:flex;"><span>age <span style="color:#555">-&gt;</span> <span style="color:#f60">21</span>
 </span></span></code></pre></div></li>
 </ul>
@@ -7229,7 +7244,7 @@ sans en énumérer explicitement les éléments.</p>
 <li>
 <p>Création d&rsquo;une liste en compréhension</p>
 <p><strong>Exemple</strong> : Liste des nombres entiers de 2 à 10 inclus.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [i <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">11</span>)]   <span style="color:#09f;font-style:italic"># on peut simplement écrire `list(range(2, 11))`</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [i <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">11</span>)]   <span style="color:#09f;font-style:italic"># ou `list(range(2, 11))`</span>
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]
 </span></span></code></pre></div></li>
 <li>
@@ -7240,8 +7255,7 @@ sans en énumérer explicitement les éléments.</p>
 </span></span></code></pre></div></li>
 <li>
 <p>Filtrage des éléments en fonction d&rsquo;une condition</p>
-<p><strong>Exemple</strong> : Liste des carrés des nombres entiers de 2 à 50 inclus qui se
-terminent par le chiffre 9.</p>
+<p><strong>Exemple</strong> : Liste des carrés des nombres entiers de 2 à 50 inclus dont le carré se termine par le chiffre 9.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [i <span style="color:#555">**</span> <span style="color:#f60">2</span> <span style="color:#069;font-weight:bold">for</span> i <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">51</span>) <span style="color:#069;font-weight:bold">if</span> (i <span style="color:#555">**</span> <span style="color:#f60">2</span>) <span style="color:#555">%</span> <span style="color:#f60">10</span> <span style="color:#555">==</span> <span style="color:#f60">9</span>]
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">9</span>, <span style="color:#f60">49</span>, <span style="color:#f60">169</span>, <span style="color:#f60">289</span>, <span style="color:#f60">529</span>, <span style="color:#f60">729</span>, <span style="color:#f60">1089</span>, <span style="color:#f60">1369</span>, <span style="color:#f60">1849</span>, <span style="color:#f60">2209</span>]
 </span></span></code></pre></div></li>
@@ -7255,7 +7269,7 @@ terminent par le chiffre 9.</p>
 <p>Pour les dictionnaires, la syntaxe est équivalente. Il faut préciser la clé et
 la valeur pour chaque élément.</p>
 <p><strong>Exemple</strong> : Dictionnaire contenant pour les clés, les nombres entiers de 2 à 10
-inclus, et pour les valeurs associées, le cube de la clé.</p>
+inclus, et pour les valeurs associées, leur cube.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> {k: k <span style="color:#555">**</span> <span style="color:#f60">3</span> <span style="color:#069;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">2</span>, <span style="color:#f60">11</span>)}
 </span></span><span style="display:flex;"><span>{<span style="color:#f60">2</span>: <span style="color:#f60">8</span>, <span style="color:#f60">3</span>: <span style="color:#f60">27</span>, <span style="color:#f60">4</span>: <span style="color:#f60">64</span>, <span style="color:#f60">5</span>: <span style="color:#f60">125</span>, <span style="color:#f60">6</span>: <span style="color:#f60">216</span>, <span style="color:#f60">7</span>: <span style="color:#f60">343</span>, <span style="color:#f60">8</span>: <span style="color:#f60">512</span>, <span style="color:#f60">9</span>: <span style="color:#f60">729</span>, <span style="color:#f60">10</span>: <span style="color:#f60">1000</span>}
 </span></span></code></pre></div></li>

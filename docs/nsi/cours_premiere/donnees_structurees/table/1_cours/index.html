@@ -37,7 +37,7 @@ correctement importé dans un tableur">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.837d51f9ac42829c023cb28b5ca90767ba2898209ba06dea1e1e252e212c9564.js" integrity="sha256-g31R&#43;axCgpwCPLKLXKkHZ7oomCCboG3qHh4lLiEslWQ=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.f29903ffbe2a85684eba7685c5fbd81e55f1cc1d2ac09bc6574e54ded610f9d3.js" integrity="sha256-8pkD/74qhWhOunaFxfvYHlXxzB0qwJvGV05U3tYQ&#43;dM=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/table/1_cours/index.xml" title="qkzk" />
 <!--
@@ -7102,35 +7102,38 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#pdf--pour-impression">pdf : <a href="./1_cours.pdf">pour impression</a></a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#les-données-en-table-dans-un-langage-de-programmation">Les données en table dans un langage de programmation</a></li>
-    <li><a href="#comparaison-des-formats">Comparaison des formats</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#la-méthode-à-retenir">La méthode à retenir</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exemple-de-sélection">Exemple de sélection.</a></li>
-    <li><a href="#exemple-de-projection">Exemple de projection</a>
+    <li><a href="#1-données-en-table">1. Données en table</a></li>
+    <li><a href="#2-enregistrements">2. Enregistrements</a>
       <ul>
+        <li><a href="#les-données-en-table-dans-un-langage-de-programmation">Les données en table dans un langage de programmation</a></li>
+        <li><a href="#comparaison-des-formats">Comparaison des formats</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-fichiers-csv">3. Fichiers CSV</a></li>
+    <li><a href="#4-lecture-de-fichiers-csv">4. Lecture de fichiers CSV</a></li>
+    <li><a href="#5-import-dun-fichier-csv">5. Import d&rsquo;un fichier CSV</a>
+      <ul>
+        <li><a href="#la-méthode-à-retenir">La méthode à retenir</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-exporter-vers-un-fichier-csv-avec-python">6. Exporter vers un fichier CSV avec Python</a></li>
+    <li><a href="#7-sélectionner-et-projeter">7. Sélectionner et projeter</a>
+      <ul>
+        <li><a href="#exemple-de-sélection">Exemple de sélection.</a></li>
+        <li><a href="#exemple-de-projection">Exemple de projection</a></li>
         <li><a href="#exercices">Exercices</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#les-autres-formats-texte">Les autres formats texte</a>
+    <li><a href="#illustration">Illustration</a></li>
+    <li><a href="#7-compléments">7. <em>Compléments</em></a>
       <ul>
+        <li><a href="#bases-de-données">Bases de données</a></li>
+        <li><a href="#les-autres-formats-texte">Les autres formats texte</a></li>
         <li><a href="#contexe">Contexe</a></li>
-      </ul>
-    </li>
-    <li><a href="#importer-les-données-en-python-sans-utiliser-le-module-csv">Importer les données en Python sans utiliser le module CSV</a>
-      <ul>
+        <li><a href="#importer-les-données-en-python-sans-utiliser-le-module-csv">Importer les données en Python sans utiliser le module CSV</a></li>
         <li><a href="#créer-un-tableau-doublement-indexé">Créer un tableau doublement indexé</a></li>
+        <li><a href="#commentaires-détaillés-sur-la-fonction-lire_fichier_csv">Commentaires détaillés sur la fonction <code>lire_fichier_csv</code></a></li>
+        <li><a href="#quobtient-on-">Qu&rsquo;obtient-on ?</a></li>
         <li><a href="#variante--vers-un-tableau-de-dictionnaire">Variante : vers un tableau de dictionnaire.</a></li>
       </ul>
     </li>
@@ -7155,10 +7158,10 @@ https://github.com/alex-shpak/hugo-book
 habituellement traitées à l&rsquo;aide de tableurs ou de logiciels de bases
 de données principalement. Nous allons apprendre à importer et exporter
 des données en utilisant ce format.</em></p>
-<h1 id="1-données-en-table">
+<h2 id="1-données-en-table">
   1. Données en table
   <a class="anchor" href="#1-donn%c3%a9es-en-table">#</a>
-</h1>
+</h2>
 <p>De quoi parle-t-on ?</p>
 <p>Par &ldquo;données en table&rdquo; on entend ce type d&rsquo;information :</p>
 <ul>
@@ -7167,7 +7170,7 @@ des données en utilisant ce format.</em></p>
 <p><img src="/uploads/docsnsi/table_csv/img/fr-creation-fichier-csv.jpg" alt="dans un fichier texte" /></p>
 </li>
 <li>
-<p>sans mise en forme dans un tableur</p>
+<p>mal importé dans un tableur</p>
 <p><img src="/uploads/docsnsi/table_csv/img/csv_1.png" alt="dans un tableur" /></p>
 </li>
 <li>
@@ -7175,33 +7178,34 @@ des données en utilisant ce format.</em></p>
 <p><img src="/uploads/docsnsi/table_csv/img/eg_formats_csv01_01.png" alt="dans un tableur" /></p>
 </li>
 </ul>
-<p>Excel et les tableurs évolués réalisent un traitement complexe des données
-mais on peut toujours exporter un tableau de données vers un fichier au
-format particulier ou importer un tel fichier</p>
-<h1 id="2-enregistrements">
+<p>Les tableurs évolués réalisent un traitement complexe des données
+mais on peut toujours exporter ou importer un tableau de données vers un fichier au
+format particulier.</p>
+<h2 id="2-enregistrements">
   2. Enregistrements
   <a class="anchor" href="#2-enregistrements">#</a>
-</h1>
+</h2>
 <ul>
 <li>
 <p>Un <strong>enregistrement</strong> est une structure de données, de types éventuellement
-différents, auxquelles ont accède grâce à un nom.</p>
+différents, auxquelles ont accède grâce à un <em>nom</em>.</p>
 <p><em>Exemple :</em> On peut représenter les notes d&rsquo;un élève dans différentes
 disciplines à l&rsquo;aide d&rsquo;un enregistrement :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#c30">&#39;Nom&#39;</span> : <span style="color:#c30">&#39;Joe&#39;</span>, <span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;18&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;16&#39;</span>}
 </span></span></code></pre></div><p>Les champs (ou clés ou attributs) de ces enregistrements sont ici <code>'Nom'</code>,
 <code>'Anglais'</code>, <code>'Info'</code> et <code>'Maths'</code>. On leur associe des valeurs, ici
 <code>'Joe'</code>, <code>'17'</code>, <code>'18'</code> et <code>'16'</code>.</p>
+<p>Dans un tableau, un enregistrement correspond à une ligne.</p>
 </li>
 <li>
-<p>En Python, on utilisera principalement les <strong>dictionnaires</strong> pour représenter
+<p>En Python, on utilisera des <strong>dictionnaires</strong> ou, plus rarement, des <strong>listes</strong> pour représenter
 les enregistrements.</p>
 </li>
 </ul>
-<h2 id="les-données-en-table-dans-un-langage-de-programmation">
+<h3 id="les-données-en-table-dans-un-langage-de-programmation">
   Les données en table dans un langage de programmation
   <a class="anchor" href="#les-donn%c3%a9es-en-table-dans-un-langage-de-programmation">#</a>
-</h2>
+</h3>
 <p>En python, ce tableau peut prendre différentes formes :</p>
 <ol>
 <li>
@@ -7224,11 +7228,11 @@ les enregistrements.</p>
 <p>Le contenu ne change pas, les manipulations nécessaires pour y accéder si.</p>
 <p>Dans certains cas on dispose directement des données (via l&rsquo;énoncé ou un
 travail préalable). Parfois on doit importer les données depuis un fichier csv.</p>
-<h2 id="comparaison-des-formats">
+<h3 id="comparaison-des-formats">
   Comparaison des formats
   <a class="anchor" href="#comparaison-des-formats">#</a>
-</h2>
-<p>Dans le premier cas on accède aux données comme dans un tableau 2D :</p>
+</h3>
+<p>Dans le cas des double listes, on accède aux données comme dans un tableau 2D :</p>
 <ul>
 <li>
 <p>accéder au premier enregistrement.</p>
@@ -7248,12 +7252,13 @@ mais on accède aux valeurs <em>par leur clés</em>.</p>
 <p>quel est le prénom du second contact ?</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> contacts[<span style="color:#f60">1</span>][<span style="color:#c30">&#39;Prénom&#39;</span>]
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;Franky&#39;</span>
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>C&rsquo;est plus facile à comprendre.</p>
+</li>
 </ul>
-<h1 id="3-fichiers-csv">
+<h2 id="3-fichiers-csv">
   3. Fichiers CSV
   <a class="anchor" href="#3-fichiers-csv">#</a>
-</h1>
+</h2>
 <blockquote class="book-hint info">
   <ul>
 <li>
@@ -7326,10 +7331,10 @@ suisse par exemple).</p>
 </span></span><span style="display:flex;"><span>&#39;Joe&#39;,&#39;17&#39;,&#39;18&#39;,&#39;16&#39;
 </span></span><span style="display:flex;"><span>&#39;Zoé&#39;,&#39;15&#39;,&#39;17&#39;,&#39;19&#39;
 </span></span><span style="display:flex;"><span>&#39;Max&#39;,&#39;19&#39;,&#39;13&#39;,&#39;14&#39;
-</span></span></code></pre></div><h1 id="4-lecture-de-fichiers-csv">
+</span></span></code></pre></div><h2 id="4-lecture-de-fichiers-csv">
   4. Lecture de fichiers CSV
   <a class="anchor" href="#4-lecture-de-fichiers-csv">#</a>
-</h1>
+</h2>
 <ul>
 <li>
 <p>On peut choisir de représenter en Python les fichiers CSV par des listes de
@@ -7340,7 +7345,8 @@ dictionnaires dont les clés sont les noms des colonnes.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Table1 <span style="color:#555">=</span> [
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Joe&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;18&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;16&#39;</span>},
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Zoé&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;15&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;19&#39;</span>},
-</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Max&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;19&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;13&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;14&#39;</span>}]
+</span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Max&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;19&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;13&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;14&#39;</span>}
+</span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><p><strong>À noter :</strong> <em>En utilisant le vocabulaire habituel décrivant une feuille
 de calcul d&rsquo;un tableur :</em></p>
 <ul>
@@ -7351,14 +7357,14 @@ de calcul d&rsquo;un tableur :</em></p>
 </ul>
 </li>
 </ul>
-<h1 id="5-import-dun-fichier-csv">
+<h2 id="5-import-dun-fichier-csv">
   5. Import d&rsquo;un fichier CSV
   <a class="anchor" href="#5-import-dun-fichier-csv">#</a>
-</h1>
-<h2 id="la-méthode-à-retenir">
+</h2>
+<h3 id="la-méthode-à-retenir">
   La méthode à retenir
   <a class="anchor" href="#la-m%c3%a9thode-%c3%a0-retenir">#</a>
-</h2>
+</h3>
 <ul>
 <li>
 <p>pour l&rsquo;import on crée une liste de dictionnaires (un par ligne de la table).
@@ -7373,25 +7379,24 @@ fichier. Par exemple : <code>depuis_csv('Ma_base.csv')</code> pour charger le fi
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> [<span style="color:#366">dict</span>(ligne) <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> lecteur]
 </span></span></code></pre></div></li>
 </ul>
-<h1 id="6-exporter-vers-un-fichier-csv-avec-python">
+<h2 id="6-exporter-vers-un-fichier-csv-avec-python">
   6. Exporter vers un fichier CSV avec Python
   <a class="anchor" href="#6-exporter-vers-un-fichier-csv-avec-python">#</a>
-</h1>
+</h2>
 <ul>
 <li>
 <p>Pour l&rsquo;export, on entre le nom de la table sous forme de chaîne. On donne
 l&rsquo;ordre des colonnes sous forme d&rsquo;une liste d&rsquo;attributs.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">vers_csv</span>(nom_fichier, ordre):
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">vers_csv</span>(nom_fichier, table, champs):
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(nom_fichier, <span style="color:#c30">&#39;w&#39;</span>) <span style="color:#069;font-weight:bold">as</span> contenu:
-</span></span><span style="display:flex;"><span>        writer <span style="color:#555">=</span> csv<span style="color:#555">.</span>DictWriter(contenu, fieldnames<span style="color:#555">=</span>ordre)
-</span></span><span style="display:flex;"><span>        table <span style="color:#555">=</span> <span style="color:#366">eval</span>(nom)
-</span></span><span style="display:flex;"><span>        writer<span style="color:#555">.</span>writeheader()  <span style="color:#09f;font-style:italic"># pour la 1ere lire, celle des attributs</span>
+</span></span><span style="display:flex;"><span>        writer <span style="color:#555">=</span> csv<span style="color:#555">.</span>DictWriter(contenu, fieldnames<span style="color:#555">=</span>champs)
+</span></span><span style="display:flex;"><span>        writer<span style="color:#555">.</span>writeheader()  <span style="color:#09f;font-style:italic">## pour la 1ere lire, celle des attributs</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> table:
-</span></span><span style="display:flex;"><span>            writer<span style="color:#555">.</span>writerow(ligne)  <span style="color:#09f;font-style:italic"># ajoute les lignes de la table</span>
+</span></span><span style="display:flex;"><span>            writer<span style="color:#555">.</span>writerow(ligne)  <span style="color:#09f;font-style:italic">## ajoute les lignes de la table</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Pour exporter la table <code>Table1</code> on utilise :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> vers_csv(<span style="color:#c30">&#39;Table1.csv&#39;</span>, [<span style="color:#c30">&#39;Nom&#39;</span>, <span style="color:#c30">&#39;Anglais&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>])
+<p>Pour exporter la table <code>table</code> on utilise :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> vers_csv(<span style="color:#c30">&#39;Table1.csv&#39;</span>, table, [<span style="color:#c30">&#39;Nom&#39;</span>, <span style="color:#c30">&#39;Anglais&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>])
 </span></span></code></pre></div><p>Python crée alors un fichier <code>Table1.csv</code> au format CSV :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Nom,Anglais,Info,Maths
 </span></span><span style="display:flex;"><span>Joe,17,18,16
@@ -7399,21 +7404,19 @@ l&rsquo;ordre des colonnes sous forme d&rsquo;une liste d&rsquo;attributs.</p>
 </span></span><span style="display:flex;"><span>Max,19,13,14
 </span></span></code></pre></div></li>
 </ul>
-<h1 id="6-sélectionner-et-projeter">
-  6. Sélectionner et projeter
-  <a class="anchor" href="#6-s%c3%a9lectionner-et-projeter">#</a>
-</h1>
+<h2 id="7-sélectionner-et-projeter">
+  7. Sélectionner et projeter
+  <a class="anchor" href="#7-s%c3%a9lectionner-et-projeter">#</a>
+</h2>
 <p>On est régulièrement amené à récupérer une partie des données.</p>
 <ul>
-<li>lorsqu&rsquo;on souhaite accéder à un ou plusieurs enregistrements vérifiant un critère,
-on réalise une <em>sélection</em>.</li>
-<li>lorsqu&rsquo;on souhaite accéder à toutes les données d&rsquo;une colonne on réalise une
-<em>projection</em>.</li>
+<li>lorsqu&rsquo;on souhaite accéder à <strong>un ou plusieurs enregistrements vérifiant un critère</strong>, on réalise une <em>sélection</em>.</li>
+<li>lorsqu&rsquo;on souhaite accéder à <strong>toutes les données d&rsquo;une colonne</strong> on réalise une <em>projection</em>.</li>
 </ul>
-<h2 id="exemple-de-sélection">
+<h3 id="exemple-de-sélection">
   Exemple de sélection.
   <a class="anchor" href="#exemple-de-s%c3%a9lection">#</a>
-</h2>
+</h3>
 <p>Supposons qu&rsquo;on dispose d&rsquo;une table enregistrée dans une liste de dictionnaires :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Table1 <span style="color:#555">=</span> [
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Joe&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;18&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;16&#39;</span>},
@@ -7421,32 +7424,32 @@ on réalise une <em>sélection</em>.</li>
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Max&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;19&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;13&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;14&#39;</span>},
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Bob&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;12&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;16&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;10&#39;</span>}
 </span></span><span style="display:flex;"><span>]
-</span></span></code></pre></div><p>On souhaite extraire la liste des enregistrements des élèves ayant eu au moins 16
-en maths.</p>
+</span></span></code></pre></div><p>On souhaite extraire la liste des enregistrements des <strong>élèves ayant eu au moins 16</strong> en maths.</p>
+<p>C&rsquo;est une <em>sélection</em> dont le critère est &ldquo;`enregistrement[&ldquo;Maths&rdquo;] &gt;= 16&rdquo;</p>
 <p>On peut le faire &ldquo;à la main&rdquo; :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>au_moins_16_en_maths <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> Table1:
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> enregistrement[<span style="color:#c30">&#39;Maths&#39;</span>] <span style="color:#555">&gt;=</span> <span style="color:#f60">16</span>:
 </span></span><span style="display:flex;"><span>        au_moins_16_en_maths<span style="color:#555">.</span>append(enregistrement)
 </span></span></code></pre></div><p>Le résultat est <em>encore une table</em> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Table1 <span style="color:#555">=</span> [
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>au_moins_16_en_maths <span style="color:#555">=</span> [
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Joe&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;18&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;16&#39;</span>},
 </span></span><span style="display:flex;"><span>    {<span style="color:#c30">&#39;Nom&#39;</span>: <span style="color:#c30">&#39;Zoé&#39;</span>,<span style="color:#c30">&#39;Anglais&#39;</span>: <span style="color:#c30">&#39;15&#39;</span>, <span style="color:#c30">&#39;Info&#39;</span>: <span style="color:#c30">&#39;17&#39;</span>, <span style="color:#c30">&#39;Maths&#39;</span>: <span style="color:#c30">&#39;19&#39;</span>}
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><p>On peut le faire avec une liste par compréhension :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>au_moins_16_en_maths <span style="color:#555">=</span> [enre <span style="color:#069;font-weight:bold">for</span> enre <span style="color:#000;font-weight:bold">in</span> Table1 <span style="color:#069;font-weight:bold">if</span> enre[<span style="color:#c30">&#39;Maths&#39;</span>] <span style="color:#555">&gt;=</span> <span style="color:#f60">16</span>]
 </span></span></code></pre></div><p>Le résultat est identique.</p>
-<h2 id="exemple-de-projection">
+<h3 id="exemple-de-projection">
   Exemple de projection
   <a class="anchor" href="#exemple-de-projection">#</a>
-</h2>
+</h3>
 <p>Cette fois, on souhaite récupérer toutes les valeurs pour un champ donné,
-par exemple toutes les notes de mathématiques.</p>
-<p>L&rsquo;approche est similaire, on crée une liste, on parcourt la table et
-on ajoute à la liste tous les éléments qui nous intéressent :</p>
+par exemple <strong>toutes les notes de mathématiques</strong>.</p>
 <ul>
 <li>
 <p>à la main :</p>
+<p>L&rsquo;approche est similaire, on crée une liste, on parcourt la table et
+on ajoute à la liste tous les éléments qui nous intéressent :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>notes_maths <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> enregistrement <span style="color:#000;font-weight:bold">in</span> Table1:
 </span></span><span style="display:flex;"><span>    notes_maths<span style="color:#555">.</span>append(enregistrement[<span style="color:#c30">&#39;Maths&#39;</span>])
@@ -7472,11 +7475,25 @@ d&rsquo;info et de maths :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[(<span style="color:#f60">18</span>, <span style="color:#f60">16</span>), (<span style="color:#f60">17</span>, <span style="color:#f60">19</span>), (<span style="color:#f60">13</span>, <span style="color:#f60">14</span>), (<span style="color:#f60">16</span>, <span style="color:#f60">10</span>)]
 </span></span></code></pre></div></li>
 </ol>
-<h1 id="7-compléments">
+<h2 id="illustration">
+  Illustration
+  <a class="anchor" href="#illustration">#</a>
+</h2>
+<p>Téléchargez ce fichier pour disposer d&rsquo;un exemple illustrant ces manipulations :</p>
+<ol>
+<li>fichier csv de départ <a href="./notes.csv">notes.csv</a></li>
+<li>script manipulant ce fichier <a href="./notes.py">notes.py</a></li>
+<li>fichier csv après la modification <a href="./notes_apres.csv">notes_apres.csv</a></li>
+</ol>
+<h2 id="7-compléments">
   7. <em>Compléments</em>
   <a class="anchor" href="#7-compl%c3%a9ments">#</a>
-</h1>
+</h2>
 <p><em>Cette partie est donnée pour votre culture mais n&rsquo;est pas à apprendre</em>.</p>
+<h3 id="bases-de-données">
+  Bases de données
+  <a class="anchor" href="#bases-de-donn%c3%a9es">#</a>
+</h3>
 <p>Le format CSV n&rsquo;est pas le seul utilisé pour enregistrer des données.
 Il existe d&rsquo;autres formats de fichiers textes mais aussi une approche
 beaucoup plus élaborée qui remplit le même objectif : les bases de données.</p>
@@ -7484,10 +7501,10 @@ beaucoup plus élaborée qui remplit le même objectif : les bases de données.<
 SQL.</p>
 <p>Ce sont des programmes qui permettent à plusieurs utilisateurs d&rsquo;accéder aux
 ressources, de conserver une trace de ce qui est fait sur les données etc.</p>
-<h2 id="les-autres-formats-texte">
+<h3 id="les-autres-formats-texte">
   Les autres formats texte
   <a class="anchor" href="#les-autres-formats-texte">#</a>
-</h2>
+</h3>
 <p>Citons :</p>
 <ul>
 <li>
@@ -7573,10 +7590,10 @@ Difficile à lire pour un &ldquo;humain&rdquo;.</p>
 <li>Utilisé par des machines pour communiquer via une API : JSON</li>
 <li>Pour stocker des configurations de programme : Yaml, INI, format propriétaire</li>
 </ul>
-<h2 id="importer-les-données-en-python-sans-utiliser-le-module-csv">
+<h3 id="importer-les-données-en-python-sans-utiliser-le-module-csv">
   Importer les données en Python sans utiliser le module CSV
   <a class="anchor" href="#importer-les-donn%c3%a9es-en-python-sans-utiliser-le-module-csv">#</a>
-</h2>
+</h3>
 <p>Vous rencontrerez vraisemblablement des variantes de la méthode précédente.
 Nous allons en présenter rapidement plusieurs. Elles ne sont <em>pas à connaître
 mais à comprendre</em>.</p>
@@ -7591,7 +7608,7 @@ comment le faire à l&rsquo;aide des outils proposés.</p>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">lire_fichier_csv</span>(filename, delimiter<span style="color:#555">=</span><span style="color:#c30">&#39;,&#39;</span>):
 </span></span><span style="display:flex;"><span>  res <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(filename) <span style="color:#069;font-weight:bold">as</span> f:
-</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>readline() <span style="color:#09f;font-style:italic"># on zappe la première ligne...</span>
+</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>readline() <span style="color:#09f;font-style:italic">## on zappe la première ligne...</span>
 </span></span><span style="display:flex;"><span>    l <span style="color:#555">=</span> f<span style="color:#555">.</span>readline()
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">while</span> l <span style="color:#555">!=</span> <span style="color:#c30">&#39;&#39;</span>:
 </span></span><span style="display:flex;"><span>      args <span style="color:#555">=</span> l<span style="color:#555">.</span>replace(<span style="color:#c30">&#39;&#34;&#39;</span>, <span style="color:#c30">&#39;&#39;</span>)<span style="color:#555">.</span>strip()<span style="color:#555">.</span>split(delimiter)
@@ -7606,10 +7623,10 @@ comment le faire à l&rsquo;aide des outils proposés.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> res
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>liste_csv <span style="color:#555">=</span> lire_fichier_csv(<span style="color:#c30">&#39;2nde-14-liste.csv&#39;</span>, delimiter<span style="color:#555">=</span><span style="color:#c30">&#39;;&#39;</span>)
-</span></span></code></pre></div><h4 id="commentaires-détaillés-sur-la-fonction-lire_fichier_csv">
+</span></span></code></pre></div><h3 id="commentaires-détaillés-sur-la-fonction-lire_fichier_csv">
   Commentaires détaillés sur la fonction <code>lire_fichier_csv</code>
   <a class="anchor" href="#commentaires-d%c3%a9taill%c3%a9s-sur-la-fonction-lire_fichier_csv">#</a>
-</h4>
+</h3>
 <ul>
 <li>ligne 4 : on crée la liste des enregistrements</li>
 <li>ligne 5 : on ouvre le fichier et on le stocke dans une variable temporaire <code>f</code></li>
@@ -7623,10 +7640,10 @@ comment le faire à l&rsquo;aide des outils proposés.</p>
 <li>ligne 16 : si jamais la ligne est imparfaite, on la zappe</li>
 <li>ligne 17 :  on avance à la ligne suivante</li>
 </ul>
-<h4 id="quobtient-on-">
+<h3 id="quobtient-on-">
   Qu&rsquo;obtient-on ?
   <a class="anchor" href="#quobtient-on-">#</a>
-</h4>
+</h3>
 <p>Un tableau doublement indexé. Les descripteurs sont enregistrés dans <code>CHAMPS</code>.
 Ils ne sont pas utilisés dans la fonction d&rsquo;import.</p>
 <h3 id="variante--vers-un-tableau-de-dictionnaire">
@@ -7641,14 +7658,14 @@ un tableau de dictionnaires.</p>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">lire_fichier_csv</span>(filename, delimiter<span style="color:#555">=</span><span style="color:#c30">&#39;,&#39;</span>, champs<span style="color:#555">=</span>CHAMPS):
 </span></span><span style="display:flex;"><span>  res <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">with</span> <span style="color:#366">open</span>(filename) <span style="color:#069;font-weight:bold">as</span> f:
-</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>readline() <span style="color:#09f;font-style:italic"># on zappe la première ligne...</span>
+</span></span><span style="display:flex;"><span>    f<span style="color:#555">.</span>readline() <span style="color:#09f;font-style:italic">## on zappe la première ligne...</span>
 </span></span><span style="display:flex;"><span>    l <span style="color:#555">=</span> f<span style="color:#555">.</span>readline()
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">while</span> l <span style="color:#555">!=</span> <span style="color:#c30">&#39;&#39;</span>:
 </span></span><span style="display:flex;"><span>      args <span style="color:#555">=</span> l<span style="color:#555">.</span>replace(<span style="color:#c30">&#39;&#34;&#39;</span>, <span style="color:#c30">&#39;&#39;</span>)<span style="color:#555">.</span>strip()<span style="color:#555">.</span>split(delimiter)
 </span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">try</span>:
-</span></span><span style="display:flex;"><span>        enregistrement <span style="color:#555">=</span> {} <span style="color:#09f;font-style:italic"># on crée un dictionnaire</span>
+</span></span><span style="display:flex;"><span>        enregistrement <span style="color:#555">=</span> {} <span style="color:#09f;font-style:italic">## on crée un dictionnaire</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(args)):
-</span></span><span style="display:flex;"><span>          enregistrement[champs[i]] <span style="color:#555">=</span> args[i] <span style="color:#09f;font-style:italic"># les clés sont les éléments de CHAMPS</span>
+</span></span><span style="display:flex;"><span>          enregistrement[champs[i]] <span style="color:#555">=</span> args[i] <span style="color:#09f;font-style:italic">## les clés sont les éléments de CHAMPS</span>
 </span></span><span style="display:flex;"><span>        res<span style="color:#555">.</span>append(enregistrement)
 </span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ValueError</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">pass</span>
@@ -7722,35 +7739,38 @@ un tableau de dictionnaires.</p>
         <li><a href="#pdf--pour-impression">pdf : <a href="./1_cours.pdf">pour impression</a></a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#les-données-en-table-dans-un-langage-de-programmation">Les données en table dans un langage de programmation</a></li>
-    <li><a href="#comparaison-des-formats">Comparaison des formats</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#la-méthode-à-retenir">La méthode à retenir</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exemple-de-sélection">Exemple de sélection.</a></li>
-    <li><a href="#exemple-de-projection">Exemple de projection</a>
+    <li><a href="#1-données-en-table">1. Données en table</a></li>
+    <li><a href="#2-enregistrements">2. Enregistrements</a>
       <ul>
+        <li><a href="#les-données-en-table-dans-un-langage-de-programmation">Les données en table dans un langage de programmation</a></li>
+        <li><a href="#comparaison-des-formats">Comparaison des formats</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-fichiers-csv">3. Fichiers CSV</a></li>
+    <li><a href="#4-lecture-de-fichiers-csv">4. Lecture de fichiers CSV</a></li>
+    <li><a href="#5-import-dun-fichier-csv">5. Import d&rsquo;un fichier CSV</a>
+      <ul>
+        <li><a href="#la-méthode-à-retenir">La méthode à retenir</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-exporter-vers-un-fichier-csv-avec-python">6. Exporter vers un fichier CSV avec Python</a></li>
+    <li><a href="#7-sélectionner-et-projeter">7. Sélectionner et projeter</a>
+      <ul>
+        <li><a href="#exemple-de-sélection">Exemple de sélection.</a></li>
+        <li><a href="#exemple-de-projection">Exemple de projection</a></li>
         <li><a href="#exercices">Exercices</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#les-autres-formats-texte">Les autres formats texte</a>
+    <li><a href="#illustration">Illustration</a></li>
+    <li><a href="#7-compléments">7. <em>Compléments</em></a>
       <ul>
+        <li><a href="#bases-de-données">Bases de données</a></li>
+        <li><a href="#les-autres-formats-texte">Les autres formats texte</a></li>
         <li><a href="#contexe">Contexe</a></li>
-      </ul>
-    </li>
-    <li><a href="#importer-les-données-en-python-sans-utiliser-le-module-csv">Importer les données en Python sans utiliser le module CSV</a>
-      <ul>
+        <li><a href="#importer-les-données-en-python-sans-utiliser-le-module-csv">Importer les données en Python sans utiliser le module CSV</a></li>
         <li><a href="#créer-un-tableau-doublement-indexé">Créer un tableau doublement indexé</a></li>
+        <li><a href="#commentaires-détaillés-sur-la-fonction-lire_fichier_csv">Commentaires détaillés sur la fonction <code>lire_fichier_csv</code></a></li>
+        <li><a href="#quobtient-on-">Qu&rsquo;obtient-on ?</a></li>
         <li><a href="#variante--vers-un-tableau-de-dictionnaire">Variante : vers un tableau de dictionnaire.</a></li>
       </ul>
     </li>
