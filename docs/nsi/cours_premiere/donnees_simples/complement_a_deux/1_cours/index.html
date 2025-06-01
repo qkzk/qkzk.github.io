@@ -41,7 +41,7 @@ Le principe est d’attribuer au bit de poids fort (premier bit) le signe du nom
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.f29903ffbe2a85684eba7685c5fbd81e55f1cc1d2ac09bc6574e54ded610f9d3.js" integrity="sha256-8pkD/74qhWhOunaFxfvYHlXxzB0qwJvGV05U3tYQ&#43;dM=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.457eb0cbefde118f18707eb81d35ab4052ba0053d662b7a6f12db2e320bdb531.js" integrity="sha256-RX6wy&#43;/eEY8YcH64HTWrQFK6AFPWYrem8S2y4yC9tTE=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/complement_a_deux/1_cours/index.xml" title="qkzk" />
 <!--
@@ -7224,6 +7224,22 @@ nombre.</p>
 <blockquote class="book-hint danger">
   Dans tout ce document, on encodera <strong>nos nombres entiers sur 8 bits.</strong>
 </blockquote>
+
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Considérons l&rsquo;entier $42 = 101010_2$</p>
+<p>Encodé <strong>sur 6 bits, son bit de poids fort est 1</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>position :  123456
+</span></span><span style="display:flex;"><span>bits     :  101010
+</span></span><span style="display:flex;"><span>bit fort :  ^
+</span></span></code></pre></div><p>Mais, le même entier, <strong>encodé sur 8 bits a un bit de poids fort valant 0</strong> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>position :  12345678
+</span></span><span style="display:flex;"><span>bits     :  00101010
+</span></span><span style="display:flex;"><span>bit fort :  ^
+</span></span></code></pre></div><p>Il est donc nécessaire de <strong>connaître la taille de l&rsquo;encodage pour déterminer le bit de poids fort</strong>.</p>
+
+    </div>
+</details>
 
 <h2 id="approche-naïve--binaire-signé">
   Approche naïve : binaire signé

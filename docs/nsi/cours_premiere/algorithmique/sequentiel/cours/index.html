@@ -31,7 +31,7 @@ Algorithmes sur les tableaux # Lorsqu’on dispose de plusieurs données similai
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.f29903ffbe2a85684eba7685c5fbd81e55f1cc1d2ac09bc6574e54ded610f9d3.js" integrity="sha256-8pkD/74qhWhOunaFxfvYHlXxzB0qwJvGV05U3tYQ&#43;dM=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.457eb0cbefde118f18707eb81d35ab4052ba0053d662b7a6f12db2e320bdb531.js" integrity="sha256-RX6wy&#43;/eEY8YcH64HTWrQFK6AFPWYrem8S2y4yC9tTE=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/cours/index.xml" title="qkzk" />
 <!--
@@ -7125,25 +7125,27 @@ MathJax.Hub.Config({
       </ul>
     </li>
     <li><a href="#parcourir-un-tableau">Parcourir un tableau</a></li>
-    <li><a href="#for">for</a></li>
-    <li><a href="#while">while</a></li>
-    <li><a href="#boucle-infinie">boucle infinie</a></li>
     <li><a href="#algorithmes-sur-les-tableaux-1">Algorithmes sur les tableaux</a>
       <ul>
         <li><a href="#recherche-dun-élément-dans-un-tableau">Recherche d&rsquo;un élément dans un tableau</a></li>
+        <li><a href="#exemple">Exemple</a></li>
+        <li><a href="#autre-exemple--indice-dun-élément-dun-tableau">Autre exemple : indice d&rsquo;un élément d&rsquo;un tableau</a></li>
       </ul>
     </li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#coût-du-parcours-séquentiel">Coût du parcours séquentiel</a>
+    <li><a href="#résumé">Résumé</a></li>
+    <li><a href="#coût-du-parcours-séquentiel">Coût du parcours séquentiel</a></li>
+    <li><a href="#un-tableau-contient-il-une-clé-">Un tableau contient-il une clé ?</a></li>
+    <li><a href="#quel-est-le-maximum-dun-tableau-">Quel est le maximum d&rsquo;un tableau ?</a>
       <ul>
-        <li><a href="#en-python-">En Python :</a></li>
-        <li><a href="#recherche-dextremum">Recherche d&rsquo;extremum</a></li>
         <li><a href="#algorithme">Algorithme</a></li>
-        <li><a href="#en-python--1">En Python :</a></li>
+        <li><a href="#en-python-">En Python :</a></li>
         <li><a href="#opérations-natives--min-et-max">Opérations natives : <code>min</code> et <code>max</code></a></li>
-        <li><a href="#moyenne-des-éléments-dun-tableau">Moyenne des éléments d&rsquo;un tableau</a></li>
+      </ul>
+    </li>
+    <li><a href="#calculer-la-moyenne-des-éléments-dun-tableau">Calculer la moyenne des éléments d&rsquo;un tableau</a>
+      <ul>
         <li><a href="#algorithme-1">Algorithme</a></li>
-        <li><a href="#en-python--2">En Python :</a></li>
+        <li><a href="#en-python--1">En Python :</a></li>
         <li><a href="#en-python-solution-native">En python, solution native</a></li>
       </ul>
     </li>
@@ -7152,6 +7154,12 @@ MathJax.Hub.Config({
         <li><a href="#principe">principe</a></li>
         <li><a href="#python">python</a></li>
         <li><a href="#opération-native-en-python">Opération native en python</a></li>
+      </ul>
+    </li>
+    <li><a href="#quel-est-lindice-du-maximum-dun-tableau-">Quel est l&rsquo;indice du maximum d&rsquo;un tableau ?</a>
+      <ul>
+        <li><a href="#algorithme-2">Algorithme</a></li>
+        <li><a href="#en-python">En Python</a></li>
       </ul>
     </li>
     <li><a href="#tableaux-à-deux-dimensions">Tableaux à deux dimensions</a>
@@ -7163,17 +7171,12 @@ MathJax.Hub.Config({
         <li><a href="#coût-des-boucles-imbriquées--multiplier-les-coûts">coût des boucles imbriquées = multiplier les coûts</a></li>
         <li><a href="#erreurs-fréquentes">erreurs fréquentes</a></li>
         <li><a href="#erreurs-fréquentes--pire">erreurs fréquentes : pire</a></li>
-      </ul>
-    </li>
-    <li><a href="#il-faut-imbriquer-les-boucles-l"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a>
-      <ul>
-        <li><a href="#il-faut-imbriquer-les-boucles-l-1"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
-        <li><a href="#il-faut-imbriquer-les-boucles-l-2"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
+        <li><a href="#il-faut-imbriquer-les-boucles-l"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
       </ul>
     </li>
     <li><a href="#parcourir-une-matrice-pour-afficher-ses-éléments">Parcourir une matrice pour afficher ses éléments</a></li>
     <li><a href="#calculer-la-somme-des-éléments-à-la-main">Calculer la somme des éléments &ldquo;à la main&rdquo;</a></li>
-    <li><a href="#en-python">En Python</a></li>
+    <li><a href="#en-python-1">En Python</a></li>
     <li><a href="#dautres-représentations-des-matrices">D&rsquo;autres représentations des matrices</a></li>
     <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
     <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
@@ -7255,6 +7258,24 @@ MathJax.Hub.Config({
 </h2>
 <p><strong>Un tableau est une série d&rsquo;objets, généralement situés côte à côté dans la mémoire.</strong></p>
 <p>On suppose pouvoir parcourir le tableau, élément par élément.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h3 id="intérêt-des-tableaux">
+  Intérêt des tableaux
+  <a class="anchor" href="#int%c3%a9r%c3%aat-des-tableaux">#</a>
+</h3>
+<p>En enregistrant des objets côte à côte dans la mémoire, on peut accéder très rapidement à l&rsquo;un d&rsquo;entre eux par son indice.</p>
+<p>Considérons <code>[5, 7, 3, 8, 12]</code>.</p>
+<p>Ces entiers sont petits, tous entre 0 et 255, on peut utiliser 1 octet (8 bits) par entier.</p>
+<p>On les enregistre côte à côte en mémoire à partir de l&rsquo;adresse mémoire <code>1234</code>.</p>
+<p>Donc, <code>5</code> est enregistré à l&rsquo;adresse <code>1234</code>.</p>
+<p>Si chaque case utilise 1 octet, l&rsquo;adresse suivante, <code>1235</code> correspond à la case contenant 7.</p>
+<p>Et l&rsquo;adresse de l&rsquo;élément d&rsquo;indice 3 (qui est la valeur 8) est <code>1234 + 3 = 1237</code>.</p>
+<p>Pour la machine, ces calculs sont très rapides.</p>
+
+    </div>
+</details>
+
 <h3 id="les-tableaux-en-python">
   Les tableaux en Python
   <a class="anchor" href="#les-tableaux-en-python">#</a>
@@ -7334,10 +7355,12 @@ MathJax.Hub.Config({
   <a class="anchor" href="#parcourir-un-tableau">#</a>
 </h2>
 <p>Cela demande forcement une boucle.</p>
-<p>Rappelons qu&rsquo;il existe deux types de boucles :</p>
-<h2 id="for">
-  for
-  <a class="anchor" href="#for">#</a>
+<p>Rappelons qu&rsquo;il existe deux types de boucles : <code>for</code> et <code>while</code> ou bornée et non bonrnée.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h2 id="1-for">
+  1. for
+  <a class="anchor" href="#1-for">#</a>
 </h2>
 <ol>
 <li>
@@ -7345,12 +7368,23 @@ MathJax.Hub.Config({
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> joueur <span style="color:#000;font-weight:bold">in</span> tableau:
 </span></span><span style="display:flex;"><span>    faire_quelque_chose_avec(joueur)
 </span></span></code></pre></div></li>
+<li>
+<p><strong>boucles bornée qui parcourt les indices</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tab <span style="color:#555">=</span> [<span style="color:#c30">&#34;a&#34;</span>, <span style="color:#c30">&#34;b&#34;</span>, <span style="color:#c30">&#34;c&#34;</span>, <span style="color:#c30">&#34;d&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tab)):
+</span></span><span style="display:flex;"><span>  lettre <span style="color:#555">=</span> tab[i]
+</span></span><span style="display:flex;"><span>  <span style="color:#366">print</span>(<span style="color:#c30">f</span><span style="color:#c30">&#34;A la position </span><span style="color:#a00">{</span>i<span style="color:#a00">}</span><span style="color:#c30"> on a la lettre </span><span style="color:#a00">{</span>lettre<span style="color:#a00">}</span><span style="color:#c30">&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>A la position 0 on a la lettre a
+</span></span><span style="display:flex;"><span>A la position 1 on a la lettre b
+</span></span><span style="display:flex;"><span>A la position 2 on a la lettre c
+</span></span><span style="display:flex;"><span>A la position 3 on a la lettre d
+</span></span></code></pre></div></li>
 </ol>
-<h2 id="while">
-  while
-  <a class="anchor" href="#while">#</a>
+<h2 id="2-while">
+  2. while
+  <a class="anchor" href="#2-while">#</a>
 </h2>
-<ol start="2">
+<ol>
 <li>
 <p><strong>boucles avec while</strong> qui utilise une condition d&rsquo;arrêt. En comptant les éléments</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>compteur <span style="color:#555">=</span> <span style="color:#f60">0</span>
@@ -7359,17 +7393,17 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>  compteur <span style="color:#555">=</span> compteur <span style="color:#555">+</span> <span style="color:#f60">1</span>
 </span></span></code></pre></div><p>Une boucle avec <code>while</code> qui s&rsquo;arrête doit comporter tous ces éléments.</p>
 </li>
+<li>
+<p><strong>boucle infinie</strong> : c&rsquo;est une boucle qui ne s&rsquo;arrête pas :</p>
+</li>
 </ol>
-<h2 id="boucle-infinie">
-  boucle infinie
-  <a class="anchor" href="#boucle-infinie">#</a>
-</h2>
-<p>Il est courant de créer des boucles qui ne s&rsquo;arrêtent pas :</p>
 <ul>
 <li>
 <p>serveur qui attend des messages</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">while</span> <span style="color:#069;font-weight:bold">True</span>:
-</span></span><span style="display:flex;"><span>  serveur_ecoute_message(message)
+</span></span><span style="display:flex;"><span>  message <span style="color:#555">=</span> serveur_ecoute_message()
+</span></span><span style="display:flex;"><span>  reponse <span style="color:#555">=</span> serveur_traite_message(message)
+</span></span><span style="display:flex;"><span>  envoyer_reponse(reponse)
 </span></span></code></pre></div></li>
 <li>
 <p>dans un jeu vidéo :</p>
@@ -7379,6 +7413,10 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>  dessiner_les_graphismes()
 </span></span></code></pre></div></li>
 </ul>
+
+    </div>
+</details>
+
 <h2 id="algorithmes-sur-les-tableaux-1">
   Algorithmes sur les tableaux
   <a class="anchor" href="#algorithmes-sur-les-tableaux-1">#</a>
@@ -7390,16 +7428,17 @@ MathJax.Hub.Config({
 <p><strong>Contexte :</strong> on dispose d&rsquo;un tableau,</p>
 <p>par exemple <code>T=[0, 1, 2, ..., 10]</code>.</p>
 <p>On veut savoir si un nombre $x$ figure dans le tableau.</p>
+<p><strong>L&rsquo;algorithme produit un booléen on ne s&rsquo;intéresse donc pas aux indices: <code>for x in T</code> convient.</strong></p>
 <p><strong>Algorithme :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fonction (tableau T, objet x) -&gt; booléen:
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>contient (tableau T, objet x) -&gt; booléen:
 </span></span><span style="display:flex;"><span>  Pour chaque élément e de T,
 </span></span><span style="display:flex;"><span>    Si e = x, alors on retourne Vrai
 </span></span><span style="display:flex;"><span>  Si la boucle se termine, on retourne Faux.
 </span></span></code></pre></div><p><strong>ATTENTION</strong> remarquez bien la position de la condition&hellip; on ne renvoie <code>Faux</code> que si la boucle se termine.</p>
-<h2 id="exemple">
+<h3 id="exemple">
   Exemple
   <a class="anchor" href="#exemple">#</a>
-</h2>
+</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>T <span style="color:#555">=</span> [<span style="color:#f60">2</span>, <span style="color:#f60">5</span>, <span style="color:#555">-</span><span style="color:#f60">4</span>, <span style="color:#f60">12</span>]
 </span></span></code></pre></div><p><strong>A-t-on 9 dans le tableau ?</strong></p>
 <table>
@@ -7445,6 +7484,54 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 <p>L&rsquo;algorithme retourne Vrai. La dernière case du tableau n&rsquo;est jamais visitée !</p>
+<h3 id="autre-exemple--indice-dun-élément-dun-tableau">
+  Autre exemple : indice d&rsquo;un élément d&rsquo;un tableau
+  <a class="anchor" href="#autre-exemple--indice-dun-%c3%a9l%c3%a9ment-dun-tableau">#</a>
+</h3>
+<p>On dispose d&rsquo;un tableau et d&rsquo;une clé. On veut connaître l&rsquo;indice de la clé dans le tableau. On répond -1 si la clé n&rsquo;est pas présente.</p>
+<p><strong>Cette fois il faut l&rsquo;indice : <code>for i in range(len(T))</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>indice_de (tableau T, entier cle) -&gt; entier:
+</span></span><span style="display:flex;"><span>  Pour i allant de 0 à longueur de T - 1 (inclus),
+</span></span><span style="display:flex;"><span>      element = T[i]
+</span></span><span style="display:flex;"><span>      Si element == cle, renvoyer i 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Si la boucle se termine, renvoyer -1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">indice_de</span>(tab: <span style="color:#366">list</span>, cle: <span style="color:#366">int</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tab)):
+</span></span><span style="display:flex;"><span>        element <span style="color:#555">=</span> tab[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> element <span style="color:#555">==</span> cle:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> i 
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#555">-</span><span style="color:#f60">1</span>
+</span></span></code></pre></div><p>Notez la position de <code>return -1</code>. Il est au même niveau d&rsquo;indentation que <code>for ...</code>.</p>
+<p>En effet, il faut attendre d&rsquo;avoir parcouru tous les éléments pour savoir si la clé est présente ou non.</p>
+<h2 id="résumé">
+  Résumé
+  <a class="anchor" href="#r%c3%a9sum%c3%a9">#</a>
+</h2>
+<blockquote class="book-hint info">
+  <p>Un <em>parcours séquentiel</em> est un algorithme qui n&rsquo;a besoin que d&rsquo;une boucle bornée parcourant une collection pour répondre à une question.</p>
+<ul>
+<li>
+<p>Un de mes élèves est-il déjà monté sur la tour Eiffel ?</p>
+<p>Je peux répondre par un parcours séquentiel. Il suffit de poser la même question à chaque élève.</p>
+</li>
+<li>
+<p>Ces deux tableaux <code>[3, 5, 1, 7]</code> et <code>[1, 5, 3, 7]</code> contiennent-ils les mêmes éléments ?</p>
+<p>Impossible de répondre par une parcours séquentiel. Il faut, <strong>pour chaque élément du premier</strong>, le comparer à <strong>chaque élément du second</strong>. Deux boucles imbriquées : ce n&rsquo;est pas un parcours séquentiel.</p>
+</li>
+<li>
+<p>Lorsqu&rsquo;un parcourt séquentiel ne nécessite pas d&rsquo;indice (&ldquo;L&rsquo;un d&rsquo;entre-vous est-il monté sur la tour Eiffel ?&rdquo;), on utilise <code>for elt in tableau:</code></p>
+</li>
+<li>
+<p>Lorsqu&rsquo;un parcourt séquentiel nécessite de connaître un indice, on utilise <code>for i in range(len(tableau))</code></p>
+<p>Exemple : ces nombres sont-ils rangés par ordre croissant ?</p>
+<p>Pour chaque nombre, le comparer <strong>au suivant</strong>. Pour accéder au <strong>suivant</strong>, je dois connaître l&rsquo;indice.</p>
+</li>
+</ul>
+
+</blockquote>
+
 <h2 id="coût-du-parcours-séquentiel">
   Coût du parcours séquentiel
   <a class="anchor" href="#co%c3%bbt-du-parcours-s%c3%a9quentiel">#</a>
@@ -7457,13 +7544,17 @@ MathJax.Hub.Config({
 <p>Le <strong>coût</strong> d&rsquo;un algorithme correspond au nombre d&rsquo;opérations à effectuer.</p>
 <p>Il est très difficile de le calculer exactement, beaucoup plus facile de l&rsquo;estimer.</p>
 <p>Dans notre cas, on a, grosso modo, autant d&rsquo;opérations qu&rsquo;il y a d&rsquo;éléments dans le tableau.</p>
-<p>Le coût est <em>proportionnel à la taille du tableau</em>. On dit qu&rsquo;il est <em>linéaire</em>.</p>
+<blockquote class="book-hint info">
+  <p>Le coût est d&rsquo;un parcours séquentiel est <em>proportionnel à la taille du tableau</em>. On dit qu&rsquo;il est <em>linéaire</em>.</p>
 <p>On note : <strong>le parcours séquentiel est un algorithme en $O(n)$</strong></p>
 <p>$n$ désigne la taille du tableau.</p>
-<h3 id="en-python-">
-  En Python :
-  <a class="anchor" href="#en-python-">#</a>
-</h3>
+
+</blockquote>
+
+<h2 id="un-tableau-contient-il-une-clé-">
+  Un tableau contient-il une clé ?
+  <a class="anchor" href="#un-tableau-contient-il-une-cl%c3%a9-">#</a>
+</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">recherche_sequentielle</span>(tableau, x):
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> elt <span style="color:#000;font-weight:bold">in</span> tableau:
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> x <span style="color:#555">==</span> e:
@@ -7471,21 +7562,22 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#09f;font-style:italic"># on n&#39;arrive ici que si l&#39;élément n&#39;est pas dans le tableau</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
-</span></span></code></pre></div><p>Sans information supplémentaire, le parcours séquentiel est la seule manière de répondre à</p>
-<p><strong><code>x</code> figure-t-il  dans le tableau T ?</strong></p>
-<p>Si on a des informations particulières sur le tableau, par exemple s&rsquo;il est <strong>trié</strong>
-alors il existe des algorithmes plus rapides.</p>
-<p>Nous en étudierons un important : <strong>la recherche dichotomique</strong>.</p>
-<h3 id="recherche-dextremum">
-  Recherche d&rsquo;extremum
-  <a class="anchor" href="#recherche-dextremum">#</a>
-</h3>
+</span></span></code></pre></div><p><strong><code>x</code> figure-t-il  dans le tableau T ?</strong></p>
+<ul>
+<li><strong>Sans information supplémentaire</strong>, le parcours séquentiel est la seule manière de répondre.</li>
+<li><strong>Si on sait que le tableau est trié</strong> alors il existe un algorithme beaucoup plus rapide : <strong>la recherche dichotomique</strong>.
+On l&rsquo;étudiera dans un chapitre ultérieur.</li>
+</ul>
+<h2 id="quel-est-le-maximum-dun-tableau-">
+  Quel est le maximum d&rsquo;un tableau ?
+  <a class="anchor" href="#quel-est-le-maximum-dun-tableau-">#</a>
+</h2>
 <p><strong>Contexte :</strong> On cherche la valeur extrème d&rsquo;un tableau de nombres <code>T</code>.</p>
 <p>Le principe est simple.</p>
 <ul>
 <li>Si on n&rsquo;a qu&rsquo;un élément, <code>maximum</code> est cet élément.</li>
 <li>Sinon, on parcourt les éléments et à chaque fois qu&rsquo;une valeur <code>e</code> est supérieure à <code>maximum</code>, on l&rsquo;affecte à <code>maximum</code>.</li>
-<li>On retourne <code>maximum</code></li>
+<li>On renvoie <code>maximum</code></li>
 </ul>
 <p>Pour le tableau <code>T = [2, 5, 9, 7]</code> cela donne :</p>
 <table>
@@ -7518,10 +7610,10 @@ alors il existe des algorithmes plus rapides.</p>
 </span></span><span style="display:flex;"><span>  Pour chaque élément elt du tableau:
 </span></span><span style="display:flex;"><span>    si elt &gt; max:
 </span></span><span style="display:flex;"><span>      max = elt
-</span></span><span style="display:flex;"><span>  retourner max
-</span></span></code></pre></div><h3 id="en-python--1">
+</span></span><span style="display:flex;"><span>  renvoyer max
+</span></span></code></pre></div><h3 id="en-python-">
   En Python :
-  <a class="anchor" href="#en-python--1">#</a>
+  <a class="anchor" href="#en-python-">#</a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">maximum</span>(tableau):
 </span></span><span style="display:flex;"><span>  m <span style="color:#555">=</span> tableau[<span style="color:#f60">0</span>]
@@ -7538,10 +7630,10 @@ alors il existe des algorithmes plus rapides.</p>
 </span></span><span style="display:flex;"><span><span style="color:#f60">5</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">min</span>(tableau)
 </span></span><span style="display:flex;"><span><span style="color:#555">-</span><span style="color:#f60">1</span>
-</span></span></code></pre></div><h3 id="moyenne-des-éléments-dun-tableau">
-  Moyenne des éléments d&rsquo;un tableau
-  <a class="anchor" href="#moyenne-des-%c3%a9l%c3%a9ments-dun-tableau">#</a>
-</h3>
+</span></span></code></pre></div><h2 id="calculer-la-moyenne-des-éléments-dun-tableau">
+  Calculer la moyenne des éléments d&rsquo;un tableau
+  <a class="anchor" href="#calculer-la-moyenne-des-%c3%a9l%c3%a9ments-dun-tableau">#</a>
+</h2>
 <p><strong>Contexte :</strong> Calculer la moyenne d&rsquo;un tableau de nombres</p>
 <p>Le principe repose sur <strong>le cumul d&rsquo;une valeur</strong>.</p>
 <ul>
@@ -7587,10 +7679,10 @@ alors il existe des algorithmes plus rapides.</p>
 </span></span><span style="display:flex;"><span>  Pour chaque élément e du tableau:
 </span></span><span style="display:flex;"><span>    Somme = Somme + e
 </span></span><span style="display:flex;"><span>    Effectif = Effectif + 1
-</span></span><span style="display:flex;"><span>  retourner Somme / Effectif
-</span></span></code></pre></div><h3 id="en-python--2">
+</span></span><span style="display:flex;"><span>  renvoyer Somme / Effectif
+</span></span></code></pre></div><h3 id="en-python--1">
   En Python :
-  <a class="anchor" href="#en-python--2">#</a>
+  <a class="anchor" href="#en-python--1">#</a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne</span>(tableau):
 </span></span><span style="display:flex;"><span>  somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
@@ -7636,7 +7728,7 @@ alors il existe des algorithmes plus rapides.</p>
 </span></span><span style="display:flex;"><span>  tab_retourne <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> element <span style="color:#000;font-weight:bold">in</span> tableau:
 </span></span><span style="display:flex;"><span>    tab_retourne<span style="color:#555">.</span>insert(<span style="color:#f60">0</span>, element)
-</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># variante :</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># variante moins efficace :</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># tab_retourne = [element] + tableau_retourne</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> tab_retourne
 </span></span></code></pre></div><ul>
@@ -7654,7 +7746,49 @@ alors il existe des algorithmes plus rapides.</p>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># ne retourne rien mais modifie le tableau initial</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tableau
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
-</span></span></code></pre></div><h2 id="tableaux-à-deux-dimensions">
+</span></span></code></pre></div><h2 id="quel-est-lindice-du-maximum-dun-tableau-">
+  Quel est l&rsquo;indice du maximum d&rsquo;un tableau ?
+  <a class="anchor" href="#quel-est-lindice-du-maximum-dun-tableau-">#</a>
+</h2>
+<h3 id="algorithme-2">
+  Algorithme
+  <a class="anchor" href="#algorithme-2">#</a>
+</h3>
+<p>On dipose d&rsquo;un tableau d&rsquo;entiers non vide, quel est l&rsquo;indice de son élément maximal ?</p>
+<p><em>On cherche un indice, on va parcourir les indices.</em></p>
+<ul>
+<li>
+<p>On initialise le maximum avec <code>tableau[0]</code>. Le tableau étant non vide, c&rsquo;est toujours possible.</p>
+</li>
+<li>
+<p>On initialise la position du maximum à 0.</p>
+</li>
+<li>
+<p>Pour <code>indice</code> allant de 0 à la longueur - 1,</p>
+<ul>
+<li>si <code>tableau[indice] &gt; maximum</code>, alors <code>position = indice</code> et <code>maximum = tableau[indice]</code></li>
+</ul>
+</li>
+<li>
+<p>Renvoyer <code>position</code></p>
+</li>
+</ul>
+<h3 id="en-python">
+  En Python
+  <a class="anchor" href="#en-python">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">indice_du_maximum</span>(tableau: <span style="color:#366">list</span>):
+</span></span><span style="display:flex;"><span>    indice_maxi <span style="color:#555">=</span> <span style="color:#f60">0</span> 
+</span></span><span style="display:flex;"><span>    maxi <span style="color:#555">=</span> tableau[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tableau)):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> tableau[i] <span style="color:#555">&gt;</span> maxi:
+</span></span><span style="display:flex;"><span>            indice_maxi <span style="color:#555">=</span> i 
+</span></span><span style="display:flex;"><span>            maxi <span style="color:#555">=</span> tableau[i]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> indice_maxi
+</span></span></code></pre></div><p><strong>Cette fois on a besoin de <code>for i in range(len(tableau)):</code></strong></p>
+<h2 id="tableaux-à-deux-dimensions">
   Tableaux à deux dimensions
   <a class="anchor" href="#tableaux-%c3%a0-deux-dimensions">#</a>
 </h2>
@@ -7763,7 +7897,8 @@ visiter,</p>
 </span></span></code></pre></div><p>Seulement les éléments de la dernière ligne</p>
 </li>
 </ul>
-<h2 id="il-faut-imbriquer-les-boucles-l">
+<blockquote class="book-hint danger">
+  <h2 id="il-faut-imbriquer-les-boucles-l">
   <strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong>
   <a class="anchor" href="#il-faut-imbriquer-les-boucles-l">#</a>
 </h2>
@@ -7771,6 +7906,9 @@ visiter,</p>
   <strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong>
   <a class="anchor" href="#il-faut-imbriquer-les-boucles-l-1">#</a>
 </h3>
+
+</blockquote>
+
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> matrice:
@@ -7778,9 +7916,9 @@ visiter,</p>
 </span></span><span style="display:flex;"><span>      <span style="color:#069;font-weight:bold">for</span> element <span style="color:#000;font-weight:bold">in</span> ligne:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>          faire_qqchose(element)
-</span></span></code></pre></div><h3 id="il-faut-imbriquer-les-boucles-l-2">
+</span></span></code></pre></div><h3 id="il-faut-imbriquer-les-boucles-l">
   <strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong>
-  <a class="anchor" href="#il-faut-imbriquer-les-boucles-l-2">#</a>
+  <a class="anchor" href="#il-faut-imbriquer-les-boucles-l">#</a>
 </h3>
 <h2 id="parcourir-une-matrice-pour-afficher-ses-éléments">
   Parcourir une matrice pour afficher ses éléments
@@ -7863,9 +8001,9 @@ Ici, on le remplace par les caractères <code>', '</code> et nos éléments s&rs
       </tr>
   </tbody>
 </table>
-<h2 id="en-python">
+<h2 id="en-python-1">
   En Python
-  <a class="anchor" href="#en-python">#</a>
+  <a class="anchor" href="#en-python-1">#</a>
 </h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>somme <span style="color:#555">=</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">for</span> ligne <span style="color:#000;font-weight:bold">in</span> mat:
@@ -8098,25 +8236,27 @@ c&rsquo;est toujours le cas après ce tour.</li>
       </ul>
     </li>
     <li><a href="#parcourir-un-tableau">Parcourir un tableau</a></li>
-    <li><a href="#for">for</a></li>
-    <li><a href="#while">while</a></li>
-    <li><a href="#boucle-infinie">boucle infinie</a></li>
     <li><a href="#algorithmes-sur-les-tableaux-1">Algorithmes sur les tableaux</a>
       <ul>
         <li><a href="#recherche-dun-élément-dans-un-tableau">Recherche d&rsquo;un élément dans un tableau</a></li>
+        <li><a href="#exemple">Exemple</a></li>
+        <li><a href="#autre-exemple--indice-dun-élément-dun-tableau">Autre exemple : indice d&rsquo;un élément d&rsquo;un tableau</a></li>
       </ul>
     </li>
-    <li><a href="#exemple">Exemple</a></li>
-    <li><a href="#coût-du-parcours-séquentiel">Coût du parcours séquentiel</a>
+    <li><a href="#résumé">Résumé</a></li>
+    <li><a href="#coût-du-parcours-séquentiel">Coût du parcours séquentiel</a></li>
+    <li><a href="#un-tableau-contient-il-une-clé-">Un tableau contient-il une clé ?</a></li>
+    <li><a href="#quel-est-le-maximum-dun-tableau-">Quel est le maximum d&rsquo;un tableau ?</a>
       <ul>
-        <li><a href="#en-python-">En Python :</a></li>
-        <li><a href="#recherche-dextremum">Recherche d&rsquo;extremum</a></li>
         <li><a href="#algorithme">Algorithme</a></li>
-        <li><a href="#en-python--1">En Python :</a></li>
+        <li><a href="#en-python-">En Python :</a></li>
         <li><a href="#opérations-natives--min-et-max">Opérations natives : <code>min</code> et <code>max</code></a></li>
-        <li><a href="#moyenne-des-éléments-dun-tableau">Moyenne des éléments d&rsquo;un tableau</a></li>
+      </ul>
+    </li>
+    <li><a href="#calculer-la-moyenne-des-éléments-dun-tableau">Calculer la moyenne des éléments d&rsquo;un tableau</a>
+      <ul>
         <li><a href="#algorithme-1">Algorithme</a></li>
-        <li><a href="#en-python--2">En Python :</a></li>
+        <li><a href="#en-python--1">En Python :</a></li>
         <li><a href="#en-python-solution-native">En python, solution native</a></li>
       </ul>
     </li>
@@ -8125,6 +8265,12 @@ c&rsquo;est toujours le cas après ce tour.</li>
         <li><a href="#principe">principe</a></li>
         <li><a href="#python">python</a></li>
         <li><a href="#opération-native-en-python">Opération native en python</a></li>
+      </ul>
+    </li>
+    <li><a href="#quel-est-lindice-du-maximum-dun-tableau-">Quel est l&rsquo;indice du maximum d&rsquo;un tableau ?</a>
+      <ul>
+        <li><a href="#algorithme-2">Algorithme</a></li>
+        <li><a href="#en-python">En Python</a></li>
       </ul>
     </li>
     <li><a href="#tableaux-à-deux-dimensions">Tableaux à deux dimensions</a>
@@ -8136,17 +8282,12 @@ c&rsquo;est toujours le cas après ce tour.</li>
         <li><a href="#coût-des-boucles-imbriquées--multiplier-les-coûts">coût des boucles imbriquées = multiplier les coûts</a></li>
         <li><a href="#erreurs-fréquentes">erreurs fréquentes</a></li>
         <li><a href="#erreurs-fréquentes--pire">erreurs fréquentes : pire</a></li>
-      </ul>
-    </li>
-    <li><a href="#il-faut-imbriquer-les-boucles-l"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a>
-      <ul>
-        <li><a href="#il-faut-imbriquer-les-boucles-l-1"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
-        <li><a href="#il-faut-imbriquer-les-boucles-l-2"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
+        <li><a href="#il-faut-imbriquer-les-boucles-l"><strong>IL FAUT IMBRIQUER LES BOUCLES. L&rsquo;UNE DANS L&rsquo;AUTRE !!!</strong></a></li>
       </ul>
     </li>
     <li><a href="#parcourir-une-matrice-pour-afficher-ses-éléments">Parcourir une matrice pour afficher ses éléments</a></li>
     <li><a href="#calculer-la-somme-des-éléments-à-la-main">Calculer la somme des éléments &ldquo;à la main&rdquo;</a></li>
-    <li><a href="#en-python">En Python</a></li>
+    <li><a href="#en-python-1">En Python</a></li>
     <li><a href="#dautres-représentations-des-matrices">D&rsquo;autres représentations des matrices</a></li>
     <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
     <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
