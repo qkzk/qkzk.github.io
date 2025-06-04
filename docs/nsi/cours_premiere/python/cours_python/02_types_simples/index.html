@@ -10,7 +10,11 @@
   #
 
 En Python chacun des objets qu&rsquo;on manipule a un type.
-On accède au type d&rsquo;une expression avec la fonction type qui s&rsquo;emploie ainsi :
+
+  On accède au type d&rsquo;une expression avec la fonction type
+
+
+Elle s&rsquo;emploie ainsi :
 &gt;&gt;&gt; type(123)
 &lt;class: &#39;int&#39;&gt;
 Le type d&rsquo;une expression permet de définir ce qu&rsquo;il est possible de faire.
@@ -23,7 +27,7 @@ d&rsquo;un entier ou ajouter un entier et une chaîne de caractère.">
   <meta property="og:title" content="2 - Types simples">
   <meta property="og:description" content="pdf pour impression
 Les types # En Python chacun des objets qu’on manipule a un type.
-On accède au type d’une expression avec la fonction type qui s’emploie ainsi :
+On accède au type d’une expression avec la fonction type Elle s’emploie ainsi :
 &gt;&gt;&gt; type(123) &lt;class: &#39;int&#39;&gt; Le type d’une expression permet de définir ce qu’il est possible de faire.
 Par exemple, on peut ajouter deux entiers, on peut mesurer la longueur d’une chaîne de caractère, mais on ne peut pas mesurer la longueur d’un entier ou ajouter un entier et une chaîne de caractère.">
   <meta property="og:locale" content="en_us">
@@ -33,7 +37,7 @@ Par exemple, on peut ajouter deux entiers, on peut mesurer la longueur d’une c
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.f924aacbe5535f3f8d1703176fadda930c6aa9efc058515da2fba77ee296d60e.js" integrity="sha256-&#43;SSqy&#43;VTXz&#43;NFwMXb63akwxqqe/AWFFdovunfuKW1g4=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.97d72d6c2632d238ba351e20b30814420adfd913638fd2021fa7570bd2a12da9.js" integrity="sha256-l9ctbCYy0ji6NR4gswgUQgrf2RNjj9ICH6dXC9KhLak=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/python/cours_python/02_types_simples/index.xml" title="qkzk" />
 <!--
@@ -7158,6 +7162,7 @@ MathJax.Hub.Config({
       <ul>
         <li><a href="#exercice-11">Exercice 11</a></li>
         <li><a href="#exercice-12---mini-challenge">Exercice 12 - mini challenge</a></li>
+        <li><a href="#exercice-13---quelques-méthodes-des-chaines-de-caractères">Exercice 13 - Quelques méthodes des chaines de caractères</a></li>
       </ul>
     </li>
   </ul>
@@ -7179,7 +7184,11 @@ MathJax.Hub.Config({
   <a class="anchor" href="#les-types">#</a>
 </h2>
 <p>En Python chacun des objets qu&rsquo;on manipule a un type.</p>
-<p>On accède au type d&rsquo;une expression avec la fonction <code>type</code> qui s&rsquo;emploie ainsi :</p>
+<blockquote class="book-hint info">
+  On accède au type d&rsquo;une expression avec la fonction <code>type</code>
+</blockquote>
+
+<p>Elle s&rsquo;emploie ainsi :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#f60">123</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>class: <span style="color:#c30">&#39;int&#39;</span><span style="color:#555">&gt;</span>
 </span></span></code></pre></div><p>Le type d&rsquo;une expression permet de définir ce qu&rsquo;il est possible de faire.</p>
@@ -7192,8 +7201,8 @@ d&rsquo;un entier ou ajouter un entier et une chaîne de caractère.</p>
 </h2>
 <p>Python distingue plusieurs ensembles de nombres :</p>
 <ul>
-<li>les entiers (sous partie finie des entiers relatifs),</li>
-<li>les flottants (sous partie finie des nombres réels),</li>
+<li>les entiers (sous partie finie des entiers relatifs) : <code>int</code>,</li>
+<li>les flottants (sous partie finie des nombres réels) : <code>float</code>,</li>
 </ul>
 <h3 id="les-entiers--le-type-int">
   Les entiers : le type <code>int</code>
@@ -7216,7 +7225,17 @@ sont définies et le résultat est un entier.</p>
   Exercice 1 - Vérifier un type avec <code>isinstance</code>
   <a class="anchor" href="#exercice-1---v%c3%a9rifier-un-type-avec-isinstance">#</a>
 </h3>
-<ol>
+<blockquote class="book-hint info">
+  On vérifie un type avec la fonction <code>isinstance</code>.
+</blockquote>
+
+<p>Elle s&rsquo;emploie comme ça :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> a <span style="color:#555">=</span> <span style="color:#f60">23</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(a, <span style="color:#366">int</span>) <span style="color:#09f;font-style:italic"># a est il un entier ?</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> 
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">isinstance</span>(a, <span style="color:#366">str</span>) <span style="color:#09f;font-style:italic"># les chaînes de caractères </span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span>
+</span></span></code></pre></div><ol>
 <li>Créer un script python. Affecter à <code>total</code> le nombre 134.</li>
 </ol>
 <p>C&rsquo;est le nombre de gateaux achetés par Jérome.
@@ -7230,10 +7249,14 @@ Il décide de s&rsquo;attribuer le reste.</p>
 des entiers.</li>
 </ol>
 <p><em>Résumons</em> :</p>
-<ul>
+<blockquote class="book-hint info">
+  <ul>
 <li>on <em>découvre un type inconnu</em> avec <code>type(objet)</code></li>
 <li>on <em>vérifie un type</em> avec <code>isinstance(bidule, un_type)</code></li>
 </ul>
+
+</blockquote>
+
 <h3 id="les-nombres-à-virgule-flottante--le-type-float">
   Les nombres à virgule flottante : le type <code>float</code>
   <a class="anchor" href="#les-nombres-%c3%a0-virgule-flottante--le-type-float">#</a>
@@ -7286,8 +7309,8 @@ sachant que $AB = 4$ et $AC=5$.</li>
 
 
 <main>
-    <div id="python_ide_0">
-        <textarea id="commands_0" class="commands">
+    <div id="python_ide_3">
+        <textarea id="commands_3" class="commands">
 
 a = 3
 b = 2.5
@@ -7316,8 +7339,8 @@ print(type(a &#43; b))
     }
 
 
-    onElementLoaded("div#python_ide_0").then(() => {
-        const ide = document.querySelector("div#python_ide_0");
+    onElementLoaded("div#python_ide_3").then(() => {
+        const ide = document.querySelector("div#python_ide_3");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -7389,8 +7412,8 @@ version de cet exercice à l&rsquo;aide de cette fonction.</p>
 
 
 <main>
-    <div id="python_ide_1">
-        <textarea id="commands_1" class="commands">
+    <div id="python_ide_4">
+        <textarea id="commands_4" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -7415,8 +7438,8 @@ version de cet exercice à l&rsquo;aide de cette fonction.</p>
     }
 
 
-    onElementLoaded("div#python_ide_1").then(() => {
-        const ide = document.querySelector("div#python_ide_1");
+    onElementLoaded("div#python_ide_4").then(() => {
+        const ide = document.querySelector("div#python_ide_4");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -7425,10 +7448,14 @@ version de cet exercice à l&rsquo;aide de cette fonction.</p>
   Les booléens, le type <code>bool</code> : <code>True</code> et <code>False</code>
   <a class="anchor" href="#les-bool%c3%a9ens-le-type-bool--true-et-false">#</a>
 </h2>
-<ul>
+<blockquote class="book-hint info">
+  <ul>
 <li>Il existe deux booléens : <code>True</code> et <code>False</code>,</li>
-<li>Le résultat d&rsquo;une opération de comparaison est toujours un booléen.</li>
+<li>Le résultat d&rsquo;une opération de <em>comparaison est toujours un booléen.</em></li>
 </ul>
+
+</blockquote>
+
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(<span style="color:#069;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">bool</span><span style="color:#c30">&#39;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> <span style="color:#f60">1</span> <span style="color:#555">==</span> <span style="color:#f60">2</span>
@@ -7448,10 +7475,12 @@ version de cet exercice à l&rsquo;aide de cette fonction.</p>
 tous les cas possibles :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">not</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#069;font-weight:bold">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#069;font-weight:bold">False</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#069;font-weight:bold">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> <span style="color:#000;font-weight:bold">or</span> <span style="color:#069;font-weight:bold">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span> <span style="color:#000;font-weight:bold">or</span> <span style="color:#069;font-weight:bold">False</span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span> <span style="color:#000;font-weight:bold">or</span> <span style="color:#069;font-weight:bold">True</span>
@@ -7525,8 +7554,8 @@ et testez la.</p>
 
 
 <main>
-    <div id="python_ide_2">
-        <textarea id="commands_2" class="commands">
+    <div id="python_ide_6">
+        <textarea id="commands_6" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -7551,8 +7580,8 @@ et testez la.</p>
     }
 
 
-    onElementLoaded("div#python_ide_2").then(() => {
-        const ide = document.querySelector("div#python_ide_2");
+    onElementLoaded("div#python_ide_6").then(() => {
+        const ide = document.querySelector("div#python_ide_6");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -7674,8 +7703,8 @@ dans ce passage.</p>
 
 
 <main>
-    <div id="python_ide_3">
-        <textarea id="commands_3" class="commands">
+    <div id="python_ide_7">
+        <textarea id="commands_7" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -7700,8 +7729,8 @@ dans ce passage.</p>
     }
 
 
-    onElementLoaded("div#python_ide_3").then(() => {
-        const ide = document.querySelector("div#python_ide_3");
+    onElementLoaded("div#python_ide_7").then(() => {
+        const ide = document.querySelector("div#python_ide_7");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -7809,8 +7838,8 @@ notation précédente en :</p>
 
 
 <main>
-    <div id="python_ide_4">
-        <textarea id="commands_4" class="commands">
+    <div id="python_ide_8">
+        <textarea id="commands_8" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -7835,8 +7864,8 @@ notation précédente en :</p>
     }
 
 
-    onElementLoaded("div#python_ide_4").then(() => {
-        const ide = document.querySelector("div#python_ide_4");
+    onElementLoaded("div#python_ide_8").then(() => {
+        const ide = document.querySelector("div#python_ide_8");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -7981,8 +8010,8 @@ chaînes de caractères. Que font-elles ?</li>
 
 
 <main>
-    <div id="python_ide_5">
-        <textarea id="commands_5" class="commands">
+    <div id="python_ide_9">
+        <textarea id="commands_9" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -8007,8 +8036,8 @@ chaînes de caractères. Que font-elles ?</li>
     }
 
 
-    onElementLoaded("div#python_ide_5").then(() => {
-        const ide = document.querySelector("div#python_ide_5");
+    onElementLoaded("div#python_ide_9").then(() => {
+        const ide = document.querySelector("div#python_ide_9");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -8017,14 +8046,30 @@ chaînes de caractères. Que font-elles ?</li>
   Exercice 12 - mini challenge
   <a class="anchor" href="#exercice-12---mini-challenge">#</a>
 </h3>
-<p>Les mathématiciens affirment que $\dfrac{\sin}{\cos} = \tan$&hellip; maispeut-on leur faire confiance ?</p>
+<p>Les mathématiciens affirment que $\dfrac{\sin}{\cos} = \tan$&hellip; mais peut-on leur faire confiance ?</p>
 <p>Comment vérifier une telle affirmation avec un langage de programmation ? En écrivant des tests.</p>
 <ol>
 <li>Documentez-vous sur <code>assert</code></li>
 <li>Documentez-vous sur <code>math.isclose</code></li>
 <li>Documentez-vous sur <code>math.sin</code>, <code>math.cos</code> et <code>math.tan</code></li>
 <li>En vous souvenant qu&rsquo;il n&rsquo;est pas possible de tester l&rsquo;égalité de deux flottants, vérifiez que $\dfrac{\sin 0.1}{\cos 0.1} = \tan 0.1$</li>
-<li>À l&rsquo;aide d&rsquo;une boucle et d&rsquo;un range vérifiez l&rsquo;égalité approchée pour $x$ enre $-\dfrac{\pi}{2}$ et $\dfrac{\pi}{2}$ progressant de $0.01$ en $0.01$.</li>
+</ol>
+<h3 id="exercice-13---quelques-méthodes-des-chaines-de-caractères">
+  Exercice 13 - Quelques méthodes des chaines de caractères
+  <a class="anchor" href="#exercice-13---quelques-m%c3%a9thodes-des-chaines-de-caract%c3%a8res">#</a>
+</h3>
+<ol>
+<li>
+<p>Affichez toutes les <em>méthodes</em> des chaînes de caractères:  (<code>dir(str)</code>),</p>
+</li>
+<li>
+<p>Déterminez la méthode qui permet :</p>
+<ul>
+<li>de copier une chaîne en effaçant les espaces au début et à la fin <code> hello  </code> -&gt; <code>hello</code></li>
+<li>de tester si une chaîne commence par certains caractère : <code>bonjour</code> commence par <code>bon</code></li>
+<li>de copier une chaîne en mettant le premier caractère en majuscule et les suivants en minuscule.</li>
+</ul>
+</li>
 </ol>
 </article>
 
@@ -8134,6 +8179,7 @@ chaînes de caractères. Que font-elles ?</li>
       <ul>
         <li><a href="#exercice-11">Exercice 11</a></li>
         <li><a href="#exercice-12---mini-challenge">Exercice 12 - mini challenge</a></li>
+        <li><a href="#exercice-13---quelques-méthodes-des-chaines-de-caractères">Exercice 13 - Quelques méthodes des chaines de caractères</a></li>
       </ul>
     </li>
   </ul>

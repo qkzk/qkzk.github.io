@@ -41,7 +41,7 @@ Exemples # On a déjà rencontré plusieurs fonctions, en particulier len. Cette
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.f924aacbe5535f3f8d1703176fadda930c6aa9efc058515da2fba77ee296d60e.js" integrity="sha256-&#43;SSqy&#43;VTXz&#43;NFwMXb63akwxqqe/AWFFdovunfuKW1g4=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.97d72d6c2632d238ba351e20b30814420adfd913638fd2021fa7570bd2a12da9.js" integrity="sha256-l9ctbCYy0ji6NR4gswgUQgrf2RNjj9ICH6dXC9KhLak=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/python/cours_python/04_fonctions/partie_1/index.xml" title="qkzk" />
 <!--
@@ -7140,7 +7140,7 @@ MathJax.Hub.Config({
     </li>
     <li><a href="#syntaxe-complète-et-documentation-complète">Syntaxe complète et documentation complète</a>
       <ul>
-        <li><a href="#exercice-5---code-dune-fonction">Exercice 5 - code d&rsquo;une fonction</a></li>
+        <li><a href="#exercice-5--code-dune-fonction">Exercice 5 : code d&rsquo;une fonction</a></li>
         <li><a href="#exercice-6--mini-challenge">Exercice 6 : mini challenge</a></li>
         <li><a href="#exercice-7--mini-challenge">Exercice 7 : mini challenge</a></li>
       </ul>
@@ -7713,9 +7713,9 @@ c&rsquo;est pratique !</p>
 </span></span><span style="display:flex;"><span>    Renvoie l<span style="color:#c30">&#39;image de x par f(x) = 2x + 1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#99f">@param</span> x: (<span style="color:#366">float</span>) l<span style="color:#c30">&#39;antécédent</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#99f">@return</span>:  (<span style="color:#366">float</span>) l<span style="color:#c30">&#39;image</span>
-</span></span></code></pre></div><h3 id="exercice-5---code-dune-fonction">
-  Exercice 5 - code d&rsquo;une fonction
-  <a class="anchor" href="#exercice-5---code-dune-fonction">#</a>
+</span></span></code></pre></div><h3 id="exercice-5--code-dune-fonction">
+  Exercice 5 : code d&rsquo;une fonction
+  <a class="anchor" href="#exercice-5--code-dune-fonction">#</a>
 </h3>
 <p>Pour chaque question :</p>
 <ul>
@@ -7835,7 +7835,30 @@ des deux.</p>
 </span></span><span style="display:flex;"><span>()
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> resoudre_trinome(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">0</span>) <span style="color:#09f;font-style:italic"># x^2 + 2x = 0 =&gt; x=0 ou x = -2</span>
 </span></span><span style="display:flex;"><span>(<span style="color:#555">-</span><span style="color:#f60">2.0</span>, <span style="color:#f60">0.0</span>)
-</span></span></code></pre></div><h3 id="exercice-7--mini-challenge">
+</span></span></code></pre></div><details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">resoudre_trinome</span>(a: <span style="color:#366">float</span>, b: <span style="color:#366">float</span>, c: <span style="color:#366">float</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">tuple</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Renvoie les solutions réelles de ax^2+bx+c = 0 dans un tuple&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    delta <span style="color:#555">=</span> b <span style="color:#555">**</span> <span style="color:#f60">2</span> <span style="color:#555">-</span> <span style="color:#f60">4</span> <span style="color:#555">*</span> a <span style="color:#555">*</span> c 
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> delta <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># on renvoie un tuple vide</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> ()
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">elif</span> delta <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># attention ici on doit renvoyer un tuple d&#39;un seul élément,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic"># il faut ajouter une virgule avant de fermer la parenthèse</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> (<span style="color:#555">-</span>b <span style="color:#555">/</span> (<span style="color:#f60">2</span> <span style="color:#555">*</span> a), )
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> ((<span style="color:#555">-</span>b <span style="color:#555">-</span> delta <span style="color:#555">**</span> <span style="color:#f60">0.5</span>) <span style="color:#555">/</span> (<span style="color:#f60">2</span> <span style="color:#555">*</span> a), (<span style="color:#555">-</span>b <span style="color:#555">+</span> delta <span style="color:#555">**</span> <span style="color:#f60">0.5</span>) <span style="color:#555">/</span> (<span style="color:#f60">2</span> <span style="color:#555">*</span> a))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(resoudre_trinome(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(resoudre_trinome(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">2</span>))
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(resoudre_trinome(<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">0</span>))
+</span></span></code></pre></div>
+    </div>
+</details>
+
+<h3 id="exercice-7--mini-challenge">
   Exercice 7 : mini challenge
   <a class="anchor" href="#exercice-7--mini-challenge">#</a>
 </h3>
@@ -7857,6 +7880,26 @@ des deux.</p>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> filtre_voyelle(<span style="color:#c30">&#34;abcde&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#34;bcd&#34;</span>
 </span></span></code></pre></div></li>
+</ol>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>VOYELLES <span style="color:#555">=</span> <span style="color:#c30">&#34;aeiouy&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">filtre_voyelle</span>(mot: <span style="color:#366">str</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">str</span>:
+</span></span><span style="display:flex;"><span>    nouveau <span style="color:#555">=</span> <span style="color:#c30">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> lettre <span style="color:#000;font-weight:bold">in</span> mot:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> lettre <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> VOYELLES:
+</span></span><span style="display:flex;"><span>            nouveau <span style="color:#555">=</span> nouveau <span style="color:#555">+</span> lettre 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> nouveau 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(filtre_voyelle(<span style="color:#c30">&#34;compris&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(filtre_voyelle(<span style="color:#c30">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span>))
+</span></span></code></pre></div>
+    </div>
+</details>
+
+<ol start="3">
 <li>
 <p>Écrire une fonction <code>est_trie</code> qui reçoit un tableau d&rsquo;entiers et renvoie un booléen valant vrai si et seulement si les éléments du tableau sont triés par ordre croissant.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> est_trie([<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>])
@@ -7865,6 +7908,21 @@ des deux.</p>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">True</span>
 </span></span></code></pre></div></li>
 </ol>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_trie</span>(tab: <span style="color:#366">list</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Vrai ssi le tableau est trié par ordre croissant&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#366">len</span>(tab) <span style="color:#555">-</span> <span style="color:#f60">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> tab[i] <span style="color:#555">&gt;</span> tab[i <span style="color:#555">+</span> <span style="color:#f60">1</span>]:
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(est_trie([<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]))
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(est_trie([<span style="color:#f60">1</span>, <span style="color:#f60">3</span>, <span style="color:#f60">2</span>]))
+</span></span></code></pre></div>
+    </div>
+</details>
+
 </article>
 
                 
@@ -7947,7 +8005,7 @@ des deux.</p>
     </li>
     <li><a href="#syntaxe-complète-et-documentation-complète">Syntaxe complète et documentation complète</a>
       <ul>
-        <li><a href="#exercice-5---code-dune-fonction">Exercice 5 - code d&rsquo;une fonction</a></li>
+        <li><a href="#exercice-5--code-dune-fonction">Exercice 5 : code d&rsquo;une fonction</a></li>
         <li><a href="#exercice-6--mini-challenge">Exercice 6 : mini challenge</a></li>
         <li><a href="#exercice-7--mini-challenge">Exercice 7 : mini challenge</a></li>
       </ul>
