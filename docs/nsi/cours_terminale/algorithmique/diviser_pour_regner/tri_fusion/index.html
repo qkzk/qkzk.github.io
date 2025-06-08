@@ -9,39 +9,21 @@
   Tri fusion
   #
 
-On applique diviser pour régner pour trier un tableau.
-Même principe :
-Tri Fusion (tableau):
 
-Si tableau est de taille &lt;= 1 on ne fait rien.
-Sinon, On sépare tableau en 2 parties gauche et droite,
-On appelle Tri fusion sur gauche et sur droite
-On fusionne gauche et droite dans tableau
-
-fusionner (`tableau`, `gauche`, `droite`):
-
-* On parcourt les deux tableaux `gauche` et `droite` en même temps,
-    Pour chaque paire d&#39;éléments, on place le plus petit dans tableau.
-* S&#39;il reste des éléments dans `gauche` ou dans `droite` on les place à la fin
-    de tableau
-
-  Exemples
+  Présentation
   #
 
-
-  Exemple en vidéo
-  #
-
-Vidéo Geek for geek">
+Le tri fusion est un algorithme de tri par comparaison (comme tri sélection et tri insertion étudiés en première) utilisant le principe diviser pour régner.
+Il généralement est beaucoup plus rapide que les tris mentionnés plus tôt. Son coût est optimal, c&rsquo;est-à-dire qu&rsquo;il n&rsquo;existe pas d&rsquo;algorithme de tri par comparaison beaucoup plus rapide que celui là.
+C&rsquo;est un tri stable, qui ne change pas la position de deux éléments &ldquo;égaux&rdquo;.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/tri_fusion/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="Tri fusion">
   <meta property="og:description" content="pdf: pour impression, diaporama
-Tri fusion # On applique diviser pour régner pour trier un tableau.
-Même principe :
-Tri Fusion (tableau):
-Si tableau est de taille &lt;= 1 on ne fait rien. Sinon, On sépare tableau en 2 parties gauche et droite, On appelle Tri fusion sur gauche et sur droite On fusionne gauche et droite dans tableau fusionner (`tableau`, `gauche`, `droite`): * On parcourt les deux tableaux `gauche` et `droite` en même temps, Pour chaque paire d&#39;éléments, on place le plus petit dans tableau. * S&#39;il reste des éléments dans `gauche` ou dans `droite` on les place à la fin de tableau Exemples # Exemple en vidéo # Vidéo Geek for geek">
+Tri fusion # Présentation # Le tri fusion est un algorithme de tri par comparaison (comme tri sélection et tri insertion étudiés en première) utilisant le principe diviser pour régner.
+Il généralement est beaucoup plus rapide que les tris mentionnés plus tôt. Son coût est optimal, c’est-à-dire qu’il n’existe pas d’algorithme de tri par comparaison beaucoup plus rapide que celui là.
+C’est un tri stable, qui ne change pas la position de deux éléments “égaux”.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>Tri fusion | qkzk</title>
@@ -49,7 +31,7 @@ Si tableau est de taille &lt;= 1 on ne fait rien. Sinon, On sépare tableau en 2
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.97d72d6c2632d238ba351e20b30814420adfd913638fd2021fa7570bd2a12da9.js" integrity="sha256-l9ctbCYy0ji6NR4gswgUQgrf2RNjj9ICH6dXC9KhLak=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.be0dcfb1e4fa59e9d4e65dd11407527f824e92b75c8f27677e0e6ada2e4dfa10.js" integrity="sha256-vg3PseT6WenU5l3RFAdSf4JOkrdcjydnfg5q2i5N&#43;hA=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/tri_fusion/index.xml" title="qkzk" />
 <!--
@@ -7127,7 +7109,12 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#tri-fusion">Tri fusion</a></li>
+    <li><a href="#tri-fusion">Tri fusion</a>
+      <ul>
+        <li><a href="#présentation">Présentation</a></li>
+        <li><a href="#algorithme">Algorithme</a></li>
+      </ul>
+    </li>
     <li><a href="#exemples">Exemples</a>
       <ul>
         <li><a href="#exemple-en-vidéo">Exemple en vidéo</a></li>
@@ -7135,7 +7122,7 @@ MathJax.Hub.Config({
         <li><a href="#en-une-seule-image">En une seule image</a></li>
       </ul>
     </li>
-    <li><a href="#algorithme--tri_fusion">Algorithme : tri_fusion</a>
+    <li><a href="#algorithme-en-vidéo">Algorithme en vidéo</a>
       <ul>
         <li><a href="#algorithme-tri-fusion">Algorithme tri fusion</a></li>
       </ul>
@@ -7171,22 +7158,46 @@ MathJax.Hub.Config({
   Tri fusion
   <a class="anchor" href="#tri-fusion">#</a>
 </h2>
+<h3 id="présentation">
+  Présentation
+  <a class="anchor" href="#pr%c3%a9sentation">#</a>
+</h3>
+<p>Le <strong>tri fusion</strong> est un algorithme de <em>tri par comparaison</em> (comme tri sélection et tri insertion étudiés en première) utilisant le principe <em>diviser pour régner</em>.</p>
+<p>Il généralement est beaucoup plus rapide que les tris mentionnés plus tôt. Son coût est <em>optimal</em>, c&rsquo;est-à-dire qu&rsquo;il n&rsquo;existe pas d&rsquo;algorithme de tri par comparaison beaucoup plus rapide que celui là.</p>
+<p>C&rsquo;est un tri <em>stable</em>, qui ne change pas la position de deux éléments &ldquo;égaux&rdquo;.</p>
+<p>Il a été inventé par <a href="https://fr.wikipedia.org/wiki/John_von_Neumann">John Von Neumann</a> en 1945, celui dont on a étudié le modèle d&rsquo;architecture en première.</p>
+<h3 id="algorithme">
+  Algorithme
+  <a class="anchor" href="#algorithme">#</a>
+</h3>
+<p><img src="./img/Merge-sort-example-300px.gif" alt="Animation Wikipédia" /></p>
 <p>On applique diviser pour régner pour trier un tableau.</p>
-<p>Même principe :</p>
+<p>Le tri fusion est constitué de deux fonctions qui s&rsquo;appliquent à un même tableau :</p>
+<blockquote>
 <p>Tri Fusion (<code>tableau</code>):</p>
 <ul>
 <li>Si <code>tableau</code> est de taille &lt;= 1 on ne fait rien.</li>
-<li>Sinon, On sépare <code>tableau</code> en 2 parties <code>gauche</code> et <code>droite</code>,</li>
+<li>Sinon, On sépare <code>tableau</code> en 2 parties <code>gauche</code> et <code>droite</code>,
+<ul>
 <li>On appelle Tri fusion sur <code>gauche</code> et sur <code>droite</code></li>
-<li>On fusionne <code>gauche</code> et <code>droite</code> dans <code>tableau</code></li>
+<li>On appelle Fusionner(<code>tableau</code>, <code>gauche</code>, <code>droite</code>)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#c0f">fusionner</span><span style="color:#bbb"> </span>(<span style="color:#555">`</span>tableau<span style="color:#555">`</span>,<span style="color:#bbb"> </span><span style="color:#555">`</span>gauche<span style="color:#555">`</span>,<span style="color:#bbb"> </span><span style="color:#555">`</span>droite<span style="color:#555">`</span>):<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#555">*</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">On</span><span style="color:#bbb"> </span>parcourt<span style="color:#bbb"> </span>les<span style="color:#bbb"> </span>deux<span style="color:#bbb"> </span>tableaux<span style="color:#bbb"> </span><span style="color:#555">`</span>gauche<span style="color:#555">`</span><span style="color:#bbb"> </span>et<span style="color:#bbb"> </span><span style="color:#555">`</span>droite<span style="color:#555">`</span><span style="color:#bbb"> </span>en<span style="color:#bbb"> </span>même<span style="color:#bbb"> </span>temps,<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Pour<span style="color:#bbb"> </span>chaque<span style="color:#bbb"> </span>paire<span style="color:#bbb"> </span>d<span style="color:#c30">&#39;éléments, on place le plus petit dans tableau.
-</span></span></span><span style="display:flex;"><span><span style="color:#c30">* S&#39;</span>il<span style="color:#bbb"> </span>reste<span style="color:#bbb"> </span>des<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">é</span>léments<span style="color:#bbb"> </span>dans<span style="color:#bbb"> </span><span style="color:#555">`</span>gauche<span style="color:#555">`</span><span style="color:#bbb"> </span>ou<span style="color:#bbb"> </span>dans<span style="color:#bbb"> </span><span style="color:#555">`</span>droite<span style="color:#555">`</span><span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">on</span><span style="color:#bbb"> </span>les<span style="color:#bbb"> </span>place<span style="color:#bbb"> </span><span style="color:#a00;background-color:#faa">à</span><span style="color:#bbb"> </span>la<span style="color:#bbb"> </span>fin<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>de<span style="color:#bbb"> </span>tableau<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="exemples">
+</li>
+</ul></blockquote>
+<blockquote>
+<p>Fusionner(<code>tableau</code>, <code>gauche</code>, <code>droite</code>):</p>
+<ul>
+<li>On parcourt les deux tableaux <code>gauche</code> et <code>droite</code> en même temps.<br>
+Pour chaque paire d&rsquo;éléments, on place le plus petit dans <code>tableau</code>.</li>
+<li>S&rsquo;il reste des éléments dans <code>gauche</code> ou dans <code>droite</code> on les place à la fin
+de tableau</li>
+</ul></blockquote>
+<p>En simplifiant grandement,</p>
+<ul>
+<li>On découpe le tableaux en 2 jusqu&rsquo;à arriver à des tableaux de taille 1.</li>
+<li>On fusionne les tableaux en les parcourant en même temps.</li>
+</ul>
+<h2 id="exemples">
   Exemples
   <a class="anchor" href="#exemples">#</a>
 </h2>
@@ -7217,16 +7228,20 @@ MathJax.Hub.Config({
   <a class="anchor" href="#en-une-seule-image">#</a>
 </h3>
 <p><img src="/docs/nsi/cours_terminale/algorithmique/diviser_pour_regner/tri_fusion/img/0.png" alt="exemple" /></p>
-<h2 id="algorithme--tri_fusion">
-  Algorithme : tri_fusion
-  <a class="anchor" href="#algorithme--tri_fusion">#</a>
+<h2 id="algorithme-en-vidéo">
+  Algorithme en vidéo
+  <a class="anchor" href="#algorithme-en-vid%c3%a9o">#</a>
 </h2>
-<p>Une excellente <a href="https://www.youtube.com/watch?v=TzeBrDU-JaY">vidéo de présentation</a></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=R5byY8IkS3Q">En français</a></li>
+<li><a href="https://www.youtube.com/watch?v=TzeBrDU-JaY">En anglais</a></li>
+</ul>
 <h3 id="algorithme-tri-fusion">
   Algorithme tri fusion
   <a class="anchor" href="#algorithme-tri-fusion">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tri_fusion (tableau) :
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tri_fusion (tableau) :
 </span></span><span style="display:flex;"><span>    Si la longueur est &gt; 1:
 </span></span><span style="display:flex;"><span>      # séparer
 </span></span><span style="display:flex;"><span>      milieu = longueur // 2
@@ -7239,11 +7254,15 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      # combiner
 </span></span><span style="display:flex;"><span>      fusion(tableau, gauche, droite)
-</span></span></code></pre></div><h2 id="algorithme-fusion">
+</span></span></code></pre></div>
+</blockquote>
+
+<h2 id="algorithme-fusion">
   Algorithme fusion
   <a class="anchor" href="#algorithme-fusion">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fusion (tableau, gauche, droite)
+<blockquote class="book-hint info">
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fusion (tableau, gauche, droite)
 </span></span><span style="display:flex;"><span>  i, j, k = 0
 </span></span><span style="display:flex;"><span>  tant que i &lt; longueur de gauche et j &lt; longueur de droite
 </span></span><span style="display:flex;"><span>      Si gauche[i] &lt; droite[j] alors
@@ -7253,7 +7272,10 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>      k = k + 1
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  Pour les éléments restant, les ajouter à fin de tableau
-</span></span></code></pre></div><h3 id="exemple-détaillé-pour-la-fusion">
+</span></span></code></pre></div>
+</blockquote>
+
+<h3 id="exemple-détaillé-pour-la-fusion">
   Exemple détaillé pour la fusion
   <a class="anchor" href="#exemple-d%c3%a9taill%c3%a9-pour-la-fusion">#</a>
 </h3>
@@ -7416,7 +7438,12 @@ du tri fusion et du tri par insertion.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#tri-fusion">Tri fusion</a></li>
+    <li><a href="#tri-fusion">Tri fusion</a>
+      <ul>
+        <li><a href="#présentation">Présentation</a></li>
+        <li><a href="#algorithme">Algorithme</a></li>
+      </ul>
+    </li>
     <li><a href="#exemples">Exemples</a>
       <ul>
         <li><a href="#exemple-en-vidéo">Exemple en vidéo</a></li>
@@ -7424,7 +7451,7 @@ du tri fusion et du tri par insertion.</p>
         <li><a href="#en-une-seule-image">En une seule image</a></li>
       </ul>
     </li>
-    <li><a href="#algorithme--tri_fusion">Algorithme : tri_fusion</a>
+    <li><a href="#algorithme-en-vidéo">Algorithme en vidéo</a>
       <ul>
         <li><a href="#algorithme-tri-fusion">Algorithme tri fusion</a></li>
       </ul>
