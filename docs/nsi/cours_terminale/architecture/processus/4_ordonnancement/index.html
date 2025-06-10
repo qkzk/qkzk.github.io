@@ -35,7 +35,7 @@ Pour permettre cela, le système d’exploitation génère de nombreux processus
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.f24efdf31f35fc0b645c747c2964ec10e5b7f4cb782077398d52a6dc192b82ac.js" integrity="sha256-8k798x81/AtkXHR8KWTsEOW39Mt4IHc5jVKm3Bkrgqw=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.f3db46134ccf6b45f2a7e733c93220cc38daa03dd786b41d74dc6f10c137301e.js" integrity="sha256-89tGE0zPa0Xyp&#43;czyTIgzDjaoD3XhrQddNxvEME3MB4=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/4_ordonnancement/index.xml" title="qkzk" />
 <!--
@@ -7117,6 +7117,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#commutation-de-contexte">Commutation de contexte</a></li>
     <li><a href="#coopératif-vs-préemptif">Coopératif vs préemptif</a></li>
     <li><a href="#lordonnancement">L&rsquo;ordonnancement</a></li>
+    <li><a href="#interruption">Interruption</a></li>
   </ul>
 </nav>
 
@@ -7166,6 +7167,25 @@ par exemple sur sa pile d&rsquo;exécution,</li>
 <li>restaurer le contexte de P2 sur le processeur,</li>
 <li>reprendre l&rsquo;exécution de P2 juste après sa dernière instruction.</li>
 </ol>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Un bloc de contrôle de processus ou PCB (de l&rsquo;anglais process control block) est une structure de données du noyau d&rsquo;un système d&rsquo;exploitation représentant l&rsquo;état d&rsquo;un processus donné.</p>
+<p>Diverses implémentations existent selon les systèmes d&rsquo;exploitation, mais un PCB contient en général :</p>
+<ul>
+<li>L&rsquo;ID du processus (PID), l&rsquo;ID du processus parent (PPID) et l&rsquo;ID de l&rsquo;utilisateur du processus (UID) ;</li>
+<li>Les valeurs des registres correspondant au processus (l&rsquo;état courant du processus, selon qu&rsquo;il est élu, prêt ou bloqué) ;</li>
+<li>Le compteur ordinal du processus ;</li>
+<li>Le pointeur de pile : indique la position du prochain emplacement disponible dans la pile mémoire ;</li>
+<li>L&rsquo;espace d&rsquo;adressage du processus ;</li>
+<li>La liste des descripteurs de fichiers (= les fichiers ouverts par le processus. Attention, sous Linux le matériel est présenté comme un fichier !);</li>
+<li>La liste de gestion des signaux ;</li>
+</ul>
+<p>D&rsquo;autres informations telles que le temps CPU accumulé par le processus, etc.</p>
+<p>Lors d&rsquo;un changement de contexte, le processus en cours est arrêté et un autre processus peut utiliser le CPU. Le noyau doit arrêter l&rsquo;exécution du processus en cours, copier les valeurs des registres hardware dans le PCB, et mettre à jour les registres avec les valeurs du nouveau processus.</p>
+
+    </div>
+</details>
+
 <h2 id="coopératif-vs-préemptif">
   Coopératif vs préemptif
   <a class="anchor" href="#coop%c3%a9ratif-vs-pr%c3%a9emptif">#</a>
@@ -7175,8 +7195,34 @@ par exemple sur sa pile d&rsquo;exécution,</li>
 <li><strong>coopératif</strong> : les programmes doivent alors prévoir de passer eux-mêmes
 la main aux autres,</li>
 <li><strong>préemptif</strong> : l&rsquo;ordonnanceur peut à tout moment couper un processus
-dans son travail et le remplacer par un autre (avec la commutation de contexte).</li>
+dans son travail et le remplacer par un autre (avec la <em>commutation de contexte</em>).</li>
 </ul>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Dans votre petit logement universitaire, impossible d&rsquo;étaler tous les cours ou de préparer à manger en même temps : le bureau est aussi la table ainsi que le plan de travail !</p>
+<p>Après les révisions :</p>
+<ul>
+<li>vous notez bien jusqu&rsquo;où vous avez apris,</li>
+<li>vous rangez tous le classeurs.</li>
+</ul>
+<p>Pour préparer le repas :</p>
+<ul>
+<li>vous consultez l&rsquo;état du frigo : &ldquo;ah, je n&rsquo;ai plus d&rsquo;oeufs, je vais faire des pâtes&rdquo;,</li>
+<li>vous sortez le matériel adéquat</li>
+<li>vous préparez une sauce
+etc.</li>
+</ul>
+<p>Lorsque le repas est terminé :</p>
+<ul>
+<li>vous lavez et rangez,</li>
+<li>vous resortez les classeurs,</li>
+<li>vous consultez votre avancée.</li>
+</ul>
+<p>C&rsquo;est la <em>commutation de contexte</em>.</p>
+
+    </div>
+</details>
+
 <h2 id="lordonnancement">
   L&rsquo;ordonnancement
   <a class="anchor" href="#lordonnancement">#</a>
@@ -7283,13 +7329,6 @@ de sa simplicité, de sa rapidité de gestion et de sa robustesse.</p>
 </table>
 </li>
 <li>
-<p>La mise en place d&rsquo;un système de <strong>priorités</strong> : l&rsquo;ordre d&rsquo;affectation
-de la ressource sera alors fonction de la priorité de la tâche. Cette
-méthode est très équitable, mais définition du niveau de priorité de la
-tâche doit être objective. Sous UNIX cette notion porte le nom de
-<em>niceness</em>.</p>
-</li>
-<li>
 <p>La gestion du <strong>premier entré, premier sorti</strong> (FIFO : <em>First In, First Out</em>).
 L&rsquo;exemple le plus évident de cet algorithme est la file d&rsquo;impression des
 documents sur une imprimante.</p>
@@ -7332,8 +7371,8 @@ documents sur une imprimante.</p>
 </table>
 </li>
 <li>
-<p>L&rsquo;algorithme du &ldquo;<strong>plus court d&rsquo;abord</strong>&rdquo; (<em>shorted job first</em>): très efficace
-pour satisfaire au mieux les utilisateurs, mais il n&rsquo;est pas toujours simple
+<p>L&rsquo;algorithme du &ldquo;<strong>plus court d&rsquo;abord</strong>&rdquo; (<em>shorted job first</em>): plus efficace
+pour satisfaire au mieux les utilisateurs. Il n&rsquo;est pas toujours simple
 d&rsquo;évaluer le temps d&rsquo;exécution d&rsquo;une tâche avant son début.</p>
 <p>Plutôt que de mesurer les temps d&rsquo;exécution, on peut se limiter au <em>nombre</em>
 d&rsquo;instructions à réaliser :</p>
@@ -7376,36 +7415,22 @@ d&rsquo;instructions à réaliser :</p>
 </table>
 </li>
 </ul>
+<p>Ces algorithmes présentent d&rsquo;importants défauts et ne sont pas utilisés en pratique. L&rsquo;ordonnanceur de Linux, version bureau, appelé &ldquo;Completely Fair Scheduler&rdquo; ou CFS cherche à minimiser le temps d&rsquo;attente de chaque processus à l&rsquo;état &ldquo;prêt&rdquo;.</p>
+<ul>
+<li>La mise en place d&rsquo;un système de <strong>priorités</strong> : l&rsquo;ordre d&rsquo;affectation
+de la ressource sera alors fonction de la priorité de la tâche. Cette
+méthode est très équitable, mais définition du niveau de priorité de la
+tâche doit être objective. Sous UNIX cette notion porte le nom de
+<em>niceness</em>.</li>
+</ul>
+<p>Plus de détails sur le <a href="https://docs.kernel.org/scheduler/sched-design-CFS.html">CFS</a></p>
 <p>Parallélement à l&rsquo;évolution des performances des microprocesseurs,
 l&rsquo;ordonnancement est aussi un moyen d&rsquo;amélioration de la rapidité de traitement :
 des algorithmes récents, de plus en plus complexes ont est proposés.</p>
-<h1 id="temps-partagé-vs-temps-réel">
-  Temps partagé vs temps réel
-  <a class="anchor" href="#temps-partag%c3%a9-vs-temps-r%c3%a9el">#</a>
-</h1>
-<p>C&rsquo;est bien tout ça&hellip; mais quand même&hellip; quand on encode une vidéo, copie
-des fichiers énormes ou qu&rsquo;on lance un jeu très gourmand, l&rsquo;ordinateur est ralenti.</p>
-<p>Imaginons l&rsquo;ordinateur d&rsquo;un airbus, on souhaite qu&rsquo;il fonctionne avec une grande
-régularité et qu&rsquo;une procédure critique ne soit pas ralentie par une autre opération.</p>
-<p>On utilise pour cela des systèmes <strong>en temps réel.</strong></p>
-<p>Un système en temps réel est capable de contrôler (ou piloter) un procédé
-physique à une vitesse adaptée à l&rsquo;évolution du procédé contrôlé.</p>
-<p>Les systèmes informatiques temps réel se différencient des autres systèmes
-informatiques par la prise en compte de contraintes temporelles dont le respect
-est aussi important que l&rsquo;exactitude du résultat, autrement dit le système ne
-doit pas simplement délivrer des résultats exacts, il doit les délivrer dans
-des délais imposés.</p>
-<p>Les systèmes informatiques temps réel sont aujourd&rsquo;hui présents dans de nombreux secteurs d&rsquo;activités :</p>
-<ul>
-<li>l&rsquo;industrie de production par exemple, au travers des systèmes de contrôle de procédé (usines, centrales nucléaires) ;</li>
-<li>les salles de marché au travers du traitement des données boursières en « temps réel » ;</li>
-<li>l&rsquo;aéronautique au travers des systèmes de pilotage embarqués (avions, satellites) ;</li>
-<li>l’automobile avec le contrôle de plus en plus complet des paramètres moteur, de la trajectoire, du freinage, etc.</li>
-</ul>
-<h1 id="interruption">
+<h2 id="interruption">
   Interruption
   <a class="anchor" href="#interruption">#</a>
-</h1>
+</h2>
 <p>En plus de la gestion des tâches, l&rsquo;ordonnanceur doit souvent prendre en compte les
 interruptions qui peuvent être de trois types :</p>
 <ul>
@@ -7417,6 +7442,35 @@ appelée &ldquo;exception&rdquo; ou &ldquo;trap&rdquo; en anglais.</li>
 gérer les entrées/sorties de manière plus efficace que la scrutation active (<em>polling</em>).</li>
 </ul>
 <p><img src="./img/irq.png" alt="irq" /></p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h2 id="temps-partagé-vs-temps-réel">
+  Temps partagé vs temps réel
+  <a class="anchor" href="#temps-partag%c3%a9-vs-temps-r%c3%a9el">#</a>
+</h2>
+<p>C&rsquo;est bien tout ça&hellip; mais quand même&hellip; quand on encode une vidéo, copie
+des fichiers énormes ou qu&rsquo;on lance un jeu très gourmand, l&rsquo;ordinateur est ralenti.</p>
+<p>Imaginons l&rsquo;ordinateur d&rsquo;un airbus, on souhaite qu&rsquo;il fonctionne avec une grande
+régularité et qu&rsquo;une procédure critique ne soit pas ralentie par une autre opération.</p>
+<p>On utilise pour cela des systèmes <strong>en temps réel.</strong></p>
+<p>Un système en temps réel est capable de contrôler (ou piloter) un procédé
+physique à une vitesse adaptée à l&rsquo;évolution du procédé contrôlé.</p>
+<p>Les systèmes informatiques temps réel se différencient des autres systèmes
+informatiques par <strong>la prise en compte de contraintes temporelle</strong>s dont le respect
+est aussi important que l&rsquo;exactitude du résultat, autrement dit le système ne
+doit pas simplement délivrer des résultats exacts, <strong>il doit les délivrer dans
+des délais imposés.</strong></p>
+<p>Les systèmes informatiques temps réel sont aujourd&rsquo;hui présents dans de nombreux secteurs d&rsquo;activités :</p>
+<ul>
+<li>l&rsquo;industrie de production par exemple, au travers des systèmes de contrôle de procédé (usines, centrales nucléaires) ;</li>
+<li>les salles de marché au travers du traitement des données boursières en « temps réel » ;</li>
+<li>l&rsquo;aéronautique au travers des systèmes de pilotage embarqués (avions, satellites) ;</li>
+<li>l’automobile avec le contrôle de plus en plus complet des paramètres moteur, de la trajectoire, du freinage, etc.</li>
+</ul>
+
+    </div>
+</details>
+
 </article>
 
                 
@@ -7482,6 +7536,7 @@ gérer les entrées/sorties de manière plus efficace que la scrutation active (
     <li><a href="#commutation-de-contexte">Commutation de contexte</a></li>
     <li><a href="#coopératif-vs-préemptif">Coopératif vs préemptif</a></li>
     <li><a href="#lordonnancement">L&rsquo;ordonnancement</a></li>
+    <li><a href="#interruption">Interruption</a></li>
   </ul>
 </nav>
 
