@@ -6,30 +6,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf
 
-  Les interblocages
+  Interblocage
   #
 
-Nous avons dits précédemment que des processus peuvent avoir besoin de la
-même ressource{.}
+Il arrive fréquement que des processus se bloquent l&rsquo;un l&rsquo;autre. Sans intervention extérieure (de l&rsquo;utilisateur ou de l&rsquo;OS) cette situation est insoluble. C&rsquo;est l&rsquo;interblocage.
+foot
+L&rsquo;arbitre vient séparer les joueurs qui pourraient rester indéfiniment ainsi&hellip;
+
+  Partage des ressources
+  #
+
+Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource.
 Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter
-accéder à la même donnée sur le disque dur :
-
-Les deux processus ont uniquement besoin de lire la donnée : celle-ci est
-alors partagée, sans problème complexe.
-Les deux processus ont besoin de la donnée de manière exclusive, pour la
-modifier, par exemple.
-Les deux processus ont besoin de communiquer entre eux : l&rsquo;un doit attendre
-un résultat de l&rsquo;autre.
-
-Exemple 1">
+accéder à la même donnée (sur le disque dur ou autre) :">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/3_interblocage/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="Interblocage">
   <meta property="og:description" content="pdf
-Les interblocages # Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource{.}
-Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter accéder à la même donnée sur le disque dur :
-Les deux processus ont uniquement besoin de lire la donnée : celle-ci est alors partagée, sans problème complexe. Les deux processus ont besoin de la donnée de manière exclusive, pour la modifier, par exemple. Les deux processus ont besoin de communiquer entre eux : l’un doit attendre un résultat de l’autre. Exemple 1">
+Interblocage # Il arrive fréquement que des processus se bloquent l’un l’autre. Sans intervention extérieure (de l’utilisateur ou de l’OS) cette situation est insoluble. C’est l’interblocage.
+foot
+L’arbitre vient séparer les joueurs qui pourraient rester indéfiniment ainsi…
+Partage des ressources # Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource.
+Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter accéder à la même donnée (sur le disque dur ou autre) :">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>Interblocage | qkzk</title>
@@ -37,7 +36,7 @@ Les deux processus ont uniquement besoin de lire la donnée : celle-ci est alors
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.4da7d78f9b52a050fb68bbc2cc678b635b49d5b57fa2b049ce7647e9a5833e58.js" integrity="sha256-TafXj5tSoFD7aLvCzGeLY1tJ1bV/orBJznZH6aWDPlg=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.f24efdf31f35fc0b645c747c2964ec10e5b7f4cb782077398d52a6dc192b82ac.js" integrity="sha256-8k798x81/AtkXHR8KWTsEOW39Mt4IHc5jVKm3Bkrgqw=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/3_interblocage/index.xml" title="qkzk" />
 <!--
@@ -7133,10 +7132,14 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
-    <li><a href="#race-condition-situation-de-compétition---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+    <li><a href="#partage-des-ressources">Partage des ressources</a>
       <ul>
-        <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
+        <li><a href="#représentation-graphique">Représentation graphique</a></li>
+      </ul>
+    </li>
+    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a>
+      <ul>
+        <li><a href="#conclusion-sur-linterblocage">Conclusion sur l&rsquo;interblocage</a></li>
       </ul>
     </li>
   </ul>
@@ -7153,21 +7156,24 @@ MathJax.Hub.Config({
                 
                 
 <article class="markdown"><p><a href="./3_interblocage.pdf">pdf</a></p>
-<h1 id="les-interblocages">
-  Les interblocages
-  <a class="anchor" href="#les-interblocages">#</a>
+<h1 id="interblocage">
+  Interblocage
+  <a class="anchor" href="#interblocage">#</a>
 </h1>
-<p>Nous avons dits précédemment que des processus peuvent avoir besoin de la
-même ressource{.}</p>
+<p>Il arrive fréquement que des processus se bloquent l&rsquo;un l&rsquo;autre. Sans intervention extérieure (de l&rsquo;utilisateur ou de l&rsquo;OS) cette situation est insoluble. C&rsquo;est <em>l&rsquo;interblocage</em>.</p>
+<p><a href="foot.jpg">foot</a></p>
+<p><em>L&rsquo;arbitre vient séparer les joueurs qui pourraient rester indéfiniment ainsi&hellip;</em></p>
+<h2 id="partage-des-ressources">
+  Partage des ressources
+  <a class="anchor" href="#partage-des-ressources">#</a>
+</h2>
+<p>Nous avons dits précédemment que des processus peuvent avoir besoin de la même ressource.</p>
 <p>Dans de nombreuses situations, deux processus (ou davantage) peuvent souhaiter
-accéder à la même donnée sur le disque dur :</p>
+accéder à la même donnée (sur le disque dur ou autre) :</p>
 <ul>
-<li>Les deux processus ont uniquement besoin de lire la donnée : celle-ci est
-alors partagée, sans problème complexe.</li>
-<li>Les deux processus ont besoin de la donnée de manière exclusive, pour la
-modifier, par exemple.</li>
-<li>Les deux processus ont besoin de communiquer entre eux : l&rsquo;un doit attendre
-un résultat de l&rsquo;autre.</li>
+<li>Les deux processus ont <em>uniquement besoin de lire la donnée</em> : celle-ci est alors partagée, sans problème complexe.</li>
+<li>Les deux processus ont <em>besoin de la donnée de manière exclusive</em>, pour la modifier, par exemple.</li>
+<li>Les deux processus ont <em>besoin de communiquer entre eux</em> : l&rsquo;un doit attendre un résultat de l&rsquo;autre.</li>
 </ul>
 <p><strong>Exemple 1</strong></p>
 <p>Deux processus P1 et P2 ont tous les deux besoin de la même donnée D pour la
@@ -7175,10 +7181,35 @@ modifier, c&rsquo;est-à-dire de manière exclusive. Le premier à y accéder es
 D lui est alloué par le système d&rsquo;exploitation. Lorsque P2 souhaite accéder à
 D, la ressource n&rsquo;est pas disponible : P2 est alors bloqué jusqu&rsquo;à la fin de
 l&rsquo;utilisation de D par P1.</p>
+<h3 id="représentation-graphique">
+  Représentation graphique
+  <a class="anchor" href="#repr%c3%a9sentation-graphique">#</a>
+</h3>
+<p><img src="ex_wait.svg" alt="wait" /></p>
+<ul>
+<li>
+<p>P1 et P2 sont les processus,</p>
+</li>
+<li>
+<p>R1 est la ressource</p>
+</li>
+<li>
+<p>Une flêche de R1 à P1 signifie que <em>P1 a acquis la ressource R1</em></p>
+</li>
+<li>
+<p>Une flêche de P2 à R1 signifie que <em>P2 a demandé la ressource R1</em>.</p>
+</li>
+</ul>
+<p>Comprenez bien :</p>
+<ul>
+<li>P1 est prêt ou est exécuté. Il n&rsquo;est pas bloqué</li>
+<li>P2 est bloqué jusqu&rsquo;à la libération de la ressource R1 par P1.</li>
+</ul>
+<p>Dans cette situation, P2 attend&hellip; mais P1 va bien s&rsquo;arrêter un jour et lui permettre d&rsquo;avancer.</p>
+<p>Aucun blocage.</p>
 <p><strong>Exemple 2</strong></p>
-<p>Deux processus P1 et P2 ont tous les besoin de deux ressources, R1 et R2.<br>
-Chaque processus bloque une donnée et doit attendre d&rsquo;avoir accès à la seconde
-pour se terminer et les libérer.</p>
+<p>Deux processus P1 et P2 ont tous deux les besoin de deux ressources, R1 et R2.<br>
+Chaque processus bloque une donnée et doit attendre d&rsquo;avoir accès à la seconde pour se terminer et les libérer.</p>
 <p>Si la chronologie est la suivante :</p>
 <ul>
 <li>P1 demande R1 et l&rsquo;aquiert</li>
@@ -7191,11 +7222,12 @@ Rien ne pourra avancer sans une intervention extérieure.</p>
 <p>Face à cette problématique la plupart des systèmes d&rsquo;exploitation ont choisir
 de ne pas essayer d&rsquo;éviter les interblocages mais de les détecter s&rsquo;ils
 surviennent et de les solutionner.</p>
+<p><img src="graph_000.svg" alt="interblocage" /></p>
 <h2 id="détecter-une-situation-dinterblocage">
   Détecter une situation d&rsquo;interblocage
   <a class="anchor" href="#d%c3%a9tecter-une-situation-dinterblocage">#</a>
 </h2>
-<p>Afin de résoudre <em>conceptuellement</em> ce problème on peut utiliser un graphe orienté.</p>
+<p>Afin de résoudre <em>conceptuellement</em> ce problème on peut utiliser un <strong>graphe orienté</strong>.</p>
 <ul>
 <li>On sépare les processus et les ressources : ce sont les noeuds du graphe.</li>
 <li>Lorsqu&rsquo;un processus attend une ressource, un arc est tracé partant de ce
@@ -7203,17 +7235,40 @@ processus vers la ressource,</li>
 <li>Lorsqu&rsquo;un processus acquiert une ressource, un arc est tracé partant de la
 ressource vers le processus. On efface l&rsquo;arc dans l&rsquo;autre sens s&rsquo;il existe.</li>
 </ul>
-<p><strong>L&rsquo;interblocage se produit lorsqu&rsquo;il existe un cycle dans le graphe</strong></p>
+<blockquote class="book-hint danger">
+  <p><strong>L&rsquo;interblocage se produit lorsqu&rsquo;il existe un cycle dans le graphe</strong></p>
 <p><img src="graph_000.svg" alt="graph_000.svg" /></p>
 <p>Ce graphe présente un cycle et les processus sont bloqués.</p>
 <p><img src="graph_001.svg" alt="graph_001.svg" /></p>
-<p>Ce graphe ne présente pas ce cycle, il n&rsquo;y a pas d&rsquo;interblocage.</p>
-<h2 id="race-condition-situation-de-compétition---hp">
+<p>Ce graphe ne présente pas de cycle, il n&rsquo;y a pas d&rsquo;interblocage.</p>
+<p><img src="ex_wait.svg" alt="wait" /></p>
+<p>Pas non plus de cycle et donc pas d&rsquo;interblocage.</p>
+
+</blockquote>
+
+<h3 id="conclusion-sur-linterblocage">
+  Conclusion sur l&rsquo;interblocage
+  <a class="anchor" href="#conclusion-sur-linterblocage">#</a>
+</h3>
+<p><blockquote class="book-hint info">
+  
+</blockquote>
+
+L&rsquo;interblocage est une situation qui conduit à la paralysie de plusieurs processus.</p>
+<p>L&rsquo;éviter totalement est presque impossible. Pour la résoudre lorsqu&rsquo;elle se produit il faut une intervention extérieure (utilisateur, OS).</p>
+<p><img src="graph_000.svg" alt="graph_000.svg" /> vs <img src="graph_001.svg" alt="graph_001.svg" /></p>
+<p>Pour la repérer, on peut dessiner un graphe orienté. <strong>Présence d&rsquo;un cycle = interblocage</strong>.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h2 id="race-condition-situation-de-compétition---hp">
   Race condition (<em>situation de compétition</em>) - HP
   <a class="anchor" href="#race-condition-situation-de-comp%c3%a9tition---hp">#</a>
 </h2>
+<p>L&rsquo;interblocage n&rsquo;estpasle seul problème créée par l&rsquo;exécution parallèle de plusieurs processus.</p>
+<p>Un autre problème majeur lié à l&rsquo;ordre d&rsquo;exécution est la <em>situation de compétition</em>.</p>
 <p>C&rsquo;est une situation dans laquelle le résultat d&rsquo;une série d&rsquo;opération
 dépend de <em>l&rsquo;ordre</em> dans lequel celles-ci sont effectuées&hellip;</p>
+<p>Des situations de compétition existent dans les logiciels mais aussi <em>dans le matériel</em>.</p>
 <p>Lorsque un processus principal crée plusieurs processus fils, il ne contrôle
 pas l&rsquo;ordre dans lequel ils sont exécutés. S&rsquo;il a besoin des résultats de ceux
 ci, il ne pourra pas prédire le résultat final.</p>
@@ -7350,13 +7405,17 @@ vous verrez ça plus tard :) !</p>
 </h3>
 <p>Ce sont des séquences d&rsquo;instructions indépendantes.</p>
 <ul>
-<li>Un thread s&rsquo;exécute dans le même processus que le processus parent, il partage la mémoire du processus.</li>
+<li>Un thread (<em>processus léger</em> en français) s&rsquo;exécute dans le même processus que le processus parent, il partage la mémoire du processus.</li>
 <li>Un processus fils est un autre processus, dépendant du parent, qui dispose de sa propre mémoire.</li>
 </ul>
 <p>Un processus est plus <em>lourd</em> pour le système qu&rsquo;un thread&hellip; mais peut s&rsquo;exécuter
 sur un coeur de processeur différent et donc en parallèle.</p>
 <p>Un thread est généralement cantoné au processeur sur lequel s&rsquo;exécute le processus
 qui l&rsquo;a crée.</p>
+
+    </div>
+</details>
+
 </article>
 
                 
@@ -7418,10 +7477,14 @@ qui l&rsquo;a crée.</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a></li>
-    <li><a href="#race-condition-situation-de-compétition---hp">Race condition (<em>situation de compétition</em>) - HP</a>
+    <li><a href="#partage-des-ressources">Partage des ressources</a>
       <ul>
-        <li><a href="#threads-vs-processus">Threads vs Processus</a></li>
+        <li><a href="#représentation-graphique">Représentation graphique</a></li>
+      </ul>
+    </li>
+    <li><a href="#détecter-une-situation-dinterblocage">Détecter une situation d&rsquo;interblocage</a>
+      <ul>
+        <li><a href="#conclusion-sur-linterblocage">Conclusion sur l&rsquo;interblocage</a></li>
       </ul>
     </li>
   </ul>
