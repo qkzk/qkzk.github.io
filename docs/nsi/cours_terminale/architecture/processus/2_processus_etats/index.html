@@ -6,32 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="pdf
 
-  Système d&rsquo;exploitation
-  #
-
-L&rsquo;OS est chargé d&rsquo;assurer la liaison entre les ressources matérielles, l&rsquo;utilisateur
-et les logiciels.
-Voici les trois situations les plus courantes (OS seul, microcontroleur, virtualisation)
+  Un programme binaire est un ensemble d&rsquo;instructions que la machine peut reconnaître et exécuter. C&rsquo;est un texte écrit en binaire.
+Les processus sont des programmes en cours d&rsquo;exécution par la machine.
 
 
-Dans le premier cas, l&rsquo;OS fonctionne normalement et sert d&rsquo;interface unique à l&rsquo;utilisateur
-Dans le cas du microcontroleur, il n&rsquo;y a pas d&rsquo;OS ! Les programmes s&rsquo;exécutent directement sur le matériel
-Dans le cas de la virtualisation, l&rsquo;hyperviseur permet de faire fonctionner simultanément plusieurs OS sur
-une même machine. Les utilisateurs (généralement en réseau&hellip;) peuvent utiliseur l&rsquo;un ou l&rsquo;autre.
-
-
-  Rôles
-  #
-
-Les rôles principaux d&rsquo;un OS sont :">
+Dans ce contexte on distingue programme texte (les codes qu&rsquo;on peut écrire en Python, en C&hellip;) et programme binaire écrit en instructions machine.
+Nous allons étudier les états et les transitions de ces processus, depuis leur naissance, lors de l&rsquo;exécution du programme jusqu&rsquo;à leur mort.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/2_processus_etats/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="États des processus">
   <meta property="og:description" content="pdf
-Système d’exploitation # L’OS est chargé d’assurer la liaison entre les ressources matérielles, l’utilisateur et les logiciels.
-Voici les trois situations les plus courantes (OS seul, microcontroleur, virtualisation)
-Dans le premier cas, l’OS fonctionne normalement et sert d’interface unique à l’utilisateur Dans le cas du microcontroleur, il n’y a pas d’OS ! Les programmes s’exécutent directement sur le matériel Dans le cas de la virtualisation, l’hyperviseur permet de faire fonctionner simultanément plusieurs OS sur une même machine. Les utilisateurs (généralement en réseau…) peuvent utiliseur l’un ou l’autre. Rôles # Les rôles principaux d’un OS sont :">
+Un programme binaire est un ensemble d’instructions que la machine peut reconnaître et exécuter. C’est un texte écrit en binaire. Les processus sont des programmes en cours d’exécution par la machine. Dans ce contexte on distingue programme texte (les codes qu’on peut écrire en Python, en C…) et programme binaire écrit en instructions machine.
+Nous allons étudier les états et les transitions de ces processus, depuis leur naissance, lors de l’exécution du programme jusqu’à leur mort.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>États des processus | qkzk</title>
@@ -39,7 +26,7 @@ Dans le premier cas, l’OS fonctionne normalement et sert d’interface unique 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.6ffde58be6a894598ebaac2139d189133f13063c907ff85742f0116e981b06b1.js" integrity="sha256-b/3li&#43;aolFmOuqwhOdGJEz8TBjyQf/hXQvARbpgbBrE=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.4da7d78f9b52a050fb68bbc2cc678b635b49d5b57fa2b049ce7647e9a5833e58.js" integrity="sha256-TafXj5tSoFD7aLvCzGeLY1tJ1bV/orBJznZH6aWDPlg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/2_processus_etats/index.xml" title="qkzk" />
 <!--
@@ -7137,17 +7124,19 @@ MathJax.Hub.Config({
   <ul>
     <li><a href="#système-dexploitation">Système d&rsquo;exploitation</a>
       <ul>
-        <li><a href="#rôles">Rôles</a></li>
+        <li><a href="#rôles-dun-os">Rôles d&rsquo;un OS</a></li>
         <li><a href="#composants-dun-os">Composants d&rsquo;un OS</a></li>
-        <li><a href="#statistiques-dutilisation">Statistiques d&rsquo;utilisation</a></li>
       </ul>
     </li>
     <li><a href="#processus">Processus</a>
       <ul>
+        <li><a href="#cycle-de-vie-dun-processus">Cycle de vie d&rsquo;un processus</a></li>
+        <li><a href="#pid">PID</a></li>
         <li><a href="#lancement">Lancement</a></li>
-        <li><a href="#format-dexécutable">Format d&rsquo;exécutable</a></li>
+        <li><a href="#consulter-les-processus-en-cours-dexécution">Consulter les processus en cours d&rsquo;exécution</a></li>
         <li><a href="#composants-dun-processus">Composants d&rsquo;un processus</a></li>
         <li><a href="#arborescence-des-processus">Arborescence des processus</a></li>
+        <li><a href="#envoyer-un-signal-au-processus">Envoyer un signal au processus</a></li>
       </ul>
     </li>
     <li><a href="#processus-crées-depuis-python">Processus crées depuis Python</a>
@@ -7155,12 +7144,6 @@ MathJax.Hub.Config({
         <li><a href="#lancement-dun-processus-simple">Lancement d&rsquo;un processus simple</a></li>
         <li><a href="#lancement-dun-processus-et-manipulation-des-entrées-sorties-">Lancement d&rsquo;un processus et manipulation des entrées sorties :</a></li>
         <li><a href="#faire-tourner-une-fonction-dans-un-processus-à-part">Faire tourner une fonction dans un processus à part</a></li>
-      </ul>
-    </li>
-    <li><a href="#cycle-de-vie-dun-processus">Cycle de vie d&rsquo;un processus</a>
-      <ul>
-        <li><a href="#consulter-les-processus-en-cours-dexécution">Consulter les processus en cours d&rsquo;exécution</a></li>
-        <li><a href="#envoyer-un-signal-au-processus">Envoyer un signal au processus</a></li>
       </ul>
     </li>
   </ul>
@@ -7177,6 +7160,14 @@ MathJax.Hub.Config({
                 
                 
 <article class="markdown"><p><a href="./2_processus_etats.pdf">pdf</a></p>
+<blockquote class="book-hint info">
+  Un <em>programme binaire</em> est un ensemble d&rsquo;instructions que la machine peut reconnaître et exécuter. C&rsquo;est un texte écrit en binaire.
+Les <em>processus</em> sont des <em>programmes en cours d&rsquo;exécution par la machine</em>.
+</blockquote>
+
+<p>Dans ce contexte on distingue <em>programme texte</em> (les codes qu&rsquo;on peut écrire en Python, en C&hellip;) et <em>programme binaire</em> écrit en instructions machine.</p>
+<p>Nous allons étudier les <em>états</em> et les <em>transitions</em> de ces processus, depuis leur naissance, lors de l&rsquo;exécution du programme jusqu&rsquo;à leur mort.</p>
+<p>Avant ça, quelques concepts doivent être introduits.</p>
 <h2 id="système-dexploitation">
   Système d&rsquo;exploitation
   <a class="anchor" href="#syst%c3%a8me-dexploitation">#</a>
@@ -7186,14 +7177,14 @@ et les logiciels.</p>
 <p>Voici les trois situations les plus courantes (OS seul, microcontroleur, virtualisation)</p>
 <p><img src="./img/OS.png" alt="Les trois situations courantes" /></p>
 <ul>
-<li>Dans le premier cas, l&rsquo;OS fonctionne normalement et sert d&rsquo;interface unique à l&rsquo;utilisateur</li>
-<li>Dans le cas du <em>microcontroleur</em>, il n&rsquo;y a pas d&rsquo;OS ! Les programmes s&rsquo;exécutent directement sur le matériel</li>
+<li>Dans le cas d&rsquo;un OS seul, il sert d&rsquo;interface unique entre l&rsquo;utilisateur et le matériel</li>
+<li>Dans le cas du <em>microcontroleur</em>, il n&rsquo;y a pas d&rsquo;OS ! Les programmes s&rsquo;exécutent <em>directement sur le matériel</em></li>
 <li>Dans le cas de la <em>virtualisation</em>, l&rsquo;hyperviseur permet de faire fonctionner simultanément plusieurs OS sur
 une même machine. Les utilisateurs (généralement en réseau&hellip;) peuvent utiliseur l&rsquo;un ou l&rsquo;autre.</li>
 </ul>
-<h3 id="rôles">
-  Rôles
-  <a class="anchor" href="#r%c3%b4les">#</a>
+<h3 id="rôles-dun-os">
+  Rôles d&rsquo;un OS
+  <a class="anchor" href="#r%c3%b4les-dun-os">#</a>
 </h3>
 <p>Les rôles principaux d&rsquo;un OS sont :</p>
 <ul>
@@ -7201,19 +7192,25 @@ une même machine. Les utilisateurs (généralement en réseau&hellip;) peuvent 
 <li>La gestion de la <strong>mémoire vive</strong>,</li>
 <li>La gestion des <strong>entrées / sorties</strong>,</li>
 <li>La gestion des <strong>processus</strong> (programme en cours d&rsquo;exécution),</li>
-<li>La gestion des <strong>droits</strong>,</li>
+<li>La gestion des <strong>droits</strong> de l&rsquo;utilisateur,</li>
 <li>La gestion des <strong>fichiers</strong> et du <strong>système de fichier</strong>.</li>
 </ul>
 <h3 id="composants-dun-os">
   Composants d&rsquo;un OS
   <a class="anchor" href="#composants-dun-os">#</a>
 </h3>
+<p>L&rsquo;OS se découpe en couches selon leur proximité avec le matériel.</p>
+<p><img src="./img/Kernel_Layout.png" alt="Kernel" /></p>
+<ul>
+<li>Le <strong>matériel</strong> n&rsquo;intéragit directement qu&rsquo;avec le noyau.</li>
+<li>Le <strong>noyau</strong> (<em>kernel</em>) contient les fonctions principales d&rsquo;un OS (mémoire, processus, fichiers, IO, communication etc.)</li>
+<li>Les <strong>appplications</strong> ou <strong>espace utilisateur</strong> contient l&rsquo;ensemble des processus avec lequel l&rsquo;utilisateur intéragit.</li>
+</ul>
+<p>Parmi ces applications, on s&rsquo;intéresse à celle faisant le lien entre le noyau et l&rsquo;utilisateur lui même : le shell.</p>
 <ul>
 <li>
-<p>Le <strong>noyau</strong> (<em>kernel</em>) contient les fonctions principales d&rsquo;un OS (mémoire, processus, fichiers, IO, communication etc.)</p>
-</li>
-<li>
-<p>Le <strong>shell</strong> (<em>shell</em> pour coquille&hellip;) permet la communication des via un intermédiaire.</p>
+<p>Le <strong>shell</strong> (<em>shell</em> pour coquille&hellip;, <em>interface système</em> en français) permet la communication des via un intermédiaire.</p>
+<p>Il offre deux usage possibles :</p>
 <ul>
 <li><strong>CLI</strong> (<em>Command Line Interface</em> : la console !) : interpréteur de commandes
 en ligne. Exécute les commandes une par une (<code>[quentin@pc] $ ls</code>) ou depuis
@@ -7222,7 +7219,9 @@ un script. Le shell le plus couramment utilisé est BASH.</li>
 </ul>
 </li>
 </ul>
-<h3 id="statistiques-dutilisation">
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h3 id="statistiques-dutilisation">
   Statistiques d&rsquo;utilisation
   <a class="anchor" href="#statistiques-dutilisation">#</a>
 </h3>
@@ -7346,148 +7345,38 @@ des machines utilisent un linux virtualisé dans Docker et orchestré par Kubern
 C&rsquo;est un projet assez secret mais qui a contribué à la création de Kubernetes.</p>
 <p><em>Je crois qu&rsquo;il fonctionne sur UNIX mais même la vidéo de présentation d'1h30 ne répond pas à la question</em>.</p>
 <p>En bref : les informaticiens utilisent UNIX.</p>
+
+    </div>
+</details>
+
 <h2 id="processus">
   Processus
   <a class="anchor" href="#processus">#</a>
 </h2>
-<p><strong>Programme</strong></p>
+<blockquote class="book-hint info">
+  <p><strong>Programme (binaire)</strong></p>
 <blockquote>
 <p>Du texte exécutable par la machine</p></blockquote>
 <p><strong>Processus</strong></p>
 <blockquote>
 <p>Un programme en cours d&rsquo;exécution</p></blockquote>
-<h3 id="lancement">
-  Lancement
-  <a class="anchor" href="#lancement">#</a>
-</h3>
-<p>L&rsquo;exécution d&rsquo;un programme consiste à copier son code en mémoire et à faire
-pointer le CPU sur la première instruction.</p>
-<p>Celles-ci sont ensuite exécutées une par une jusqu&rsquo;à épuisement ou jusqu&rsquo;à
-l&rsquo;arrêt du programme par le système d&rsquo;exploitation.</p>
-<p>L&rsquo;utilisateur peut lancer un programme depuis le GUI en double cliquant dessus
-ou depuis le CLI en l&rsquo;appelant avec</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./nom_du_programme
-</span></span><span style="display:flex;"><span>$ ./nom_du_programme &amp;
-</span></span></code></pre></div><p>En ajoutant une esperluette (<em>ampersand</em> &amp;) on exécute le programme en tâche
-de fond et on récupère la main sur le terminal.</p>
-<h3 id="format-dexécutable">
-  Format d&rsquo;exécutable
-  <a class="anchor" href="#format-dex%c3%a9cutable">#</a>
-</h3>
-<p>Chaque système d&rsquo;exploitation dispose de son propre format pour rendre un fichier
-exécutable.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Windows</th>
-          <th>UNIX</th>
-          <th>OS X</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>PE</td>
-          <td>ELF</td>
-          <td>Mach-O</td>
-      </tr>
-  </tbody>
-</table>
-<p>ELF (Executable and Linkable Format, est un format de fichier binaire utilisé pour l&rsquo;enregistrement de code compilé.</p>
-<p>Chaque fichier ELF est constitué d&rsquo;un en-tête fixe, puis de segments et de sections. Les segments contiennent les informations nécessaires à l&rsquo;exécution du programme contenu dans le fichier.</p>
-<p>Ainsi le système d&rsquo;exploitation sait où trouver les informations dont il aura
-besoin lors de l&rsquo;exécution.</p>
-<p>Mach-O et PE utilisent des principes similaires.</p>
-<h3 id="composants-dun-processus">
-  Composants d&rsquo;un processus
-  <a class="anchor" href="#composants-dun-processus">#</a>
-</h3>
-<p>Un processus est constitué :</p>
-<ul>
-<li>d&rsquo;un ensemble d&rsquo;<strong>instructions</strong> à exécuter (section CODE),</li>
-<li>d&rsquo;un espace d&rsquo;adressage en <strong>mémoire vive</strong> (sections pile, tas et data)</li>
-<li>de <strong>ressources</strong> (fichiers ouverts, sockets réseau, connexion bdd etc.)</li>
-<li>des <strong>flux</strong> d&rsquo;entrée (<em>stdin</em>) et de sortie (<em>stdout, stderr</em>) utilisés
-pour communiquer avec l&rsquo;extérieur.</li>
-</ul>
-<p><img src="./img/processus.png" alt="processus" /></p>
-<p>Les détails d&rsquo;un processus sont accessibles dans le dossier <code>/proc</code> où
-chaque chaque processus se voit attribuer un dossier selon son PID
-durant son exécution.</p>
-<p>par exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#555">$</span> sudo ln <span style="color:#555">-</span>l <span style="color:#555">/</span>proc<span style="color:#555">/</span><span style="color:#f60">17</span>
-</span></span><span style="display:flex;"><span><span style="color:#c0f">cmdline</span>     (line de commande utilisée pour lancer le processus)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">environ</span>     (variables d&#39;environnement)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">maps</span>        (zone de mémoire du processus)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">fd</span>          (fichiers ouverts et connexions)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">net</span>         (statistiques réseau)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">status</span>      (état et statistiques du processus)
-</span></span><span style="display:flex;"><span><span style="color:#c0f">syscall</span>     (appels systèmes utilisés par le programme)
-</span></span></code></pre></div><p>Pour afficher le contenu de ces fichiers on peut, par exemple :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /proc/17/status
-</span></span></code></pre></div><h3 id="arborescence-des-processus">
-  Arborescence des processus
-  <a class="anchor" href="#arborescence-des-processus">#</a>
-</h3>
-<p>Au lancement de l&rsquo;OS, un premier processus est crée, il sera
-l&rsquo;ancetre de tous les autres. Il se nomme <code>init</code> et son PID est 1.</p>
-<p>Ensuite l&rsquo;OS va créer des processus fils à partir du père <code>init</code> de
-deux types :</p>
-<ul>
-<li><strong>démon</strong> (service sous windows) : processus qui tournent en continu,</li>
-<li><strong>utilisateurs</strong> : lancés à partir du shell.</li>
-</ul>
-<p>On peut consulter cette arborescence avec la commande <code>pstree</code>.</p>
-<h2 id="processus-crées-depuis-python">
-  Processus crées depuis Python
-  <a class="anchor" href="#processus-cr%c3%a9es-depuis-python">#</a>
-</h2>
-<p>Python, comme tous les langages modernes, permet de manipuler les processus : d&rsquo;en créer, de les tuer, de les synchroniser de récupérer leur sortie.</p>
-<h3 id="lancement-dun-processus-simple">
-  Lancement d&rsquo;un processus simple
-  <a class="anchor" href="#lancement-dun-processus-simple">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">os</span>
-</span></span><span style="display:flex;"><span>os<span style="color:#555">.</span>system(<span style="color:#c30">&#34;/usr/bin/mousepad&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## le programme python est _bloqué_ jusqu&#39;à la terminaison du processus...</span>
-</span></span></code></pre></div><p>La bibliothèque <code>os</code> contient des fonctions permettant de réaliser
-des appels systeme.</p>
-<h3 id="lancement-dun-processus-et-manipulation-des-entrées-sorties-">
-  Lancement d&rsquo;un processus et manipulation des entrées sorties :
-  <a class="anchor" href="#lancement-dun-processus-et-manipulation-des-entr%c3%a9es-sorties-">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">subprocess</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sortie <span style="color:#555">=</span> subprocess<span style="color:#555">.</span>run([<span style="color:#c30">&#34;ln&#34;</span>, <span style="color:#c30">&#34;-l&#34;</span>], capture_output<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(sortie)
-</span></span></code></pre></div><p>Ce programme va créer un processus, l&rsquo;exécuter, enregistrer sa sortie
-puis l&rsquo;afficher.</p>
-<h3 id="faire-tourner-une-fonction-dans-un-processus-à-part">
-  Faire tourner une fonction dans un processus à part
-  <a class="anchor" href="#faire-tourner-une-fonction-dans-un-processus-%c3%a0-part">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">multiprocessing</span> <span style="color:#069;font-weight:bold">import</span> Process
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## cette fonction sera _embarquée_ dans un processus fils</span>
-</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">saluer</span>(nb_fois: <span style="color:#366">int</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Affiche `nb_fois` la ligne &#39;bonjour&#39; &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(nb_fois):
-</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## création d&#39;un processus embarquant la fonction saluer</span>
-</span></span><span style="display:flex;"><span>p1 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>saluer, args<span style="color:#555">=</span>(<span style="color:#f60">5</span>,))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## lancement du processus</span>
-</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>start()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## attente de la fin du processus (=synchronsation)</span>
-</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>join()
-</span></span></code></pre></div><h2 id="cycle-de-vie-dun-processus">
+
+</blockquote>
+
+<h3 id="cycle-de-vie-dun-processus">
   Cycle de vie d&rsquo;un processus
   <a class="anchor" href="#cycle-de-vie-dun-processus">#</a>
-</h2>
+</h3>
 <p>Lors de l&rsquo;exécution d&rsquo;un programme, un processus change réculièrement d&rsquo;état.
 C&rsquo;est l&rsquo;ordonnanceur qui est responsable de  ces changements d&rsquo;état.</p>
-<p><img src="graph_000.svg" alt="graph_000.svg" /></p>
+<blockquote class="book-hint info">
+  l&rsquo;ordonnanceur est le composant du noyau du système d&rsquo;exploitation choisissant l&rsquo;ordre d&rsquo;exécution des processus sur les processeurs d&rsquo;un ordinateur. En anglais, l&rsquo;ordonnanceur est appelé <em>scheduler</em>.
+</blockquote>
+
+<blockquote class="book-hint danger">
+  <img src="graph_000.svg" alt="graph_000.svg" />
+</blockquote>
+
 <ul>
 <li><strong>new</strong> : le processus vient d&rsquo;être crée,</li>
 <li><strong>ready</strong> : complètement copié en RAM, il attend que l&rsquo;ordonnanceur lui donne
@@ -7506,6 +7395,28 @@ du disque dur servant à compléter la RAM)</li>
 <li><strong>zombie</strong> : le père de ce processus s&rsquo;est terminé avant lui. Le système utilise
 cet état pour récupérer les ressources.</li>
 </ul>
+<h3 id="pid">
+  PID
+  <a class="anchor" href="#pid">#</a>
+</h3>
+<p>À son lancement, l&rsquo;OS donne un numéro appelé PID (<em>Process IDentifier</em>) qui permet d&rsquo;identifier le processus durant son exécution.</p>
+<p>Le processus dispose d&rsquo;un PPID (Parent PID)</p>
+<p><img src="./bin/pstree-c.png" alt="pstree" /></p>
+<p>Ces numéros permettent de retrouver et manipuler facilement les processus.</p>
+<h3 id="lancement">
+  Lancement
+  <a class="anchor" href="#lancement">#</a>
+</h3>
+<p>L&rsquo;exécution d&rsquo;un programme consiste à copier son code en mémoire et à faire
+pointer le CPU sur la première instruction.</p>
+<p>Celles-ci sont ensuite exécutées une par une jusqu&rsquo;à épuisement ou jusqu&rsquo;à
+l&rsquo;arrêt du programme par le système d&rsquo;exploitation.</p>
+<p>L&rsquo;utilisateur peut lancer un programme depuis le GUI en double cliquant dessus
+ou depuis le CLI en l&rsquo;appelant avec</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./nom_du_programme
+</span></span><span style="display:flex;"><span>$ ./nom_du_programme &amp;
+</span></span></code></pre></div><p>En ajoutant une esperluette (<em>ampersand</em> &amp;) on exécute le programme en tâche
+de fond et on récupère la main sur le terminal.</p>
 <h3 id="consulter-les-processus-en-cours-dexécution">
   Consulter les processus en cours d&rsquo;exécution
   <a class="anchor" href="#consulter-les-processus-en-cours-dex%c3%a9cution">#</a>
@@ -7594,7 +7505,22 @@ des critères et les interrompre</p>
 </span></span><span style="display:flex;"><span>root           <span style="color:#f60">8</span>       <span style="color:#f60">2</span>  <span style="color:#f60">0</span> juin21 ?       00:00:00 <span style="color:#555">[</span>mm_percpu_wq<span style="color:#555">]</span>
 </span></span><span style="display:flex;"><span>root           <span style="color:#f60">9</span>       <span style="color:#f60">2</span>  <span style="color:#f60">0</span> juin21 ?       00:00:53 <span style="color:#555">[</span>ksoftirqd/0<span style="color:#555">]</span>
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>Ces listes étant souvent conséquentes
+</span></span></code></pre></div><details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <ul>
+<li>UID : nom de l&rsquo;utilisateur qui a lancé le processus,</li>
+<li>PID : Process Identifier, numéro unique du processus,</li>
+<li>PPID : PID du parent, celui qui a lancé le processus,</li>
+<li>C : utilisation du CPU en pourcent,</li>
+<li>STIME : date de lancement,</li>
+<li>TTY : console dans laquelle écrit le processus. <code>?</code> signifie qu&rsquo;il n&rsquo;écrit pas ses sorties dans un terminal</li>
+<li>CMD : commande employée pour le lancer. <code>/sbin/init</code> pointe vers un <em>fichier</em> et <code>[kthread]</code> fait référence à une partie du noyau lui même.</li>
+</ul>
+
+    </div>
+</details>
+
+<p>Ces listes étant souvent conséquentes
 (318 processus en cours d&rsquo;exécution sur ma machine&hellip;) on filtre souvent
 avec <code>grep</code> :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps -ef | grep python
@@ -7609,6 +7535,47 @@ avec <code>grep</code> :</p>
 <p><img src="./btop.png" alt="btop" /></p>
 <p>À ne pas confondre avec <strong>btop</strong></p>
 <p><img src="./btopp.jpg" alt="btopp" /></p>
+<h3 id="composants-dun-processus">
+  Composants d&rsquo;un processus
+  <a class="anchor" href="#composants-dun-processus">#</a>
+</h3>
+<p>Un processus est constitué :</p>
+<ul>
+<li>d&rsquo;un ensemble d&rsquo;<strong>instructions</strong> à exécuter (section CODE),</li>
+<li>d&rsquo;un espace d&rsquo;adressage en <strong>mémoire vive</strong> (sections pile, tas et data)</li>
+<li>de <strong>ressources</strong> (fichiers ouverts, sockets réseau, connexion bdd etc.)</li>
+<li>des <strong>flux</strong> d&rsquo;entrée (<em>stdin</em>) et de sortie (<em>stdout, stderr</em>) utilisés
+pour communiquer avec l&rsquo;extérieur.</li>
+</ul>
+<p><img src="./img/processus.png" alt="processus" /></p>
+<p><em>Cette partie est spécifique à UNIX</em></p>
+<p>Les détails d&rsquo;un processus sont accessibles dans le dossier <code>/proc</code> où
+chaque chaque processus se voit attribuer un dossier selon son PID
+durant son exécution.</p>
+<p>par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#555">$</span> sudo ln <span style="color:#555">-</span>l <span style="color:#555">/</span>proc<span style="color:#555">/</span><span style="color:#f60">17</span>
+</span></span><span style="display:flex;"><span><span style="color:#c0f">cmdline</span>     (line de commande utilisée pour lancer le processus)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">environ</span>     (variables d&#39;environnement)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">maps</span>        (zone de mémoire du processus)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">fd</span>          (fichiers ouverts et connexions)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">net</span>         (statistiques réseau)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">status</span>      (état et statistiques du processus)
+</span></span><span style="display:flex;"><span><span style="color:#c0f">syscall</span>     (appels systèmes utilisés par le programme)
+</span></span></code></pre></div><p>Pour afficher le contenu de ces fichiers on peut faire:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /proc/17/status
+</span></span></code></pre></div><h3 id="arborescence-des-processus">
+  Arborescence des processus
+  <a class="anchor" href="#arborescence-des-processus">#</a>
+</h3>
+<p>Au lancement de l&rsquo;OS, un premier processus est crée, il sera
+l&rsquo;ancetre de tous les autres. Il se nomme <code>init</code> et son PID est 1.</p>
+<p>Ensuite l&rsquo;OS va créer des processus fils à partir du père <code>init</code> de
+deux types :</p>
+<ul>
+<li><strong>démon</strong> (service sous windows) : processus qui tournent en continu,</li>
+<li><strong>utilisateurs</strong> : lancés à partir du shell.</li>
+</ul>
+<p>On peut consulter cette arborescence avec la commande <code>pstree</code>.</p>
 <h3 id="envoyer-un-signal-au-processus">
   Envoyer un signal au processus
   <a class="anchor" href="#envoyer-un-signal-au-processus">#</a>
@@ -7634,7 +7601,88 @@ lorsqu&rsquo;on est certain qu&rsquo;un programme n&rsquo;est lancé qu&rsquo;un
 </span></span></code></pre></div><p>Et enchaîner :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#366">kill</span> -9 <span style="color:#069;font-weight:bold">$(</span>pidof alacritty<span style="color:#069;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Va tuer toutes les instances d&rsquo;alacritty&hellip;</p>
-</article>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h3 id="format-dexécutable">
+  Format d&rsquo;exécutable
+  <a class="anchor" href="#format-dex%c3%a9cutable">#</a>
+</h3>
+<p>Chaque système d&rsquo;exploitation dispose de son propre format pour rendre un fichier
+exécutable.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Windows</th>
+          <th>UNIX</th>
+          <th>OS X</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PE</td>
+          <td>ELF</td>
+          <td>Mach-O</td>
+      </tr>
+  </tbody>
+</table>
+<p>ELF (Executable and Linkable Format, est un format de fichier binaire utilisé pour l&rsquo;enregistrement de code compilé.</p>
+<p>Chaque fichier ELF est constitué d&rsquo;un en-tête fixe, puis de segments et de sections. Les segments contiennent les informations nécessaires à l&rsquo;exécution du programme contenu dans le fichier.</p>
+<p>Ainsi le système d&rsquo;exploitation sait où trouver les informations dont il aura
+besoin lors de l&rsquo;exécution.</p>
+<p>Mach-O et PE utilisent des principes similaires.</p>
+<p><a href="https://en.wikipedia.org/wiki/Comparison_of_executable_file_formats">_Comparison of executable file formats</a></p>
+
+    </div>
+</details>
+
+<h2 id="processus-crées-depuis-python">
+  Processus crées depuis Python
+  <a class="anchor" href="#processus-cr%c3%a9es-depuis-python">#</a>
+</h2>
+<p>Python, comme tous les langages modernes, permet de manipuler les processus : d&rsquo;en créer, de les tuer, de les synchroniser de récupérer leur sortie.</p>
+<h3 id="lancement-dun-processus-simple">
+  Lancement d&rsquo;un processus simple
+  <a class="anchor" href="#lancement-dun-processus-simple">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">os</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#555">.</span>system(<span style="color:#c30">&#34;/usr/bin/mousepad&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## le programme python est _bloqué_ jusqu&#39;à la terminaison du processus...</span>
+</span></span></code></pre></div><p>La bibliothèque <code>os</code> contient des fonctions permettant de réaliser
+des appels systeme.</p>
+<h3 id="lancement-dun-processus-et-manipulation-des-entrées-sorties-">
+  Lancement d&rsquo;un processus et manipulation des entrées sorties :
+  <a class="anchor" href="#lancement-dun-processus-et-manipulation-des-entr%c3%a9es-sorties-">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">subprocess</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sortie <span style="color:#555">=</span> subprocess<span style="color:#555">.</span>run([<span style="color:#c30">&#34;ln&#34;</span>, <span style="color:#c30">&#34;-l&#34;</span>], capture_output<span style="color:#555">=</span><span style="color:#069;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#366">print</span>(sortie)
+</span></span></code></pre></div><p>Ce programme va créer un processus, l&rsquo;exécuter, enregistrer sa sortie
+puis l&rsquo;afficher.</p>
+<h3 id="faire-tourner-une-fonction-dans-un-processus-à-part">
+  Faire tourner une fonction dans un processus à part
+  <a class="anchor" href="#faire-tourner-une-fonction-dans-un-processus-%c3%a0-part">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">multiprocessing</span> <span style="color:#069;font-weight:bold">import</span> Process
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## cette fonction sera _embarquée_ dans un processus fils</span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">saluer</span>(nb_fois: <span style="color:#366">int</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Affiche `nb_fois` la ligne &#39;bonjour&#39; &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(nb_fois):
+</span></span><span style="display:flex;"><span>        <span style="color:#366">print</span>(<span style="color:#c30">&#34;bonjour&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## création d&#39;un processus embarquant la fonction saluer</span>
+</span></span><span style="display:flex;"><span>p1 <span style="color:#555">=</span> Process(target<span style="color:#555">=</span>saluer, args<span style="color:#555">=</span>(<span style="color:#f60">5</span>,))
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## p1 est créée, dispose de son propre PID, son parent est le processus Python en cours</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## lancement du processus</span>
+</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## ici on peut continuer à exécuter du code Python </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">## attente de la fin du processus (=synchronsation)</span>
+</span></span><span style="display:flex;"><span>p1<span style="color:#555">.</span>join()
+</span></span></code></pre></div></article>
 
                 
 
@@ -7697,17 +7745,19 @@ lorsqu&rsquo;on est certain qu&rsquo;un programme n&rsquo;est lancé qu&rsquo;un
   <ul>
     <li><a href="#système-dexploitation">Système d&rsquo;exploitation</a>
       <ul>
-        <li><a href="#rôles">Rôles</a></li>
+        <li><a href="#rôles-dun-os">Rôles d&rsquo;un OS</a></li>
         <li><a href="#composants-dun-os">Composants d&rsquo;un OS</a></li>
-        <li><a href="#statistiques-dutilisation">Statistiques d&rsquo;utilisation</a></li>
       </ul>
     </li>
     <li><a href="#processus">Processus</a>
       <ul>
+        <li><a href="#cycle-de-vie-dun-processus">Cycle de vie d&rsquo;un processus</a></li>
+        <li><a href="#pid">PID</a></li>
         <li><a href="#lancement">Lancement</a></li>
-        <li><a href="#format-dexécutable">Format d&rsquo;exécutable</a></li>
+        <li><a href="#consulter-les-processus-en-cours-dexécution">Consulter les processus en cours d&rsquo;exécution</a></li>
         <li><a href="#composants-dun-processus">Composants d&rsquo;un processus</a></li>
         <li><a href="#arborescence-des-processus">Arborescence des processus</a></li>
+        <li><a href="#envoyer-un-signal-au-processus">Envoyer un signal au processus</a></li>
       </ul>
     </li>
     <li><a href="#processus-crées-depuis-python">Processus crées depuis Python</a>
@@ -7715,12 +7765,6 @@ lorsqu&rsquo;on est certain qu&rsquo;un programme n&rsquo;est lancé qu&rsquo;un
         <li><a href="#lancement-dun-processus-simple">Lancement d&rsquo;un processus simple</a></li>
         <li><a href="#lancement-dun-processus-et-manipulation-des-entrées-sorties-">Lancement d&rsquo;un processus et manipulation des entrées sorties :</a></li>
         <li><a href="#faire-tourner-une-fonction-dans-un-processus-à-part">Faire tourner une fonction dans un processus à part</a></li>
-      </ul>
-    </li>
-    <li><a href="#cycle-de-vie-dun-processus">Cycle de vie d&rsquo;un processus</a>
-      <ul>
-        <li><a href="#consulter-les-processus-en-cours-dexécution">Consulter les processus en cours d&rsquo;exécution</a></li>
-        <li><a href="#envoyer-un-signal-au-processus">Envoyer un signal au processus</a></li>
       </ul>
     </li>
   </ul>
