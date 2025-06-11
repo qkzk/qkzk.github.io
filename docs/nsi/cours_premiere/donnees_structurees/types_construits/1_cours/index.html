@@ -55,7 +55,7 @@ Manipuler les tuples # Les tuples ne sont pas mutables : on ne peut en changer l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.cdaec023c6c39c345eb05b58747b6ee1c4db00c15bd57c6f10396a82386b35a5.js" integrity="sha256-za7AI8bDnDResFtYdHtu4cTbAMFb1XxvEDlqgjhrNaU=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.edf48e4bb6ac380839773b757893ff9ae2bc0f029ef63f7c2e0ffd49704d86f7.js" integrity="sha256-7fSOS7asOAg5dzt1eJP/muK8DwKe9j98Lg/9SXBNhvc=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/1_cours/index.xml" title="qkzk" />
 <!--
@@ -63,6 +63,24 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script id="MathJax-script" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 
 
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.2/add-html-label-3fd8c466.min.js"></script>
@@ -1665,6 +1683,24 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/dichotomie/3_resume/" class="">Résumé</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -1823,6 +1859,24 @@ https://github.com/alex-shpak/hugo-book
     <label for="section-2faa969d0aba98505712a3edfeda1de1" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/7_activites/" class="">7. Planification</a>
     </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/8_resume/" class="">8. Résumé</a>
   
 
           
@@ -2651,6 +2705,24 @@ https://github.com/alex-shpak/hugo-book
     <label for="section-18c413b105eb2bdf08bae13cfaf87d35" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/2_td/" class="">TD</a>
     </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/3_resume/" class="">Résumé</a>
   
 
           
@@ -7147,8 +7219,11 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#tableaux--le-type-list">Tableaux : le type <code>list</code></a>
       <ul>
         <li><a href="#quest-ce-quun-tableau-">Qu&rsquo;est-ce qu&rsquo;un tableau ?</a></li>
-        <li><a href="#tableaux-construits-à-la-main">Tableaux construits à la main</a></li>
-        <li><a href="#tableaux-construits-par-compréhension">Tableaux construits par compréhension</a></li>
+        <li><a href="#abstrait-vs-concret">Abstrait vs concret</a></li>
+        <li><a href="#le-type-abstrait-tableau">Le type abstrait &ldquo;tableau&rdquo;</a></li>
+        <li><a href="#remarque-importante-sur-les-types-abstraits">Remarque importante sur les types abstraits</a></li>
+        <li><a href="#list-construites-à-la-main"><code>list</code> construites à la main</a></li>
+        <li><a href="#list-construites-par-compréhension"><code>list</code> construites par compréhension</a></li>
         <li><a href="#liste-par-compréhension-complexe">Liste par compréhension complexe</a></li>
       </ul>
     </li>
@@ -7158,6 +7233,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#dictionnaire-par-clés-et-valeurs">Dictionnaire par clés et valeurs</a></li>
         <li><a href="#accéder-à-une-valeur">Accéder à une valeur</a></li>
         <li><a href="#dictionnaire--mutable">Dictionnaire : mutable</a></li>
+        <li><a href="#type-abstrait--les-tableaux-associatifs">Type abstrait : les tableaux associatifs</a></li>
       </ul>
     </li>
     <li><a href="#itérer">Itérer</a>
@@ -7245,19 +7321,82 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#quest-ce-quun-tableau-">#</a>
 </h3>
 <blockquote class="book-hint info">
-  Un <strong>tableau</strong> est une collection <em>mutable</em> d&rsquo;objets.
+  Un <strong>tableau</strong> est une collection <em>numérotée</em> et <em>mutable</em> d&rsquo;objets.
 </blockquote>
 
 <blockquote class="book-hint info">
-  Contrairement aux tuples, on peut en changer le contenu. On peut aussi ajouter
-ou retirer des éléments à un tableau.
+  <ul>
+<li>Numérotée : chaque élément dispose d&rsquo;un indice qui permet de le retrouver rapidement</li>
+<li>Mutable : Contrairement aux tuples, on peut en changer le contenu. On peut aussi ajouter
+ou retirer des éléments à un tableau.</li>
+</ul>
+
 </blockquote>
 
-<p>En python, tous les tableaux ont le type <code>list</code></p>
-<p>Pourquoi cette distinction ? Pour éviter les confusions ultérieures !</p>
-<h3 id="tableaux-construits-à-la-main">
-  Tableaux construits à la main
-  <a class="anchor" href="#tableaux-construits-%c3%a0-la-main">#</a>
+<p>En python, pour représenter les tableaux on utilise le type <code>list</code></p>
+<h3 id="abstrait-vs-concret">
+  Abstrait vs concret
+  <a class="anchor" href="#abstrait-vs-concret">#</a>
+</h3>
+<p>Un <em>tableau</em> désigne une structure de donnée <em>abstraite</em>, disposant d&rsquo;un minimum d&rsquo;opérations possibles (appelées <em>primitives</em>).</p>
+<p>Il existe énormément de structures de données différentes, généralement introduites pour résoudre efficacement un problème.</p>
+<p>Lorsqu&rsquo;on programme une telle structure de données abstraite (on parle <em>d&rsquo;implémentation</em>) on ne respecte pas toujours ces contraintes théoriques :</p>
+<ul>
+<li>parfois on ajoute des méthodes particulières par commodité,</li>
+<li>parfois ce n&rsquo;est pas possible ou pas efficace.</li>
+</ul>
+<p>Il convient donc de distinguer la théorie (ex: les tableaux) de la pratique (ex: les <code>list</code> Python).</p>
+<h3 id="le-type-abstrait-tableau">
+  Le type abstrait &ldquo;tableau&rdquo;
+  <a class="anchor" href="#le-type-abstrait-tableau">#</a>
+</h3>
+<blockquote class="book-hint info">
+  Un tableau est donc : une collection numérotée et mutable d&rsquo;objets d&rsquo;un même type (ex. tous entiers).
+</blockquote>
+
+<h4 id="primitives">
+  Primitives
+  <a class="anchor" href="#primitives">#</a>
+</h4>
+<p>on doit pouvoir :</p>
+<blockquote class="book-hint info">
+  <ul>
+<li>le créer vide : <code>T = []</code> ou le créer avec des valeurs : <code>T = [5, 1, 3]</code></li>
+<li>accéder à un élément par son indice : <code>T[0] -&gt; 5</code></li>
+<li>mesurer sa longueur : <code>longueur([5, 1, 3]) = 3</code></li>
+<li>ajouter un élément au tableau, généralement à la fin : <code>ajouter(T, 7)</code> et <code>T = [5, 1, 3, 7]</code></li>
+<li>retirer un élément du tableau, généralement par son indice : <code>retirer(T, 0) = 5</code> et <code>T = [1, 3, 7]</code></li>
+</ul>
+
+</blockquote>
+
+<h4 id="contrainte-importante-dimplémentation">
+  Contrainte importante d&rsquo;implémentation
+  <a class="anchor" href="#contrainte-importante-dimpl%c3%a9mentation">#</a>
+</h4>
+<p>Pour être efficace, une implémentation d&rsquo;un tableau doit permettre d&rsquo;accéder à un élément <em>en temps constant</em>.</p>
+<p>Accéder au premier ou 1327$^\text{eme}$ élément prend exactement autant de temps.</p>
+<h4 id="comparaison-tableau-vs-list">
+  Comparaison Tableau vs <code>list</code>
+  <a class="anchor" href="#comparaison-tableau-vs-list">#</a>
+</h4>
+<p>Le type <code>list</code> de Python implémente toutes ces opérations mais bien d&rsquo;autres encore.</p>
+<p>Les <code>list</code> Python ne sont pas <em>exactement</em> des tableaux&hellip;</p>
+<ul>
+<li>elles peuvent contenir des éléments de type différents,</li>
+<li>on peut insérer, retirer où on veut dans les <code>list</code></li>
+</ul>
+<h3 id="remarque-importante-sur-les-types-abstraits">
+  Remarque importante sur les types abstraits
+  <a class="anchor" href="#remarque-importante-sur-les-types-abstraits">#</a>
+</h3>
+<p>L&rsquo;informatique est une science récente et <em>ses définitions varient beaucoup d&rsquo;un auteur à l&rsquo;autre.</em>
+Si l&rsquo;on a besoin d&rsquo;être précis, il faut définir exactement les notions avant d&rsquo;exposer quelque chose.</p>
+<p>Ce n&rsquo;est pas le cas en mathématiques ou en physique, par exemple.
+La notion de <em>masse</em> est la même pour tous, une <em>fonction</em> mathématique a une définition précise identique pour tous les auteurs. En informatique, si l&rsquo;on vous parle de <em>tableau</em> il faut faire attention à ce que l&rsquo;auteur à défini un peu plus tôt.</p>
+<h3 id="list-construites-à-la-main">
+  <code>list</code> construites à la main
+  <a class="anchor" href="#list-construites-%c3%a0-la-main">#</a>
 </h3>
 <p>On peut créer, de plusieurs manières un tableau :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tab <span style="color:#555">=</span> [<span style="color:#c30">&#34;pierre&#34;</span>, <span style="color:#c30">&#34;paul&#34;</span>, <span style="color:#c30">&#34;jacques&#34;</span>]
@@ -7269,9 +7408,9 @@ ou retirer des éléments à un tableau.
 </span></span><span style="display:flex;"><span><span style="color:#555">...</span>   tab<span style="color:#555">.</span>append(i <span style="color:#555">**</span> <span style="color:#f60">2</span>) <span style="color:#09f;font-style:italic"># ajouter un élément à la fin de tab</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tab
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">4</span>, <span style="color:#f60">9</span>, <span style="color:#f60">16</span>]
-</span></span></code></pre></div><h3 id="tableaux-construits-par-compréhension">
-  Tableaux construits par compréhension
-  <a class="anchor" href="#tableaux-construits-par-compr%c3%a9hension">#</a>
+</span></span></code></pre></div><h3 id="list-construites-par-compréhension">
+  <code>list</code> construites par compréhension
+  <a class="anchor" href="#list-construites-par-compr%c3%a9hension">#</a>
 </h3>
 <p>Il existe une manière beaucoup plus simple d&rsquo;écrire les tableaux : par
 compréhension</p>
@@ -7359,6 +7498,45 @@ et <code>=</code> pour changer une valeur
 </blockquote>
 
 <hr>
+<h3 id="type-abstrait--les-tableaux-associatifs">
+  Type abstrait : les tableaux associatifs
+  <a class="anchor" href="#type-abstrait--les-tableaux-associatifs">#</a>
+</h3>
+<p>Parfois appelés <em>table d&rsquo;association</em> ou simplement <em>dictionnaires</em>.</p>
+<p>C&rsquo;est une collection de paires (<code>cle</code>, <code>valeur</code>). Chaque clé est associée à une valeur.</p>
+<p>Cela correspond donc à une <em>application</em> en mathématique.</p>
+<h4 id="primitives-1">
+  Primitives
+  <a class="anchor" href="#primitives-1">#</a>
+</h4>
+<p>Généralement on attend les opérations :</p>
+<ul>
+<li>créer vide,</li>
+<li>savoir s&rsquo;il est vide</li>
+<li><strong>rechercher une valeur par sa clé</strong> : c&rsquo;est l&rsquo;opération la plus importante et elle doit être très rapide.</li>
+<li>ajouter une paire (<code>clé</code>, <code>valeur</code>),</li>
+<li>modifier une valeur associée à une clé,</li>
+<li>supprimer une paire (<code>clé</code>, <code>valeur</code>).</li>
+</ul>
+<h4 id="tableau-associatif-vs-dict">
+  tableau associatif vs <code>dict</code>
+  <a class="anchor" href="#tableau-associatif-vs-dict">#</a>
+</h4>
+<p>Les <code>dict</code> emploient une <em>fonction de hachage</em>, appelée <code>hash</code> qui prend un objet (<strong>non mutable</strong>) et lui associe un entier.</p>
+<p>La contrainte immédiate et qu&rsquo;on ne peut insérer dans un <code>dict</code> que des clés non mutables.</p>
+<p>Ecrire une telle fonction de hachage est un exercice délicat.</p>
+<p>Il existe une autre approche, totalement différente, utilisant des <em>arbres équilibrés</em> (HP NSI).</p>
+<h4 id="tableau-vs-dictionnaire">
+  tableau vs dictionnaire
+  <a class="anchor" href="#tableau-vs-dictionnaire">#</a>
+</h4>
+<p>Dans un <em>tableau</em>, les éléments sont <strong>numérotés</strong>. Dans un <em>dictionnaire</em>, les éléments sont <strong>repérés par une clé</strong>.</p>
+<ul>
+<li>Si l&rsquo;on veut itérer (= faire des boucles) : tableau.</li>
+<li>Si l&rsquo;on veut connaître une valeur par sa clé ou savoir si élément figure dans la collection rapidement : dictionnaire.</li>
+</ul>
+<p>En Python, une <code>list</code> est assez légère tandis qu&rsquo;un <code>dict</code> est plutôt lourd.</p>
+<hr>
 <h2 id="itérer">
   Itérer
   <a class="anchor" href="#it%c3%a9rer">#</a>
@@ -7367,11 +7545,13 @@ et <code>=</code> pour changer une valeur
   Collections
   <a class="anchor" href="#collections">#</a>
 </h3>
-<p>En python (mais aussi dans beaucoup de langages), les éléments cités plus haut
-sont des collections. Cela signifie qu&rsquo;on peut itérer dessus.</p>
-<blockquote>
-<p>Itérer : <em>parcourir à l&rsquo;aide d&rsquo;une boucle</em></p></blockquote>
+<blockquote class="book-hint info">
+  <p>En python (mais aussi dans beaucoup de langages), les <code>str</code>, <code>tuple</code>, <code>list</code> et <code>dict</code> sont des collections. Cela signifie qu&rsquo;on peut itérer dessus.</p>
+<p>Itérer sur une collection : <em>parcourir à l&rsquo;aide d&rsquo;une boucle</em></p>
 <p>On peut écrire des boucles <code>for element in objet_construit:</code></p>
+
+</blockquote>
+
 <h3 id="cas-simple">
   Cas simple
   <a class="anchor" href="#cas-simple">#</a>
@@ -7395,7 +7575,7 @@ sont des collections. Cela signifie qu&rsquo;on peut itérer dessus.</p>
 </span></span><span style="display:flex;"><span><span style="color:#f60">36</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">16</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">4</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> liste <span style="color:#555">=</span> [a<span style="color:#555">-</span><span style="color:#f60">1</span> <span style="color:#069;font-weight:bold">for</span> a <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> liste <span style="color:#555">=</span> [a<span style="color:#555">-</span><span style="color:#f60">1</span> <span style="color:#069;font-weight:bold">for</span> a <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>)] <span style="color:#09f;font-style:italic"># [-1, 0, 1]</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">for</span> x <span style="color:#000;font-weight:bold">in</span> liste:
 </span></span><span style="display:flex;"><span><span style="color:#555">...</span>    x <span style="color:#555">+</span> <span style="color:#f60">2</span>
 </span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
@@ -7555,8 +7735,11 @@ Par exemple <code>(1, 2)</code> peut être un clé de dictionnaire mais <code>[1
     <li><a href="#tableaux--le-type-list">Tableaux : le type <code>list</code></a>
       <ul>
         <li><a href="#quest-ce-quun-tableau-">Qu&rsquo;est-ce qu&rsquo;un tableau ?</a></li>
-        <li><a href="#tableaux-construits-à-la-main">Tableaux construits à la main</a></li>
-        <li><a href="#tableaux-construits-par-compréhension">Tableaux construits par compréhension</a></li>
+        <li><a href="#abstrait-vs-concret">Abstrait vs concret</a></li>
+        <li><a href="#le-type-abstrait-tableau">Le type abstrait &ldquo;tableau&rdquo;</a></li>
+        <li><a href="#remarque-importante-sur-les-types-abstraits">Remarque importante sur les types abstraits</a></li>
+        <li><a href="#list-construites-à-la-main"><code>list</code> construites à la main</a></li>
+        <li><a href="#list-construites-par-compréhension"><code>list</code> construites par compréhension</a></li>
         <li><a href="#liste-par-compréhension-complexe">Liste par compréhension complexe</a></li>
       </ul>
     </li>
@@ -7566,6 +7749,7 @@ Par exemple <code>(1, 2)</code> peut être un clé de dictionnaire mais <code>[1
         <li><a href="#dictionnaire-par-clés-et-valeurs">Dictionnaire par clés et valeurs</a></li>
         <li><a href="#accéder-à-une-valeur">Accéder à une valeur</a></li>
         <li><a href="#dictionnaire--mutable">Dictionnaire : mutable</a></li>
+        <li><a href="#type-abstrait--les-tableaux-associatifs">Type abstrait : les tableaux associatifs</a></li>
       </ul>
     </li>
     <li><a href="#itérer">Itérer</a>

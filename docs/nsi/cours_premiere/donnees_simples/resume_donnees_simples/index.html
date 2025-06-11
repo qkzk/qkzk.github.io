@@ -61,7 +61,7 @@ Binaire : $0b1101 = 1 \times 2^3 &#43; 1 \times 2^2 &#43; 1 \times 2^0 = 8 &#43;
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.cdaec023c6c39c345eb05b58747b6ee1c4db00c15bd57c6f10396a82386b35a5.js" integrity="sha256-za7AI8bDnDResFtYdHtu4cTbAMFb1XxvEDlqgjhrNaU=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.edf48e4bb6ac380839773b757893ff9ae2bc0f029ef63f7c2e0ffd49704d86f7.js" integrity="sha256-7fSOS7asOAg5dzt1eJP/muK8DwKe9j98Lg/9SXBNhvc=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/resume_donnees_simples/index.xml" title="qkzk" />
 <!--
@@ -1689,6 +1689,24 @@ MathJax.Hub.Config({
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/dichotomie/3_resume/" class="">Résumé</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -1847,6 +1865,24 @@ MathJax.Hub.Config({
     <label for="section-2faa969d0aba98505712a3edfeda1de1" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/7_activites/" class="">7. Planification</a>
     </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/glouton/8_resume/" class="">8. Résumé</a>
   
 
           
@@ -2675,6 +2711,24 @@ MathJax.Hub.Config({
     <label for="section-18c413b105eb2bdf08bae13cfaf87d35" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/2_td/" class="">TD</a>
     </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/types_construits/3_resume/" class="">Résumé</a>
   
 
           
@@ -7167,11 +7221,11 @@ MathJax.Hub.Config({
         <li><a href="#circuits--le-demi-additionneur">Circuits : le demi additionneur</a></li>
       </ul>
     </li>
-    <li><a href="#opérations-bits-à-bits-pas-eu-le-temps-en-cours">Opérations bits à bits (pas eu le temps en cours)</a></li>
+    <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a></li>
     <li><a href="#complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">Complément à deux : comment coder les entiers négatifs dans une machine ?</a>
       <ul>
         <li><a href="#deux-approches-possibles-">Deux approches possibles :</a></li>
-        <li><a href="#binaire-signé"><strong>binaire signé</strong></a></li>
+        <li><a href="#approche-insatisfaisante--binaire-signé">Approche insatisfaisante : <strong>binaire signé</strong></a></li>
         <li><a href="#complément-à-deux"><strong>Complément à deux</strong></a></li>
         <li><a href="#1111-0011--"><code>1111 0011 = ???</code></a></li>
         <li><a href="#table-de-valeurs-du-complément-à-2-sur-8-bits">Table de valeurs du complément à 2 sur 8 bits</a></li>
@@ -7255,7 +7309,7 @@ MathJax.Hub.Config({
 <li>
 <p><strong>Taille</strong> (= nombre de chiffre) des résultats opérations. Même principe dans toutes les bases :</p>
 <ul>
-<li>la taille d&rsquo;une <strong>somme</strong> est $\leq$ à la plus grande des deux tailles + 1.</li>
+<li>la taille d&rsquo;une <strong>somme</strong> est $\leq$ à 1 + la plus grande des deux tailles.</li>
 <li>la taille d&rsquo;un <strong>produit</strong> est $\leq$ à la somme des deux tailles.</li>
 </ul>
 </li>
@@ -7272,12 +7326,14 @@ MathJax.Hub.Config({
 </ol>
 <p>Cet algorithme se programme en python :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">bina</span>(entier):
-</span></span><span style="display:flex;"><span>  bits <span style="color:#555">=</span> <span style="color:#c30">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">while</span> entier <span style="color:#555">!=</span> <span style="color:#f60">0</span>:
-</span></span><span style="display:flex;"><span>    reste <span style="color:#555">=</span> entier <span style="color:#555">%</span> <span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>    entier <span style="color:#555">=</span> entier <span style="color:#555">//</span> <span style="color:#f60">2</span>
-</span></span><span style="display:flex;"><span>    bits <span style="color:#555">=</span> <span style="color:#366">str</span>(reste) <span style="color:#555">+</span> bits
-</span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> bits
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> entier <span style="color:#555">==</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#c30">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    bits <span style="color:#555">=</span> <span style="color:#c30">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">while</span> entier <span style="color:#555">!=</span> <span style="color:#f60">0</span>:
+</span></span><span style="display:flex;"><span>        reste <span style="color:#555">=</span> entier <span style="color:#555">%</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>        entier <span style="color:#555">=</span> entier <span style="color:#555">//</span> <span style="color:#f60">2</span>
+</span></span><span style="display:flex;"><span>        bits <span style="color:#555">=</span> <span style="color:#366">str</span>(reste) <span style="color:#555">+</span> bits
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> bits
 </span></span></code></pre></div><p>La conversion <code>décimal -&gt; hexadécimal</code> se fait par des divisions par 16.</p>
 <h2 id="information-dans-la-machine">
   Information dans la machine.
@@ -7369,15 +7425,17 @@ MathJax.Hub.Config({
   Circuits : le demi additionneur
   <a class="anchor" href="#circuits--le-demi-additionneur">#</a>
 </h3>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/demi-additionneur.png" alt="demi-additionneur" />{width=300px}</p>
+<p>La porte logique du haut est un XOR et celle du bas un AND.</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/demi-additionneur.png" alt="demi-additionneur" /></p>
 <p>Il est appelé <em>demi-additionneur</em> car il réalise l&rsquo;addition de 2 bits
 (<strong>A</strong> et <strong>B</strong>), le résultats de cette somme est représentée par <strong>S</strong>
 et la retenue éventuelle par <strong>R</strong>.</p>
-<h2 id="opérations-bits-à-bits-pas-eu-le-temps-en-cours">
-  Opérations bits à bits (pas eu le temps en cours)
-  <a class="anchor" href="#op%c3%a9rations-bits-%c3%a0-bits-pas-eu-le-temps-en-cours">#</a>
+<h2 id="opérations-bits-à-bits">
+  Opérations bits à bits
+  <a class="anchor" href="#op%c3%a9rations-bits-%c3%a0-bits">#</a>
 </h2>
-<p>Masque = <code>et</code> bit à bit.</p>
+<p>Une opération &ldquo;bits à bits&rdquo; est réalisée pour chaque bit des deux entrées. Le nombre final est la combinaison des résultats.</p>
+<p>Exemple : un <strong>masque</strong> est un &ldquo;<code>et</code> bit à bit&rdquo;.</p>
 <table>
   <thead>
       <tr>
@@ -7409,9 +7467,9 @@ et la retenue éventuelle par <strong>R</strong>.</p>
   Deux approches possibles :
   <a class="anchor" href="#deux-approches-possibles-">#</a>
 </h3>
-<h3 id="binaire-signé">
-  <strong>binaire signé</strong>
-  <a class="anchor" href="#binaire-sign%c3%a9">#</a>
+<h3 id="approche-insatisfaisante--binaire-signé">
+  Approche insatisfaisante : <strong>binaire signé</strong>
+  <a class="anchor" href="#approche-insatisfaisante--binaire-sign%c3%a9">#</a>
 </h3>
 <p>On fixe la taille mémoire de chaque nombre (par exemple 4 bits). Le premier bit est le <strong>bit de signe</strong> : 1 pour les négatif, 0 pour les positifs.</p>
 <ul>
@@ -7488,6 +7546,8 @@ et la retenue éventuelle par <strong>R</strong>.</p>
 Convertir un fichier texte dans différents formats d’encodage.</p>
 <p>Commentaires : Aucune connaissance précise des normes d’encodage n’est
 exigible.</p></blockquote>
+<p>La machine ne &ldquo;comprend&rdquo; pas les textes. Elle attribue à chaque symbole un entier dans une table prédéfinie. C&rsquo;est l&rsquo;<strong>encodage</strong> de ce caractère.
+Il existe de nombreux encodages.</p>
 <h3 id="pourquoi-différents-encodages-de-caractères-">
   Pourquoi différents encodages de caractères ?
   <a class="anchor" href="#pourquoi-diff%c3%a9rents-encodages-de-caract%c3%a8res-">#</a>
@@ -7499,8 +7559,8 @@ exigible.</p></blockquote>
 </h3>
 <p>ASCII (<em><strong>American</strong> Standard Code for Information Interchange</em>) est la première
 norme largement utilisée pour encoder des caractères.  Comme son nom l&rsquo;indique
-cette norme est américaine et elle n&rsquo;inclut donc que les lettres latines non
-accentuées (en plus des chiffres, des symboles courants et certains caractères spéciaux).</p>
+cette norme est américaine et elle n&rsquo;inclut donc que les <strong>lettres latines non
+accentuées</strong>, les chiffres, des symboles de ponctuation et certains caractères spéciaux.</p>
 <p>Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont pas imprimables) :</p>
 <table>
   <thead>
@@ -7692,6 +7752,7 @@ d&rsquo;Europe occidentale.  Pour le français il manque cependant le œ, le Œ 
 et, bien entendu, le symbole €.  L&rsquo;encodage en ISO-8859-1 utilise 8 bits, les
 128 premières valeurs de l&rsquo;ISO-8859-1 sont identiques à l&rsquo;ASCII, ce qui assure
 une compatibilité avec cet encodage.</p>
+<p>C&rsquo;est l&rsquo;encodage courant sous windows.</p>
 <h3 id="utf-8">
   UTF-8
   <a class="anchor" href="#utf-8">#</a>
@@ -7700,7 +7761,7 @@ une compatibilité avec cet encodage.</p>
 <p>À nouveau le codage ISO-8859-1 (et les autres codages de la famille ISO-8859)
 présentent des limites.  Dans les années 1990, le projet Unicode de codage
 unifié de tous les alphabets est né. Différents codages sont utilisés pour
-représenter des caractères Unicode (UTF-8, UTF-16, UTF-32\dots). Ici nous nous
+représenter des caractères Unicode (UTF-8, UTF-16, UTF-32&hellip;). Ici nous nous
 concentrons sur l&rsquo;UTF-8</p>
 <p>Le codage UTF-8 est un codage de longueur variable. Certains caractères sont
 codés sur un seul octet, ce sont les 128 caractères du codage ASCII.  Les
@@ -7809,11 +7870,11 @@ et UTF-8 sont incompatibles entre eux pouvant conduire à des caractères illisi
         <li><a href="#circuits--le-demi-additionneur">Circuits : le demi additionneur</a></li>
       </ul>
     </li>
-    <li><a href="#opérations-bits-à-bits-pas-eu-le-temps-en-cours">Opérations bits à bits (pas eu le temps en cours)</a></li>
+    <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a></li>
     <li><a href="#complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">Complément à deux : comment coder les entiers négatifs dans une machine ?</a>
       <ul>
         <li><a href="#deux-approches-possibles-">Deux approches possibles :</a></li>
-        <li><a href="#binaire-signé"><strong>binaire signé</strong></a></li>
+        <li><a href="#approche-insatisfaisante--binaire-signé">Approche insatisfaisante : <strong>binaire signé</strong></a></li>
         <li><a href="#complément-à-deux"><strong>Complément à deux</strong></a></li>
         <li><a href="#1111-0011--"><code>1111 0011 = ???</code></a></li>
         <li><a href="#table-de-valeurs-du-complément-à-2-sur-8-bits">Table de valeurs du complément à 2 sur 8 bits</a></li>
