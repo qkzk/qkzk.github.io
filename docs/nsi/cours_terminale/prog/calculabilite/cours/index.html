@@ -9,7 +9,7 @@
   #
 
 
-  Programme
+  Programme officiel
   #
 
 
@@ -30,7 +30,7 @@ Comprendre que tout programme est aussi une donnée. Comprendre que la calculabi
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_terminale/prog/calculabilite/cours/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="Cours">
-  <meta property="og:description" content="Calculabilité - Problème de l’arrêt en Python # Programme # Parallèlement, on montre l’universalité et les limites de la notion de calculabilité.
+  <meta property="og:description" content="Calculabilité - Problème de l’arrêt en Python # Programme officiel # Parallèlement, on montre l’universalité et les limites de la notion de calculabilité.
 Contenus # Notion de programme en tant que donnée. Calculabilité, décidabilité
 Capacités attendues # Comprendre que tout programme est aussi une donnée. Comprendre que la calculabilité ne dépend pas du langage de programmation utilisé. Montrer, sans formalisme théorique, que le problème de l’arrêt est indécidable.">
   <meta property="og:locale" content="en_us">
@@ -40,7 +40,7 @@ Capacités attendues # Comprendre que tout programme est aussi une donnée. Comp
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.c30b4e5bcad08169d85fb5b09abe924bd6143ab77b0029af49e338dffd08f3c6.js" integrity="sha256-wwtOW8rQgWnYX7Wwmr6SS9YUOrd7ACmvSeM43/0I88Y=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.971088d2bb02f5150bcfedd82f85eecbfd8a9e02bba925651b0215d8e6d26661.js" integrity="sha256-lxCI0rsC9RULz&#43;3YL4Xuy/2KngK7qSVlGwIV2ObSZmE=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/calculabilite/cours/index.xml" title="qkzk" />
 <!--
@@ -7202,7 +7202,7 @@ MathJax.Hub.Config({
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#programme">Programme</a></li>
+    <li><a href="#programme-officiel">Programme officiel</a></li>
     <li><a href="#un-programme-en-tant-que-donnée">Un programme en tant que donnée</a></li>
     <li><a href="#équivalence-des-langages-de-programmation">Équivalence des langages de programmation</a>
       <ul>
@@ -7214,9 +7214,15 @@ MathJax.Hub.Config({
         <li><a href="#remarque">Remarque</a></li>
       </ul>
     </li>
-    <li><a href="#décidabilité">Décidabilité</a></li>
+    <li><a href="#décidabilité">Décidabilité</a>
+      <ul>
+        <li><a href="#prédicat-et-problème-de-décision">Prédicat et problème de décision</a></li>
+        <li><a href="#problème-de-décision-décidable">Problème de décision <em>décidable</em></a></li>
+      </ul>
+    </li>
     <li><a href="#calculabilité">Calculabilité</a>
       <ul>
+        <li><a href="#décidabilité-et-calculabilité">Décidabilité et calculabilité</a></li>
         <li><a href="#quel-intérêt-">Quel intérêt ?</a></li>
       </ul>
     </li>
@@ -7234,16 +7240,8 @@ MathJax.Hub.Config({
         <li><a href="#paradoxparadox-"><code>paradox(paradox)</code> ?</a></li>
       </ul>
     </li>
-    <li><a href="#complément">Complément</a>
-      <ul>
-        <li><a href="#limitation-du-problème">Limitation du problème</a></li>
-        <li><a href="#historique">Historique</a></li>
-        <li><a href="#ramasse-miettes">Ramasse miettes</a></li>
-        <li><a href="#complément-machine-de-turing">complément machine de Turing</a></li>
-        <li><a href="#complément-lambda-calcul">complément lambda calcul</a></li>
-      </ul>
-    </li>
-    <li><a href="#vidéo">Vidéo</a></li>
+    <li><a href="#autres-sources">Autres sources</a></li>
+    <li><a href="#compléments">Compléments</a></li>
   </ul>
 </nav>
 
@@ -7261,9 +7259,9 @@ MathJax.Hub.Config({
   Calculabilité - Problème de l&rsquo;arrêt en Python
   <a class="anchor" href="#calculabilit%c3%a9---probl%c3%a8me-de-larr%c3%aat-en-python">#</a>
 </h1>
-<h2 id="programme">
-  Programme
-  <a class="anchor" href="#programme">#</a>
+<h2 id="programme-officiel">
+  Programme officiel
+  <a class="anchor" href="#programme-officiel">#</a>
 </h2>
 <details  class="no-outline"><summary class="no-outline"></summary>
     <div class="markdown-inner">
@@ -7288,7 +7286,6 @@ MathJax.Hub.Config({
     </div>
 </details>
 
-<p><a href="https://glassus.github.io/terminale_nsi/T2_Programmation/2.3_Calculabilite_Decidabilite/cours/">Version intéressante de Gilles Lassus</a></p>
 <h2 id="un-programme-en-tant-que-donnée">
   Un programme en tant que donnée
   <a class="anchor" href="#un-programme-en-tant-que-donn%c3%a9e">#</a>
@@ -7305,7 +7302,10 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
         <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat hello.c             <span style="color:#09f;font-style:italic"># affiche le contenu du fichier texte hello.c</span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">#include &lt;stdio.h&gt;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>int main<span style="color:#555">(</span>void<span style="color:#555">)</span> <span style="color:#555">{</span> printf<span style="color:#555">(</span><span style="color:#c30">&#34;Hello, World!\n&#34;</span><span style="color:#555">)</span>; <span style="color:#555">}</span>
+</span></span><span style="display:flex;"><span>int main<span style="color:#555">(</span>void<span style="color:#555">)</span> <span style="color:#555">{</span> 
+</span></span><span style="display:flex;"><span>    printf<span style="color:#555">(</span><span style="color:#c30">&#34;Hello, World!\n&#34;</span><span style="color:#555">)</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#555">}</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ gcc hello.c -o hello    <span style="color:#09f;font-style:italic"># compile hello.c en un fichier binaire hello</span>
 </span></span><span style="display:flex;"><span>$ chmod +x hello          <span style="color:#09f;font-style:italic"># rend le fichier `hello` exécutable </span>
 </span></span><span style="display:flex;"><span>$ ./hello                 <span style="color:#09f;font-style:italic"># exécute `hello`</span>
@@ -7346,11 +7346,11 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
 <ul>
 <li>les machines de Turing,</li>
 <li>le $\lambda$-Calcul d&rsquo;Alonzo Church, ($\lambda$ = lambda)</li>
-<li>les &ldquo;fonctions récursives générales&rdquo; de Kurt Gödel et Stephen Kleene. (Attention, on ne parle pas uniquement de fonction qui s&rsquo;appelle elle-même, comme nous le faisons dans le chapitre sur la récursion.)</li>
+<li>les &ldquo;fonctions récursives générales&rdquo; de Kurt Gödel et Stephen Kleene. (<em>Attention, on ne parle pas uniquement de fonction qui s&rsquo;appelle elle-même, comme nous le faisons dans le chapitre sur la récursion.</em>)</li>
 </ul>
 <p>Church et Turing ont démontré que ces modèles étaient <em>équivalents.</em></p>
 <p>Ainsi, on pourrait construire une machine de Turing qui serait, par exemple, un interpréteur Python. Ce serait un travail colossal&hellip; mais théoriquement faisable.</p>
-<p>Oui mais&hellip; qu&rsquo;est-ce qu&rsquo;il faut au minimum :</p>
+<p>Oui mais&hellip; qu&rsquo;est-ce qu&rsquo;il faut au minimum ?</p>
 <p>En simplifiant énormément les contraintes des <em>fonctions récursives générales</em> :</p>
 <blockquote class="book-hint info">
   <p>Si un langage permet de :</p>
@@ -7434,7 +7434,72 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
   Décidabilité
   <a class="anchor" href="#d%c3%a9cidabilit%c3%a9">#</a>
 </h2>
-<p>TODO</p>
+<h3 id="prédicat-et-problème-de-décision">
+  Prédicat et problème de décision
+  <a class="anchor" href="#pr%c3%a9dicat-et-probl%c3%a8me-de-d%c3%a9cision">#</a>
+</h3>
+<p>Avant d&rsquo;aborder la décidabilité_, il nous faut un peu de vocabulaire.</p>
+<blockquote class="book-hint info">
+  Un <em>prédicat</em> est une fonction qui part d&rsquo;un ensemble $E$ et renvoie un booléen.
+</blockquote>
+
+<blockquote class="book-hint info">
+  Un <em>problème de décision</em> est la donnée d&rsquo;un ensemble $E$, l&rsquo;ensemble des instances et d&rsquo;un sous-ensemble de $E$, appellé &ldquo;ensemble des instances positives&rdquo; et noté $E^+$.
+</blockquote>
+
+<p>Considérons le problème : &ldquo;un nombre entier est-il premier ?&rdquo; appelé &ldquo;primalité&rdquo;.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Un nombre entier naturel est <em>premier</em> s&rsquo;il a exactement deux diviseurs.</p>
+<p>0 et 1 ne sont pas premiers (ils ont respetivement une infinité et un seul diviseur.)</p>
+<p>La suite des nombres premiers commence par :</p>
+<p>$2, 3, 5, 7, 9, 11, 13\ldots$</p>
+<p>Les nombres premiers interviennent souvent en informatique, en particulier dans la sécurisation des communications.</p>
+<p>Parmi les problèmes rencontrés :</p>
+<ul>
+<li>Déterminer si un nombre donné est premier,</li>
+<li>Déterminer un nombre premier entre deux bornes très grandes,</li>
+<li>Obtenir la factorisation en nombres premiers d&rsquo;un entier donné,</li>
+<li>Lister tous les nombres premiers inférieurs à une borne etc.</li>
+</ul>
+
+    </div>
+</details>
+
+<p>Ici, $E = \mathbb{N}, E^+ = \mathcal{P} :$ les nombres premiers.</p>
+<p>On peut alors définir un <em>prédicat</em> partant de $\mathbb{N}$ :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_premier</span>(n: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;vrai ssi n est premier&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><p>Un autre exemple : &ldquo;une chaîne de caractères donnée est-elle un code Python sans erreur de syntaxe ?&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_bien_forme</span>(code: <span style="color:#366">str</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;vrai ssi le code est sans erreur de syntaxe Python&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><h3 id="problème-de-décision-décidable">
+  Problème de décision <em>décidable</em>
+  <a class="anchor" href="#probl%c3%a8me-de-d%c3%a9cision-d%c3%a9cidable">#</a>
+</h3>
+<blockquote class="book-hint info">
+  Un problème de décision est <em>décidable</em> si on peut programmer le prédicat associé en Python.
+</blockquote>
+
+<p>Voici un prédicat (très très inefficace !) pour le problème de la primalité.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_premier</span>(n: <span style="color:#366">int</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Vrai ssi n est un nombre premier&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># on élimine les cas triviaux</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;</span> <span style="color:#f60">2</span>: 
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;</span> <span style="color:#f60">4</span> : 
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># on teste tous les diviseurs possibles (il y a beaucoup plus efficace !)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">for</span> d <span style="color:#000;font-weight:bold">in</span> <span style="color:#366">range</span>(<span style="color:#f60">3</span>,n,<span style="color:#f60">2</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">%</span> d <span style="color:#555">==</span> <span style="color:#f60">0</span>: 
+</span></span><span style="display:flex;"><span>            <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">True</span>
+</span></span></code></pre></div><p>Et pour le second, <code>python.exe</code> lui même contient un tel prédicat puisqu&rsquo;il refuse d&rsquo;exécuter du code mal formaté.</p>
+<p>Ces deux problèmes (primalité et code bien formé) sont donc <em>décidables</em>.</p>
+<p>La question qui subsiste est alors : <em>existe-il des problèmes indécidables ?</em></p>
+<p>La réponse est oui et nous allons en construire un : <em>le problème de l&rsquo;arrêt.</em></p>
 <h2 id="calculabilité">
   Calculabilité
   <a class="anchor" href="#calculabilit%c3%a9">#</a>
@@ -7450,6 +7515,14 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
 <p>Python étant un langage Turing-Complet, on peut s&rsquo;en servir pour illustrer cette notion :</p>
 <blockquote class="book-hint info">
   Une fonction est calculable si elle est programmable en Python.
+</blockquote>
+
+<h3 id="décidabilité-et-calculabilité">
+  Décidabilité et calculabilité
+  <a class="anchor" href="#d%c3%a9cidabilit%c3%a9-et-calculabilit%c3%a9">#</a>
+</h3>
+<blockquote class="book-hint info">
+  Un problème de décision est décidable si son prédicat est calculable. Autrement dit, si son prédicat peut être programmé en Python.
 </blockquote>
 
 <h3 id="quel-intérêt-">
@@ -7517,7 +7590,7 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
 <p>Mais&hellip;$0 \times a = a \times 0$. (le produit des réels est commutatif)</p>
 <p>D&rsquo;autre part, $a \times (0 + 0) = a \times 0 + a \times 0$. (simple distributivité)</p>
 <p>Donc $a \times (0 + 0) = 1 + 1$ d&rsquo;après le résultat précédent et $a \times (0 + 0) = 2$.</p>
-<p>Donc $0 + 0 = 0$. ($0$ est l&rsquo;élément neutre de l&rsquo;addition des réels.)</p>
+<p>Mais $0 + 0 = 0$. ($0$ est l&rsquo;élément neutre de l&rsquo;addition des réels.)</p>
 <p>Donc $a \times (0 + 0) = a \times 0$.</p>
 <p>En utilisant les résultats précédents cela dit que $2 = 1$.</p>
 <p>Cette dernière affirmation <strong>est fausse</strong> et contredit la construction des nombres réels.</p>
@@ -7580,25 +7653,34 @@ Ce résultat est donc la donnée de sortie d&rsquo;un compilateur.</p>
 <p><em>Le calcul de paradox(paradox) termine si et seulement si le calcul de paradox(paradox) ne termine pas.</em></p></blockquote>
 <p>Cette dernière propriété est évidemment absurde (elle se contredit elle même).</p>
 <p>Nous pouvons donc conclure notre raisonnement par l&rsquo;absurde et affirmer qu&rsquo;il est impossible de programmer la fonction <code>arret</code>.</p>
-<h2 id="complément">
-  Complément
-  <a class="anchor" href="#compl%c3%a9ment">#</a>
+<h2 id="autres-sources">
+  Autres sources
+  <a class="anchor" href="#autres-sources">#</a>
 </h2>
-<h3 id="limitation-du-problème">
+<ul>
+<li><a href="https://glassus.github.io/terminale_nsi/T2_Programmation/2.3_Calculabilite_Decidabilite/cours/">Version intéressante de Gilles Lassus</a></li>
+<li>Une <a href="https://www.youtube.com/watch?v=a5MNIzu9Ia4">vidéo</a> de l&rsquo;université de Rennes qui expose la preuve précédente.</li>
+</ul>
+<h2 id="compléments">
+  Compléments
+  <a class="anchor" href="#compl%c3%a9ments">#</a>
+</h2>
+<p><em>Ces compléments sont hors programmes mais certains peuvent faire l&rsquo;objet d&rsquo;un sujet de grand oral ou d&rsquo;un exercice de l&rsquo;épreuve écrite</em></p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h3 id="limitation-du-problème">
   Limitation du problème
   <a class="anchor" href="#limitation-du-probl%c3%a8me">#</a>
 </h3>
-<p>Le problème de l&rsquo;arrêt reste impossible même si on se limite à ce que les arguments de arrêt soient une
-fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>.</p>
-<p>Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représenté en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
+<p>Le problème de l&rsquo;arrêt reste impossible même si on se limite à ce que les arguments de arrêt soient une fonction <code>f</code> des entiers dans les entiers et un entier <code>x</code>.</p>
+<p>Pourquoi ? Simplement parce que n&rsquo;importe quelle valeur de n&rsquo;importe quel type sera représentée en machine par une suite d&rsquo;octet, soit à peu près un entier naturel.</p>
 <h3 id="historique">
   Historique
   <a class="anchor" href="#historique">#</a>
 </h3>
 <p>La résolution du problème de l&rsquo;arrêt par Alonzo Church et Alan Turing, en 1936 a eu de nombreuses conséquences
-en informatique et en mathématiques. La résolution de ce problème a conduit Alan Turing à créer les machines de Turing, modèle mathématiques à l&rsquo;origine des ordinateurs modernes&hellip;</p>
-<p>En particulier, il n&rsquo;est pas possible d&rsquo;écrire un assistant de programmation qui repère
-tous les problèmes qu&rsquo;un code présente avant de l&rsquo;avoir exécuté.</p>
+en informatique et en mathématiques. Cela a conduit Alan Turing à créer les machines de Turing, modèle mathématiques à l&rsquo;origine des ordinateurs modernes, afin de construire un exemple de fonction non calculable.</p>
+<p>En particulier, il n&rsquo;est pas possible d&rsquo;écrire un assistant de programmation qui repère tous les problèmes qu&rsquo;un code présente avant de l&rsquo;avoir exécuté.</p>
 <h3 id="ramasse-miettes">
   Ramasse miettes
   <a class="anchor" href="#ramasse-miettes">#</a>
@@ -7617,13 +7699,13 @@ Après l&rsquo;utilisation des données, il faut la libérer avec <code>free</co
 <p>Easy.</p>
 <p>Sauf que non. En pratique :</p>
 <ol>
-<li>on en réserve trop,</li>
-<li>on n&rsquo;en réserve pas assez,</li>
+<li>on en réserve trop (on risque alors de gaspiller des ressources précieuses),</li>
+<li>on n&rsquo;en réserve pas assez (on risque alors d&rsquo;accéder en dehors de l&rsquo;espace réservé = buffer overflow),</li>
+<li>on tente de la libérer plusieurs fois (UB : Undefined Behavior, on n&rsquo;a aucune de ce qui peut se passer&hellip;)</li>
 <li>on oublie de libérer la mémoire et le programme en consomme de plus en plus, finissant par paralyser le système,</li>
-<li>on tente de la libérer plusieurs fois&hellip;</li>
 </ol>
-<p>Le ramasse miette tente de résoudre ce problème. Certes il ne sera jamais parfait mais&hellip; il évite de fait les problèmes 1, 2 et 4. Pour le problème 3, c&rsquo;est insoluble.</p>
-<p>Par exemple :</p>
+<p>Le ramasse miette tente de résoudre ce problème. Certes il ne sera jamais parfait mais&hellip; il évite de fait les problèmes 1, 2 et 3. Pour le problème 4, c&rsquo;est insoluble <em>parfaitement</em>. Généralement, il le fait très bien.</p>
+<p>Mais par exemple :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">A</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">__init__</span>(<span style="color:#366">self</span>):
 </span></span><span style="display:flex;"><span>    <span style="color:#366">self</span><span style="color:#555">.</span>a <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">None</span> 
@@ -7644,25 +7726,174 @@ Après l&rsquo;utilisation des données, il faut la libérer avec <code>free</co
 <p>Un autre inconvénient du ramasse miette est qu&rsquo;à des moments difficiles à prédire, il s&rsquo;exécute et parcourt la mémoire à la recherche d&rsquo;espaces à libérer. Cela peut être coûteux en ressources.</p>
 <p>Alors&hellip; si pas de ramasse miette, existe-t-il d&rsquo;autres solutions ?</p>
 <p>Oui, par exemple, le <em>borrow checker</em> de Rust. Une approche totalement différente dans laquelle la construction de l&rsquo;exemple plus haut est proscrite. Ce n&rsquo;est <em>pas non plus parfait</em> et cela demande un temps d&rsquo;adaptation.</p>
-
+<pre><code>&lt;/div&gt;
+</code></pre>
+</details>
+<h3 id="machine-de-turing">
+  Machine de Turing
+  <a class="anchor" href="#machine-de-turing">#</a>
+</h3>
+<p>On l&rsquo;a déjà dit : une machine de Turing est un modèle <em>abstrait</em> du fonctionnement des appareils de calcul, comme les ordinateurs.</p>
+<p>Si c&rsquo;est un modèle créée sur le papier, on a depuis preque réussi à en fabriquer.</p>
+<p><img src="turing_machine.jpg" alt="Machine de Turing" /></p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        Presque parce qu&rsquo;il faudrait un ruban <em>infini</em> ce qui n&rsquo;est pas possible en pratique.
     </div>
 </details>
-
-<h3 id="complément-machine-de-turing">
-  complément machine de Turing
-  <a class="anchor" href="#compl%c3%a9ment-machine-de-turing">#</a>
-</h3>
-<p>TODO</p>
+<p>Dans son modèle le plus simple, une machine de Turing est constituée :</p>
+<ul>
+<li>d&rsquo;un ruban infini comportant des cases où l&rsquo;on peut écrire 0 et 1,</li>
+<li>d&rsquo;une tête de lecture écriture pouvant lire et modifier une case à la fois et pouvant se déplacer d&rsquo;une case à la fois,</li>
+<li>d&rsquo;un automate (finite state machine) qui décrit les transitions d&rsquo;un état à l&rsquo;autre selon ce qu&rsquo;on a lu sur le ruban.</li>
+</ul>
+<p><img src="turing_machine_tape.png" alt="Turing machine" /></p>
+<h4 id="écrire-13-en-binaire">
+  Écrire 1/3 en binaire
+  <a class="anchor" href="#%c3%a9crire-13-en-binaire">#</a>
+</h4>
+<p>La machine suivante produit la notation binaire d'1/3, la suite de nombres 0101010101010101&hellip;</p>
+<p>Elle a deux états et deux symboles (0 et 1)</p>
+<table>
+  <thead>
+      <tr>
+          <th>Ancien état</th>
+          <th>Symbole écrit</th>
+          <th>Mouvement</th>
+          <th>Nouvel état</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>a</td>
+          <td>0</td>
+          <td>Droite</td>
+          <td>b</td>
+      </tr>
+      <tr>
+          <td>b</td>
+          <td>1</td>
+          <td>Droite</td>
+          <td>a</td>
+      </tr>
+  </tbody>
+</table>
+<p>En notant en gras la position de la tête de lecture/écriture sur le ruban on obtient :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Étape</th>
+          <th>État</th>
+          <th>Ruban</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>a</td>
+          <td><strong>0</strong></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>b</td>
+          <td>0<strong>1</strong></td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>a</td>
+          <td>01<strong>0</strong></td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>b</td>
+          <td>010<strong>1</strong></td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>a</td>
+          <td>0101<strong>0</strong></td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>b</td>
+          <td>01010<strong>1</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>etc.</p>
+<p>Détaillons :</p>
+<p>La machine commence dans l&rsquo;état a.</p>
+<p>Etape 1 : la transition ne dépend pas de la valeur lue mais seulement de l&rsquo;état : a. Alors, on écrit un 0, on va à droite et on passe dans l&rsquo;état b.</p>
+<p>Etape 2 : depuis l&rsquo;état b, on écrit un 0, on va à droite et on passe dans l&rsquo;état a.</p>
+<p>Etape 3 : depuis l&rsquo;état a, on écrit un 1, on va à droite et on passe dans l&rsquo;état b.</p>
+<p>etc.</p>
+<p>Ainsi, on écrit bien 0101010101010&hellip;</p>
+<p>Or :</p>
+<p>$$0.010101010101\overline{01}_2 = 0 + 0\times\dfrac{1}{2} + 1\times\dfrac{1}{4}+ 0\times{1}{8} + 1\times\dfrac{1}{16} + \cdots$$</p>
+<p>$$0.\overline{01} = \dfrac{1}{4} + \dfrac{1}{4^2} + \cdots + \dfrac{1}{4^k} + \cdots = \sum_{k=1}^{\infty} \dfrac{1}{4^k} = \dfrac{1}{4} \times \sum_{k=0}^{\infty} \dfrac{1}{4^k} = \dfrac{1}{4} \times \dfrac{1}{1-\dfrac{1}{4}} = \dfrac{1}{4}\times\dfrac{4}{3} = \dfrac{1}{3}$$</p>
+<p>Remarquons que ce programme <em>ne termine pas</em>.</p>
+<h4 id="utilisation">
+  Utilisation
+  <a class="anchor" href="#utilisation">#</a>
+</h4>
+<p>On emploie toujours ces modèles en informatique théorique et il existe toujours une recherche active à ce propos.</p>
+<p><strong>Castor affairé</strong> : un <em>castor affairé</em> est une machine de Turing qui, pour un nombre donné d&rsquo;états et de symboles réalise le plus grand nombre possible d&rsquo;étapes <em>avant de s&rsquo;arrêter.</em> Comme vous le devinez peut-être, le problème &ldquo;pour $n$ états et $p$ symboles, quel est le castor affairé ?&rdquo; est indécidable.</p>
+<p><strong>Exemple Busy Beaver 4, 2</strong></p>
+<p>Busy Beaver 4, 2 = Castor affairé à 4 états et 2 symboles. Il prend 107 étapes. Cela signifie qu&rsquo;il n&rsquo;existe pas de machine de Turing à 4 états et 2 étapes qui font <strong>plus</strong> de 107 étapes <strong>avant de s&rsquo;arrêter</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Etat/valeur lue</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>1RB</td>
+          <td>1LA</td>
+          <td>1RH</td>
+          <td>1RD</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1LB</td>
+          <td>0LC</td>
+          <td>1LD</td>
+          <td>0RA</td>
+      </tr>
+  </tbody>
+</table>
+<p>&ldquo;0RA&rdquo; se lit : écrire un 0, aller à droite (right&hellip;) et passer dans l&rsquo;état A.</p>
+<p>L&rsquo;état &ldquo;H&rdquo; signifie Halt pour s&rsquo;arrêter.</p>
+<p><img src="bb42.gif" alt="BB42" /></p>
 <h3 id="complément-lambda-calcul">
   complément lambda calcul
   <a class="anchor" href="#compl%c3%a9ment-lambda-calcul">#</a>
 </h3>
-<p>TODO</p>
-<h2 id="vidéo">
-  Vidéo
-  <a class="anchor" href="#vid%c3%a9o">#</a>
-</h2>
-<p>Voici une <a href="https://www.youtube.com/watch?v=a5MNIzu9Ia4">vidéo</a> de l&rsquo;université de Rennes qui expose la preuve précédente.</p>
+<p>Bon&hellip; j&rsquo;ai cherché des vulgarisations et n&rsquo;ai pas trouvé grand chose d&rsquo;abordable. Vous pouvez suivre des cours autour de ça, cela ne demande que très peu de connaissances théoriques. Mais cela reste très formel.</p>
+<p>La seule vidéo que je trouve abordable pour vous <a href="https://www.youtube.com/watch?v=eis11j_iGMs">est en anglais</a>.</p>
+<h3 id="impact-en-mathématiques">
+  Impact en mathématiques
+  <a class="anchor" href="#impact-en-math%c3%a9matiques">#</a>
+</h3>
+<p>Les travaux de Gödel sur <em>l&rsquo;indécidabilité</em>, qui sont les précurseurs des thèses de Church, Turing et Kleene, ont apporté une réponse négative à une tentative millénaire d&rsquo;automatisation des mathématiques (fabriquer des machines pour tout démontrer) et correctement formalisés pour la première fois par David Hilbert au début du XX$^{eme}$ siècle.</p>
+<p>Cela a jeté les mathématiciens dans un désarroi dont ils ne peuvent sortir.</p>
+<p>Jusqu&rsquo;ici, les énoncés étaient :</p>
+<ol>
+<li>vrai ou faux.</li>
+<li>démontrés ou non (on parle alors de conjectures),</li>
+</ol>
+<p>Si le premier point ne change pas (une affirmation est vraie ou fausse), il se peut tout à fait qu&rsquo;une affirmation soit <em>indécidable</em>. Il est vain de tenter de la démontrer ou de l&rsquo;infirmer, on n&rsquo;y arrivera jamais.</p>
+<p>Il est généralement très difficile de démontrer qu&rsquo;un énoncé complexe est indécidable.</p>
+<p>Pour un mathématicien cela signifie qu&rsquo;il peut passer un temps infini à tenter de démontrer un résultat pour lequel <em>il ne peut exister de preuve</em>&hellip;</p>
+
+    </div>
+</details>
+
 </article>
 
                 
@@ -7724,7 +7955,7 @@ Après l&rsquo;utilisation des données, il faut la libérer avec <code>free</co
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#programme">Programme</a></li>
+    <li><a href="#programme-officiel">Programme officiel</a></li>
     <li><a href="#un-programme-en-tant-que-donnée">Un programme en tant que donnée</a></li>
     <li><a href="#équivalence-des-langages-de-programmation">Équivalence des langages de programmation</a>
       <ul>
@@ -7736,9 +7967,15 @@ Après l&rsquo;utilisation des données, il faut la libérer avec <code>free</co
         <li><a href="#remarque">Remarque</a></li>
       </ul>
     </li>
-    <li><a href="#décidabilité">Décidabilité</a></li>
+    <li><a href="#décidabilité">Décidabilité</a>
+      <ul>
+        <li><a href="#prédicat-et-problème-de-décision">Prédicat et problème de décision</a></li>
+        <li><a href="#problème-de-décision-décidable">Problème de décision <em>décidable</em></a></li>
+      </ul>
+    </li>
     <li><a href="#calculabilité">Calculabilité</a>
       <ul>
+        <li><a href="#décidabilité-et-calculabilité">Décidabilité et calculabilité</a></li>
         <li><a href="#quel-intérêt-">Quel intérêt ?</a></li>
       </ul>
     </li>
@@ -7756,16 +7993,8 @@ Après l&rsquo;utilisation des données, il faut la libérer avec <code>free</co
         <li><a href="#paradoxparadox-"><code>paradox(paradox)</code> ?</a></li>
       </ul>
     </li>
-    <li><a href="#complément">Complément</a>
-      <ul>
-        <li><a href="#limitation-du-problème">Limitation du problème</a></li>
-        <li><a href="#historique">Historique</a></li>
-        <li><a href="#ramasse-miettes">Ramasse miettes</a></li>
-        <li><a href="#complément-machine-de-turing">complément machine de Turing</a></li>
-        <li><a href="#complément-lambda-calcul">complément lambda calcul</a></li>
-      </ul>
-    </li>
-    <li><a href="#vidéo">Vidéo</a></li>
+    <li><a href="#autres-sources">Autres sources</a></li>
+    <li><a href="#compléments">Compléments</a></li>
   </ul>
 </nav>
 
