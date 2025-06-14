@@ -75,7 +75,7 @@ Processus 1 Processus 2 Processus 3 instruction 1 instruction 1 instruction 1 in
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.2d9c7709b026860575d0fe1a159aa7b5fa11de43936462f618e1a13cece3c36c.js" integrity="sha256-LZx3CbAmhgV10P4aFZqntfoR3kOTZGL2GOGhPOzjw2w=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.ef94e763de87c4839b19822813ae9d1ed3096a41aa5470ea2aeffcf5ba674bd0.js" integrity="sha256-75TnY96HxIObGYIoE66dHtMJakGqVHDqKu/89bpnS9A=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/5_td/index.xml" title="qkzk" />
 <!--
@@ -4656,10 +4656,7 @@ MathJax.Hub.Config({
   
 
   
-    <input type="checkbox" id="section-3717ac87bc730df16a7d9df2266a647d" class="toggle"  />
-    <label for="section-3717ac87bc730df16a7d9df2266a647d" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/2_processus_etats/" class="">États des processus</a>
-    </label>
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/2_processus_etats/" class="">États des processus</a>
   
 
           
@@ -4695,10 +4692,7 @@ MathJax.Hub.Config({
   
 
   
-    <input type="checkbox" id="section-8431e4dc92169509140f5b2fd761ce12" class="toggle"  />
-    <label for="section-8431e4dc92169509140f5b2fd761ce12" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/4_ordonnancement/" class="">Ordonnancement</a>
-    </label>
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/4_ordonnancement/" class="">Ordonnancement</a>
   
 
           
@@ -4716,10 +4710,25 @@ MathJax.Hub.Config({
   
 
   
-    <input type="checkbox" id="section-56f27679ba8229080e54609566482c18" class="toggle" checked />
-    <label for="section-56f27679ba8229080e54609566482c18" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/5_td/" class="active">Processus - TD</a>
-    </label>
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/5_td/" class=" active">Processus - TD</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_terminale/architecture/processus/6_resume/" class="">Résumé</a>
   
 
           
@@ -7259,7 +7268,8 @@ MathJax.Hub.Config({
     <li><a href="#exercice-2">Exercice 2</a></li>
     <li><a href="#exercice-3">Exercice 3</a></li>
     <li><a href="#exercice-4">Exercice 4</a></li>
-    <li><a href="#exercice-5---bilan">Exercice 5 - Bilan</a></li>
+    <li><a href="#exercice-5---ecrit-2025-asie-j2-exercice-2-sur-6-points">Exercice 5 - Ecrit 2025, Asie J2, Exercice 2, sur 6 points</a></li>
+    <li><a href="#exercice-6---bilan">Exercice 6 - Bilan</a></li>
   </ul>
 </nav>
 
@@ -7432,9 +7442,142 @@ La présence de l’arc $Pj\rightarrow Ri$ signifie que le processus Pj demande 
 <p>Y-a-t-il interblocage ? si oui précisez où.</p>
 </li>
 </ol>
-<h2 id="exercice-5---bilan">
-  Exercice 5 - Bilan
-  <a class="anchor" href="#exercice-5---bilan">#</a>
+<h2 id="exercice-5---ecrit-2025-asie-j2-exercice-2-sur-6-points">
+  Exercice 5 - Ecrit 2025, Asie J2, Exercice 2, sur 6 points
+  <a class="anchor" href="#exercice-5---ecrit-2025-asie-j2-exercice-2-sur-6-points">#</a>
+</h2>
+<p><em>Cet exercice porte sur la programmation Python, la gestion des processus.</em></p>
+<p>On souhaite élaborer un programme système permettant de gérer l’ordre d’exécution des processus sur le processeur.</p>
+<ol>
+<li>
+<p>Donner le nom de ce type de programme.</p>
+</li>
+<li>
+<p>Donner les différents états possibles d’un processus.</p>
+</li>
+</ol>
+<p>Chaque processus dispose d’une valeur de priorité. Un processus est prioritaire sur un autre processus si sa valeur de priorité est plus petite. Ainsi pour rendre un processus moins prioritaire, il faut augmenter sa valeur de priorité, par exemple en la faisant passer de 2 à 3.</p>
+<p><strong>Fonctionnement du programme gérant l’ordre d’exécution des processus :</strong></p>
+<p>On dispose d&rsquo;une liste dont les éléments sont des files de processus. La première file contient les processus ayant la valeur de priorité la plus élevée 0, la seconde ceux ayant la valeur de priorité 1, etc.</p>
+<p>À l&rsquo;arrivée d&rsquo;un nouveau processus :</p>
+<ul>
+<li>Attribuer au nouveau processus la valeur de priorité la plus élevée 0 ;</li>
+<li>Placer le nouveau processus dans la file d&rsquo;attente correspondant à sa valeur de priorité (c’est-à-dire la première file de la liste).</li>
+</ul>
+<p>À chaque cycle d&rsquo;horloge :</p>
+<ul>
+<li>
+<p>S&rsquo;il n&rsquo;y a pas de processus en cours d&rsquo;exécution et s&rsquo;il reste des processus en attente :</p>
+<ul>
+<li>Sélectionner un processus avec la priorité la plus élevée dans l&rsquo;une des files d&rsquo;attente non vides ;</li>
+<li>Élire ce processus comme nouveau processus en cours d&rsquo;exécution ;</li>
+</ul>
+</li>
+<li>
+<p>Sinon si un processus est en cours d&rsquo;exécution :</p>
+<ul>
+<li>
+<p>Si le processus a terminé son exécution, le retirer du processeur ;</p>
+</li>
+<li>
+<p>Sinon,</p>
+<ul>
+<li>
+<p>incrémenter le temps d&rsquo;utilisation du processus ;</p>
+</li>
+<li>
+<p>Si des processus de priorité supérieure ou égale attendent :</p>
+<ul>
+<li>Retirer le processus en cours d&rsquo;exécution du processeur ;</li>
+<li>Réduire sa priorité de 1 et le mettre dans la file d&rsquo;attente correspondant à sa priorité ;</li>
+<li>Élire un processus dont la priorité est la plus élevée parmi les processus des files d&rsquo;attente non vides ;</li>
+</ul>
+</li>
+<li>
+<p>Sinon, réduire sa priorité de 1 et continuer à exécuter le processus en cours d&rsquo;exécution.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>Parmi les propositions suivantes, donner la structure la plus adaptée pour stocker les processus d’une même priorité :</p>
+<ul>
+<li>Proposition 1 : Liste</li>
+<li>Proposition 2 : File</li>
+<li>Proposition 3 : Pile</li>
+</ul>
+</li>
+</ol>
+<p>Pour représenter le processus, on utilise une classe <code>Processus</code> qui possède les variables d’instances <code>PID</code> (l’identifiant du processus), <code>priorite</code> (la priorité du processus), <code>temps_utilisation</code> sur le CPU et le temps nécessaire à son exécution <code>temps_CPU</code>.</p>
+<ol start="4">
+<li>
+<p>Compléter le constructeur de la classe <code>Processus</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Processus</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>(<span style="color:#366">self</span>, <span style="color:#555">...</span>, priorite, temps_CPU):
+</span></span><span style="display:flex;"><span>        <span style="color:#555">...</span> priorite <span style="color:#555">=</span> priorite
+</span></span><span style="display:flex;"><span>        <span style="color:#555">...</span> PID <span style="color:#555">=</span> <span style="color:#555">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#366">self</span><span style="color:#555">.</span>temps_utilisation <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#366">self</span><span style="color:#555">.</span>temps_CPU <span style="color:#555">=</span> temps_CPU
+</span></span></code></pre></div></li>
+<li>
+<p>On considère les trois processus suivants :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>P1 <span style="color:#555">=</span> Processus(PID<span style="color:#555">=</span><span style="color:#f60">1</span>,priorite<span style="color:#555">=</span><span style="color:#f60">0</span>,temps_CPU<span style="color:#555">=</span><span style="color:#f60">10</span>)
+</span></span><span style="display:flex;"><span>P2 <span style="color:#555">=</span> Processus(PID<span style="color:#555">=</span><span style="color:#f60">2</span>,priorite<span style="color:#555">=</span><span style="color:#f60">0</span>,temps_CPU<span style="color:#555">=</span><span style="color:#f60">7</span>)
+</span></span><span style="display:flex;"><span>P3 <span style="color:#555">=</span> Processus(PID<span style="color:#555">=</span><span style="color:#f60">3</span>,priorite<span style="color:#555">=</span><span style="color:#f60">0</span>,temps_CPU<span style="color:#555">=</span><span style="color:#f60">5</span>)
+</span></span></code></pre></div><p>On a donc <code>liste_files = [[P3, P2, P1], [], []]</code>.</p>
+<p>Compléter la simulation suivante, dans laquelle la variable <code>CPU</code> contient le processus en cours d’exécution :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cycle 1: CPU=P1  liste_files=[[P3, P2], [], []]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Cycle 2: CPU=P2  liste_files=[[P3],[P1],[]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Cycle 3: CPU=P3  liste_files=[[], [...],[]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Cycle 4: CPU=P3  liste_files=[[], [...], [...]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Cycle 5: CPU=... liste_files=[[], [...], [...]]
+</span></span></code></pre></div></li>
+</ol>
+<p>Dans les questions 6 et 7, on dispose :</p>
+<ul>
+<li>d’un processus qui nécessite un temps d’utilisation de 1000 pour terminer ;</li>
+<li>d’un nombre important de processus dont le temps d’utilisation pour terminer est de 4 où l’on suppose de plus que chaque processus terminé est remplacé par un nouveau processus similaire.</li>
+</ul>
+<ol start="6">
+<li>Expliquer pourquoi le processus qui nécessite un long temps d’utilisation du CPU risque de ne jamais terminer avec le programme de gestion de l’ordre des processus ci-dessus (indiquer notamment la priorité du processus long au bout de quelques temps).</li>
+</ol>
+<p>Pour régler ce phénomène, on décide d’ajouter la variable d’instance <code>temps_d_attente</code> au processus, et on définit une constante appelée <code>Max_Temps</code> qui correspond au temps maximum qu’un processus attend avant de remonter sa priorité. L’idée est qu’à chaque cycle, le <code>temps_d_attente</code> augmente. Ainsi, si sa valeur dépasse <code>Max_Temps</code>, alors sa priorité augmente.</p>
+<ol start="7">
+<li>
+<p>Expliquer pourquoi le processus qui nécessite un temps long d’utilisation du CPU ne risque plus de ne jamais terminer avec ce nouveau programme de gestion de l’ordre des processus.</p>
+</li>
+<li>
+<p>Écrire une fonction <code>meilleur_priorite</code> qui renvoie <code>None</code> s’il n’y a plus de processus et la priorité de l’un des processus les plus prioritaires de la liste des files d’attente dans le cas contraire.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">meilleur_priorite</span>(liste_files):
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><p><strong>Exemple :</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#09f;font-style:italic"># p1, p2 et p3 sont des instances de la classe &#39;Processus&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> liste_files <span style="color:#555">=</span> [[], [p2], [p3, p1]]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> meilleur_priorite(liste_files)
+</span></span><span style="display:flex;"><span><span style="color:#f60">1</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Écrire une fonction <code>prioritaire</code> qui renvoie <code>None</code> si aucune des files d’attente de la liste ne contient un processus et qui renvoie l’un des processus parmi les plus prioritaires sinon (dans ce cas la fonction <code>prioritaire</code> supprimera le processus choisi de la file d’attente dans laquelle il se trouvait).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">prioritaire</span>(liste_files):
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><p>On pourra utiliser <code>liste.pop(i)</code> pour renvoyer l’élément de la liste à la position <code>i</code>, tout en le supprimant de la liste.</p>
+</li>
+<li>
+<p>Écrire une fonction <code>gerer</code> qui récupère le processus en cours d’exécution <code>p</code> ainsi que la liste des files d’attente <code>liste_files</code> et qui implémente le programme donné en début d’énoncé pour gérer les processus.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">gerer</span>(p, liste_files):
+</span></span><span style="display:flex;"><span>    <span style="color:#555">...</span>
+</span></span></code></pre></div><h2 id="exercice-6---bilan">
+  Exercice 6 - Bilan
+  <a class="anchor" href="#exercice-6---bilan">#</a>
 </h2>
 <p>Trois commerciaux (Audrey, Enzo et Louis) d&rsquo;une société de vente à distance
 travaillent en réseau sur un même serveur, sur lequel ils stockent des fichiers
@@ -7660,7 +7803,8 @@ de chaque fichier (dans un seul tableau). Utiliser un code couleur &ldquo;vert :
     <li><a href="#exercice-2">Exercice 2</a></li>
     <li><a href="#exercice-3">Exercice 3</a></li>
     <li><a href="#exercice-4">Exercice 4</a></li>
-    <li><a href="#exercice-5---bilan">Exercice 5 - Bilan</a></li>
+    <li><a href="#exercice-5---ecrit-2025-asie-j2-exercice-2-sur-6-points">Exercice 5 - Ecrit 2025, Asie J2, Exercice 2, sur 6 points</a></li>
+    <li><a href="#exercice-6---bilan">Exercice 6 - Bilan</a></li>
   </ul>
 </nav>
 
