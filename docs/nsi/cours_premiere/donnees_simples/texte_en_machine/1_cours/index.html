@@ -44,7 +44,7 @@ De combien de symboles a-t-on besoin ?
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.10c091ab63561000bbd7d463aa1f378810081460427eb8598ec38786302370a5.js" integrity="sha256-EMCRq2NWEAC719Rjqh83iBAIFGBCfrhZjsOHhjAjcKU=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.7f36770604d80f40a1b1ef2e958ca38c71d542c5a3364e7558bbfca543a1e59b.js" integrity="sha256-fzZ3BgTYD0Chse8ulYyjjHHVQsWjNk51WLv8pUOh5Zs=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/texte_en_machine/1_cours/index.xml" title="qkzk" />
 <!--
@@ -7296,7 +7296,11 @@ MathJax.Hub.Config({
     <li><a href="#iso-8859-1-ou-iso-latin-1">iso-8859-1 ou iso-Latin-1</a></li>
     <li><a href="#unicode">Unicode</a></li>
     <li><a href="#motivation-dunicode---et-">Motivation d&rsquo;unicode : $ et £</a></li>
-    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a></li>
+    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a>
+      <ul>
+        <li><a href="#table-complète">Table complète</a></li>
+      </ul>
+    </li>
     <li><a href="#python-et-lutf-8">Python et l&rsquo;UTF-8</a>
       <ul>
         <li><a href="#python-2-lancien-et-lencodage-des-caractères">Python 2 (l&rsquo;ancien) et l&rsquo;encodage des caractères</a></li>
@@ -7686,7 +7690,7 @@ l&rsquo;échange de documents et développement de logiciels <strong>plus que p�
 </ul>
 </li>
 <li>
-<p>Lorsqu&rsquo;un document est encode en ASCII :</p>
+<p>Lorsqu&rsquo;un document est encode en UTF-8 :</p>
 <ul>
 <li>Si un caractère commence par un <code>0</code> alors il occupe 1 octet et c&rsquo;est le même que dans la table ASCII : <code>0100 0001 -&gt; A</code></li>
 <li>Sinon on compte le nombre <code>1</code> initiaux. Par exemple <code>1110....</code> alors le caractère occupe 3 octets. Il faut lire aussi les deux octets suivants pour déterminer le caractère complet.</li>
@@ -7702,7 +7706,15 @@ l&rsquo;échange de documents et développement de logiciels <strong>plus que p�
 <p>Un caractère peut avoir plusieurs représentations
 $\rightarrow$ problèmes de sécurité informatique : certaines opérations interdites sont filtrées en reconnaissant des caractères. Ce problème est globalement résolu.</p>
 </li>
+<li>
+<p>Lorsqu&rsquo;un caractère UTF-8 nécessite plusieurs octets aucun n&rsquo;est un code ASCII valide. Aucune confusion n&rsquo;est possible.</p>
+</li>
 </ul>
+<h3 id="table-complète">
+  Table complète
+  <a class="anchor" href="#table-compl%c3%a8te">#</a>
+</h3>
+<p><a href="https://www.charset.org/utf-8">Table UTF-8 complète</a></p>
 <h2 id="python-et-lutf-8">
   Python et l&rsquo;UTF-8
   <a class="anchor" href="#python-et-lutf-8">#</a>
@@ -7958,7 +7970,11 @@ Par exemple la chaîne &ldquo;Salut&rdquo; :</p>
     <li><a href="#iso-8859-1-ou-iso-latin-1">iso-8859-1 ou iso-Latin-1</a></li>
     <li><a href="#unicode">Unicode</a></li>
     <li><a href="#motivation-dunicode---et-">Motivation d&rsquo;unicode : $ et £</a></li>
-    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a></li>
+    <li><a href="#principe-simplifié-dutf-8">Principe simplifié d&rsquo;UTF-8</a>
+      <ul>
+        <li><a href="#table-complète">Table complète</a></li>
+      </ul>
+    </li>
     <li><a href="#python-et-lutf-8">Python et l&rsquo;UTF-8</a>
       <ul>
         <li><a href="#python-2-lancien-et-lencodage-des-caractères">Python 2 (l&rsquo;ancien) et l&rsquo;encodage des caractères</a></li>
