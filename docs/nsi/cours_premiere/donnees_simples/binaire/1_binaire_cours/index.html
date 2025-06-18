@@ -44,7 +44,7 @@ binaire complément à 2 octal hexadécimal etc. nombres à virgules flottantes 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.82c2ef3d46468df1c9c8d699b53840caf51f36fa0ff9865ac8c94e9adfe6142f.js" integrity="sha256-gsLvPUZGjfHJyNaZtThAyvUfNvoP&#43;YZayMlOmt/mFC8=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.0c868444bc190282c93408090004331e396f8dce525f23775ed7b6d851070049.js" integrity="sha256-DIaERLwZAoLJNAgJAAQzHjlvjc5SXyN3Xte22FEHAEk=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/binaire/1_binaire_cours/index.xml" title="qkzk" />
 <!--
@@ -7320,17 +7320,24 @@ MathJax.Hub.Config({
       <ul>
         <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
         <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a></li>
+        <li><a href="#rappel--division-euclidienne">Rappel : division euclidienne</a></li>
         <li><a href="#exercice-2">Exercice 2</a></li>
       </ul>
     </li>
     <li><a href="#binaire-en-python">Binaire en Python</a>
       <ul>
         <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
-        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
-        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
-        <li><a href="#le-logarithme-binaire">Le logarithme binaire</a></li>
       </ul>
     </li>
+    <li><a href="#taille-des-nombres">Taille des nombres</a>
+      <ul>
+        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
+        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
+        <li><a href="#hp--le-logarithme-binaire">HP : Le logarithme binaire</a></li>
+        <li><a href="#octets">Octets</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
@@ -7398,21 +7405,26 @@ MathJax.Hub.Config({
   <a class="anchor" href="#num%c3%a9ration-par-position">#</a>
 </h3>
 <p><strong>Exemple</strong> : En base 10 :</p>
-<p>$345 = 3\times100 + 4\times10 + 5 = 3\times 10^2 + 4\times10^1+5\times10^0$</p>
+<p>$$345 = 3\times100 + 4\times10 + 5 = 3\times 10^2 + 4\times10^1+5\times10^0$$</p>
 <p>Le $3$ de $345$ représente donc $300$, le $4$ représente $40$ etc. On a pourtant $3 &lt; 4$&hellip;</p>
-<p>En binaire, on a deux chiffres. Chaque chiffre est un <em>bit</em> (=<strong>bi</strong>nary digi<strong>t</strong>).</p>
-<p>$0b1101 = 1 \times 2^3 + 1\times 2^2 + 0\times2^1 + 1\times2^0 = 13$</p>
+<blockquote class="book-hint info">
+  <p>En binaire, on a deux chiffres. Chaque chiffre est un <em>bit</em> (=<strong>bi</strong>nary digi<strong>t</strong>).</p>
+<p>$$0b1101 = 1 \times 2^3 + 1\times 2^2 + 0\times2^1 + 1\times2^0 = 13$$</p>
 <p>Afin d&rsquo;indiquer une représentation binaire on utilise $0b$ avant le nombre ou $_2$ après le nombre :</p>
-<p>$0b$</p>
+<p>$$0b1101 = 1101_2 = 13$$</p>
+
+</blockquote>
+
 <h3 id="les-puissances-de-2">
   Les puissances de 2
   <a class="anchor" href="#les-puissances-de-2">#</a>
 </h3>
 <p>Les puissances de 10 c&rsquo;est facile : 1, 10, 100, 1000 etc. mais celles de 2 demandent un effort.</p>
-<table>
+<blockquote class="book-hint info">
+  <table>
   <thead>
       <tr>
-          <th style="text-align: center">Exposant $n$</th>
+          <th style="text-align: center">$n$</th>
           <th style="text-align: center">0</th>
           <th style="text-align: center">1</th>
           <th style="text-align: center">2</th>
@@ -7451,23 +7463,34 @@ MathJax.Hub.Config({
       </tr>
   </tbody>
 </table>
+
+</blockquote>
+
 <p><strong>Conseil :</strong> retenez les par coeur en jouant à <a href="https://play2048.co/">2048</a>.</p>
 <h3 id="vocabulaire">
   Vocabulaire
   <a class="anchor" href="#vocabulaire">#</a>
 </h3>
-<ul>
+<blockquote class="book-hint info">
+  <ul>
 <li><em>bit</em> : symbole 0 ou 1. Ce sont les <em>chiffres</em> de la représentation binaire.</li>
-<li><em>octet</em> : bloc de 8 bits. La <em>mémoire</em> de l&rsquo;ordinateur n&rsquo;est pas capable de lire 1 bit à la fois. Elle répond avec des <em>blocs</em> d&rsquo;un ou de plusieurs octets.</li>
-<li><em>byte</em> : traduction anglaise de l&rsquo;octet.</li>
+<li><em>octet</em> :, en anglais <em>byte</em>, bloc de 8 bits. La <em>mémoire</em> de l&rsquo;ordinateur n&rsquo;est pas capable de lire 1 bit à la fois. Elle répond avec des <em>blocs</em> d&rsquo;un ou de plusieurs octets.</li>
 </ul>
-<p>Par exemple : 2MB = 2 Mega Octets = $2 \times 10^6$ octets = $16\hspace{2mm}000\hspace{2mm}000$ bits.</p>
+
+</blockquote>
+
+<p>Exemples :</p>
+<ul>
+<li>2MB = 2 Mega bytes = 2 Mega Octets = $2 \times 10^6$ octets = $16\hspace{2mm}000\hspace{2mm}000$ bits.</li>
+<li>$0b1101\hspace{1mm}1001 = 217$. Ce nombre a 8 bits et occupe un octet en mémoire.</li>
+</ul>
+<hr>
 <h2 id="du-binaire-au-décimal">
   Du binaire au décimal.
   <a class="anchor" href="#du-binaire-au-d%c3%a9cimal">#</a>
 </h2>
 <blockquote class="book-hint info">
-  <p>Pour convertir un entier donné en binaire on le lit depuis la droite et on fait la somme.</p>
+  <p>Pour convertir un entier donné en binaire on le lit depuis la droite et on fait la somme des puissances de 2 où se situent les 1.</p>
 <p>$0b10011$ = 1 + 2 + 0 + 0 + 16 = 19.</p>
 <p>Autre notation : $10011_2 = 19_{10}$</p>
 
@@ -7475,11 +7498,11 @@ MathJax.Hub.Config({
 
 <p>Autre exemple :</p>
 <p>La représentation décimale de $0b101010$ est</p>
-<p>$$1\times2^5+0\times2^4+1\times2^3+0\times2^2+1\times2^1+0\times2^0$$
-$$=32+8+2$$
+<p>$$0\times2^0+1\times2^1+0\times2^2+1\times2^3+0\times2^4+1\times2^5$$
+$$=2+8+32$$
 $$=42$$</p>
 <p>Encore un :</p>
-<p>$0b10011011 = 2^7 + 2^4+2^3+2^1+2^0 = 128 + 16 + 8 + 2 + 1 = 155$</p>
+<p>$0b1001\hspace{1mm}1011 = 2^7 + 2^4+2^3+2^1+2^0 = 128 + 16 + 8 + 2 + 1 = 155$</p>
 <p><img src="./binary_decimal.jpg" alt="Binaire -&gt; décimal" /></p>
 <h3 id="exercice-1">
   Exercice 1
@@ -7494,14 +7517,15 @@ $0b0101$ et $0b00101$.</p>
 <p>Trier par ordre croissant $0b11$, $0b100$, $0b111$ et $0b1000$.</p>
 </li>
 </ul>
+<hr>
 <h2 id="du-décimal-au-binaire">
   Du décimal au binaire.
   <a class="anchor" href="#du-d%c3%a9cimal-au-binaire">#</a>
 </h2>
 <p>Deux algorithmes majeurs.</p>
 <ul>
-<li>Facile <em>à programmer</em> : les divisions successives.</li>
 <li>Facile <em>de tête</em> : soustraire des puissances de 2.</li>
+<li>Facile <em>à programmer</em> : les divisions successives.</li>
 </ul>
 <h3 id="décimal-au-binaire-avec-les-puissances-de-2">
   Décimal au binaire avec les puissances de 2.
@@ -7527,45 +7551,60 @@ $0b0101$ et $0b00101$.</p>
 </li>
 </ul>
 <p>$$57 = 0b111001$$</p>
-<p>En une ligne : $57 = 32 + 16 + 8 + 1 = 0b111001$</p>
+<blockquote class="book-hint info">
+  $$57 = 32 + 16 + 8 + 1 = 0b111001$$
+</blockquote>
+
 <p><em>Autre exemple :</em></p>
 <p>$$123 = 64 + 59 = 64 + 32 + 27$$
 $$123 = 64 + 32 + 16 + 11$$
 $$123 = 64 + 32 + 16 + 8 + 3$$
-$$123 = 64 + 32 + 16 + 8 + 2 + 1$$</p>
-<p>Donc</p>
-<p>$$123 = 0b1111011$$</p>
+<blockquote class="book-hint info">
+  $$123 = 64 + 32 + 16 + 8 + 2 + 1 = 0b1111011$$
+</blockquote>
+</p>
 <p><img src="/uploads/docsnsi/donnees_qkzk_img/10typesofppl.jpg" alt="10 types of people" /></p>
 <h3 id="du-décimal-au-binaire-avec-les-divisions-successives">
   Du décimal au binaire avec les divisions successives
   <a class="anchor" href="#du-d%c3%a9cimal-au-binaire-avec-les-divisions-successives">#</a>
 </h3>
+<p><em>La méthode précédente est très facile à mettre en oeuvre de tête. Elle est moins simple à <strong>programmer</strong> que la suivante.</em></p>
+<h3 id="rappel--division-euclidienne">
+  Rappel : division euclidienne
+  <a class="anchor" href="#rappel--division-euclidienne">#</a>
+</h3>
+<p><img src="./divisioneuclidienne.png" alt="Division euclidienne" /></p>
+<p><img src="./cas-particulier-division-euclidienne.jpg" alt="Division euclidienne exemple" /></p>
 <blockquote class="book-hint info">
   <p><strong>Algorithme des divisions successives</strong></p>
 <ol>
 <li>On divise par 2 <strong>jusqu&rsquo;à ce que le quotient soit 0</strong></li>
-<li>On lit les bits en montant de droite à gauche :</li>
+<li>Les restes successifs sont les bits qu&rsquo;on lit en montant de droite à gauche :</li>
 </ol>
 </blockquote>
 
-<p><img src="./divisioneuclidienne.png" alt="Division euclidienne" /></p>
-<p><img src="./cas-particulier-division-euclidienne.jpg" alt="Division euclidienne exemple" /></p>
-<p><em>Pour nous, c&rsquo;est plus facile, le diviseur est toujours 2 donc le reste est toujours 0 ou 1</em>.</p>
-<p><em>Dans $n : 2$, le reste est $0$ si $n$ pair et $1$ si $n$ est impair</em>.</p>
-<p>Donner la représentation binaire de 167.</p>
-<p><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives" /></p>
-<p><code>167 = 0b10100111</code></p>
-<hr>
+<p>Remarque : <em>Le diviseur est toujours 2 donc le reste est toujours 0 ou 1. Le reste est $0$ si $n$ pair et $1$ si $n$ est impair</em>.</p>
+<p>Exemple : 167 en binaire</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives" /> <img src="./divisions_steps_fixed.gif" alt="Divisions successives animées" /></p>
+<p>$$167 = 0b1010\hspace{1mm}0111$$</p>
 <h3 id="exercice-2">
   Exercice 2
   <a class="anchor" href="#exercice-2">#</a>
 </h3>
-<p>Quelle est la représentation binaire de 14 et 78 ?</p>
+<p>Donner les représentations binaires de :</p>
+<ul>
+<li>14</li>
+<li>78</li>
+<li>31</li>
+<li>32</li>
+</ul>
+<hr>
 <h2 id="binaire-en-python">
   Binaire en Python
   <a class="anchor" href="#binaire-en-python">#</a>
 </h2>
-<p>Python dérivant du langage C, les nombres en binaire sont notés <code>0bxxxx</code></p>
+<blockquote class="book-hint info">
+  <p>Python dérivant du langage C, les nombres en binaire sont notés <code>0bxxxx</code></p>
 <p>Python converti naturellement un entier <strong>d&rsquo;une base <em>b</em> vers le décimal</strong> avec <code>int(nombre, b)</code></p>
 <p>La conversion <strong>vers le binaire</strong> se fait avec <code>bin</code> et renvoie une <em>chaîne de caractères</em>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0b111011</span>
@@ -7576,7 +7615,10 @@ $$123 = 64 + 32 + 16 + 8 + 2 + 1$$</p>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> b <span style="color:#555">=</span> <span style="color:#f60">10</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(b)
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0b1010&#39;</span>
-</span></span></code></pre></div><p>Faites bien attention :</p>
+</span></span></code></pre></div>
+</blockquote>
+
+<p>Faites bien attention :</p>
 <ul>
 <li><code>0b111011</code> est un <code>int</code> qu&rsquo;on a écrit sous forme binaire et dont la valeur est 59.</li>
 <li><code>&quot;0b111011&quot;</code> est une <code>str</code> qu&rsquo;on peut <em>convertir</em> en entier avec <code>int</code>.</li>
@@ -7594,6 +7636,11 @@ additionne puis converti en décimal pour afficher <code>9</code>.</p>
 
 </blockquote>
 
+<hr>
+<h2 id="taille-des-nombres">
+  Taille des nombres
+  <a class="anchor" href="#taille-des-nombres">#</a>
+</h2>
 <!-- Complément info : convertisseur binaire à la main, algo à la main -->
 <h3 id="taille-dun-nombre-en-binaire">
   Taille d&rsquo;un nombre en binaire
@@ -7601,8 +7648,8 @@ additionne puis converti en décimal pour afficher <code>9</code>.</p>
 </h3>
 <p>Le <strong>nombre de bit</strong> d&rsquo;un entier nous indique l&rsquo;espace mémoire <em>minimal</em> qu&rsquo;il
 faudra pour le stocker.</p>
-<p>$123 = 0b1111011$ il faut au moins 7 bits pour stocker ce nombre.</p>
-<p>En pratique, les machines utilisent des blocs de taille 1 octet (=8 bits), ce nombre entre dans un octet.</p>
+<p>$123 = 0b111\hspace{1mm}1011$ il faut au moins 7 bits pour stocker ce nombre.</p>
+<p>Les machines utilisent des blocs de taille 1 octet (=8 bits) et ce nombre entre dans un octet.</p>
 <h3 id="taille-et-opérations">
   Taille et opérations
   <a class="anchor" href="#taille-et-op%c3%a9rations">#</a>
@@ -7635,11 +7682,13 @@ faudra pour le stocker.</p>
 </table>
 </blockquote>
 
-<h3 id="le-logarithme-binaire">
-  Le logarithme binaire
-  <a class="anchor" href="#le-logarithme-binaire">#</a>
+<h3 id="hp--le-logarithme-binaire">
+  HP : Le logarithme binaire
+  <a class="anchor" href="#hp--le-logarithme-binaire">#</a>
 </h3>
-<p>En mathématique, la fonction $\ln$ pour <em>logarithme népérien</em> ou <em>logarithme naturel</em>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>En mathématique, la fonction $\ln$ pour <em>logarithme népérien</em> ou <em>logarithme naturel</em>
 est une fonction ayant d&rsquo;importantes propriétés.</p>
 <p>Rendue populaire par Napier, elle a permis de considérablement simplifier les calculs à la main.</p>
 <p><em>Vous verrez en mathématiques qu&rsquo;elle permet de transformer les produits en somme : $\ln (a \times b) = \ln a + \ln b$</em></p>
@@ -7649,10 +7698,72 @@ est une fonction ayant d&rsquo;importantes propriétés.</p>
 <blockquote class="book-hint info">
   <p>En notant $\log_2 (n) = \frac{\ln n}{\ln 2}$ et $\lceil x \rceil$ l&rsquo;arrondi supérieur de $x$ :</p>
 <p>Le nombre de bits d&rsquo;un entier $n$ est $\lceil \log_2(x + 1) \rceil$.</p>
+</blockquote>
+
+    </div>
+</details>
+
+<h3 id="octets">
+  Octets
+  <a class="anchor" href="#octets">#</a>
+</h3>
+<p>Un octet est un bloc de 8 bits. Il y a donc $2^8=256$ octets différents, de 0 à 255.</p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>$2^8$ : deux (le nombre de symboles) à la puissance 8 (le nombre de &ldquo;cases&rdquo;).</p>
+<p>Par exemple, pour des nombres décimaux occupant 6 chiffres au plus, il y a $10^6$, un million, de valeurs.</p>
+
+    </div>
+</details>
+
+<p>Quelques valeurs remarquables parmi les 255 :</p>
+<ul>
+<li>$0b0000\hspace{1mm}0000 = 0$, le plus petit octet</li>
+<li>$0b0000\hspace{1mm}0001 = 1$</li>
+<li>$0b0000\hspace{1mm}0010 = 2$</li>
+<li>$0b0000\hspace{1mm}0100 = 4$</li>
+<li>$0b0000\hspace{1mm}1000 = 8$</li>
+<li>$0b0001\hspace{1mm}0000 = 16$</li>
+<li>$0b0010\hspace{1mm}0000 = 32$</li>
+<li>$0b0100\hspace{1mm}0000 = 64$</li>
+<li>$0b1000\hspace{1mm}0000 = 128$</li>
+<li>$0b1111\hspace{1mm}1111 = 255$, le plus grand octet.</li>
+</ul>
+<hr>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<blockquote class="book-hint info">
+  <p>La notation positionnelle en base 2, appelée <em>notation binaire</em> permet de représenter tous les entiers naturels avec les symboles 0 et 1 (appelés <em>bits</em>).</p>
+<p>Un bloc de 8 bits est un <em>octet</em>, il y a 256 octets, de 0 à 255 ou de $0b0000\hspace{1mm}0000$ à $0b1111\hspace{1mm}1111$.</p>
+<p>Pour convertir du binaire au décimal, on compte les bits présents de la droite vers la gauche et on double la puissance à chaque étape. $0b1011 = 1 + 2 + 0 + 8 = 11$</p>
+<p>Pour convertir du décimal au binaire on peut :</p>
+<ul>
+<li>
+<p>de tête, soustraire des puissances de 2 : $55 = 32 + 16 + 8 + 1 = 0b11\hspace{1mm}1001$</p>
+</li>
+<li>
+<p>dans une machine, diviser successivement par 2 et remonter les restes, qui forment les bits.</p>
+<p><img src="/uploads/docsnsi/donnees_qkzk_img/divisions.png" alt="divisions successives" /></p>
+<p>$167 = 0b1010\hspace{1mm}0111$</p>
+</li>
+<li>
+<p>Lorsqu&rsquo;on ajoute 2 nombres en binaire, l&rsquo;espace nécessaire à la somme est $\leq$ à la plus grande des deux taille augmentée de 1. (7 bits et 8 bits donnent 8 ou 9 bits)</p>
+</li>
+<li>
+<p>Lorsqu&rsquo;on multiplie deux nombre, la taille du produit est la somme des tailles (7 bits fois 5 bits donnent 12 bits).</p>
+</li>
+</ul>
+<p>Python :</p>
+<ul>
+<li>accepte les <em>entiers</em> notés en binaire <code>0b111000</code> et <code>56</code> représentent le même nombre,</li>
+<li>du binaire au décimal <code>int(&quot;0b111000&quot;, 2) -&gt; 56</code> (on obtient un <code>int</code>),</li>
+<li>du décimal au binaire <code>bin(56) -&gt; &quot;0b111000&quot;</code> (on obtient une <code>str</code>)</li>
+</ul>
 
 </blockquote>
 
-<hr>
 </article>
 
                 
@@ -7732,17 +7843,24 @@ est une fonction ayant d&rsquo;importantes propriétés.</p>
       <ul>
         <li><a href="#décimal-au-binaire-avec-les-puissances-de-2">Décimal au binaire avec les puissances de 2.</a></li>
         <li><a href="#du-décimal-au-binaire-avec-les-divisions-successives">Du décimal au binaire avec les divisions successives</a></li>
+        <li><a href="#rappel--division-euclidienne">Rappel : division euclidienne</a></li>
         <li><a href="#exercice-2">Exercice 2</a></li>
       </ul>
     </li>
     <li><a href="#binaire-en-python">Binaire en Python</a>
       <ul>
         <li><a href="#les-nombres-en-mémoire">Les nombres en mémoire</a></li>
-        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
-        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
-        <li><a href="#le-logarithme-binaire">Le logarithme binaire</a></li>
       </ul>
     </li>
+    <li><a href="#taille-des-nombres">Taille des nombres</a>
+      <ul>
+        <li><a href="#taille-dun-nombre-en-binaire">Taille d&rsquo;un nombre en binaire</a></li>
+        <li><a href="#taille-et-opérations">Taille et opérations</a></li>
+        <li><a href="#hp--le-logarithme-binaire">HP : Le logarithme binaire</a></li>
+        <li><a href="#octets">Octets</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
