@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
+<meta name="description" content="On peut appliquer les opérateurs booléens sur les différents bits d&rsquo;un nombre ou de deux nombres.
+Ce sont des &ldquo;opérations bit à bit&rdquo;.
+
   Opérateurs en taille quelconque
   #
 
@@ -17,37 +19,23 @@ Chaque bit est inversé.
 Sur 4 bits, NOT 7 = 8
 NOT 0111
   = 1000
+Pour cet opérateur, il est nécessaire de connaître la capacité employée, ici 4 bits.
 
   ET bit à bit
   #
 
-Sur 4 bits, 5 AND 3 = 1 :
-    0101
-AND 0011
-  = 0001
-
-  OU bit à bit
-  #
-
-Sur 4 bits, 5 OR 3 = 7 :
-   0101
-OR 0011
- = 0111
-
-  XOR bit à bit
-  #
-
-Sur 4 bits, 5 XOR 3 = 6 :">
+On fait un and sur chaque bit des nombres en respectant les positions.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/binaire/5_operations_bit_a_bit_cours/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="Bits à bits - cours">
-  <meta property="og:description" content="Opérateurs en taille quelconque # On applique, bit par bit nos opérateurs usuels :
+  <meta property="og:description" content="On peut appliquer les opérateurs booléens sur les différents bits d’un nombre ou de deux nombres.
+Ce sont des “opérations bit à bit”.
+Opérateurs en taille quelconque # On applique, bit par bit nos opérateurs usuels :
 NOT bit à bit # Chaque bit est inversé.
 Sur 4 bits, NOT 7 = 8
-NOT 0111 = 1000 ET bit à bit # Sur 4 bits, 5 AND 3 = 1 :
-0101 AND 0011 = 0001 OU bit à bit # Sur 4 bits, 5 OR 3 = 7 :
-0101 OR 0011 = 0111 XOR bit à bit # Sur 4 bits, 5 XOR 3 = 6 :">
+NOT 0111 = 1000 Pour cet opérateur, il est nécessaire de connaître la capacité employée, ici 4 bits.
+ET bit à bit # On fait un and sur chaque bit des nombres en respectant les positions.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>Bits à bits - cours | qkzk</title>
@@ -55,7 +43,7 @@ NOT 0111 = 1000 ET bit à bit # Sur 4 bits, 5 AND 3 = 1 :
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.0c868444bc190282c93408090004331e396f8dce525f23775ed7b6d851070049.js" integrity="sha256-DIaERLwZAoLJNAgJAAQzHjlvjc5SXyN3Xte22FEHAEk=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.0da12fc8a8e81576708bde07b02a64c292c637f72a2a4d29333ece6d0ae2a481.js" integrity="sha256-DaEvyKjoFXZwi94HsCpkwpLGN/cqKk0pMz7ObQripIE=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/binaire/5_operations_bit_a_bit_cours/index.xml" title="qkzk" />
 <!--
@@ -63,6 +51,24 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script id="MathJax-script" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 
 
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.2/add-html-label-3fd8c466.min.js"></script>
@@ -7330,7 +7336,9 @@ https://github.com/alex-shpak/hugo-book
 
                 
                 
-<article class="markdown"><h2 id="opérateurs-en-taille-quelconque">
+<article class="markdown"><p>On peut appliquer les opérateurs booléens sur les différents bits d&rsquo;un nombre ou de deux nombres.</p>
+<p>Ce sont des &ldquo;<em>opérations bit à bit</em>&rdquo;.</p>
+<h2 id="opérateurs-en-taille-quelconque">
   Opérateurs en taille quelconque
   <a class="anchor" href="#op%c3%a9rateurs-en-taille-quelconque">#</a>
 </h2>
@@ -7340,33 +7348,36 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#not-bit-%c3%a0-bit">#</a>
 </h3>
 <p>Chaque bit est inversé.</p>
-<p>Sur 4 bits, NOT 7 = 8</p>
+<p><strong>Sur 4 bits</strong>, NOT 7 = 8</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>NOT <span style="color:#f60">0111</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">1000</span>
-</span></span></code></pre></div><h3 id="et-bit-à-bit">
+</span></span></code></pre></div><p>Pour cet opérateur, il est nécessaire de connaître la <em>capacité</em> employée, ici 4 bits.</p>
+<h3 id="et-bit-à-bit">
   ET bit à bit
   <a class="anchor" href="#et-bit-%c3%a0-bit">#</a>
 </h3>
-<p>Sur 4 bits, 5 AND 3 = 1 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">0101</span>
-</span></span><span style="display:flex;"><span>AND <span style="color:#f60">0011</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">0001</span>
+<p>On fait un <code>and</code> sur chaque bit des nombres en respectant les positions.</p>
+<p>Par exemple : 5 AND 3 = 1.</p>
+<p>$5 = 0b101$, $3=0b11$ donc :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">101</span>
+</span></span><span style="display:flex;"><span>AND <span style="color:#f60">011</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">001</span>
 </span></span></code></pre></div><h3 id="ou-bit-à-bit">
   OU bit à bit
   <a class="anchor" href="#ou-bit-%c3%a0-bit">#</a>
 </h3>
-<p>Sur 4 bits, 5 OR 3 = 7 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>   <span style="color:#f60">0101</span>
-</span></span><span style="display:flex;"><span>OR <span style="color:#f60">0011</span>
-</span></span><span style="display:flex;"><span> <span style="color:#555">=</span> <span style="color:#f60">0111</span>
+<p>5 OR 3 = 7 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>   <span style="color:#f60">101</span>
+</span></span><span style="display:flex;"><span>OR <span style="color:#f60">011</span>
+</span></span><span style="display:flex;"><span> <span style="color:#555">=</span> <span style="color:#f60">111</span>
 </span></span></code></pre></div><h3 id="xor-bit-à-bit">
   XOR bit à bit
   <a class="anchor" href="#xor-bit-%c3%a0-bit">#</a>
 </h3>
-<p>Sur 4 bits, 5 XOR 3 = 6 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">0101</span>
-</span></span><span style="display:flex;"><span>XOR <span style="color:#f60">0011</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">0110</span>
+<p>5 XOR 3 = 6 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f60">101</span>
+</span></span><span style="display:flex;"><span>XOR <span style="color:#f60">011</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#555">=</span> <span style="color:#f60">110</span>
 </span></span></code></pre></div><h2 id="python">
   Python
   <a class="anchor" href="#python">#</a>
@@ -7376,9 +7387,9 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#op%c3%a9rateurs-bits-%c3%a0-bits-en-python">#</a>
 </h3>
 <blockquote class="book-hint info">
-  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#555">&amp;</span> y       <span style="color:#09f;font-style:italic"># ET  bit à bit (ampersand)</span>
+  <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">~</span>x          <span style="color:#09f;font-style:italic"># NON bit à bit (tilde)</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#555">&amp;</span> y       <span style="color:#09f;font-style:italic"># ET  bit à bit (ampersand)</span>
 </span></span><span style="display:flex;"><span>x <span style="color:#555">|</span> y       <span style="color:#09f;font-style:italic"># OU  bit à bit (tuyau)</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">~</span>x          <span style="color:#09f;font-style:italic"># NON bit à bit (tilde)</span>
 </span></span><span style="display:flex;"><span>x <span style="color:#555">^</span> y       <span style="color:#09f;font-style:italic"># XOR bit à bit (accent circonflexe)</span>
 </span></span></code></pre></div>
 </blockquote>
