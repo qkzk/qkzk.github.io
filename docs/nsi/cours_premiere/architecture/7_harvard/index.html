@@ -5,29 +5,44 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  Comparaison d&rsquo;architectures : Von Neumann et Harvard
-  #
-
-pdf
-
   Application : extrait du sujet de bac polynésie 2021, partie architecture
   #
 
-pdf">
+
+pdf
+
+
+  L&rsquo;architecture des microprocesseurs
+  #
+
+Nous avons rencontré l&rsquo;architecture de Von Neumann.
+Dans celle-ci, la mémoire est unique. Elle permet d&rsquo;enregistrer à la fois
+les instructions et les données.
+Ce n&rsquo;est pas la seule architecture employée actuellement.
+Il existe aussi l&rsquo;architecture de Harvard dont l&rsquo;usage est généralement reservé aux microcontrôleurs.
+
+  Architecture de Harvard
+  #
+
+$;$">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/7_harvard/">
   <meta property="og:site_name" content="qkzk">
   <meta property="og:title" content="Harvard vs Von Neumann">
-  <meta property="og:description" content="Comparaison d’architectures : Von Neumann et Harvard # pdf
-Application : extrait du sujet de bac polynésie 2021, partie architecture # pdf">
+  <meta property="og:description" content="Application : extrait du sujet de bac polynésie 2021, partie architecture # pdf
+L’architecture des microprocesseurs # Nous avons rencontré l’architecture de Von Neumann.
+Dans celle-ci, la mémoire est unique. Elle permet d’enregistrer à la fois les instructions et les données.
+Ce n’est pas la seule architecture employée actuellement.
+Il existe aussi l’architecture de Harvard dont l’usage est généralement reservé aux microcontrôleurs.
+Architecture de Harvard # $;$">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 <title>Harvard vs Von Neumann | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.5b654769b4e7b5b17e2488c34e2ff25d25b2842c97c8a2f7b5115bb10cbc9cd8.css" integrity="sha256-W2VHabTntbF&#43;JIjDTi/yXSWyhCyXyKL3tRFbsQy8nNg=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.877eef1544a57123f84d32e5b8d35d8cb574477b590d0688a346b70bb7d86ec5.js" integrity="sha256-h37vFUSlcSP4TTLluNNdjLV0R3tZDQaIo0a3C7fYbsU=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.fe0907c1ba488842822280592ebf2e43cab22691965b071f255b4d995069d94d.js" integrity="sha256-/gkHwbpIiEKCIoBZLr8uQ8qyJpGWWwcfJVtNmVBp2U0=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/architecture/7_harvard/index.xml" title="qkzk" />
 <!--
@@ -35,6 +50,24 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script id="MathJax-script" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 
 
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.2/add-html-label-3fd8c466.min.js"></script>
@@ -7359,10 +7392,33 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li><a href="#comparaison-darchitectures--von-neumann-et-harvard">Comparaison d&rsquo;architectures : Von Neumann et Harvard</a></li>
-        <li><a href="#application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">Application : extrait du sujet de bac polynésie 2021, partie architecture</a></li>
+        <li><a href="#application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">Application : extrait du sujet de bac <a href="./polynesie_2021_archi.pdf">polynésie 2021, partie architecture</a></a></li>
       </ul>
     </li>
+    <li><a href="#larchitecture-des-microprocesseurs">L&rsquo;architecture des microprocesseurs</a></li>
+    <li><a href="#architecture-de-harvard">Architecture de Harvard</a></li>
+    <li><a href="#comparaison-à-larchitecture-de-von-neumann">Comparaison à l&rsquo;architecture de Von Neumann</a></li>
+    <li><a href="#programme-se-modifiant-lui-même">Programme se modifiant lui même</a></li>
+    <li><a href="#est-ce-mieux-">Est-ce mieux ?</a></li>
+    <li><a href="#est-ce-utilisé--microcontôleur-vs-microprocesseur">Est-ce utilisé ? Microcontôleur vs Microprocesseur</a>
+      <ul>
+        <li><a href="#quest-ce-quun-microcontrôleur-">Qu&rsquo;est-ce qu&rsquo;un <strong>microcontrôleur</strong> ?</a></li>
+        <li><a href="#rappels--microprocesseur">Rappels : microprocesseur</a></li>
+        <li><a href="#mais-ça-vaut-le-coup-davoir-une-seule-mémoire-">Mais&hellip; ça vaut le coup d&rsquo;avoir une seule mémoire ?</a></li>
+        <li><a href="#tldr">TLDR</a></li>
+      </ul>
+    </li>
+    <li><a href="#marchés">Marchés</a></li>
+    <li><a href="#historique">Historique</a></li>
+    <li><a href="#usage-de-larchitecture-de-harvard">Usage de l&rsquo;architecture de Harvard</a>
+      <ul>
+        <li><a href="#processeur-de-signal-numérique-dsp">Processeur de signal numérique (<em>DSP</em>)</a></li>
+        <li><a href="#signal-">Signal ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#intérêt">Intérêt</a></li>
+    <li><a href="#nombre-de-cycles-nécessaires-pour-réaliser-une-opération-courante">Nombre de cycles nécessaires pour réaliser une opération courante</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
@@ -7376,16 +7432,293 @@ https://github.com/alex-shpak/hugo-book
 
                 
                 
-<article class="markdown"><h3 id="comparaison-darchitectures--von-neumann-et-harvard">
-  Comparaison d&rsquo;architectures : Von Neumann et Harvard
-  <a class="anchor" href="#comparaison-darchitectures--von-neumann-et-harvard">#</a>
-</h3>
-<p><a href="./comparaison_archi.pdf">pdf</a></p>
-<h3 id="application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">
-  Application : extrait du sujet de bac polynésie 2021, partie architecture
+<article class="markdown"><h3 id="application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">
+  Application : extrait du sujet de bac <a href="./polynesie_2021_archi.pdf">polynésie 2021, partie architecture</a>
   <a class="anchor" href="#application--extrait-du-sujet-de-bac-polyn%c3%a9sie-2021-partie-architecture">#</a>
 </h3>
-<p><a href="./polynesie_2021_archi.pdf">pdf</a></p>
+<hr>
+<p><a href="./6_comparaison_archi.pdf">pdf</a></p>
+<hr>
+<h2 id="larchitecture-des-microprocesseurs">
+  L&rsquo;architecture des microprocesseurs
+  <a class="anchor" href="#larchitecture-des-microprocesseurs">#</a>
+</h2>
+<p>Nous avons rencontré l&rsquo;architecture de Von Neumann.</p>
+<p>Dans celle-ci, la mémoire <strong>est unique</strong>. Elle permet d&rsquo;enregistrer à la fois
+les instructions et les données.</p>
+<p>Ce n&rsquo;est pas la seule architecture employée actuellement.</p>
+<p>Il existe aussi l&rsquo;architecture de Harvard dont l&rsquo;usage est généralement reservé aux microcontrôleurs.</p>
+<h2 id="architecture-de-harvard">
+  Architecture de Harvard
+  <a class="anchor" href="#architecture-de-harvard">#</a>
+</h2>
+<p>$;$<img src="./img/comparaison_harvard_vonneumann.gif" alt="Comparaison des architectures" /></p>
+<h2 id="comparaison-à-larchitecture-de-von-neumann">
+  Comparaison à l&rsquo;architecture de Von Neumann
+  <a class="anchor" href="#comparaison-%c3%a0-larchitecture-de-von-neumann">#</a>
+</h2>
+<ul>
+<li>l&rsquo;architecture de Von Neumann n&rsquo;utilise qu&rsquo;une seule mémoire pour enregistrer ses programmes et ses données.</li>
+<li>l&rsquo;architecture de Harvard utilise deux mémoires différentes (et donc deux bus différents).</li>
+</ul>
+<h2 id="programme-se-modifiant-lui-même">
+  Programme se modifiant lui même
+  <a class="anchor" href="#programme-se-modifiant-lui-m%c3%aame">#</a>
+</h2>
+<p>L&rsquo;intérêt majeur de l&rsquo;archicture de Von Neumann est de pouvoir modifier (installer, effacer, mettre à jour etc.) les programmes qui sont traités comme des <em>données</em>.
+C&rsquo;est indispensable pour disposer d&rsquo;un système d&rsquo;exploitation complet.</p>
+<p>Généralement, la mémoire &ldquo;programme&rdquo; d&rsquo;une architecture de Harvard est une ROM (Read Only Memory). Le programme ne peut se modifier lui même. Cela empêche les mises à jour des programmes autrement qu&rsquo;en mettant la ROM à jour (flashage). On ne peut utiliser d&rsquo;OS grand public sur une architecture de Harvard.</p>
+<h2 id="est-ce-mieux-">
+  Est-ce mieux ?
+  <a class="anchor" href="#est-ce-mieux-">#</a>
+</h2>
+<p>Cela dépend des contextes !</p>
+<ul>
+<li>L&rsquo;architecture de Von Neumann est plus souple, on peut l&rsquo;employer avec peu d&rsquo;instructions, beaucoup d&rsquo;instructions, peu de mémoire, beaucoup de mémoire&hellip;</li>
+<li>L&rsquo;architecture de Harvard est spécifique et demande d&rsquo;anticiper l&rsquo;usage durant la phase de conception du processeur. Si on ne tire pas partie de cette simultanéité, alors elle ne fait que compliquer le développement.</li>
+</ul>
+<p>Notons que les deux familles de processeurs qu&rsquo;on rencontre dans la majorité des machines modernes grands publics (ARM vs x86 ou, pour simplifier, Mobile vs PC) ont un nombre d&rsquo;instructions très différent.</p>
+<p>Les processeurs ARM disposent de peu d&rsquo;instructions contrairement aux processeurs x86 qui en ont beaucoup.
+L&rsquo;architecture de Von Neumann permet de modéliser ces deux types de processeurs facilement.</p>
+<p>C&rsquo;est la raison pour laquelle on réserve l&rsquo;architecture de Harvard à des
+contextes très spécifiques.</p>
+<h2 id="est-ce-utilisé--microcontôleur-vs-microprocesseur">
+  Est-ce utilisé ? Microcontôleur vs Microprocesseur
+  <a class="anchor" href="#est-ce-utilis%c3%a9--microcont%c3%b4leur-vs-microprocesseur">#</a>
+</h2>
+<p>Pour faire très simple :</p>
+<ul>
+<li>les deux architectures sont utilisées</li>
+<li>parfois dans un seul processeur</li>
+</ul>
+<p>Dans les &ldquo;ordinateurs&rdquo; (smartphone, PC, Mac, Consoles etc.) on utilise
+des micro<strong>processeurs</strong>. Ils doivent être disposés sur une carte comportant les autres éléments : mémoire, entrées sorties etc.
+Dans cette situation on emploie l&rsquo;archicture de Von Neumann.</p>
+<p>Dans les machines spécifiques (contrôleurs embarqués dans les micro-ondes, enceintes,
+puces wifi, contrôleur d&rsquo;une pompe à injection etc.) l&rsquo;usage est spécifique
+et on utilise des micro<strong>contrôleurs</strong>. La quantité de mémoire nécessaire est
+bien moindre et ces machines n&rsquo;évoluent généralement pas. Il est plus simple
+de les remplacer directement. On emploie alors une architecture de Harvard
+afin d&rsquo;accélérer les traitements particuliers.</p>
+<h3 id="quest-ce-quun-microcontrôleur-">
+  Qu&rsquo;est-ce qu&rsquo;un <strong>microcontrôleur</strong> ?
+  <a class="anchor" href="#quest-ce-quun-microcontr%c3%b4leur-">#</a>
+</h3>
+<p>Un microcontrôleur (en notation abrégée µc, ou uc ou encore MCU en anglais) est
+un circuit intégré qui rassemble les éléments essentiels d&rsquo;un ordinateur :
+processeur, mémoires (mémoire morte et mémoire vive), unités périphériques et
+interfaces d&rsquo;entrées-sorties. Les microcontrôleurs se caractérisent par un plus
+haut degré d&rsquo;intégration, une plus faible consommation électrique, une vitesse
+de fonctionnement plus faible (de quelques mégahertz jusqu&rsquo;à plus d&rsquo;un
+gigahertz) et un coût réduit par rapport aux microprocesseurs polyvalents
+utilisés dans les ordinateurs personnels.</p>
+<p>$:$<img src="./img/MC68HC11_microcontroller.jpg" alt="Microcontroleur Motorolla MC68JC11" /></p>
+<p>Par rapport à des systèmes électroniques à base de microprocesseurs et autres
+composants séparés, les microcontrôleurs permettent de diminuer la taille, la
+consommation électrique et le coût des produits. Ils ont ainsi permis de
+démocratiser l&rsquo;utilisation de l&rsquo;informatique dans un grand nombre de produits
+et de procédés.</p>
+<p>Les microcontrôleurs sont fréquemment utilisés dans les systèmes embarqués,
+comme les contrôleurs des moteurs automobiles, les télécommandes, les appareils
+de bureau, l&rsquo;électroménager, les jouets, la téléphonie mobile, etc.</p>
+<h3 id="rappels--microprocesseur">
+  Rappels : microprocesseur
+  <a class="anchor" href="#rappels--microprocesseur">#</a>
+</h3>
+<p>Ils disposent de mémoire en dehors du cache présent sur la puce.</p>
+<p>L&rsquo;ordinateur boot à l&rsquo;aide d&rsquo;un petit programme en mémoire ROM, charge ses programmes
+dans la RAM qui contient aussi les données. Les programems sont exécutés depuis
+la mémoire qui occupe généralement quelques gigaoctets.</p>
+<p>Cela engendre un problème appelé &ldquo;von Neumann bottleneck&rdquo;, la vitesse de transfert
+entre la mémoire et le CPU étant limitée. L&rsquo;usage de la mémoire est limité
+par ce goulot d&rsquo;étranglement. Cela ralenti considérablement l&rsquo;exécution de tâches
+très simples sur de grandes quantités de mémoire (ajouter 1 à 3000 nombres différents).</p>
+<p>Depuis la fin des années 70 de nombreuses solutions sont mises en oeuvre
+pour améliorer l&rsquo;architecture de Von Neumann (utilisation du cache, anticiper
+le résultat d&rsquo;une instruction, concentrer la mémoire à proximité du CPU etc.)</p>
+<p>L&rsquo;utilisation de l&rsquo;architecture de Harvard est une réponse à ce problème.</p>
+<h3 id="mais-ça-vaut-le-coup-davoir-une-seule-mémoire-">
+  Mais&hellip; ça vaut le coup d&rsquo;avoir une seule mémoire ?
+  <a class="anchor" href="#mais-%c3%a7a-vaut-le-coup-davoir-une-seule-m%c3%a9moire-">#</a>
+</h3>
+<p>Considérer les programmes comme des données est ce qui permet de développer
+des programmes. Sans ça, il n&rsquo;est pas possible d&rsquo;assembler, de compiler,
+de lier, de charger les programmes. Il n&rsquo;y a donc pas de langage informatique,
+seulement des instructions qu&rsquo;on suit les unes à la suite des autres.</p>
+<p>Ainsi, on programme les microcontrôleurs depuis un ordinateur. Une fois
+le programme écrit il est traduit en code machine spécifique au microcontroleur
+et chargé dans celui-ci.</p>
+<h3 id="tldr">
+  TLDR
+  <a class="anchor" href="#tldr">#</a>
+</h3>
+<p>Les microprocesseurs peuvent modifier leurs propres programmes. En conséquence
+ils sont universels et peuvent exécuter n&rsquo;importe quel programme.</p>
+<p>Les microcontroleurs ne peuvent modifier leurs programmes. Ils font généralement
+une seule chose mais très vite&hellip; ou alors en consommant très peu de ressources.</p>
+<h2 id="marchés">
+  Marchés
+  <a class="anchor" href="#march%c3%a9s">#</a>
+</h2>
+<p>Marché des microprocesseurs en 2020 : 2.3 milliards d&rsquo;unités produites</p>
+<table>
+  <thead>
+      <tr>
+          <th>Segment</th>
+          <th>Unités produites</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Smartphones</td>
+          <td>1800 millions</td>
+      </tr>
+      <tr>
+          <td>Laptops</td>
+          <td>166 millions</td>
+      </tr>
+      <tr>
+          <td>Tablettes</td>
+          <td>137 millions</td>
+      </tr>
+      <tr>
+          <td>Desktop</td>
+          <td>88 millions</td>
+      </tr>
+  </tbody>
+</table>
+<p>Marché des microcontrôleurs en 2020 : 27 milliards d&rsquo;unités produites&hellip;
+soit <em>douze fois plus</em>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Segment</th>
+          <th>Pourcentage</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>32 bits</td>
+          <td>40%</td>
+      </tr>
+      <tr>
+          <td>16 bits</td>
+          <td>24%</td>
+      </tr>
+      <tr>
+          <td>8 bits</td>
+          <td>33%</td>
+      </tr>
+      <tr>
+          <td>divers</td>
+          <td>3%</td>
+      </tr>
+  </tbody>
+</table>
+<p>Dernières donnée : dans une voiture moderne, on trouve une centaine de microcontroleurs&hellip; mais aussi des microprocesseurs.</p>
+<h2 id="historique">
+  Historique
+  <a class="anchor" href="#historique">#</a>
+</h2>
+<p>Le nom de l&rsquo;architecture de Harvard vient du nom de l’université Harvard où une telle architecture a été mise en pratique pour la première fois avec le Mark I en 1944.</p>
+<h2 id="usage-de-larchitecture-de-harvard">
+  Usage de l&rsquo;architecture de Harvard
+  <a class="anchor" href="#usage-de-larchitecture-de-harvard">#</a>
+</h2>
+<h3 id="processeur-de-signal-numérique-dsp">
+  Processeur de signal numérique (<em>DSP</em>)
+  <a class="anchor" href="#processeur-de-signal-num%c3%a9rique-dsp">#</a>
+</h3>
+<p>Un DSP (de l&rsquo;anglais « Digital Signal Processor », qu&rsquo;on pourrait traduire par
+&ldquo;processeur de signal numérique&rdquo; ou &ldquo;traitement numérique de signal&rdquo;) est
+un microprocesseur optimisé pour exécuter des applications de traitement
+numérique du signal (filtrage, extraction de signaux, etc.) le plus rapidement
+possible.</p>
+<p>Les DSP sont utilisés dans la plupart des applications du traitement numérique
+du signal en temps réel. On les trouve dans les modems (modem RTC, modem ADSL),
+les téléphones mobiles, les appareils multimédia (lecteur MP3), les récepteurs
+GPS&hellip; Ils sont également utilisés dans des systèmes vidéo, les chaînes de
+traitement de son, partout où l&rsquo;on reçoit un signal complexe que l&rsquo;on doit
+modifier à l&rsquo;aide du filtrage.</p>
+<h3 id="signal-">
+  Signal ?
+  <a class="anchor" href="#signal-">#</a>
+</h3>
+<p>Si l&rsquo;informatique ne traite que des 1 et des 0, le monde qui nous entoure
+est différent. L&rsquo;information (la voix, la lumière, le rayonnement) circule
+sous la forme d&rsquo;ondes (éléctromagnétique pour la lumière, la radio etc., mécanique
+pour le son). Afin de capter ces ondes (photographie, microphone, téléphone
+analogique) ou de les émettre (écran, enceintes) il convient de transformer
+ce signal analogique (ondes) en numérique (0/1) et inversement.</p>
+<p>Par opposition à un traitement de texte ou une base de donnée, le traitement
+du signal nécessite beaucoup d&rsquo;opérations mathématiques</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Manipulation des données</strong></th>
+          <th><strong>Calculs mathématiques</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Applications</strong></td>
+          <td>Traitement de texte</td>
+          <td>Simulation</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>base de données</td>
+          <td>Signal</td>
+      </tr>
+      <tr>
+          <td><strong>Opérations</strong></td>
+          <td>Mouvent de données (<code>A &lt;- B</code>)</td>
+          <td>Addition (<code>C &lt;- A + B</code>)</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Conditions (<code>Si A=B...</code>)</td>
+          <td>Multiplication (<code>C &lt;- A + B</code>)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="intérêt">
+  Intérêt
+  <a class="anchor" href="#int%c3%a9r%c3%aat">#</a>
+</h2>
+<h2 id="nombre-de-cycles-nécessaires-pour-réaliser-une-opération-courante">
+  Nombre de cycles nécessaires pour réaliser une opération courante
+  <a class="anchor" href="#nombre-de-cycles-n%c3%a9cessaires-pour-r%c3%a9aliser-une-op%c3%a9ration-courante">#</a>
+</h2>
+<p>L&rsquo;architecture de Von Neumann n&rsquo;emploie qu&rsquo;un bus, c&rsquo;est une contrainte supplémentaire :
+les opérations doivent être planifiées car elles ne peuvent être réalisées en même
+temps. Ainsi <code>c = a + b</code> nécessite de :</p>
+<ul>
+<li>lire la valeur de <code>a</code>,</li>
+<li>lire la valeur de <code>b</code>,</li>
+<li>calculer <code>a + b</code>,</li>
+<li>écrire la valeur de <code>c</code>.</li>
+</ul>
+<p>L&rsquo;architecture de Harvard permet d&rsquo;accéder à la fois aux données et aux instructions simultanément.</p>
+<p>Ainsi, <code>c = a + b</code> nécessite de :</p>
+<ul>
+<li>lire la valeur de <code>a</code>,</li>
+<li>lire la valeur de <code>b</code> <strong>ET</strong> calculer <code>a + b</code> en même temps,</li>
+<li>écrire la valeur de <code>c</code>.</li>
+</ul>
+<p>La différence est modeste, mais répétée des milliards de fois par seconde&hellip;</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>Spécialiser les machines permet de les rendre plus rapides ou plus économes.
+En contrepartie, on perd la souplesse d&rsquo;usage et on complexifie leur conception.</p>
+<p>Selon qu&rsquo;on souhaite créer un processeur généraliste, capable d&rsquo;écrire un programme
+et de l&rsquo;optimiser et surtout de faire n&rsquo;importe quoi (microprocesseur) ou un
+processeur spécifique dont la fonction est généralement unique
+(microcontroleur) on privilégie une architecture (Von Neumann) ou une autre
+(Harvard).</p>
 </article>
 
                 
@@ -7449,10 +7782,33 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li><a href="#comparaison-darchitectures--von-neumann-et-harvard">Comparaison d&rsquo;architectures : Von Neumann et Harvard</a></li>
-        <li><a href="#application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">Application : extrait du sujet de bac polynésie 2021, partie architecture</a></li>
+        <li><a href="#application--extrait-du-sujet-de-bac-polynésie-2021-partie-architecture">Application : extrait du sujet de bac <a href="./polynesie_2021_archi.pdf">polynésie 2021, partie architecture</a></a></li>
       </ul>
     </li>
+    <li><a href="#larchitecture-des-microprocesseurs">L&rsquo;architecture des microprocesseurs</a></li>
+    <li><a href="#architecture-de-harvard">Architecture de Harvard</a></li>
+    <li><a href="#comparaison-à-larchitecture-de-von-neumann">Comparaison à l&rsquo;architecture de Von Neumann</a></li>
+    <li><a href="#programme-se-modifiant-lui-même">Programme se modifiant lui même</a></li>
+    <li><a href="#est-ce-mieux-">Est-ce mieux ?</a></li>
+    <li><a href="#est-ce-utilisé--microcontôleur-vs-microprocesseur">Est-ce utilisé ? Microcontôleur vs Microprocesseur</a>
+      <ul>
+        <li><a href="#quest-ce-quun-microcontrôleur-">Qu&rsquo;est-ce qu&rsquo;un <strong>microcontrôleur</strong> ?</a></li>
+        <li><a href="#rappels--microprocesseur">Rappels : microprocesseur</a></li>
+        <li><a href="#mais-ça-vaut-le-coup-davoir-une-seule-mémoire-">Mais&hellip; ça vaut le coup d&rsquo;avoir une seule mémoire ?</a></li>
+        <li><a href="#tldr">TLDR</a></li>
+      </ul>
+    </li>
+    <li><a href="#marchés">Marchés</a></li>
+    <li><a href="#historique">Historique</a></li>
+    <li><a href="#usage-de-larchitecture-de-harvard">Usage de l&rsquo;architecture de Harvard</a>
+      <ul>
+        <li><a href="#processeur-de-signal-numérique-dsp">Processeur de signal numérique (<em>DSP</em>)</a></li>
+        <li><a href="#signal-">Signal ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#intérêt">Intérêt</a></li>
+    <li><a href="#nombre-de-cycles-nécessaires-pour-réaliser-une-opération-courante">Nombre de cycles nécessaires pour réaliser une opération courante</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 
