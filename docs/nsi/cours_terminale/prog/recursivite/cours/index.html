@@ -39,7 +39,7 @@ Théorie destinée à fournir un cadre rigoureux à l’étude des notions intui
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.5b654769b4e7b5b17e2488c34e2ff25d25b2842c97c8a2f7b5115bb10cbc9cd8.css" integrity="sha256-W2VHabTntbF&#43;JIjDTi/yXSWyhCyXyKL3tRFbsQy8nNg=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.1a045ed32317938c037c9084274f4b6802f6ccc1b5b5869303f9a95c53dd8e78.js" integrity="sha256-GgRe0yMXk4wDfJCEJ09LaAL2zMG1tYaTA/mpXFPdjng=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.6305d917828dc4a6d19388e075141825553aa9d35d4bca0b3066b0c15545291a.js" integrity="sha256-YwXZF4KNxKbRk4jgdRQYJVU6qdNdS8oLMGawwVVFKRo=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_terminale/prog/recursivite/cours/index.xml" title="qkzk" />
 <!--
@@ -7495,15 +7495,13 @@ MathJax.Hub.Config({
         <li><a href="#taille-de-la-pile-des-appels-récusifs">Taille de la pile des appels récusifs</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#eléments-caractéristiques">Eléments Caractéristiques</a>
       <ul>
         <li><a href="#mauvaise-conception-récursive">Mauvaise conception récursive</a></li>
       </ul>
     </li>
     <li><a href="#un-autre-exemple">Un autre exemple</a></li>
+    <li><a href="#compléments">Compléments</a></li>
     <li><a href="#récursivité-terminale-tail-recursion">Récursivité terminale (<em>tail recursion</em>)</a>
       <ul>
         <li><a href="#récursivité-croisée">Récursivité croisée</a></li>
@@ -7586,37 +7584,34 @@ MathJax.Hub.Config({
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>derivee(f) =
 </span></span><span style="display:flex;"><span>    si f est une fonction élémentaire de base
 </span></span><span style="display:flex;"><span>        renvoyer sa dérivée
-</span></span><span style="display:flex;"><span>    sinon si f == u+v
+</span></span><span style="display:flex;"><span>    sinon si f == u + v
 </span></span><span style="display:flex;"><span>        renvoyer derivee(u) + derivee(v)
 </span></span><span style="display:flex;"><span>    sinon si f == u × v
-</span></span><span style="display:flex;"><span>        renvoyer derivee(u)×v + u×derivee(v)
+</span></span><span style="display:flex;"><span>        renvoyer derivee(u) × v + u × derivee(v)
 </span></span><span style="display:flex;"><span>    sinon si …
 </span></span></code></pre></div><ol start="2">
 <li>Production de fractales :</li>
 </ol>
 <p>On dispose de la primitive <em>tracer(l)</em> qui permet de tracer un segment de longueur <em>l</em>.</p>
 <p>Le processus de tracé d&rsquo;un segment de von koch de taille <em>l</em>  à l&rsquo;ordre <em>n</em> est :</p>
-<p><em>vonkoch</em>(l,n)</p>
-<ul>
-<li>
-<p>si n = 1, <em>tracer(l)</em></p>
-</li>
-<li>
-<p>sinon</p>
-<ul>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à gauche de 60°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à droite de 120°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-<li>tourner à gauche de 60°</li>
-<li><em>vonkoch</em>(l/3, n-1)</li>
-</ul>
-</li>
-</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>vonkoch(l,n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>si n <span style="color:#555">=</span> <span style="color:#f60">1</span>: 
+</span></span><span style="display:flex;"><span>  tracer(l)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sinon:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  vonkoch(l<span style="color:#555">/</span><span style="color:#f60">3</span>, n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span>  tourner à gauche de <span style="color:#f60">60</span>
+</span></span><span style="display:flex;"><span>  vonkoch(l<span style="color:#555">/</span><span style="color:#f60">3</span>, n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span>  tourner à droite de <span style="color:#f60">120</span>
+</span></span><span style="display:flex;"><span>  vonkoch(l<span style="color:#555">/</span><span style="color:#f60">3</span>, n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span>  tourner à gauche de <span style="color:#f60">60</span>
+</span></span><span style="display:flex;"><span>  vonkoch(l<span style="color:#555">/</span><span style="color:#f60">3</span>, n<span style="color:#555">-</span><span style="color:#f60">1</span>)
+</span></span></code></pre></div><p><a href="https://trinket.io/turtle/a47fc11f8eb7" target="_blank" rel="noopener">Trinket.io</a></p>
 <p>Le <a href="/uploads/docnsitale/recursivite/img/flocon_vonkoch.gif">flocon</a> est obtenu en traçant 3 segments de von koch séparés par des rotations à droite de 120°.</p>
 <p><img src="/uploads/docnsitale/recursivite/img/flocon_vonkoch.gif" alt="flocon" /></p>
-<p><em>NB</em> Se réalise très bien avec la tortue (module <code>turtle</code>), <em>tracer(l)</em> = <code>forward(l)</code> et les fonctions <code>right</code>et <code>left</code> permettent les rotations</p>
+<p><em>Remarque :</em> Se réalise très bien avec le module <code>turtle</code> : <em>tracer(l)</em> = <code>forward(l)</code> et les fonctions <code>right</code>et <code>left</code> permettent les rotations</p>
 <h3 id="images">
   Images
   <a class="anchor" href="#images">#</a>
@@ -7694,14 +7689,16 @@ Dans un algorithme récursif, on nomme <strong>appel récursif</strong> toute é
   <a class="anchor" href="#exemple">#</a>
 </h3>
 <p>Ne faisons pas dans l&rsquo;originalité, la <em>factorielle</em> :</p>
-<p>$$n! = n \times (n-1)! \text{ si } n &gt; 1 \text{ et } 0! = 1$$</p>
-<p>Principe :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  5! = 5 x 4!
-</span></span><span style="display:flex;"><span>     = 5 x 4 x 3!
-</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2!
-</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1!
-</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1 x 0!
-</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1 x 1
+<p>$$\text{Si } n &gt; 1, \hspace{1cm} n! = n \times (n - 1)$$
+$$\text{sinon, }\hspace{1cm} 0! = 1 \text{ et } 1! = 1$$</p>
+<p>Déroulé :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  5! =                          &lt;--- on remplace 5!
+</span></span><span style="display:flex;"><span>     = 5 x 4!                   &lt;--- on remplace 4!
+</span></span><span style="display:flex;"><span>     = 5 x 4 x 3!               &lt;--- on remplace 3!
+</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2!           &lt;--- on remplace 2!
+</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1!       &lt;--- on remplace 1!
+</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1 x 0!   &lt;--- on remplace 0!
+</span></span><span style="display:flex;"><span>     = 5 x 4 x 3 x 2 x 1 x 1    &lt;--- il n&#39;y a plus rien à remplacer
 </span></span><span style="display:flex;"><span>     = 120
 </span></span></code></pre></div><h3 id="programmation">
   Programmation
@@ -7712,10 +7709,75 @@ Dans un algorithme récursif, on nomme <strong>appel récursif</strong> toute é
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> fact(<span style="color:#f60">5</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> fact(<span style="color:#f60">5</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f60">120</span>
-</span></span></code></pre></div><h2 id="déroulement-de-lexécution">
+</span></span></code></pre></div><script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/comment/comment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/fullscreen.js"></script>
+
+
+    <h3 id="factorielle">
+  Factorielle
+  <a class="anchor" href="#factorielle">#</a>
+</h3>
+
+
+
+<main>
+    <div id="python_ide_0">
+        <textarea id="commands_0" class="commands">
+
+def fact(n):
+    if n &lt;= 1:
+        return 1 
+    else:
+        return n * fact(n - 1)
+
+
+print(fact(5))
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        let initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#python_ide_0").then(() => {
+        const ide = document.querySelector("div#python_ide_0");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<p>Remarques :</p>
+<ol>
+<li>l&rsquo;appel récursif : <code>return n * fact(n - 1)</code></li>
+<li>le cas de base : <code>if n &lt;= 1: return 1</code></li>
+</ol>
+<p>C&rsquo;est donc bien une fonction récursive.</p>
+<p>L&rsquo;appel récursif fait <em>décroître</em> $n$ jusqu&rsquo;à ce qu&rsquo;il devienne $\leq 1$. On dit qu&rsquo;on <em>progresse vers le cas de base</em>, ce qui prouve que la fonction n&rsquo;entre jamais dans une suite infinie d&rsquo;appels récursifs.</p>
+<h2 id="déroulement-de-lexécution">
   Déroulement de l&rsquo;exécution
   <a class="anchor" href="#d%c3%a9roulement-de-lex%c3%a9cution">#</a>
 </h2>
@@ -7766,25 +7828,25 @@ Chaque appel possède son propre environnement, donc ses propres variables.</p>
 <main>
     <h3>
         
-            <h3 id="ordre-des-appels-récursifs">
-  Ordre des appels récursifs
-  <a class="anchor" href="#ordre-des-appels-r%c3%a9cursifs">#</a>
+            <h3 id="graphe-des-appels-récursifs">
+  Graphe des appels récursifs
+  <a class="anchor" href="#graphe-des-appels-r%c3%a9cursifs">#</a>
 </h3>
 
         
     </h3>
-    <div id="viz_0">
+    <div id="viz_1">
     </div>
 </main>
 
 <script>
-    const viz_elm_0 = document.getElementById("viz_0");
-    const graphContent_0 = "\ndigraph G {\n    graph [fontsize=30 labelloc=\"t\" label=\"\" splines=true overlap=false rankdir = \"LR\"];\n    in [label=\"entrée = fact(4)\"]\n    4 [label=\"fact\"]\n    3 [label=\"fact\"]\n    2 [label=\"fact\"]\n    1 [label=\"fact\"]\n    out [label=\"sortie = 24\"]\n    in -\u003e 4 [label=4]\n    4 -\u003e 3 [label=3]\n    3 -\u003e 2 [label=2]\n    2 -\u003e 1 [label=1]\n    1 -\u003e 2 [label=\"1\" loc=\"b\"]\n    2 -\u003e 3 [label=\"2\"]\n    3 -\u003e 4 [label=\"6\"]\n    4 -\u003e out [label=\"24\"]\n}\n";
-    let viz_0 = new Viz();
+    const viz_elm_1 = document.getElementById("viz_1");
+    const graphContent_1 = "\ndigraph G {\n    graph [fontsize=30 labelloc=\"t\" label=\"\" splines=true overlap=false rankdir = \"LR\"];\n    in [label=\"entrée = fact(4)\"]\n    3 [label=\"fact(3)\"]\n    2 [label=\"fact(2)\"]\n    1 [label=\"fact(1) = 1\"]\n    out [label=\"sortie = 24\"]\n    in -\u003e 3\n    3 -\u003e 2\n    2 -\u003e 1 \n    1 -\u003e 2 [label=\"1\" loc=\"b\"]\n    2 -\u003e 3 [label=\"2\" loc=\"b\"]\n    3 -\u003e in [label=\"6\" loc=\"b\"]\n    in -\u003e out [label=\"24\" loc=\"b\"]\n}\n";
+    let viz_1 = new Viz();
     
-    viz_0.renderSVGElement(graphContent_0)
+    viz_1.renderSVGElement(graphContent_1)
         .then(function(element) {
-            viz_elm_0.appendChild(element);
+            viz_elm_1.appendChild(element);
             return element;
         })
         .then(function(element) {
@@ -7792,20 +7854,20 @@ Chaque appel possède son propre environnement, donc ses propres variables.</p>
             let aspectRatio = box.width / box.height;
             if (aspectRatio > 1) {
                 let paddingBottom = Math.ceil(100 / aspectRatio);
-                viz_elm_0.style.paddingBottom = `${paddingBottom}%`;
-                viz_elm_0.style.maxWidth = `${box.width}px`;
-                viz_elm_0.style.maxHeight = `${box.height}px`;
-                viz_elm_0.classList.add("svg-container");
+                viz_elm_1.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_1.style.maxWidth = `${box.width}px`;
+                viz_elm_1.style.maxHeight = `${box.height}px`;
+                viz_elm_1.classList.add("svg-container");
                 element.removeAttribute("width");
                 element.removeAttribute("height");
                 element.classList.add("svg-content");
             } else {
-                viz_elm_0.style.textAlign = "center";
+                viz_elm_1.style.textAlign = "center";
             }
         })
         .catch(error => {
             
-            viz_0 = new Viz();
+            viz_1 = new Viz();
 
             
             console.error(error);
@@ -7846,16 +7908,16 @@ Chaque appel possède son propre environnement, donc ses propres variables.</p>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> fact(<span style="color:#f60">100</span>)
 </span></span><span style="display:flex;"><span>  Traceback (most recent call last):
 </span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;&lt;pyshell&gt;&#34;</span>, line <span style="color:#f60">1</span>, <span style="color:#000;font-weight:bold">in</span> <span style="color:#555">&lt;</span>module<span style="color:#555">&gt;</span>
-</span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;C:\Users\JC\Documents\jc\enseignement\diu</span><span style="color:#c30;font-weight:bold">\b</span><span style="color:#c30">loc1\supports</span><span style="color:#c30;font-weight:bold">\r</span><span style="color:#c30">ecursivite\src</span><span style="color:#c30;font-weight:bold">\r</span><span style="color:#c30">ecursivite.py&#34;</span>, line <span style="color:#f60">16</span>, <span style="color:#000;font-weight:bold">in</span> fact
+</span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;recursivite.py&#34;</span>, line <span style="color:#f60">16</span>, <span style="color:#000;font-weight:bold">in</span> fact
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#555">...</span>
-</span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;C:\Users\JC\Documents\jc\enseignement\diu</span><span style="color:#c30;font-weight:bold">\b</span><span style="color:#c30">loc1\supports</span><span style="color:#c30;font-weight:bold">\r</span><span style="color:#c30">ecursivite\src</span><span style="color:#c30;font-weight:bold">\r</span><span style="color:#c30">ecursivite.py&#34;</span>, line <span style="color:#f60">13</span>, <span style="color:#000;font-weight:bold">in</span> fact
+</span></span><span style="display:flex;"><span>  File <span style="color:#c30">&#34;recursivite.py&#34;</span>, line <span style="color:#f60">13</span>, <span style="color:#000;font-weight:bold">in</span> fact
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#c00;font-weight:bold">RecursionError</span>: maximum recursion depth exceeded <span style="color:#000;font-weight:bold">in</span> comparison
-</span></span></code></pre></div><h1 id="eléments-caractéristiques">
+</span></span></code></pre></div><h2 id="eléments-caractéristiques">
   Eléments Caractéristiques
   <a class="anchor" href="#el%c3%a9ments-caract%c3%a9ristiques">#</a>
-</h1>
+</h2>
 <blockquote class="book-hint info">
   <p>Un programme récursif est constitué de deux parties :</p>
 <ol>
@@ -7868,12 +7930,12 @@ il faut au moins une situation qui ne consiste pas en un appel récursif.</p>
 </li>
 <li>
 <p><strong>Un appel récursif.</strong><br>
-chaque appel récursif doit se faire avec des données qui <strong>permettent de se rapprocher d&rsquo;une situation de terminaison</strong></p>
+chaque appel récursif doit se faire avec des données qui <strong>permettent de se rapprocher d&rsquo;un cas de base</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> n <span style="color:#555">*</span> fact(n<span style="color:#555">-</span><span style="color:#f60">1</span>)
 </span></span></code></pre></div></li>
 </ol>
 <p>Il faut s&rsquo;assurer que la situation de terminaison est atteinte après un nombre fini d&rsquo;appels récursifs.</p>
-<p>La preuve de terminaison d&rsquo;un algorithme récursif se fait en identifiant la construction d&rsquo;une suite strictement décroissante d&rsquo;entiers positifs ou nuls.</p>
+<p>Pour prouver qu&rsquo;un algorithme récursif termine, on construit une suite d&rsquo;entiers naturels strictement décroissante.</p>
 
 </blockquote>
 
@@ -7887,19 +7949,27 @@ chaque appel récursif doit se faire avec des données qui <strong>permettent de
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> n <span style="color:#555">&lt;=</span> <span style="color:#f60">1</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> fact(n<span style="color:#555">+</span><span style="color:#f60">1</span>)<span style="color:#555">/</span>(n<span style="color:#555">+</span><span style="color:#f60">1</span>)
-</span></span></code></pre></div><p><em>Ce programme ne termine pas</em></p>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> fact(n <span style="color:#555">+</span> <span style="color:#f60">1</span>) <span style="color:#555">/</span> (n <span style="color:#555">+</span> <span style="color:#f60">1</span>)
+</span></span></code></pre></div><p><em>Ce programme ne termine pas&hellip;</em></p>
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <p>Parce qu&rsquo;on s&rsquo;éloigne du cas de base.</p>
+<p>La suite des entiers qu&rsquo;on construit est, pour <code>fact(4)</code> est $4, 5, 6, 7,\ldots$</p>
+
+    </div>
+</details>
+
 <h2 id="un-autre-exemple">
   Un autre exemple
   <a class="anchor" href="#un-autre-exemple">#</a>
 </h2>
 <p>Il faut trouver un énoncé récursif de résolution du problème, c&rsquo;est-à-dire un énoncé qui fasse référence au problème lui-même.</p>
-<p><em>Exemple</em> : calculer le nombre d&rsquo;occurrences d&rsquo;un caractère dans une chaîne.</p>
+<p><em>Exemple</em> : calculer le nombre d&rsquo;occurrences d&rsquo;un caractère <code>c</code> dans une chaîne <code>s</code>.</p>
 <p><em>Énonce</em> :</p>
 <ul>
 <li>
 <p><strong>Cas de base</strong></p>
-<p>Le <strong>nombre d&rsquo;occurrences</strong> de <code>c</code> dans <code>s</code> est 0 si <code>s</code> est vide.</p>
+<p>Si <code>s</code> est vide, le <strong>nombre d&rsquo;occurrences</strong> de <code>c</code> dans <code>s</code> est 0.</p>
 </li>
 <li>
 <p><strong>Appel récursif</strong></p>
@@ -7916,11 +7986,157 @@ chaque appel récursif doit se faire avec des données qui <strong>permettent de
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">occurrences</span>(char, string):
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> string <span style="color:#555">==</span> <span style="color:#c30">&#34;&#34;</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">elif</span> char <span style="color:#555">==</span> s[<span style="color:#f60">0</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">elif</span> char <span style="color:#555">==</span> string[<span style="color:#f60">0</span>]:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> occurrences(char, string[<span style="color:#f60">1</span>:])
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> occurrences(char, string[<span style="color:#f60">1</span>:])
 </span></span></code></pre></div><p>La terminaison se vérifie en considérant la suite des longueurs des chaînes passées en paramètre.</p>
+<script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/idea.css">
+<link rel="stylesheet" href="https://qkzk.xyz/css/python_editor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/comment/comment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/fullscreen.js"></script>
+
+
+    <h3 id="occurrences">
+  Occurrences
+  <a class="anchor" href="#occurrences">#</a>
+</h3>
+
+
+
+<main>
+    <div id="python_ide_4">
+        <textarea id="commands_4" class="commands">
+
+def occurrences(char, string):
+    if string == &#34;&#34;:
+        print(&#34;cas de base 0&#34;)
+        return 0
+    elif char == string[0]:
+        print(f&#34;{string} commence par {char} :)&#34;)
+        ret = 1 &#43; occurrences(char, string[1:])
+        print(string, ret)
+        return ret
+    else:
+        print(f&#34;{string} ne commence par par {char} :(&#34;)
+        ret = occurrences(char, string[1:])
+        print(string, ret)
+        return ret 
+
+print(occurrences(&#34;a&#34;, &#34;abracadabra&#34;))
+
+        </textarea>
+        <a class="execute book-btn" title="Ctrl+Enter">Run</a>
+        <a class="reset book-btn" title="Ctrl+R">Reset</a>
+        <a class="download book-btn" title="Ctrl+S">Download</a>
+        <a class="stop book-btn" title="Ctrl+D">Stop</a>
+        <pre class="python_output" style="display: none;">Résultat</pre>
+        <pre class="python_error" style="display: none;"></pre>
+        <pre class="worker_error" style="display: none;"></pre>
+    </div>
+</main>
+<script type="module">
+    import { onElementLoaded, init_worker } from "https:\/\/qkzk.xyz\/js/pyodide_consumer.js";
+
+    const url = "https:\/\/qkzk.xyz\/js/pyodide_webworker.js";
+
+    async function start_worker(ide) {
+        
+        let initfile = null;
+        
+        init_worker(ide, url, initfile);
+    }
+
+
+    onElementLoaded("div#python_ide_4").then(() => {
+        const ide = document.querySelector("div#python_ide_4");
+        start_worker(ide);
+    }).catch(() => { });
+</script>
+
+<p><a href="https://pythontutor.com/render.html#code=def%20occurrences%28char,%20string%29%3A%0A%20%20%20%20if%20string%20%3D%3D%20%22%22%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20elif%20char%20%3D%3D%20string%5B0%5D%3A%0A%20%20%20%20%20%20%20%20return%201%20%2B%20occurrences%28char,%20string%5B1%3A%5D%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20occurrences%28char,%20string%5B1%3A%5D%29%0A%20%20%20%20%20%20%20%20%0Aprint%28occurrences%28%22a%22,%20%22ratata%22%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener">Visualiser dans Python Tutor</a></p>
+<script src="https://qkzk.xyz/viz/viz.js"></script>
+<script src="https://qkzk.xyz/viz/full.render.js"></script>
+<style>
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+    text-align: center;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+</style>
+<main>
+    <h3>
+        
+            <h3 id="graphe-des-appels-récursifs-occsa-tata">
+  Graphe des appels récursifs <code>occs('a', 'tata')</code>
+  <a class="anchor" href="#graphe-des-appels-r%c3%a9cursifs-occsa-tata">#</a>
+</h3>
+
+        
+    </h3>
+    <div id="viz_5">
+    </div>
+</main>
+
+<script>
+    const viz_elm_5 = document.getElementById("viz_5");
+    const graphContent_5 = "\ndigraph G {\n    graph [fontsize=30 labelloc=\"t\" label=\"\" splines=true overlap=false rankdir = \"LR\"];\n    in [label=\"entrée =\\n occs('a', 'tata')\"]\n    4 [label=\"occs('a', 'ata')\"]\n    3 [label=\"occs('a', 'ta')\"]\n    2 [label=\"occs('a', 'a')\"]\n    1 [label=\"occs('a', '')\"]\n    out [label=\"sortie =\\n3\"]\n    in -\u003e 4\n    4 -\u003e 3\n    3 -\u003e 2\n    2 -\u003e 1 \n    1 -\u003e 2 [label=\"0\" loc=\"b\"]\n    2 -\u003e 3 [label=\"1 + 0\" loc=\"b\"]\n    3 -\u003e 4 [label=\"1\" loc=\"b\"]\n    4 -\u003e in [label=\"1 + 1\" loc=\"b\"]\n    in -\u003e out [label=\"2\" loc=\"b\"]\n}\n";
+    let viz_5 = new Viz();
+    
+    viz_5.renderSVGElement(graphContent_5)
+        .then(function(element) {
+            viz_elm_5.appendChild(element);
+            return element;
+        })
+        .then(function(element) {
+            let box = element.viewBox.baseVal;
+            let aspectRatio = box.width / box.height;
+            if (aspectRatio > 1) {
+                let paddingBottom = Math.ceil(100 / aspectRatio);
+                viz_elm_5.style.paddingBottom = `${paddingBottom}%`;
+                viz_elm_5.style.maxWidth = `${box.width}px`;
+                viz_elm_5.style.maxHeight = `${box.height}px`;
+                viz_elm_5.classList.add("svg-container");
+                element.removeAttribute("width");
+                element.removeAttribute("height");
+                element.classList.add("svg-content");
+            } else {
+                viz_elm_5.style.textAlign = "center";
+            }
+        })
+        .catch(error => {
+            
+            viz_5 = new Viz();
+
+            
+            console.error(error);
+        });
+</script>
+
+<hr>
+<h2 id="compléments">
+  Compléments
+  <a class="anchor" href="#compl%c3%a9ments">#</a>
+</h2>
+<p><em>La partie suivante est à étudier sérieusement une fois que vous avez digéré le principe de base et parvenez à écrire quelques fonctions récursives par vous même.</em></p>
+<hr>
 <h2 id="récursivité-terminale-tail-recursion">
   Récursivité terminale (<em>tail recursion</em>)
   <a class="anchor" href="#r%c3%a9cursivit%c3%a9-terminale-tail-recursion">#</a>
@@ -8008,6 +8224,7 @@ avec une récursivité terminale.</p>
 <p>Certains coefficients binomiaux sont calculés <em>plusieurs fois</em>, sans réutiliser les résultats précédents.</p>
 <p>Dans un tel cas, si on veut utiliser efficacement la récursivité, il faudraitt la coupler à un mécanisme de <strong>memoïsation</strong> (<a href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">Wikipedia</a>) qui permet d&rsquo;éviter de refaire plusieurs fois le même calcul.</p>
 <p>C&rsquo;est ce que nous ferons plus tard en <em>programmation dynamique</em>.</p>
+<hr>
 <h2 id="structures-récursives-1">
   Structures récursives
   <a class="anchor" href="#structures-r%c3%a9cursives-1">#</a>
@@ -8046,13 +8263,13 @@ Elles se définissent ainsi :</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> length(liste[<span style="color:#f60">1</span>:])
 </span></span></code></pre></div><p>Nombre d&rsquo;occurrences dans une liste :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">nb_occurrences</span>(valeur, liste):
-</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> liste <span style="color:#555">==</span> [] :                        <span style="color:#09f;font-style:italic"># quid de length(liste) == 0 ?</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">if</span> liste <span style="color:#555">==</span> [] :                        <span style="color:#09f;font-style:italic"># cas de base</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">elif</span> valeur <span style="color:#555">==</span> liste[<span style="color:#f60">0</span>]:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">1</span> <span style="color:#555">+</span> nb_occurrences(valeur, liste[<span style="color:#f60">1</span>:])
 </span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> nb_occurrences(valeur, liste[<span style="color:#f60">1</span>:])
-</span></span></code></pre></div><p><em>NB</em> Le langage Lisp se basait sur cette structure de données (Lisp = List Processing).</p>
+</span></span></code></pre></div><p><em>NB :</em> Le langage Lisp se basait sur cette structure de données (Lisp = List Processing).</p>
 <h2 id="quelques-erreurs-classiques">
   Quelques erreurs &ldquo;classiques&rdquo;
   <a class="anchor" href="#quelques-erreurs-classiques">#</a>
@@ -8198,15 +8415,13 @@ l&rsquo;écriture récursive qui s&rsquo;appuie sur la modification des paramèt
         <li><a href="#taille-de-la-pile-des-appels-récusifs">Taille de la pile des appels récusifs</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#eléments-caractéristiques">Eléments Caractéristiques</a>
       <ul>
         <li><a href="#mauvaise-conception-récursive">Mauvaise conception récursive</a></li>
       </ul>
     </li>
     <li><a href="#un-autre-exemple">Un autre exemple</a></li>
+    <li><a href="#compléments">Compléments</a></li>
     <li><a href="#récursivité-terminale-tail-recursion">Récursivité terminale (<em>tail recursion</em>)</a>
       <ul>
         <li><a href="#récursivité-croisée">Récursivité croisée</a></li>
