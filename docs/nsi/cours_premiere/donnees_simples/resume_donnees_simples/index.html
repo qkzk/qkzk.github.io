@@ -60,7 +60,7 @@ Binaire : $0b1101 = 1 \times 2^3 &#43; 1 \times 2^2 &#43; 1 \times 2^0 = 8 &#43;
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.5b654769b4e7b5b17e2488c34e2ff25d25b2842c97c8a2f7b5115bb10cbc9cd8.css" integrity="sha256-W2VHabTntbF&#43;JIjDTi/yXSWyhCyXyKL3tRFbsQy8nNg=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.e7fa371946d94a28e989735f339e59be930644388a651161aada1aa99a128318.js" integrity="sha256-5/o3GUbZSijpiXNfM55ZvpMGRDiKZRFhqtoaqZoSgxg=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.e66209aa60fae1f2c824d06206cebd6f8185bdc76610df7b033f50cd6f09782b.js" integrity="sha256-5mIJqmD64fLIJNBiBs69b4GFvcdmEN97Az9QzW8JeCs=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/resume_donnees_simples/index.xml" title="qkzk" />
 <!--
@@ -7502,6 +7502,14 @@ MathJax.Hub.Config({
       </ul>
     </li>
     <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a></li>
+    <li><a href="#représentation-dun-texte-en-machine">Représentation d&rsquo;un texte en machine</a>
+      <ul>
+        <li><a href="#pourquoi-différents-encodages-de-caractères-">Pourquoi différents encodages de caractères ?</a></li>
+        <li><a href="#ascii">ASCII</a></li>
+        <li><a href="#iso-8859-1">ISO-8859-1</a></li>
+        <li><a href="#utf-8">UTF-8</a></li>
+      </ul>
+    </li>
     <li><a href="#complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">Complément à deux : comment coder les entiers négatifs dans une machine ?</a>
       <ul>
         <li><a href="#deux-approches-possibles-">Deux approches possibles :</a></li>
@@ -7512,12 +7520,15 @@ MathJax.Hub.Config({
         <li><a href="#et-python-là-dedans-">et Python là dedans ?</a></li>
       </ul>
     </li>
-    <li><a href="#représentation-dun-texte-en-machine">Représentation d&rsquo;un texte en machine</a>
+    <li><a href="#flottants">Flottants</a>
       <ul>
-        <li><a href="#pourquoi-différents-encodages-de-caractères-">Pourquoi différents encodages de caractères ?</a></li>
-        <li><a href="#ascii">ASCII</a></li>
-        <li><a href="#iso-8859-1">ISO-8859-1</a></li>
-        <li><a href="#utf-8">UTF-8</a></li>
+        <li><a href="#virgule-fixe">Virgule fixe</a></li>
+        <li><a href="#virgule-flottante">Virgule flottante</a></li>
+        <li><a href="#iee-754">IEE 754</a></li>
+        <li><a href="#erreurs-de-calculs">Erreurs de calculs</a></li>
+        <li><a href="#egalité-impossible-entre-les-floats">Egalité impossible entre les floats.</a></li>
+        <li><a href="#autres-erreurs">Autres erreurs.</a></li>
+        <li><a href="#nan-et-infinis"><code>NaN</code> et infinis</a></li>
       </ul>
     </li>
   </ul>
@@ -7736,86 +7747,7 @@ et la retenue éventuelle par <strong>R</strong>.</p>
       </tr>
   </tbody>
 </table>
-<h2 id="complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">
-  Complément à deux : comment coder les entiers négatifs dans une machine ?
-  <a class="anchor" href="#compl%c3%a9ment-%c3%a0-deux--comment-coder-les-entiers-n%c3%a9gatifs-dans-une-machine-">#</a>
-</h2>
-<p>Ce qu&rsquo;on a vu jusqu&rsquo;ici ne permet que d&rsquo;encoder des nombres positifs.</p>
-<h3 id="deux-approches-possibles-">
-  Deux approches possibles :
-  <a class="anchor" href="#deux-approches-possibles-">#</a>
-</h3>
-<h3 id="approche-insatisfaisante--binaire-signé">
-  Approche insatisfaisante : <strong>binaire signé</strong>
-  <a class="anchor" href="#approche-insatisfaisante--binaire-sign%c3%a9">#</a>
-</h3>
-<p>On fixe la taille mémoire de chaque nombre (par exemple 4 bits). Le premier bit est le <strong>bit de signe</strong> : 1 pour les négatif, 0 pour les positifs.</p>
-<ul>
-<li>En binaire signé sur 4 bits : <code>0b1001 = -1</code> , <code>0b1011 = -3</code>, <code>0b0111 = 7</code> etc.</li>
-<li>L&rsquo;addition présentée plus haut <strong>ne fonctionne plus</strong> : <code>0b1001 + 0b0001 = -1 + 1 = 0</code> mais bit à bit cela donne : <code>0b1010 = -2</code>&hellip; Le binaire signé c&rsquo;est nul.</li>
-</ul>
-<h3 id="complément-à-deux">
-  <strong>Complément à deux</strong>
-  <a class="anchor" href="#compl%c3%a9ment-%c3%a0-deux">#</a>
-</h3>
-<p>on fixe la taille mémoire de chaque nombre (par exemple 4 bits).</p>
-<ul>
-<li>
-<p>Les nombres positifs sont encodés comme d&rsquo;habitude.</p>
-</li>
-<li>
-<p>Les nombres négatifs sont encodés ainsi : (exemple : -3)</p>
-<ol>
-<li>Coder la valeur absolue du nombre en base 2 : <code>3 = 0b11</code></li>
-<li>compléter l&rsquo;octet avec des 0 devant (jusqu&rsquo;à la taille): <code>0b0011</code></li>
-<li>échanger tous les bits ($1 \leftrightarrow 0$) : <code>0b1100</code></li>
-<li>ajouter 1. <code>-3 = 0b1101</code></li>
-</ol>
-</li>
-<li>
-<p>Le complément à deux permet de conserver le même algorithme pour l&rsquo;addition :</p>
-<p><code>-3 + 2 = 0b1101 + 0b0010 = 0b1111 = -1</code></p>
-</li>
-<li>
-<p>le complément à deux c&rsquo;est bien&hellip; MAIS il faut prédéfinir une taille !!!</p>
-<p>Pas d&rsquo;entiers de taille <em>arbitraire</em> en complément à deux !</p>
-</li>
-</ul>
-<h3 id="1111-0011--">
-  <code>1111 0011 = ???</code>
-  <a class="anchor" href="#1111-0011--">#</a>
-</h3>
-<p>Devant une série de bits, on ne peut <strong>deviner</strong> ce qu&rsquo;ils représentent.</p>
-<p>Est-ce un entier positif ? négatif (binaire signé, complément à deux) ? autre chose ?</p>
-<p>Le contexte (pour vous : l&rsquo;énoncé) précise ce qu&rsquo;il faut comprendre.</p>
-<h3 id="table-de-valeurs-du-complément-à-2-sur-8-bits">
-  Table de valeurs du complément à 2 sur 8 bits
-  <a class="anchor" href="#table-de-valeurs-du-compl%c3%a9ment-%c3%a0-2-sur-8-bits">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> bit
-</span></span><span style="display:flex;"><span> de
-</span></span><span style="display:flex;"><span>signe
-</span></span><span style="display:flex;"><span>    0 1 1 1 1 1 1 1 =  127
-</span></span><span style="display:flex;"><span>    0      ...      =  ...
-</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 1 0 =    2
-</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 0 1 =    1
-</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 0 0 =    0
-</span></span><span style="display:flex;"><span>    1 1 1 1 1 1 1 1 =   -1
-</span></span><span style="display:flex;"><span>    1 1 1 1 1 1 1 0 =   -2
-</span></span><span style="display:flex;"><span>    1      ...      =  ...
-</span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 1 = -127
-</span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 0 = -128
-</span></span></code></pre></div><h3 id="et-python-là-dedans-">
-  et Python là dedans ?
-  <a class="anchor" href="#et-python-l%c3%a0-dedans-">#</a>
-</h3>
-<p>Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong> par exemple.</p>
-<p>Dans Python les entiers ont une <em>taille arbitraire</em>, il ne peut afficher nativement le complément à deux.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">12</span>)
-</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0b1100&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#555">-</span><span style="color:#f60">12</span>)
-</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;-0b1100&#39;</span>
-</span></span></code></pre></div><h2 id="représentation-dun-texte-en-machine">
+<h2 id="représentation-dun-texte-en-machine">
   Représentation d&rsquo;un texte en machine
   <a class="anchor" href="#repr%c3%a9sentation-dun-texte-en-machine">#</a>
 </h2>
@@ -8077,6 +8009,186 @@ table ci-dessous :</p>
 </table>
 <p>L&rsquo;encodage UTF-8 est lui aussi compatible avec l&rsquo;ASCII. En revanche ISO-8859-1
 et UTF-8 sont incompatibles entre eux pouvant conduire à des caractères illisibles.</p>
+<h2 id="complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">
+  Complément à deux : comment coder les entiers négatifs dans une machine ?
+  <a class="anchor" href="#compl%c3%a9ment-%c3%a0-deux--comment-coder-les-entiers-n%c3%a9gatifs-dans-une-machine-">#</a>
+</h2>
+<p>Ce qu&rsquo;on a vu jusqu&rsquo;ici ne permet que d&rsquo;encoder des nombres positifs.</p>
+<h3 id="deux-approches-possibles-">
+  Deux approches possibles :
+  <a class="anchor" href="#deux-approches-possibles-">#</a>
+</h3>
+<h3 id="approche-insatisfaisante--binaire-signé">
+  Approche insatisfaisante : <strong>binaire signé</strong>
+  <a class="anchor" href="#approche-insatisfaisante--binaire-sign%c3%a9">#</a>
+</h3>
+<p>On fixe la taille mémoire de chaque nombre (par exemple 4 bits). Le premier bit est le <strong>bit de signe</strong> : 1 pour les négatif, 0 pour les positifs.</p>
+<ul>
+<li>En binaire signé sur 4 bits : <code>0b1001 = -1</code> , <code>0b1011 = -3</code>, <code>0b0111 = 7</code> etc.</li>
+<li>L&rsquo;addition présentée plus haut <strong>ne fonctionne plus</strong> : <code>0b1001 + 0b0001 = -1 + 1 = 0</code> mais bit à bit cela donne : <code>0b1010 = -2</code>&hellip; Le binaire signé c&rsquo;est nul.</li>
+</ul>
+<h3 id="complément-à-deux">
+  <strong>Complément à deux</strong>
+  <a class="anchor" href="#compl%c3%a9ment-%c3%a0-deux">#</a>
+</h3>
+<p>on fixe la taille mémoire de chaque nombre (par exemple 4 bits).</p>
+<ul>
+<li>
+<p>Les nombres positifs sont encodés comme d&rsquo;habitude.</p>
+</li>
+<li>
+<p>Les nombres négatifs sont encodés ainsi : (exemple : -3)</p>
+<ol>
+<li>Coder la valeur absolue du nombre en base 2 : <code>3 = 0b11</code></li>
+<li>compléter l&rsquo;octet avec des 0 devant (jusqu&rsquo;à la taille): <code>0b0011</code></li>
+<li>échanger tous les bits ($1 \leftrightarrow 0$) : <code>0b1100</code></li>
+<li>ajouter 1. <code>-3 = 0b1101</code></li>
+</ol>
+</li>
+<li>
+<p>Le complément à deux permet de conserver le même algorithme pour l&rsquo;addition :</p>
+<p><code>-3 + 2 = 0b1101 + 0b0010 = 0b1111 = -1</code></p>
+</li>
+<li>
+<p>le complément à deux c&rsquo;est bien&hellip; MAIS il faut prédéfinir une taille !!!</p>
+<p>Pas d&rsquo;entiers de taille <em>arbitraire</em> en complément à deux !</p>
+</li>
+</ul>
+<h3 id="1111-0011--">
+  <code>1111 0011 = ???</code>
+  <a class="anchor" href="#1111-0011--">#</a>
+</h3>
+<p>Devant une série de bits, on ne peut <strong>deviner</strong> ce qu&rsquo;ils représentent.</p>
+<p>Est-ce un entier positif ? négatif (binaire signé, complément à deux) ? autre chose ?</p>
+<p>Le contexte (pour vous : l&rsquo;énoncé) précise ce qu&rsquo;il faut comprendre.</p>
+<h3 id="table-de-valeurs-du-complément-à-2-sur-8-bits">
+  Table de valeurs du complément à 2 sur 8 bits
+  <a class="anchor" href="#table-de-valeurs-du-compl%c3%a9ment-%c3%a0-2-sur-8-bits">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> bit
+</span></span><span style="display:flex;"><span> de
+</span></span><span style="display:flex;"><span>signe
+</span></span><span style="display:flex;"><span>0 1 1 1 1 1 1 1 =  127
+</span></span><span style="display:flex;"><span>    0      ...      =  ...
+</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 1 0 =    2
+</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 0 1 =    1
+</span></span><span style="display:flex;"><span>    0 0 0 0 0 0 0 0 =    0
+</span></span><span style="display:flex;"><span>    1 1 1 1 1 1 1 1 =   -1
+</span></span><span style="display:flex;"><span>    1 1 1 1 1 1 1 0 =   -2
+</span></span><span style="display:flex;"><span>    1      ...      =  ...
+</span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 1 = -127
+</span></span><span style="display:flex;"><span>    1 0 0 0 0 0 0 0 = -128
+</span></span></code></pre></div><h3 id="et-python-là-dedans-">
+  et Python là dedans ?
+  <a class="anchor" href="#et-python-l%c3%a0-dedans-">#</a>
+</h3>
+<p>Les opérations précédentes ont toutes supposées une taille fixe des entiers : <strong>codés sur un octet</strong> par exemple.</p>
+<p>Dans Python les entiers ont une <em>taille arbitraire</em>, il ne peut afficher nativement le complément à deux.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#f60">12</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;0b1100&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">bin</span>(<span style="color:#555">-</span><span style="color:#f60">12</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c30">&#39;-0b1100&#39;</span>
+</span></span></code></pre></div><h2 id="flottants">
+  Flottants
+  <a class="anchor" href="#flottants">#</a>
+</h2>
+<p>Afin de représenter des nombres à virgule en machine plusieurs approches sont envisageables : la <em>virgule fixe</em> ou la <em>virgule flottante</em>.</p>
+<p>Pour l&rsquo;un comme l&rsquo;autre l&rsquo;espace mémoire est le même : chaque nombre occupe le même nombre de bits. La précision possible est très différente.</p>
+<h3 id="virgule-fixe">
+  Virgule fixe
+  <a class="anchor" href="#virgule-fixe">#</a>
+</h3>
+<p>On décide une fois pour toute de l&rsquo;emplacement de la virgule. Pour le reste c&rsquo;est comme en binaire.</p>
+<p>Par exemple, sur 8 bits, avec une virgule après 4 bits : <code>1011,0011</code>.</p>
+<p>La précision est limitée par le nombre de bits après la virgule et la taille maximale aussi.</p>
+<p>Peu commode.</p>
+<h3 id="virgule-flottante">
+  Virgule flottante
+  <a class="anchor" href="#virgule-flottante">#</a>
+</h3>
+<p>On s&rsquo;inspire de la notation scientifique : $3.45678 \times 10^{3} = 3456.78$.</p>
+<p>Et donc, pour un flottant :</p>
+<p>$1.1001101 \times 2^{4} = 1~1001.101$ soit $16+8+1+\dfrac{1}{2}+\dfrac{1}{8}$.</p>
+<p>Les bits après la virgule sont les <em>inverses</em> des puissances de 2.</p>
+<p>En machine, il faut encoder plusieurs informations:</p>
+<ul>
+<li>le signe,</li>
+<li>l&rsquo;exposant,</li>
+<li>les bits <em>après</em> la virgule. <em>Pour le premier, c&rsquo;est toujours 1, on peut l&rsquo;ignorer</em>.</li>
+</ul>
+<p>C&rsquo;est ce qui est fait dans la norme IEE 754 de 1985.</p>
+<h3 id="iee-754">
+  IEE 754
+  <a class="anchor" href="#iee-754">#</a>
+</h3>
+<p>Dans cette norme (IEEE 754, double précision), les nombres dyadiques sont codés sur 64 bits en réservant :</p>
+<ul>
+<li>$1$ bit pour le signe $S$,</li>
+<li>$11$ bits pour l’exposant $E$,</li>
+<li>$52$ bits pour la mantisse $M$.</li>
+</ul>
+<p>La valeur du nombre est alors :</p>
+<p>$$(-1)^S \times M \times 2^{E - 1033}$$</p>
+<p>Ce qu&rsquo;on peut résumer ainsi :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Norme</th>
+          <th>Encodage</th>
+          <th>Signe</th>
+          <th>Exposant</th>
+          <th>Mantisse</th>
+          <th>Valeur</th>
+          <th>Précision</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Double précision</strong></td>
+          <td>64 bits</td>
+          <td>1 bit</td>
+          <td>11 bits</td>
+          <td>52 bits</td>
+          <td>$$(-1)^S \times M \times 2^{E - 1033}$$</td>
+          <td>53 bits</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="erreurs-de-calculs">
+  Erreurs de calculs
+  <a class="anchor" href="#erreurs-de-calculs">#</a>
+</h3>
+<p>De la même manière qu&rsquo;avec la notation scientifique, des erreurs apparaissent nécessairement lorsqu&rsquo;on calcule avec des flottants.</p>
+<p>La plus frappante est certainement</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0.1</span> <span style="color:#555">+</span> <span style="color:#f60">0.2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f60">0.30000000000000004</span>
+</span></span></code></pre></div><p>Elle provient d&rsquo;une erreur de <em>conversion</em> en binaire de 0.1, 0.2 et 0.3 qui ne sont pas <em>dyadiques</em>. C&rsquo;est-à-dire qu&rsquo;ils n&rsquo;admettent pas de représentation <em>finie</em> en binaire.</p>
+<h3 id="egalité-impossible-entre-les-floats">
+  Egalité impossible entre les floats.
+  <a class="anchor" href="#egalit%c3%a9-impossible-entre-les-floats">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#f60">0.1</span> <span style="color:#555">+</span> <span style="color:#f60">0.2</span> <span style="color:#555">==</span> <span style="color:#f60">0.3</span> 
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">False</span> 
+</span></span></code></pre></div><p>Il est impossible de tester l&rsquo;égalité de deux flottants.</p>
+<h3 id="autres-erreurs">
+  Autres erreurs.
+  <a class="anchor" href="#autres-erreurs">#</a>
+</h3>
+<p>D&rsquo;autres existent, comme par exemple des problèmes d&rsquo;amplitude :</p>
+<p>Avec la <em>double précision</em>, on ne peut représenter $10^{40000}$ qui dépasse largement le plus grand nombre qu&rsquo;on puisse représenter : $2^{1024} - 2^{971} \approx 1,80 \times 10^{308}$.</p>
+<p>On évite ces problèmes en proposant deux valeurs supplémentaires : <code>NaN</code> et les infinis.</p>
+<h3 id="nan-et-infinis">
+  <code>NaN</code> et infinis
+  <a class="anchor" href="#nan-et-infinis">#</a>
+</h3>
+<ul>
+<li>
+<p>Les infinis se rencontrent lorsqu&rsquo;un calcul dépasse le plus grand nombre représentable. Ils sont <em>plus grands</em> que toute valeur.</p>
+</li>
+<li>
+<p>les <code>NaN</code>, pour <em>not a number</em> se rencontrent lorsqu&rsquo;on n&rsquo;est pas capable de représenter un nombre par manque de précision. Par exemple, soustraire des infinis ou les diviser entre eux.</p>
+</li>
+</ul>
 </article>
 
                 
@@ -8148,6 +8260,14 @@ et UTF-8 sont incompatibles entre eux pouvant conduire à des caractères illisi
       </ul>
     </li>
     <li><a href="#opérations-bits-à-bits">Opérations bits à bits</a></li>
+    <li><a href="#représentation-dun-texte-en-machine">Représentation d&rsquo;un texte en machine</a>
+      <ul>
+        <li><a href="#pourquoi-différents-encodages-de-caractères-">Pourquoi différents encodages de caractères ?</a></li>
+        <li><a href="#ascii">ASCII</a></li>
+        <li><a href="#iso-8859-1">ISO-8859-1</a></li>
+        <li><a href="#utf-8">UTF-8</a></li>
+      </ul>
+    </li>
     <li><a href="#complément-à-deux--comment-coder-les-entiers-négatifs-dans-une-machine-">Complément à deux : comment coder les entiers négatifs dans une machine ?</a>
       <ul>
         <li><a href="#deux-approches-possibles-">Deux approches possibles :</a></li>
@@ -8158,12 +8278,15 @@ et UTF-8 sont incompatibles entre eux pouvant conduire à des caractères illisi
         <li><a href="#et-python-là-dedans-">et Python là dedans ?</a></li>
       </ul>
     </li>
-    <li><a href="#représentation-dun-texte-en-machine">Représentation d&rsquo;un texte en machine</a>
+    <li><a href="#flottants">Flottants</a>
       <ul>
-        <li><a href="#pourquoi-différents-encodages-de-caractères-">Pourquoi différents encodages de caractères ?</a></li>
-        <li><a href="#ascii">ASCII</a></li>
-        <li><a href="#iso-8859-1">ISO-8859-1</a></li>
-        <li><a href="#utf-8">UTF-8</a></li>
+        <li><a href="#virgule-fixe">Virgule fixe</a></li>
+        <li><a href="#virgule-flottante">Virgule flottante</a></li>
+        <li><a href="#iee-754">IEE 754</a></li>
+        <li><a href="#erreurs-de-calculs">Erreurs de calculs</a></li>
+        <li><a href="#egalité-impossible-entre-les-floats">Egalité impossible entre les floats.</a></li>
+        <li><a href="#autres-erreurs">Autres erreurs.</a></li>
+        <li><a href="#nan-et-infinis"><code>NaN</code> et infinis</a></li>
       </ul>
     </li>
   </ul>
