@@ -42,7 +42,7 @@ consulter le dernier élément entré (donc le prochain à sortir), mesurer la l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.53411198da0c59460ba5f9f18eb07a9365d81ef4a2bf55ad41d9dfd3b9730fcd.js" integrity="sha256-U0ERmNoMWUYLpfnxjrB6k2XYHvSiv1WtQdnf07lzD80=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.4efaf3d03cfa91da4974af000c3ae1be61aa4126eb163362d7a1ee754e3a83fd.js" integrity="sha256-Tvrz0Dz6kdpJdK8ADDrhvmGqQSbrFjNi16HudU46g/0=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -7514,6 +7514,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#version-1--avec-une-classe">Version 1 : avec une classe</a></li>
     <li><a href="#version-2--avec-des-fonctions">Version 2 : avec des fonctions</a></li>
+    <li><a href="#version-3-en-employant-des-cellules">Version 3 en employant des cellules</a></li>
   </ul>
 </nav>
 
@@ -7678,6 +7679,84 @@ et la structure interne sera une liste chaînée.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> <span style="color:#033">__name__</span> <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    test()
+</span></span></code></pre></div><h2 id="version-3-en-employant-des-cellules">
+  Version 3 en employant des cellules
+  <a class="anchor" href="#version-3-en-employant-des-cellules">#</a>
+</h2>
+<p>Cette fois on emploie une cellule afin d&rsquo;enregistrer la valeur. En y ajoutant un lien vers l&rsquo;élément suivant, ces cellules modélisent des listes chaînées.</p>
+<p>L&rsquo;interface pour l&rsquo;utilisateur est totalement identique à la version avec des classes mais les coûts sont différents.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">typing</span> <span style="color:#069;font-weight:bold">import</span> Any
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Cellule</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Une cellule d&#39;une pile&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">__init__</span>(<span style="color:#366">self</span>, valeur, suivant):
+</span></span><span style="display:flex;"><span>        <span style="color:#366">self</span><span style="color:#555">.</span>__valeur <span style="color:#555">=</span> valeur
+</span></span><span style="display:flex;"><span>        <span style="color:#366">self</span><span style="color:#555">.</span>__suivant <span style="color:#555">=</span> suivant
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">valeur</span>(<span style="color:#366">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;accesseur de la valeur&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">self</span><span style="color:#555">.</span>__valeur
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">suivant</span>(<span style="color:#366">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;accesseur de la suite&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">self</span><span style="color:#555">.</span>__suivant
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Pile</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c30">&#34;&#34;&#34;Classe modélisant une pile&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">__init__</span>(<span style="color:#366">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">empiler</span>(<span style="color:#366">self</span>, valeur: Any) <span style="color:#555">-&gt;</span> <span style="color:#069;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;Ajoute valeur à la pile&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">depiler</span>(<span style="color:#366">self</span>) <span style="color:#555">-&gt;</span> Any:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Retire et renvoie le sommet de la pile.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Plante si la pile est vide.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">est_vide</span>(<span style="color:#366">self</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">bool</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;Vrai ssi la pile est vide&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">longueur</span>(<span style="color:#366">self</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">int</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;Le nombre d&#39;éléments de la pile&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">sommet</span>(<span style="color:#366">self</span>) <span style="color:#555">-&gt;</span> Any:
+</span></span><span style="display:flex;"><span>        <span style="color:#c30">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Permet de consulter le sommet de la pile.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Ne modifie pas son contenu.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        Plante si la pile est vide.
+</span></span></span><span style="display:flex;"><span><span style="color:#c30">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">__repr__</span>(<span style="color:#366">self</span>) <span style="color:#555">-&gt;</span> <span style="color:#366">str</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#069;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">test</span>():
+</span></span><span style="display:flex;"><span>    pile <span style="color:#555">=</span> Pile()
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>est_vide()
+</span></span><span style="display:flex;"><span>    pile<span style="color:#555">.</span>empiler(<span style="color:#f60">5</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> <span style="color:#000;font-weight:bold">not</span> pile<span style="color:#555">.</span>est_vide()
+</span></span><span style="display:flex;"><span>    pile<span style="color:#555">.</span>empiler(<span style="color:#f60">1</span>)
+</span></span><span style="display:flex;"><span>    pile<span style="color:#555">.</span>empiler(<span style="color:#f60">3</span>)
+</span></span><span style="display:flex;"><span>    pile<span style="color:#555">.</span>empiler(<span style="color:#f60">7</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>longueur() <span style="color:#555">==</span> <span style="color:#f60">4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>depiler() <span style="color:#555">==</span> <span style="color:#f60">7</span>
+</span></span><span style="display:flex;"><span>    pile<span style="color:#555">.</span>empiler(<span style="color:#f60">9</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#366">print</span>(<span style="color:#366">repr</span>(pile))
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>depiler() <span style="color:#555">==</span> <span style="color:#f60">9</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>depiler() <span style="color:#555">==</span> <span style="color:#f60">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>depiler() <span style="color:#555">==</span> <span style="color:#f60">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>depiler() <span style="color:#555">==</span> <span style="color:#f60">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">assert</span> pile<span style="color:#555">.</span>est_vide()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span> <span style="color:#033">__name__</span> <span style="color:#555">==</span> <span style="color:#c30">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    test()
 </span></span></code></pre></div></article>
 
                 
@@ -7741,6 +7820,7 @@ et la structure interne sera une liste chaînée.</p>
   <ul>
     <li><a href="#version-1--avec-une-classe">Version 1 : avec une classe</a></li>
     <li><a href="#version-2--avec-des-fonctions">Version 2 : avec des fonctions</a></li>
+    <li><a href="#version-3-en-employant-des-cellules">Version 3 en employant des cellules</a></li>
   </ul>
 </nav>
 
