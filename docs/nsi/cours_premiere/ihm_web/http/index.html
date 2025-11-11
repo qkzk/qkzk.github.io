@@ -32,7 +32,7 @@ Le protocole HTTP (HyperText Transfert Protocol) va permettre au client d’effe
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.e3115b3925968fa1d9642fccd6772fd69193e11ea285d80a96233f3a0bbbe1ec.js" integrity="sha256-4xFbOSWWj6HZZC/M1ncv1pGT4R6ihdgKliM/Ogu74ew=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.23f54e4ce0bfab33173504c98240543bbe4e631acb35b2d602c482e158b6aef6.js" integrity="sha256-I/VOTOC/qzMXNQTJgkBUO75OYxrLNbLWAsSC4Vi2rvY=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/http/index.xml" title="qkzk" />
 <!--
@@ -40,24 +40,6 @@ Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
     
-
-<script src="//yihui.name/js/math-code.js"></script>
-<script id="MathJax-script" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
 
 
 <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
@@ -3808,6 +3790,19 @@ MathJax.Hub.Config({
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/exemple/" class="">Exemple</a>
+  
+
+        </li>
+      
     
   </ul>
 
@@ -7572,6 +7567,7 @@ MathJax.Hub.Config({
         <li><a href="#exercice-3">Exercice 3</a></li>
       </ul>
     </li>
+    <li><a href="#résumé-du-protocole-http-1">Résumé du protocole HTTP</a></li>
   </ul>
 </nav>
 
@@ -7860,9 +7856,10 @@ En voici une qui devrait fonctionner sur un ordinateur et un téléphone.</p>
 <li>Rendez-vous sur le site <a href="https://httpie.io/app">httpie</a></li>
 <li>Essayons une première requête :
 <ul>
-<li>adresse : <code>pie.dev/put</code></li>
-<li>choississez comme méthode HTTP : <code>PUT</code>,</li>
-<li>dans les headers : <code>API-Key</code> <code>FOO</code> et <code>hello</code> <code>world</code>.</li>
+<li>adresse : <code>httpbin.org/post</code></li>
+<li>choississez comme méthode HTTP : <code>POST</code>,</li>
+<li>dans les <em>params</em> : <code>number</code> 30</li>
+<li>dans les <em>headers</em> : <code>name</code> <code>martin</code> et <code>hello</code> <code>world</code>.</li>
 </ul>
 </li>
 <li>&ldquo;Send&rdquo;. La réponse apparaît à droite.</li>
@@ -7870,44 +7867,64 @@ En voici une qui devrait fonctionner sur un ordinateur et un téléphone.</p>
 <p>Examinons cette requête.</p>
 <p>On a transmis :</p>
 <ul>
-<li>une clé d&rsquo;API (Application Programming Interface) : <code>&quot;foo&quot;</code> permettant de s&rsquo;identifier</li>
-<li>un couple clé valeur <code>hello</code>, <code>world</code></li>
+<li>un paramètre <code>number</code> valant 30,</li>
+<li>dans l&rsquo;entête (<code>header</code>) deux couples : <code>{'name': 'martin', 'hello': 'world'}</code>.</li>
 </ul>
-<p>Voici un résultat similaire à celui obtenu :</p>
+<p>La réponse contient deux parties et s&rsquo;affiche à droite de l&rsquo;écran.</p>
+<ul>
+<li>
+<p>l&rsquo;entête : &ldquo;Header&rdquo; (déployez le dans httpie.io) :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Access-Control-Allow-Credentials true
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Origin *
+</span></span><span style="display:flex;"><span>Connection close
+</span></span><span style="display:flex;"><span>Content-Length 701
+</span></span><span style="display:flex;"><span>Content-Type application/json
+</span></span><span style="display:flex;"><span>Date Tue, 11 Nov 2025 08:47:09 GMT
+</span></span><span style="display:flex;"><span>Server gunicorn/19.9.0
+</span></span></code></pre></div></li>
+<li>
+<p>le corps du message :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;args&#34;</span>: {},
+</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;args&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;c&#34;</span>: <span style="color:#c30">&#34;30&#34;</span>
+</span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;data&#34;</span>: <span style="color:#c30">&#34;&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;files&#34;</span>: {},
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;form&#34;</span>: {},
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;headers&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Accept-Encoding&#34;</span>: <span style="color:#c30">&#34;gzip&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Api-Key&#34;</span>: <span style="color:#c30">&#34;foo&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Baggage&#34;</span>: <span style="color:#c30">&#34;sentry-environment=production,sentry-release=bbcaf558f75858405bf0ad0eddce1d33a5eda092,sentry-public_key=53fade3064084ef092f9e005bec83766,sentry-trace_id=e8b877d1079f4ab9a1424507ce6b97ba&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Cdn-Loop&#34;</span>: <span style="color:#c30">&#34;cloudflare; loops=1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Cf-Connecting-Ip&#34;</span>: <span style="color:#c30">&#34;44.211.62.34&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Cf-Ipcountry&#34;</span>: <span style="color:#c30">&#34;US&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Cf-Ray&#34;</span>: <span style="color:#c30">&#34;8e5aa184ba93d670-FRA&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Cf-Visitor&#34;</span>: <span style="color:#c30">&#34;{\&#34;scheme\&#34;:\&#34;http\&#34;}&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Connection&#34;</span>: <span style="color:#c30">&#34;Keep-Alive&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;A&#34;</span>: <span style="color:#c30">&#34;b&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Baggage&#34;</span>: <span style="color:#c30">&#34;sentry-environment=production,sentry-release=2d8767f283832ec214a277c758d4882374ffd481,sentry-public_key=53fade3064084ef092f9e005bec83766,sentry-trace_id=0b656835668943c586e0d7e603e1544e&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Content-Length&#34;</span>: <span style="color:#c30">&#34;0&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Content-Type&#34;</span>: <span style="color:#c30">&#34;text/plain;charset=UTF-8&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Hello&#34;</span>: <span style="color:#c30">&#34;world&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Host&#34;</span>: <span style="color:#c30">&#34;pie.dev&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Host&#34;</span>: <span style="color:#c30">&#34;httpbin.org&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;Name&#34;</span>: <span style="color:#c30">&#34;martin&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;User-Agent&#34;</span>: <span style="color:#c30">&#34;HTTPie&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;X-Vercel-Id&#34;</span>: <span style="color:#c30">&#34;cdg1:cdg1::8zp8g-1732128681599-2436fa82d863&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;X-Amzn-Trace-Id&#34;</span>: <span style="color:#c30">&#34;Root=1-6912f80d-631b028d114ab2d41ca0a24d&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#309;font-weight:bold">&#34;X-Vercel-Id&#34;</span>: <span style="color:#c30">&#34;fra1:fra1::fx6q7-1762850829419-62c758af87e3&#34;</span>
 </span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;json&#34;</span>: <span style="color:#069;font-weight:bold">null</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;origin&#34;</span>: <span style="color:#c30">&#34;44.211.62.34&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;url&#34;</span>: <span style="color:#c30">&#34;http://pie.dev/put&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;origin&#34;</span>: <span style="color:#c30">&#34;1.2.3.4&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#309;font-weight:bold">&#34;url&#34;</span>: <span style="color:#c30">&#34;http://httpbin.org/post?c=30&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="exercice-2">
+</span></span></code></pre></div></li>
+</ul>
+<p>Le serveur a répondu dans un format spécifique appelé JSON (JavaScript Object Notation) qui est couramment employé sur le web.</p>
+<p>Détaillons l&rsquo;entête :</p>
+<ul>
+<li>Le <em>code</em> de la réponse est 200 (qui signifie OK, il n&rsquo;y a pas d&rsquo;erreur),</li>
+<li>La réponse est au format JSON</li>
+<li>Elle a été émise à telle date,</li>
+<li>Sa longueur est de 701 octets,</li>
+</ul>
+<p>etc.</p>
+<h3 id="exercice-2">
   Exercice 2
   <a class="anchor" href="#exercice-2">#</a>
 </h3>
 <p>Toujours depuis httpie :</p>
 <ol>
 <li>
-<p>exécuter une requête <code>GET</code> vers mon site.</p>
+<p>exécuter une requête <code>GET</code> vers mon site. Regardez le résultat puis décochez &ldquo;Preview&rdquo;.</p>
 <p><em>Contrairement à ce que le site affiche en preview, la réponse obtenue ne contient pas le css et la vingtaine de fichiers associés, seulement le contenu html. La preview est obtenue en envoyant 20 autres requêtes qui n&rsquo;apparaissent pas&hellip;</em></p>
 </li>
 <li>
@@ -8032,6 +8049,11 @@ dans la base.</p>
 <p>Peut-on publier un message sans <code>title</code> ? sans <code>body</code> ?</p>
 </li>
 </ol>
+<h2 id="résumé-du-protocole-http-1">
+  Résumé du protocole HTTP
+  <a class="anchor" href="#r%c3%a9sum%c3%a9-du-protocole-http-1">#</a>
+</h2>
+<p>Lire soigneusement <a href="../resumes/resume_url_http/#protocole-http">cette partie</a>.</p>
 </article>
 
                 
@@ -8117,6 +8139,7 @@ dans la base.</p>
         <li><a href="#exercice-3">Exercice 3</a></li>
       </ul>
     </li>
+    <li><a href="#résumé-du-protocole-http-1">Résumé du protocole HTTP</a></li>
   </ul>
 </nav>
 

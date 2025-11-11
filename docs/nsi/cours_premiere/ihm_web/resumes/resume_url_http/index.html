@@ -41,7 +41,7 @@ https:// est le protocole employé, xyz est le domaine racine, qkzk.xyz est le d
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.e3115b3925968fa1d9642fccd6772fd69193e11ea285d80a96233f3a0bbbe1ec.js" integrity="sha256-4xFbOSWWj6HZZC/M1ncv1pGT4R6ihdgKliM/Ogu74ew=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.23f54e4ce0bfab33173504c98240543bbe4e631acb35b2d602c482e158b6aef6.js" integrity="sha256-I/VOTOC/qzMXNQTJgkBUO75OYxrLNbLWAsSC4Vi2rvY=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/index.xml" title="qkzk" />
 <!--
@@ -3800,6 +3800,19 @@ https://github.com/alex-shpak/hugo-book
           
   <ul>
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/nsi/cours_premiere/ihm_web/resumes/resume_url_http/exemple/" class="">Exemple</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -7539,28 +7552,28 @@ https://github.com/alex-shpak/hugo-book
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#définition">Définition</a></li>
-    <li><a href="#adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</a></li>
-    <li><a href="#chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#définition--protocole">Définition : Protocole</a></li>
-    <li><a href="#quelques-détails-sur-http">Quelques détails sur HTTP</a></li>
-    <li><a href="#cycle-requête--réponse-http">Cycle requête / réponse HTTP</a></li>
-    <li><a href="#requête-http">Requête HTTP</a>
+    <li><a href="#url">URL</a>
       <ul>
-        <li><a href="#méthode-employée">Méthode employée</a></li>
+        <li><a href="#définition">Définition</a></li>
+        <li><a href="#adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</a></li>
+        <li><a href="#chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</a></li>
       </ul>
     </li>
-    <li><a href="#réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</a>
+    <li><a href="#protocole-http">Protocole HTTP</a>
       <ul>
-        <li><a href="#quelques-détails-">Quelques détails :</a></li>
-        <li><a href="#contenu-de-la-page">Contenu de la page.</a></li>
+        <li><a href="#définition--protocole">Définition : Protocole</a></li>
+        <li><a href="#quelques-détails-sur-http">Quelques détails sur HTTP</a></li>
+        <li><a href="#cycle-requête--réponse-http">Cycle requête / réponse HTTP</a></li>
+        <li><a href="#requête-http">Requête HTTP</a></li>
+        <li><a href="#réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</a></li>
       </ul>
     </li>
-    <li><a href="#etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</a></li>
-    <li><a href="#etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</a></li>
+    <li><a href="#https">HTTPS</a>
+      <ul>
+        <li><a href="#etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</a></li>
+        <li><a href="#etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -7576,14 +7589,14 @@ https://github.com/alex-shpak/hugo-book
                 
 <article class="markdown"><p><a href="./imh_resume_url_http.pdf">pdf</a></p>
 <hr>
-<h1 id="url">
+<h2 id="url">
   URL
   <a class="anchor" href="#url">#</a>
-</h1>
-<h2 id="définition">
+</h2>
+<h3 id="définition">
   Définition
   <a class="anchor" href="#d%c3%a9finition">#</a>
-</h2>
+</h3>
 <p>Une URL (Uniform Resource Locator) permet d&rsquo;identifier une ressource sur un réseau.</p>
 <p>Dans le navigateur, l&rsquo;url est indiquée dans la <em>barre d&rsquo;adresse.</em></p>
 <p>Elle est composée de plusieurs partie. Par exemple &ldquo;<a href="https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/%22">https://qkzk.xyz/docs/nsi/cours_premiere/programmation/comparaison/"</a></p>
@@ -7597,18 +7610,18 @@ https://github.com/alex-shpak/hugo-book
 <p>Les fichiers sont classés dans une structure en arborescence.</p>
 <p><img src="./url.jpg" alt="arbo" /></p>
 <p>L&rsquo;URL peut se terminer par un nom précis de fichier (<code>index.html</code>) ou non.</p>
-<h2 id="adresse-ip-et-nom-de-domaine">
+<h3 id="adresse-ip-et-nom-de-domaine">
   Adresse IP et nom de domaine.
   <a class="anchor" href="#adresse-ip-et-nom-de-domaine">#</a>
-</h2>
+</h3>
 <p>La domaine peut généralement être remplacé par une adresse IP.</p>
 <p>Par exemple : <a href="http://145.242.11.26">145.242.11.26</a> pointe vers le même site que <a href="http://impots.gouv.fr">impots.gouv.fr</a></p>
 <p>C&rsquo;est le <em>serveur DNS</em> (domain name serveur) qui traduit cette adresse IP en nom de domaine.</p>
 <p>Attention, certains domaines utilisent des adresse IPv6 plus longues. Par exemple pour google.com : <code>2a00:1450:4007:811::200e</code> (sur 16 octets, 128 bits).</p>
-<h2 id="chemin-absolu-chemin-relatif">
+<h3 id="chemin-absolu-chemin-relatif">
   Chemin absolu, chemin relatif
   <a class="anchor" href="#chemin-absolu-chemin-relatif">#</a>
-</h2>
+</h3>
 <p>Pour se déplacer dans une arborescence on peut employer deux méthodes :</p>
 <ol>
 <li>
@@ -7622,14 +7635,14 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ol>
 <p>Les deux approches conduisent (normalement) au même point.</p>
-<h1 id="protocole-http">
+<h2 id="protocole-http">
   Protocole HTTP
   <a class="anchor" href="#protocole-http">#</a>
-</h1>
-<h2 id="définition--protocole">
+</h2>
+<h3 id="définition--protocole">
   Définition : Protocole
   <a class="anchor" href="#d%c3%a9finition--protocole">#</a>
-</h2>
+</h3>
 <p>Un <strong>protocole</strong> est un ensemble de règles qui permettent à deux ordinateurs de communiquer ensemble. HTTP (HyperText Transfer Protocol) permet au client d&rsquo;effectuer des requêtes à destination d&rsquo;un serveur web. En retour le serveur web envoie une réponse.</p>
 <ul>
 <li>
@@ -7653,30 +7666,70 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 </ul>
-<h2 id="quelques-détails-sur-http">
+<h3 id="quelques-détails-sur-http">
   Quelques détails sur HTTP
   <a class="anchor" href="#quelques-d%c3%a9tails-sur-http">#</a>
-</h2>
+</h3>
 <ol>
-<li>C&rsquo;est un <strong>protocole sans connexion</strong> (connectionless) : après émission d&rsquo;une requête, la connexion est fermée (contrairement à un jeu en ligne où la connexion est maintenue durant la partie). Le serveur réétabli la connexion pour envoyer la réponse. Et il ferme la connexion.</li>
-<li>HTTP <strong>peut envoyer n&rsquo;importe quel type de données</strong> tant que les deux ordinateurs sont capables de les lire. Le plus souvent : texte, image, vidéos etc. mais pas que !</li>
-<li>HTTP est un <strong>protocole &ldquo;sans état&rdquo;</strong> (stateless) : le client et le serveur se connaissent que durant l&rsquo;émission d&rsquo;une requête ou la réception d&rsquo;une réponse. Ensuite pour se parler à nouveau, ils doivent fournir à nouveau l&rsquo;information.</li>
+<li>
+<p>C&rsquo;est un <strong>protocole sans connexion</strong> (connectionless) : après émission d&rsquo;une requête, la connexion est fermée (contrairement à un jeu en ligne où la connexion est maintenue durant la partie). Le serveur réétabli la connexion pour envoyer la réponse. Et il ferme la connexion.</p>
+</li>
+<li>
+<p>HTTP <strong>peut envoyer n&rsquo;importe quel type de données</strong> tant que les deux ordinateurs sont capables de les lire. Le plus souvent : texte, image, vidéos etc. mais pas que !</p>
+</li>
+<li>
+<p>HTTP est un <strong>protocole &ldquo;sans état&rdquo;</strong> (stateless) : le client et le serveur se connaissent que durant l&rsquo;émission d&rsquo;une requête ou la réception d&rsquo;une réponse. Ensuite pour se parler à nouveau, ils doivent fournir à nouveau l&rsquo;information.</p>
+</li>
+<li>
+<p>Une requête (émise par un <em>client</em>, généralement le navigateur) est suivie d&rsquo;une <em>unique réponse</em>. Un seul fichier peut être transmis par réponse.</p>
+<ul>
+<li>Une page web (<code>index.html</code>), c&rsquo;est <strong>un</strong> fichier.</li>
+<li>Elle contient des liens vers deux images (<strong>deux autres fichiers</strong>) : <code>chat.jpg</code> et <code>maison.jpg</code>.</li>
+</ul>
+<p>Lorsque j&rsquo;affiche cette page, en tapant l&rsquo;adresse, le navigateur a émis :</p>
+<ul>
+<li>une requete pour récupérer le contenu de <code>html.jpg</code>,</li>
+<li>une requête pour récupérer l&rsquo;image <code>chat.jpg</code>,</li>
+<li>une requête pour récupérer l&rsquo;image <code>maison.jpg</code>.</li>
+</ul>
+<p>En pratique une page riche peut contenir des dizaines d&rsquo;images ou de fichiers (css, javascript etc.).</p>
+<p><strong>Chaque fichier requiert une requête pour être chargé</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#309;font-weight:bold">title</span>&gt;Exemple&lt;/<span style="color:#309;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#309;font-weight:bold">h1</span>&gt;Titre&lt;/<span style="color:#309;font-weight:bold">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#309;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>      Le chat : &lt;<span style="color:#309;font-weight:bold">img</span> <span style="color:#309">src</span><span style="color:#555">=</span><span style="color:#c30">&#34;chat.jpg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>      La maison : &lt;<span style="color:#309;font-weight:bold">img</span> <span style="color:#309">src</span><span style="color:#555">=</span><span style="color:#c30">&#34;maison.jpg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div></li>
 </ol>
 <p>Moins important :</p>
 <ol>
 <li>HTTP a été crée en 1991 par Tim Berners Lee pour transférer des pages web,</li>
 <li>HTTP a rapidement évolué et a été massivement adopté dans les années 90.</li>
 </ol>
-<h2 id="cycle-requête--réponse-http">
+<h3 id="cycle-requête--réponse-http">
   Cycle requête / réponse HTTP
   <a class="anchor" href="#cycle-requ%c3%aate--r%c3%a9ponse-http">#</a>
-</h2>
+</h3>
 <p><strong>Le client envoie une requête, le serveur renvoie une réponse.</strong></p>
 <p><img src="./http_request_response_cycle.svg" alt="cycle requête reponse http" /></p>
-<h2 id="requête-http">
+<h3 id="requête-http">
   Requête HTTP
   <a class="anchor" href="#requ%c3%aate-http">#</a>
-</h2>
+</h3>
 <p>Exemple de requête HTTP  :</p>
 <ul>
 <li>la méthode employée pour effectuer la requête</li>
@@ -7699,10 +7752,10 @@ Accept : text/html
 <li>Le navigateur est Mozilla 5.0 (firefox&hellip;),</li>
 <li>On attend une réponse en texte formaté en HTML.</li>
 </ul>
-<h3 id="méthode-employée">
+<h4 id="méthode-employée">
   Méthode employée
   <a class="anchor" href="#m%c3%a9thode-employ%c3%a9e">#</a>
-</h3>
+</h4>
 <p>Il existe de nombreuses méthodes HTTP (parfois appelées <em>verbes</em>) :</p>
 <ul>
 <li>GET</li>
@@ -7720,10 +7773,10 @@ Accept : text/html
 <li><strong>GET</strong> : demande une représentation d&rsquo;une ressource : obtenir une page web, un fichier, une donnée.</li>
 <li><strong>POST</strong> : envoie une entité vers la ressource : soumettre des données au serveur.</li>
 </ul>
-<h2 id="réponse-http-du-serveur-à-une-requête">
+<h3 id="réponse-http-du-serveur-à-une-requête">
   Réponse HTTP du serveur à une requête
   <a class="anchor" href="#r%c3%a9ponse-http-du-serveur-%c3%a0-une-requ%c3%aate">#</a>
-</h2>
+</h3>
 <p>Un exemple de réponse</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>HTTP/1.1 200 OK
 </span></span><span style="display:flex;"><span>Date: Thu, 15 feb 2019 12:02:32 GMT
@@ -7742,10 +7795,10 @@ Accept : text/html
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#309;font-weight:bold">p</span>&gt;Ma recette favorite : le cassoulet&lt;/<span style="color:#309;font-weight:bold">p</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
-</span></span></code></pre></div><h3 id="quelques-détails-">
+</span></span></code></pre></div><h4 id="quelques-détails-">
   Quelques détails :
   <a class="anchor" href="#quelques-d%c3%a9tails-">#</a>
-</h3>
+</h4>
 <ul>
 <li>
 <p>Première ligne : <code>HTTP/1.1 200 OK</code> version de HTTP et code réponse.
@@ -7780,10 +7833,10 @@ Parmi les codes courant on trouve :</p>
 </li>
 </ul>
 <p>Souvenons nous que cette réponse est en fait une série de bit que le client interprète comme une réponse HTTP. Ce sont des <em>bits</em> qui transitent sur le réseau.</p>
-<h3 id="contenu-de-la-page">
+<h4 id="contenu-de-la-page">
   Contenu de la page.
   <a class="anchor" href="#contenu-de-la-page">#</a>
-</h3>
+</h4>
 <p>Le contenu &ldquo;habituel&rdquo; d&rsquo;une page web :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#099">&lt;!DOCTYPE html&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">lang</span><span style="color:#555">=</span><span style="color:#c30">&#34;fr&#34;</span> <span style="color:#309">dir</span><span style="color:#555">=</span><span style="color:#c30">&#34;ltr&#34;</span>&gt;
@@ -7797,10 +7850,21 @@ Parmi les codes courant on trouve :</p>
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#309;font-weight:bold">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">html</span>&gt;
 </span></span></code></pre></div><p>Il est généralement envoyé en réponse à une requête (GET, POST) APRES l&rsquo;entête dans le CORPS de la requête</p>
-<h2 id="etapes-supplémentaires-du-protocole-https">
+<h2 id="https">
+  HTTPS
+  <a class="anchor" href="#https">#</a>
+</h2>
+<p>HTTPS &ldquo;Hypertext Transfer Protocol Secure&rdquo; ajoute une couche de <em>sécurisation</em> à HTTP.</p>
+<p>Il permet d&rsquo;ajouter :</p>
+<ul>
+<li>le chiffrement des données : les données, même interpectées, ne peuvent être lue que par leur destinataire,</li>
+<li>l&rsquo;authentification : on peut vérifier qu&rsquo;on échange bien avec le site web voulu et par qui celui-ci est détenu.</li>
+</ul>
+<p>Sans ce protocole, toute donnée transmise peut-être interceptée et lue par n&rsquo;importe qui.</p>
+<h3 id="etapes-supplémentaires-du-protocole-https">
   Etapes supplémentaires du protocole HTTPS
   <a class="anchor" href="#etapes-suppl%c3%a9mentaires-du-protocole-https">#</a>
-</h2>
+</h3>
 <p><strong>HTTPS</strong> pour <strong>SECURED</strong> HTTP</p>
 <ol>
 <li>Demande du client d&rsquo;établir une <strong>connexion sécurisée</strong> (http<strong>s</strong> &hellip;)</li>
@@ -7808,23 +7872,23 @@ Parmi les codes courant on trouve :</p>
 <li><strong>Le client</strong> (généralement le navigateur) <strong>vérifie le certificat et affiche à côté de l&rsquo;adresse une information à l&rsquo;utilisateur</strong> sur ce certificat (valide, invalide, périmé etc.)</li>
 <li>Les échanges sont maintenants <strong>chiffrés</strong> grâce à une <strong>clé publique et une clé privée</strong> (chiffrement asynchrone)</li>
 </ol>
-<h2 id="etablir-une-connexion-http-dans-un-langage-de-programmation">
+<h3 id="etablir-une-connexion-http-dans-un-langage-de-programmation">
   Etablir une connexion HTTP dans un langage de programmation
   <a class="anchor" href="#etablir-une-connexion-http-dans-un-langage-de-programmation">#</a>
-</h2>
+</h3>
 <p>L&rsquo;usage courant est d&rsquo;employer un navigateur (chrome, firefox) pour faire des requêtes HTTP. Elles sont alors cachées à l&rsquo;utilisateur.</p>
 <p><strong>Un développeur peut écrire lui même ses requêtes et les exécuter</strong>. Python (et presque tous les langages modernes) permet d&rsquo;établir facilement une connexion HTTP.</p>
 <p>C&rsquo;est une méthode courante pour faire communiquer directement les machines. Chaque fois que vous entendez parler <em>d&rsquo;API REST</em> ou <em>d&rsquo;API HTTP</em> c&rsquo;est ce qui est fait.</p>
 <p><strong>API</strong> : <em>Application Programming Interface</em> (interface de programmation d&rsquo;application). Nom générique pour désigner l&rsquo;ensemble des méthodes par lequel un logiciel offre ses services à d&rsquo;autres logiciels.</p>
 <p>En Python 2 lignes suffisent pour obtenir une réponse HTTP et la traiter ensuite.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">requests</span> <span style="color:#09f;font-style:italic"># librairie qui gère les connexion HTTP</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">requests</span> <span style="color:#09f;font-style:italic">## librairie qui gère les connexion HTTP</span>
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> reponse <span style="color:#555">=</span> requests<span style="color:#555">.</span>get(<span style="color:#c30">&#34;http://qkzk.xyz&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># on établi une connexion avec mon site</span>
 </span></span></code></pre></div><p>Le code réponse et l&rsquo;entête :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> reponse
 </span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span>Response [<span style="color:#f60">200</span>]<span style="color:#555">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic"># la connexion est établie correctement (200 signifie OK)</span>
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> reponses<span style="color:#555">.</span>headers <span style="color:#09f;font-style:italic"># detail de la reponse du serveur</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#09f;font-style:italic">## la connexion est établie correctement (200 signifie OK)</span>
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> reponses<span style="color:#555">.</span>headers <span style="color:#09f;font-style:italic">## detail de la reponse du serveur</span>
 </span></span><span style="display:flex;"><span>{<span style="color:#c30">&#39;Server&#39;</span>: <span style="color:#c30">&#39;GitHub.com&#39;</span>, <span style="color:#c30">&#39;Content-Type&#39;</span>: <span style="color:#c30">&#39;text/html; charset=utf-8&#39;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;Last-Modified&#39;</span>: <span style="color:#c30">&#39;Wed, 09 Oct 2019 16:10:57 GMT&#39;</span>, <span style="color:#c30">&#39;ETag&#39;</span>: <span style="color:#c30">&#39;W/&#34;5d9e0691-e152&#34;&#39;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#c30">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#c30">&#39;*&#39;</span>, <span style="color:#c30">&#39;Expires&#39;</span>: <span style="color:#c30">&#39;Sat, 12 Oct 2019 09:20:09 GMT&#39;</span>,
@@ -7919,28 +7983,28 @@ Parmi les codes courant on trouve :</p>
 <h1>Table des matières</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#définition">Définition</a></li>
-    <li><a href="#adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</a></li>
-    <li><a href="#chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#définition--protocole">Définition : Protocole</a></li>
-    <li><a href="#quelques-détails-sur-http">Quelques détails sur HTTP</a></li>
-    <li><a href="#cycle-requête--réponse-http">Cycle requête / réponse HTTP</a></li>
-    <li><a href="#requête-http">Requête HTTP</a>
+    <li><a href="#url">URL</a>
       <ul>
-        <li><a href="#méthode-employée">Méthode employée</a></li>
+        <li><a href="#définition">Définition</a></li>
+        <li><a href="#adresse-ip-et-nom-de-domaine">Adresse IP et nom de domaine.</a></li>
+        <li><a href="#chemin-absolu-chemin-relatif">Chemin absolu, chemin relatif</a></li>
       </ul>
     </li>
-    <li><a href="#réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</a>
+    <li><a href="#protocole-http">Protocole HTTP</a>
       <ul>
-        <li><a href="#quelques-détails-">Quelques détails :</a></li>
-        <li><a href="#contenu-de-la-page">Contenu de la page.</a></li>
+        <li><a href="#définition--protocole">Définition : Protocole</a></li>
+        <li><a href="#quelques-détails-sur-http">Quelques détails sur HTTP</a></li>
+        <li><a href="#cycle-requête--réponse-http">Cycle requête / réponse HTTP</a></li>
+        <li><a href="#requête-http">Requête HTTP</a></li>
+        <li><a href="#réponse-http-du-serveur-à-une-requête">Réponse HTTP du serveur à une requête</a></li>
       </ul>
     </li>
-    <li><a href="#etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</a></li>
-    <li><a href="#etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</a></li>
+    <li><a href="#https">HTTPS</a>
+      <ul>
+        <li><a href="#etapes-supplémentaires-du-protocole-https">Etapes supplémentaires du protocole HTTPS</a></li>
+        <li><a href="#etablir-une-connexion-http-dans-un-langage-de-programmation">Etablir une connexion HTTP dans un langage de programmation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
