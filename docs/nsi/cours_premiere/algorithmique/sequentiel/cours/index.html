@@ -31,7 +31,7 @@ On est alors amené à effectuer de nombreuses opérations sur ces tableaux.">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.24c2b1f8dc2338e074345eec5b36f8a002aaa6d1b2e7312e14ac2d6a6958c876.css" integrity="sha256-JMKx&#43;NwjOOB0NF7sWzb4oAKqptGy5zEuFKwtamlYyHY=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.38a82edf501aac1460a0f0bc68b6d8ebcf4bdf12b92074cea66354059db0b29b.js" integrity="sha256-OKgu31AarBRgoPC8aLbY689L3xK5IHTOpmNUBZ2wsps=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.2a5029358aeb483a1617e205ceac261c911dd97ab13ed570b550caef612fcb70.js" integrity="sha256-KlApNYrrSDoWF&#43;IFzqwmHJEd2XqxPtVwtVDK72Evy3A=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/sequentiel/cours/index.xml" title="qkzk" />
 <!--
@@ -7553,13 +7553,8 @@ MathJax.Hub.Config({
     <li><a href="#objectifs">Objectifs</a></li>
     <li><a href="#les-tableaux-en-informatique">Les tableaux en informatique</a>
       <ul>
+        <li><a href="#intérêt-des-tableaux">Intérêt des tableaux</a></li>
         <li><a href="#les-tableaux-en-python">Les tableaux en Python</a></li>
-        <li><a href="#constructions-de-tableaux">Constructions de tableaux</a></li>
-        <li><a href="#construction-directe">Construction directe</a></li>
-        <li><a href="#ajouts-successifs">Ajouts successifs</a></li>
-        <li><a href="#tableaux-par-compréhension">Tableaux par compréhension</a></li>
-        <li><a href="#range"><code>range</code></a></li>
-        <li><a href="#range-avec-ou-sans-bornes"><code>range</code> avec ou sans bornes</a></li>
       </ul>
     </li>
     <li><a href="#parcourir-un-tableau">Parcourir un tableau</a></li>
@@ -7587,7 +7582,7 @@ MathJax.Hub.Config({
         <li><a href="#en-python-solution-native">En python, solution native</a></li>
       </ul>
     </li>
-    <li><a href="#retourner-un-tableau">Retourner un tableau</a>
+    <li><a href="#renverser-un-tableau">Renverser un tableau</a>
       <ul>
         <li><a href="#principe">principe</a></li>
         <li><a href="#python">python</a></li>
@@ -7615,14 +7610,9 @@ MathJax.Hub.Config({
     <li><a href="#parcourir-une-matrice-pour-afficher-ses-éléments">Parcourir une matrice pour afficher ses éléments</a></li>
     <li><a href="#calculer-la-somme-des-éléments-à-la-main">Calculer la somme des éléments &ldquo;à la main&rdquo;</a></li>
     <li><a href="#en-python-1">En Python</a></li>
-    <li><a href="#dautres-représentations-des-matrices">D&rsquo;autres représentations des matrices</a></li>
-    <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
-    <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exemples">Exemples</a>
+    <li><a href="#variants-et-invariants">Variants et invariants</a>
       <ul>
+        <li><a href="#exemples">Exemples</a></li>
         <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
         <li><a href="#somme-des-entiers">Somme des entiers</a></li>
         <li><a href="#division-euclidienne-par-soustraction">Division euclidienne par soustraction</a></li>
@@ -7693,26 +7683,23 @@ MathJax.Hub.Config({
   Les tableaux en informatique
   <a class="anchor" href="#les-tableaux-en-informatique">#</a>
 </h2>
-<p><strong>Un tableau est une série d&rsquo;objets, généralement situés côte à côté dans la mémoire.</strong></p>
+<p><strong>Un tableau est une série d&rsquo;objets de même taille, généralement situés côte à côté dans la mémoire.</strong></p>
 <p>On suppose pouvoir parcourir le tableau, élément par élément.</p>
-<details  class="no-outline"><summary class="no-outline"></summary>
-    <div class="markdown-inner">
-        <h3 id="intérêt-des-tableaux">
+<h3 id="intérêt-des-tableaux">
   Intérêt des tableaux
   <a class="anchor" href="#int%c3%a9r%c3%aat-des-tableaux">#</a>
 </h3>
 <p>En enregistrant des objets côte à côte dans la mémoire, on peut accéder très rapidement à l&rsquo;un d&rsquo;entre eux par son indice.</p>
+<p>Imaginons qu&rsquo;on doive enregistrer des entiers compris entre 0 et 255 (des octets) dans la mémoire.</p>
+<p>On utilise 1 octet par valeur.</p>
 <p>Considérons <code>[5, 7, 3, 8, 12]</code>.</p>
-<p>Ces entiers sont petits, tous entre 0 et 255, on peut utiliser 1 octet (8 bits) par entier.</p>
-<p>On les enregistre côte à côte en mémoire à partir de l&rsquo;adresse mémoire <code>1234</code>.</p>
-<p>Donc, <code>5</code> est enregistré à l&rsquo;adresse <code>1234</code>.</p>
-<p>Si chaque case utilise 1 octet, l&rsquo;adresse suivante, <code>1235</code> correspond à la case contenant 7.</p>
-<p>Et l&rsquo;adresse de l&rsquo;élément d&rsquo;indice 3 (qui est la valeur 8) est <code>1234 + 3 = 1237</code>.</p>
+<p>On enregistre  côte à côte en mémoire à partir de l&rsquo;adresse mémoire <code>1234</code>.</p>
+<p>Donc,</p>
+<ul>
+<li><code>5</code> est enregistré à l&rsquo;adresse <code>1234</code> ;</li>
+<li><code>7</code> est enregistré à l&rsquo;adresse <code>1235</code> etc.</li>
+</ul>
 <p>Pour la machine, ces calculs sont très rapides.</p>
-
-    </div>
-</details>
-
 <h3 id="les-tableaux-en-python">
   Les tableaux en Python
   <a class="anchor" href="#les-tableaux-en-python">#</a>
@@ -7721,7 +7708,9 @@ MathJax.Hub.Config({
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> T <span style="color:#555">=</span> [<span style="color:#f60">0</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>, <span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>, <span style="color:#f60">9</span>, <span style="color:#f60">10</span>]
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">type</span>(T)
 </span></span><span style="display:flex;"><span><span style="color:#555">&lt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#a00;background-color:#faa">&#39;</span><span style="color:#0a8;font-weight:bold">list</span><span style="color:#c30">&#39;&gt;</span>
-</span></span></code></pre></div><h3 id="constructions-de-tableaux">
+</span></span></code></pre></div><details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h3 id="constructions-de-tableaux">
   Constructions de tableaux
   <a class="anchor" href="#constructions-de-tableaux">#</a>
 </h3>
@@ -7787,6 +7776,10 @@ MathJax.Hub.Config({
 <li>S&rsquo;il n&rsquo;y a qu&rsquo;un nombre, c&rsquo;est la borne de fin. La borne de début est 0.</li>
 </ul>
 <p><code>range(6)</code> retourne l&rsquo;itérable correspondant à la liste des entiers <code>[0, 1, 2, 3, 4, 5]</code></p>
+
+    </div>
+</details>
+
 <h2 id="parcourir-un-tableau">
   Parcourir un tableau
   <a class="anchor" href="#parcourir-un-tableau">#</a>
@@ -8136,12 +8129,12 @@ On l&rsquo;étudiera dans un chapitre ultérieur.</li>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">moyenne2</span>(tableau):
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">sum</span>(tableau) <span style="color:#555">/</span> <span style="color:#366">len</span>(tableau)
 </span></span></code></pre></div><p>Difficile de comprendre ce qui se passe !</p>
-<h2 id="retourner-un-tableau">
-  Retourner un tableau
-  <a class="anchor" href="#retourner-un-tableau">#</a>
+<h2 id="renverser-un-tableau">
+  Renverser un tableau
+  <a class="anchor" href="#renverser-un-tableau">#</a>
 </h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> T <span style="color:#555">=</span> [<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>]
-</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> retourner(tableau)
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> renverser(tableau)
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> [<span style="color:#f60">3</span>, <span style="color:#f60">2</span>, <span style="color:#f60">1</span>]
 </span></span></code></pre></div><p>Comment faire ?</p>
 <h3 id="principe">
@@ -8149,32 +8142,24 @@ On l&rsquo;étudiera dans un chapitre ultérieur.</li>
   <a class="anchor" href="#principe">#</a>
 </h3>
 <ul>
-<li>On crée un tableau vide <code>R</code> pour nos éléments retournés</li>
+<li>On crée un tableau vide <code>R</code> pour nos éléments renversés</li>
 <li>On parcourt le tableau <code>T</code>,
 <ul>
 <li>pour chaque élément rencontré, on <em>l&rsquo;insère au début de R</em></li>
 </ul>
 </li>
-<li>On retourne <code>R</code></li>
+<li>On renvoie <code>R</code></li>
 </ul>
 <h3 id="python">
   python
   <a class="anchor" href="#python">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">retourner</span>(tableau):
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">renverser</span>(tableau):
 </span></span><span style="display:flex;"><span>  tab_retourne <span style="color:#555">=</span> []
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> element <span style="color:#000;font-weight:bold">in</span> tableau:
 </span></span><span style="display:flex;"><span>    tab_retourne<span style="color:#555">.</span>insert(<span style="color:#f60">0</span>, element)
-</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># variante moins efficace :</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#09f;font-style:italic"># tab_retourne = [element] + tableau_retourne</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">return</span> tab_retourne
-</span></span></code></pre></div><ul>
-<li>
-<p>faîtes bien attention aux crochets <code>[element] + tableau_retourne</code></p>
-<p>On <em>ajoute deux tableaux</em>: Python les met bout à bout !</p>
-</li>
-</ul>
-<h3 id="opération-native-en-python">
+</span></span></code></pre></div><h3 id="opération-native-en-python">
   Opération native en python
   <a class="anchor" href="#op%c3%a9ration-native-en-python">#</a>
 </h3>
@@ -8233,7 +8218,7 @@ On l&rsquo;étudiera dans un chapitre ultérieur.</li>
 à deux dimensions :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>                        1234
 </span></span><span style="display:flex;"><span>                        5678
-</span></span></code></pre></div><p>Ces tableaux sont appelés des <strong>matrices</strong>. Celle-ci a 2 lignes et 4 colonnes</p>
+</span></span></code></pre></div><p>Les tableaux à deux dimensions sont appelés des <strong>matrices</strong>. Celle-ci a 2 lignes et 4 colonnes</p>
 <h3 id="affecter-une-matrice-à-une-variable">
   Affecter une matrice à une variable
   <a class="anchor" href="#affecter-une-matrice-%c3%a0-une-variable">#</a>
@@ -8247,16 +8232,16 @@ On l&rsquo;étudiera dans un chapitre ultérieur.</li>
 <li>que chaque élément de ce tabeau est <strong>lui même un tableau</strong> : <code>[1, 2, 3, 4]</code> etc.</li>
 </ul>
 <p>On dit que c&rsquo;est une structure <em>imbriquée</em>.</p>
-<p>Cette notation est universelle.</p>
 <h3 id="atteindre-un-élément">
   Atteindre un élément.
   <a class="anchor" href="#atteindre-un-%c3%a9l%c3%a9ment">#</a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mat <span style="color:#555">=</span> [[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>],
 </span></span><span style="display:flex;"><span>       [<span style="color:#f60">5</span>, <span style="color:#f60">6</span>, <span style="color:#f60">7</span>, <span style="color:#f60">8</span>]]
-</span></span></code></pre></div><p>Disons qu&rsquo;on veut atteindre le nombre 3. Il est dans la première ligne, 3ème
-colonne :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> mat[<span style="color:#f60">0</span>][<span style="color:#f60">2</span>]
+</span></span></code></pre></div><p>On veut atteindre le nombre 3. Il est dans la première ligne, 3ème colonne :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> mat[<span style="color:#f60">0</span>]
+</span></span><span style="display:flex;"><span>[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> mat[<span style="color:#f60">0</span>][<span style="color:#f60">2</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f60">3</span>
 </span></span></code></pre></div><p>On utilise deux séries de <code>[]</code> pour les lignes puis pour les colonnes.</p>
 <h3 id="parcourir-une-matrice--boucles-imbriquées">
@@ -8447,7 +8432,9 @@ Ici, on le remplace par les caractères <code>', '</code> et nos éléments s&rs
 </span></span><span style="display:flex;"><span>  <span style="color:#069;font-weight:bold">for</span> element <span style="color:#000;font-weight:bold">in</span> ligne:
 </span></span><span style="display:flex;"><span>    somme <span style="color:#555">+=</span> element
 </span></span></code></pre></div><p>La valeur finale de <code>somme</code> est <code>25</code></p>
-<h2 id="dautres-représentations-des-matrices">
+<details  class="no-outline"><summary class="no-outline"></summary>
+    <div class="markdown-inner">
+        <h2 id="dautres-représentations-des-matrices">
   D&rsquo;autres représentations des matrices
   <a class="anchor" href="#dautres-repr%c3%a9sentations-des-matrices">#</a>
 </h2>
@@ -8477,10 +8464,14 @@ d&rsquo;indices, mais en plus les éléments de la matrice sont atteints autreme
   <a class="anchor" href="#d%c3%a9grad%c3%a9-obtenu">#</a>
 </h2>
 <p><img src="./degrade.jpg" alt="Degradé rouge -&gt; noir" /></p>
-<h1 id="variants-et-invariants">
+
+    </div>
+</details>
+
+<h2 id="variants-et-invariants">
   Variants et invariants
   <a class="anchor" href="#variants-et-invariants">#</a>
-</h1>
+</h2>
 <ul>
 <li>
 <p>Un <em>invariant de boucle</em> est un propriété qui est vraie avant et après chaque tour d’une boucle.</p>
@@ -8531,10 +8522,10 @@ c&rsquo;est toujours le cas après ce tour.</li>
 <p>Conclusion : lorsque la boucle se termine à <code>i = len(tab)</code>, <code>indice_maxi</code> est l&rsquo;indice du plus grand de tous les éléments.</p>
 </li>
 </ol>
-<h2 id="exemples">
+<h3 id="exemples">
   Exemples
   <a class="anchor" href="#exemples">#</a>
-</h2>
+</h3>
 <h3 id="exponentiation-rapide">
   Exponentiation rapide
   <a class="anchor" href="#exponentiation-rapide">#</a>
@@ -8663,13 +8654,8 @@ c&rsquo;est toujours le cas après ce tour.</li>
     <li><a href="#objectifs">Objectifs</a></li>
     <li><a href="#les-tableaux-en-informatique">Les tableaux en informatique</a>
       <ul>
+        <li><a href="#intérêt-des-tableaux">Intérêt des tableaux</a></li>
         <li><a href="#les-tableaux-en-python">Les tableaux en Python</a></li>
-        <li><a href="#constructions-de-tableaux">Constructions de tableaux</a></li>
-        <li><a href="#construction-directe">Construction directe</a></li>
-        <li><a href="#ajouts-successifs">Ajouts successifs</a></li>
-        <li><a href="#tableaux-par-compréhension">Tableaux par compréhension</a></li>
-        <li><a href="#range"><code>range</code></a></li>
-        <li><a href="#range-avec-ou-sans-bornes"><code>range</code> avec ou sans bornes</a></li>
       </ul>
     </li>
     <li><a href="#parcourir-un-tableau">Parcourir un tableau</a></li>
@@ -8697,7 +8683,7 @@ c&rsquo;est toujours le cas après ce tour.</li>
         <li><a href="#en-python-solution-native">En python, solution native</a></li>
       </ul>
     </li>
-    <li><a href="#retourner-un-tableau">Retourner un tableau</a>
+    <li><a href="#renverser-un-tableau">Renverser un tableau</a>
       <ul>
         <li><a href="#principe">principe</a></li>
         <li><a href="#python">python</a></li>
@@ -8725,14 +8711,9 @@ c&rsquo;est toujours le cas après ce tour.</li>
     <li><a href="#parcourir-une-matrice-pour-afficher-ses-éléments">Parcourir une matrice pour afficher ses éléments</a></li>
     <li><a href="#calculer-la-somme-des-éléments-à-la-main">Calculer la somme des éléments &ldquo;à la main&rdquo;</a></li>
     <li><a href="#en-python-1">En Python</a></li>
-    <li><a href="#dautres-représentations-des-matrices">D&rsquo;autres représentations des matrices</a></li>
-    <li><a href="#créer-un-dégradé">Créer un dégradé</a></li>
-    <li><a href="#dégradé-obtenu">dégradé obtenu</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#exemples">Exemples</a>
+    <li><a href="#variants-et-invariants">Variants et invariants</a>
       <ul>
+        <li><a href="#exemples">Exemples</a></li>
         <li><a href="#exponentiation-rapide">Exponentiation rapide</a></li>
         <li><a href="#somme-des-entiers">Somme des entiers</a></li>
         <li><a href="#division-euclidienne-par-soustraction">Division euclidienne par soustraction</a></li>
