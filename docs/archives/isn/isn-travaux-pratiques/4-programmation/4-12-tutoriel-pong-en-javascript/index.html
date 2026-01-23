@@ -27,7 +27,7 @@ Tutoriel : création du jeu Pong en html5 avec la balise canvas. # Durant tout l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.15749725519ebcb68fed4f55bd53d4b6b94fe787e0a7a253f00c8a85f60936b2.js" integrity="sha256-FXSXJVGevLaP7U9VvVPUtrlP54fgp6JT8AyKhfYJNrI=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.ad98841de308c31df9fa45d0b3ea7f72c8f0e0320272e37449e5ad268745bc78.js" integrity="sha256-rZiEHeMIwx35&#43;kXQs&#43;p/csjw4DICcuN0SeWtJodFvHg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/4-programmation/4-12-tutoriel-pong-en-javascript/index.xml" title="qkzk" />
 <!--
@@ -7746,32 +7746,32 @@ Une fois la page chargée par le navigateur, javascript execute à intervalle r�
 <strong>Une fois compris</strong> il peut être repris pour n&rsquo;importe quel jeu (ou animation) simple en 2D, la structure sera vraisemblablement la même.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#309;font-weight:bold">script</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>		<span style="color:#09f;font-style:italic">//à chaque reload
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		<span style="color:#366">window</span>.addEventListener(<span style="color:#c30">&#39;load&#39;</span>, <span style="color:#069;font-weight:bold">function</span> () {
+</span></span></span><span style="display:flex;"><span>		<span style="color:#366">window</span>.addEventListener(<span style="color:#c30">&#39;load&#39;</span>, <span style="color:#069;font-weight:bold">function</span> () {
 </span></span><span style="display:flex;"><span>		  <span style="color:#09f;font-style:italic">// On récupère l&#39;objet canvas
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		  <span style="color:#069;font-weight:bold">var</span> elem <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#39;canvasElem&#39;</span>);
+</span></span></span><span style="display:flex;"><span>		  <span style="color:#069;font-weight:bold">var</span> elem <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#39;canvasElem&#39;</span>);
 </span></span><span style="display:flex;"><span>		  <span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span>elem <span style="color:#555">||</span> <span style="color:#555">!</span>elem.getContext) {
 </span></span><span style="display:flex;"><span>			<span style="color:#069;font-weight:bold">return</span>;
 </span></span><span style="display:flex;"><span>		  }
 </span></span><span style="display:flex;"><span>		  <span style="color:#09f;font-style:italic">// On récupère le contexte 2D
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		  context <span style="color:#555">=</span> elem.getContext(<span style="color:#c30">&#39;2d&#39;</span>);
+</span></span></span><span style="display:flex;"><span>		  context <span style="color:#555">=</span> elem.getContext(<span style="color:#c30">&#39;2d&#39;</span>);
 </span></span><span style="display:flex;"><span>		  <span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span>context) {
 </span></span><span style="display:flex;"><span>			<span style="color:#069;font-weight:bold">return</span>;
 </span></span><span style="display:flex;"><span>		  }
 </span></span><span style="display:flex;"><span>		  <span style="color:#09f;font-style:italic">// Boucle de rafraichissement du contexte 2D
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		  boucleJeu <span style="color:#555">=</span> setInterval(refreshGame, intervalTemps); <span style="color:#09f;font-style:italic">//refresh tous les x ms
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		}, <span style="color:#069;font-weight:bold">false</span>);
+</span></span></span><span style="display:flex;"><span>		  boucleJeu <span style="color:#555">=</span> setInterval(refreshGame, intervalTemps); <span style="color:#09f;font-style:italic">//refresh tous les x ms
+</span></span></span><span style="display:flex;"><span>		}, <span style="color:#069;font-weight:bold">false</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#09f;font-style:italic">//variables
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		intervalTemps <span style="color:#555">=</span> <span style="color:#f60">2</span>;<span style="color:#09f;font-style:italic">//tous les 2 ms
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span>		intervalTemps <span style="color:#555">=</span> <span style="color:#f60">2</span>;<span style="color:#09f;font-style:italic">//tous les 2 ms
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#09f;font-style:italic">//boucle de rafraichissement
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		<span style="color:#09f;font-style:italic">//la boucle du jeu
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>				<span style="color:#069;font-weight:bold">function</span> refreshGame() {
+</span></span></span><span style="display:flex;"><span>		<span style="color:#09f;font-style:italic">//la boucle du jeu
+</span></span></span><span style="display:flex;"><span>				<span style="color:#069;font-weight:bold">function</span> refreshGame() {
 </span></span><span style="display:flex;"><span>				<span style="color:#09f;font-style:italic">//ici on inscrira les appels succéssifs.
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>				}
+</span></span></span><span style="display:flex;"><span>				}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#09f;font-style:italic">//fonctions : elles seront définies ici, appelées plus haut
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>&lt;/<span style="color:#309;font-weight:bold">script</span>&gt;
+</span></span></span><span style="display:flex;"><span>&lt;/<span style="color:#309;font-weight:bold">script</span>&gt;
 </span></span></code></pre></div><p>** Traduction :**</p>
 <p>On commence par &ldquo;écouter&rdquo; les &ldquo;événements&rdquo; de la page. <code>window.addEventListener(...)</code> : chargement de la page, action de l&rsquo;utilisateur (clavier, souris etc.)</p>
 <p>On charge une fonction javascript executée une seule fois (inutile donc de la nommer) <strong>après</strong> le reste du code html (load, ligne 3).</p>
@@ -7839,41 +7839,41 @@ Prendre une photo, l&rsquo;insérer dans le drive au bon endroit et la renommer 
 </h2>
 <p>Elles iront en haut du script, avant la récupération du canvas. Elles sont toutes locales, certaines étant juste nommées sans valeur particulière à ce moment.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//variables internes
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> boucleJeu; <span style="color:#09f;font-style:italic">//appelée pour refresh
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> intervalTemps <span style="color:#555">=</span> <span style="color:#f60">2</span>; <span style="color:#09f;font-style:italic">//temps entre 2 refresh en ms
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> context; <span style="color:#09f;font-style:italic">//le contexte 2d
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> boucleJeu; <span style="color:#09f;font-style:italic">//appelée pour refresh
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> intervalTemps <span style="color:#555">=</span> <span style="color:#f60">2</span>; <span style="color:#09f;font-style:italic">//temps entre 2 refresh en ms
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> context; <span style="color:#09f;font-style:italic">//le contexte 2d
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">// Constantes du jeu
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> largeur_fenetre <span style="color:#555">=</span> <span style="color:#f60">600</span>; <span style="color:#09f;font-style:italic">//taille du canvas
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> hauteur_fenetre <span style="color:#555">=</span> <span style="color:#f60">600</span>; <span style="color:#09f;font-style:italic">//hauteur du canvas
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> avancer <span style="color:#555">=</span> <span style="color:#f60">1</span>; <span style="color:#09f;font-style:italic">//on commence a gauche, en allant vers la droite
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> largeur_fenetre <span style="color:#555">=</span> <span style="color:#f60">600</span>; <span style="color:#09f;font-style:italic">//taille du canvas
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> hauteur_fenetre <span style="color:#555">=</span> <span style="color:#f60">600</span>; <span style="color:#09f;font-style:italic">//hauteur du canvas
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> avancer <span style="color:#555">=</span> <span style="color:#f60">1</span>; <span style="color:#09f;font-style:italic">//on commence a gauche, en allant vers la droite
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//positions des objets
 </span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//centre de la raquette de gauche
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> abs_raquette1<span style="color:#555">=</span><span style="color:#f60">60</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> abs_raquette1<span style="color:#555">=</span><span style="color:#f60">60</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> ord_raquette1<span style="color:#555">=</span><span style="color:#f60">300</span>;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//centre de la raquette de droite
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> abs_raquette2<span style="color:#555">=</span><span style="color:#f60">540</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> abs_raquette2<span style="color:#555">=</span><span style="color:#f60">540</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> ord_raquette2<span style="color:#555">=</span><span style="color:#f60">300</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> barreStart<span style="color:#555">=</span>ord_raquette1; <span style="color:#09f;font-style:italic">//l&#39;ordonnee des barres apres les buts
 </span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//centre de la balle carre
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> abs_balle<span style="color:#555">=</span><span style="color:#f60">300</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> abs_balle<span style="color:#555">=</span><span style="color:#f60">300</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> ord_balle<span style="color:#555">=</span><span style="color:#f60">300</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> abs_depart<span style="color:#555">=</span>abs_balle;<span style="color:#09f;font-style:italic">//on gare en mémoire la position initiale pour les remises en jeu
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> ord_depart<span style="color:#555">=</span>ord_balle;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> ord_depart<span style="color:#555">=</span>ord_balle;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//largeur et hauteur des barres - ce sont en fait des demi-largeurs et hauteurs, comme on va le voir
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> l<span style="color:#555">=</span><span style="color:#f60">3</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> l<span style="color:#555">=</span><span style="color:#f60">3</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> h<span style="color:#555">=</span><span style="color:#f60">60</span>;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//largeur et hauteur de la balle
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> ll<span style="color:#555">=</span><span style="color:#f60">6</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> ll<span style="color:#555">=</span><span style="color:#f60">6</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> hh<span style="color:#555">=</span><span style="color:#f60">6</span>;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//vitesse de deplacement des raquettes
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> deplace <span style="color:#555">=</span> <span style="color:#f60">18</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> deplace <span style="color:#555">=</span> <span style="color:#f60">18</span>;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//vitesse horizontale et verticale de la balle
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> horiz <span style="color:#555">=</span> <span style="color:#f60">2</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> horiz <span style="color:#555">=</span> <span style="color:#f60">2</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> vertic <span style="color:#555">=</span> <span style="color:#f60">0</span>;
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//les scores
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">var</span> score1<span style="color:#555">=</span><span style="color:#f60">0</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> score1<span style="color:#555">=</span><span style="color:#f60">0</span>;
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> score2<span style="color:#555">=</span><span style="color:#f60">0</span>;
 </span></span></code></pre></div><p>Les noms ne sont pas clairs ! Ils ne le sont jamais, voilà pourquoi il faut ajouter des commentaires immédiatement afin de pouvoir relire son code.</p>
 <p>Représenter l&rsquo;ensemble de la fenêtre sur une autre figure. On doit y voir tous les éléments graphiques, leurs coordonnées à partir du point qui les repère noté en employant les variables que nous venons de définir.
@@ -7887,22 +7887,22 @@ Même traitement que pour la figure précédente : photo, drive, la classer corr
 Par choix on dessine d&rsquo;abord tous les éléments puis on calcule les états suivants.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#069;font-weight:bold">function</span> refreshGame() {
 </span></span><span style="display:flex;"><span>    	<span style="color:#09f;font-style:italic">//nettoyage de l&#39;ecran
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>    	context.clearRect(<span style="color:#f60">0</span>,<span style="color:#f60">0</span>,largeur_fenetre,hauteur_fenetre);
+</span></span></span><span style="display:flex;"><span>    	context.clearRect(<span style="color:#f60">0</span>,<span style="color:#f60">0</span>,largeur_fenetre,hauteur_fenetre);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    	<span style="color:#09f;font-style:italic">//dessin des éléments
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>    	dessinerBarre(abs_raquette1,ord_raquette1);
+</span></span></span><span style="display:flex;"><span>    	dessinerBarre(abs_raquette1,ord_raquette1);
 </span></span><span style="display:flex;"><span>    	dessinerBarre(abs_raquette2,ord_raquette2);
 </span></span><span style="display:flex;"><span>    	dessinerBalle(abs_balle,ord_balle);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    	<span style="color:#09f;font-style:italic">//deplacement des elements
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>       	deplaceBalle();
+</span></span></span><span style="display:flex;"><span>       	deplaceBalle();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic">//affichage des scores
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>        writescore(score1,<span style="color:#f60">1</span>);
+</span></span></span><span style="display:flex;"><span>        writescore(score1,<span style="color:#f60">1</span>);
 </span></span><span style="display:flex;"><span>        writescore(score2,<span style="color:#f60">2</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#09f;font-style:italic">//ecoute des events claviers
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>        <span style="color:#366">window</span>.<span style="color:#366">document</span>.onkeydown <span style="color:#555">=</span> caBouge;
+</span></span></span><span style="display:flex;"><span>        <span style="color:#366">window</span>.<span style="color:#366">document</span>.onkeydown <span style="color:#555">=</span> caBouge;
 </span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><p>Chacune des nouvelles fonctions doit être définie, on les laissera vide <code>function dessinerBarre(){}</code>, en dessous de <code> refreshGame(){..}</code>. On ajoutera ensuite leurs actions entre les <code>{}</code> et leurs paramètres entre les <code>()</code>.</p>
 <p>Commençons par décrire <code>context.clearRect(0,0,largeur_fenetre,hauteur_fenetre);</code> : dans le <code>context</code> (vous vous souvenez !?) execute <code>clearRect</code> (nettoyer le rectangle = effacer) en partant de (0,0) avec comme largeur et hauteur les deux autres paramètres.</p>
@@ -7920,22 +7920,22 @@ On découvrira bientôt un autre outil commode du panneau de développeurs.</p>
 <p>Ainsi qu&rsquo;il a été dit plus haut il existe une méthode plus simple. Elle ne permet de dessiner que des rectangles (très similaire à clearRect). J&rsquo;illustre ici un principe plus général.
 Une seule fonction, appelée avec des variables différentes permet de dessiner les deux raquettes.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//dessin de la balle, centree
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> dessinerBalle(x,y){
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> dessinerBalle(x,y){
 </span></span><span style="display:flex;"><span>	context.fillStyle <span style="color:#555">=</span> <span style="color:#c30">&#39;black&#39;</span>;
 </span></span><span style="display:flex;"><span>	context.beginPath();
 </span></span><span style="display:flex;"><span>	context.moveTo(x<span style="color:#555">-</span>ll,y<span style="color:#555">+</span>hh); <span style="color:#09f;font-style:italic">//bas gauche
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">+</span>hh); <span style="color:#09f;font-style:italic">//bas droite
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut droit
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	context.lineTo(x<span style="color:#555">-</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut gauche
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	context.closePath();
+</span></span></span><span style="display:flex;"><span>	context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">+</span>hh); <span style="color:#09f;font-style:italic">//bas droite
+</span></span></span><span style="display:flex;"><span>	context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut droit
+</span></span></span><span style="display:flex;"><span>	context.lineTo(x<span style="color:#555">-</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut gauche
+</span></span></span><span style="display:flex;"><span>	context.closePath();
 </span></span><span style="display:flex;"><span>	context.fill();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Il faut d&rsquo;abord choisir une couleur de remplissage: <code>context.fillStyle = 'black';</code>, sinon la précédente couleur sera utilisée. Sans problème ici, cela peut vite le devenir si vous avez plus de deux couleurs à l&rsquo;écran&hellip;
 On indique ensuite où placer le premier point <code>context.moveTo(x-ll,y+hh);</code>. On partira ici du coin inférieur gauche de la raquette. Puis :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">+</span>hh); <span style="color:#09f;font-style:italic">//bas droite
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut droit
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>context.lineTo(x<span style="color:#555">-</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut gauche
+</span></span></span><span style="display:flex;"><span>context.lineTo(x<span style="color:#555">+</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut droit
+</span></span></span><span style="display:flex;"><span>context.lineTo(x<span style="color:#555">-</span>ll, y<span style="color:#555">-</span>hh); <span style="color:#09f;font-style:italic">//haut gauche
 </span></span></span></code></pre></div><p>permet de tracer les côtés. Enfin</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>context.closePath();
 </span></span><span style="display:flex;"><span>context.fill();
@@ -7959,18 +7959,18 @@ Voici, dans les grandes lignes, comment vous debugguerez vos programmes à l&rsq
 <p>La dernière ligne de <code>refreshGame()</code> écoute les événements du clavier. Selon la touche pressée (z,s, haut et bas) la première ou la seconde raquette va bouger vers le haut ou vers le bas.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> caBouge(e){
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//raquette de droite
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	<span style="color:#09f;font-style:italic">// Flêche du bas pressee
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	<span style="color:#069;font-weight:bold">if</span> (e.keyCode <span style="color:#555">==</span> <span style="color:#f60">38</span>) {
+</span></span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">// Flêche du bas pressee
+</span></span></span><span style="display:flex;"><span>	<span style="color:#069;font-weight:bold">if</span> (e.keyCode <span style="color:#555">==</span> <span style="color:#f60">38</span>) {
 </span></span><span style="display:flex;"><span>		console.log(<span style="color:#c30">&#34;haut&#34;</span>);
 </span></span><span style="display:flex;"><span>		<span style="color:#069;font-weight:bold">if</span> ( ord_raquette2 <span style="color:#555">&gt;=</span> h){ ord_raquette2<span style="color:#555">=</span>ord_raquette2<span style="color:#555">-</span>deplace};
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">// Flêche du haut préssée
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//raquette de gauche
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	<span style="color:#09f;font-style:italic">//touche z pressee
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//touche z pressee
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">// touche s pressee
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>En fait : si l&rsquo;événement <code>e</code> a un keyCode (c&rsquo;est alors une touche du clavier) et que cellle-ci est 38 (vers le haut)&hellip;</p>
@@ -8004,7 +8004,7 @@ Si le centre est assez haut, on peut continuer à descendre : <code>{ ord_raquet
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//on ajoutera ici, AVANT de déplacer la balle, tous les tests à effectuer
 </span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//pour changer sa trajectoire selon sa position = rebonds, buts, effet de la raquette etc.
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>x2<span style="color:#555">=</span>x2<span style="color:#555">+</span>horiz
+</span></span></span><span style="display:flex;"><span>x2<span style="color:#555">=</span>x2<span style="color:#555">+</span>horiz
 </span></span><span style="display:flex;"><span>y2<span style="color:#555">=</span>y2<span style="color:#555">+</span>vertic
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>A ce moment la balle doit quitter l&rsquo;écran à droite et disparaitre.</p>
@@ -8018,14 +8018,14 @@ Compléter votre diagramme papier avec ces éléments (photo, drive, classée au
 <p>On ajoute alors les tests de collision avec le haut et le bas.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> deplaceBalle(){
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//tests de collision : plafond
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	<span style="color:#069;font-weight:bold">if</span>(ord_balle<span style="color:#555">-</span>hh<span style="color:#555">&lt;=</span><span style="color:#f60">0</span>){<span style="color:#09f;font-style:italic">//on est arrivé en haut
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		vertic<span style="color:#555">=-</span>vertic <span style="color:#09f;font-style:italic">//la balle repart vers le bas
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	}
+</span></span></span><span style="display:flex;"><span>	<span style="color:#069;font-weight:bold">if</span>(ord_balle<span style="color:#555">-</span>hh<span style="color:#555">&lt;=</span><span style="color:#f60">0</span>){<span style="color:#09f;font-style:italic">//on est arrivé en haut
+</span></span></span><span style="display:flex;"><span>		vertic<span style="color:#555">=-</span>vertic <span style="color:#09f;font-style:italic">//la balle repart vers le bas
+</span></span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//autres tests à effectuer
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	<span style="color:#09f;font-style:italic">//...
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>
+</span></span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//...
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#09f;font-style:italic">//deplacement de la balle
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	x2<span style="color:#555">=</span>x2<span style="color:#555">+</span>horiz
+</span></span></span><span style="display:flex;"><span>	x2<span style="color:#555">=</span>x2<span style="color:#555">+</span>horiz
 </span></span><span style="display:flex;"><span>	y2<span style="color:#555">=</span>y2<span style="color:#555">+</span>vertic
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Compléter votre script avec les éléments nouveaux et tester la collision en donnant aux variables évoquées dans la manip précédente des valeurs permettant à la balle d&rsquo;avoir une trajectoire verticale.
@@ -8039,7 +8039,7 @@ La balle rebondit-elle quand son centre arrive au plafond ? Expliquer. Ajouter u
 <p>Les raquettes et la balle sont recentrées à chaque point. Le score du joueur qui a marqué augmente de 1.
 C&rsquo;est là qu&rsquo;intervient <code>ord_depart;</code> où on avait gardé en mémoire la position initiale de la raquette.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">if</span>(abs_balle<span style="color:#555">+</span>ll<span style="color:#555">&gt;=</span>largeur_fenetre){<span style="color:#09f;font-style:italic">//a droite. but et on repart du centre
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>		horiz<span style="color:#555">=-</span>horiz;
+</span></span></span><span style="display:flex;"><span>		horiz<span style="color:#555">=-</span>horiz;
 </span></span><span style="display:flex;"><span>		vertic<span style="color:#555">=</span><span style="color:#f60">0</span>;
 </span></span><span style="display:flex;"><span>		abs_balle<span style="color:#555">=</span>abs_depart;
 </span></span><span style="display:flex;"><span>		ord_balle<span style="color:#555">=</span>ord_depart;
@@ -8069,9 +8069,9 @@ Il est MULTIPLICATIF. On peut enchainer plusieurs propositions et si elles sont 
 </span></span><span style="display:flex;"><span><span style="color:#555">&amp;&amp;</span> ord_balle<span style="color:#555">+</span>hh <span style="color:#555">&lt;=</span> ord_raquette1<span style="color:#555">+</span>h <span style="color:#555">&amp;&amp;</span> ord_balle<span style="color:#555">-</span>hh <span style="color:#555">&gt;=</span> ord_raquette1<span style="color:#555">-</span>h
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>{<span style="color:#09f;font-style:italic">//elle a touche la raquette de gauche
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	horiz<span style="color:#555">=-</span>horiz;<span style="color:#09f;font-style:italic">//rebond
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>	vertic <span style="color:#555">=</span> vertic <span style="color:#555">+</span> <span style="color:#f60">0.05</span><span style="color:#555">*</span>(ord_balle <span style="color:#555">-</span> ord_raquette1);<span style="color:#09f;font-style:italic">//effet
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span>}
+</span></span></span><span style="display:flex;"><span>	horiz<span style="color:#555">=-</span>horiz;<span style="color:#09f;font-style:italic">//rebond
+</span></span></span><span style="display:flex;"><span>	vertic <span style="color:#555">=</span> vertic <span style="color:#555">+</span> <span style="color:#f60">0.05</span><span style="color:#555">*</span>(ord_balle <span style="color:#555">-</span> ord_raquette1);<span style="color:#09f;font-style:italic">//effet
+</span></span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>On a écrit les conditions sur plusieurs lignes. C&rsquo;est identique mais plus lisible.</p>
 <p>Compléter votre code avec cet extrait et l&rsquo;ajouter à votre script. La balle doit rebondir sur la raquette de gauche.
 Expliquer ce que fait : <code>+ 0.05*(ord_balle - ord_raquette1); </code></p>
@@ -8086,7 +8086,7 @@ Indication : ajouter un breakpoint à horiz=-horiz.</p>
   <a class="anchor" href="#les-scores">#</a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#09f;font-style:italic">//ecrit les scores
-</span></span></span><span style="display:flex;"><span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">function</span> writescore(s,j){
+</span></span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">function</span> writescore(s,j){
 </span></span><span style="display:flex;"><span>	context.fillStyle <span style="color:#555">=</span> <span style="color:#c30">&#39;black&#39;</span>
 </span></span><span style="display:flex;"><span>	context.font <span style="color:#555">=</span> <span style="color:#c30">&#34;30px Arial&#34;</span>;
 </span></span><span style="display:flex;"><span>	context.fillText(s,ZW<span style="color:#555">/</span><span style="color:#f60">2</span> <span style="color:#555">+</span><span style="color:#f60">200</span><span style="color:#555">*</span>j<span style="color:#555">-</span><span style="color:#f60">300</span>,<span style="color:#f60">50</span>);
