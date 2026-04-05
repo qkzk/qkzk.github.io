@@ -41,7 +41,7 @@ En première : tri par insertion et tri par sélection.">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a03f3c8cc4c33870086c349082425263317f235f232b43bd44b3f56ccd1c48a7.js" integrity="sha256-oD88jMTDOHAIbDSQgkJSYzF/I18jK0O9RLP1bM0cSKc=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.1a46982a02a8a6ce046e42dae7aed944c6ce13f4aa82b88dce0ede28054d17e2.js" integrity="sha256-GkaYKgKops4EbkLa567ZRMbOE/SqgriNzg7eKAVNF&#43;I=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/resumes/tris/index.xml" title="qkzk" />
 <!--
@@ -7726,7 +7726,7 @@ Tout ce qu&rsquo;on peut faire c&rsquo;est :</p>
 </h2>
 <p>Python utilise <strong>TimSort</strong> qui est plus efficace et mieux implémenté que ce
 que nous ferons.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#555">=</span> [<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>]
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#555">=</span> [<span style="color:#f60">4</span>, <span style="color:#f60">3</span>, <span style="color:#f60">1</span>, <span style="color:#f60">2</span>]
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> <span style="color:#366">sorted</span>(tableau) <span style="color:#09f;font-style:italic"># renvoie une copie triée</span>
 </span></span><span style="display:flex;"><span>[<span style="color:#f60">1</span>, <span style="color:#f60">2</span>, <span style="color:#f60">3</span>, <span style="color:#f60">4</span>]
 </span></span><span style="display:flex;"><span><span style="color:#555">&gt;&gt;&gt;</span> tableau <span style="color:#09f;font-style:italic"># l&#39;objet de départ N&#39;EST PAS MODIFIÉ</span>
@@ -7747,13 +7747,13 @@ que nous ferons.</p>
   Pseudo code
   <a class="anchor" href="#pseudo-code">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Je débute avec un alignement vide de boîtes triées
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Je débute avec un alignement vide de boîtes triées
 </span></span><span style="display:flex;"><span>Tant qu&#39;il y a des boîtes non triées :
 </span></span><span style="display:flex;"><span>   Je cherche la plus légère parmi les boîtes non triées
 </span></span><span style="display:flex;"><span>   Je la place à la suite des boîtes déjà triées.
 </span></span><span style="display:flex;"><span>fin Tant que
 </span></span></code></pre></div><p>Et pour la fonction <code>trouver la boite la plus légère</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entrée : Des boîtes
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entrée : Des boîtes
 </span></span><span style="display:flex;"><span>Sortie : La boite la plus légère
 </span></span><span style="display:flex;"><span>Effet de Bord : Enlève une boite
 </span></span><span style="display:flex;"><span>
@@ -7768,7 +7768,7 @@ que nous ferons.</p>
   Python
   <a class="anchor" href="#python-1">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(tableau):
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">selection</span>(tableau):
 </span></span><span style="display:flex;"><span>    <span style="color:#c30">&#39;&#39;&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    tri par sélection d&#39;un tableau.
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">    @param tableau: (list) objets pouvant être comparés dans Python
@@ -7830,14 +7830,14 @@ que nous ferons.</p>
   En français
   <a class="anchor" href="#en-fran%c3%a7ais">#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    Je débute avec un alignement vide de boîtes triées
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    Je débute avec un alignement vide de boîtes triées
 </span></span><span style="display:flex;"><span>    Tant qu&#39;il y a des boîtes non triées :
 </span></span><span style="display:flex;"><span>       Je choisis une boite
 </span></span><span style="display:flex;"><span>	   Je l&#39;insère dans l&#39;alignement de telle sorte
 </span></span><span style="display:flex;"><span>     qu&#39;il reste trié
 </span></span><span style="display:flex;"><span>    fin Tant
 </span></span></code></pre></div><p>et, pour l&rsquo;opération <strong>d&rsquo;insérer :</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entree : Un alignement de boîtes trié, une boîte b
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Entree : Un alignement de boîtes trié, une boîte b
 </span></span><span style="display:flex;"><span>Sortie : rien
 </span></span><span style="display:flex;"><span>Effet de bord: l&#39;alignement reste trié
 </span></span><span style="display:flex;"><span>
@@ -7890,7 +7890,7 @@ que nous ferons.</p>
   Python
   <a class="anchor" href="#python-2">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(tableau):
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">tri_insertion</span>(tableau):
 </span></span><span style="display:flex;"><span>  <span style="color:#c30">&#39;&#39;&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">  tri par insertion d&#39;un tableau.
 </span></span></span><span style="display:flex;"><span><span style="color:#c30">  @param tableau: (list) objets pouvant être comparés dans Python

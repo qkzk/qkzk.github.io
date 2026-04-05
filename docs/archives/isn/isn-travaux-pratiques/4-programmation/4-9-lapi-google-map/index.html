@@ -49,7 +49,7 @@ un exemple d’API : Google Map v3 Bibliothèque de code # L’activité de pro
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a03f3c8cc4c33870086c349082425263317f235f232b43bd44b3f56ccd1c48a7.js" integrity="sha256-oD88jMTDOHAIbDSQgkJSYzF/I18jK0O9RLP1bM0cSKc=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.1a46982a02a8a6ce046e42dae7aed944c6ce13f4aa82b88dce0ede28054d17e2.js" integrity="sha256-GkaYKgKops4EbkLa567ZRMbOE/SqgriNzg7eKAVNF&#43;I=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/isn/isn-travaux-pratiques/4-programmation/4-9-lapi-google-map/index.xml" title="qkzk" />
 <!--
@@ -7738,12 +7738,12 @@ vous voulez aller plus loin.</p>
 utilisée. Dans notre cas cela se fait en ajoutant la ligne suivante
 dans la partie <code>head</code> de la page HTML, avant la
 déclaration de nos propres scripts :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;http://maps.google.com/maps/api/js?sensor=false&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>script src<span style="color:#555">=</span><span style="color:#c30">&#34;http://maps.google.com/maps/api/js?sensor=false&#34;</span> type<span style="color:#555">=</span><span style="color:#c30">&#34;text/javascript&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/script&gt;</span>
 </span></span></code></pre></div><p>Il faudra également que notre page HTML contienne un élément
 identifié qui accueillera l&rsquo;image de la carte désirée. Donc quelque
 chose comme :</p>
 <p>On peut bien sûr ajouter des informations CSS telle <code>class=&quot;...&quot;</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;maCarte&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#555">&lt;</span>div id<span style="color:#555">=</span><span style="color:#c30">&#34;maCarte&#34;</span><span style="color:#555">&gt;&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
 </span></span></code></pre></div><p>Le chargement de cette API nous permet d&rsquo;en utiliser les
 définitions. En particulier nous avons maintenant accès à un nouveau
 type de données représentant les
@@ -7767,7 +7767,7 @@ type <code>google.maps.MapTypeId</code></li>
 </ul>
 <p>Pour créer une carte, il faut donc définir ces données ce qui donne
 quelque chose comme :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lElement  <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;maCarte&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lElement  <span style="color:#555">=</span> <span style="color:#366">document</span>.getElementById(<span style="color:#c30">&#34;maCarte&#34;</span>);
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> leCentre <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> google.maps.LatLng(<span style="color:#f60">50.609731</span>,<span style="color:#f60">3.137511</span>);
 </span></span><span style="display:flex;"><span><span style="color:#069;font-weight:bold">var</span> lesOptions <span style="color:#555">=</span> {
 </span></span><span style="display:flex;"><span>	center<span style="color:#555">:</span> leCentre,
