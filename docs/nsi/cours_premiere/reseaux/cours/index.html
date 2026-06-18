@@ -45,7 +45,7 @@ les câbles ethernet munis de port RJ45 les réseaux domestiques Wi-Fi (Wireless
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.b7b92ac7a7fd1726ffa0377cf09856da354cd14e7fe1554e012eab9195165e2c.js" integrity="sha256-t7kqx6f9Fyb/oDd88JhW2jVM0U5/4VVOAS6rkZUWXiw=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.a2c7fd93d9bc30c388d853e755125d301371ffc78846e090762b0b22d2f0cc30.js" integrity="sha256-osf9k9m8MMOI2FPnVRJdMBNx/8eIRuCQdisLItLwzDA=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/reseaux/cours/index.xml" title="qkzk" />
 <!--
@@ -7880,12 +7880,18 @@ dans cette adresse.</p>
   Partie réseau, partie machine
   <a class="anchor" href="#partie-r%c3%a9seau-partie-machine">#</a>
 </h3>
+<p>Internet étant la mise en réseau de machines situées partout dans le monde, il est indispensable de créer des procédés pour entretenir et configurer facilement ces machines.</p>
+<p>On divise donc cet ensemble de machines (tout internet) en sous réseaux. Les différentes machines d&rsquo;un réseau peuvent communiquer directement (pour signaler leur présence, un changement de configuration etc.). Ces messages sont coûteux et doivent être limités à une petite partie sans quoi ils rendraient impossible le projet initial : faire communiquer toutes les machines du monde. IP résout ce problème en créeant une notion de &ldquo;réseau&rdquo; au sein même de l&rsquo;adresse : seules les machines d&rsquo;un même réseau (local donc) peuvent communiquer directement.</p>
+<h4 id="24-16-8">
+  /24 /16 /8
+  <a class="anchor" href="#24-16-8">#</a>
+</h4>
 <p>Considérons une adresse IPv4 complète : <code>192.168.1.2/24</code></p>
 <p>Le <code>/24</code> signifie que les 24 premiers bits (= les 3 premiers octets = les 3 premiers
 nombres) constituent la partie <strong>réseau</strong> et les 8 derniers ($32-24=8$) la partie
 <strong>machine</strong>.</p>
 <p>Aussi, la partie réseau est : <code>192.168.1.0</code> et ce réseau peut abriter $2^8=256$ machines
-différentes. En pratique un peu moins, certaines adresses étant réservées.</p>
+différentes. En pratique un peu moins, deux adresses étant réservées.</p>
 <p>Lorsque le nombre de bits de l&rsquo;adresse réseau est multiple de 8 il n&rsquo;y a aucune difficulté :</p>
 <ul>
 <li><code>/8</code> : 8 premiers bits, adresse réseau de la forme <code>a.0.0.0</code> et jusqu&rsquo;à $2^{24}$ machines</li>
@@ -7894,11 +7900,13 @@ différentes. En pratique un peu moins, certaines adresses étant réservées.</
 </ul>
 <p>Cela devient plus complexe avec une adresse réseau occupant un autre nombre. On
 utilise alors un <strong>masque de sous réseau</strong>.</p>
+<p>Pour revenir sur la notion de réseau, dans l&rsquo;exemple <code>192.168.1.2/24</code>, cette machine peut communiquer directement avec toutes les machines auxquelles elle est raccordée si elles ont une adresse entre <code>192.168.1.1</code> et <code>192.168.1.254</code>.</p>
+<p>Quand bien même il existerait un lien physique (un câble) entre elle et une machine portant l&rsquo;adresse <code>192.168.2.3</code> (elles n&rsquo;ont pas la même adresse réseau&hellip;), elle ne pourrait communiquer <em>directement</em> avec elle. Il faut passer par un routeur.</p>
 <h4 id="masque-de-sous-réseau">
   Masque de sous réseau
   <a class="anchor" href="#masque-de-sous-r%c3%a9seau">#</a>
 </h4>
-<p>Traitons rapidement le cas d&rsquo;une adresse en <code>/22</code></p>
+<p>Traitons le cas d&rsquo;une adresse en <code>/22</code></p>
 <p>La partie réseau occupe 22 bits et la partie machine 10 bits.</p>
 <p>Par exemple pour <code>122.34.170.45/22</code></p>
 <p>On converti l&rsquo;adresse IP en binaire, complétés par des 0 à gauche pour occuper
@@ -7907,6 +7915,7 @@ un octet :</p>
 <p>Ensuite, on écrit le <strong>masque de sous réseau</strong>, constitué de 22 bits à 1 et 10
 bits à 0 :</p>
 <p><code>11111111.11111111.11111100.00000000</code></p>
+<p>Le masque de sous-réseau est généralement présenté avec la notation CIDR (<em>Classless Inter-Domain Routing</em>) : 255.255.252.0</p>
 <p>On réalise ensuite un ET logique, bit par bit entre l&rsquo;adresse IP et son masque :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    01111010.00100010.10101010.00101101
 </span></span><span style="display:flex;"><span>ET  11111111.11111111.11111100.00000000
@@ -7914,8 +7923,18 @@ bits à 0 :</p>
 </span></span><span style="display:flex;"><span>=   01111010.00100010.10101000.00000000
 </span></span></code></pre></div><p>Soit : <code>122.34.168.0</code></p>
 <p>Et ceci nous donne l&rsquo;adresse réseau.</p>
-<p>De toute évidence, ce n&rsquo;est pas difficile à programmer, c&rsquo;est plus difficile
-pour un humain.</p>
+<h4 id="nombre-de-machines-disponibles">
+  Nombre de machines disponibles
+  <a class="anchor" href="#nombre-de-machines-disponibles">#</a>
+</h4>
+<p>Sur un réseau en <code>/xx</code> combien d&rsquo;adresses sont disponibles pour les machines (ou <em>combien de machines différentes peut-on installer</em>) ?</p>
+<p>Deux adresses sont réservées :</p>
+<ul>
+<li>la toute première pour le réseau lui même,</li>
+<li>la toute dernière pour la diffusion (<em>broadcast</em>) à l&rsquo;ensemble des machines.</li>
+</ul>
+<p>Cela fait donc $2^{32 - \text{xx}} - 2$ adresses disponibles.</p>
+<p>Par exemple en <code>/22</code>, on a $2^{32-22} - 2 = 2^{10} - 2 = 1024 - 2 = 1022$ adresses disponibles.</p>
 <h4 id="épuisement-des-adresses-ipv4">
   Épuisement des adresses IPv4
   <a class="anchor" href="#%c3%a9puisement-des-adresses-ipv4">#</a>
