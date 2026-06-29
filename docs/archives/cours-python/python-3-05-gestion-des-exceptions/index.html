@@ -22,21 +22,21 @@ si vous ne faîtes pas l&rsquo;effort de chercher à comprendre vos erreurs.
 C&rsquo;est un objectif de base et vous devez acquerir ce reflexe immédiatement.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/archives/cours-python/python-3-05-gestion-des-exceptions/">
-  <meta property="og:site_name" content="qkzk">
-  <meta property="og:title" content="Python 3 - 05 Gestion des exceptions">
-  <meta property="og:description" content="Les exceptions # Chaque fois que Python rencontre un problème dans le déroulé d’un programme, il génère une erreur qui interrompt son exécution.
+	<meta property="og:site_name" content="qkzk">
+	<meta property="og:title" content="Python 3 - 05 Gestion des exceptions">
+	<meta property="og:description" content="Les exceptions # Chaque fois que Python rencontre un problème dans le déroulé d’un programme, il génère une erreur qui interrompt son exécution.
 Dans certains cas, il est possible de capturer cette erreur et de réagir autrement.
 C’est ce qu’on appelle une exception.
 Vous avez deux objectifs concernant les exceptions :
 apprendre à lire les messages d’erreur générés par Python. C’est le seul moyen de progresser. Vous ferez toujours les mêmes erreurs si vous ne faîtes pas l’effort de chercher à comprendre vos erreurs. C’est un objectif de base et vous devez acquerir ce reflexe immédiatement.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
 <title>Python 3 - 05 Gestion des exceptions | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a154be1feeb5d070e9eb6d1145d41c4a83e67694330b004beb7797405e89f03b.js" integrity="sha256-oVS&#43;H&#43;610HDp620RRdQcSoPmdpQzCwBL63eXQF6J8Ds=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.5aa7d2439abfee070368c5b639f6c821a01ed7bde9fc3391ceab59e5acfb9a98.js" integrity="sha256-WqfSQ5q/7gcDaMW2OfbIIaAe173p/DORzqtZ5az7mpg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/cours-python/python-3-05-gestion-des-exceptions/index.xml" title="qkzk" />
 <!--
@@ -175,6 +175,24 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/maths/seconde/chapitres/01_reels/" class="">Les nombres réels</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -438,27 +456,6 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-bc0530fbdb5402ba2389408877e1be92" class="toggle"  />
     <label for="section-bc0530fbdb5402ba2389408877e1be92" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/maths/l2s4/" class="">L2S4</a>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-574e19e1cbeae0715f2929eef04e25d1" class="toggle"  />
-    <label for="section-574e19e1cbeae0715f2929eef04e25d1" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/maths/gea_but2/" class="">GEA BUT 2</a>
     </label>
   
 
@@ -7800,54 +7797,54 @@ bonjour n'est pas un nombre !
 <li>Toutes les exceptions sont documentées en ligne.</li>
 </ol>
 <table>
-  <thead>
-      <tr>
-          <th>Nom de l&rsquo;exception</th>
-          <th>description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>AssertionError</td>
-          <td>levée par <code>assert condition</code> avec <code>condition == False</code></td>
-      </tr>
-      <tr>
-          <td>ZeroDivisionError</td>
-          <td>division par $0$</td>
-      </tr>
-      <tr>
-          <td>ImportError</td>
-          <td>Python ne parvient pas à charger un module</td>
-      </tr>
-      <tr>
-          <td>ModuleNotFoundError</td>
-          <td>Le module demandé est introuvable</td>
-      </tr>
-      <tr>
-          <td>NameError</td>
-          <td>Une variable est appelée avant d&rsquo;avoir été définie</td>
-      </tr>
-      <tr>
-          <td>IndexError</td>
-          <td>Élément introuvable dans une liste</td>
-      </tr>
-      <tr>
-          <td>KeyError</td>
-          <td>Élément introuvable dans un dictionnaire</td>
-      </tr>
-      <tr>
-          <td>SyntaxError</td>
-          <td>La syntaxe est incorrecte. Le script s&rsquo;arrête toujours</td>
-      </tr>
-      <tr>
-          <td>IndentationError</td>
-          <td>L&rsquo;indentation est incorrecte. Le script s&rsquo;arrête toujours</td>
-      </tr>
-      <tr>
-          <td>TypeError</td>
-          <td>On appelle une méthode / fonction pour un type qu&rsquo;elle ne supporte pas</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Nom de l&rsquo;exception</th>
+					<th>description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>AssertionError</td>
+					<td>levée par <code>assert condition</code> avec <code>condition == False</code></td>
+			</tr>
+			<tr>
+					<td>ZeroDivisionError</td>
+					<td>division par $0$</td>
+			</tr>
+			<tr>
+					<td>ImportError</td>
+					<td>Python ne parvient pas à charger un module</td>
+			</tr>
+			<tr>
+					<td>ModuleNotFoundError</td>
+					<td>Le module demandé est introuvable</td>
+			</tr>
+			<tr>
+					<td>NameError</td>
+					<td>Une variable est appelée avant d&rsquo;avoir été définie</td>
+			</tr>
+			<tr>
+					<td>IndexError</td>
+					<td>Élément introuvable dans une liste</td>
+			</tr>
+			<tr>
+					<td>KeyError</td>
+					<td>Élément introuvable dans un dictionnaire</td>
+			</tr>
+			<tr>
+					<td>SyntaxError</td>
+					<td>La syntaxe est incorrecte. Le script s&rsquo;arrête toujours</td>
+			</tr>
+			<tr>
+					<td>IndentationError</td>
+					<td>L&rsquo;indentation est incorrecte. Le script s&rsquo;arrête toujours</td>
+			</tr>
+			<tr>
+					<td>TypeError</td>
+					<td>On appelle une méthode / fonction pour un type qu&rsquo;elle ne supporte pas</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="exercices">
   Exercices

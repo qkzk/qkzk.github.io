@@ -17,19 +17,19 @@ Supposons que l’on a un problème de classification qui consiste à détermine
 Selon la base de connaissance suivante, déterminez à la main (ou à l&rsquo;aide d&rsquo;un tableur) la classe de l’instance $X_6$, dont les valeurs pour les attributs numériques $A1$ à $A5$ sont $&lt;3, 12, 4, 7, 8&gt;$, à l’aide de l’algorithme des k-voisins les plus proches (K-NN) avec $K=1$ puis $K=3$.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/2_td/">
-  <meta property="og:site_name" content="qkzk">
-  <meta property="og:title" content="2. TD - kNN">
-  <meta property="og:description" content="2. TD – kNN # pdf : pour impression
+	<meta property="og:site_name" content="qkzk">
+	<meta property="og:title" content="2. TD - kNN">
+	<meta property="og:description" content="2. TD – kNN # pdf : pour impression
 1. Trouver la classe avec les k plus proches voisins # Supposons que l’on a un problème de classification qui consiste à déterminer la classe d’appartenance de nouvelles instances $X_i$. Le domaine de valeurs des classes possibles est ${1, 2, 3}$.
 Selon la base de connaissance suivante, déterminez à la main (ou à l’aide d’un tableur) la classe de l’instance $X_6$, dont les valeurs pour les attributs numériques $A1$ à $A5$ sont $&lt;3, 12, 4, 7, 8&gt;$, à l’aide de l’algorithme des k-voisins les plus proches (K-NN) avec $K=1$ puis $K=3$.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
 <title>2. TD - kNN | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a154be1feeb5d070e9eb6d1145d41c4a83e67694330b004beb7797405e89f03b.js" integrity="sha256-oVS&#43;H&#43;610HDp620RRdQcSoPmdpQzCwBL63eXQF6J8Ds=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.5aa7d2439abfee070368c5b639f6c821a01ed7bde9fc3391ceab59e5acfb9a98.js" integrity="sha256-WqfSQ5q/7gcDaMW2OfbIIaAe173p/DORzqtZ5az7mpg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/algorithmique/knn/2_td/index.xml" title="qkzk" />
 <!--
@@ -168,6 +168,24 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/maths/seconde/chapitres/01_reels/" class="">Les nombres réels</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -431,27 +449,6 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-bc0530fbdb5402ba2389408877e1be92" class="toggle"  />
     <label for="section-bc0530fbdb5402ba2389408877e1be92" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/maths/l2s4/" class="">L2S4</a>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-574e19e1cbeae0715f2929eef04e25d1" class="toggle"  />
-    <label for="section-574e19e1cbeae0715f2929eef04e25d1" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/maths/gea_but2/" class="">GEA BUT 2</a>
     </label>
   
 
@@ -7680,64 +7677,64 @@ https://github.com/alex-shpak/hugo-book
 <p>Selon la base de connaissance suivante, déterminez à la main (ou à l&rsquo;aide d&rsquo;un tableur) la classe de l’instance $X_6$, dont les valeurs pour les attributs numériques $A1$ à $A5$ sont $&lt;3, 12, 4, 7, 8&gt;$, à l’aide de l’algorithme des k-voisins les plus proches (K-NN) avec $K=1$ puis $K=3$.</p>
 <p>Montrez tous les calculs.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Instances</th>
-          <th>A1</th>
-          <th>A2</th>
-          <th>A3</th>
-          <th>A4</th>
-          <th>A5</th>
-          <th>Classe</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$X_1$</td>
-          <td>3</td>
-          <td>5</td>
-          <td>4</td>
-          <td>6</td>
-          <td>1</td>
-          <td>1</td>
-      </tr>
-      <tr>
-          <td>$X_2$</td>
-          <td>4</td>
-          <td>6</td>
-          <td>10</td>
-          <td>3</td>
-          <td>2</td>
-          <td>2</td>
-      </tr>
-      <tr>
-          <td>$X_3$</td>
-          <td>8</td>
-          <td>3</td>
-          <td>4</td>
-          <td>2</td>
-          <td>6</td>
-          <td>3</td>
-      </tr>
-      <tr>
-          <td>$X_4$</td>
-          <td>2</td>
-          <td>1</td>
-          <td>4</td>
-          <td>3</td>
-          <td>6</td>
-          <td>3</td>
-      </tr>
-      <tr>
-          <td>$X_5$</td>
-          <td>2</td>
-          <td>5</td>
-          <td>1</td>
-          <td>4</td>
-          <td>8</td>
-          <td>2</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Instances</th>
+					<th>A1</th>
+					<th>A2</th>
+					<th>A3</th>
+					<th>A4</th>
+					<th>A5</th>
+					<th>Classe</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$X_1$</td>
+					<td>3</td>
+					<td>5</td>
+					<td>4</td>
+					<td>6</td>
+					<td>1</td>
+					<td>1</td>
+			</tr>
+			<tr>
+					<td>$X_2$</td>
+					<td>4</td>
+					<td>6</td>
+					<td>10</td>
+					<td>3</td>
+					<td>2</td>
+					<td>2</td>
+			</tr>
+			<tr>
+					<td>$X_3$</td>
+					<td>8</td>
+					<td>3</td>
+					<td>4</td>
+					<td>2</td>
+					<td>6</td>
+					<td>3</td>
+			</tr>
+			<tr>
+					<td>$X_4$</td>
+					<td>2</td>
+					<td>1</td>
+					<td>4</td>
+					<td>3</td>
+					<td>6</td>
+					<td>3</td>
+			</tr>
+			<tr>
+					<td>$X_5$</td>
+					<td>2</td>
+					<td>5</td>
+					<td>1</td>
+					<td>4</td>
+					<td>8</td>
+					<td>2</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="2-autre-exemple-simple">
   2. Autre exemple simple
@@ -7759,55 +7756,55 @@ https://github.com/alex-shpak/hugo-book
 <p>On cherche à prédire la couleur d’un fruit en fonction de sa largeur ($L$) et de sa hauteur ($H$). <br>
 On dispose des données d’apprentissage suivantes :</p>
 <table>
-  <thead>
-      <tr>
-          <th>largeur</th>
-          <th>hauteur</th>
-          <th>couleur</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>2</td>
-          <td>6</td>
-          <td>red</td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td>6</td>
-          <td>yellow</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>5</td>
-          <td>orange</td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>5</td>
-          <td>purple</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>red</td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>2</td>
-          <td>blue</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>1</td>
-          <td>violet</td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>1</td>
-          <td>green</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>largeur</th>
+					<th>hauteur</th>
+					<th>couleur</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>2</td>
+					<td>6</td>
+					<td>red</td>
+			</tr>
+			<tr>
+					<td>5</td>
+					<td>6</td>
+					<td>yellow</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>5</td>
+					<td>orange</td>
+			</tr>
+			<tr>
+					<td>6</td>
+					<td>5</td>
+					<td>purple</td>
+			</tr>
+			<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>red</td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td>2</td>
+					<td>blue</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>1</td>
+					<td>violet</td>
+			</tr>
+			<tr>
+					<td>6</td>
+					<td>1</td>
+					<td>green</td>
+			</tr>
+	</tbody>
 </table>
 <p>Ces données sont placées dans un repère ($L$ en abscisse, $H$ en ordonnée).</p>
 <p><img src="./img/fruit-color.png" alt="" /></p>
@@ -7827,73 +7824,73 @@ Comparez vos résultats à ceux de la question 2.</li>
 </h2>
 <p>Arrivé dans la cantina de la planète Tatooine, Han Solo décide de donner des indications à Luke pour qu’il ne provoque pas les extraterrestres belliqueux. Il repère quelques caractéristiques et vous demande de l’aider à fournir des éléments à Luke pour ne pas créer de problèmes et donc pouvoir définir un extraterrestre belliqueux.</p>
 <table>
-  <thead>
-      <tr>
-          <th><em>Couleur</em></th>
-          <th><em>Taille</em></th>
-          <th><em>Poids</em></th>
-          <th><em>Yeux par pair ?</em></th>
-          <th><em>Belliqueux</em></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>jaune</td>
-          <td>moyenne</td>
-          <td>léger</td>
-          <td>non</td>
-          <td>non</td>
-      </tr>
-      <tr>
-          <td>jaune</td>
-          <td>grande</td>
-          <td>moyen</td>
-          <td>oui</td>
-          <td>oui</td>
-      </tr>
-      <tr>
-          <td>vert</td>
-          <td>petite</td>
-          <td>moyen</td>
-          <td>oui</td>
-          <td>oui</td>
-      </tr>
-      <tr>
-          <td>jaune</td>
-          <td>petite</td>
-          <td>moyen</td>
-          <td>non</td>
-          <td>non</td>
-      </tr>
-      <tr>
-          <td>rouge</td>
-          <td>moyenne</td>
-          <td>lourd</td>
-          <td>non</td>
-          <td>non</td>
-      </tr>
-      <tr>
-          <td>vert</td>
-          <td>grande</td>
-          <td>lourd</td>
-          <td>non</td>
-          <td>oui</td>
-      </tr>
-      <tr>
-          <td>vert</td>
-          <td>moyenne</td>
-          <td>lourd</td>
-          <td>non</td>
-          <td>oui</td>
-      </tr>
-      <tr>
-          <td>jaune</td>
-          <td>petite</td>
-          <td>léger</td>
-          <td>oui</td>
-          <td>oui</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><em>Couleur</em></th>
+					<th><em>Taille</em></th>
+					<th><em>Poids</em></th>
+					<th><em>Yeux par pair ?</em></th>
+					<th><em>Belliqueux</em></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>jaune</td>
+					<td>moyenne</td>
+					<td>léger</td>
+					<td>non</td>
+					<td>non</td>
+			</tr>
+			<tr>
+					<td>jaune</td>
+					<td>grande</td>
+					<td>moyen</td>
+					<td>oui</td>
+					<td>oui</td>
+			</tr>
+			<tr>
+					<td>vert</td>
+					<td>petite</td>
+					<td>moyen</td>
+					<td>oui</td>
+					<td>oui</td>
+			</tr>
+			<tr>
+					<td>jaune</td>
+					<td>petite</td>
+					<td>moyen</td>
+					<td>non</td>
+					<td>non</td>
+			</tr>
+			<tr>
+					<td>rouge</td>
+					<td>moyenne</td>
+					<td>lourd</td>
+					<td>non</td>
+					<td>non</td>
+			</tr>
+			<tr>
+					<td>vert</td>
+					<td>grande</td>
+					<td>lourd</td>
+					<td>non</td>
+					<td>oui</td>
+			</tr>
+			<tr>
+					<td>vert</td>
+					<td>moyenne</td>
+					<td>lourd</td>
+					<td>non</td>
+					<td>oui</td>
+			</tr>
+			<tr>
+					<td>jaune</td>
+					<td>petite</td>
+					<td>léger</td>
+					<td>oui</td>
+					<td>oui</td>
+			</tr>
+	</tbody>
 </table>
 <p>Élaborez une distance pour pouvoir mettre en œuvre KNN sur cet exemple.</p>
 <h2 id="6-distance-sur-des-données-mixtes">

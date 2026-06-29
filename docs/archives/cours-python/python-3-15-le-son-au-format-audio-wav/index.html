@@ -86,20 +86,20 @@ Nombre d&#39;octets de données : 220500
 Le script crée le fichier son.wav dans le répertoire courant (sous Windows c&rsquo;est normalement le répertoire C:/PythonXX, mais on peut aussi choisir un emplacement quelconque en spécifiant le chemin absolu, par exemple NomFichier = &#39;F:/Mon dossier/son.wav&#39;).">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/archives/cours-python/python-3-15-le-son-au-format-audio-wav/">
-  <meta property="og:site_name" content="qkzk">
-  <meta property="og:title" content="Python 3 - 15 Le son au format audio WAV">
-  <meta property="og:description" content="L’écriture et la lecture du contenu d’un fichier audio au format WAV est simplifiée par l’utilisation du module wave.
+	<meta property="og:site_name" content="qkzk">
+	<meta property="og:title" content="Python 3 - 15 Le son au format audio WAV">
+	<meta property="og:description" content="L’écriture et la lecture du contenu d’un fichier audio au format WAV est simplifiée par l’utilisation du module wave.
 Ecriture # Voici un exemple de création d’un fichier audio (PCM 8 bits stéréo 44100 Hz) avec une forme d’onde sinusoïdale :
 [embed]http://fsincere.free.fr/isn/python/download/audio/son1.wav[/embed]
 # script audio.py # (C) Fabrice Sincère ; Jean-Claude Meilland import wave import math import binascii print(&#34;Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz)&#34;) print(&#34;Son de forme sinusoïdale sur chaque canal\n&#34;) NomFichier = &#39;son.wav&#39; Monson = wave.open(NomFichier,&#39;w&#39;) # instanciation de l&#39;objet Monson nbCanal = 2 # stéreo nbOctet = 1 # taille d&#39;un échantillon : 1 octet = 8 bits fech = 44100 # fréquence d&#39;échantillonnage frequenceG = float(input(&#39;Fréquence du son du canal de gauche (Hz) ? &#39;)) frequenceD = float(input(&#39;Fréquence du son du canal de droite (Hz) ? &#39;)) niveauG = float(input(&#39;Niveau du son du canal de gauche (0 à 1) ? &#39;)) niveauD = float(input(&#39;Niveau du son du canal de droite (0 à 1) ? &#39;)) duree = float(input(&#39;Durée (en secondes) ? &#39;)) nbEchantillon = int(duree*fech) print(&#34;Nombre d&#39;échantillons :&#34;,nbEchantillon) parametres = (nbCanal,nbOctet,fech,nbEchantillon,&#39;NONE&#39;,&#39;not compressed&#39;)# tuple Monson.setparams(parametres) # création de l&#39;en-tête (44 octets) # niveau max dans l&#39;onde positive : &#43;1 -&gt; 255 (0xFF) # niveau max dans l&#39;onde négative : -1 -&gt; 0 (0x00) # niveau sonore nul : 0 -&gt; 127.5 (0x80 en valeur arrondi) amplitudeG = 127.5*niveauG amplitudeD = 127.5*niveauD print(&#39;Veuillez patienter...&#39;) for i in range(0,nbEchantillon): # canal gauche # 127.5 &#43; 0.5 pour arrondir à l&#39;entier le plus proche valG = wave.struct.pack(&#39;B&#39;,int(128.0 &#43; amplitudeG*math.sin(2.0*math.pi*frequenceG*i/fech))) # canal droit valD = wave.struct.pack(&#39;B&#39;,int(128.0 &#43; amplitudeD*math.sin(2.0*math.pi*frequenceD*i/fech))) Monson.writeframes(valG &#43; valD) # écriture frame Monson.close() Fichier = open(NomFichier,&#39;rb&#39;) data = Fichier.read() tailleFichier = len(data) print(&#39;\nTaille du fichier&#39;,NomFichier, &#39;:&#39;, tailleFichier,&#39;octets&#39;) print(&#34;Lecture du contenu de l&#39;en-tête (44 octets) :&#34;) print(binascii.hexlify(data[0:44])) print(&#34;Nombre d&#39;octets de données :&#34;,tailleFichier - 44) Fichier.close() &gt;&gt;&gt; Création d&#39;un fichier audio au format WAV (PCM 8 bits stéréo 44100 Hz) Son de forme sinusoïdale sur chaque canal Fréquence du son du canal de gauche (Hz) ? 440.0 Fréquence du son du canal de droite (Hz) ? 880.0 Niveau du son du canal de gauche (0 à 1) ? 1.0 Niveau du son du canal de droite (0 à 1) ? 0.5 Durée (en secondes) ? 2.5 Nombre d&#39;échantillons : 110250 Veuillez patienter... Taille du fichier son.wav : 220544 octets Lecture du contenu de l&#39;en-tête (44 octets) : b&#39;52494646785d030057415645666d7420100000000100020044ac0000885801000200080064617461545d0300&#39; Nombre d&#39;octets de données : 220500 &gt;&gt;&gt; Le script crée le fichier son.wav dans le répertoire courant (sous Windows c’est normalement le répertoire C:/PythonXX, mais on peut aussi choisir un emplacement quelconque en spécifiant le chemin absolu, par exemple NomFichier = &#39;F:/Mon dossier/son.wav&#39;).">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
 <title>Python 3 - 15 Le son au format audio WAV | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a154be1feeb5d070e9eb6d1145d41c4a83e67694330b004beb7797405e89f03b.js" integrity="sha256-oVS&#43;H&#43;610HDp620RRdQcSoPmdpQzCwBL63eXQF6J8Ds=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.5aa7d2439abfee070368c5b639f6c821a01ed7bde9fc3391ceab59e5acfb9a98.js" integrity="sha256-WqfSQ5q/7gcDaMW2OfbIIaAe173p/DORzqtZ5az7mpg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/archives/cours-python/python-3-15-le-son-au-format-audio-wav/index.xml" title="qkzk" />
 <!--
@@ -238,6 +238,24 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/maths/seconde/chapitres/01_reels/" class="">Les nombres réels</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -501,27 +519,6 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-bc0530fbdb5402ba2389408877e1be92" class="toggle"  />
     <label for="section-bc0530fbdb5402ba2389408877e1be92" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/maths/l2s4/" class="">L2S4</a>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-574e19e1cbeae0715f2929eef04e25d1" class="toggle"  />
-    <label for="section-574e19e1cbeae0715f2929eef04e25d1" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/maths/gea_but2/" class="">GEA BUT 2</a>
     </label>
   
 

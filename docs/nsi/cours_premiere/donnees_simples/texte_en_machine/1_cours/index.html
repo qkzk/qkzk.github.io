@@ -31,21 +31,21 @@ Quelques caractères techniques (retour à la ligne, espace etc.)
 On dépasse $2^6 = 64$ mais en se contentant du minimum, on reste en dessous de $2^7 = 128$.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/texte_en_machine/1_cours/">
-  <meta property="og:site_name" content="qkzk">
-  <meta property="og:title" content="Texte : Cours">
-  <meta property="og:description" content="pdf
+	<meta property="og:site_name" content="qkzk">
+	<meta property="og:title" content="Texte : Cours">
+	<meta property="og:description" content="pdf
 Représentation d’un texte en machine # La mémoire ne contient que des 0 et des 1, ainsi lorsqu’on voit une lettre à l’écran, en mémoire c’est un entier qui encode ce caractère. Différents encodages existent, nous allons les étudier.
 Un caractère ? # Comment enregistrer, de manière optimale, du texte en mémoire ?
 De combien de symboles a-t-on besoin ?
 26 lettres dans l’alphabet, 52 avec les majuscules. 10 chiffres 0123456789 Un peu de ponctuation : ,;:!?./*$-&#43;=()[]{}&#34;&#39; etc. Quelques caractères techniques (retour à la ligne, espace etc.) On dépasse $2^6 = 64$ mais en se contentant du minimum, on reste en dessous de $2^7 = 128$.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
 <title>Texte : Cours | qkzk</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.a154be1feeb5d070e9eb6d1145d41c4a83e67694330b004beb7797405e89f03b.js" integrity="sha256-oVS&#43;H&#43;610HDp620RRdQcSoPmdpQzCwBL63eXQF6J8Ds=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.5aa7d2439abfee070368c5b639f6c821a01ed7bde9fc3391ceab59e5acfb9a98.js" integrity="sha256-WqfSQ5q/7gcDaMW2OfbIIaAe173p/DORzqtZ5az7mpg=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_simples/texte_en_machine/1_cours/index.xml" title="qkzk" />
 <!--
@@ -184,6 +184,24 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://qkzk.xyz/docs/maths/seconde/chapitres/01_reels/" class="">Les nombres réels</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
     
       
         <li>
@@ -447,27 +465,6 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" id="section-bc0530fbdb5402ba2389408877e1be92" class="toggle"  />
     <label for="section-bc0530fbdb5402ba2389408877e1be92" class="flex justify-between">
       <a href="https://qkzk.xyz/docs/maths/l2s4/" class="">L2S4</a>
-    </label>
-  
-
-          
-  <ul>
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-574e19e1cbeae0715f2929eef04e25d1" class="toggle"  />
-    <label for="section-574e19e1cbeae0715f2929eef04e25d1" class="flex justify-between">
-      <a href="https://qkzk.xyz/docs/maths/gea_but2/" class="">GEA BUT 2</a>
     </label>
   
 
@@ -7780,150 +7777,150 @@ Premier chiffre : 3 bits, second chiffre 4 bits</p>
 <li>Seulement 95 caractères imprimables, pas de caractère accentués :</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th>hex</th>
-          <th><code>0</code></th>
-          <th><code>1</code></th>
-          <th><code>2</code></th>
-          <th><code>3</code></th>
-          <th><code>4</code></th>
-          <th><code>5</code></th>
-          <th><code>6</code></th>
-          <th><code>7</code></th>
-          <th><code>8</code></th>
-          <th><code>9</code></th>
-          <th><code>a</code></th>
-          <th><code>b</code></th>
-          <th><code>c</code></th>
-          <th><code>d</code></th>
-          <th><code>e</code></th>
-          <th><code>f</code></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>0x2.</code></td>
-          <td></td>
-          <td>!</td>
-          <td>&quot;</td>
-          <td>#</td>
-          <td>$</td>
-          <td>%</td>
-          <td>&amp;</td>
-          <td>'</td>
-          <td>(</td>
-          <td>)</td>
-          <td>*</td>
-          <td>+</td>
-          <td>,</td>
-          <td>-</td>
-          <td>.</td>
-          <td>/</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><code>0x3.</code></td>
-          <td>0</td>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td>:</td>
-          <td>;</td>
-          <td>&lt;</td>
-          <td>=</td>
-          <td>&gt;</td>
-          <td>?</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><code>0x4.</code></td>
-          <td>@</td>
-          <td>A</td>
-          <td>B</td>
-          <td>C</td>
-          <td>D</td>
-          <td>E</td>
-          <td>F</td>
-          <td>G</td>
-          <td>H</td>
-          <td>I</td>
-          <td>J</td>
-          <td>K</td>
-          <td>L</td>
-          <td>M</td>
-          <td>N</td>
-          <td>O</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><code>0x5.</code></td>
-          <td>P</td>
-          <td>Q</td>
-          <td>R</td>
-          <td>S</td>
-          <td>T</td>
-          <td>U</td>
-          <td>V</td>
-          <td>W</td>
-          <td>X</td>
-          <td>Y</td>
-          <td>Z</td>
-          <td>[</td>
-          <td>\</td>
-          <td>]</td>
-          <td>^</td>
-          <td>_</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><code>0x6.</code></td>
-          <td>`</td>
-          <td>a</td>
-          <td>b</td>
-          <td>c</td>
-          <td>d</td>
-          <td>e</td>
-          <td>f</td>
-          <td>g</td>
-          <td>h</td>
-          <td>i</td>
-          <td>j</td>
-          <td>k</td>
-          <td>l</td>
-          <td>m</td>
-          <td>n</td>
-          <td>o</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><code>0x7.</code></td>
-          <td>p</td>
-          <td>q</td>
-          <td>r</td>
-          <td>s</td>
-          <td>t</td>
-          <td>u</td>
-          <td>v</td>
-          <td>w</td>
-          <td>x</td>
-          <td>y</td>
-          <td>z</td>
-          <td>{</td>
-          <td></td>
-          <td></td>
-          <td>}</td>
-          <td>~</td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>hex</th>
+					<th><code>0</code></th>
+					<th><code>1</code></th>
+					<th><code>2</code></th>
+					<th><code>3</code></th>
+					<th><code>4</code></th>
+					<th><code>5</code></th>
+					<th><code>6</code></th>
+					<th><code>7</code></th>
+					<th><code>8</code></th>
+					<th><code>9</code></th>
+					<th><code>a</code></th>
+					<th><code>b</code></th>
+					<th><code>c</code></th>
+					<th><code>d</code></th>
+					<th><code>e</code></th>
+					<th><code>f</code></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>0x2.</code></td>
+					<td></td>
+					<td>!</td>
+					<td>&quot;</td>
+					<td>#</td>
+					<td>$</td>
+					<td>%</td>
+					<td>&amp;</td>
+					<td>'</td>
+					<td>(</td>
+					<td>)</td>
+					<td>*</td>
+					<td>+</td>
+					<td>,</td>
+					<td>-</td>
+					<td>.</td>
+					<td>/</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>0x3.</code></td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>:</td>
+					<td>;</td>
+					<td>&lt;</td>
+					<td>=</td>
+					<td>&gt;</td>
+					<td>?</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>0x4.</code></td>
+					<td>@</td>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+					<td>D</td>
+					<td>E</td>
+					<td>F</td>
+					<td>G</td>
+					<td>H</td>
+					<td>I</td>
+					<td>J</td>
+					<td>K</td>
+					<td>L</td>
+					<td>M</td>
+					<td>N</td>
+					<td>O</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>0x5.</code></td>
+					<td>P</td>
+					<td>Q</td>
+					<td>R</td>
+					<td>S</td>
+					<td>T</td>
+					<td>U</td>
+					<td>V</td>
+					<td>W</td>
+					<td>X</td>
+					<td>Y</td>
+					<td>Z</td>
+					<td>[</td>
+					<td>\</td>
+					<td>]</td>
+					<td>^</td>
+					<td>_</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>0x6.</code></td>
+					<td>`</td>
+					<td>a</td>
+					<td>b</td>
+					<td>c</td>
+					<td>d</td>
+					<td>e</td>
+					<td>f</td>
+					<td>g</td>
+					<td>h</td>
+					<td>i</td>
+					<td>j</td>
+					<td>k</td>
+					<td>l</td>
+					<td>m</td>
+					<td>n</td>
+					<td>o</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><code>0x7.</code></td>
+					<td>p</td>
+					<td>q</td>
+					<td>r</td>
+					<td>s</td>
+					<td>t</td>
+					<td>u</td>
+					<td>v</td>
+					<td>w</td>
+					<td>x</td>
+					<td>y</td>
+					<td>z</td>
+					<td>{</td>
+					<td></td>
+					<td></td>
+					<td>}</td>
+					<td>~</td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Question :</strong> Expliquer la phrase suivante : &ldquo;<em>Pour changer la casse d&rsquo;un caractère,
 il suffit de changer 1 bit dans sa représentation ASCII.</em>&rdquo;</p>
