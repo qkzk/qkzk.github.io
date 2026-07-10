@@ -42,7 +42,7 @@ for variable in collection: bloc_de_la_boucle fin_de_la_boucle Notez bien la syn
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.76561e576ec946b438b95f6a57832872efd1254a944eda1fc96ac9d116a7e533.css" integrity="sha256-dlYeV27JRrQ4uV9qV4Mocu/RJUqUTtofyWrJ0Ran5TM=" crossorigin="anonymous">
 <script defer src="/flexsearch.min.js"></script>
-<script defer src="/en.search.min.67d42227d9bd3486d732b5c369d3233232d5f9eca0896da909476923cd83ca72.js" integrity="sha256-Z9QiJ9m9NIbXMrXDadMjMjLV&#43;eygiW2pCUdpI82DynI=" crossorigin="anonymous"></script>
+<script defer src="/en.search.min.8e7e18b52d8714eab91b45f61cb3a27d299ed5de4fcd974f30db50d658ca6c55.js" integrity="sha256-jn4YtS2HFOq5G0X2HLOifSme1d5PzZdPMNtQ1ljKbFU=" crossorigin="anonymous"></script>
 
 <link rel="alternate" type="application/rss+xml" href="https://qkzk.xyz/docs/nsi/cours_premiere/python/cours_python/03_structure_controle/boucles_for/index.xml" title="qkzk" />
 <!--
@@ -8247,6 +8247,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#range-avec-trois-paramètres"><code>range</code> avec trois paramètres</a>
       <ul>
         <li><a href="#exercice-5">Exercice 5</a></li>
+        <li><a href="#résumé-range">Résumé <code>range</code></a></li>
       </ul>
     </li>
     <li><a href="#combiner-des-blocs">Combiner des blocs</a>
@@ -8311,7 +8312,7 @@ toutes les valeurs de la collection.</p>
 </span></span><span style="display:flex;"><span>u
 </span></span><span style="display:flex;"><span>r
 </span></span><span style="display:flex;"><span>fini !
-</span></span></code></pre></div><p>On réalise bien que <code>lettre</code> a pri pour valeurs successives les caractères
+</span></span></code></pre></div><p>On réalise bien que <code>lettre</code> a pris pour valeurs successives les caractères
 composant <code>mot</code> : <code>&quot;b&quot;</code>, <code>&quot;o&quot;</code> etc.</p>
 <h3 id="exercice-1">
   Exercice 1
@@ -8407,7 +8408,7 @@ prenom = &#34;Frank&#34;
 </span></span></code></pre></div><p>L&rsquo;instruction <code>print(nombre)</code> a donc été exécutée 10 fois (il y a 10 entiers de 0 à 9)</p>
 <p>Résumons :</p>
 <blockquote class="book-hint warning">
-  <code>range(n)</code> renvoie la collection des entiers de <code>0</code> inclu à <code>n</code> exclu.
+  <code>range(n)</code> renvoie la collection des entiers de <code>0</code> inclus à <code>n</code> exclu.
 </blockquote>
 
 <p>On n&rsquo;est pas tenu d&rsquo;utiliser ce paramètre, par exemple pour afficher 20 fois &ldquo;Allez les bleus !&rdquo;,
@@ -8565,7 +8566,7 @@ print(somme)
   <a class="anchor" href="#range-avec-deux-param%c3%a8tres">#</a>
 </h2>
 <blockquote class="book-hint warning">
-  <code>range(debut, fin)</code> parcourt les entiers de <code>debut</code> inclu jusque <code>fin</code> exclu.
+  <code>range(debut, fin)</code> parcourt les entiers de <code>debut</code> inclus jusque <code>fin</code> exclu.
 </blockquote>
 
 <p>Par exemple <code>range(5, 10)</code> va parcourir les entiers : 5, 6, 7, 8, et 9. Mais pas 10.</p>
@@ -8579,7 +8580,7 @@ print(somme)
   <a class="anchor" href="#range-avec-trois-param%c3%a8tres">#</a>
 </h2>
 <blockquote class="book-hint warning">
-  <code>range(debut, fin, pas)</code>, on parcourt les entiers de <code>debut</code> inclu à <code>fin</code> exclu en avançant de <code>pas</code> en <code>pas</code> :
+  <code>range(debut, fin, pas)</code>, on parcourt les entiers de <code>debut</code> inclus à <code>fin</code> exclu en avançant de <code>pas</code> en <code>pas</code> :
 </blockquote>
 
 <p>Collection des entiers pairs entre 100 et 199 : (100, 102, 104, &hellip;, 198) : <code>range(100, 199, 2)</code></p>
@@ -8594,6 +8595,40 @@ print(somme)
 <li>Compter le nombre d&rsquo;entiers se terminant par deux zéros plus petits qu&rsquo;un milliard à l&rsquo;aide d&rsquo;une boucle.</li>
 </ol>
 <p><em>On utilisera la cellule python précédente</em></p>
+<h3 id="résumé-range">
+  Résumé <code>range</code>
+  <a class="anchor" href="#r%c3%a9sum%c3%a9-range">#</a>
+</h3>
+<blockquote class="book-hint danger">
+  <table>
+	<thead>
+			<tr>
+					<th>Expression</th>
+					<th>Éléments</th>
+					<th>Remarque</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>range(5)</code></td>
+					<td><code>0, 1, 2, 3, 4</code></td>
+					<td><code>range(a)</code> de <code>0</code> à <code>a</code> exclu.<br> Contient <code>a</code> éléments</td>
+			</tr>
+			<tr>
+					<td><code>range(2, 7)</code></td>
+					<td><code>2, 3, 4, 5, 6</code></td>
+					<td><code>range(a, b)</code> : de <code>a</code> inclus à <code>b</code> exclu</td>
+			</tr>
+			<tr>
+					<td><code>range(3, 10, 2)</code></td>
+					<td><code>3, 5, 7, 9</code></td>
+					<td><code>range(a, b, c)</code> : de <code>a</code> inclus à <code>b</code><br> exclu en avançant de <code>c</code></td>
+			</tr>
+	</tbody>
+</table>
+
+</blockquote>
+
 <h2 id="combiner-des-blocs">
   Combiner des blocs
   <a class="anchor" href="#combiner-des-blocs">#</a>
@@ -8618,8 +8653,8 @@ print(somme)
 
 
 <main>
-    <div id="python_ide_8">
-        <textarea id="commands_8" class="commands">
+    <div id="python_ide_9">
+        <textarea id="commands_9" class="commands">
 
 nombre = 5
 couleur = &#34;bleu&#34;
@@ -8662,8 +8697,8 @@ if nombre &gt; 10:
     }
 
 
-    onElementLoaded("div#python_ide_8").then(() => {
-        const ide = document.querySelector("div#python_ide_8");
+    onElementLoaded("div#python_ide_9").then(() => {
+        const ide = document.querySelector("div#python_ide_9");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -8687,7 +8722,7 @@ condition est vraie.</p>
 <p>Condisérons deux problèmes a priori similaire :</p>
 <ul>
 <li>pour un mot, compter les &ldquo;a&rdquo; qu&rsquo;il contient.</li>
-<li>pour un mot, afficher les positions de _chaquee &ldquo;a&rdquo; qu&rsquo;il contient.</li>
+<li>pour un mot, afficher les positions de <em>chaque</em> &ldquo;a&rdquo; qu&rsquo;il contient.</li>
 </ul>
 <p>Les deux se résolvent en parcourant chaque lettre du mot. Une boucle bornée permet de résoudre le problème.</p>
 <p>Dans le premier on ne se soucie que de la lettre : <code>for lettre in mot:</code> convient.</p>
@@ -8710,8 +8745,8 @@ condition est vraie.</p>
 
 
 <main>
-    <div id="python_ide_9">
-        <textarea id="commands_9" class="commands">
+    <div id="python_ide_10">
+        <textarea id="commands_10" class="commands">
 
 mot = &#34;abracadabra&#34;
 
@@ -8753,8 +8788,8 @@ for i in range(len(mot)):
     }
 
 
-    onElementLoaded("div#python_ide_9").then(() => {
-        const ide = document.querySelector("div#python_ide_9");
+    onElementLoaded("div#python_ide_10").then(() => {
+        const ide = document.querySelector("div#python_ide_10");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -8833,8 +8868,8 @@ for i in range(len(mot)):
 
 
 <main>
-    <div id="python_ide_10">
-        <textarea id="commands_10" class="commands">
+    <div id="python_ide_11">
+        <textarea id="commands_11" class="commands">
 
 voyelles = &#34;aeiouy&#34;
 phrase = &#34;je n&#39;aime pas me lever le matin, je préfère dormir.&#34;
@@ -8864,8 +8899,8 @@ phrase = &#34;je n&#39;aime pas me lever le matin, je préfère dormir.&#34;
     }
 
 
-    onElementLoaded("div#python_ide_10").then(() => {
-        const ide = document.querySelector("div#python_ide_10");
+    onElementLoaded("div#python_ide_11").then(() => {
+        const ide = document.querySelector("div#python_ide_11");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -8896,8 +8931,8 @@ phrase = &#34;je n&#39;aime pas me lever le matin, je préfère dormir.&#34;
 
 
 <main>
-    <div id="python_ide_11">
-        <textarea id="commands_11" class="commands">
+    <div id="python_ide_12">
+        <textarea id="commands_12" class="commands">
 
 mot1 = &#34;table&#34;
 mot2 = &#34;exercice&#34;
@@ -8929,8 +8964,8 @@ voyelles = &#34;aeiouy
     }
 
 
-    onElementLoaded("div#python_ide_11").then(() => {
-        const ide = document.querySelector("div#python_ide_11");
+    onElementLoaded("div#python_ide_12").then(() => {
+        const ide = document.querySelector("div#python_ide_12");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -8968,7 +9003,7 @@ voyelles = &#34;aeiouy
 </span></span></code></pre></div></li>
 <li>
 <p>En utilisant deux boucles <em>imbriquées</em> (l&rsquo;une <strong>dans</strong> l&rsquo;autre), afficher
-les tables de multiplications des entiers de 0 à 10 inclu.</p>
+les tables de multiplications des entiers de 0 à 10 inclus.</p>
 </li>
 </ol>
 <script src="https://qkzk.xyz/coi-serviceworker.min.js"></script>
@@ -8989,8 +9024,8 @@ les tables de multiplications des entiers de 0 à 10 inclu.</p>
 
 
 <main>
-    <div id="python_ide_12">
-        <textarea id="commands_12" class="commands">
+    <div id="python_ide_13">
+        <textarea id="commands_13" class="commands">
 
         </textarea>
         <a class="execute book-btn" title="Ctrl+Enter">Run</a>
@@ -9015,8 +9050,8 @@ les tables de multiplications des entiers de 0 à 10 inclu.</p>
     }
 
 
-    onElementLoaded("div#python_ide_12").then(() => {
-        const ide = document.querySelector("div#python_ide_12");
+    onElementLoaded("div#python_ide_13").then(() => {
+        const ide = document.querySelector("div#python_ide_13");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -9056,8 +9091,8 @@ les tables de multiplications des entiers de 0 à 10 inclu.</p>
 
 
 <main>
-    <div id="python_ide_13">
-        <textarea id="commands_13" class="commands">
+    <div id="python_ide_14">
+        <textarea id="commands_14" class="commands">
 
 print(1 &#43; 3 == 2 ** 2)
 
@@ -9084,8 +9119,8 @@ print(1 &#43; 3 == 2 ** 2)
     }
 
 
-    onElementLoaded("div#python_ide_13").then(() => {
-        const ide = document.querySelector("div#python_ide_13");
+    onElementLoaded("div#python_ide_14").then(() => {
+        const ide = document.querySelector("div#python_ide_14");
         start_worker(ide);
     }).catch(() => { });
 </script>
@@ -9190,6 +9225,7 @@ print(1 &#43; 3 == 2 ** 2)
     <li><a href="#range-avec-trois-paramètres"><code>range</code> avec trois paramètres</a>
       <ul>
         <li><a href="#exercice-5">Exercice 5</a></li>
+        <li><a href="#résumé-range">Résumé <code>range</code></a></li>
       </ul>
     </li>
     <li><a href="#combiner-des-blocs">Combiner des blocs</a>
