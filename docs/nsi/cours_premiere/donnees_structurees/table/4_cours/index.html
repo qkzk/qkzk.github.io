@@ -18,14 +18,79 @@ la fonction de tri sorted qui dispose d&rsquo;un argument key permettant de
 préciser selon quel critère une liste doit être triée (qui doit être une
 fonction de variables les objets à trier). Un troisième argument, reverse
 (un booléen), permet de préciser si l&rsquo;on veut le résultat par ordre
-croissant (par défaut) ou décroissant (en précisant reverse=True).">
+croissant (par défaut) ou décroissant (en précisant reverse=True).
+Examinez soigneusement les exemples suivants :
+&gt;&gt;&gt; ma_liste = [10, 3, 71, 96]
+&gt;&gt;&gt; sorted(ma_liste)
+[3, 10, 71, 96]
+&gt;&gt;&gt; sorted(ma_liste, reverse=True)
+[96, 71, 10, 3]
+&gt;&gt;&gt; mes_couples = [(&#39;a&#39;, 3), (&#39;d&#39;, 2), (&#39;c&#39;, 5), (&#39;b&#39;, 1)]
+&gt;&gt;&gt; sorted(mes_couples)                     # tuples triés selon leur premier élément
+[(&#39;a&#39;, 3), (&#39;b&#39;, 1), (&#39;c&#39;, 5), (&#39;d&#39;, 2)]
+&gt;&gt;&gt; sorted(mes_couples, key=lambda x: x[1]) # tuples triés selon leur second élément
+[(&#39;b&#39;, 1), (&#39;d&#39;, 2), (&#39;a&#39;, 3), (&#39;c&#39;, 5)]
+
+
+On peut alors créer une fonction tri qui trie n&rsquo;importe quel table en
+donnant l&rsquo;attribut choisi pour le tri et en précisant si l&rsquo;on veut obtenir
+le tri dans l&rsquo;ordre décroissant.
+def tri(table, attribut, decroit=False):
+    def critere(ligne):
+        return ligne[attribut]
+    return sorted(table, key=critere, reverse=decroit)
+Exemple : Pour trier dans l&rsquo;ordre décroissant la table Table1 selon
+les notes de maths, on fera :
+&gt;&gt;&gt; tri(Table1, &#39;Maths&#39;, True)
+Qui donne :
+
+	
+			
+					
+					Nom
+					Maths
+					Info
+					Anglais
+			
+	
+	
+			
+					0
+					Zoé
+					19
+					17
+					15
+			
+			
+					1
+					Joe
+					16
+					18
+					17
+			
+			
+					2
+					Max
+					14
+					13
+					19
+			
+	
+
+
+">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/nsi/cours_premiere/donnees_structurees/table/4_cours/">
 	<meta property="og:site_name" content="qkzk">
 	<meta property="og:title" content="4. Cours : trier, fusionner">
 	<meta property="og:description" content="pdf : pour impression
 Dans cette partie nous allons étudier les opérations de tri selon une colonne, la notion de domaine de valeur et la fusion de tables.
-1. Tri d’une table selon une colonne # Puisqu’une table est représentée par une liste, on peut la trier en utilisant la fonction de tri sorted qui dispose d’un argument key permettant de préciser selon quel critère une liste doit être triée (qui doit être une fonction de variables les objets à trier). Un troisième argument, reverse (un booléen), permet de préciser si l’on veut le résultat par ordre croissant (par défaut) ou décroissant (en précisant reverse=True).">
+1. Tri d’une table selon une colonne # Puisqu’une table est représentée par une liste, on peut la trier en utilisant la fonction de tri sorted qui dispose d’un argument key permettant de préciser selon quel critère une liste doit être triée (qui doit être une fonction de variables les objets à trier). Un troisième argument, reverse (un booléen), permet de préciser si l’on veut le résultat par ordre croissant (par défaut) ou décroissant (en précisant reverse=True).
+Examinez soigneusement les exemples suivants :
+&gt;&gt;&gt; ma_liste = [10, 3, 71, 96] &gt;&gt;&gt; sorted(ma_liste) [3, 10, 71, 96] &gt;&gt;&gt; sorted(ma_liste, reverse=True) [96, 71, 10, 3] &gt;&gt;&gt; mes_couples = [(&#39;a&#39;, 3), (&#39;d&#39;, 2), (&#39;c&#39;, 5), (&#39;b&#39;, 1)] &gt;&gt;&gt; sorted(mes_couples) # tuples triés selon leur premier élément [(&#39;a&#39;, 3), (&#39;b&#39;, 1), (&#39;c&#39;, 5), (&#39;d&#39;, 2)] &gt;&gt;&gt; sorted(mes_couples, key=lambda x: x[1]) # tuples triés selon leur second élément [(&#39;b&#39;, 1), (&#39;d&#39;, 2), (&#39;a&#39;, 3), (&#39;c&#39;, 5)] On peut alors créer une fonction tri qui trie n’importe quel table en donnant l’attribut choisi pour le tri et en précisant si l’on veut obtenir le tri dans l’ordre décroissant.
+def tri(table, attribut, decroit=False): def critere(ligne): return ligne[attribut] return sorted(table, key=critere, reverse=decroit) Exemple : Pour trier dans l’ordre décroissant la table Table1 selon les notes de maths, on fera :
+&gt;&gt;&gt; tri(Table1, &#39;Maths&#39;, True) Qui donne :
+Nom Maths Info Anglais 0 Zoé 19 17 15 1 Joe 16 18 17 2 Max 14 13 19">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="website">
 <title>4. Cours : trier, fusionner | qkzk</title>

@@ -10,14 +10,23 @@ Au niveau de la programmation, la tâche est ardue car il faut avoir des connais
 
 Un socket permet de connecter deux machines à travers un réseau.
 Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il faut créer 10 sockets (chaque client est connecté au serveur).
-Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).">
+Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).
+
+
+Le multithreading est une technique qui permet d&rsquo;exécuter plusieurs tâches (thread) en même temps et de manière indépendante dans un même processus.
+Pour un jeu en réseau avec 10 joueurs, le serveur utilisera 10 threads pour communiquer individuellement avec chaque client.
+Chaque thread gère donc le socket du client.
+On retrouve le multithreading du côté de l&rsquo;application cliente : pour traiter l&rsquo;émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.
+
+">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/docs/archives/cours-python/python-3-14-applications-et-jeux-en-reseau/">
 	<meta property="og:site_name" content="qkzk">
 	<meta property="og:title" content="Python 3 - 14 Applications et jeux en réseau">
 	<meta property="og:description" content="Les applications et jeux en réseau se basent sur le modèle clients/serveur.
 Au niveau de la programmation, la tâche est ardue car il faut avoir des connaissances en réseau (module socket) et en multithreading (module threading) :
-Un socket permet de connecter deux machines à travers un réseau. Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il faut créer 10 sockets (chaque client est connecté au serveur). Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).">
+Un socket permet de connecter deux machines à travers un réseau. Ainsi, pour un jeu en réseau avec 10 joueurs (soit 10 clients et 1 serveur), il faut créer 10 sockets (chaque client est connecté au serveur). Dans le cas du réseau Internet, les sockets se servent du protocole IP (couche réseau) et du protocole TCP pour la couche transport (il existe aussi le protocole UDP qui est plus simple, plus rapide mais non fiable).
+Le multithreading est une technique qui permet d’exécuter plusieurs tâches (thread) en même temps et de manière indépendante dans un même processus. Pour un jeu en réseau avec 10 joueurs, le serveur utilisera 10 threads pour communiquer individuellement avec chaque client. Chaque thread gère donc le socket du client. On retrouve le multithreading du côté de l’application cliente : pour traiter l’émission et la réception en parallèle, on utilise un thread pour parler au serveur, et un autre pour écouter le serveur.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="website">
 <title>Python 3 - 14 Applications et jeux en réseau | qkzk</title>

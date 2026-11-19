@@ -30,12 +30,1860 @@
 
 
 
-ARCHITECTURE">
+ARCHITECTURE
+
+
+
+
+
+ISN 2012
+
+
+
+ 
+
+
+
+
+
+vue schématique de l&#39;architecture de Von Neumann
+
+
+
+
+
+
+
+
+
+
+
+Les différents organes du
+système sont reliés par des voies de communication appelées bus.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Les interfaces D’entrées/sorties
+
+
+
+
+
+Elles permettent d’assurer la
+communication entre le microprocesseur et les périphériques. (capteur,
+clavier, moniteur ou afficheur, imprimante, modem, etc…).
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Interface parallèle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Interface Série
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+ 
+
+
+
+
+La mémoire principale
+
+
+
+
+
+Elle contient les
+instructions du ou des programmes en cours d’exécution et les données
+associées à ce programme. 
+Physiquement, elle se
+décompose souvent en :
+
+	
+	
+		
+		•une mémoire morte ( ROM = Read Only Memory )
+		chargée de stocker le programme. C’est une mémoire à lecture seule. 
+		
+		
+		•une mémoire vive ( RAM = Random Access Memory )
+		chargée de stocker les données intermédiaires ou les résultats de
+		calculs. On peut lire ou écrire des données dedans, ces données sont
+		perdues à la mise hors tension. 
+		
+	
+	
+
+
+Remarque : Les disques durs,
+disquettes, CDROM, etc… sont des périphériques de stockage et sont
+considérés comme des mémoires secondaires.
+
+
+
+
+ 
+
+
+
+
+Organisation d’une mémoire
+
+
+
+
+
+Une mémoire peut être vue
+comme une armoire où chaque tiroir contient une et une seule donnée. 
+Chaque tiroir est repéré par
+une adresse.
+Le nombre de fils d’adresses
+d’un boîtier mémoire définit donc le nombre de cases mémoire que
+comprend le boîtier. Le nombre de fils de données définit la taille des
+données que l’on peut sauvegarder dans chaque case mémoire.
+En plus du bus d’adresses et
+du bus de données, un boîtier mémoire comprend une entrée de commande
+qui permet de définir le type d’action que l’on effectue avec la mémoire
+(lecture/écriture) et une entrée de sélection qui permet de mettre les
+entrées/sorties du boîtier en haute impédance.
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Différents type de mémoires
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+Notion de hiérarchie mémoire
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Les bus
+
+
+
+
+
+Un bus est un ensemble de
+fils qui assure la transmission du même type d’information. On retrouve
+trois types de bus véhiculant des informations en parallèle dans un
+système de traitement programmé de l’information :
+
+	
+	
+		
+		•un bus de données :
+		bidirectionnel qui assure le transfert des  informations entre le
+		microprocesseur et son environnement, et inversement. Son nombre de
+		lignes est égal à la capacité de traitement du microprocesseur. 
+		
+		
+		•un bus d&#39;adresses:
+		unidirectionnel qui permet la sélection des informations à traiter
+		dans un espace mémoire (ou
+		espace adressable)  
+		
+		
+		•un bus de commande:
+		constitué par quelques conducteurs qui assurent la synchronisation des
+		flux d&#39;informations sur les bus des données et des adresses. 
+		
+	
+	
+
+
+
+
+
+ 
+
+
+
+
+Les bus
+
+
+
+
+
+
+
+ 
+
+
+
+
+Le décodage d’adresses
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+Le décodage d’adresses
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+ 
+
+
+
+
+Le décodage d’adresses
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Le décodage d’adresses
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+Le décodage d’adresses
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+ 
+
+
+
+
+L’unité centrale
+
+
+
+
+
+Elle est composée par le
+microprocesseur qui est chargé d’interpréter et d’exécuter les
+instructions d’un programme, de lire ou de sauvegarder les résultats
+dans la mémoire et de communiquer avec les unités d’échange. Toutes les
+activités du microprocesseur sont cadencées par une horloge.
+On caractérise le
+microprocesseur par :
+
+	
+	
+		
+		•sa fréquence d’horloge. 
+		
+		
+		•le nombre d’instructions par secondes qu’il est
+		capable d’exécuter : en MIPS 
+		
+		
+		•la taille des données qu’il est capable de traiter
+		: en bits 
+		
+	
+	
+
+
+
+
+
+ 
+
+
+
+
+Architecture de base d’un microprocesseur
+
+
+
+
+
+Un microprocesseur est
+construit autour de deux éléments principaux :
+
+	
+	
+		
+		•Une unité de commande 
+		
+		
+		•Une unité de traitement 
+		
+	
+	
+
+associés à des registres
+chargés de stocker les différentes informations à traiter. Ces trois
+éléments sont reliés entre eux par des bus interne permettant les
+échanges d’informations.
+
+
+
+
+
+
+ 
+
+
+
+
+
+Architecture détaillée d’un
+microprocesseur
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+
+&lt;numéro&gt;
+
+
+
+
+ 
+
+
+
+
+L’unité de commande
+
+
+
+
+
+Elle permet de séquencer le
+déroulement des instructions. Elle effectue la recherche en mémoire de
+l&#39;instruction. Comme chaque instruction est codée sous forme binaire,
+elle en assure le décodage pour enfin réaliser son exécution puis
+effectue la préparation de l&#39;instruction suivante. Pour cela, elle est
+composée par :
+
+	
+	• le compteur de programme constitué par un registre dont le contenu est
+	initialisé avec l&#39;adresse de la première instruction du programme. Il
+	contient toujours l’adresse de l’instruction à exécuter. 
+	
+	
+	•le registre d&#39;instruction et le décodeur
+	d&#39;instruction : chacune des instructions à
+	exécuter est rangée dans le registre instruction puis est décodée par
+	le décodeur d’instruction. 
+	
+	
+	•Bloc logique de commande (ou séquenceur) : Il organise l&#39;exécution des instructions au rythme
+	d’une horloge. Il élabore tous les signaux de synchronisation internes
+	ou externes (bus de commande) du microprocesseur en fonction des divers
+	signaux de commande provenant du décodeur d’instruction ou du registre
+	d’état par exemple. 
+	
+
+
+
+
+
+ 
+
+
+
+
+L’unité de traitement
+
+
+
+
+
+C’est le cœur du
+microprocesseur. Elle regroupe les circuits qui assurent les traitements
+nécessaires à l&#39;exécution des instructions :
+
+	
+	•L’Unité Arithmétique et Logique (UAL) est un circuit complexe qui assure les fonctions
+	logiques (ET, OU, Comparaison, Décalage , etc…) ou arithmétique
+	(Addition, soustraction). 
+	
+	
+	•Le registre d&#39;état est
+	généralement composé de 8 bits à considérer individuellement. Chacun de
+	ces bits est un indicateur dont l&#39;état dépend du résultat de la
+	dernière opération effectuée par l’UAL. On les appelle indicateur d’état ou flag ou drapeaux. Dans un programme le résultat du test de leur état
+	conditionne souvent le déroulement de la suite du programme. On peut
+	citer par exemple les indicateurs de : 
+	
+
+
+	
+	
+		
+		•retenue (carry : C) signe (Sign : S) 
+		
+		
+		•débordement (overflow : OV ou V) 
+		
+		
+		•zéro (Z) 
+		
+		
+		•parité (Parity : P) 
+		
+	
+	
+	
+	•Les accumulateurs sont des
+	registres de travail qui servent à stocker une opérande au début d&#39;une
+	opération arithmétique et le résultat à la fin de l&#39;opération. 
+	
+
+
+
+
+
+ 
+
+
+
+
+
+Cycle d’exécution d’une
+instruction (phase 1)
+
+
+
+
+
+Recherche de l&#39;instruction à
+traiter
+1. Le PC contient l&#39;adresse
+de l&#39;instruction suivante du programme. Cette valeur est placée sur le
+bus d&#39;adresses par l&#39;unité de commande qui émet un ordre de lecture.
+2. Au bout d&#39;un certain temps
+(temps d&#39;accès à la mémoire), le contenu de la case mémoire sélectionnée
+est disponible sur le bus des données.
+3. L&#39;instruction est stockée
+dans le registre instruction du processeur.
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+Cycle d’exécution d’une
+instruction (phase 2)
+
+
+
+
+
+Décodage de l’instruction et
+recherche de l&#39;opérande
+Le registre d&#39;instruction
+contient maintenant le premier mot de l&#39;instruction qui peut être codée
+sur plusieurs mots. Ce premier mot contient le code opératoire qui
+définit la nature de l&#39;opération à effectuer (addition, rotation,...) et
+le nombre de mots de l&#39;instruction.
+1. L&#39;unité de commande
+transforme l&#39;instruction en une suite de commandes élémentaires
+nécessaires au traitement de l&#39;instruction.
+2. Si l&#39;instruction
+nécessite une donnée en provenance de la mémoire, l&#39;unité de commande
+récupère sa valeur sur le
+bus de données.
+3. L’opérande est stockée
+dans un registre.
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+Cycle d’exécution d’une
+instruction (phase 3)
+
+
+
+
+
+Exécution de l&#39;instruction
+1. Le micro-programme
+réalisant l&#39;instruction est exécuté.
+2. Les drapeaux sont
+positionnés (registre d&#39;état).
+3. L&#39;unité de commande
+positionne le PC pour l&#39;instruction suivante.
+
+
+
+
+
+
+
+ 
+
+
+
+
+Jeu d’instructions
+
+
+
+
+
+
+	
+	•Il décrit l’ensemble des opérations élémentaires que
+	le microprocesseur pourra exécuter. 
+	
+	
+	•Les instructions que l’on retrouve dans chaque
+	microprocesseur peuvent être classées en 4 groupes : 
+	
+
+
+	
+	
+		
+		•Transfert de données pour
+		charger ou sauver en mémoire, effectuer des transferts de registre à
+		registre, etc… 
+		
+		
+		•Opérations arithmétiques :
+		addition, soustraction, division, multiplication 
+		
+		
+		•Opérations logiques : ET,
+		OU, NON, NAND, comparaison, test, etc… 
+		
+		
+		•Contrôle de séquence :
+		branchement, test, etc… 
+		
+	
+	
+	
+	•Chaque instruction nécessite un certain nombre de
+	cycles d’horloges pour s’effectuer : c’est le temps
+	d’exécution. Il est dépendant de la complexité
+	de l’instruction. 
+	
+
+
+
+
+
+ 
+
+
+
+
+Jeu d’instructions : codage
+
+
+
+
+
+
+	
+	•Les instructions et leurs opérandes (paramètres)
+	sont stockés en mémoire principale. La taille totale d’une instruction
+	(nombre de bits nécessaires pour la représenter en mémoire) dépend du
+	type d’instruction et aussi du type d’opérande. Une instruction est
+	composée de deux champs : 
+	
+
+
+	
+	
+		
+		•Le code instruction, qui
+		indique au processeur quelle instruction réaliser 
+		
+		
+		•Le champ opérande qui
+		contient la donnée, ou la référence à une donnée en mémoire (son
+		adresse). 
+		
+	
+	
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Langage de programmation
+
+
+
+
+
+Le langage machine
+est le langage compris par le microprocesseur.
+Le langage assembleur
+est le langage le plus « proche » du langage
+machine. Il est composé par des instructions en général assez
+rudimentaires que l’on appelle des mnémoniques.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Améliorations de
+l’architecture de base
+
+
+
+
+
+BUT :  
+              - Diminuer
+le temps d’exécution d’un programme.
+COMMENT : 
+      - Augmenter  la fréquence de l’horloge
+         
+                                      - Augmentation de la
+température.
+         
+                                              - Augmenter
+la taille du refroidisseur.
+         
+                                              - Diminuer
+la tension d’alimentation.
+         
+      
+         
+                                      - Diminuer le nombre moyen de cycles d’horloge
+nécessaire à l’exécution d’une instruction :
+         
+              -
+Optimiser le compilateur dans un langage de haut niveau (voir
+diapositive précédente).
+         
+              -
+Utiliser une architecture de microprocesseur qui réduise le nombre de
+cycles par instruction.
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Architecture pipeline
+
+
+
+
+
+Principe : dés
+qu’une étape d’instruction est terminée, on en entame une autre. chaque
+instruction met le même temps d’exécution mais le débit est
+considérablement augmenté.
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Problème du pipeline
+
+
+
+
+
+Plus le pipeline est long,
+plus le nombre de cas où il n’est pas possible d’atteindre la
+performance maximale est élevé. Il existe 3 principaux cas, appelés aléas,  où la performance
+d’un processeur pipeliné peut être dégradée :
+
+	
+	•aléa structurel qui
+	correspond au cas où deux instructions ont besoin d’utiliser la même
+	ressource du processeur, 
+	
+	
+	•aléa de données qui
+	intervient lorsqu’une instruction produit un résultat et que
+	l’instruction suivante utilise ce résultat avant qu’il n’ait pu être
+	écrit dans un registre, 
+	
+	
+	•aléa de contrôle qui se
+	produit éventuellement chaque fois qu’une instruction de branchement
+	est exécutée.  
+	
+
+Lorsqu’un aléa se produit,
+cela signifie qu’une instruction ne peut continuer à progresser dans le
+pipeline. Les étages vacants du pipeline sont appelés des « bulles » de
+pipeline, en pratique une bulle correspond en fait à une instruction NOP
+(No OPeration) émise à la place de l’instruction bloquée.
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Notion de cache mémoire
+
+
+
+
+
+le temps de cycle processeur
+décroît plus vite que le temps d’accès mémoire entraînant un goulot
+d’étranglement.
+Le principe de cache est très
+simple : le microprocesseur n’a pas conscience de sa présence et lui
+envoie toutes ses requêtes comme s’il s’agissait de la mémoire
+principale :
+Soit la donnée ou
+l’instruction requise est présente dans le cache et elle est alors
+envoyée directement au microprocesseur. On parle de succès
+de cache. (a)
+soit la donnée ou
+l’instruction n’est pas dans le cache, et le contrôleur de cache envoie
+alors une requête à la mémoire principale. Une fois l’information
+récupérée, il la renvoie au microprocesseur tout en la stockant dans le
+cache. On parle de défaut de
+cache. (b)
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Architecture superscalaire
+
+
+
+
+
+Une autre façon de gagner en
+performance est d’exécuter plusieurs instructions en même temps.
+L&#39;approche superscalaire consiste à doter le microprocesseur de
+plusieurs unités de traitement travaillant en parallèle. Les
+instructions sont alors réparties entre les différentes unités
+d&#39;exécution. Il faut donc pouvoir soutenir un flot important
+d’instructions et pour cela disposer d’un cache performant.
+On distingue :
+
+	
+	•La technologie HyperThreading : plusieurs unités logiques dans une unité
+	physique. 
+	
+	
+	•La technologie multi-cœur  : plusieurs unités physiques. 
+	
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Architecture pipeline et
+superscalaire
+
+
+
+
+
+Le principe est d’exécuter
+les instructions de façon pipelinée dans chacune des unités de
+traitement travaillant en parallèle.
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+EXERCICES
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+Mini assembleur utilisé
+
+
+
+
+
+AMIL : http://www-lipn.univ-paris13.fr/~boudes/spip.php?rubrique27 
+Version WEB : http://www-lipn.univ-paris13.fr/~boudes/amilweb/ 
+Version Améliorée : http://www2.lifl.fr/~mailliet/isn/archi/amil/ 
+Version ZIP : http://www2.lifl.fr/~mailliet/isn/archi/amil/amilweb.zip 
+Version Linux utilisant GTK
+: 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Jeu d’Instructions (initial)
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+	
+	
+		
+		Mnémonique
+		
+		
+		détail
+		
+		
+		action
+		
+	
+	
+		
+		stop
+		
+		
+		Arrête l’exécution du
+		programme.
+		
+		 
+	
+	
+		
+		noop
+		
+		
+		N’effectue aucune
+		opération.
+		
+		 
+	
+	
+		
+		saut i
+		
+		
+		Met le compteur ordinal à
+		la valeur i.
+		
+		
+		PC ← i
+		
+	
+	
+		
+		sautpos ri j 
+		
+		
+		Si la valeur contenue dans
+		le registre i est positive ou nulle, met le compteur ordinal à la
+		valeur j.
+		
+		
+		si ri ≥ 0 PC ← j sinon 
+		PC ← PC&#43;1
+		
+	
+	
+		
+		valeur x ri
+		
+		
+		Initialise le registre i
+		avec la valeur x.
+		
+		
+		ri ← x
+		
+	
+	
+		
+		lecture i rj
+		
+		
+		Charge, dans le registre
+		j, le contenu de la mémoire d’adresse i.
+		
+		
+		rj ← men(i)
+		
+	
+	
+		
+		lecture *ri rj
+		
+		
+		Charge, dans le registre
+		j, le contenu de la mémoire dont l’adresse est la valeur du registre
+		i.
+		
+		
+		rj ← men(ri)
+		
+	
+	
+		
+		ecriture ri j
+		
+		
+		Écrit le contenu du
+		registre i dans la mémoire d’adresse j.
+		
+		
+		ri → men(j)
+		
+	
+	
+		
+		ecriture ri *rj
+		
+		
+		Écrit le contenu du
+		registre i dans la mémoire dont l’adresse est la valeur du registre j.
+		
+		
+		ri → men(rj)
+		
+	
+	
+		
+		inverse ri
+		
+		
+		Inverse le signe du
+		contenu du registre i
+		
+		
+		ri ← − ri
+		
+	
+	
+		
+		add x rj
+		
+		
+		Ajoute x au contenu du
+		registre j.
+		
+		
+		ri ← ri &#43; x
+		
+	
+	
+		
+		add ri rj
+		
+		
+		Ajoute la valeur du
+		registre i à celle du registre j.
+		
+		
+		rj ← rj &#43; ri
+		
+	
+	
+		
+		soustr, mult, div, et
+		
+		
+		Même syntaxe que pour add
+		mais pour la soustraction, multiplication, la division entière, le et
+		bit à bit.
+		
+		
+		rj ← rj (-,*, /, and) ri  
+		ou 
+		ri ← ri (*, /, and) x
+		
+	
+
+
+
+
+ 
+
+
+
+
+Jeu d’Instructions (ajout)
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+	
+	
+		
+		Mnémonique
+		
+		
+		détail
+		
+		
+		action
+		
+	
+	
+		
+		lecture ri rj
+		
+		
+		Écrit le contenu du
+		registre i dans le registre j.
+		
+		
+		rj ← ri
+		
+	
+	
+		
+		sautnul ri j
+		
+		
+		Si la valeur contenue dans
+		le registre i est nulle, met le compteur ordinal à la valeur j.
+		
+		
+		si ri = 0 PC ← j 
+		sinon PC ← PC&#43;1
+		
+	
+	
+		
+		sautnonnul ri j
+		
+		
+		Si la valeur contenue dans
+		le registre i est non nulle, met le compteur ordinal à la valeur j.
+		
+		
+		si ri ≠ 0 PC ← j 
+		sinon PC ← PC&#43;1
+		
+	
+	
+		
+		appel i
+		
+		
+		Appel de sous-programme à
+		l&#39;adresse i
+		
+		
+		PC ← i ( l&#39;adresse de
+		retour est empilée)
+		
+	
+	
+		
+		retour
+		
+		
+		retour de procédure à
+		l&#39;appelant.
+		
+		
+		PC ← (haut de pile)
+		
+	
+	
+		
+		empiler ri
+		
+		
+		Place la valeur contenue
+		dans le registre i en haut de la pile (la même pile que pour les
+		adresses).
+		
+		
+		ri → Haut_de_Pile
+		
+	
+	
+		
+		depiler rj
+		
+		
+		Place la valeur en haut de
+		la pile (la même pile que pour les adresses) dans le registre rj.
+		
+		
+		rj ← Haut_de_Pile
+		
+	
+
+
+
+
+ 
+
+
+
+
+Convention d’écriture
+
+
+
+
+
+Pour écrire vos programmes,
+utiliser GEDIT (ou Notepad&#43;&#43; sous Windows).
+Dans les préférences de
+GEDIT cocher ‘Afficher les numéros de ligne’.
+Chaque numéro de ligne
+correspond à une adresse mémoire (une instruction avec ses données).
+Chaque programme se termine
+par l’instruction ‘stop’.
+Les instructions d’un
+programme sont consécutives (jusqu’au ‘stop’).
+
+
+
+
+
+
+
+ 
+
+
+
+
+Convention d’écriture
+
+
+
+
+
+Ce programme (fort intéressant) est
+composé :
+
+	
+	
+		
+		•De 14 lignes 
+		
+		
+		•Les lignes de 1 à 8 contiennent les instructions du
+		programme. 
+		
+		
+		•Les lignes de 9 à 14 sont des cases mémoires que
+		vous pouvez utiliser et modifier. 
+		
+		
+		•Par convention les lignes comprenant un nombre (11
+		et 12) sont en entrée (saisie du clavier, mais rien n’empêche de les
+		modifier), les lignes comprenant un ? (9,10,13,14) sont en sortie
+		(moniteur).  
+		
+	
+	
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+exercices
+
+
+
+
+
+Exercice 1 :
+Ecrire un programme qui lit
+un nombre en entrée et le restitue en sortie.
+Exercice 2 :
+Lire dans l’ordre la valeur
+de ‘a’, ‘b’ et ‘x’, et rendre ensuite le résultat y = ax &#43;b. 
+Exercice 3 (simulation du if)
+:
+Ecrire 3 (x) à l’emplacement
+mémoire 12, lire un nombre placé en mémoire 10, si ce nombre est plus
+grand ou égal à 3 (x) l’écrire à l’emplacement mémoire où le 3 (x) est
+écrit.
+Exercice 4 (if / else) :
+Ecrire le même programme
+mais qui répond 0 (faux) ou 1 (vrai) à la condition. Tester ce pg avec
+la valeur 3, cela répond t-il à l’exigence de l’exo3 ? Corriger le
+problème en utilisant les instructions étendues d’AMIL.
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+exercices
+
+
+
+
+
+Exercice 7 :
+mettre 2 valeurs dans r0 et
+r1 et échanger leur valeurs en se servant de r2 , puis  en se servant de
+la mémoire au lieu de r2, puis de la pile.
+Echanger 2 valeurs en
+mémoire sans transférer ces valeurs dans les registres (r0 et r1) mais
+grâce à leurs adresses.
+Refaire les mêmes exercices,
+mais n’échangez que si la première valeur est supérieure à la seconde.
+Exercice 8 : (tri à bulles)
+Ecrire un programme de tri à
+bulles effectuant le résultat suivant :
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+exercices
+
+
+
+
+
+Exercice 11 : 
+Sachant que
+PGCD(a,b)*PPCM(a,b)=a*b, écrire un programme (ou ajouter au pg
+précédent) qui rend le PPCM de 2 nbs a et b.
+Exercice 12 : sous-programmes
+Ecrire un programme
+comprenant un sous programme capable de retourner y=2x&#43;3. Essayez-le
+avec au moins 3 valeurs de x que vous lirez en intercalant une série
+aléatoire de « noop ».
+Exercice 13 : factorielle 
+Ecrire un programme
+calculant n! (n étant donné en mémoire) par la méthode récursive.
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+exercices
+
+
+
+
+
+
+
+Le crible d’Eratosthene
+Eratosthene , mathématicien
+grec du IIIème siècle avant JC, a établi une méthode connue sous le nom
+de crible d’Eratosthene permettant de déterminer par exclusion tous les
+nombres premiers.
+Cette méthode consiste à
+lister tous les nombres entiers depuis 2 jusqu’à une valeur limite n que
+l’on se fixe, puis à barrer successivement ces nombres 
+
+L’algorithme procède par
+élimination : il s’agit de supprimer d’une table tous les multiples des
+entiers de 2 à n, n étant un entier que l’on se fixe.
+
+On commence par les
+multiples de 2, puis à chaque fois on raye les multiples du plus petit
+entier restant jusqu’à ce que le carré de celui-ci soit supérieur au
+plus grand entier de la liste.
+
+On peut s’arrêter lorsque le
+carré du plus petit entier est supérieur au plus grand entier, car dans
+ce cas, s’il existait des non-premiers, ils auraient déjà été rayés
+précédemment.
+
+À la fin du processus, tous
+les entiers qui n’ont pas été rayés sont les nombres premiers inférieurs
+à n.
+
+
+
+ 
+
+">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://qkzk.xyz/uploads/docs/doc06/transparents/archi/">
 	<meta property="og:site_name" content="qkzk">
 	<meta property="og:title" content="qkzk">
-	<meta property="og:description" content="&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN&#34; &#34;http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd&#34;&gt; - no title specified ARCHITECTURE">
+	<meta property="og:description" content="&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN&#34; &#34;http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd&#34;&gt; - no title specified ARCHITECTURE
+ISN 2012
+vue schématique de l&#39;architecture de Von Neumann
+Les différents organes du système sont reliés par des voies de communication appelées bus.
+Les interfaces D’entrées/sorties
+Elles permettent d’assurer la communication entre le microprocesseur et les périphériques. (capteur, clavier, moniteur ou afficheur, imprimante, modem, etc…).
+Interface parallèle
+Interface Série
+&lt;numéro&gt;
+&lt;numéro&gt;
+La mémoire principale
+Elle contient les instructions du ou des programmes en cours d’exécution et les données associées à ce programme. Physiquement, elle se décompose souvent en :
+•une mémoire morte ( ROM = Read Only Memory ) chargée de stocker le programme. C’est une mémoire à lecture seule. •une mémoire vive ( RAM = Random Access Memory ) chargée de stocker les données intermédiaires ou les résultats de calculs. On peut lire ou écrire des données dedans, ces données sont perdues à la mise hors tension. Remarque : Les disques durs, disquettes, CDROM, etc… sont des périphériques de stockage et sont considérés comme des mémoires secondaires.
+Organisation d’une mémoire
+Une mémoire peut être vue comme une armoire où chaque tiroir contient une et une seule donnée. Chaque tiroir est repéré par une adresse.
+Le nombre de fils d’adresses d’un boîtier mémoire définit donc le nombre de cases mémoire que comprend le boîtier. Le nombre de fils de données définit la taille des données que l’on peut sauvegarder dans chaque case mémoire.
+En plus du bus d’adresses et du bus de données, un boîtier mémoire comprend une entrée de commande qui permet de définir le type d’action que l’on effectue avec la mémoire (lecture/écriture) et une entrée de sélection qui permet de mettre les entrées/sorties du boîtier en haute impédance.
+Différents type de mémoires
+Notion de hiérarchie mémoire
+Les bus
+Un bus est un ensemble de fils qui assure la transmission du même type d’information. On retrouve trois types de bus véhiculant des informations en parallèle dans un système de traitement programmé de l’information :
+•un bus de données : bidirectionnel qui assure le transfert des informations entre le microprocesseur et son environnement, et inversement. Son nombre de lignes est égal à la capacité de traitement du microprocesseur. •un bus d&#39;adresses: unidirectionnel qui permet la sélection des informations à traiter dans un espace mémoire (ou espace adressable) •un bus de commande: constitué par quelques conducteurs qui assurent la synchronisation des flux d&#39;informations sur les bus des données et des adresses. Les bus
+Le décodage d’adresses
+Le décodage d’adresses
+&lt;numéro&gt;
+&lt;numéro&gt;
+Le décodage d’adresses
+Le décodage d’adresses
+Le décodage d’adresses
+&lt;numéro&gt;
+&lt;numéro&gt;
+L’unité centrale
+Elle est composée par le microprocesseur qui est chargé d’interpréter et d’exécuter les instructions d’un programme, de lire ou de sauvegarder les résultats dans la mémoire et de communiquer avec les unités d’échange. Toutes les activités du microprocesseur sont cadencées par une horloge.
+On caractérise le microprocesseur par :
+•sa fréquence d’horloge. •le nombre d’instructions par secondes qu’il est capable d’exécuter : en MIPS •la taille des données qu’il est capable de traiter : en bits Architecture de base d’un microprocesseur
+Un microprocesseur est construit autour de deux éléments principaux :
+•Une unité de commande •Une unité de traitement associés à des registres chargés de stocker les différentes informations à traiter. Ces trois éléments sont reliés entre eux par des bus interne permettant les échanges d’informations.
+Architecture détaillée d’un microprocesseur
+&lt;numéro&gt;
+&lt;numéro&gt;
+L’unité de commande
+Elle permet de séquencer le déroulement des instructions. Elle effectue la recherche en mémoire de l&#39;instruction. Comme chaque instruction est codée sous forme binaire, elle en assure le décodage pour enfin réaliser son exécution puis effectue la préparation de l&#39;instruction suivante. Pour cela, elle est composée par :
+• le compteur de programme constitué par un registre dont le contenu est initialisé avec l&#39;adresse de la première instruction du programme. Il contient toujours l’adresse de l’instruction à exécuter. •le registre d&#39;instruction et le décodeur d&#39;instruction : chacune des instructions à exécuter est rangée dans le registre instruction puis est décodée par le décodeur d’instruction. •Bloc logique de commande (ou séquenceur) : Il organise l&#39;exécution des instructions au rythme d’une horloge. Il élabore tous les signaux de synchronisation internes ou externes (bus de commande) du microprocesseur en fonction des divers signaux de commande provenant du décodeur d’instruction ou du registre d’état par exemple. L’unité de traitement
+C’est le cœur du microprocesseur. Elle regroupe les circuits qui assurent les traitements nécessaires à l&#39;exécution des instructions :
+•L’Unité Arithmétique et Logique (UAL) est un circuit complexe qui assure les fonctions logiques (ET, OU, Comparaison, Décalage , etc…) ou arithmétique (Addition, soustraction). •Le registre d&#39;état est généralement composé de 8 bits à considérer individuellement. Chacun de ces bits est un indicateur dont l&#39;état dépend du résultat de la dernière opération effectuée par l’UAL. On les appelle indicateur d’état ou flag ou drapeaux. Dans un programme le résultat du test de leur état conditionne souvent le déroulement de la suite du programme. On peut citer par exemple les indicateurs de : •retenue (carry : C) signe (Sign : S) •débordement (overflow : OV ou V) •zéro (Z) •parité (Parity : P) •Les accumulateurs sont des registres de travail qui servent à stocker une opérande au début d&#39;une opération arithmétique et le résultat à la fin de l&#39;opération. Cycle d’exécution d’une instruction (phase 1)
+Recherche de l&#39;instruction à traiter
+1. Le PC contient l&#39;adresse de l&#39;instruction suivante du programme. Cette valeur est placée sur le bus d&#39;adresses par l&#39;unité de commande qui émet un ordre de lecture.
+2. Au bout d&#39;un certain temps (temps d&#39;accès à la mémoire), le contenu de la case mémoire sélectionnée est disponible sur le bus des données.
+3. L&#39;instruction est stockée dans le registre instruction du processeur.
+Cycle d’exécution d’une instruction (phase 2)
+Décodage de l’instruction et recherche de l&#39;opérande
+Le registre d&#39;instruction contient maintenant le premier mot de l&#39;instruction qui peut être codée sur plusieurs mots. Ce premier mot contient le code opératoire qui définit la nature de l&#39;opération à effectuer (addition, rotation,...) et le nombre de mots de l&#39;instruction.
+1. L&#39;unité de commande transforme l&#39;instruction en une suite de commandes élémentaires nécessaires au traitement de l&#39;instruction.
+2. Si l&#39;instruction nécessite une donnée en provenance de la mémoire, l&#39;unité de commande
+récupère sa valeur sur le bus de données.
+3. L’opérande est stockée dans un registre.
+Cycle d’exécution d’une instruction (phase 3)
+Exécution de l&#39;instruction
+1. Le micro-programme réalisant l&#39;instruction est exécuté.
+2. Les drapeaux sont positionnés (registre d&#39;état).
+3. L&#39;unité de commande positionne le PC pour l&#39;instruction suivante.
+Jeu d’instructions
+•Il décrit l’ensemble des opérations élémentaires que le microprocesseur pourra exécuter. •Les instructions que l’on retrouve dans chaque microprocesseur peuvent être classées en 4 groupes : •Transfert de données pour charger ou sauver en mémoire, effectuer des transferts de registre à registre, etc… •Opérations arithmétiques : addition, soustraction, division, multiplication •Opérations logiques : ET, OU, NON, NAND, comparaison, test, etc… •Contrôle de séquence : branchement, test, etc… •Chaque instruction nécessite un certain nombre de cycles d’horloges pour s’effectuer : c’est le temps d’exécution. Il est dépendant de la complexité de l’instruction. Jeu d’instructions : codage
+•Les instructions et leurs opérandes (paramètres) sont stockés en mémoire principale. La taille totale d’une instruction (nombre de bits nécessaires pour la représenter en mémoire) dépend du type d’instruction et aussi du type d’opérande. Une instruction est composée de deux champs : •Le code instruction, qui indique au processeur quelle instruction réaliser •Le champ opérande qui contient la donnée, ou la référence à une donnée en mémoire (son adresse). Langage de programmation
+Le langage machine est le langage compris par le microprocesseur.
+Le langage assembleur est le langage le plus « proche » du langage machine. Il est composé par des instructions en général assez rudimentaires que l’on appelle des mnémoniques.
+Améliorations de l’architecture de base
+BUT : - Diminuer le temps d’exécution d’un programme.
+COMMENT : - Augmenter la fréquence de l’horloge
+- Augmentation de la température.
+- Augmenter la taille du refroidisseur.
+- Diminuer la tension d’alimentation.
+- Diminuer le nombre moyen de cycles d’horloge nécessaire à l’exécution d’une instruction :
+- Optimiser le compilateur dans un langage de haut niveau (voir diapositive précédente).
+- Utiliser une architecture de microprocesseur qui réduise le nombre de cycles par instruction.
+Architecture pipeline
+Principe : dés qu’une étape d’instruction est terminée, on en entame une autre. chaque instruction met le même temps d’exécution mais le débit est considérablement augmenté.
+Problème du pipeline
+Plus le pipeline est long, plus le nombre de cas où il n’est pas possible d’atteindre la performance maximale est élevé. Il existe 3 principaux cas, appelés aléas, où la performance d’un processeur pipeliné peut être dégradée :
+•aléa structurel qui correspond au cas où deux instructions ont besoin d’utiliser la même ressource du processeur, •aléa de données qui intervient lorsqu’une instruction produit un résultat et que l’instruction suivante utilise ce résultat avant qu’il n’ait pu être écrit dans un registre, •aléa de contrôle qui se produit éventuellement chaque fois qu’une instruction de branchement est exécutée. Lorsqu’un aléa se produit, cela signifie qu’une instruction ne peut continuer à progresser dans le pipeline. Les étages vacants du pipeline sont appelés des « bulles » de pipeline, en pratique une bulle correspond en fait à une instruction NOP (No OPeration) émise à la place de l’instruction bloquée.
+Notion de cache mémoire
+le temps de cycle processeur décroît plus vite que le temps d’accès mémoire entraînant un goulot d’étranglement.
+Le principe de cache est très simple : le microprocesseur n’a pas conscience de sa présence et lui envoie toutes ses requêtes comme s’il s’agissait de la mémoire principale :
+Soit la donnée ou l’instruction requise est présente dans le cache et elle est alors envoyée directement au microprocesseur. On parle de succès de cache. (a)
+soit la donnée ou l’instruction n’est pas dans le cache, et le contrôleur de cache envoie alors une requête à la mémoire principale. Une fois l’information récupérée, il la renvoie au microprocesseur tout en la stockant dans le cache. On parle de défaut de cache. (b)
+Architecture superscalaire
+Une autre façon de gagner en performance est d’exécuter plusieurs instructions en même temps. L&#39;approche superscalaire consiste à doter le microprocesseur de plusieurs unités de traitement travaillant en parallèle. Les instructions sont alors réparties entre les différentes unités d&#39;exécution. Il faut donc pouvoir soutenir un flot important d’instructions et pour cela disposer d’un cache performant.
+On distingue :
+•La technologie HyperThreading : plusieurs unités logiques dans une unité physique. •La technologie multi-cœur : plusieurs unités physiques. Architecture pipeline et superscalaire
+Le principe est d’exécuter les instructions de façon pipelinée dans chacune des unités de traitement travaillant en parallèle.
+EXERCICES
+Mini assembleur utilisé
+AMIL : http://www-lipn.univ-paris13.fr/~boudes/spip.php?rubrique27 Version WEB : http://www-lipn.univ-paris13.fr/~boudes/amilweb/ Version Améliorée : http://www2.lifl.fr/~mailliet/isn/archi/amil/ Version ZIP : http://www2.lifl.fr/~mailliet/isn/archi/amil/amilweb.zip Version Linux utilisant GTK : Jeu d’Instructions (initial)
+Mnémonique
+détail
+action
+stop
+Arrête l’exécution du programme.
+noop
+N’effectue aucune opération.
+saut i
+Met le compteur ordinal à la valeur i.
+PC ← i
+sautpos ri j Si la valeur contenue dans le registre i est positive ou nulle, met le compteur ordinal à la valeur j.
+si ri ≥ 0 PC ← j sinon PC ← PC&#43;1
+valeur x ri
+Initialise le registre i avec la valeur x.
+ri ← x
+lecture i rj
+Charge, dans le registre j, le contenu de la mémoire d’adresse i.
+rj ← men(i)
+lecture *ri rj
+Charge, dans le registre j, le contenu de la mémoire dont l’adresse est la valeur du registre i.
+rj ← men(ri)
+ecriture ri j
+Écrit le contenu du registre i dans la mémoire d’adresse j.
+ri → men(j)
+ecriture ri *rj
+Écrit le contenu du registre i dans la mémoire dont l’adresse est la valeur du registre j.
+ri → men(rj)
+inverse ri
+Inverse le signe du contenu du registre i
+ri ← − ri
+add x rj
+Ajoute x au contenu du registre j.
+ri ← ri &#43; x
+add ri rj
+Ajoute la valeur du registre i à celle du registre j.
+rj ← rj &#43; ri
+soustr, mult, div, et
+Même syntaxe que pour add mais pour la soustraction, multiplication, la division entière, le et bit à bit.
+rj ← rj (-,*, /, and) ri ou ri ← ri (*, /, and) x
+Jeu d’Instructions (ajout)
+Mnémonique
+détail
+action
+lecture ri rj
+Écrit le contenu du registre i dans le registre j.
+rj ← ri
+sautnul ri j
+Si la valeur contenue dans le registre i est nulle, met le compteur ordinal à la valeur j.
+si ri = 0 PC ← j sinon PC ← PC&#43;1
+sautnonnul ri j
+Si la valeur contenue dans le registre i est non nulle, met le compteur ordinal à la valeur j.
+si ri ≠ 0 PC ← j sinon PC ← PC&#43;1
+appel i
+Appel de sous-programme à l&#39;adresse i
+PC ← i ( l&#39;adresse de retour est empilée)
+retour
+retour de procédure à l&#39;appelant.
+PC ← (haut de pile)
+empiler ri
+Place la valeur contenue dans le registre i en haut de la pile (la même pile que pour les adresses).
+ri → Haut_de_Pile
+depiler rj
+Place la valeur en haut de la pile (la même pile que pour les adresses) dans le registre rj.
+rj ← Haut_de_Pile
+Convention d’écriture
+Pour écrire vos programmes, utiliser GEDIT (ou Notepad&#43;&#43; sous Windows).
+Dans les préférences de GEDIT cocher ‘Afficher les numéros de ligne’.
+Chaque numéro de ligne correspond à une adresse mémoire (une instruction avec ses données).
+Chaque programme se termine par l’instruction ‘stop’.
+Les instructions d’un programme sont consécutives (jusqu’au ‘stop’).
+Convention d’écriture
+Ce programme (fort intéressant) est composé :
+•De 14 lignes •Les lignes de 1 à 8 contiennent les instructions du programme. •Les lignes de 9 à 14 sont des cases mémoires que vous pouvez utiliser et modifier. •Par convention les lignes comprenant un nombre (11 et 12) sont en entrée (saisie du clavier, mais rien n’empêche de les modifier), les lignes comprenant un ? (9,10,13,14) sont en sortie (moniteur). exercices
+Exercice 1 :
+Ecrire un programme qui lit un nombre en entrée et le restitue en sortie.
+Exercice 2 :
+Lire dans l’ordre la valeur de ‘a’, ‘b’ et ‘x’, et rendre ensuite le résultat y = ax &#43;b. Exercice 3 (simulation du if) :
+Ecrire 3 (x) à l’emplacement mémoire 12, lire un nombre placé en mémoire 10, si ce nombre est plus grand ou égal à 3 (x) l’écrire à l’emplacement mémoire où le 3 (x) est écrit.
+Exercice 4 (if / else) :
+Ecrire le même programme mais qui répond 0 (faux) ou 1 (vrai) à la condition. Tester ce pg avec la valeur 3, cela répond t-il à l’exigence de l’exo3 ? Corriger le problème en utilisant les instructions étendues d’AMIL.
+exercices
+Exercice 7 :
+mettre 2 valeurs dans r0 et r1 et échanger leur valeurs en se servant de r2 , puis en se servant de la mémoire au lieu de r2, puis de la pile.
+Echanger 2 valeurs en mémoire sans transférer ces valeurs dans les registres (r0 et r1) mais grâce à leurs adresses.
+Refaire les mêmes exercices, mais n’échangez que si la première valeur est supérieure à la seconde.
+Exercice 8 : (tri à bulles)
+Ecrire un programme de tri à bulles effectuant le résultat suivant :
+exercices
+Exercice 11 : Sachant que PGCD(a,b)*PPCM(a,b)=a*b, écrire un programme (ou ajouter au pg précédent) qui rend le PPCM de 2 nbs a et b.
+Exercice 12 : sous-programmes
+Ecrire un programme comprenant un sous programme capable de retourner y=2x&#43;3. Essayez-le avec au moins 3 valeurs de x que vous lirez en intercalant une série aléatoire de « noop ».
+Exercice 13 : factorielle Ecrire un programme calculant n! (n étant donné en mémoire) par la méthode récursive.
+exercices
+Le crible d’Eratosthene
+Eratosthene , mathématicien grec du IIIème siècle avant JC, a établi une méthode connue sous le nom de crible d’Eratosthene permettant de déterminer par exclusion tous les nombres premiers.
+Cette méthode consiste à lister tous les nombres entiers depuis 2 jusqu’à une valeur limite n que l’on se fixe, puis à barrer successivement ces nombres L’algorithme procède par élimination : il s’agit de supprimer d’une table tous les multiples des entiers de 2 à n, n étant un entier que l’on se fixe.
+On commence par les multiples de 2, puis à chaque fois on raye les multiples du plus petit entier restant jusqu’à ce que le carré de celui-ci soit supérieur au plus grand entier de la liste.
+On peut s’arrêter lorsque le carré du plus petit entier est supérieur au plus grand entier, car dans ce cas, s’il existait des non-premiers, ils auraient déjà été rayés précédemment.
+À la fin du processus, tous les entiers qui n’ont pas été rayés sont les nombres premiers inférieurs à n.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="uploads">
